@@ -17,7 +17,7 @@
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
-                <Icon {icon} {...iconProps}></Icon>
+                <Icon path={icon} {...iconProps}></Icon>
             </span>
         {/if}
         {#if loading}
