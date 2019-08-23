@@ -22,7 +22,7 @@
         {/if}
         {#if loading}
             <span class="loading-spinner {loading?'visible':''}">
-                <Icon icon="loading"></Icon>
+                <Icon path="loading"></Icon>
             </span>
         {/if}
         <slot></slot>
@@ -79,10 +79,7 @@
     }
 
     .button-prefix {
-        z-index: 2;
-        color: inherit;
-        line-height: inherit;
-        font-size: 22px;
+        display: flex;
     }
 
     button.loading {
