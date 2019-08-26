@@ -1,5 +1,10 @@
 # :strawberry: Strawberry changelog
 
+## 0.1.4
+* Remove some unused styles
+* Add installation instructions to README
+* Add sidebar component
+
 ## 0.1.3
 * Fix button loading icon not showing
 * Fix icon component's SVG

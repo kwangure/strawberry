@@ -47,7 +47,7 @@
 	--flash:      		#40b3ff;
 	--heading:			var(--text);
 	--text:      		#333;
-	--sidebar-text: rgba(255, 255, 255, .75);
+	--sidebar-text:   rgba(255, 255, 255, .75);
 	--border-w:  		.3rem; /* border-width  */
 	--border-r:  		.4rem; /* border-radius */
 }
@@ -141,153 +141,21 @@ h1, h2 {
 
 h3 { font-weight: 300 }
 
-p, ol, ul {
-	margin: 0 0 1em 0;
-}
-
-.b, b, strong { font-weight: 600 }
-
 tt, code, kbd, samp {
 	font: 400 var(--code-fs)/1.7 var(--font-mono);
 }
 
-code {
-	position: relative;
-	border-radius: .3em;
-	white-space: nowrap;
-	color: #444;
-	-webkit-font-smoothing: initial;
-}
-
-pre code {
-	top: 0;
-	white-space: inherit;
-	background-color: none;
-}
-
-/* sync CodeMirror with prism  */
-.CodeMirror {
-	font-size: var(--code-fs) !important;
-}
-
-::selection {
-	background: var(--secondary);
-	color: white;
-}
-
-/*	opinionated styles --------------------- */
-
-li:not(.white) > h2 {
-	color: var(--secondary)
-}
-
-blockquote {
-	position: relative;
-	margin: 1.6rem 0 2.4rem;
-	padding: 2rem 2.4rem 1.8rem 2.4rem;
-	border-radius: var(--border-r);
-	font-family: var(--font);
-	max-width: var(--linemax);
-}
-
-blockquote p {
-	font-size: var(--h5);
-}
-
-blockquote :last-child {
-	margin: 0;
-}
-
-/*  buttons -------------------------------- */
-button {
-	font-family: inherit;
-	font-size: inherit;
-	background-color: transparent;
-	border: none;
-	color: currentColor;
-	cursor: pointer;
-}
-
-button:focus,
-.btn:focus { outline: 0 }
-
-button[disabled],
-.btn[disabled],
-.btn:hover[disabled] {
-	opacity: .55;
-	pointer-events: none;
-}
-
-button > svg,
-.btn > svg {
-	position: relative;
-	top: -.1rem;
-	width: 2rem !important;
-	height: 2rem !important;
-	stroke: currentColor !important;
-}
-
-/*  reset ------- */
-.btn {
-  --btn-h: 4rem;
-  --btn-outline: .2rem;
-  --btn-font: var(--font);
-  --btn-calc-h: calc(var(--btn-h) - var(--btn-outline) * 2);
-  --btn-hover: linear-gradient(to top, rgba(0,0,0,.07), rgba(0,0,0,.07));
-
-  position: relative;
-  margin: 0 .8rem .8rem 0;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: inline-block;
-  zoom: 1;
-  border: none transparent;
-	font: var(--h4) var(--btn-font);
-	border-radius: var(--border-r);
-  color: currentColor;
-  cursor: pointer;
-}
-
-/*  default */
-.btn {
-	line-height: var(--btn-h);
-  height: var(--btn-h);
-  padding: 0 1.6rem;
-	transition: all .1s;
-}
-
-.btn:hover  {
-	transform: scale(.98);
-	mix-blend-mode: multiply;
-	background-image: var(--btn-hover);
-}
-
-/*  optional */
-.btn[outline] {
-	line-height: var(--btn-calc-h);
-  height: var(--btn-calc-h);
-  border: var(--btn-outline) solid currentColor;
-  background-color: white;
-  color: currentColor;
-}
 
 /*  links ------------------------------------- */
 a {
 	user-select: none;
 	color: var(--secondary);
-	transition: color .2s, border .2s, padding .2s;
+	transition: color .2s;
 }
 
 a:hover  {
 	color: var(--secondary);
 }
-
-a.no-underline {
-	border-bottom: none;
-	padding: 0;
-}
-
-/* a:hover:not(.disabled) > .icon { stroke: var(--flash) } */
 
 /*  lists ---------------------------------- */
 .listify ol,
@@ -362,32 +230,6 @@ table code, table span {
 	.grid > .cols-3 { grid-column: span 3 }
 }
 
-/*	helper styles -------------------------- */
-.flex-auto { flex: 1 0 auto }
-
-.py0 {
-	padding-top: 0 !important;
-	padding-bottom: 0 !important;
-}
-
-.legend, figcaption, .post aside {
-	max-width: none;
-	margin: 0 auto;
-	padding: 1.6rem 0 0 .8rem;
-	font: 1.2rem/1.6 var(--font-ui);
-}
-
-.filename {
-	display: inline-block;
-	padding: 1.6rem 0 0 1rem;
-	font: var(--h6) var(--font-ui);
-}
-
-.box {
-	padding: 2.4rem 3.2rem;
-	border-radius: var(--border-r);
-}
-
 /*	theme colors --------------------------- */
 .prime      { color: var(--primary) !important }
 .second     { color: var(--secondary) !important }
@@ -400,55 +242,3 @@ table code, table span {
 .bg-prime   { background-color: var(--primary) !important }
 .bg-second  { background-color: var(--secondary) !important }
 .bg-flash   { background-color: var(--flash) !important }
-
-/*	inputs --------------------------------- */
-input[type="checkbox"] {
-	/* display: block; */
-	position: relative;
-	height: 1em;
-	width: calc(100% - 0.6em);
-	max-width: 2em;
-	top: -2px;
-	border-radius: 0.5em;
-	-webkit-appearance: none;
-	outline: none;
-	margin: 0 0.6em 0 0;
-}
-
-input[type="checkbox"]::before {
-	content: "";
-	position: absolute;
-	display: block;
-	height: 100%;
-	width: 100%;
-	padding: 2px;
-	border-radius: 1em;
-	top: 0;
-	left: 0;
-	background: var(--secondary);
-	/* box-sizing: border-box; */
-	box-sizing: content-box;
-}
-
-input[type="checkbox"]:checked::before {
-	background: var(--primary);
-}
-
-input[type="checkbox"]::after {
-	content: "";
-	position: absolute;
-	display: block;
-	height: 1em;
-	width: 1em;
-	top: 2px;
-	left: 2px;
-	border-radius: 1em;
-	background: white;
-	box-shadow: 0 0px 1px rgba(0,0,0,.4), 0 4px 2px rgba(0,0,0,.1);
-	-webkit-transition: background .2s ease-out, left .2s ease-out;
-	transition: background .2s ease-out, left .2s ease-out;
-}
-
-input[type="checkbox"]:checked::after {
-	left: calc(100% - 9px);
-}
