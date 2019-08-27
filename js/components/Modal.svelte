@@ -2,28 +2,50 @@
     import Button from "./Button.svelte"
     import { mdiClose } from "@mdi/js"
 
-    const app = window.app
-    let className = ''
-    export {className as class}
+    let visible = false
 
-    export let title = ''
-    export let width = '420px'
+    export function show(){
+        visible = true
+    }
+
+    export function hide(){
+        visible = false
+    }
 </script>
 
-<div class='modal {className}' style="width:{width}">
-    <div class="header">
-        <div class="header-content">
-            <slot name="header"></slot>
+{#if visible}    
+    <div class="overlay" on:click|self={() => visible = false}>
+        <div class="modal">
+            <div class="header">
+                <div class="header-content">
+                    <slot name="header"></slot>
+                </div>
+                <Button class="close" color="none" icon={mdiClose}
+                    on:click={()=> visible = false}/>
+            </div>
+            <div class="content">
+                <slot name="content"></slot>
+            </div>
         </div>
-        <Button class="close" color="none" icon={mdiClose}
-            on:click={app.modal.close}/>
     </div>
-    <div class="content">
-        <slot name="content"></slot>
-    </div>
-</div>
+{/if}
 
 <style>
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1050;
+        background-color: rgba(0,0,0,0.5);
+        -webkit-transition: .2s opacity;
+        -o-transition: .2s opacity;
+        transition: .2s opacity;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
     .modal {
         background-color: #fff;
         padding: 20px 30px;
@@ -40,10 +62,7 @@
         font-size: 16px !important;
         font-weight: 600 !important;
     }
-    :global(button.close)  {
-        background-color: #f2f2f2;
-    } 
-    :global(button.close)  {
+    .modal :global(button.close)  {
         margin-left: auto;
     }    
 </style>
