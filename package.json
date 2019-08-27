@@ -1,6 +1,6 @@
 {
   "name": "@deimimi/strawberry",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A set of svelte components",
   "module": "js/index.mjs",
   "main": "js/index.js",
@@ -20,5 +20,8 @@
     "css",
     "js",
     "fonts"
-  ]
+  ],
+  "dependencies": {
+    "@mdi/js": "^4.2.95"
+  }
 }

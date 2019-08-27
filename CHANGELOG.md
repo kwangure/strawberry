@@ -1,5 +1,11 @@
 # :strawberry: Strawberry changelog
 
+## 0.1.5
+* Minor button UI improvement
+* Disable selection in sidebar text
+* Fix modal close button
+* Use @mdi/js as icon source
+
 ## 0.1.4
 * Remove some unused styles
 * Add installation instructions to README

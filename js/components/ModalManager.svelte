@@ -2,10 +2,12 @@
     let content
     let showing
 
-    export function show(ModalComponent){
+    export function show(ModalComponent, params){
+        
         content = new ModalComponent({
             target: document.getElementById('ModalManager'),
             hydrate: true,
+            params,
         });
         showing = true
     }

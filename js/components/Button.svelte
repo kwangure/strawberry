@@ -56,6 +56,7 @@
     button .content-wrapper {
         display: flex;
         align-items: center;
+        line-height: 1.2;
     }
     button.primary {
         color: #fff;
@@ -63,8 +64,7 @@
         border: none;
     }
     button.primary:active, 
-    button.primary:hover, 
-    button.primary:focus {
+    button.primary:hover {
         color: #fff;
         background-color: #40a9ff;
     }
@@ -72,8 +72,7 @@
         border: none;
     }
     button.none:active,
-    button.none:hover, 
-    button.none:focus {
+    button.none:hover {
         background-color: #e8f0fe;
         color: #1967d2;
     }
@@ -114,13 +113,11 @@
         from {transform:rotate(0deg);}
         to {transform:rotate(360deg);}
     }
-    
     .visible {
         display: block;
     }
     button.active,
-    button:hover, 
-    .button:focus {
+    button:hover {
         color: #40a9ff;
         background-color: #fff;
         border-color: #40a9ff;

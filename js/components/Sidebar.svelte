@@ -10,7 +10,6 @@
     </div>
     <div class="sidebar-items">
         {#each items as item, index}
-        
             <div class="sidebar-item {item.active ?'active':''}">
                 <slot name="item" item={{...item, index}}></slot>
             </div>
@@ -28,6 +27,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        user-select: none;
     }
     .sidebar-items {
         overflow: hidden;

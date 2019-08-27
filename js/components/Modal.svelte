@@ -1,5 +1,6 @@
 <script>
     import Button from "./Button.svelte"
+    import { mdiClose } from "@mdi/js"
 
     const app = window.app
     let className = ''
@@ -14,8 +15,7 @@
         <div class="header-content">
             <slot name="header"></slot>
         </div>
-        <Button 
-            class="close" color="none" icon="close" 
+        <Button class="close" color="none" icon={mdiClose}
             on:click={app.modal.close}/>
     </div>
     <div class="content">
