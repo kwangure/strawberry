@@ -1,5 +1,10 @@
 # :strawberry: Strawberry changelog
 
+## 0.1.6
+* Completely rewrite modal component
+* Add textarea component
+* Upgrade Svelte dependency
+
 ## 0.1.5
 * Minor button UI improvement
 * Disable selection in sidebar text
