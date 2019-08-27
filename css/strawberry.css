@@ -181,14 +181,3 @@ td, th {
 table code, table span {
 	white-space: pre;
 }
-
-/*	theme colors --------------------------- */
-.primary    { color: var(--primary) !important }
-.secondary  { color: var(--secondary) !important }
-.black      { color: black !important }
-.white      { color: white !important }
-
-.bg-primary          { background-color: var(--primary) !important }
-.bg-secondary        { background-color: var(--secondary) !important }
-.bg-primary-light    { background-color: var(--primary) !important }
-.bg-secondary-light  { background-color: var(--secondary) !important }
