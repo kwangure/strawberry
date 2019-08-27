@@ -8,16 +8,6 @@
 -----------------------------------------------
 */
 :root {
-	--nav-h:       6rem;
-	--top-offset:  6rem;
-	--sidebar-w:  30rem;
-	--sidebar-mid-w: 36rem;
-	--sidebar-large-w: 48rem;
-	--main-width: 80rem;
-	--code-w:      72em;
-	--side-nav:  3.2rem;
-	--side-page:   var(--side-nav);
-
 	/* easings */
 	--in-cubic:    cubic-bezier(0.55, 0.055, 0.675, 0.19);
 	--out-cubic:   cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -28,26 +18,14 @@
 	--inout-back:  cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@media screen and (min-width: 768px) {
-	:root {
-		--side-page:  14vw;
-		--top-offset: 10rem;
-		--side-nav: 4.8rem;
-	}
-}
-
 /*	theme vars */
 .theme-default {
-	--back:       		#ffffff;
-	--back-light: 		#f6fafd;
 	--primary:      	#ff261b;
 	--primary-light:   	#fee8f0;
-	--secondary:     	#1890ff;
-	--secondary-light:	#e8f0fe;
-	--flash:      		#40b3ff;
+	--secondary:     	#1870ff;
+	--secondary-light:	#eaf2ff;
 	--heading:			var(--text);
 	--text:      		#333;
-	--sidebar-text:   rgba(255, 255, 255, .75);
 	--border-w:  		.3rem; /* border-width  */
 	--border-r:  		.4rem; /* border-radius */
 }
@@ -204,41 +182,13 @@ table code, table span {
 	white-space: pre;
 }
 
-/*	grid ----------------------------------- */
-.grid, .grid.half {
-	display: grid;
-	grid-gap: 2.4rem;
-	grid-template-columns: 1fr;
-	align-items: center;
-}
-
-.grid.stretch { align-items: stretch }
-
-.grid > .cols-2,
-.grid > .cols-3 { grid-column: span 1 }
-
-@media screen and (min-width: 840px) {
-	.grid.half,
-	.grid { grid-template-columns: repeat(2, 1fr) }
-	.grid > .cols-2,
-	.grid > .cols-3 { grid-column: span 2 }
-}
-
-@media screen and (min-width: 1100px) {
-	.grid { grid-template-columns: repeat(3, 1fr) }
-	.grid > .cols-2 { grid-column: span 2 }
-	.grid > .cols-3 { grid-column: span 3 }
-}
-
 /*	theme colors --------------------------- */
-.prime      { color: var(--primary) !important }
-.second     { color: var(--secondary) !important }
-.flash      { color: var(--flash) !important }
+.primary    { color: var(--primary) !important }
+.secondary  { color: var(--secondary) !important }
 .black      { color: black !important }
 .white      { color: white !important }
 
-.back       { background-color: var(--back) !important }
-.back-light { background-color: var(--back-light) !important }
-.bg-prime   { background-color: var(--primary) !important }
-.bg-second  { background-color: var(--secondary) !important }
-.bg-flash   { background-color: var(--flash) !important }
+.bg-primary          { background-color: var(--primary) !important }
+.bg-secondary        { background-color: var(--secondary) !important }
+.bg-primary-light    { background-color: var(--primary) !important }
+.bg-secondary-light  { background-color: var(--secondary) !important }
