@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/deimimi/strawberry#readme",
   "devDependencies": {
-    "svelte": "^3.1.0"
+    "svelte": "^3.9.1"
   },
   "files": [
     "css",
