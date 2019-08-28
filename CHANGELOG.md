@@ -1,8 +1,12 @@
 # :strawberry: Strawberry changelog
 
-## 0.1.6
-* Completely rewrite modal component
+## 0.2.0
 * Add textarea component
+* Remove conflicting styles
+* Delete modal manager owing to new modal component
+
+## 0.1.6
+* Rewrite modal component
 * Upgrade Svelte dependency
 
 ## 0.1.5
