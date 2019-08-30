@@ -10,12 +10,12 @@
     </div>
     <div class="sidebar-items">
         {#each items as item, index}
-            <div class="sidebar-item {item.active ?'active':''}">
+            <div class="sidebar-item" class:active={item.active}>
                 <slot name="item" item={{...item, index}}></slot>
             </div>
         {/each}
     </div>
-    <div class="sidebar-footer">
+    <div class="sidebar-foot">
         <slot name="foot"></slot>
     </div>
 </div>
@@ -34,7 +34,7 @@
         overflow: hidden;
         overflow-y: scroll;
     }
-    .sidebar-footer {
+    .sidebar-foot {
         margin-top: auto;
     }
     .sidebar-item {
