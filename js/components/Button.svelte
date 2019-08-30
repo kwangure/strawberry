@@ -1,5 +1,6 @@
 <script>
     import Icon from './Icon.svelte'
+    import { mdiLoading } from '@mdi/js'
 
     let className = ''
 	export { className as class }
@@ -22,7 +23,7 @@
         {/if}
         {#if loading}
             <span class="loading-spinner {loading?'visible':''}">
-                <Icon path="loading"></Icon>
+                <Icon path={ mdiLoading }></Icon>
             </span>
         {/if}
         <slot></slot>
