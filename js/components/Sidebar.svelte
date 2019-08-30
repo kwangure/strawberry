@@ -27,6 +27,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        flex: none;
         user-select: none;
     }
     .sidebar-items {
