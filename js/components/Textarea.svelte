@@ -1,35 +1,35 @@
 <script>
-    export let type;
-    export let name;
-    export let placeholder;
-    export let icon;
-    export let value;
-    export let disabled;
-    export let rows=3;
+    export let type=''
+    export let name = ''
+    export let placeholder = ''
+    export let icon = ''
+    export let value = ''
+    export let disabled = false
+    export let rows=3
 
     // Update value manually since Svelte does not allow two-way data  
     // binding if input type is dynamic (and for good reason)
     function updateValue(e){
         value=this.value
     }
+
+    let textarea
              
     function autosize(){
-        const textarea = this;
-        const computed = getComputedStyle(textarea);
+        const computed = getComputedStyle(textarea)
 
         let newHeight;
-        newHeight = parseInt(computed.getPropertyValue('border-top-width'));
-        newHeight += parseInt(computed.getPropertyValue('border-bottom-width'));
+        newHeight = parseInt(computed.getPropertyValue('border-top-width'))
+        newHeight += parseInt(computed.getPropertyValue('border-bottom-width'))
 
-        newHeight += textarea.scrollHeight;
-        
-        textarea.style.height =  `${newHeight}px`;
+        newHeight += textarea.scrollHeight
+        textarea.style.height =  `${newHeight}px`
     }
 </script>
 
 <span class="wrapper">
-    <textarea {type} {name} {placeholder} {value} {disabled} {rows}
-        on:change={updateValue} on:input={autosize}/>
+    <textarea bind:this={textarea} {disabled} {name} on:change={updateValue} 
+        on:input={autosize} {placeholder} {rows} {type} {value}/>
 </span>
 
 <style>
