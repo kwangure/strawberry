@@ -37,9 +37,7 @@
         font-weight: 400;
         white-space: nowrap;
         text-align: center;
-        background-image: none;
         border: 1px solid transparent;
-        box-shadow: 0 2px 0 rgba(0,0,0,0.015);
         cursor: pointer;
         transition: all .3s cubic-bezier(.645, .045, .355, 1);
         user-select: none;
@@ -49,7 +47,7 @@
         font-size: 14px;
         border-radius: 4px;
         color: rgba(0,0,0,0.65);
-        background-color: #fff;
+        background-color: transparent;
         border-color: #d9d9d9;
         outline: none;
     }
