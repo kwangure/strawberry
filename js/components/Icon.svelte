@@ -12,7 +12,7 @@
     }
 </script>
 
-<svg height="{size}px" on:click on:dblclick viewBox="0 0 {size} {size}" 
+<svg height="{size}px" on:click on:dblclick viewBox="0 0 24 24" 
     width="{size}px">
     <path d={path} fill="currentColor" />
 </svg>
