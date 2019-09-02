@@ -1,5 +1,13 @@
 # :strawberry: Strawberry changelog
 
+## 0.2.1
+* fix textarea component default props
+* fix conflicting and remove unused button styles
+* fix sidebar collapsing in flex parent
+* fix button loading icon missing
+* fix icon component svg view box size
+* refactor sidebar
+
 ## 0.2.0
 * Add textarea component
 * Remove conflicting styles
