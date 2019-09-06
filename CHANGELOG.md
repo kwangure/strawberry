@@ -1,6 +1,9 @@
 # :strawberry: Strawberry changelog
 
-## 0.2.1
+## 0.3.0
+* feat: make compilable to custom elements
+  
+* ## 0.2.1
 * fix textarea component default props
 * fix conflicting and remove unused button styles
 * fix sidebar collapsing in flex parent
