@@ -4,6 +4,8 @@
     let active
 </script>
 
+<svelte:options tag="sb-sidebar"/>
+
 <div class="sidebar">
     <div class="sidebar-head">
         <slot name="head"></slot>

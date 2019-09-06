@@ -6,6 +6,8 @@
     let selected = tabs[0]
 </script>
 
+<svelte:options tag="sb-button-tabs"/>
+
 {#if tabs.length > 0}
     <div class="tab-wrapper">
         <div class="tab-header">

@@ -1,3 +1,5 @@
+<svelte:options tag="sb-button-group"/>
+
 <div class="button-group">
     <slot></slot>
 </div>

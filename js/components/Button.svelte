@@ -13,6 +13,8 @@
     $: loading
 </script>
 
+<svelte:options tag="sb-button"/>
+
 <button class="{color? color: ''} {className}" class:icon class:loading 
     class:active on:click on:hover>
     <div class="content-wrapper">

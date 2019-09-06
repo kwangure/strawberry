@@ -20,6 +20,8 @@
 
 </script>
 
+<svelte:options tag="sb-input"/>
+
 <label class="input-wrapper {type === 'checkbox'? 'checkbox':''} {type === 'radio'? 'radio':''}">
     {#if label && type !== 'checkbox' && type !== 'radio'}
         <div class="label">{label.length? label : placeholder}</div>

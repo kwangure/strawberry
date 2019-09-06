@@ -6,6 +6,8 @@
     export let label = ''
 </script>
 
+<svelte:options tag="sb-tooltip"/>
+
 <span 
     class:tooltipped={label} class:left class:center={!left && !right} 
     class:right class:breakParent 

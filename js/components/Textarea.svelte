@@ -27,6 +27,8 @@
     }
 </script>
 
+<svelte:options tag="sb-textarea"/>
+
 <span class="wrapper">
     <textarea bind:this={textarea} {disabled} {name} on:change={updateValue} 
         on:input={autosize} {placeholder} {rows} {type} {value}/>
