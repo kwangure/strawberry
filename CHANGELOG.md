@@ -1,6 +1,9 @@
 # :strawberry: Strawberry changelog
 
-## 0.4.0
+## 0.4.1
+* fix: export dropdown component
+* 
+* ## 0.4.0
 * feat: add dropdown component
 
 ## 0.3.0
