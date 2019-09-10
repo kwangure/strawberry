@@ -1,5 +1,8 @@
 # :strawberry: Strawberry changelog
 
+## 0.4.0
+* feat: add dropdown component
+
 ## 0.3.0
 * feat: make compilable to custom elements
   
