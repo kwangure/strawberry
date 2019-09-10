@@ -1,8 +1,11 @@
 # :strawberry: Strawberry changelog
 
+## 0.4.2
+* fix: actually export dropdown component :sweat_smile:
+
 ## 0.4.1
 * fix: export dropdown component
-* 
+  
 * ## 0.4.0
 * feat: add dropdown component
 
