@@ -1,9 +1,16 @@
 <script>
     export let items = []
-    export let top = true;
-    export let bottom = false;
-    export let left = true;
-    export let right = false;
+    export let placement = 'bottomLeft';
+
+    function valid(placement) {
+        let positions = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
+        return positions.includes(placement)
+    }
+
+    $: top = valid(placement) && placement.includes("top")
+    $: bottom = valid(placement) && placement.includes("bottom")
+    $: left = valid(placement) && placement.includes("Left")
+    $: right = valid(placement) && placement.includes("Right")
 
     let dropdown = null
     let visible = false
@@ -75,7 +82,7 @@
         top: 100%;
     }
     .dropdown-menu.left {
-        top: 0;
+        left: 0;
     }
     .dropdown-menu.right {
         right: 0;
@@ -89,6 +96,7 @@
         cursor: pointer;
         transition: all .3s;
         min-width: 130px;
+        background-color: #fff;
     }
 
     .menu-item:not(.linked) {
