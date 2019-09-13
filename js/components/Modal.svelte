@@ -17,7 +17,7 @@
 <svelte:options tag="sb-modal"/>
 
 {#if visible}    
-    <div class="overlay" on:click|self={() => visible = false}>
+    <div class="overlay" on:click|self={() => closable && (visible = false)}>
         <div class="modal">
             <div class="header">
                 <div class="header-content">
