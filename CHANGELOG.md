@@ -1,6 +1,9 @@
 # :strawberry: Strawberry changelog
 
-## 0.7.0
+## 0.8.0
+* feat: ability to hide modal close button 
+
+* ## 0.7.0
 * feat: add ability to show modal via prop
   
 * ## 0.6.0
