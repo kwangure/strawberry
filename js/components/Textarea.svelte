@@ -40,11 +40,17 @@
         display: inline-block;
         width: 100%;
     }
+    .wrapper {
+        --vertical-padding: 5px;
+        --horizontal-padding: 12px;
+        --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
+        --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
+    }
     textarea {
         text-align: inherit;
         display: inline-block;
         width: 100%;
-        padding: 4px 11px;
+        padding: var(--vertical-padding) var(--horizontal-padding);
         color: rgba(0,0,0,0.65);
         font-size: 14px;
         line-height: 1.5;
@@ -62,13 +68,9 @@
     textarea::-webkit-scrollbar { 
         display: none;  
     }
+    textarea:focus,
     textarea:hover {
-        border-color: #40a9ff;
-    }
-    textarea:focus {
-        border-color: #40a9ff;
-        outline: 0;
-        -webkit-box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
-        box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
+        border: 2px solid #1870ff;
+        padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
     }
 </style>
