@@ -8,26 +8,14 @@
 -----------------------------------------------
 */
 :root {
-	/* easings */
-	--in-cubic:    cubic-bezier(0.55, 0.055, 0.675, 0.19);
-	--out-cubic:   cubic-bezier(0.215, 0.61, 0.355, 1);
-	--inout-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
-
-	--in-back:     cubic-bezier(0.6, -0.28, 0.735, 0.045);
-	--out-back:    cubic-bezier(0.175, 0.885, 0.32, 1.275);
-	--inout-back:  cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-/*	theme vars */
-.theme-default {
 	--primary:      	#ff261b;
+	--primary:      	#ff372c;
 	--primary-light:   	#fee8f0;
 	--secondary:     	#1870ff;
-	--secondary-light:	#eaf2ff;
+	--secondary-hover: 	#2981ff;
+	--secondary-light:	#deeaff;
 	--heading:			var(--text);
 	--text:      		#333;
-	--border-w:  		.3rem; /* border-width  */
-	--border-r:  		.4rem; /* border-radius */
 }
 
 /*	typo vars */
