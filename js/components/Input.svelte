@@ -28,12 +28,12 @@
     {/if}
     {#if icon}
         <span class="input-prefix">
-            <Icon {icon}></Icon>
+            <Icon path={icon}></Icon>
         </span>
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
     <input 
-        autofocus {checked} class:icon 
+        {autofocus} {checked} class:icon 
         class="{type === 'checkbox'? 'checkbox':''} 
         {type === 'radio'? 'radio':''}" {disabled} {min} {max} {name} on:blur
         on:change on:input={updateValue} on:input on:keypress on:focus 
