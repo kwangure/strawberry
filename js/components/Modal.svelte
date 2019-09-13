@@ -3,6 +3,7 @@
     import { mdiClose } from "@mdi/js"
 
     export let visible = false
+    export let closable = true
 
     export function show(){
         visible = true
@@ -22,8 +23,10 @@
                 <div class="header-content">
                     <slot name="header"></slot>
                 </div>
-                <Button class="close" color="none" icon={mdiClose}
-                    on:click={()=> visible = false}/>
+                {#if closable}
+                    <Button class="close" color="none" icon={mdiClose}
+                        on:click={()=> visible = false}/>
+                {/if}
             </div>
             <div class="content">
                 <slot name="content"></slot>
