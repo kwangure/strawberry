@@ -1,6 +1,9 @@
 # :strawberry: Strawberry changelog
 
-## 0.6.0
+## 0.7.0
+* feat: add ability to show modal via prop
+  
+* ## 0.6.0
 * fix: standardize color pallete
 * fix: improve textarea + input border ui
 * feat: add input number component
