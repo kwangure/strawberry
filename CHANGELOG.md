@@ -1,9 +1,14 @@
 # :strawberry: Strawberry changelog
 
+## 0.6.0
+* fix: standardize color pallete
+* fix: improve textarea + input border ui
+* feat: add input number component
+
 ## 0.5.0
 * feat: add flip and spin to icon component
 
-* ## 0.4.2
+## 0.4.2
 * fix: actually export dropdown component :sweat_smile:
 
 ## 0.4.1
