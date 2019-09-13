@@ -1,6 +1,9 @@
 # :strawberry: Strawberry changelog
 
-## 0.8.0
+## 0.8.1
+* fix: disable closability for modal overlay
+  
+* ## 0.8.0
 * feat: ability to hide modal close button 
 
 * ## 0.7.0
