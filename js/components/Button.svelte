@@ -61,13 +61,13 @@
     }
     button.primary {
         color: #fff;
-        background-color: #1890ff;
+        background-color: #1870ff;
         border: none;
     }
     button.primary:active, 
     button.primary:hover {
         color: #fff;
-        background-color: #40a9ff;
+        background-color: #2981ff;
     }
     button.none {
         border: none;
@@ -75,7 +75,7 @@
     button.none:active,
     button.none:hover {
         background-color: #e8f0fe;
-        color: #1967d2;
+        color:  #1870ff;
     }
 
     .button-prefix {
@@ -119,8 +119,8 @@
     }
     button.active,
     button:hover {
-        color: #40a9ff;
+        color: #2981ff;
         background-color: #fff;
-        border-color: #40a9ff;
+        border-color: #2981ff;
     }
 </style>

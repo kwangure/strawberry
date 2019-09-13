@@ -114,7 +114,7 @@
     }
 
     .menu-item:hover {
-        color: #2885ff;
-        background-color: #e8f0fe;
+        color: #1870ff;
+        background-color: #deeaff;
     }
 </style>
