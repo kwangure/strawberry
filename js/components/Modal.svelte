@@ -2,7 +2,7 @@
     import Button from "./Button.svelte"
     import { mdiClose } from "@mdi/js"
 
-    let visible = false
+    export let visible = false
 
     export function show(){
         visible = true
