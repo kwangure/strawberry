@@ -1,12 +1,12 @@
 {
   "name": "@deimimi/strawberry",
-  "version": "0.8.1",
+  "version": "0.0.0-development",
   "description": "A set of svelte components",
   "module": "js/index.mjs",
   "main": "js/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deimimi/strawberry.git"
+    "url": "https://github.com/deimimi/strawberry.git"
   },
   "author": "Kafungo Wangure",
   "bugs": {
@@ -14,6 +14,9 @@
   },
   "homepage": "https://github.com/deimimi/strawberry#readme",
   "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "semantic-release": "^15.13.24",
     "svelte": "^3.9.1"
   },
   "files": [
@@ -23,5 +26,13 @@
   ],
   "dependencies": {
     "@mdi/js": "^4.2.95"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release --no-ci"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
