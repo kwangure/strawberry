@@ -2,7 +2,7 @@ import Input from './components/Input.svelte'
 import InputNumber from './components/InputNumber.svelte'
 
 Input.Number = InputNumber
-export { default as Input }
+export { Input }
 
 export { default as Button } from './components/Button.svelte'
 export { default as ButtonGroup } from './components/ButtonGroup.svelte'
