@@ -1,6 +1,6 @@
 {
   "name": "@deimimi/strawberry",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "A set of svelte components",
   "module": "js/index.mjs",
   "main": "js/index.js",
