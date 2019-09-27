@@ -21,13 +21,7 @@
     }
 
     function clamp(value, min, max) {
-        if(typeof max === "number"){
-            value = value > max ? max : value
-        }
-        if(typeof min === "number"){
-            value = value < min ? min : value
-        }
-        return value
+        return Math.min(Math.max(value, min), max);
     }
 
     $: value = clamp(value, min, max)
