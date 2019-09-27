@@ -1,5 +1,8 @@
 # :strawberry: Strawberry changelog
 
+## 0.9.1
+* fix: properly export input
+
 ## 0.9.0
 * feat: add number input component
   
