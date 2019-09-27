@@ -1,5 +1,9 @@
 # :strawberry: Strawberry changelog
 
+## 0.9.2
+* fix: eliminate circular dependency in import
+* fix: clamp string values in number input
+
 ## 0.9.1
 * fix: properly export input
 
