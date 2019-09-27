@@ -1,15 +1,18 @@
 # :strawberry: Strawberry changelog
 
+## 0.9.0
+* feat: add number input component
+  
 ## 0.8.1
 * fix: disable closability for modal overlay
   
-* ## 0.8.0
+## 0.8.0
 * feat: ability to hide modal close button 
 
-* ## 0.7.0
+## 0.7.0
 * feat: add ability to show modal via prop
   
-* ## 0.6.0
+## 0.6.0
 * fix: standardize color pallete
 * fix: improve textarea + input border ui
 * feat: add input number component
@@ -23,13 +26,13 @@
 ## 0.4.1
 * fix: export dropdown component
   
-* ## 0.4.0
+## 0.4.0
 * feat: add dropdown component
 
 ## 0.3.0
 * feat: make compilable to custom elements
   
-* ## 0.2.1
+## 0.2.1
 * fix textarea component default props
 * fix conflicting and remove unused button styles
 * fix sidebar collapsing in flex parent
