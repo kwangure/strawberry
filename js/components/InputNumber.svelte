@@ -5,8 +5,8 @@
     export let label = ''
     export let placeholder = ''
     export let icon = ''
-    export let min = null
-    export let max = null
+    export let min = -Infinity
+    export let max = Infinity
     export let value = 0
     export let step = 1
     export let stepOnly = false
