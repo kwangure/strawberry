@@ -1,5 +1,8 @@
 # :strawberry: Strawberry changelog
 
+## 0.9.3
+* fix: input number capping min and max values
+
 ## 0.9.2
 * fix: eliminate circular dependency in import
 * fix: clamp string values in number input
