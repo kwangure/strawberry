@@ -1,7 +1,7 @@
 import Input from './components/Input.svelte'
-import InputNumber from './components/InputNumber.svelte'
+import NumberInput from './components/NumberInput.svelte'
 
-Input.Number = InputNumber
+Input.Number = NumberInput
 export { Input }
 
 export { default as Button } from './components/Button.svelte'
