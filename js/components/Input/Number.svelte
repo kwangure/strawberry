@@ -14,12 +14,6 @@
     export let autofocus = false
     let type = 'number'
 
-    // Update value manually since Svelte does not allow data  
-    // binding if input type is dynamic (and for good reason)
-    function updateValue(e){
-        value = e.target.value
-    }
-
     function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
     }
@@ -27,7 +21,7 @@
     $: value = clamp(value, min, max)
 </script>
 
-<svelte:options tag="sb-input"/>
+<svelte:options tag="sb-number-input"/>
 
 <label class="input-wrapper">
     {#if icon}
@@ -37,9 +31,9 @@
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
     <input 
-        {autofocus} class:icon {disabled} {min} {max} {name} on:blur
-        on:change on:input={updateValue} on:input on:keypress on:focus 
-        on:keydown {placeholder} readonly={stepOnly} {type} {value}
+        {autofocus} bind:value class:icon {disabled} {min} {max} {name} on:blur
+        on:change on:input on:keypress on:focus on:keydown {placeholder} 
+        readonly={stepOnly} type='number'
         >
     <div class="input-postfix">
         <span class="postfix-up"
