@@ -57,6 +57,7 @@
     button .content-wrapper {
         display: flex;
         align-items: center;
+        justify-content: center;
         line-height: 1.2;
     }
     button.primary {
