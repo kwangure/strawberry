@@ -1,5 +1,8 @@
 # :strawberry: Strawberry changelog
 
+## 0.10.1
+* fix: change incorrect icon path
+
 ## 0.10.0
 * fix: align flex button text horizontally
 * feat: break out input into seperate components
