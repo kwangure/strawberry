@@ -1,5 +1,5 @@
 <script>
-    import Icon from './Icon.svelte'
+    import Icon from '../Icon.svelte'
     import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
     export let name = ''
     export let label = ''

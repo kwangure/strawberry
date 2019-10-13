@@ -1,5 +1,4 @@
 <script>
-    import Icon from './Icon.svelte'
     export let name = ''
     export let label = ''
     export let checked = false
