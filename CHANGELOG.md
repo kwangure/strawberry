@@ -1,5 +1,9 @@
 # :strawberry: Strawberry changelog
 
+## 0.10.0
+* fix: align flex button text horizontally
+* feat: break out input into seperate components
+
 ## 0.9.3
 * fix: input number capping min and max values
 
