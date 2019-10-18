@@ -16,7 +16,7 @@
 <svelte:options tag="sb-button"/>
 
 <button class="{color? color: ''} {className}" class:icon class:loading 
-    class:active on:click on:hover>
+    class:active on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
