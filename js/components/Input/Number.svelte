@@ -17,8 +17,6 @@
     function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
     }
-
-    $: value = clamp(value, min, max)
 </script>
 
 <svelte:options tag="sb-number-input"/>
@@ -37,11 +35,11 @@
         >
     <div class="input-postfix">
         <span class="postfix-up"
-            on:click|stopPropagation={() => value = value + step}>
+            on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
             <Icon path={mdiChevronUp} size={21}></Icon>
         </span>
         <span class="postfix-down"
-            on:click|stopPropagation={() => value = value - step}>
+            on:click|stopPropagation={() => value = clamp(value - step, min, max)}>
             <Icon path={mdiChevronDown} size={21}></Icon>
         </span>
     </div>
