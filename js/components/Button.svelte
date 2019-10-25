@@ -10,12 +10,13 @@
     export let iconProps = {}
     export let active = ''
     export let loading = false
+    export let fullwidth = false
     $: loading
 </script>
 
 <svelte:options tag="sb-button"/>
 
-<button class="{color? color: ''} {className}" class:icon class:loading 
+<button class="{color? color: ''} {className}" class:icon class:loading class:fullwidth
     class:active on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
@@ -53,6 +54,9 @@
         background-color: transparent;
         border-color: #d9d9d9;
         outline: none;
+    }
+    button.fullwidth {
+        width:100%;
     }
     button .content-wrapper {
         display: flex;
