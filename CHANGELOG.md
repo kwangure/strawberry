@@ -1,5 +1,8 @@
 # :strawberry: Strawberry changelog
 
+## 0.11.2
+* style: better number input styling
+
 ## 0.11.1
 * fix: clamp number input onchange, not reactively
 * style: clean up input border styles
