@@ -73,7 +73,7 @@
         height: 35px;
     }
     input:hover {
-        border-color: #1870ff;
+        border-color: #aaa;
     }
     input:focus {
         border: 2px solid #1870ff;

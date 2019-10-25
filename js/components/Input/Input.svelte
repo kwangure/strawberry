@@ -32,16 +32,14 @@
     .input-wrapper {
         display: inline-block;
         position: relative;
+        width: 100%;
+        line-height: 1.5;
     }
     .input-wrapper {
         --vertical-padding: 5px;
         --horizontal-padding: 12px;
         --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
         --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
-    }
-    .input-wrapper:not(.checkbox):not(.radio){
-        width: 100%;
-        line-height: 1.5;
     }
     .input-prefix {
         position: absolute;
@@ -73,7 +71,7 @@
         height: 35px;
     }
     input:hover {
-        border-color: #1870ff;
+        border-color: #aaa;
     }
     input:focus {
         border: 2px solid #1870ff;

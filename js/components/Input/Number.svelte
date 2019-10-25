@@ -49,11 +49,16 @@
     .input-wrapper {
         display: inline-block;
         position: relative;
-    }
-    .input-wrapper:not(.checkbox):not(.radio){
         width: 100%;
         line-height: 1.5;
     }
+    .input-wrapper {
+        --vertical-padding: 5px;
+        --horizontal-padding: 12px;
+        --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
+        --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
+    }
+
     .input-prefix {
         position: absolute;
         top: 52%;
@@ -68,7 +73,7 @@
     input {
         text-align: inherit;
         display: inline-block;
-        padding: 4px 11px;
+        padding: var(--vertical-padding) var(--horizontal-padding);
         color: rgba(0,0,0,0.65);
         font-size: 14px;
         line-height: 1.5;
@@ -84,13 +89,12 @@
         height: 35px;
     }
     input:hover {
-        border-color: #40a9ff;
+        border-color: #aaa;
     }
     input:focus {
-        border-color: #40a9ff;
+        border-color: #1870ff;
         outline: 0;
-        -webkit-box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
-        box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
+        padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
     }
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
