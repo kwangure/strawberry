@@ -1,5 +1,10 @@
 # :strawberry: Strawberry changelog
 
+## 0.11.0
+* feat: add mouseover + mouseout events to buttons
+* fix: clamp number input onchange, not reactively
+* style: clean up input border styles
+
 ## 0.10.1
 * fix: change incorrect icon path
 
