@@ -55,8 +55,10 @@
     .input-wrapper {
         --vertical-padding: 5px;
         --horizontal-padding: 12px;
+        --padding-right: 25px;
         --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
         --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
+        --padding-right-focus: calc(var(--padding-right) - 1px);
     }
 
     .input-prefix {
@@ -74,6 +76,7 @@
         text-align: inherit;
         display: inline-block;
         padding: var(--vertical-padding) var(--horizontal-padding);
+        padding-right: var(--padding-right);
         color: rgba(0,0,0,0.65);
         font-size: 14px;
         line-height: 1.5;
@@ -92,9 +95,10 @@
         border-color: #aaa;
     }
     input:focus {
-        border-color: #1870ff;
+        border: 2px solid #1870ff;
         outline: 0;
         padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
+        padding-right: var(--padding-right-focus);
     }
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
@@ -105,9 +109,6 @@
     }
     input.icon {
         padding-left: 30px;
-    }
-    input {
-        padding-right: 25px;
     }
     .input-postfix {
         position: absolute;
