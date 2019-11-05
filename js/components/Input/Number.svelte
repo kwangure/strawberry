@@ -84,8 +84,6 @@
         background-image: none;
         border: 1px solid #d9d9d9;
         border-radius: 4px;
-        -webkit-transition: all .3s;
-        transition: all .3s;
     }
     input:not(.checkbox):not(.radio){
         width: 100%;
