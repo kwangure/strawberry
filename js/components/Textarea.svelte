@@ -1,17 +1,11 @@
 <script>
-    export let type=''
     export let name = ''
     export let placeholder = ''
     export let icon = ''
     export let value = ''
     export let disabled = false
-    export let rows=3
-
-    // Update value manually since Svelte does not allow two-way data  
-    // binding if input type is dynamic (and for good reason)
-    function updateValue(e){
-        value=this.value
-    }
+    export let rows = 3
+    export let label = ''
 
     let textarea
              
@@ -30,8 +24,11 @@
 <svelte:options tag="sb-textarea"/>
 
 <span class="wrapper">
-    <textarea bind:this={textarea} {disabled} {name} on:change={updateValue} 
-        on:input={autosize} {placeholder} {rows} {type} {value}/>
+    {#if label}
+        <div class="label">{label.length? label : placeholder}</div>
+    {/if}
+    <textarea bind:this={textarea} {disabled} {name}
+        on:input={autosize} {placeholder} {rows} bind:value/>
 </span>
 
 <style>
@@ -58,8 +55,6 @@
         background-image: none;
         border: 1px solid #d9d9d9;
         border-radius: 4px;
-        -webkit-transition: all .2s;
-        transition: all .2s;
         overflow: scroll;
         overflow-x: hidden;
         -ms-overflow-style: none; 
@@ -72,5 +67,8 @@
     textarea:hover {
         border: 2px solid #1870ff;
         padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
+    }
+    .label {
+        margin-bottom: 5px;
     }
 </style>
