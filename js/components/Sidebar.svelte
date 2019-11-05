@@ -12,7 +12,8 @@
     </div>
     <div class="sidebar-items">
         {#each items as item, index}
-            <div class="sidebar-item" class:active={item.active}>
+            <div class="sidebar-item" class:active={item.active}
+                on:click={item.onclick}>
                 <slot name="item" item={{...item, index}}></slot>
             </div>
         {/each}

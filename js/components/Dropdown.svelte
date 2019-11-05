@@ -47,7 +47,7 @@
         <div class="dropdown-menu" class:bottom class:left class:right
             class:top on:click={close}>
             {#each items as item, index}
-                <div class="menu-item" >
+                <div class="menu-item" on:click={item.onclick}>
                     <slot name="menu" item={{...item, index}}/>
                 </div>
             {/each}
