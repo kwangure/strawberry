@@ -1,5 +1,14 @@
 # :strawberry: Strawberry changelog
 
+## 0.12.0
+* feat: add fullwidth button
+* feat: add label to textarea
+* feat: add onclick event for items
+* fix: add base text input
+* refactor: move textarea component
+* style: remove style transitions from inputs
+* style: fix button icon misalignment
+
 ## 0.11.2
 * style: better number input styling
 
