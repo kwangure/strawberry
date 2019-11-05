@@ -82,11 +82,13 @@
         background-color: #e8f0fe;
         color:  #1870ff;
     }
-
     .button-prefix {
         display: flex;
+        padding-right: 2px;
     }
-
+    button.icon {
+        padding-right: 16px;
+    }
     button.loading {
         cursor: disabled;
     }
