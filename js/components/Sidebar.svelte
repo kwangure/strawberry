@@ -1,7 +1,5 @@
 <script>
-    export let items
-    
-    let active
+    export let items = [];
 </script>
 
 <svelte:options tag="sb-sidebar"/>
@@ -16,6 +14,8 @@
                 on:click={item.onclick}>
                 <slot name="item" item={{...item, index}}></slot>
             </div>
+        {:else}
+            <slot/>
         {/each}
     </div>
     <div class="sidebar-foot">
