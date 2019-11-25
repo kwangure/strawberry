@@ -1,5 +1,6 @@
 <script>
-    export let items = []
+    import Item from "./Item.svelte";
+    export let items = [];
     export let placement = 'bottomLeft';
 
     function valid(placement) {
@@ -47,14 +48,15 @@
         <div class="dropdown-menu" class:bottom class:left class:right
             class:top on:click={close}>
             {#each items as item, index}
-                <div class="menu-item" on:click={item.onclick}>
+                <Item on:click={item.onclick}>
                     <slot name="menu" item={{...item, index}}/>
-                </div>
+                </Item>
+            {:else}
+                <slot></slot>
             {/each}
         </div>
     {/if}
 </div>
-
 
 <style>
     .dropdown {
@@ -87,34 +89,11 @@
     .dropdown-menu.right {
         right: 0;
     }
-    .menu-item {
-        clear: both;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 22px;
-        white-space: nowrap;
-        cursor: pointer;
-        transition: all .3s;
-        min-width: 130px;
-        background-color: #fff;
-    }
-
-    .menu-item:not(.linked) {
-        padding: 8px 16px;
-    }
-
-    .menu-item :global(a) {
-        padding: 8px 16px;
-        text-decoration: none;
-        color: inherit;
-    }
+    
 
     .menu-item > * {
         display: block;
     }
 
-    .menu-item:hover {
-        color: #1870ff;
-        background-color: #deeaff;
-    }
+    
 </style>
