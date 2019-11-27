@@ -74,6 +74,7 @@
         outline: none;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         z-index: 100;
+        overflow: hidden;
     }
     .dropdown-menu.top {
         margin-bottom: 5px;
