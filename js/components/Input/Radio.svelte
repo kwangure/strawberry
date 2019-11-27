@@ -7,7 +7,7 @@
 
 <svelte:options tag="sb-radio"/>
 
-<label class="input-wrapper">
+<label class="input-wrapper" on:click>
     <!-- svelte-ignore a11y-autofocus -->
     <input checked {disabled} {name} on:blur on:change on:input 
         on:focus type="radio">
