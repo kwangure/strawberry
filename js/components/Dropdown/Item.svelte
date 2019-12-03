@@ -4,6 +4,10 @@
 
 <style>
     .menu-item {
+        --vertical-padding: 8px;
+        --horizontal-padding: 16px;
+    }
+    .menu-item {
         clear: both;
         font-weight: normal;
         font-size: 14px;
@@ -20,7 +24,9 @@
     }
 
     .menu-item :global(a) {
-        padding: 8px 16px;
+        display: flex;
+        padding: var(--vertical-padding) var(--horizontal-padding);
+        margin: calc(-1 * var(--vertical-padding)) calc(-1 * var(--horizontal-padding));
         text-decoration: none;
         color: inherit;
     }
