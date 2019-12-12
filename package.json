@@ -2,8 +2,7 @@
     "name": "@deimimi/strawberry",
     "version": "0.13.1",
     "description": "A set of svelte components",
-    "module": "index.mjs",
-    "main": "js/index.js",
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rollup -c",
