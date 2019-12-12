@@ -1,5 +1,13 @@
 # :strawberry: Strawberry changelog
 
+# 0.13.0
+* feat: separate dropdown and sidebar items.
+* feat: ability to use sidebar & dropwdown without items prop
+* feat: add onclick events to checkbox & radio label
+* fix: clip dropwdown menu items for border-radius.
+* feat: improve styling of linked menu-items
+* build: compile components before exports
+
 ## 0.12.0
 * feat: add fullwidth button
 * feat: add label to textarea
