@@ -1,5 +1,5 @@
 <script>
-    import Icon from './Icon.svelte'
+    import Icon from '../Icon.svelte'
     import { mdiLoading } from '@mdi/js'
 
     let className = ''

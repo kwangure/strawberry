@@ -1,5 +1,5 @@
 <script>
-    import ButtonGroup from './ButtonGroup.svelte'
+    import ButtonGroup from './Group.svelte'
     import Button from './Button.svelte'
 
 	export let tabs = []

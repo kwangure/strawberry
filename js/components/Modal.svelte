@@ -1,5 +1,5 @@
 <script>
-    import Button from "./Button.svelte"
+    import Button from "./Button"
     import { mdiClose } from "@mdi/js"
 
     export let visible = false
