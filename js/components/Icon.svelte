@@ -3,9 +3,6 @@
     export let path = ''
     export let flip = ''
     export let spin = ''
-    //TODO
-    export let color = null
-    export let rotate = 0
 
     function validSpin(spin) {
         return spin === 'clockwise' || spin === 'counterclockwise'
