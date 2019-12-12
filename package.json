@@ -1,8 +1,8 @@
 {
     "name": "@deimimi/strawberry",
-    "version": "0.13.0",
+    "version": "0.13.1",
     "description": "A set of svelte components",
-    "module": "js/index.mjs",
+    "module": "index.mjs",
     "main": "js/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
