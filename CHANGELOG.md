@@ -1,5 +1,8 @@
 # :strawberry: Strawberry changelog
 
+# 0.13.1
+* fix: import change module path
+
 # 0.13.0
 * feat: separate dropdown and sidebar items.
 * feat: ability to use sidebar & dropwdown without items prop
