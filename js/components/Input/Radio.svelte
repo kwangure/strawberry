@@ -1,11 +1,8 @@
 <script>
     export let name = ''
     export let label = ''
-    export let checked = false
     export let disabled = false
 </script>
-
-<svelte:options tag="sb-radio"/>
 
 <label class="input-wrapper" on:click>
     <!-- svelte-ignore a11y-autofocus -->

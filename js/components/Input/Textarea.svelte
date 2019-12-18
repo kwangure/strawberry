@@ -1,7 +1,6 @@
 <script>
     export let name = ''
     export let placeholder = ''
-    export let icon = ''
     export let value = ''
     export let disabled = false
     export let rows = 3
@@ -20,8 +19,6 @@
         textarea.style.height =  `${newHeight}px`
     }
 </script>
-
-<svelte:options tag="sb-textarea"/>
 
 <span class="wrapper">
     {#if label}

@@ -19,8 +19,6 @@
     $: counterclockwise = validSpin(spin) && spin === 'counterclockwise'
 </script>
 
-<svelte:options tag="sb-icon"/>
-
 <svg class:horizontal class:vertical class:clockwise class:counterclockwise
     height="{size}px" 
     on:click on:dblclick viewBox="0 0 24 24" width="{size}px">

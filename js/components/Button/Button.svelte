@@ -4,7 +4,6 @@
 
     let className = ''
 	export { className as class }
-    export let type = ''
     export let color = '' 
     export let icon = ''
     export let iconProps = {}
@@ -13,8 +12,6 @@
     export let fullwidth = false
     $: loading
 </script>
-
-<svelte:options tag="sb-button"/>
 
 <button class="{color? color: ''} {className}" class:icon class:loading class:fullwidth
     class:active on:click on:hover on:mouseover on:mouseout>

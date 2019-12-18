@@ -5,8 +5,6 @@
     export let disabled = false
 </script>
 
-<svelte:options tag="sb-checkbox"/>
-
 <label class="input-wrapper" on:click>
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:checked {disabled} {name} on:blur on:change on:input 

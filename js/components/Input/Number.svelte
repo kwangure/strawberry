@@ -12,16 +12,16 @@
     export let stepOnly = false
     export let disabled = false
     export let autofocus = false
-    let type = 'number'
 
     function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
     }
 </script>
 
-<svelte:options tag="sb-number-input"/>
-
 <label class="input-wrapper">
+    {#if label}
+        <div class="label">{label.length? label : placeholder}</div>
+    {/if}
     {#if icon}
         <span class="input-prefix">
             <Icon path={icon}></Icon>
@@ -124,5 +124,9 @@
     }
     .postfix-down {
         margin-top: -3px;
+    }
+
+    .label {
+        margin-bottom: 5px;
     }
 </style>

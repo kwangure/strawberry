@@ -14,8 +14,6 @@
     }
 </script>
 
-<svelte:options tag="sb-modal"/>
-
 {#if visible}    
     <div class="overlay" on:click|self={() => closable && (visible = false)}>
         <div class="modal">

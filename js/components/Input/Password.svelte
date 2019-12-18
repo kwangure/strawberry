@@ -9,8 +9,6 @@
     export let autofocus = false
 </script>
 
-<svelte:options tag="sb-input"/>
-
 <label class="input-wrapper">
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
