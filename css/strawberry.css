@@ -66,6 +66,7 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 	color: inherit;
+	transition: all 0.5s ease-in;
 }
 
 a:hover, a:active { color: var(--secondary) }
@@ -92,7 +93,6 @@ h1, h2, h3, h4, h5, h6, blockquote {
 	color: var(--heading);
 }
 
-/* h1, h2, h3, h4, h5, h6 { font-weight: 600 } */
 h6 { font-size: var(--h6) }
 h5 { font-size: var(--h5) }
 h4 { font-size: var(--h4) }
