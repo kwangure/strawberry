@@ -1,6 +1,7 @@
 <script>
     import Button from "./Button"
     import { mdiClose } from "@mdi/js"
+    import { fade } from "svelte/transition"
 
     export let visible = false
     export let closable = true
@@ -16,7 +17,7 @@
 
 {#if visible}    
     <div class="overlay" on:click|self={() => closable && (visible = false)}>
-        <div class="modal">
+        <div class="modal" transition:fade>
             <div class="header">
                 <div class="header-content">
                     <slot name="header"></slot>
@@ -64,6 +65,9 @@
         flex: auto;
         font-size: 16px !important;
         font-weight: 600 !important;
+    }
+    .header :global(.close) {
+        padding: 0 10px;
     }
     .modal :global(button.close)  {
         margin-left: auto;
