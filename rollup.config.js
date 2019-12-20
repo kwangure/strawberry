@@ -1,8 +1,8 @@
-import resolve from 'rollup-plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
 import commonjs from 'rollup-plugin-commonjs';
-import terser from 'rollup-plugin-terser';
-import svelte from 'rollup-plugin-svelte'
-import globals from 'rollup-plugin-node-globals'
+import globals from 'rollup-plugin-node-globals';
+import resolve from 'rollup-plugin-node-resolve';
+import svelte from 'rollup-plugin-svelte';
 
 let nested  = ["Button", "Dropdown", "Input", "Sidebar", "Select",];
 let singles = ["Icon", "Modal", "Tooltip"];
