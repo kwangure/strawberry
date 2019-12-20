@@ -293,8 +293,8 @@
 
     function add_css() {
     	var style = element("style");
-    	style.id = "svelte-gj462b-style";
-    	style.textContent = ".tooltipped.svelte-gj462b{display:inline-block;position:relative}.tooltipped.breakParent.svelte-gj462b{position:static}.tooltipped.svelte-gj462b:hover:after{line-height:1em;background:#4a4e57;border-radius:4px;bottom:auto;top:calc(100% + 7px);color:#fff;content:attr(aria-label);display:block;padding:7px 10px;position:absolute;white-space:nowrap;z-index:300;font-size:12px;text-transform:none;font-weight:400;pointer-events:none}.tooltipped.left.svelte-gj462b:hover:after{left:0%}.tooltipped.center.svelte-gj462b:hover:after{left:50%;transform:translateX(-50%)}.tooltipped.right.svelte-gj462b:hover:after{right:0%}.tooltipped.svelte-gj462b:hover:before{border:solid;border-color:#4a4e57 transparent;bottom:auto;top:calc(100% + 2px);border-width:0 5px 5px 5px;content:\"\";display:block;position:absolute;z-index:301}.tooltipped.left.svelte-gj462b:hover:before{left:10%}.tooltipped.center.svelte-gj462b:hover:before{left:50%;transform:translateX(-50%)}.tooltipped.right.svelte-gj462b:hover:before{right:10%}";
+    	style.id = "svelte-10vilwk-style";
+    	style.textContent = ".active.svelte-10vilwk{position:relative}.active.svelte-10vilwk:before,.active.svelte-10vilwk:after{opacity:0;transition:opacity 300ms ease-in-out;pointer-events:none;position:absolute;display:block;z-index:300}.active.svelte-10vilwk:hover:before,.active.svelte-10vilwk:hover:after{opacity:1}.active.breakParent.svelte-10vilwk{position:static}.active.svelte-10vilwk:before{top:calc(100%);border:solid;border-color:#4a4e57 transparent;border-width:0 8px 9px 8px;content:\"\"}.active.svelte-10vilwk:after{line-height:1em;background:#4a4e57;border-radius:4px;top:calc(100% + 8px);color:#fff;content:attr(aria-label);padding:10px;white-space:nowrap;font-size:12px;text-transform:none;font-weight:400}.active.left.svelte-10vilwk:before{left:0px}.active.left.svelte-10vilwk:after{left:-10px}.active.center.svelte-10vilwk:before,.active.center.svelte-10vilwk:after{left:50%;transform:translateX(-50%)}.active.right.svelte-10vilwk:before{right:0px}.active.right.svelte-10vilwk:after{right:-10px}";
     	append(document.head, style);
     }
 
@@ -319,8 +319,8 @@
     		},
     		h() {
     			attr(span, "aria-label", /*label*/ ctx[3]);
-    			attr(span, "class", "svelte-gj462b");
-    			toggle_class(span, "tooltipped", /*label*/ ctx[3]);
+    			attr(span, "class", "svelte-10vilwk");
+    			toggle_class(span, "active", /*label*/ ctx[3]);
     			toggle_class(span, "left", /*left*/ ctx[1]);
     			toggle_class(span, "center", !/*left*/ ctx[1] && !/*right*/ ctx[2]);
     			toggle_class(span, "right", /*right*/ ctx[2]);
@@ -345,7 +345,7 @@
     			}
 
     			if (dirty[0] & /*label*/ 8) {
-    				toggle_class(span, "tooltipped", /*label*/ ctx[3]);
+    				toggle_class(span, "active", /*label*/ ctx[3]);
     			}
 
     			if (dirty[0] & /*left*/ 2) {
@@ -401,7 +401,7 @@
     class Tooltip extends SvelteComponent {
     	constructor(options) {
     		super();
-    		if (!document.getElementById("svelte-gj462b-style")) add_css();
+    		if (!document.getElementById("svelte-10vilwk-style")) add_css();
     		init(this, options, instance, create_fragment, safe_not_equal, { break: 0, left: 1, right: 2, label: 3 });
     	}
 

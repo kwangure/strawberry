@@ -5,6 +5,7 @@
 }(this, (function () { 'use strict';
 
     function noop() { }
+    const identity = x => x;
     function assign(tar, src) {
         // @ts-ignore
         for (const k in src)
@@ -51,6 +52,41 @@
             return lets;
         }
         return $$scope.dirty;
+    }
+
+    const is_client = typeof window !== 'undefined';
+    let now = is_client
+        ? () => window.performance.now()
+        : () => Date.now();
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+    const tasks = new Set();
+    function run_tasks(now) {
+        tasks.forEach(task => {
+            if (!task.c(now)) {
+                tasks.delete(task);
+                task.f();
+            }
+        });
+        if (tasks.size !== 0)
+            raf(run_tasks);
+    }
+    /**
+     * Creates a new task that runs on each raf frame
+     * until it returns a falsy value or is aborted
+     */
+    function loop(callback) {
+        let task;
+        if (tasks.size === 0)
+            raf(run_tasks);
+        return {
+            promise: new Promise(fulfill => {
+                tasks.add(task = { c: callback, f: fulfill });
+            }),
+            abort() {
+                tasks.delete(task);
+            }
+        };
     }
 
     function append(target, node) {
@@ -138,6 +174,67 @@
     function toggle_class(element, name, toggle) {
         element.classList[toggle ? 'add' : 'remove'](name);
     }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+
+    let stylesheet;
+    let active = 0;
+    let current_rules = {};
+    // https://github.com/darkskyapp/string-hash/blob/master/index.js
+    function hash(str) {
+        let hash = 5381;
+        let i = str.length;
+        while (i--)
+            hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+        return hash >>> 0;
+    }
+    function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+        const step = 16.666 / duration;
+        let keyframes = '{\n';
+        for (let p = 0; p <= 1; p += step) {
+            const t = a + (b - a) * ease(p);
+            keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+        }
+        const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+        const name = `__svelte_${hash(rule)}_${uid}`;
+        if (!current_rules[name]) {
+            if (!stylesheet) {
+                const style = element('style');
+                document.head.appendChild(style);
+                stylesheet = style.sheet;
+            }
+            current_rules[name] = true;
+            stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+        }
+        const animation = node.style.animation || '';
+        node.style.animation = `${animation ? `${animation}, ` : ``}${name} ${duration}ms linear ${delay}ms 1 both`;
+        active += 1;
+        return name;
+    }
+    function delete_rule(node, name) {
+        node.style.animation = (node.style.animation || '')
+            .split(', ')
+            .filter(name
+            ? anim => anim.indexOf(name) < 0 // remove specific animation
+            : anim => anim.indexOf('__svelte') === -1 // remove all Svelte animations
+        )
+            .join(', ');
+        if (name && !--active)
+            clear_rules();
+    }
+    function clear_rules() {
+        raf(() => {
+            if (active)
+                return;
+            let i = stylesheet.cssRules.length;
+            while (i--)
+                stylesheet.deleteRule(i);
+            current_rules = {};
+        });
+    }
 
     let current_component;
     function set_current_component(component) {
@@ -207,6 +304,20 @@
             $$.after_update.forEach(add_render_callback);
         }
     }
+
+    let promise;
+    function wait() {
+        if (!promise) {
+            promise = Promise.resolve();
+            promise.then(() => {
+                promise = null;
+            });
+        }
+        return promise;
+    }
+    function dispatch(node, direction, kind) {
+        node.dispatchEvent(custom_event(`${direction ? 'intro' : 'outro'}${kind}`));
+    }
     const outroing = new Set();
     let outros;
     function group_outros() {
@@ -243,6 +354,112 @@
             });
             block.o(local);
         }
+    }
+    const null_transition = { duration: 0 };
+    function create_bidirectional_transition(node, fn, params, intro) {
+        let config = fn(node, params);
+        let t = intro ? 0 : 1;
+        let running_program = null;
+        let pending_program = null;
+        let animation_name = null;
+        function clear_animation() {
+            if (animation_name)
+                delete_rule(node, animation_name);
+        }
+        function init(program, duration) {
+            const d = program.b - t;
+            duration *= Math.abs(d);
+            return {
+                a: t,
+                b: program.b,
+                d,
+                duration,
+                start: program.start,
+                end: program.start + duration,
+                group: program.group
+            };
+        }
+        function go(b) {
+            const { delay = 0, duration = 300, easing = identity, tick = noop, css } = config || null_transition;
+            const program = {
+                start: now() + delay,
+                b
+            };
+            if (!b) {
+                // @ts-ignore todo: improve typings
+                program.group = outros;
+                outros.r += 1;
+            }
+            if (running_program) {
+                pending_program = program;
+            }
+            else {
+                // if this is an intro, and there's a delay, we need to do
+                // an initial tick and/or apply CSS animation immediately
+                if (css) {
+                    clear_animation();
+                    animation_name = create_rule(node, t, b, duration, delay, easing, css);
+                }
+                if (b)
+                    tick(0, 1);
+                running_program = init(program, duration);
+                add_render_callback(() => dispatch(node, b, 'start'));
+                loop(now => {
+                    if (pending_program && now > pending_program.start) {
+                        running_program = init(pending_program, duration);
+                        pending_program = null;
+                        dispatch(node, running_program.b, 'start');
+                        if (css) {
+                            clear_animation();
+                            animation_name = create_rule(node, t, running_program.b, running_program.duration, 0, easing, config.css);
+                        }
+                    }
+                    if (running_program) {
+                        if (now >= running_program.end) {
+                            tick(t = running_program.b, 1 - t);
+                            dispatch(node, running_program.b, 'end');
+                            if (!pending_program) {
+                                // we're done
+                                if (running_program.b) {
+                                    // intro — we can tidy up immediately
+                                    clear_animation();
+                                }
+                                else {
+                                    // outro — needs to be coordinated
+                                    if (!--running_program.group.r)
+                                        run_all(running_program.group.c);
+                                }
+                            }
+                            running_program = null;
+                        }
+                        else if (now >= running_program.start) {
+                            const p = now - running_program.start;
+                            t = running_program.a + running_program.d * easing(p / running_program.duration);
+                            tick(t, 1 - t);
+                        }
+                    }
+                    return !!(running_program || pending_program);
+                });
+            }
+        }
+        return {
+            run(b) {
+                if (is_function(config)) {
+                    wait().then(() => {
+                        // @ts-ignore
+                        config = config();
+                        go(b);
+                    });
+                }
+                else {
+                    go(b);
+                }
+            },
+            end() {
+                clear_animation();
+                running_program = pending_program = null;
+            }
+        };
     }
 
     function get_spread_update(levels, updates) {
@@ -410,6 +627,7 @@
     function create_fragment(ctx) {
     	let svg;
     	let path_1;
+    	let path_1_fill_value;
     	let svg_height_value;
     	let svg_width_value;
     	let dispose;
@@ -441,19 +659,19 @@
     		},
     		h() {
     			attr(path_1, "d", /*path*/ ctx[1]);
-    			attr(path_1, "fill", "currentColor");
+    			attr(path_1, "fill", path_1_fill_value = /*color*/ ctx[2] || "currentColor");
     			attr(svg, "height", svg_height_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "viewBox", "0 0 24 24");
     			attr(svg, "width", svg_width_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "class", "svelte-638rev");
-    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
-    			toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
-    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
-    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
+    			toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
+    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
+    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
 
     			dispose = [
-    				listen(svg, "click", /*click_handler*/ ctx[9]),
-    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[10])
+    				listen(svg, "click", /*click_handler*/ ctx[10]),
+    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[11])
     			];
     		},
     		m(target, anchor) {
@@ -465,6 +683,10 @@
     				attr(path_1, "d", /*path*/ ctx[1]);
     			}
 
+    			if (dirty[0] & /*color*/ 4 && path_1_fill_value !== (path_1_fill_value = /*color*/ ctx[2] || "currentColor")) {
+    				attr(path_1, "fill", path_1_fill_value);
+    			}
+
     			if (dirty[0] & /*size*/ 1 && svg_height_value !== (svg_height_value = "" + (/*size*/ ctx[0] + "px"))) {
     				attr(svg, "height", svg_height_value);
     			}
@@ -473,20 +695,20 @@
     				attr(svg, "width", svg_width_value);
     			}
 
-    			if (dirty[0] & /*horizontal*/ 4) {
-    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
+    			if (dirty[0] & /*horizontal*/ 8) {
+    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
     			}
 
-    			if (dirty[0] & /*vertical*/ 8) {
-    				toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
+    			if (dirty[0] & /*vertical*/ 16) {
+    				toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
     			}
 
-    			if (dirty[0] & /*clockwise*/ 16) {
-    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
+    			if (dirty[0] & /*clockwise*/ 32) {
+    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
     			}
 
-    			if (dirty[0] & /*counterclockwise*/ 32) {
-    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			if (dirty[0] & /*counterclockwise*/ 64) {
+    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
     			}
     		},
     		i: noop,
@@ -507,6 +729,7 @@
     	let { path = "" } = $$props;
     	let { flip = "" } = $$props;
     	let { spin = "" } = $$props;
+    	let { color = "" } = $$props;
 
     	function validFlip(spin) {
     		return flip === "horizontal" || flip === "vertical";
@@ -523,8 +746,9 @@
     	$$self.$set = $$props => {
     		if ("size" in $$props) $$invalidate(0, size = $$props.size);
     		if ("path" in $$props) $$invalidate(1, path = $$props.path);
-    		if ("flip" in $$props) $$invalidate(6, flip = $$props.flip);
-    		if ("spin" in $$props) $$invalidate(7, spin = $$props.spin);
+    		if ("flip" in $$props) $$invalidate(7, flip = $$props.flip);
+    		if ("spin" in $$props) $$invalidate(8, spin = $$props.spin);
+    		if ("color" in $$props) $$invalidate(2, color = $$props.color);
     	};
 
     	let horizontal;
@@ -533,26 +757,27 @@
     	let counterclockwise;
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(2, horizontal = validFlip() && flip === "horizontal");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(3, horizontal = validFlip() && flip === "horizontal");
     		}
 
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(3, vertical = validFlip() && flip === "vertical");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(4, vertical = validFlip() && flip === "vertical");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(4, clockwise = validSpin(spin) && spin === "clockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(5, clockwise = validSpin(spin) && spin === "clockwise");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(5, counterclockwise = validSpin(spin) && spin === "counterclockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(6, counterclockwise = validSpin(spin) && spin === "counterclockwise");
     		}
     	};
 
     	return [
     		size,
     		path,
+    		color,
     		horizontal,
     		vertical,
     		clockwise,
@@ -569,7 +794,14 @@
     	constructor(options) {
     		super();
     		if (!document.getElementById("svelte-638rev-style")) add_css();
-    		init(this, options, instance, create_fragment, safe_not_equal, { size: 0, path: 1, flip: 6, spin: 7 });
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			size: 0,
+    			path: 1,
+    			flip: 7,
+    			spin: 8,
+    			color: 2
+    		});
     	}
 
     	get size() {
@@ -591,7 +823,7 @@
     	}
 
     	get flip() {
-    		return this.$$.ctx[6];
+    		return this.$$.ctx[7];
     	}
 
     	set flip(flip) {
@@ -600,11 +832,20 @@
     	}
 
     	get spin() {
-    		return this.$$.ctx[7];
+    		return this.$$.ctx[8];
     	}
 
     	set spin(spin) {
     		this.$set({ spin });
+    		flush();
+    	}
+
+    	get color() {
+    		return this.$$.ctx[2];
+    	}
+
+    	set color(color) {
+    		this.$set({ color });
     		flush();
     	}
     }
@@ -622,7 +863,7 @@
     	append(document.head, style);
     }
 
-    // (22:8) {#if icon}
+    // (19:8) {#if icon}
     function create_if_block_1(ctx) {
     	let span;
     	let current;
@@ -682,7 +923,7 @@
     	};
     }
 
-    // (27:8) {#if loading}
+    // (24:8) {#if loading}
     function create_if_block(ctx) {
     	let span;
     	let span_class_value;
@@ -741,8 +982,8 @@
     	let dispose;
     	let if_block0 = /*icon*/ ctx[2] && create_if_block_1(ctx);
     	let if_block1 = /*loading*/ ctx[5] && create_if_block(ctx);
-    	const default_slot_template = /*$$slots*/ ctx[9].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[8], null);
+    	const default_slot_template = /*$$slots*/ ctx[8].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[7], null);
 
     	return {
     		c() {
@@ -778,10 +1019,10 @@
     			toggle_class(button, "active", /*active*/ ctx[4]);
 
     			dispose = [
-    				listen(button, "click", /*click_handler*/ ctx[10]),
-    				listen(button, "hover", /*hover_handler*/ ctx[11]),
-    				listen(button, "mouseover", /*mouseover_handler*/ ctx[12]),
-    				listen(button, "mouseout", /*mouseout_handler*/ ctx[13])
+    				listen(button, "click", /*click_handler*/ ctx[9]),
+    				listen(button, "hover", /*hover_handler*/ ctx[10]),
+    				listen(button, "mouseover", /*mouseover_handler*/ ctx[11]),
+    				listen(button, "mouseout", /*mouseout_handler*/ ctx[12])
     			];
     		},
     		m(target, anchor) {
@@ -839,8 +1080,8 @@
     				check_outros();
     			}
 
-    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 256) {
-    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[8], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[8], dirty, null));
+    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 128) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[7], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[7], dirty, null));
     			}
 
     			if (!current || dirty[0] & /*color, className*/ 3 && button_class_value !== (button_class_value = "" + ((/*color*/ ctx[1] ? /*color*/ ctx[1] : "") + " " + /*className*/ ctx[0] + " svelte-1c4u4uz"))) {
@@ -888,7 +1129,6 @@
 
     function instance$1($$self, $$props, $$invalidate) {
     	let { class: className = "" } = $$props;
-    	let { type = "" } = $$props;
     	let { color = "" } = $$props;
     	let { icon = "" } = $$props;
     	let { iconProps = {} } = $$props;
@@ -915,14 +1155,13 @@
 
     	$$self.$set = $$props => {
     		if ("class" in $$props) $$invalidate(0, className = $$props.class);
-    		if ("type" in $$props) $$invalidate(7, type = $$props.type);
     		if ("color" in $$props) $$invalidate(1, color = $$props.color);
     		if ("icon" in $$props) $$invalidate(2, icon = $$props.icon);
     		if ("iconProps" in $$props) $$invalidate(3, iconProps = $$props.iconProps);
     		if ("active" in $$props) $$invalidate(4, active = $$props.active);
     		if ("loading" in $$props) $$invalidate(5, loading = $$props.loading);
     		if ("fullwidth" in $$props) $$invalidate(6, fullwidth = $$props.fullwidth);
-    		if ("$$scope" in $$props) $$invalidate(8, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(7, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
@@ -937,7 +1176,6 @@
     		active,
     		loading,
     		fullwidth,
-    		type,
     		$$scope,
     		$$slots,
     		click_handler,
@@ -954,7 +1192,6 @@
 
     		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
     			class: 0,
-    			type: 7,
     			color: 1,
     			icon: 2,
     			iconProps: 3,
@@ -970,15 +1207,6 @@
 
     	set class(className) {
     		this.$set({ class: className });
-    		flush();
-    	}
-
-    	get type() {
-    		return this.$$.ctx[7];
-    	}
-
-    	set type(type) {
-    		this.$set({ type });
     		flush();
     	}
 
@@ -1132,7 +1360,7 @@
     	return child_ctx;
     }
 
-    // (11:0) {#if tabs.length > 0}
+    // (9:0) {#if tabs.length > 0}
     function create_if_block$1(ctx) {
     	let div2;
     	let div0;
@@ -1263,7 +1491,7 @@
     	};
     }
 
-    // (16:20) <Button                          on:click={(event, index=i) => {selected = tabs[index] }}                         active={selected === tabs[i]}>
+    // (14:20) <Button                          on:click={(event, index=i) => {selected = tabs[index] }}                         active={selected === tabs[i]}>
     function create_default_slot_1(ctx) {
     	let t0_value = /*tab*/ ctx[3].title + "";
     	let t0;
@@ -1292,7 +1520,7 @@
     	};
     }
 
-    // (15:16) {#each tabs as tab, i}
+    // (13:16) {#each tabs as tab, i}
     function create_each_block(ctx) {
     	let current;
 
@@ -1349,7 +1577,7 @@
     	};
     }
 
-    // (14:12) <ButtonGroup>
+    // (12:12) <ButtonGroup>
     function create_default_slot(ctx) {
     	let each_1_anchor;
     	let current;
@@ -1531,12 +1759,22 @@
     Button.Group    = Group;
     Button.Tabs     = Tabs;
 
+    function fade(node, { delay = 0, duration = 400, easing = identity }) {
+        const o = +getComputedStyle(node).opacity;
+        return {
+            delay,
+            duration,
+            easing,
+            css: t => `opacity: ${t * o}`
+        };
+    }
+
     /* js/components/Modal.svelte generated by Svelte v3.16.4 */
 
     function add_css$4() {
     	var style = element("style");
-    	style.id = "svelte-jdppkt-style";
-    	style.textContent = ".overlay.svelte-jdppkt{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;background-color:rgba(0,0,0,0.5);-webkit-transition:.2s opacity;-o-transition:.2s opacity;transition:.2s opacity;display:flex;align-items:center;justify-content:center\n    }.modal.svelte-jdppkt{background-color:#fff;padding:20px 30px;box-shadow:0 7px 15px rgba(0,0,0,0.35);border-radius:4px}.header.svelte-jdppkt{display:flex;align-items:center}.header-content.svelte-jdppkt{margin-right:10px;flex:auto;font-size:16px !important;font-weight:600 !important}.modal.svelte-jdppkt button.close{margin-left:auto}";
+    	style.id = "svelte-1tj48n5-style";
+    	style.textContent = ".overlay.svelte-1tj48n5{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;background-color:rgba(0,0,0,0.5);-webkit-transition:.2s opacity;-o-transition:.2s opacity;transition:.2s opacity;display:flex;align-items:center;justify-content:center\n    }.modal.svelte-1tj48n5{background-color:#fff;padding:20px 30px;box-shadow:0 7px 15px rgba(0,0,0,0.35);border-radius:4px}.header.svelte-1tj48n5{display:flex;align-items:center}.header-content.svelte-1tj48n5{margin-right:10px;flex:auto;font-size:16px !important;font-weight:600 !important}.header.svelte-1tj48n5 .close{padding:0 10px}.modal.svelte-1tj48n5 button.close{margin-left:auto}";
     	append(document.head, style);
     }
 
@@ -1545,7 +1783,7 @@
     const get_header_slot_changes = dirty => ({});
     const get_header_slot_context = ctx => ({});
 
-    // (19:0) {#if visible}
+    // (18:0) {#if visible}
     function create_if_block$2(ctx) {
     	let div4;
     	let div3;
@@ -1554,6 +1792,7 @@
     	let t0;
     	let t1;
     	let div2;
+    	let div3_transition;
     	let current;
     	let dispose;
     	const header_slot_template = /*$$slots*/ ctx[5].header;
@@ -1600,11 +1839,11 @@
     			this.h();
     		},
     		h() {
-    			attr(div0, "class", "header-content svelte-jdppkt");
-    			attr(div1, "class", "header svelte-jdppkt");
+    			attr(div0, "class", "header-content svelte-1tj48n5");
+    			attr(div1, "class", "header svelte-1tj48n5");
     			attr(div2, "class", "content");
-    			attr(div3, "class", "modal svelte-jdppkt");
-    			attr(div4, "class", "overlay svelte-jdppkt");
+    			attr(div3, "class", "modal svelte-1tj48n5");
+    			attr(div4, "class", "overlay svelte-1tj48n5");
     			dispose = listen(div4, "click", self(/*click_handler_1*/ ctx[7]));
     		},
     		m(target, anchor) {
@@ -1662,12 +1901,20 @@
     			transition_in(header_slot, local);
     			transition_in(if_block);
     			transition_in(content_slot, local);
+
+    			add_render_callback(() => {
+    				if (!div3_transition) div3_transition = create_bidirectional_transition(div3, fade, {}, true);
+    				div3_transition.run(1);
+    			});
+
     			current = true;
     		},
     		o(local) {
     			transition_out(header_slot, local);
     			transition_out(if_block);
     			transition_out(content_slot, local);
+    			if (!div3_transition) div3_transition = create_bidirectional_transition(div3, fade, {}, false);
+    			div3_transition.run(0);
     			current = false;
     		},
     		d(detaching) {
@@ -1675,12 +1922,13 @@
     			if (header_slot) header_slot.d(detaching);
     			if (if_block) if_block.d();
     			if (content_slot) content_slot.d(detaching);
+    			if (detaching && div3_transition) div3_transition.end();
     			dispose();
     		}
     	};
     }
 
-    // (26:16) {#if closable}
+    // (25:16) {#if closable}
     function create_if_block_1$1(ctx) {
     	let current;
 
@@ -1814,7 +2062,7 @@
     class Modal extends SvelteComponent {
     	constructor(options) {
     		super();
-    		if (!document.getElementById("svelte-jdppkt-style")) add_css$4();
+    		if (!document.getElementById("svelte-1tj48n5-style")) add_css$4();
 
     		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
     			visible: 0,

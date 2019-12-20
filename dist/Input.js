@@ -340,6 +340,7 @@
     function create_fragment(ctx) {
     	let svg;
     	let path_1;
+    	let path_1_fill_value;
     	let svg_height_value;
     	let svg_width_value;
     	let dispose;
@@ -371,19 +372,19 @@
     		},
     		h() {
     			attr(path_1, "d", /*path*/ ctx[1]);
-    			attr(path_1, "fill", "currentColor");
+    			attr(path_1, "fill", path_1_fill_value = /*color*/ ctx[2] || "currentColor");
     			attr(svg, "height", svg_height_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "viewBox", "0 0 24 24");
     			attr(svg, "width", svg_width_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "class", "svelte-638rev");
-    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
-    			toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
-    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
-    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
+    			toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
+    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
+    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
 
     			dispose = [
-    				listen(svg, "click", /*click_handler*/ ctx[9]),
-    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[10])
+    				listen(svg, "click", /*click_handler*/ ctx[10]),
+    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[11])
     			];
     		},
     		m(target, anchor) {
@@ -395,6 +396,10 @@
     				attr(path_1, "d", /*path*/ ctx[1]);
     			}
 
+    			if (dirty[0] & /*color*/ 4 && path_1_fill_value !== (path_1_fill_value = /*color*/ ctx[2] || "currentColor")) {
+    				attr(path_1, "fill", path_1_fill_value);
+    			}
+
     			if (dirty[0] & /*size*/ 1 && svg_height_value !== (svg_height_value = "" + (/*size*/ ctx[0] + "px"))) {
     				attr(svg, "height", svg_height_value);
     			}
@@ -403,20 +408,20 @@
     				attr(svg, "width", svg_width_value);
     			}
 
-    			if (dirty[0] & /*horizontal*/ 4) {
-    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
+    			if (dirty[0] & /*horizontal*/ 8) {
+    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
     			}
 
-    			if (dirty[0] & /*vertical*/ 8) {
-    				toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
+    			if (dirty[0] & /*vertical*/ 16) {
+    				toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
     			}
 
-    			if (dirty[0] & /*clockwise*/ 16) {
-    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
+    			if (dirty[0] & /*clockwise*/ 32) {
+    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
     			}
 
-    			if (dirty[0] & /*counterclockwise*/ 32) {
-    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			if (dirty[0] & /*counterclockwise*/ 64) {
+    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
     			}
     		},
     		i: noop,
@@ -437,6 +442,7 @@
     	let { path = "" } = $$props;
     	let { flip = "" } = $$props;
     	let { spin = "" } = $$props;
+    	let { color = "" } = $$props;
 
     	function validFlip(spin) {
     		return flip === "horizontal" || flip === "vertical";
@@ -453,8 +459,9 @@
     	$$self.$set = $$props => {
     		if ("size" in $$props) $$invalidate(0, size = $$props.size);
     		if ("path" in $$props) $$invalidate(1, path = $$props.path);
-    		if ("flip" in $$props) $$invalidate(6, flip = $$props.flip);
-    		if ("spin" in $$props) $$invalidate(7, spin = $$props.spin);
+    		if ("flip" in $$props) $$invalidate(7, flip = $$props.flip);
+    		if ("spin" in $$props) $$invalidate(8, spin = $$props.spin);
+    		if ("color" in $$props) $$invalidate(2, color = $$props.color);
     	};
 
     	let horizontal;
@@ -463,26 +470,27 @@
     	let counterclockwise;
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(2, horizontal = validFlip() && flip === "horizontal");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(3, horizontal = validFlip() && flip === "horizontal");
     		}
 
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(3, vertical = validFlip() && flip === "vertical");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(4, vertical = validFlip() && flip === "vertical");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(4, clockwise = validSpin(spin) && spin === "clockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(5, clockwise = validSpin(spin) && spin === "clockwise");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(5, counterclockwise = validSpin(spin) && spin === "counterclockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(6, counterclockwise = validSpin(spin) && spin === "counterclockwise");
     		}
     	};
 
     	return [
     		size,
     		path,
+    		color,
     		horizontal,
     		vertical,
     		clockwise,
@@ -499,7 +507,14 @@
     	constructor(options) {
     		super();
     		if (!document.getElementById("svelte-638rev-style")) add_css();
-    		init(this, options, instance, create_fragment, safe_not_equal, { size: 0, path: 1, flip: 6, spin: 7 });
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			size: 0,
+    			path: 1,
+    			flip: 7,
+    			spin: 8,
+    			color: 2
+    		});
     	}
 
     	get size() {
@@ -521,7 +536,7 @@
     	}
 
     	get flip() {
-    		return this.$$.ctx[6];
+    		return this.$$.ctx[7];
     	}
 
     	set flip(flip) {
@@ -530,11 +545,20 @@
     	}
 
     	get spin() {
-    		return this.$$.ctx[7];
+    		return this.$$.ctx[8];
     	}
 
     	set spin(spin) {
     		this.$set({ spin });
+    		flush();
+    	}
+
+    	get color() {
+    		return this.$$.ctx[2];
+    	}
+
+    	set color(color) {
+    		this.$set({ color });
     		flush();
     	}
     }
@@ -548,7 +572,7 @@
     	append(document.head, style);
     }
 
-    // (15:4) {#if label}
+    // (13:4) {#if label}
     function create_if_block_1(ctx) {
     	let div;
 
@@ -589,7 +613,7 @@
     	};
     }
 
-    // (18:4) {#if icon}
+    // (16:4) {#if icon}
     function create_if_block(ctx) {
     	let span;
     	let current;
@@ -938,7 +962,7 @@
     	append(document.head, style);
     }
 
-    // (14:4) {#if label}
+    // (12:4) {#if label}
     function create_if_block$1(ctx) {
     	let span;
     	let t;
@@ -1172,16 +1196,57 @@
 
     function add_css$3() {
     	var style = element("style");
-    	style.id = "svelte-1f9yr9m-style";
-    	style.textContent = ".input-wrapper.svelte-1f9yr9m{display:inline-block;position:relative;width:100%;line-height:1.5}.input-wrapper.svelte-1f9yr9m{--vertical-padding:5px;--horizontal-padding:12px;--padding-right:25px;--vertical-padding-focus:calc(var(--vertical-padding) - 1px);--horizontal-padding-focus:calc(var(--horizontal-padding) - 1px);--padding-right-focus:calc(var(--padding-right) - 1px)}.input-prefix.svelte-1f9yr9m{position:absolute;top:52%;z-index:2;color:rgba(0,0,0,0.65);line-height:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);left:12px}input.svelte-1f9yr9m{text-align:inherit;display:inline-block;padding:var(--vertical-padding) var(--horizontal-padding);padding-right:var(--padding-right);color:rgba(0,0,0,0.65);font-size:14px;line-height:1.5;background-color:#fff;background-image:none;border:1px solid #d9d9d9;border-radius:4px}input.svelte-1f9yr9m:not(.checkbox):not(.radio){width:100%;height:35px}input.svelte-1f9yr9m:hover{border-color:#aaa}input.svelte-1f9yr9m:focus{border:2px solid #1870ff;outline:0;padding:var(--vertical-padding-focus) var(--horizontal-padding-focus);padding-right:var(--padding-right-focus)}input[type=number].svelte-1f9yr9m::-webkit-inner-spin-button,input[type=number].svelte-1f9yr9m::-webkit-outer-spin-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;margin:0}input.icon.svelte-1f9yr9m{padding-left:30px}.input-postfix.svelte-1f9yr9m{position:absolute;top:52%;right:6px;z-index:2;color:rgba(0,0,0,0.65);line-height:0;transform:translateY(-50%);display:flex;flex-direction:column}.postfix-up.svelte-1f9yr9m{margin-bottom:-3px}.postfix-down.svelte-1f9yr9m{margin-top:-3px}";
+    	style.id = "svelte-1rceuta-style";
+    	style.textContent = ".input-wrapper.svelte-1rceuta{display:inline-block;position:relative;width:100%;line-height:1.5}.input-wrapper.svelte-1rceuta{--vertical-padding:5px;--horizontal-padding:12px;--padding-right:25px;--vertical-padding-focus:calc(var(--vertical-padding) - 1px);--horizontal-padding-focus:calc(var(--horizontal-padding) - 1px);--padding-right-focus:calc(var(--padding-right) - 1px)}.input-prefix.svelte-1rceuta{position:absolute;top:52%;z-index:2;color:rgba(0,0,0,0.65);line-height:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);left:12px}input.svelte-1rceuta{text-align:inherit;display:inline-block;padding:var(--vertical-padding) var(--horizontal-padding);padding-right:var(--padding-right);color:rgba(0,0,0,0.65);font-size:14px;line-height:1.5;background-color:#fff;background-image:none;border:1px solid #d9d9d9;border-radius:4px;width:100%;height:35px}input.svelte-1rceuta:hover{border-color:#aaa}input.svelte-1rceuta:focus{border:2px solid #1870ff;outline:0;padding:var(--vertical-padding-focus) var(--horizontal-padding-focus);padding-right:var(--padding-right-focus)}input[type=number].svelte-1rceuta::-webkit-inner-spin-button,input[type=number].svelte-1rceuta::-webkit-outer-spin-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;margin:0}input.icon.svelte-1rceuta{padding-left:30px}.input-postfix.svelte-1rceuta{position:absolute;top:52%;right:6px;z-index:2;color:rgba(0,0,0,0.65);line-height:0;transform:translateY(-50%);display:flex;flex-direction:column}.postfix-up.svelte-1rceuta{margin-bottom:-3px}.postfix-down.svelte-1rceuta{margin-top:-3px}.label.svelte-1rceuta{margin-bottom:5px}";
     	append(document.head, style);
+    }
+
+    // (22:4) {#if label}
+    function create_if_block_1$1(ctx) {
+    	let div;
+
+    	let t_value = (/*label*/ ctx[2].length
+    	? /*label*/ ctx[2]
+    	: /*placeholder*/ ctx[3]) + "";
+
+    	let t;
+
+    	return {
+    		c() {
+    			div = element("div");
+    			t = text(t_value);
+    			this.h();
+    		},
+    		l(nodes) {
+    			div = claim_element(nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			t = claim_text(div_nodes, t_value);
+    			div_nodes.forEach(detach);
+    			this.h();
+    		},
+    		h() {
+    			attr(div, "class", "label svelte-1rceuta");
+    		},
+    		m(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, t);
+    		},
+    		p(ctx, dirty) {
+    			if (dirty[0] & /*label, placeholder*/ 12 && t_value !== (t_value = (/*label*/ ctx[2].length
+    			? /*label*/ ctx[2]
+    			: /*placeholder*/ ctx[3]) + "")) set_data(t, t_value);
+    		},
+    		d(detaching) {
+    			if (detaching) detach(div);
+    		}
+    	};
     }
 
     // (25:4) {#if icon}
     function create_if_block$2(ctx) {
     	let span;
     	let current;
-    	const icon_1 = new Icon({ props: { path: /*icon*/ ctx[3] } });
+    	const icon_1 = new Icon({ props: { path: /*icon*/ ctx[4] } });
 
     	return {
     		c() {
@@ -1197,7 +1262,7 @@
     			this.h();
     		},
     		h() {
-    			attr(span, "class", "input-prefix svelte-1f9yr9m");
+    			attr(span, "class", "input-prefix svelte-1rceuta");
     		},
     		m(target, anchor) {
     			insert(target, span, anchor);
@@ -1206,7 +1271,7 @@
     		},
     		p(ctx, dirty) {
     			const icon_1_changes = {};
-    			if (dirty[0] & /*icon*/ 8) icon_1_changes.path = /*icon*/ ctx[3];
+    			if (dirty[0] & /*icon*/ 16) icon_1_changes.path = /*icon*/ ctx[4];
     			icon_1.$set(icon_1_changes);
     		},
     		i(local) {
@@ -1228,16 +1293,18 @@
     function create_fragment$3(ctx) {
     	let label_1;
     	let t0;
+    	let t1;
     	let input;
     	let input_updating = false;
-    	let t1;
+    	let t2;
     	let div;
     	let span0;
-    	let t2;
+    	let t3;
     	let span1;
     	let current;
     	let dispose;
-    	let if_block = /*icon*/ ctx[3] && create_if_block$2(ctx);
+    	let if_block0 = /*label*/ ctx[2] && create_if_block_1$1(ctx);
+    	let if_block1 = /*icon*/ ctx[4] && create_if_block$2(ctx);
 
     	function input_input_handler() {
     		input_updating = true;
@@ -1253,14 +1320,16 @@
     	return {
     		c() {
     			label_1 = element("label");
-    			if (if_block) if_block.c();
+    			if (if_block0) if_block0.c();
     			t0 = space();
-    			input = element("input");
+    			if (if_block1) if_block1.c();
     			t1 = space();
+    			input = element("input");
+    			t2 = space();
     			div = element("div");
     			span0 = element("span");
     			create_component(icon0.$$.fragment);
-    			t2 = space();
+    			t3 = space();
     			span1 = element("span");
     			create_component(icon1.$$.fragment);
     			this.h();
@@ -1268,8 +1337,10 @@
     		l(nodes) {
     			label_1 = claim_element(nodes, "LABEL", { class: true });
     			var label_1_nodes = children(label_1);
-    			if (if_block) if_block.l(label_1_nodes);
+    			if (if_block0) if_block0.l(label_1_nodes);
     			t0 = claim_space(label_1_nodes);
+    			if (if_block1) if_block1.l(label_1_nodes);
+    			t1 = claim_space(label_1_nodes);
 
     			input = claim_element(label_1_nodes, "INPUT", {
     				autofocus: true,
@@ -1283,14 +1354,14 @@
     				class: true
     			});
 
-    			t1 = claim_space(label_1_nodes);
+    			t2 = claim_space(label_1_nodes);
     			div = claim_element(label_1_nodes, "DIV", { class: true });
     			var div_nodes = children(div);
     			span0 = claim_element(div_nodes, "SPAN", { class: true });
     			var span0_nodes = children(span0);
     			claim_component(icon0.$$.fragment, span0_nodes);
     			span0_nodes.forEach(detach);
-    			t2 = claim_space(div_nodes);
+    			t3 = claim_space(div_nodes);
     			span1 = claim_element(div_nodes, "SPAN", { class: true });
     			var span1_nodes = children(span1);
     			claim_component(icon1.$$.fragment, span1_nodes);
@@ -1300,20 +1371,20 @@
     			this.h();
     		},
     		h() {
-    			input.autofocus = /*autofocus*/ ctx[9];
-    			input.disabled = /*disabled*/ ctx[8];
-    			attr(input, "min", /*min*/ ctx[4]);
-    			attr(input, "max", /*max*/ ctx[5]);
+    			input.autofocus = /*autofocus*/ ctx[10];
+    			input.disabled = /*disabled*/ ctx[9];
+    			attr(input, "min", /*min*/ ctx[5]);
+    			attr(input, "max", /*max*/ ctx[6]);
     			attr(input, "name", /*name*/ ctx[1]);
-    			attr(input, "placeholder", /*placeholder*/ ctx[2]);
-    			input.readOnly = /*stepOnly*/ ctx[7];
+    			attr(input, "placeholder", /*placeholder*/ ctx[3]);
+    			input.readOnly = /*stepOnly*/ ctx[8];
     			attr(input, "type", "number");
-    			attr(input, "class", "svelte-1f9yr9m");
-    			toggle_class(input, "icon", /*icon*/ ctx[3]);
-    			attr(span0, "class", "postfix-up svelte-1f9yr9m");
-    			attr(span1, "class", "postfix-down svelte-1f9yr9m");
-    			attr(div, "class", "input-postfix svelte-1f9yr9m");
-    			attr(label_1, "class", "input-wrapper svelte-1f9yr9m");
+    			attr(input, "class", "svelte-1rceuta");
+    			toggle_class(input, "icon", /*icon*/ ctx[4]);
+    			attr(span0, "class", "postfix-up svelte-1rceuta");
+    			attr(span1, "class", "postfix-down svelte-1rceuta");
+    			attr(div, "class", "input-postfix svelte-1rceuta");
+    			attr(label_1, "class", "input-wrapper svelte-1rceuta");
 
     			dispose = [
     				listen(input, "input", input_input_handler),
@@ -1330,66 +1401,81 @@
     		},
     		m(target, anchor) {
     			insert(target, label_1, anchor);
-    			if (if_block) if_block.m(label_1, null);
+    			if (if_block0) if_block0.m(label_1, null);
     			append(label_1, t0);
+    			if (if_block1) if_block1.m(label_1, null);
+    			append(label_1, t1);
     			append(label_1, input);
     			set_input_value(input, /*value*/ ctx[0]);
-    			append(label_1, t1);
+    			append(label_1, t2);
     			append(label_1, div);
     			append(div, span0);
     			mount_component(icon0, span0, null);
-    			append(div, t2);
+    			append(div, t3);
     			append(div, span1);
     			mount_component(icon1, span1, null);
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (/*icon*/ ctx[3]) {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
-    					transition_in(if_block, 1);
+    			if (/*label*/ ctx[2]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$2(ctx);
-    					if_block.c();
-    					transition_in(if_block, 1);
-    					if_block.m(label_1, t0);
+    					if_block0 = create_if_block_1$1(ctx);
+    					if_block0.c();
+    					if_block0.m(label_1, t0);
     				}
-    			} else if (if_block) {
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (/*icon*/ ctx[4]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    					transition_in(if_block1, 1);
+    				} else {
+    					if_block1 = create_if_block$2(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(label_1, t1);
+    				}
+    			} else if (if_block1) {
     				group_outros();
 
-    				transition_out(if_block, 1, 1, () => {
-    					if_block = null;
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
     				});
 
     				check_outros();
     			}
 
-    			if (!current || dirty[0] & /*autofocus*/ 512) {
-    				input.autofocus = /*autofocus*/ ctx[9];
+    			if (!current || dirty[0] & /*autofocus*/ 1024) {
+    				input.autofocus = /*autofocus*/ ctx[10];
     			}
 
-    			if (!current || dirty[0] & /*disabled*/ 256) {
-    				input.disabled = /*disabled*/ ctx[8];
+    			if (!current || dirty[0] & /*disabled*/ 512) {
+    				input.disabled = /*disabled*/ ctx[9];
     			}
 
-    			if (!current || dirty[0] & /*min*/ 16) {
-    				attr(input, "min", /*min*/ ctx[4]);
+    			if (!current || dirty[0] & /*min*/ 32) {
+    				attr(input, "min", /*min*/ ctx[5]);
     			}
 
-    			if (!current || dirty[0] & /*max*/ 32) {
-    				attr(input, "max", /*max*/ ctx[5]);
+    			if (!current || dirty[0] & /*max*/ 64) {
+    				attr(input, "max", /*max*/ ctx[6]);
     			}
 
     			if (!current || dirty[0] & /*name*/ 2) {
     				attr(input, "name", /*name*/ ctx[1]);
     			}
 
-    			if (!current || dirty[0] & /*placeholder*/ 4) {
-    				attr(input, "placeholder", /*placeholder*/ ctx[2]);
+    			if (!current || dirty[0] & /*placeholder*/ 8) {
+    				attr(input, "placeholder", /*placeholder*/ ctx[3]);
     			}
 
-    			if (!current || dirty[0] & /*stepOnly*/ 128) {
-    				input.readOnly = /*stepOnly*/ ctx[7];
+    			if (!current || dirty[0] & /*stepOnly*/ 256) {
+    				input.readOnly = /*stepOnly*/ ctx[8];
     			}
 
     			if (!input_updating && dirty[0] & /*value*/ 1) {
@@ -1398,26 +1484,27 @@
 
     			input_updating = false;
 
-    			if (dirty[0] & /*icon*/ 8) {
-    				toggle_class(input, "icon", /*icon*/ ctx[3]);
+    			if (dirty[0] & /*icon*/ 16) {
+    				toggle_class(input, "icon", /*icon*/ ctx[4]);
     			}
     		},
     		i(local) {
     			if (current) return;
-    			transition_in(if_block);
+    			transition_in(if_block1);
     			transition_in(icon0.$$.fragment, local);
     			transition_in(icon1.$$.fragment, local);
     			current = true;
     		},
     		o(local) {
-    			transition_out(if_block);
+    			transition_out(if_block1);
     			transition_out(icon0.$$.fragment, local);
     			transition_out(icon1.$$.fragment, local);
     			current = false;
     		},
     		d(detaching) {
     			if (detaching) detach(label_1);
-    			if (if_block) if_block.d();
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
     			destroy_component(icon0);
     			destroy_component(icon1);
     			run_all(dispose);
@@ -1477,21 +1564,22 @@
 
     	$$self.$set = $$props => {
     		if ("name" in $$props) $$invalidate(1, name = $$props.name);
-    		if ("label" in $$props) $$invalidate(10, label = $$props.label);
-    		if ("placeholder" in $$props) $$invalidate(2, placeholder = $$props.placeholder);
-    		if ("icon" in $$props) $$invalidate(3, icon = $$props.icon);
-    		if ("min" in $$props) $$invalidate(4, min = $$props.min);
-    		if ("max" in $$props) $$invalidate(5, max = $$props.max);
+    		if ("label" in $$props) $$invalidate(2, label = $$props.label);
+    		if ("placeholder" in $$props) $$invalidate(3, placeholder = $$props.placeholder);
+    		if ("icon" in $$props) $$invalidate(4, icon = $$props.icon);
+    		if ("min" in $$props) $$invalidate(5, min = $$props.min);
+    		if ("max" in $$props) $$invalidate(6, max = $$props.max);
     		if ("value" in $$props) $$invalidate(0, value = $$props.value);
-    		if ("step" in $$props) $$invalidate(6, step = $$props.step);
-    		if ("stepOnly" in $$props) $$invalidate(7, stepOnly = $$props.stepOnly);
-    		if ("disabled" in $$props) $$invalidate(8, disabled = $$props.disabled);
-    		if ("autofocus" in $$props) $$invalidate(9, autofocus = $$props.autofocus);
+    		if ("step" in $$props) $$invalidate(7, step = $$props.step);
+    		if ("stepOnly" in $$props) $$invalidate(8, stepOnly = $$props.stepOnly);
+    		if ("disabled" in $$props) $$invalidate(9, disabled = $$props.disabled);
+    		if ("autofocus" in $$props) $$invalidate(10, autofocus = $$props.autofocus);
     	};
 
     	return [
     		value,
     		name,
+    		label,
     		placeholder,
     		icon,
     		min,
@@ -1500,7 +1588,6 @@
     		stepOnly,
     		disabled,
     		autofocus,
-    		label,
     		blur_handler,
     		change_handler,
     		input_handler,
@@ -1517,20 +1604,20 @@
     class Number extends SvelteComponent {
     	constructor(options) {
     		super();
-    		if (!document.getElementById("svelte-1f9yr9m-style")) add_css$3();
+    		if (!document.getElementById("svelte-1rceuta-style")) add_css$3();
 
     		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
     			name: 1,
-    			label: 10,
-    			placeholder: 2,
-    			icon: 3,
-    			min: 4,
-    			max: 5,
+    			label: 2,
+    			placeholder: 3,
+    			icon: 4,
+    			min: 5,
+    			max: 6,
     			value: 0,
-    			step: 6,
-    			stepOnly: 7,
-    			disabled: 8,
-    			autofocus: 9
+    			step: 7,
+    			stepOnly: 8,
+    			disabled: 9,
+    			autofocus: 10
     		});
     	}
 
@@ -1544,7 +1631,7 @@
     	}
 
     	get label() {
-    		return this.$$.ctx[10];
+    		return this.$$.ctx[2];
     	}
 
     	set label(label) {
@@ -1553,7 +1640,7 @@
     	}
 
     	get placeholder() {
-    		return this.$$.ctx[2];
+    		return this.$$.ctx[3];
     	}
 
     	set placeholder(placeholder) {
@@ -1562,7 +1649,7 @@
     	}
 
     	get icon() {
-    		return this.$$.ctx[3];
+    		return this.$$.ctx[4];
     	}
 
     	set icon(icon) {
@@ -1571,7 +1658,7 @@
     	}
 
     	get min() {
-    		return this.$$.ctx[4];
+    		return this.$$.ctx[5];
     	}
 
     	set min(min) {
@@ -1580,7 +1667,7 @@
     	}
 
     	get max() {
-    		return this.$$.ctx[5];
+    		return this.$$.ctx[6];
     	}
 
     	set max(max) {
@@ -1598,7 +1685,7 @@
     	}
 
     	get step() {
-    		return this.$$.ctx[6];
+    		return this.$$.ctx[7];
     	}
 
     	set step(step) {
@@ -1607,7 +1694,7 @@
     	}
 
     	get stepOnly() {
-    		return this.$$.ctx[7];
+    		return this.$$.ctx[8];
     	}
 
     	set stepOnly(stepOnly) {
@@ -1616,7 +1703,7 @@
     	}
 
     	get disabled() {
-    		return this.$$.ctx[8];
+    		return this.$$.ctx[9];
     	}
 
     	set disabled(disabled) {
@@ -1625,7 +1712,7 @@
     	}
 
     	get autofocus() {
-    		return this.$$.ctx[9];
+    		return this.$$.ctx[10];
     	}
 
     	set autofocus(autofocus) {
@@ -1643,8 +1730,8 @@
     	append(document.head, style);
     }
 
-    // (15:4) {#if label}
-    function create_if_block_1$1(ctx) {
+    // (13:4) {#if label}
+    function create_if_block_1$2(ctx) {
     	let div;
 
     	let t_value = (/*label*/ ctx[2].length
@@ -1684,7 +1771,7 @@
     	};
     }
 
-    // (18:4) {#if icon}
+    // (16:4) {#if icon}
     function create_if_block$3(ctx) {
     	let span;
     	let current;
@@ -1739,7 +1826,7 @@
     	let input;
     	let current;
     	let dispose;
-    	let if_block0 = /*label*/ ctx[2] && create_if_block_1$1(ctx);
+    	let if_block0 = /*label*/ ctx[2] && create_if_block_1$2(ctx);
     	let if_block1 = /*icon*/ ctx[4] && create_if_block$3(ctx);
 
     	return {
@@ -1807,7 +1894,7 @@
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
-    					if_block0 = create_if_block_1$1(ctx);
+    					if_block0 = create_if_block_1$2(ctx);
     					if_block0.c();
     					if_block0.m(label_1, t0);
     				}
@@ -2033,7 +2120,7 @@
     	append(document.head, style);
     }
 
-    // (14:4) {#if label}
+    // (11:4) {#if label}
     function create_if_block$4(ctx) {
     	let span;
     	let t;
@@ -2108,11 +2195,11 @@
     			attr(label_1, "class", "input-wrapper svelte-1yjlybu");
 
     			dispose = [
-    				listen(input, "blur", /*blur_handler*/ ctx[5]),
-    				listen(input, "change", /*change_handler*/ ctx[6]),
-    				listen(input, "input", /*input_handler*/ ctx[7]),
-    				listen(input, "focus", /*focus_handler*/ ctx[8]),
-    				listen(label_1, "click", /*click_handler*/ ctx[4])
+    				listen(input, "blur", /*blur_handler*/ ctx[4]),
+    				listen(input, "change", /*change_handler*/ ctx[5]),
+    				listen(input, "input", /*input_handler*/ ctx[6]),
+    				listen(input, "focus", /*focus_handler*/ ctx[7]),
+    				listen(label_1, "click", /*click_handler*/ ctx[3])
     			];
     		},
     		m(target, anchor) {
@@ -2156,7 +2243,6 @@
     function instance$5($$self, $$props, $$invalidate) {
     	let { name = "" } = $$props;
     	let { label = "" } = $$props;
-    	let { checked = false } = $$props;
     	let { disabled = false } = $$props;
 
     	function click_handler(event) {
@@ -2182,7 +2268,6 @@
     	$$self.$set = $$props => {
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("label" in $$props) $$invalidate(1, label = $$props.label);
-    		if ("checked" in $$props) $$invalidate(3, checked = $$props.checked);
     		if ("disabled" in $$props) $$invalidate(2, disabled = $$props.disabled);
     	};
 
@@ -2190,7 +2275,6 @@
     		name,
     		label,
     		disabled,
-    		checked,
     		click_handler,
     		blur_handler,
     		change_handler,
@@ -2203,13 +2287,7 @@
     	constructor(options) {
     		super();
     		if (!document.getElementById("svelte-1yjlybu-style")) add_css$5();
-
-    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
-    			name: 0,
-    			label: 1,
-    			checked: 3,
-    			disabled: 2
-    		});
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, { name: 0, label: 1, disabled: 2 });
     	}
 
     	get name() {
@@ -2227,15 +2305,6 @@
 
     	set label(label) {
     		this.$set({ label });
-    		flush();
-    	}
-
-    	get checked() {
-    		return this.$$.ctx[3];
-    	}
-
-    	set checked(checked) {
-    		this.$set({ checked });
     		flush();
     	}
 
@@ -2258,7 +2327,7 @@
     	append(document.head, style);
     }
 
-    // (27:4) {#if label}
+    // (24:4) {#if label}
     function create_if_block$5(ctx) {
     	let div;
 
@@ -2341,7 +2410,7 @@
     			attr(span, "class", "wrapper svelte-rqhrt2");
 
     			dispose = [
-    				listen(textarea_1, "input", /*textarea_1_input_handler*/ ctx[9]),
+    				listen(textarea_1, "input", /*textarea_1_input_handler*/ ctx[8]),
     				listen(textarea_1, "input", /*autosize*/ ctx[7])
     			];
     		},
@@ -2351,7 +2420,7 @@
     			append(span, t);
     			append(span, textarea_1);
     			set_input_value(textarea_1, /*value*/ ctx[0]);
-    			/*textarea_1_binding*/ ctx[10](textarea_1);
+    			/*textarea_1_binding*/ ctx[9](textarea_1);
     		},
     		p(ctx, dirty) {
     			if (/*label*/ ctx[5]) {
@@ -2392,7 +2461,7 @@
     		d(detaching) {
     			if (detaching) detach(span);
     			if (if_block) if_block.d();
-    			/*textarea_1_binding*/ ctx[10](null);
+    			/*textarea_1_binding*/ ctx[9](null);
     			run_all(dispose);
     		}
     	};
@@ -2401,7 +2470,6 @@
     function instance$6($$self, $$props, $$invalidate) {
     	let { name = "" } = $$props;
     	let { placeholder = "" } = $$props;
-    	let { icon = "" } = $$props;
     	let { value = "" } = $$props;
     	let { disabled = false } = $$props;
     	let { rows = 3 } = $$props;
@@ -2431,7 +2499,6 @@
     	$$self.$set = $$props => {
     		if ("name" in $$props) $$invalidate(1, name = $$props.name);
     		if ("placeholder" in $$props) $$invalidate(2, placeholder = $$props.placeholder);
-    		if ("icon" in $$props) $$invalidate(8, icon = $$props.icon);
     		if ("value" in $$props) $$invalidate(0, value = $$props.value);
     		if ("disabled" in $$props) $$invalidate(3, disabled = $$props.disabled);
     		if ("rows" in $$props) $$invalidate(4, rows = $$props.rows);
@@ -2447,7 +2514,6 @@
     		label,
     		textarea,
     		autosize,
-    		icon,
     		textarea_1_input_handler,
     		textarea_1_binding
     	];
@@ -2461,7 +2527,6 @@
     		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
     			name: 1,
     			placeholder: 2,
-    			icon: 8,
     			value: 0,
     			disabled: 3,
     			rows: 4,
@@ -2484,15 +2549,6 @@
 
     	set placeholder(placeholder) {
     		this.$set({ placeholder });
-    		flush();
-    	}
-
-    	get icon() {
-    		return this.$$.ctx[8];
-    	}
-
-    	set icon(icon) {
-    		this.$set({ icon });
     		flush();
     	}
 

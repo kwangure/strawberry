@@ -265,6 +265,7 @@
     function create_fragment(ctx) {
     	let svg;
     	let path_1;
+    	let path_1_fill_value;
     	let svg_height_value;
     	let svg_width_value;
     	let dispose;
@@ -296,19 +297,19 @@
     		},
     		h() {
     			attr(path_1, "d", /*path*/ ctx[1]);
-    			attr(path_1, "fill", "currentColor");
+    			attr(path_1, "fill", path_1_fill_value = /*color*/ ctx[2] || "currentColor");
     			attr(svg, "height", svg_height_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "viewBox", "0 0 24 24");
     			attr(svg, "width", svg_width_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "class", "svelte-638rev");
-    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
-    			toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
-    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
-    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
+    			toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
+    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
+    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
 
     			dispose = [
-    				listen(svg, "click", /*click_handler*/ ctx[9]),
-    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[10])
+    				listen(svg, "click", /*click_handler*/ ctx[10]),
+    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[11])
     			];
     		},
     		m(target, anchor) {
@@ -320,6 +321,10 @@
     				attr(path_1, "d", /*path*/ ctx[1]);
     			}
 
+    			if (dirty[0] & /*color*/ 4 && path_1_fill_value !== (path_1_fill_value = /*color*/ ctx[2] || "currentColor")) {
+    				attr(path_1, "fill", path_1_fill_value);
+    			}
+
     			if (dirty[0] & /*size*/ 1 && svg_height_value !== (svg_height_value = "" + (/*size*/ ctx[0] + "px"))) {
     				attr(svg, "height", svg_height_value);
     			}
@@ -328,20 +333,20 @@
     				attr(svg, "width", svg_width_value);
     			}
 
-    			if (dirty[0] & /*horizontal*/ 4) {
-    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
+    			if (dirty[0] & /*horizontal*/ 8) {
+    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
     			}
 
-    			if (dirty[0] & /*vertical*/ 8) {
-    				toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
+    			if (dirty[0] & /*vertical*/ 16) {
+    				toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
     			}
 
-    			if (dirty[0] & /*clockwise*/ 16) {
-    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
+    			if (dirty[0] & /*clockwise*/ 32) {
+    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
     			}
 
-    			if (dirty[0] & /*counterclockwise*/ 32) {
-    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			if (dirty[0] & /*counterclockwise*/ 64) {
+    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
     			}
     		},
     		i: noop,
@@ -362,6 +367,7 @@
     	let { path = "" } = $$props;
     	let { flip = "" } = $$props;
     	let { spin = "" } = $$props;
+    	let { color = "" } = $$props;
 
     	function validFlip(spin) {
     		return flip === "horizontal" || flip === "vertical";
@@ -378,8 +384,9 @@
     	$$self.$set = $$props => {
     		if ("size" in $$props) $$invalidate(0, size = $$props.size);
     		if ("path" in $$props) $$invalidate(1, path = $$props.path);
-    		if ("flip" in $$props) $$invalidate(6, flip = $$props.flip);
-    		if ("spin" in $$props) $$invalidate(7, spin = $$props.spin);
+    		if ("flip" in $$props) $$invalidate(7, flip = $$props.flip);
+    		if ("spin" in $$props) $$invalidate(8, spin = $$props.spin);
+    		if ("color" in $$props) $$invalidate(2, color = $$props.color);
     	};
 
     	let horizontal;
@@ -388,26 +395,27 @@
     	let counterclockwise;
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(2, horizontal = validFlip() && flip === "horizontal");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(3, horizontal = validFlip() && flip === "horizontal");
     		}
 
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(3, vertical = validFlip() && flip === "vertical");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(4, vertical = validFlip() && flip === "vertical");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(4, clockwise = validSpin(spin) && spin === "clockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(5, clockwise = validSpin(spin) && spin === "clockwise");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(5, counterclockwise = validSpin(spin) && spin === "counterclockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(6, counterclockwise = validSpin(spin) && spin === "counterclockwise");
     		}
     	};
 
     	return [
     		size,
     		path,
+    		color,
     		horizontal,
     		vertical,
     		clockwise,
@@ -424,7 +432,14 @@
     	constructor(options) {
     		super();
     		if (!document.getElementById("svelte-638rev-style")) add_css();
-    		init(this, options, instance, create_fragment, safe_not_equal, { size: 0, path: 1, flip: 6, spin: 7 });
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			size: 0,
+    			path: 1,
+    			flip: 7,
+    			spin: 8,
+    			color: 2
+    		});
     	}
 
     	get size() {
@@ -446,7 +461,7 @@
     	}
 
     	get flip() {
-    		return this.$$.ctx[6];
+    		return this.$$.ctx[7];
     	}
 
     	set flip(flip) {
@@ -455,11 +470,20 @@
     	}
 
     	get spin() {
-    		return this.$$.ctx[7];
+    		return this.$$.ctx[8];
     	}
 
     	set spin(spin) {
     		this.$set({ spin });
+    		flush();
+    	}
+
+    	get color() {
+    		return this.$$.ctx[2];
+    	}
+
+    	set color(color) {
+    		this.$set({ color });
     		flush();
     	}
     }

@@ -478,7 +478,7 @@
     const get_head_slot_changes = dirty => ({});
     const get_head_slot_context = ctx => ({});
 
-    // (17:8) {:else}
+    // (15:8) {:else}
     function create_else_block(ctx) {
     	let current;
     	const default_slot_template = /*$$slots*/ ctx[1].default;
@@ -518,7 +518,7 @@
     	};
     }
 
-    // (14:12) <Item on:click={item.onclick} active={item.active}>
+    // (12:12) <Item on:click={item.onclick} active={item.active}>
     function create_default_slot(ctx) {
     	let t;
     	let current;
@@ -563,7 +563,7 @@
     	};
     }
 
-    // (13:8) {#each items as item, index}
+    // (11:8) {#each items as item, index}
     function create_each_block(ctx) {
     	let current;
 

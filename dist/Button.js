@@ -403,6 +403,7 @@
     function create_fragment(ctx) {
     	let svg;
     	let path_1;
+    	let path_1_fill_value;
     	let svg_height_value;
     	let svg_width_value;
     	let dispose;
@@ -434,19 +435,19 @@
     		},
     		h() {
     			attr(path_1, "d", /*path*/ ctx[1]);
-    			attr(path_1, "fill", "currentColor");
+    			attr(path_1, "fill", path_1_fill_value = /*color*/ ctx[2] || "currentColor");
     			attr(svg, "height", svg_height_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "viewBox", "0 0 24 24");
     			attr(svg, "width", svg_width_value = "" + (/*size*/ ctx[0] + "px"));
     			attr(svg, "class", "svelte-638rev");
-    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
-    			toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
-    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
-    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
+    			toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
+    			toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
+    			toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
 
     			dispose = [
-    				listen(svg, "click", /*click_handler*/ ctx[9]),
-    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[10])
+    				listen(svg, "click", /*click_handler*/ ctx[10]),
+    				listen(svg, "dblclick", /*dblclick_handler*/ ctx[11])
     			];
     		},
     		m(target, anchor) {
@@ -458,6 +459,10 @@
     				attr(path_1, "d", /*path*/ ctx[1]);
     			}
 
+    			if (dirty[0] & /*color*/ 4 && path_1_fill_value !== (path_1_fill_value = /*color*/ ctx[2] || "currentColor")) {
+    				attr(path_1, "fill", path_1_fill_value);
+    			}
+
     			if (dirty[0] & /*size*/ 1 && svg_height_value !== (svg_height_value = "" + (/*size*/ ctx[0] + "px"))) {
     				attr(svg, "height", svg_height_value);
     			}
@@ -466,20 +471,20 @@
     				attr(svg, "width", svg_width_value);
     			}
 
-    			if (dirty[0] & /*horizontal*/ 4) {
-    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[2]);
+    			if (dirty[0] & /*horizontal*/ 8) {
+    				toggle_class(svg, "horizontal", /*horizontal*/ ctx[3]);
     			}
 
-    			if (dirty[0] & /*vertical*/ 8) {
-    				toggle_class(svg, "vertical", /*vertical*/ ctx[3]);
+    			if (dirty[0] & /*vertical*/ 16) {
+    				toggle_class(svg, "vertical", /*vertical*/ ctx[4]);
     			}
 
-    			if (dirty[0] & /*clockwise*/ 16) {
-    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[4]);
+    			if (dirty[0] & /*clockwise*/ 32) {
+    				toggle_class(svg, "clockwise", /*clockwise*/ ctx[5]);
     			}
 
-    			if (dirty[0] & /*counterclockwise*/ 32) {
-    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[5]);
+    			if (dirty[0] & /*counterclockwise*/ 64) {
+    				toggle_class(svg, "counterclockwise", /*counterclockwise*/ ctx[6]);
     			}
     		},
     		i: noop,
@@ -500,6 +505,7 @@
     	let { path = "" } = $$props;
     	let { flip = "" } = $$props;
     	let { spin = "" } = $$props;
+    	let { color = "" } = $$props;
 
     	function validFlip(spin) {
     		return flip === "horizontal" || flip === "vertical";
@@ -516,8 +522,9 @@
     	$$self.$set = $$props => {
     		if ("size" in $$props) $$invalidate(0, size = $$props.size);
     		if ("path" in $$props) $$invalidate(1, path = $$props.path);
-    		if ("flip" in $$props) $$invalidate(6, flip = $$props.flip);
-    		if ("spin" in $$props) $$invalidate(7, spin = $$props.spin);
+    		if ("flip" in $$props) $$invalidate(7, flip = $$props.flip);
+    		if ("spin" in $$props) $$invalidate(8, spin = $$props.spin);
+    		if ("color" in $$props) $$invalidate(2, color = $$props.color);
     	};
 
     	let horizontal;
@@ -526,26 +533,27 @@
     	let counterclockwise;
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(2, horizontal = validFlip() && flip === "horizontal");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(3, horizontal = validFlip() && flip === "horizontal");
     		}
 
-    		if ($$self.$$.dirty[0] & /*flip*/ 64) {
-    			 $$invalidate(3, vertical = validFlip() && flip === "vertical");
+    		if ($$self.$$.dirty[0] & /*flip*/ 128) {
+    			 $$invalidate(4, vertical = validFlip() && flip === "vertical");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(4, clockwise = validSpin(spin) && spin === "clockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(5, clockwise = validSpin(spin) && spin === "clockwise");
     		}
 
-    		if ($$self.$$.dirty[0] & /*spin*/ 128) {
-    			 $$invalidate(5, counterclockwise = validSpin(spin) && spin === "counterclockwise");
+    		if ($$self.$$.dirty[0] & /*spin*/ 256) {
+    			 $$invalidate(6, counterclockwise = validSpin(spin) && spin === "counterclockwise");
     		}
     	};
 
     	return [
     		size,
     		path,
+    		color,
     		horizontal,
     		vertical,
     		clockwise,
@@ -562,7 +570,14 @@
     	constructor(options) {
     		super();
     		if (!document.getElementById("svelte-638rev-style")) add_css();
-    		init(this, options, instance, create_fragment, safe_not_equal, { size: 0, path: 1, flip: 6, spin: 7 });
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			size: 0,
+    			path: 1,
+    			flip: 7,
+    			spin: 8,
+    			color: 2
+    		});
     	}
 
     	get size() {
@@ -584,7 +599,7 @@
     	}
 
     	get flip() {
-    		return this.$$.ctx[6];
+    		return this.$$.ctx[7];
     	}
 
     	set flip(flip) {
@@ -593,11 +608,20 @@
     	}
 
     	get spin() {
-    		return this.$$.ctx[7];
+    		return this.$$.ctx[8];
     	}
 
     	set spin(spin) {
     		this.$set({ spin });
+    		flush();
+    	}
+
+    	get color() {
+    		return this.$$.ctx[2];
+    	}
+
+    	set color(color) {
+    		this.$set({ color });
     		flush();
     	}
     }
@@ -614,7 +638,7 @@
     	append(document.head, style);
     }
 
-    // (22:8) {#if icon}
+    // (19:8) {#if icon}
     function create_if_block_1(ctx) {
     	let span;
     	let current;
@@ -674,7 +698,7 @@
     	};
     }
 
-    // (27:8) {#if loading}
+    // (24:8) {#if loading}
     function create_if_block(ctx) {
     	let span;
     	let span_class_value;
@@ -733,8 +757,8 @@
     	let dispose;
     	let if_block0 = /*icon*/ ctx[2] && create_if_block_1(ctx);
     	let if_block1 = /*loading*/ ctx[5] && create_if_block(ctx);
-    	const default_slot_template = /*$$slots*/ ctx[9].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[8], null);
+    	const default_slot_template = /*$$slots*/ ctx[8].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[7], null);
 
     	return {
     		c() {
@@ -770,10 +794,10 @@
     			toggle_class(button, "active", /*active*/ ctx[4]);
 
     			dispose = [
-    				listen(button, "click", /*click_handler*/ ctx[10]),
-    				listen(button, "hover", /*hover_handler*/ ctx[11]),
-    				listen(button, "mouseover", /*mouseover_handler*/ ctx[12]),
-    				listen(button, "mouseout", /*mouseout_handler*/ ctx[13])
+    				listen(button, "click", /*click_handler*/ ctx[9]),
+    				listen(button, "hover", /*hover_handler*/ ctx[10]),
+    				listen(button, "mouseover", /*mouseover_handler*/ ctx[11]),
+    				listen(button, "mouseout", /*mouseout_handler*/ ctx[12])
     			];
     		},
     		m(target, anchor) {
@@ -831,8 +855,8 @@
     				check_outros();
     			}
 
-    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 256) {
-    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[8], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[8], dirty, null));
+    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 128) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[7], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[7], dirty, null));
     			}
 
     			if (!current || dirty[0] & /*color, className*/ 3 && button_class_value !== (button_class_value = "" + ((/*color*/ ctx[1] ? /*color*/ ctx[1] : "") + " " + /*className*/ ctx[0] + " svelte-1c4u4uz"))) {
@@ -880,7 +904,6 @@
 
     function instance$1($$self, $$props, $$invalidate) {
     	let { class: className = "" } = $$props;
-    	let { type = "" } = $$props;
     	let { color = "" } = $$props;
     	let { icon = "" } = $$props;
     	let { iconProps = {} } = $$props;
@@ -907,14 +930,13 @@
 
     	$$self.$set = $$props => {
     		if ("class" in $$props) $$invalidate(0, className = $$props.class);
-    		if ("type" in $$props) $$invalidate(7, type = $$props.type);
     		if ("color" in $$props) $$invalidate(1, color = $$props.color);
     		if ("icon" in $$props) $$invalidate(2, icon = $$props.icon);
     		if ("iconProps" in $$props) $$invalidate(3, iconProps = $$props.iconProps);
     		if ("active" in $$props) $$invalidate(4, active = $$props.active);
     		if ("loading" in $$props) $$invalidate(5, loading = $$props.loading);
     		if ("fullwidth" in $$props) $$invalidate(6, fullwidth = $$props.fullwidth);
-    		if ("$$scope" in $$props) $$invalidate(8, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(7, $$scope = $$props.$$scope);
     	};
 
     	$$self.$$.update = () => {
@@ -929,7 +951,6 @@
     		active,
     		loading,
     		fullwidth,
-    		type,
     		$$scope,
     		$$slots,
     		click_handler,
@@ -946,7 +967,6 @@
 
     		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
     			class: 0,
-    			type: 7,
     			color: 1,
     			icon: 2,
     			iconProps: 3,
@@ -962,15 +982,6 @@
 
     	set class(className) {
     		this.$set({ class: className });
-    		flush();
-    	}
-
-    	get type() {
-    		return this.$$.ctx[7];
-    	}
-
-    	set type(type) {
-    		this.$set({ type });
     		flush();
     	}
 
@@ -1124,7 +1135,7 @@
     	return child_ctx;
     }
 
-    // (11:0) {#if tabs.length > 0}
+    // (9:0) {#if tabs.length > 0}
     function create_if_block$1(ctx) {
     	let div2;
     	let div0;
@@ -1255,7 +1266,7 @@
     	};
     }
 
-    // (16:20) <Button                          on:click={(event, index=i) => {selected = tabs[index] }}                         active={selected === tabs[i]}>
+    // (14:20) <Button                          on:click={(event, index=i) => {selected = tabs[index] }}                         active={selected === tabs[i]}>
     function create_default_slot_1(ctx) {
     	let t0_value = /*tab*/ ctx[3].title + "";
     	let t0;
@@ -1284,7 +1295,7 @@
     	};
     }
 
-    // (15:16) {#each tabs as tab, i}
+    // (13:16) {#each tabs as tab, i}
     function create_each_block(ctx) {
     	let current;
 
@@ -1341,7 +1352,7 @@
     	};
     }
 
-    // (14:12) <ButtonGroup>
+    // (12:12) <ButtonGroup>
     function create_default_slot(ctx) {
     	let each_1_anchor;
     	let current;

@@ -130,10 +130,34 @@
     function toggle_class(element, name, toggle) {
         element.classList[toggle ? 'add' : 'remove'](name);
     }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
 
     let current_component;
     function set_current_component(component) {
         current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error(`Function called outside component initialization`);
+        return current_component;
+    }
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail);
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+            }
+        };
     }
     // TODO figure out if we still want to support
     // shorthand events, or if we want to implement
@@ -359,8 +383,8 @@
 
     function add_css() {
     	var style = element("style");
-    	style.id = "svelte-19xnabr-style";
-    	style.textContent = ".menu-item.svelte-19xnabr{--vertical-padding:8px;--horizontal-padding:16px}.menu-item.svelte-19xnabr{clear:both;font-weight:normal;font-size:14px;line-height:22px;white-space:nowrap;cursor:pointer;transition:all .3s;min-width:130px;background-color:#fff}.menu-item.svelte-19xnabr:not(.linked){padding:8px 16px}.menu-item.svelte-19xnabr a{display:flex;padding:var(--vertical-padding) var(--horizontal-padding);margin:calc(-1 * var(--vertical-padding)) calc(-1 * var(--horizontal-padding));text-decoration:none;color:inherit}.menu-item.svelte-19xnabr:hover{color:#1870ff;background-color:#deeaff}";
+    	style.id = "svelte-eb77km-style";
+    	style.textContent = ".menu-item.svelte-eb77km{--vertical-padding:8px;--horizontal-padding:16px}.menu-item.svelte-eb77km{clear:both;font-weight:normal;font-size:14px;line-height:22px;white-space:nowrap;cursor:pointer;transition:all .3s;min-width:130px;background-color:#fff}.menu-item.svelte-eb77km:not(.linked){padding:8px 16px}.menu-item.svelte-eb77km a{display:flex;padding:var(--vertical-padding) var(--horizontal-padding);margin:calc(-1 * var(--vertical-padding)) calc(-1 * var(--horizontal-padding));text-decoration:none;color:inherit}.menu-item.active.svelte-eb77km,.menu-item.svelte-eb77km:hover{color:#1870ff;background-color:#deeaff}";
     	append(document.head, style);
     }
 
@@ -368,8 +392,8 @@
     	let div;
     	let current;
     	let dispose;
-    	const default_slot_template = /*$$slots*/ ctx[1].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[0], null);
+    	const default_slot_template = /*$$slots*/ ctx[2].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[1], null);
 
     	return {
     		c() {
@@ -385,8 +409,9 @@
     			this.h();
     		},
     		h() {
-    			attr(div, "class", "menu-item svelte-19xnabr");
-    			dispose = listen(div, "click", /*click_handler*/ ctx[2]);
+    			attr(div, "class", "menu-item svelte-eb77km");
+    			toggle_class(div, "active", /*active*/ ctx[0]);
+    			dispose = listen(div, "click", /*click_handler*/ ctx[3]);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -398,8 +423,12 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 1) {
-    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[0], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[0], dirty, null));
+    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 2) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[1], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[1], dirty, null));
+    			}
+
+    			if (dirty[0] & /*active*/ 1) {
+    				toggle_class(div, "active", /*active*/ ctx[0]);
     			}
     		},
     		i(local) {
@@ -420,6 +449,7 @@
     }
 
     function instance($$self, $$props, $$invalidate) {
+    	let { active = false } = $$props;
     	let { $$slots = {}, $$scope } = $$props;
 
     	function click_handler(event) {
@@ -427,17 +457,27 @@
     	}
 
     	$$self.$set = $$props => {
-    		if ("$$scope" in $$props) $$invalidate(0, $$scope = $$props.$$scope);
+    		if ("active" in $$props) $$invalidate(0, active = $$props.active);
+    		if ("$$scope" in $$props) $$invalidate(1, $$scope = $$props.$$scope);
     	};
 
-    	return [$$scope, $$slots, click_handler];
+    	return [active, $$scope, $$slots, click_handler];
     }
 
     class Item extends SvelteComponent {
     	constructor(options) {
     		super();
-    		if (!document.getElementById("svelte-19xnabr-style")) add_css();
-    		init(this, options, instance, create_fragment, safe_not_equal, {});
+    		if (!document.getElementById("svelte-eb77km-style")) add_css();
+    		init(this, options, instance, create_fragment, safe_not_equal, { active: 0 });
+    	}
+
+    	get active() {
+    		return this.$$.ctx[0];
+    	}
+
+    	set active(active) {
+    		this.$set({ active });
+    		flush();
     	}
     }
 
@@ -452,31 +492,31 @@
     	append(document_1.head, style);
     }
 
-    const get_menu_slot_changes = dirty => ({ item: dirty[0] & /*items*/ 1 });
+    const get_menu_slot_changes = dirty => ({ item: dirty[0] & /*items*/ 2 });
 
     const get_menu_slot_context = ctx => ({
     	item: {
-    		.../*item*/ ctx[15],
-    		index: /*index*/ ctx[17]
+    		.../*item*/ ctx[19],
+    		index: /*index*/ ctx[21]
     	}
     });
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
-    	child_ctx[17] = i;
+    	child_ctx[19] = list[i];
+    	child_ctx[21] = i;
     	return child_ctx;
     }
 
     const get_button_slot_changes = dirty => ({});
     const get_button_slot_context = ctx => ({});
 
-    // (47:4) {#if visible}
+    // (55:4) {#if visible}
     function create_if_block(ctx) {
     	let div;
     	let current;
     	let dispose;
-    	let each_value = /*items*/ ctx[0];
+    	let each_value = /*items*/ ctx[1];
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -517,11 +557,11 @@
     		},
     		h() {
     			attr(div, "class", "dropdown-menu svelte-qrzcn2");
-    			toggle_class(div, "bottom", /*bottom*/ ctx[6]);
-    			toggle_class(div, "left", /*left*/ ctx[7]);
-    			toggle_class(div, "right", /*right*/ ctx[8]);
-    			toggle_class(div, "top", /*top*/ ctx[5]);
-    			dispose = listen(div, "click", /*close*/ ctx[2]);
+    			toggle_class(div, "bottom", /*bottom*/ ctx[7]);
+    			toggle_class(div, "left", /*left*/ ctx[8]);
+    			toggle_class(div, "right", /*right*/ ctx[9]);
+    			toggle_class(div, "top", /*top*/ ctx[6]);
+    			dispose = listen(div, "click", /*close*/ ctx[3]);
     		},
     		m(target, anchor) {
     			insert(target, div, anchor);
@@ -537,8 +577,8 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (dirty[0] & /*items, $$scope*/ 16385) {
-    				each_value = /*items*/ ctx[0];
+    			if (dirty[0] & /*is_active, items, $$scope*/ 262178) {
+    				each_value = /*items*/ ctx[1];
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
@@ -575,20 +615,20 @@
     				each_1_else = null;
     			}
 
-    			if (dirty[0] & /*bottom*/ 64) {
-    				toggle_class(div, "bottom", /*bottom*/ ctx[6]);
+    			if (dirty[0] & /*bottom*/ 128) {
+    				toggle_class(div, "bottom", /*bottom*/ ctx[7]);
     			}
 
-    			if (dirty[0] & /*left*/ 128) {
-    				toggle_class(div, "left", /*left*/ ctx[7]);
+    			if (dirty[0] & /*left*/ 256) {
+    				toggle_class(div, "left", /*left*/ ctx[8]);
     			}
 
-    			if (dirty[0] & /*right*/ 256) {
-    				toggle_class(div, "right", /*right*/ ctx[8]);
+    			if (dirty[0] & /*right*/ 512) {
+    				toggle_class(div, "right", /*right*/ ctx[9]);
     			}
 
-    			if (dirty[0] & /*top*/ 32) {
-    				toggle_class(div, "top", /*top*/ ctx[5]);
+    			if (dirty[0] & /*top*/ 64) {
+    				toggle_class(div, "top", /*top*/ ctx[6]);
     			}
     		},
     		i(local) {
@@ -618,11 +658,11 @@
     	};
     }
 
-    // (54:12) {:else}
+    // (62:12) {:else}
     function create_else_block(ctx) {
     	let current;
-    	const default_slot_template = /*$$slots*/ ctx[12].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[14], null);
+    	const default_slot_template = /*$$slots*/ ctx[16].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[18], null);
 
     	return {
     		c() {
@@ -639,8 +679,8 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 16384) {
-    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[14], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[14], dirty, null));
+    			if (default_slot && default_slot.p && dirty[0] & /*$$scope*/ 262144) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[18], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[18], dirty, null));
     			}
     		},
     		i(local) {
@@ -658,12 +698,12 @@
     	};
     }
 
-    // (51:16) <Item on:click={item.onclick}>
+    // (59:16) <Item on:click={item.onclick} active={is_active(index)}>
     function create_default_slot(ctx) {
     	let t;
     	let current;
-    	const menu_slot_template = /*$$slots*/ ctx[12].menu;
-    	const menu_slot = create_slot(menu_slot_template, ctx, /*$$scope*/ ctx[14], get_menu_slot_context);
+    	const menu_slot_template = /*$$slots*/ ctx[16].menu;
+    	const menu_slot = create_slot(menu_slot_template, ctx, /*$$scope*/ ctx[18], get_menu_slot_context);
 
     	return {
     		c() {
@@ -683,8 +723,8 @@
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (menu_slot && menu_slot.p && dirty[0] & /*$$scope, items*/ 16385) {
-    				menu_slot.p(get_slot_context(menu_slot_template, ctx, /*$$scope*/ ctx[14], get_menu_slot_context), get_slot_changes(menu_slot_template, /*$$scope*/ ctx[14], dirty, get_menu_slot_changes));
+    			if (menu_slot && menu_slot.p && dirty[0] & /*$$scope, items*/ 262146) {
+    				menu_slot.p(get_slot_context(menu_slot_template, ctx, /*$$scope*/ ctx[18], get_menu_slot_context), get_slot_changes(menu_slot_template, /*$$scope*/ ctx[18], dirty, get_menu_slot_changes));
     			}
     		},
     		i(local) {
@@ -703,18 +743,19 @@
     	};
     }
 
-    // (50:12) {#each items as item, index}
+    // (58:12) {#each items as item, index}
     function create_each_block(ctx) {
     	let current;
 
     	const item = new Item({
     			props: {
+    				active: /*is_active*/ ctx[5](/*index*/ ctx[21]),
     				$$slots: { default: [create_default_slot] },
     				$$scope: { ctx }
     			}
     		});
 
-    	item.$on("click", /*item*/ ctx[15].onclick);
+    	item.$on("click", /*item*/ ctx[19].onclick);
 
     	return {
     		c() {
@@ -729,8 +770,9 @@
     		},
     		p(ctx, dirty) {
     			const item_changes = {};
+    			if (dirty[0] & /*is_active*/ 32) item_changes.active = /*is_active*/ ctx[5](/*index*/ ctx[21]);
 
-    			if (dirty[0] & /*$$scope, items*/ 16385) {
+    			if (dirty[0] & /*$$scope, items*/ 262146) {
     				item_changes.$$scope = { dirty, ctx };
     			}
 
@@ -757,9 +799,9 @@
     	let t;
     	let current;
     	let dispose;
-    	const button_slot_template = /*$$slots*/ ctx[12].button;
-    	const button_slot = create_slot(button_slot_template, ctx, /*$$scope*/ ctx[14], get_button_slot_context);
-    	let if_block = /*visible*/ ctx[4] && create_if_block(ctx);
+    	const button_slot_template = /*$$slots*/ ctx[16].button;
+    	const button_slot = create_slot(button_slot_template, ctx, /*$$scope*/ ctx[18], get_button_slot_context);
+    	let if_block = /*visible*/ ctx[0] && create_if_block(ctx);
 
     	return {
     		c() {
@@ -785,7 +827,7 @@
     		h() {
     			attr(div0, "class", "dropdown-button svelte-qrzcn2");
     			attr(div1, "class", "dropdown svelte-qrzcn2");
-    			dispose = listen(div0, "click", stop_propagation(/*toggle*/ ctx[1]));
+    			dispose = listen(div0, "click", stop_propagation(/*toggle*/ ctx[2]));
     		},
     		m(target, anchor) {
     			insert(target, div1, anchor);
@@ -797,15 +839,15 @@
 
     			append(div1, t);
     			if (if_block) if_block.m(div1, null);
-    			/*div1_binding*/ ctx[13](div1);
+    			/*div1_binding*/ ctx[17](div1);
     			current = true;
     		},
     		p(ctx, dirty) {
-    			if (button_slot && button_slot.p && dirty[0] & /*$$scope*/ 16384) {
-    				button_slot.p(get_slot_context(button_slot_template, ctx, /*$$scope*/ ctx[14], get_button_slot_context), get_slot_changes(button_slot_template, /*$$scope*/ ctx[14], dirty, get_button_slot_changes));
+    			if (button_slot && button_slot.p && dirty[0] & /*$$scope*/ 262144) {
+    				button_slot.p(get_slot_context(button_slot_template, ctx, /*$$scope*/ ctx[18], get_button_slot_context), get_slot_changes(button_slot_template, /*$$scope*/ ctx[18], dirty, get_button_slot_changes));
     			}
 
-    			if (/*visible*/ ctx[4]) {
+    			if (/*visible*/ ctx[0]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     					transition_in(if_block, 1);
@@ -840,7 +882,7 @@
     			if (detaching) detach(div1);
     			if (button_slot) button_slot.d(detaching);
     			if (if_block) if_block.d();
-    			/*div1_binding*/ ctx[13](null);
+    			/*div1_binding*/ ctx[17](null);
     			dispose();
     		}
     	};
@@ -853,65 +895,83 @@
 
     function instance$1($$self, $$props, $$invalidate) {
     	let { items = [] } = $$props;
+    	let { active = [] } = $$props;
     	let { placement = "bottomLeft" } = $$props;
+    	let { visible = false } = $$props;
+    	const dispatch = createEventDispatcher();
     	let dropdown = null;
-    	let visible = false;
 
     	function handleDocumentClick(e) {
     		if (!dropdown.contains(event.target)) {
-    			$$invalidate(4, visible = false);
+    			$$invalidate(0, visible = false);
     		}
     	}
 
     	function toggle() {
-    		$$invalidate(4, visible = !visible);
+    		$$invalidate(0, visible = !visible);
     	}
 
     	function open() {
-    		$$invalidate(4, visible = true);
+    		$$invalidate(0, visible = true);
     	}
 
     	function close() {
-    		$$invalidate(4, visible = false);
+    		$$invalidate(0, visible = false);
     	}
 
     	let { $$slots = {}, $$scope } = $$props;
 
     	function div1_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
-    			$$invalidate(3, dropdown = $$value);
+    			$$invalidate(4, dropdown = $$value);
     		});
     	}
 
     	$$self.$set = $$props => {
-    		if ("items" in $$props) $$invalidate(0, items = $$props.items);
-    		if ("placement" in $$props) $$invalidate(9, placement = $$props.placement);
-    		if ("$$scope" in $$props) $$invalidate(14, $$scope = $$props.$$scope);
+    		if ("items" in $$props) $$invalidate(1, items = $$props.items);
+    		if ("active" in $$props) $$invalidate(10, active = $$props.active);
+    		if ("placement" in $$props) $$invalidate(11, placement = $$props.placement);
+    		if ("visible" in $$props) $$invalidate(0, visible = $$props.visible);
+    		if ("$$scope" in $$props) $$invalidate(18, $$scope = $$props.$$scope);
     	};
 
+    	let active_set;
+    	let is_active;
     	let top;
     	let bottom;
     	let left;
     	let right;
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*placement*/ 512) {
-    			 $$invalidate(5, top = valid(placement) && placement.includes("top"));
+    		if ($$self.$$.dirty[0] & /*active*/ 1024) {
+    			 $$invalidate(10, active = Number.isInteger(active) ? [active] : active);
     		}
 
-    		if ($$self.$$.dirty[0] & /*placement*/ 512) {
-    			 $$invalidate(6, bottom = valid(placement) && placement.includes("bottom"));
+    		if ($$self.$$.dirty[0] & /*active*/ 1024) {
+    			 $$invalidate(13, active_set = new Set(active));
     		}
 
-    		if ($$self.$$.dirty[0] & /*placement*/ 512) {
-    			 $$invalidate(7, left = valid(placement) && placement.includes("Left"));
+    		if ($$self.$$.dirty[0] & /*active_set*/ 8192) {
+    			 $$invalidate(5, is_active = index => active_set.has(index));
     		}
 
-    		if ($$self.$$.dirty[0] & /*placement*/ 512) {
-    			 $$invalidate(8, right = valid(placement) && placement.includes("Right"));
+    		if ($$self.$$.dirty[0] & /*placement*/ 2048) {
+    			 $$invalidate(6, top = valid(placement) && placement.includes("top"));
     		}
 
-    		if ($$self.$$.dirty[0] & /*visible*/ 16) {
+    		if ($$self.$$.dirty[0] & /*placement*/ 2048) {
+    			 $$invalidate(7, bottom = valid(placement) && placement.includes("bottom"));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*placement*/ 2048) {
+    			 $$invalidate(8, left = valid(placement) && placement.includes("Left"));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*placement*/ 2048) {
+    			 $$invalidate(9, right = valid(placement) && placement.includes("Right"));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*visible*/ 1) {
     			 {
     				visible
     				? document.addEventListener("click", handleDocumentClick)
@@ -921,17 +981,21 @@
     	};
 
     	return [
+    		visible,
     		items,
     		toggle,
     		close,
     		dropdown,
-    		visible,
+    		is_active,
     		top,
     		bottom,
     		left,
     		right,
+    		active,
     		placement,
     		open,
+    		active_set,
+    		dispatch,
     		handleDocumentClick,
     		$$slots,
     		div1_binding,
@@ -945,16 +1009,18 @@
     		if (!document_1.getElementById("svelte-qrzcn2-style")) add_css$1();
 
     		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
-    			items: 0,
-    			placement: 9,
-    			toggle: 1,
-    			open: 10,
-    			close: 2
+    			items: 1,
+    			active: 10,
+    			placement: 11,
+    			visible: 0,
+    			toggle: 2,
+    			open: 12,
+    			close: 3
     		});
     	}
 
     	get items() {
-    		return this.$$.ctx[0];
+    		return this.$$.ctx[1];
     	}
 
     	set items(items) {
@@ -962,8 +1028,17 @@
     		flush();
     	}
 
+    	get active() {
+    		return this.$$.ctx[10];
+    	}
+
+    	set active(active) {
+    		this.$set({ active });
+    		flush();
+    	}
+
     	get placement() {
-    		return this.$$.ctx[9];
+    		return this.$$.ctx[11];
     	}
 
     	set placement(placement) {
@@ -971,16 +1046,25 @@
     		flush();
     	}
 
+    	get visible() {
+    		return this.$$.ctx[0];
+    	}
+
+    	set visible(visible) {
+    		this.$set({ visible });
+    		flush();
+    	}
+
     	get toggle() {
-    		return this.$$.ctx[1];
+    		return this.$$.ctx[2];
     	}
 
     	get open() {
-    		return this.$$.ctx[10];
+    		return this.$$.ctx[12];
     	}
 
     	get close() {
-    		return this.$$.ctx[2];
+    		return this.$$.ctx[3];
     	}
     }
 

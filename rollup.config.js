@@ -11,8 +11,6 @@ let paths = [
     ...singles.map(component => `${component}.svelte`)
 ]
 
-const production = !process.env.ROLLUP_WATCH
-
 export default [
     ...paths.map(component => ({
         input: `js/components/${component}`,
@@ -37,7 +35,7 @@ export default [
             }),
             commonjs(),
             globals(),
-            production && terser(),
+            terser(),
         ],
         onwarn: function (message, warn) {
 			if (message.pluginCode === 'missing-custom-element-compile-options') {
