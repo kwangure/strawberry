@@ -4,7 +4,7 @@ import terser from 'rollup-plugin-terser';
 import svelte from 'rollup-plugin-svelte'
 import globals from 'rollup-plugin-node-globals'
 
-let nested  = ["Dropdown", "Input", "Sidebar", "Button"];
+let nested  = ["Button", "Dropdown", "Input", "Sidebar", "Select",];
 let singles = ["Icon", "Modal", "Tooltip"];
 let paths = [
     ...nested,
