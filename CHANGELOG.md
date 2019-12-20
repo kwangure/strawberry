@@ -1,5 +1,14 @@
 # :strawberry: Strawberry changelog
 
+# 0.14.0
+* chore(build): export minified dist files
+* chore(build): add `pkg.svelte` to allow consuming original components
+* feat: export `active` and `visible` props in `dropdown` component
+* feat: add regular and autocomplete `select` components
+* feat: support changing `icon` component color with javascript
+* fix: add `fade` transition to `modal` and `tooltip`
+* fix: add `slide` transitions to list items
+
 # 0.13.2
 * fix: import change module path
 
