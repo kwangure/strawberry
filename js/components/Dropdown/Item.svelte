@@ -1,4 +1,8 @@
-<div class="menu-item" on:click>
+<script>
+    export let active = false;
+</script>
+
+<div class="menu-item" on:click class:active>
     <slot/>
 </div>
 
@@ -31,6 +35,7 @@
         color: inherit;
     }
 
+    .menu-item.active,
     .menu-item:hover {
         color: #1870ff;
         background-color: #deeaff;

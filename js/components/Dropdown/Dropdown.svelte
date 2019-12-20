@@ -1,8 +1,15 @@
 <script>
     import Item from "./Item.svelte";
+    
     export let items = [];
+    export let active = [];
     export let placement = 'bottomLeft';
-
+    export let visible = false;
+    
+    $: active = Number.isInteger(active) ? [active]: active;
+    $: active_set =  new Set(active);
+    $: is_active = (index) => active_set.has(index);
+    
     function valid(placement) {
         let positions = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
         return positions.includes(placement)
@@ -14,7 +21,6 @@
     $: right = valid(placement) && placement.includes("Right")
 
     let dropdown = null
-    let visible = false
 
     function handleDocumentClick(e) {
         if(!dropdown.contains(event.target)){
@@ -37,7 +43,6 @@
             ? document.addEventListener('click', handleDocumentClick)
             : document.removeEventListener('click', handleDocumentClick)
     }
-
 </script>
  
 <div class="dropdown" bind:this={dropdown}>
@@ -48,7 +53,7 @@
         <div class="dropdown-menu" class:bottom class:left class:right
             class:top on:click={close}>
             {#each items as item, index}
-                <Item on:click={item.onclick}>
+                <Item on:click={item.onclick} active={is_active(index)}>
                     <slot name="menu" item={{...item, index}}/>
                 </Item>
             {:else}
