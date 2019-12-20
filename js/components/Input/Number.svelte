@@ -13,6 +13,8 @@
     export let disabled = false
     export let autofocus = false
 
+    let focused = false;
+
     function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
     }
@@ -30,10 +32,11 @@
     <!-- svelte-ignore a11y-autofocus -->
     <input 
         {autofocus} bind:value class:icon {disabled} {min} {max} {name} on:blur
-        on:change on:change={() => value = clamp(value, min, max)} on:input 
-        on:keypress on:focus on:keydown {placeholder} readonly={stepOnly} 
-        type='number'>
-    <div class="input-postfix">
+        on:blur={()=> focused = false} on:change 
+        on:change={() => value = clamp(value, min, max)} on:input 
+        on:keypress on:focus on:focus={()=> focused = true} on:keydown 
+        {placeholder} readonly={stepOnly} type='number'>
+    <div class="input-postfix" class:focused>
         <span class="postfix-up"
             on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
             <Icon path={mdiChevronUp} size={21}></Icon>
@@ -108,20 +111,26 @@
     }
     .input-postfix {
         position: absolute;
-        top: 52%;
-        right: 6px;
+        top: 2px;
+        right: 2px;
         z-index: 2;
+        height: 31px;
         color: rgba(0,0,0,0.65);
-        line-height: 0;
-        transform: translateY(-50%);
         display: flex;
+        padding: 0 4px;
         flex-direction: column;
+        border-radius: 0 2px 2px 0;
     }
-    .postfix-up {
-        margin-bottom: -3px;
+    .focused {
+        color: #1870ff;
+        background-color: #deeaff;
     }
+    .postfix-up,
     .postfix-down {
-        margin-top: -3px;
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        align-items: center;
     }
 
     .label {
