@@ -1,5 +1,6 @@
 <script>
     import { mdiChevronDown } from "@mdi/js";
+    import { onDestroy } from "svelte"
     import fuzzy from "fuzzy";
     import Icon from '../../Icon.svelte';
     import Item from "./Item.svelte";
@@ -67,6 +68,10 @@
         let positions = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
         return positions.includes(placement);
     }
+
+    onDestroy(() => {
+        document.removeEventListener('click', handleDocumentClick)
+    });
 </script>
  
 <div class="wrapper" bind:this={dropdown}>

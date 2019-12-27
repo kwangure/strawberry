@@ -1,4 +1,5 @@
 <script>
+    import { onDestroy } from "svelte"
     import Item from "./Item.svelte";
     
     export let items = [];
@@ -43,6 +44,10 @@
             ? document.addEventListener('click', handleDocumentClick)
             : document.removeEventListener('click', handleDocumentClick)
     }
+
+    onDestroy(() => {
+        document.removeEventListener('click', handleDocumentClick)
+    });
 </script>
  
 <div class="dropdown" bind:this={dropdown}>
