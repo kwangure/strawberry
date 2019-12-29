@@ -16,8 +16,8 @@
 </script>
 
 {#if visible}    
-    <div class="overlay" on:click|self={() => closable && (visible = false)}>
-        <div class="modal" transition:fade>
+    <div class="overlay" on:click|self={() => visible = closable ? false : visible}>
+        <div class="modal">
             <div class="header">
                 <div class="header-content">
                     <slot name="header"></slot>
@@ -43,9 +43,6 @@
         left: 0;
         z-index: 1050;
         background-color: rgba(0,0,0,0.5);
-        -webkit-transition: .2s opacity;
-        -o-transition: .2s opacity;
-        transition: .2s opacity;
         display: flex;
         align-items: center;
         justify-content: center
