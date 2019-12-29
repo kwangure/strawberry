@@ -7,6 +7,7 @@
     export let value = ''
     export let disabled = false
     export let autofocus = false
+    export let readonly = false;
 </script>
 
 <label class="input-wrapper">
@@ -21,7 +22,7 @@
     <!-- svelte-ignore a11y-autofocus -->
     <input 
         {autofocus} bind:value class:icon {disabled} {name} on:blur
-        on:change on:input on:keypress on:focus 
+        on:change on:input on:keypress on:focus {readonly}
         on:keydown {placeholder} type="text" 
         >
 </label>
