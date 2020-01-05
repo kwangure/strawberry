@@ -104,7 +104,7 @@
 </div>
 
 <style>
-    @import "./Input.css";
+    @import "../../Input/Input.css";
     .input-wrapper {
         display: inline-block;
         position: relative;
