@@ -74,7 +74,7 @@
     });
 </script>
  
-<div class="wrapper" bind:this={dropdown}>
+<div class="input-wrapper" bind:this={dropdown}>
     <div class="dropdown-button">
         <!-- svelte-ignore a11y-autofocus -->
         <input {autofocus} bind:this={input} bind:value={text} class:icon {disabled} 
@@ -104,43 +104,12 @@
 </div>
 
 <style>
-    .wrapper {
+    @import "./Input.css";
+    .input-wrapper {
         display: inline-block;
         position: relative;
         width: 100%;
         line-height: 1.5;
-    }
-    .wrapper {
-        --vertical-padding: 5px;
-        --horizontal-padding: 12px;
-        --padding-right: 25px;
-        --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
-        --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
-        --padding-right-focus: calc(var(--padding-right) - 1px);
-    }
-    input {
-        text-align: inherit;
-        display: inline-block;
-        padding: var(--vertical-padding) var(--horizontal-padding);
-        padding-right: var(--padding-right);
-        color: rgba(0,0,0,0.65);
-        font-size: 14px;
-        line-height: 1.5;
-        background-color: var(--white);
-        background-image: none;
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        width: 100%;
-        height: 35px;
-    }
-    input:hover {
-        border-color: var(--border);
-    }
-    input:focus {
-        border: 2px solid var(--primary);
-        outline: 0;
-        padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
-        padding-right: var(--padding-right-focus);
     }
     .dropdown-button {
         display: inline-block;

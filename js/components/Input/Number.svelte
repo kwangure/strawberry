@@ -49,68 +49,13 @@
 </label>
 
 <style>
-    .input-wrapper {
-        display: inline-block;
-        position: relative;
-        width: 100%;
-        line-height: 1.5;
-    }
-    .input-wrapper {
-        --vertical-padding: 5px;
-        --horizontal-padding: 12px;
-        --padding-right: 25px;
-        --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
-        --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
-        --padding-right-focus: calc(var(--padding-right) - 1px);
-    }
-
-    .input-prefix {
-        position: absolute;
-        top: 52%;
-        z-index: 2;
-        color: rgba(0,0,0,0.65);
-        line-height: 0;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        left: 12px;
-    }
-    input {
-        text-align: inherit;
-        display: inline-block;
-        padding: var(--vertical-padding) var(--horizontal-padding);
-        padding-right: var(--padding-right);
-        color: rgba(0,0,0,0.65);
-        font-size: 14px;
-        line-height: 1.5;
-        background-color: var(--white);
-        background-image: none;
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        width: 100%;
-        height: 35px;
-    }
-    input:hover {
-        border-color: var(--border);
-    }
-    input:focus {
-        border: 2px solid var(--primary);
-        outline: 0;
-        padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
-        padding-right: var(--padding-right-focus);
-    }
+    @import "./Input.css";
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         margin: 0; 
-    }
-    .icon {
-        padding-left: 38px;
-    }
-    .icon:focus {
-        padding-left: 37px;
     }
     .input-postfix {
         position: absolute;
@@ -135,7 +80,6 @@
         display: flex;
         align-items: center;
     }
-
     .label {
         margin-bottom: 5px;
     }
