@@ -10,10 +10,11 @@
     export let active = ''
     export let loading = false
     export let fullwidth = false
-    $: loading
+    
+    let slot_used = true;
 </script>
 
-<button class="{color? color: ''} {className}" class:icon class:loading class:fullwidth
+<button class="{color? color: ''} {className}" class:icon class:slot_used class:loading class:fullwidth
     class:active on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
@@ -26,7 +27,7 @@
                 <Icon path={ mdiLoading }></Icon>
             </span>
         {/if}
-        <slot></slot>
+        <slot>{(slot_used = false) || ""}</slot>
     </div>
 </button>
 
@@ -83,7 +84,7 @@
         display: flex;
         padding-right: 2px;
     }
-    button.icon {
+    button.icon.slot_used {
         padding-right: 16px;
     }
     button.loading {
@@ -123,8 +124,12 @@
     }
     button.primary.active,
     button.primary:hover {
-        color: var(--primary-hover);
-        background-color: var(--white);
+        background-color: var(--primary-hover);
         border-color: var(--primary-hover);
+    }
+    button.active,
+    button:hover {
+        background-color: var(--light-grey);
+        border-color: var(--border-hover);
     }
 </style>
