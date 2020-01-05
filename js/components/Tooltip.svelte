@@ -34,13 +34,13 @@
     .active:before {
         top: calc(100%);
         border: solid;
-        border-color: var(--dark-grey) transparent;
+        border-color: var(--grey-dark) transparent;
         border-width: 0 8px 9px 8px;
         content: "";
     }
     .active:after {
         line-height: 2em;
-        background: var(--dark-grey);
+        background: var(--grey-dark);
         border-radius: 4px;
         top: calc(100% + 8px);
         color: var(--white);

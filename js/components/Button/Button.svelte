@@ -129,7 +129,7 @@
     }
     button.active,
     button:hover {
-        background-color: var(--light-grey);
+        background-color: var(--grey-light);
         border-color: var(--border-hover);
     }
 </style>

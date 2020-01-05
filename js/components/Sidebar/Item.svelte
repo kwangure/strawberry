@@ -21,7 +21,7 @@
         padding: 8px 12px;
     }
     .sidebar-item:not(.active):hover {
-        background-color: var(--light-grey);
+        background-color: var(--grey-light);
     }
     .sidebar-item.active {
         background-color: var(--primary-light);

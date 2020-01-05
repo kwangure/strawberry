@@ -21,9 +21,9 @@
 	--green-light: rgb(220, 255, 190);
 
 	--black: #333;
-	--dark-grey: rgb(70, 80, 90);
+	--grey-dark: rgb(70, 80, 90);
 	--grey: rgb(150, 150, 150);
-	--light-grey: rgb(220, 220, 220);
+	--grey-light: rgb(220, 220, 220);
 	--white: #fff;
 	
 	--primary: var(--blue);
@@ -31,7 +31,7 @@
 	--primary-light: var(--blue-light);
 	--text: var(--black);
 	--heading: var(--black);
-	--border: var(--light-grey);
+	--border: var(--grey-light);
 	--border-hover: var(--grey);
 	--code-fs: 1.3rem;
 	--h1: 3.2rem;
