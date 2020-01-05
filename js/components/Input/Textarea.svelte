@@ -48,9 +48,9 @@
         color: rgba(0,0,0,0.65);
         font-size: 14px;
         line-height: 1.5;
-        background-color: #fff;
+        background-color: var(--white);
         background-image: none;
-        border: 1px solid #d9d9d9;
+        border: 1px solid var(--border);
         border-radius: 4px;
         overflow: scroll;
         overflow-x: hidden;
@@ -62,7 +62,7 @@
     }
     textarea:focus,
     textarea:hover {
-        border: 2px solid #1870ff;
+        border: 2px solid var(--primary);
         padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
     }
     .label {

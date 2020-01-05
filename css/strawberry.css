@@ -8,13 +8,31 @@
 -----------------------------------------------
 */
 :root {
-	--primary: #ff261b;
-	--primary-light: #fee8f0;
-	--secondary: #1870ff;
-	--secondary-hover: #2981ff;
-	--secondary-light: #deeaff;
-	--text: #333;
-	--heading: var(--text);
+	--red: rgb(255, 40, 30);
+	--red-hover: rgba(255, 60, 50);
+	--red-light: rgb(255, 230, 240);
+
+	--blue: rgb(25, 110, 255);
+	--blue-hover: rgb(40, 130, 255);
+	--blue-light: rgb(220, 235, 255);
+
+	--green: rgb(45, 190, 45);
+	--green-hover: rgb(55, 200, 55);
+	--green-light: rgb(220, 255, 190);
+
+	--black: #333;
+	--dark-grey: rgb(70, 80, 90);
+	--grey: rgb(150, 150, 150);
+	--light-grey: rgb(220, 220, 220);
+	--white: #fff;
+	
+	--primary: var(--blue);
+	--primary-hover: var(--blue-hover);
+	--primary-light: var(--blue-light);
+	--text: var(--black);
+	--heading: var(--black);
+	--border: var(--light-grey);
+	--border-hover: var(--grey);
 	--code-fs: 1.3rem;
 	--h1: 3.2rem;
 	--h2: 3rem;

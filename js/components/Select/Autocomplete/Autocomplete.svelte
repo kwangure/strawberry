@@ -126,18 +126,18 @@
         color: rgba(0,0,0,0.65);
         font-size: 14px;
         line-height: 1.5;
-        background-color: #fff;
+        background-color: var(--white);
         background-image: none;
-        border: 1px solid #d9d9d9;
+        border: 1px solid var(--border);
         border-radius: 4px;
         width: 100%;
         height: 35px;
     }
     input:hover {
-        border-color: #aaa;
+        border-color: var(--border);
     }
     input:focus {
-        border: 2px solid #1870ff;
+        border: 2px solid var(--primary);
         outline: 0;
         padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
         padding-right: var(--padding-right-focus);
@@ -148,7 +148,7 @@
     .dropdown-menu {
         position: absolute;
         margin-top: 5px;
-        background-color: #fff;
+        background-color: var(--white);
         border-radius: 4px;
         outline: none;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -185,7 +185,7 @@
         padding: 4px;
     }
     .input-postfix.visible {
-        color: #1870ff;
-        background-color: #deeaff;
+        color: var(--primary);
+        background-color: var(--primary-light);
     }
 </style>

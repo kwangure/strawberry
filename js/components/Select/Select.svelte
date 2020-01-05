@@ -67,18 +67,18 @@
         color: rgba(0,0,0,0.65);
         font-size: 14px;
         line-height: 1.5;
-        background-color: #fff;
+        background-color: var(--white);
         background-image: none;
-        border: 1px solid #d9d9d9;
+        border: 1px solid var(--border);
         border-radius: 4px;
         width: 100%;
         height: 35px;
     }
     .wrapper:hover input {
-        border-color: #aaa;
+        border-color: var(--border);
     }
     input:focus {
-        border: 2px solid #1870ff !important;
+        border: 2px solid var(--primary) !important;
         outline: 0;
         padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
         padding-right: var(--padding-right-focus);
@@ -96,7 +96,7 @@
         padding: 4px;
     }
     .input-postfix.visible {
-        color: #1870ff;
-        background-color: #deeaff;
+        color: var(--primary);
+        background-color: var(--primary-light);
     }
 </style>

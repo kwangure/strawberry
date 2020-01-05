@@ -21,11 +21,11 @@
         padding: 8px 12px;
     }
     .sidebar-item:not(.active):hover {
-        background-color: #f9f9f9;
+        background-color: var(--light-grey);
     }
     .sidebar-item.active {
-        background-color: #e8f0fe;
-        color:#2885ff;
+        background-color: var(--primary-light);
+        color: var(--primary);
     }
     .sidebar-item + .sidebar-item {
         margin-top: 3px;

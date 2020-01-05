@@ -20,7 +20,7 @@
         cursor: pointer;
         transition: all .3s;
         min-width: 130px;
-        background-color: #fff;
+        background-color: var(--white);
     }
 
     .menu-item:not(.linked) {
@@ -37,7 +37,7 @@
 
     .menu-item.active,
     .menu-item:hover {
-        color: #1870ff;
-        background-color: #deeaff;
+        color: var(--primary);
+        background-color: var(--primary-light);
     }
 </style>

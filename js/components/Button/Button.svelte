@@ -47,9 +47,9 @@
         padding: 0 10px;
         font-size: 14px;
         border-radius: 4px;
-        color: rgba(0,0,0,0.65);
+        color: var(--text);
         background-color: transparent;
-        border-color: #d9d9d9;
+        border-color: var(--border);
         outline: none;
     }
     button.fullwidth {
@@ -62,22 +62,22 @@
         line-height: 1.2;
     }
     button.primary {
-        color: #fff;
-        background-color: #1870ff;
+        color: var(--white);
+        background-color: var(--primary);
         border: none;
     }
     button.primary:active, 
     button.primary:hover {
-        color: #fff;
-        background-color: #2981ff;
+        color: var(--white);
+        background-color: var(--primary);
     }
     button.none {
         border: none;
     }
     button.none:active,
     button.none:hover {
-        background-color: #e8f0fe;
-        color:  #1870ff;
+        background-color: var(--primary-light);
+        color:  var(--primary);
     }
     .button-prefix {
         display: flex;
@@ -96,7 +96,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #fff;
+        background-color: var(--white);
         opacity: .6;
         cursor: disabled;
         z-index: 2;
@@ -111,7 +111,7 @@
         z-index: 2;
         font-size: 22px;
         animation: spin 1s infinite linear;
-        color: #444;
+        color: var(--black);
         z-index: 3;
     }
     @keyframes spin {
@@ -121,10 +121,10 @@
     .visible {
         display: block;
     }
-    button.active,
-    button:hover {
-        color: #2981ff;
-        background-color: #fff;
-        border-color: #2981ff;
+    button.primary.active,
+    button.primary:hover {
+        color: var(--primary-hover);
+        background-color: var(--white);
+        border-color: var(--primary-hover);
     }
 </style>

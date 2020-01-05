@@ -56,9 +56,9 @@
         color: rgba(0,0,0,0.65);
         font-size: 14px;
         line-height: 1.5;
-        background-color: #fff;
+        background-color: var(--white);
         background-image: none;
-        border: 1px solid #d9d9d9;
+        border: 1px solid var(--border);
         border-radius: 4px;
     }
     input:not(.checkbox):not(.radio){
@@ -66,10 +66,10 @@
         height: 35px;
     }
     input:hover {
-        border-color: #aaa;
+        border-color: var(--grey);
     }
     input:focus {
-        border: 2px solid #1870ff;
+        border: 2px solid var(--primary);
         padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
         outline: 0;
     }

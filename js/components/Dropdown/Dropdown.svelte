@@ -79,7 +79,7 @@
     .dropdown-menu {
         position: absolute;
         margin-top: 5px;
-        background-color: #fff;
+        background-color: var(--white);
         border-radius: 4px;
         outline: none;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);

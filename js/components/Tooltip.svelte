@@ -34,16 +34,16 @@
     .active:before {
         top: calc(100%);
         border: solid;
-        border-color: #4a4e57 transparent;
+        border-color: var(--dark-grey) transparent;
         border-width: 0 8px 9px 8px;
         content: "";
     }
     .active:after {
-        line-height: 1em;
-        background: #4a4e57;
+        line-height: 2em;
+        background: var(--dark-grey);
         border-radius: 4px;
         top: calc(100% + 8px);
-        color: #fff;
+        color: var(--white);
         content: attr(aria-label);
         padding: 10px;
         white-space: nowrap;

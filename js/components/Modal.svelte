@@ -48,7 +48,7 @@
         justify-content: center
     }
     .modal {
-        background-color: #fff;
+        background-color: var(--white);
         padding: 20px 30px;
         box-shadow: 0 7px 15px rgba(0,0,0,0.35);
         border-radius: 4px;
