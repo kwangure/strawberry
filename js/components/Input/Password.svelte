@@ -15,7 +15,7 @@
     {/if}
     {#if icon}
         <span class="input-prefix">
-            <Icon path={icon}></Icon>
+            <Icon size="18" path={icon}></Icon>
         </span>
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
@@ -43,14 +43,11 @@
     }
     .input-prefix {
         position: absolute;
-        top: 52%;
+        bottom: 7px;
         z-index: 2;
         color: rgba(0,0,0,0.65);
         line-height: 0;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        left: 12px;
+        left: 10px;
     }
     input {
         text-align: inherit;
@@ -77,7 +74,10 @@
         outline: 0;
     }
     .icon {
-        padding-left: 30px;
+        padding-left: 38px;
+    }
+    .icon:focus {
+        padding-left: 37px;
     }
     .label {
         margin-bottom: 5px;

@@ -8,22 +8,28 @@
     export let disabled = false
     export let autofocus = false
     export let readonly = false;
+    export let focus = false;
+
+    let input = null;
+
+    $: (focus && input) ? input.focus() : ""; 
 </script>
 
 <label class="input-wrapper">
+    <!-- label could be a boolean or a string-->
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
     {/if}
     {#if icon}
         <span class="input-prefix">
-            <Icon path={icon}></Icon>
+            <Icon size="18" path={icon}></Icon>
         </span>
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
     <input 
-        {autofocus} bind:value class:icon {disabled} {name} on:blur
+        {autofocus} bind:value bind:this={input} class:icon {disabled} {name} on:blur
         on:change on:input on:keypress on:focus {readonly}
-        on:keydown {placeholder} type="text" 
+        on:keydown {placeholder} type="text"
         >
 </label>
 
@@ -34,22 +40,13 @@
         width: 100%;
         line-height: 1.5;
     }
-    .input-wrapper {
-        --vertical-padding: 5px;
-        --horizontal-padding: 12px;
-        --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
-        --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
-    }
     .input-prefix {
         position: absolute;
-        top: 52%;
+        bottom: 7px;
         z-index: 2;
         color: rgba(0,0,0,0.65);
         line-height: 0;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        left: 12px;
+        left: 10px;
     }
     input {
         text-align: inherit;
@@ -63,7 +60,7 @@
         border: 1px solid #d9d9d9;
         border-radius: 4px;
     }
-    input{
+    input {
         width: 100%;
         height: 35px;
     }
@@ -76,7 +73,10 @@
         outline: 0;
     }
     .icon {
-        padding-left: 30px;
+        padding-left: var(--icon-padding);
+    }
+    .icon:focus {
+        padding-left: var(--icon-padding-focus);
     }
     .label {
         margin-bottom: 5px;

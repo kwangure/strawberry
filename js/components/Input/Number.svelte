@@ -106,8 +106,11 @@
         appearance: none;
         margin: 0; 
     }
-    input.icon {
-        padding-left: 30px;
+    .icon {
+        padding-left: 38px;
+    }
+    .icon:focus {
+        padding-left: 37px;
     }
     .input-postfix {
         position: absolute;
