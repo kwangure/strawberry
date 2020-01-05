@@ -8,35 +8,29 @@
 -----------------------------------------------
 */
 :root {
-	--primary:      	#ff261b;
-	--primary:      	#ff372c;
-	--primary-light:   	#fee8f0;
-	--secondary:     	#1870ff;
-	--secondary-hover: 	#2981ff;
-	--secondary-light:	#deeaff;
-	--heading:			var(--text);
-	--text:      		#333;
-}
-
-/*	typo vars */
-.typo-default {
-	--unit:     .8rem;
+	--primary: #ff261b;
+	--primary-light: #fee8f0;
+	--secondary: #1870ff;
+	--secondary-hover: #2981ff;
+	--secondary-light: #deeaff;
+	--text: #333;
+	--heading: var(--text);
 	--code-fs: 1.3rem;
-	--h6:      1.4rem;
-	--h5:      1.6rem;
-	--h4:      1.8rem; /* default font-size */
-	--h3:      2.6rem;
-	--h2:        3rem;
-	--h1:      3.2rem;
-	--linemax:   42em; /* max line-length */
-	--lh:  		  1.5; /* base line-height */
+	--h1: 3.2rem;
+	--h2: 3rem;
+	--h3: 2.6rem;
+	--h4: 1.8rem;
+	--h5: 1.6rem;
+	--h6: 1.4rem; /* default font-size */
+	--linemax: 42em; /* max line-length */
+	--lh: 1.5; /* base line-height */
 }
 
 body {
 	--font: 'Arial', Helvetica, sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 	--font-ui: var(--font-mono);
-	--font-system: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	--font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 /*	base reset ----------------------------- */
@@ -45,7 +39,6 @@ html {
 	-ms-text-size-adjust: 62.5%;
 	-webkit-text-size-adjust: 62.5%;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
-	box-sizing: border-box;
 	border-collapse: collapse;
 }
 
@@ -56,7 +49,7 @@ body {
 }
 
 * {
-	box-sizing: inherit;
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
@@ -81,7 +74,7 @@ a:focus { outline: none }
 /*	typography ----------------------------- */
 body {
 	font-weight: 400;
-	font-size: var(--h4)/var(--lh);
+	font-size: var(--h6);
 	font-family: var(--font);
 	background-color: var(--back);
 	color: var(--text);
@@ -123,37 +116,6 @@ a:hover  {
 	color: var(--secondary);
 }
 
-/*  lists ---------------------------------- */
-.listify ol,
-.listify ul {
-	--list-padding: 2.9rem;
-
-	list-style: none;
-	color: currentColor;
-	margin-left: var(--list-padding);
-}
-
-.listify ol > li,
-.listify ul > li {
-	max-width: calc(var(--linemax) - var(--list-padding));
-	line-height: 1.5;
-	margin: 0 0 0.4rem 0;
-}
-
-.listify ul > li:before {
-	content: '';
-	position: absolute;
-	margin-top: 1.1rem;
-	margin-left: -1.8rem;
-	background-color: var(--secondary);
-	width: .6rem;
-	height: .6rem;
-	border-radius: 2px;
-	opacity: 0.7;
-}
-
-.listify ol { list-style: decimal }
-
 /*  tables --------------------------------- */
 table {
 	width: 100%;
@@ -168,4 +130,13 @@ td, th {
 
 table code, table span {
 	white-space: pre;
+}
+
+.input-wrapper {
+	--icon-padding: 38px;
+	--vertical-padding: 5px;
+	--horizontal-padding: 12px;
+	--icon-padding-focus: calc(var(--icon-padding) - 1px);
+	--vertical-padding-focus: calc(var(--vertical-padding) - 1px);
+	--horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
 }
