@@ -17,18 +17,20 @@
 
 {#if visible}    
     <div class="overlay" on:click|self={() => visible = closable ? false : visible}>
-        <div class="modal">
-            <div class="header">
-                <div class="header-content">
-                    <slot name="header"></slot>
+        <div class="wrapper">
+            <div class="modal">
+                <div class="header">
+                    <div class="header-content">
+                        <slot name="header"></slot>
+                    </div>
+                    {#if closable}
+                        <Button class="close" color="none" icon={mdiClose}
+                            on:click={()=> visible = false}/>
+                    {/if}
                 </div>
-                {#if closable}
-                    <Button class="close" color="none" icon={mdiClose}
-                        on:click={()=> visible = false}/>
-                {/if}
-            </div>
-            <div class="content">
-                <slot name="content"></slot>
+                <div class="content">
+                    <slot name="content"></slot>
+                </div>
             </div>
         </div>
     </div>
@@ -43,6 +45,10 @@
         left: 0;
         z-index: 1050;
         background-color: rgba(0,0,0,0.5);
+    }
+    .wrapper {
+        width: 100vw;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center
