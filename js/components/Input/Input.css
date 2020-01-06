@@ -20,11 +20,11 @@
     line-height: 0;
     left: 10px;
 }
-input {
+input, textarea {
     text-align: inherit;
     display: inline-block;
     padding: var(--vertical-padding) var(--horizontal-padding);
-    color: rgba(0,0,0,0.65);
+    color: var(--text);
     font-size: 14px;
     line-height: 1.5;
     background-color: var(--white);
@@ -37,10 +37,12 @@ input {
     width: 100%;
     height: 35px;
 }
-input:hover {
+input:hover,
+textarea:hover {
     border-color: var(--border-hover);
 }
-input:focus {
+input:focus,
+textarea:focus {
     border: 2px solid var(--primary);
     padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
     outline: 0;
