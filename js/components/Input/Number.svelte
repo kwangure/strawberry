@@ -41,8 +41,9 @@
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input 
-            {autofocus} bind:value bind:this={input} class:icon class:is_invalid {disabled} {min} {max} {name} on:blur
-            on:blur={()=> focused = false} on:change 
+            {autofocus} bind:value bind:this={input} class:icon class:is_invalid
+            {disabled} {min} {max} {name} on:blur on:blur={()=> focused = false} 
+            on:blur={() => blurred = true} on:change 
             on:change={() => value = clamp(value, min, max)} on:input 
             on:keypress on:focus on:focus={()=> focused = true} on:keydown 
             {placeholder} readonly={stepOnly} type='number'>

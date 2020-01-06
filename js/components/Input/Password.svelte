@@ -30,10 +30,9 @@
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input 
-            {autofocus} bind:this={input} bind:value class:icon class:is_invalid {disabled} {name} on:blur
-            on:change on:input on:keypress on:focus 
-            on:keydown {placeholder} type='password' 
-            >
+            {autofocus} bind:this={input} bind:value class:icon class:is_invalid
+            {disabled} {name} on:blur on:blur={() => blurred = true} on:change 
+            on:input on:keypress on:focus on:keydown {placeholder} type='password'/>
     </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>
