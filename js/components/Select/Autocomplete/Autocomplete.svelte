@@ -147,7 +147,7 @@
         right: 2px;
         height: 31px;
         z-index: 2;
-        color: rgba(0,0,0,0.65);
+        color: var(--text);
         display: flex;
         align-items: center;
         border-radius: 0 2px 2px 0;

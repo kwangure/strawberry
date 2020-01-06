@@ -79,7 +79,7 @@
         right: 2px;
         z-index: 2;
         height: 31px;
-        color: rgba(0,0,0,0.65);
+        color: var(--text);
         display: flex;
         padding: 0 4px;
         flex-direction: column;

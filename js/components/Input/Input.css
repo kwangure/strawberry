@@ -19,7 +19,7 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    color: rgba(0,0,0,0.65);
+    color: var(--text);
     line-height: 0;
     left: 10px;
 }
