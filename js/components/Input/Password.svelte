@@ -22,17 +22,19 @@
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
     {/if}
-    {#if icon}
-        <span class="input-prefix">
-            <Icon size="18" path={icon}></Icon>
-        </span>
-    {/if}
-    <!-- svelte-ignore a11y-autofocus -->
-    <input 
-        {autofocus} bind:this={input} bind:value class:icon {disabled} {name} on:blur
-        on:change on:input on:keypress on:focus 
-        on:keydown {placeholder} type='password' 
-        >
+    <div class="container">
+        {#if icon}
+            <span class="input-prefix">
+                <Icon size="18" path={icon}></Icon>
+            </span>
+        {/if}
+        <!-- svelte-ignore a11y-autofocus -->
+        <input 
+            {autofocus} bind:this={input} bind:value class:icon class:is_invalid {disabled} {name} on:blur
+            on:change on:input on:keypress on:focus 
+            on:keydown {placeholder} type='password' 
+            >
+    </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>
             {is_invalid}

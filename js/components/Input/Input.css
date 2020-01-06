@@ -8,9 +8,11 @@
 }
 .input-wrapper {
     display: inline-block;
-    position: relative;
     width: 100%;
     line-height: 1.5;
+}
+.container {
+    position: relative;
 }
 .input-prefix {
     position: absolute;
@@ -55,4 +57,12 @@ textarea:focus {
 }
 .label {
     margin-bottom: 5px;
+}
+div.invalid {
+    color: var(--red);
+    padding: 5px;
+    font-size: 13px;
+}
+.is_invalid {
+    border-color: var(--red);
 }

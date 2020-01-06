@@ -24,17 +24,18 @@
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
     {/if}
-    {#if icon}
-        <span class="input-prefix">
-            <Icon size="18" path={icon}></Icon>
-        </span>
-    {/if}
-    <!-- svelte-ignore a11y-autofocus -->
-    <input 
-        {autofocus} bind:value bind:this={input} class:icon {disabled} {name} on:blur
-        on:blur={() => blurred = true} on:change on:input on:keypress on:focus {readonly}
-        on:keydown {placeholder} type="text"
-        >
+    <div class="container">
+        {#if icon}
+            <span class="input-prefix">
+                <Icon size="18" path={icon}></Icon>
+            </span>
+        {/if}
+        <!-- svelte-ignore a11y-autofocus -->
+        <input 
+            {autofocus} bind:value bind:this={input} class:icon class:is_invalid {disabled} {name} on:blur
+            on:blur={() => blurred = true} on:change on:input on:keypress on:focus {readonly}
+            on:keydown {placeholder} type="text">
+    </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>
             {is_invalid}

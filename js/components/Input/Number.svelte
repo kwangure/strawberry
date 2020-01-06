@@ -33,27 +33,29 @@
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
     {/if}
-    {#if icon}
-        <span class="input-prefix">
-            <Icon path={icon}></Icon>
-        </span>
-    {/if}
-    <!-- svelte-ignore a11y-autofocus -->
-    <input 
-        {autofocus} bind:value bind:this={input} class:icon {disabled} {min} {max} {name} on:blur
-        on:blur={()=> focused = false} on:change 
-        on:change={() => value = clamp(value, min, max)} on:input 
-        on:keypress on:focus on:focus={()=> focused = true} on:keydown 
-        {placeholder} readonly={stepOnly} type='number'>
-    <div class="input-postfix" class:focused>
-        <span class="postfix-up"
-            on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
-            <Icon path={mdiChevronUp} size={21}></Icon>
-        </span>
-        <span class="postfix-down"
-            on:click|stopPropagation={() => value = clamp(value - step, min, max)}>
-            <Icon path={mdiChevronDown} size={21}></Icon>
-        </span>
+    <div class="container">
+        {#if icon}
+            <span class="input-prefix">
+                <Icon path={icon}></Icon>
+            </span>
+        {/if}
+        <!-- svelte-ignore a11y-autofocus -->
+        <input 
+            {autofocus} bind:value bind:this={input} class:icon class:is_invalid {disabled} {min} {max} {name} on:blur
+            on:blur={()=> focused = false} on:change 
+            on:change={() => value = clamp(value, min, max)} on:input 
+            on:keypress on:focus on:focus={()=> focused = true} on:keydown 
+            {placeholder} readonly={stepOnly} type='number'>
+        <div class="input-postfix" class:focused>
+            <span class="postfix-up"
+                on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
+                <Icon path={mdiChevronUp} size={21}></Icon>
+            </span>
+            <span class="postfix-down"
+                on:click|stopPropagation={() => value = clamp(value - step, min, max)}>
+                <Icon path={mdiChevronDown} size={21}></Icon>
+            </span>
+        </div>
     </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>
