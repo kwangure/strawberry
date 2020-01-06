@@ -16,7 +16,8 @@
 }
 .input-prefix {
     position: absolute;
-    bottom: 7px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 2;
     color: rgba(0,0,0,0.65);
     line-height: 0;
