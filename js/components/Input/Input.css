@@ -61,7 +61,7 @@ textarea:focus {
 }
 div.invalid {
     color: var(--red);
-    padding: 5px;
+    padding: 3px 10px 0px;
     font-size: 13px;
 }
 .is_invalid {
