@@ -1,5 +1,6 @@
 <script>
     import Icon from '../Icon.svelte'
+    import { slide } from "svelte/transition";
     export let name = ''
     export let label = ''
     export let placeholder = ''
@@ -7,6 +8,14 @@
     export let value = ''
     export let disabled = false
     export let autofocus = false
+    export let focus = false;
+    export let invalid = () => false;
+
+    let input = null;
+    let blurred = false;
+
+    $: (focus && input) ? input.focus() : ""; 
+    $: is_invalid = blurred && invalid(value);
 </script>
 
 <label class="input-wrapper">
@@ -20,10 +29,15 @@
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
     <input 
-        {autofocus} bind:value class:icon {disabled} {name} on:blur
+        {autofocus} bind:this={input} bind:value class:icon {disabled} {name} on:blur
         on:change on:input on:keypress on:focus 
         on:keydown {placeholder} type='password' 
         >
+    {#if is_invalid}
+        <div class="invalid" transition:slide>
+            {is_invalid}
+        </div>
+    {/if}
 </label>
 
 <style>

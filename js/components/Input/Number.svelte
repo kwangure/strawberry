@@ -1,5 +1,6 @@
 <script>
     import Icon from '../Icon.svelte'
+    import { slide } from "svelte/transition";
     import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
     export let name = ''
     export let label = ''
@@ -12,8 +13,16 @@
     export let stepOnly = false
     export let disabled = false
     export let autofocus = false
+    export let focus = false;
+    export let invalid = () => false;
 
     let focused = false;
+
+    let input = null;
+    let blurred = false;
+
+    $: (focus && input) ? input.focus() : "";
+    $: is_invalid = blurred && invalid(value);
 
     function clamp(value, min, max) {
         return Math.min(Math.max(value, min), max);
@@ -31,7 +40,7 @@
     {/if}
     <!-- svelte-ignore a11y-autofocus -->
     <input 
-        {autofocus} bind:value class:icon {disabled} {min} {max} {name} on:blur
+        {autofocus} bind:value bind:this={input} class:icon {disabled} {min} {max} {name} on:blur
         on:blur={()=> focused = false} on:change 
         on:change={() => value = clamp(value, min, max)} on:input 
         on:keypress on:focus on:focus={()=> focused = true} on:keydown 
@@ -46,6 +55,11 @@
             <Icon path={mdiChevronDown} size={21}></Icon>
         </span>
     </div>
+    {#if is_invalid}
+        <div class="invalid" transition:slide>
+            {is_invalid}
+        </div>
+    {/if}
 </label>
 
 <style>
