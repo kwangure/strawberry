@@ -1,5 +1,5 @@
 <script>
-    import { slide } from "svelte/transition"
+    import { slide } from "svelte/transition";
 </script>
 
 <div class="menu-item" on:click transition:slide>

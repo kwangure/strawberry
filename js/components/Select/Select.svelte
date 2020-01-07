@@ -1,7 +1,6 @@
 <script>
     import { mdiChevronDown } from "@mdi/js";
-    import fuzzy from "fuzzy";
-    import Icon from '../Icon.svelte';
+    import Icon from "../Icon.svelte";
     import Dropdown from "../Dropdown";
 
     export let options = [];
@@ -13,7 +12,6 @@
     export let disabled = false;
     export let autofocus = false;
 
-    let dropdown = null;
     let input    = null;
     let visible  = false;
     let extract  = option => option.text || option.value;
@@ -21,11 +19,11 @@
     
     $: options = options.map((option, index) => {
         option.onclick = () => {
-            set(option)
+            set(option);
             active = index;
-        }
+        };
         return option;
-    })
+    });
 
     $: visible && input ? input.focus() : "";
 

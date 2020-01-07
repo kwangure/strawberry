@@ -1,18 +1,18 @@
 <script>
-    import Icon from '../Icon.svelte'
+    import Icon from "../Icon.svelte";
     import { slide } from "svelte/transition";
-    import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
-    export let name = ''
-    export let label = ''
-    export let placeholder = ''
-    export let icon = ''
-    export let min = -Infinity
-    export let max = Infinity
-    export let value = 0
-    export let step = 1
-    export let stepOnly = false
-    export let disabled = false
-    export let autofocus = false
+    import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
+    export let name = "";
+    export let label = "";
+    export let placeholder = "";
+    export let icon = "";
+    export let min = -Infinity;
+    export let max = Infinity;
+    export let value = 0;
+    export let step = 1;
+    export let stepOnly = false;
+    export let disabled = false;
+    export let autofocus = false;
     export let focus = false;
     export let invalid = () => false;
 

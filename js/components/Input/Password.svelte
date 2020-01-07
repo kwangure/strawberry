@@ -1,13 +1,13 @@
 <script>
-    import Icon from '../Icon.svelte'
+    import Icon from "../Icon.svelte";
     import { slide } from "svelte/transition";
-    export let name = ''
-    export let label = ''
-    export let placeholder = ''
-    export let icon = ''
-    export let value = ''
-    export let disabled = false
-    export let autofocus = false
+    export let name = "";
+    export let label = "";
+    export let placeholder = "";
+    export let icon = "";
+    export let value = "";
+    export let disabled = false;
+    export let autofocus = false;
     export let focus = false;
     export let invalid = () => false;
 

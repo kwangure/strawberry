@@ -1,10 +1,10 @@
 <script>
-    import { onDestroy } from "svelte"
+    import { onDestroy } from "svelte";
     import Item from "./Item.svelte";
     
     export let items = [];
     export let active = [];
-    export let placement = 'bottomLeft';
+    export let placement = "bottomLeft";
     export let visible = false;
     
     $: active = Number.isInteger(active) ? [active]: active;
@@ -12,41 +12,41 @@
     $: is_active = (index) => active_set.has(index);
     
     function valid(placement) {
-        let positions = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
-        return positions.includes(placement)
+        let positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+        return positions.includes(placement);
     }
 
-    $: top = valid(placement) && placement.includes("top")
-    $: bottom = valid(placement) && placement.includes("bottom")
-    $: left = valid(placement) && placement.includes("Left")
-    $: right = valid(placement) && placement.includes("Right")
+    $: top = valid(placement) && placement.includes("top");
+    $: bottom = valid(placement) && placement.includes("bottom");
+    $: left = valid(placement) && placement.includes("Left");
+    $: right = valid(placement) && placement.includes("Right");
 
-    let dropdown = null
+    let dropdown = null;
 
     function handleDocumentClick(e) {
-        if(!dropdown.contains(event.target)){
-            visible = false
+        if(!dropdown.contains(e.target)){
+            visible = false;
         }
     }
 
     export function toggle(){
-        visible = !visible
+        visible = !visible;
     }
     export function open(){
-        visible = true
+        visible = true;
     }
     export function close(){
-        visible = false
+        visible = false;
     }
 
     $: {
         visible
-            ? document.addEventListener('click', handleDocumentClick)
-            : document.removeEventListener('click', handleDocumentClick)
+            ? document.addEventListener("click", handleDocumentClick)
+            : document.removeEventListener("click", handleDocumentClick);
     }
 
     onDestroy(() => {
-        document.removeEventListener('click', handleDocumentClick)
+        document.removeEventListener("click", handleDocumentClick);
     });
 </script>
  

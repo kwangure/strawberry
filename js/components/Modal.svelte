@@ -1,17 +1,16 @@
 <script>
-    import Button from "./Button"
-    import { mdiClose } from "@mdi/js"
-    import { fade } from "svelte/transition"
+    import Button from "./Button";
+    import { mdiClose } from "@mdi/js";
 
-    export let visible = false
-    export let closable = true
+    export let visible = false;
+    export let closable = true;
 
     export function show(){
-        visible = true
+        visible = true;
     }
 
     export function hide(){
-        visible = false
+        visible = false;
     }
 </script>
 

@@ -1,22 +1,22 @@
 <script>
-    export let size = 24
-    export let path = ''
-    export let flip = ''
-    export let spin = ''
-    export let color = ''
+    export let size = 24;
+    export let path = "";
+    export let flip = "";
+    export let spin = "";
+    export let color = "";
     
     function validSpin(spin) {
-        return spin === 'clockwise' || spin === 'counterclockwise'
+        return spin === "clockwise" || spin === "counterclockwise";
     }
 
-    function validFlip(spin) {
-        return flip === 'horizontal' || flip === 'vertical'
+    function validFlip(flip) {
+        return flip === "horizontal" || flip === "vertical";
     }
 
-    $: horizontal = validFlip(flip) && flip === 'horizontal'
-    $: vertical = validFlip(flip) && flip === 'vertical'
-    $: clockwise = validSpin(spin) && spin === 'clockwise'
-    $: counterclockwise = validSpin(spin) && spin === 'counterclockwise'
+    $: horizontal = validFlip(flip) && flip === "horizontal";
+    $: vertical = validFlip(flip) && flip === "vertical";
+    $: clockwise = validSpin(spin) && spin === "clockwise";
+    $: counterclockwise = validSpin(spin) && spin === "counterclockwise";
 </script>
 
 <svg class:horizontal class:vertical class:clockwise class:counterclockwise

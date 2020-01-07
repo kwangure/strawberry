@@ -1,9 +1,9 @@
 <script>
-    let breakParent = false
-    export { breakParent as break }
-    export let left = false
-    export let right = false
-    export let label = ''
+    let breakParent = false;
+    export { breakParent as break };
+    export let left = false;
+    export let right = false;
+    export let label = "";
 </script>
 
 <span aria-label={label} class:active={label} class:left 

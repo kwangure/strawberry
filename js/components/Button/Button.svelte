@@ -1,15 +1,15 @@
 <script>
-    import Icon from '../Icon.svelte'
-    import { mdiLoading } from '@mdi/js'
+    import Icon from "../Icon.svelte";
+    import { mdiLoading } from "@mdi/js";
 
-    let className = ''
-	export { className as class }
-    export let color = '' 
-    export let icon = ''
-    export let iconProps = {}
-    export let active = ''
-    export let loading = false
-    export let fullwidth = false
+    let className = "";
+export { className as class };
+    export let color = ""; 
+    export let icon = "";
+    export let iconProps = {};
+    export let active = "";
+    export let loading = false;
+    export let fullwidth = false;
     
     let slot_used = true;
 </script>

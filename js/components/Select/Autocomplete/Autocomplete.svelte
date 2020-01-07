@@ -1,8 +1,8 @@
 <script>
     import { mdiChevronDown } from "@mdi/js";
-    import { onDestroy } from "svelte"
+    import { onDestroy } from "svelte";
     import fuzzy from "fuzzy";
-    import Icon from '../../Icon.svelte';
+    import Icon from "../../Icon.svelte";
     import Item from "./Item.svelte";
 
     export let options = [];
@@ -26,21 +26,21 @@
     let extract  = option => option.html || option.text || option.value;
     let text     = fallback ? extract(fallback) : "";
     let fuzzy_options = {
-        pre: '<b>',
-        post: '</b>',
+        pre: "<b>",
+        post: "</b>",
         extract,
-    }
+    };
 
     $: search  = text === extract(fallback) ? "" : text;
     $: filtered_options = fuzzy
-                        .filter(search, options, fuzzy_options)
-                        .map(({string, original, ...rest}) => (
-                            {...original, html: string}
-                        ));
+        .filter(search, options, fuzzy_options)
+        .map(({string, original}) => (
+            {...original, html: string}
+        ));
     $: {
         visible
-            ? document.addEventListener('click', handleDocumentClick)
-            : document.removeEventListener('click', handleDocumentClick)
+            ? document.addEventListener("click", handleDocumentClick)
+            : document.removeEventListener("click", handleDocumentClick);
     }
 
     export function toggle(){
@@ -60,17 +60,17 @@
     }
 
     function handleDocumentClick(e) {
-        if(!dropdown.contains(event.target)){
+        if(!dropdown.contains(e.target)){
             visible = false;
         }
     }
     function valid(placement) {
-        let positions = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
+        let positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
         return positions.includes(placement);
     }
 
     onDestroy(() => {
-        document.removeEventListener('click', handleDocumentClick)
+        document.removeEventListener("click", handleDocumentClick);
     });
 </script>
  

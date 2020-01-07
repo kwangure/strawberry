@@ -1,8 +1,8 @@
 <script>
-    export let name = ''
-    export let label = ''
-    export let checked = false
-    export let disabled = false
+    export let name = "";
+    export let label = "";
+    export let checked = false;
+    export let disabled = false;
     export let focus = false;
 
     let input = null;

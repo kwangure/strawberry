@@ -1,5 +1,5 @@
-import Dropdown from './Dropdown.svelte';
-import Item from './Item.svelte'
+import Dropdown from "./Dropdown.svelte";
+import Item from "./Item.svelte";
 
 Dropdown.Item = Item;
 
