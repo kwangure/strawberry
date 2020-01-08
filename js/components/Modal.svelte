@@ -1,9 +1,13 @@
 <script>
     import Button from "./Button";
     import { mdiClose } from "@mdi/js";
+    import { crossscale } from "./crosstransition.js";
+    import { fade } from "svelte/transition";
 
     export let visible = false;
     export let closable = true;
+
+    const [send, receive] = crossscale;
 
     export function show(){
         visible = true;
@@ -15,16 +19,19 @@
 </script>
 
 {#if visible}    
-    <div class="overlay" on:click|self={() => visible = closable ? false : visible}>
+    <div class="overlay" transition:fade
+        on:click|self={() => visible = closable ? false : visible}>
         <div class="wrapper">
-            <div class="modal">
+            <div class="modal" out:send="{{key: 'modal'}}" in:receive="{{key: 'modal'}}">
                 <div class="header">
                     <div class="header-content">
                         <slot name="header"></slot>
                     </div>
                     {#if closable}
-                        <Button class="close" color="none" icon={mdiClose}
-                            on:click={()=> visible = false}/>
+                        <div class="close">
+                            <Button color="none" icon={mdiClose}
+                                on:click={()=> visible = false}/>
+                        </div>
                     {/if}
                 </div>
                 <div class="content">
@@ -67,9 +74,6 @@
         flex: auto;
         font-size: 16px !important;
         font-weight: 600 !important;
-    }
-    .header :global(.close) {
-        padding: 0 10px;
     }
     .modal :global(button.close)  {
         margin-left: auto;
