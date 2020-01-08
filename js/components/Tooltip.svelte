@@ -45,7 +45,7 @@
         top: calc(100% + 8px);
         color: var(--white);
         content: attr(aria-label);
-        padding: 10px;
+        padding: 10px 20px;
         white-space: nowrap;
         font-size: 12px;
         text-transform: none;
