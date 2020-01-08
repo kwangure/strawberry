@@ -51,6 +51,7 @@
         left: 0;
         z-index: 1050;
         background-color: rgba(0,0,0,0.5);
+        transition: all 1s ease;
     }
     .wrapper {
         width: 100vw;
@@ -64,6 +65,8 @@
         padding: 20px 30px;
         box-shadow: 0 7px 15px rgba(0,0,0,0.35);
         border-radius: 4px;
+        transition: all 0.5s ease;
+        max-width: 90%;
     }
     .header {
         display: flex;
@@ -77,5 +80,8 @@
     }
     .modal :global(button.close)  {
         margin-left: auto;
-    }    
+    }
+    .content > :global(*) {
+        max-width: 100%;
+    }
 </style>
