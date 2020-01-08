@@ -1,32 +1,56 @@
 <script>
     import Icon from "./Icon.svelte";
     import { mdiClose } from "@mdi/js";
-    import { slide } from "svelte/transition";
-    export let delay = 1000;
-    export let visible = true;
+    import { fly } from "svelte/transition";
+    import { onMount } from "svelte";
+    export let removeAfter = 4000;
+    export let duration = 500;
+    export let visible = false;
     export let message;
+
+    onMount(() => {
+        visible = true;
+        setTimeout(() => visible = false, removeAfter);
+    });
 </script>
 
 {#if visible}
-    <div class="notification" transition:slide={{duration: delay}}>
-        <div class="message">
-            {message}
+    <div class="wrapper">
+        <div class="notification" transition:fly={{ x: 200, duration}}>
+            <div class="message">
+                {message}
+            </div>
+            <div class="close" on:click={() => visible = false}>
+                <Icon path={mdiClose}></Icon>
+            </div>
         </div>
-        <Icon path={mdiClose}></Icon>
     </div>
 {/if}
 
 <style>
-    .notification {
+    .wrapper {
+        overflow: hidden;
         position: absolute;
         top: 0;
         right: 0;
-        margin: 10px;
-        padding: 20px;
+        left: 0;
+    }
+    .notification {
+        margin: 15px;
+        padding: 10px 20px;
         display: flex;
+        align-items: center;
+        background-color: var(--grey-dark);
+        color: var(--white);
+        border-radius: 4px;
+        width: 210px;
+        margin-left: auto;
     }
     .message {
-        background-color: var(--dark-grey);
-        color: var(--white);
+        line-height: 2;
+    }
+    .close {
+        padding-left: 10px;
+        margin-left: auto;
     }
 </style>
