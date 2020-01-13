@@ -2,6 +2,8 @@
     import { slide } from "svelte/transition";
 </script>
 
+<svelte:options tag="berry-option"/>
+
 <div class="menu-item" on:click transition:slide>
     <slot/>
 </div>

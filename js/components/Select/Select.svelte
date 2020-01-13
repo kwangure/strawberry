@@ -32,6 +32,8 @@
         text  = option.text || option.value;
     }
 </script>
+
+<svelte:options tag="berry-select"/>
  
 <Dropdown bind:items={options} bind:placement bind:visible bind:active>
     <div slot="button" class="wrapper">

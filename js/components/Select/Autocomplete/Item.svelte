@@ -2,6 +2,8 @@
     import { slide } from "svelte/transition";
 </script>
 
+<svelte:options tag="berry-select-autocomplete-item"/>
+
 <div class="menu-item" on:click transition:slide>
     <slot/>
 </div>

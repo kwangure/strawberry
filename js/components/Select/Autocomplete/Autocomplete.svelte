@@ -73,6 +73,8 @@
         document.removeEventListener("click", handleDocumentClick);
     });
 </script>
+
+<svelte:options tag="berry-select-autocomplete"/>
  
 <div class="input-wrapper" bind:this={dropdown}>
     <div class="dropdown-button">

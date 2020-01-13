@@ -31,6 +31,8 @@
         on:input={autosize} {placeholder} {rows} bind:value/>
 </span>
 
+<svelte:options tag="berry-textarea"/>
+
 <style>
     @import "./Input.css";
     textarea {

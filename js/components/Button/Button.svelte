@@ -14,6 +14,8 @@ export { className as class };
     let slot_used = true;
 </script>
 
+<svelte:options tag="berry-button"/>
+
 <button class="{color? color: ''} {className}" class:icon class:slot_used class:loading class:fullwidth
     class:active on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">

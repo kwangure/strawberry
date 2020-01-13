@@ -10,6 +10,8 @@
     $: (focus && input) ? input.focus() : ""; 
 </script>
 
+<svelte:options tag="berry-input-checkbox"/>
+
 <label class="input-wrapper" on:click>
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:checked bind:this={input} {disabled} {name} on:blur on:change

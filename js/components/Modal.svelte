@@ -18,6 +18,8 @@
     }
 </script>
 
+<svelte:options tag="berry-modal"/>
+
 {#if visible}    
     <div class="overlay" transition:fade
         on:click|self={() => visible = closable ? false : visible}>

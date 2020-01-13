@@ -3,6 +3,8 @@
     export let items = [];
 </script>
 
+<svelte:options tag="berry-sidebar"/>
+
 <div class="sidebar">
     <div class="sidebar-head">
         <slot name="head"></slot>

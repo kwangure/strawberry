@@ -6,6 +6,8 @@ export let tabs = [];
     let selected = tabs[0];
 </script>
 
+<svelte:options tag="berry-button-tabs"/>
+
 {#if tabs.length > 0}
     <div class="tab-wrapper">
         <div class="tab-header">

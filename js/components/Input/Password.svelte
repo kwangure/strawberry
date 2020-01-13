@@ -18,6 +18,8 @@
     $: is_invalid = blurred && invalid(value);
 </script>
 
+<svelte:options tag="berry-input-password"/>
+
 <label class="input-wrapper">
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>

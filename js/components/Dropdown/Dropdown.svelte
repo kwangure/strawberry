@@ -50,6 +50,8 @@
     });
 </script>
  
+<svelte:options tag="berry-dropdown"/>
+
 <div class="dropdown" bind:this={dropdown}>
     <div class="dropdown-button" on:click|stopPropagation={toggle}>
         <slot name="button"/>

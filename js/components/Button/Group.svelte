@@ -2,6 +2,8 @@
     <slot></slot>
 </div>
 
+<svelte:options tag="berry-button-group"/>
+
 <style>
     .button-group :global(button) {
         border-radius: 0;

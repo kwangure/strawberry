@@ -2,6 +2,8 @@
     export let active = false;
 </script>
 
+<svelte:options tag="berry-dropdown-item"/>
+
 <div class="menu-item" on:click class:active>
     <slot/>
 </div>

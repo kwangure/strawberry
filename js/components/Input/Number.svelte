@@ -65,6 +65,8 @@
     {/if}
 </label>
 
+<svelte:options tag="berry-input-number"/>
+
 <style>
     @import "./Input.css";
     input[type=number]::-webkit-inner-spin-button, 
