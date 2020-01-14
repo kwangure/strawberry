@@ -46,7 +46,8 @@
 	--lh: 1.5; /* base line-height */
 }
 
-body {
+body, 
+:host {
 	--font: 'Arial', Helvetica, sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 	--font-ui: var(--font-mono);
