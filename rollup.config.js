@@ -22,7 +22,6 @@ export default [
         },
         plugins: [
             svelte({
-                // enable run-time checks when not in production
                 dev: false,
                 css: true,
                 hydratable: true,
