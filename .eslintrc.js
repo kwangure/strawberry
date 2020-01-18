@@ -22,6 +22,14 @@ module.exports = {
             "processor": 'svelte3/svelte3'
         }
     ],
+    "settings": {
+        "svelte3/ignore-warnings": (warning) => {
+            if(warning.code === "missing-custom-element-compile-options") {
+                return true;
+            }
+            return false;
+        }
+    },
     "rules": {
         "indent": [
             "error",
