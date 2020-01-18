@@ -3,6 +3,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import globals from 'rollup-plugin-node-globals';
 import resolve from 'rollup-plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
+import { config } from "./strawberry.config";
 
 let nested  = ["Button", "Dropdown", "Input", "Sidebar", "Select",];
 let singles = ["Icon", "Modal", "Tooltip"];
@@ -23,6 +24,7 @@ export default [
         plugins: [
             svelte({
                 dev: false,
+                ...config,
                 css: true,
                 hydratable: true,
                 accessors: true,
