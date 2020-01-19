@@ -1,14 +1,5 @@
 @import "../../../css/strawberry.css";
 .input-wrapper {
-    --vertical-padding: 5px;
-    --horizontal-padding: 12px;
-    --padding-right: 25px;
-    --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
-    --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
-    --padding-right-focus: calc(var(--padding-right) - 1px);
-    --postfix-width: 31px;
-}
-.input-wrapper {
     display: inline-block;
     width: 100%;
     line-height: 1.5;
@@ -58,7 +49,7 @@
 input, textarea {
     text-align: inherit;
     display: inline-block;
-    padding: var(--vertical-padding) var(--horizontal-padding);
+    padding: var(--input-vertical-padding) var(--input-horizontal-padding);
     color: var(--text);
     font-size: 14px;
     line-height: 1.5;
@@ -77,18 +68,12 @@ textarea:hover,
 input:focus,
 textarea:focus {
     border: 2px solid var(--primary);
-    padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
+    padding: var(--input-vertical-padding-focus) var(--input-horizontal-padding-focus);
     outline: 0;
 }
 input:hover:not(:focus),
 textarea:hover:not(:focus) {
     border-color: var(--grey-light);
-}
-.icon {
-    padding-left: var(--icon-padding);
-}
-.icon:focus {
-    padding-left: var(--icon-padding-focus);
 }
 .label {
     margin-bottom: 5px;

@@ -11,10 +11,6 @@
 <style>
     @import "../../../css/strawberry.css";
     .sidebar-item {
-        --vertical-padding: 8px;
-        --horizontal-padding: 12px;
-    }
-    .sidebar-item {
         cursor: pointer;
         background-color: transparent;
         border-radius: 4px;
@@ -27,10 +23,10 @@
         min-height: 40px;
         line-height: 24px;
         text-decoration: none;
-        padding: var(--vertical-padding) var(--horizontal-padding);
+        padding: var(--item-vertical-padding) var(--item-horizontal-padding);
     }
     .sidebar-item > :global(a) {
-        margin: calc(var(--vertical-padding) * -1) calc(var(--horizontal-padding) * -1);
+        margin: calc(var(--item-vertical-padding) * -1) calc(var(--item-horizontal-padding) * -1);
         color: inherit;
         flex: auto;
     }
