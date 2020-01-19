@@ -79,10 +79,11 @@
 <div class="input-wrapper" bind:this={dropdown}>
     <div class="dropdown-button">
         <!-- svelte-ignore a11y-autofocus -->
-        <input {autofocus} bind:this={input} bind:value={text} class:icon {disabled} 
+        <input {autofocus} bind:this={input} bind:value={text} class:icon 
+            class="input-postfix" {disabled} 
             on:blur placeholder={label} on:change on:input on:keypress on:focus 
             on:focus={open} on:keydown {placeholder} type='text'>
-        <div class="input-postfix" class:visible on:click|stopPropagation={toggle}>
+        <div class="postfix-wrapper" class:visible on:click|stopPropagation={toggle}>
             <Icon path={mdiChevronDown}></Icon>
         </div>
     </div>
@@ -142,21 +143,5 @@
     }
     .menu-item > * {
         display: block;
-    }
-    .input-postfix {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        height: 31px;
-        z-index: 2;
-        color: var(--text);
-        display: flex;
-        align-items: center;
-        border-radius: 0 2px 2px 0;
-        padding: 4px;
-    }
-    .input-postfix.visible {
-        color: var(--primary);
-        background-color: var(--primary-light);
     }
 </style>
