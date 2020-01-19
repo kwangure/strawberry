@@ -10,18 +10,30 @@
 
 <style>
     .sidebar-item {
+        --vertical-padding: 8px;
+        --horizontal-padding: 12px;
+    }
+    .sidebar-item {
         cursor: pointer;
         background-color: transparent;
         border-radius: 4px;
         position: relative;
     }
-    .sidebar-item {
+    .sidebar-item, 
+    .sidebar-item > :global(a) {
         display: flex;
+        align-items: center;
         min-height: 40px;
         line-height: 24px;
         text-decoration: none;
-        padding: 8px 12px;
+        padding: var(--vertical-padding) var(--horizontal-padding);
     }
+    .sidebar-item > :global(a) {
+        margin: calc(var(--vertical-padding) * -1) calc(var(--horizontal-padding) * -1);
+        color: inherit;
+        flex: auto;
+    }
+    
     .sidebar-item:not(.active):hover {
         background-color: var(--grey-lightest);
     }
