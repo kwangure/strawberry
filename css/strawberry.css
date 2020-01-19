@@ -69,10 +69,9 @@ body {
 	height: 100%;
 }
 
-* {
+*,
+:host * {
 	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
 }
 
 /*	link reset ----------------------------- */
@@ -152,13 +151,4 @@ td, th {
 
 table code, table span {
 	white-space: pre;
-}
-
-.input-wrapper {
-	--icon-padding: 38px;
-	--vertical-padding: 5px;
-	--horizontal-padding: 12px;
-	--icon-padding-focus: calc(var(--icon-padding) - 1px);
-	--vertical-padding-focus: calc(var(--vertical-padding) - 1px);
-	--horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
 }
