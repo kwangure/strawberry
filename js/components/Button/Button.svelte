@@ -84,7 +84,6 @@ export { className as class };
     }
     .button-prefix {
         display: flex;
-        padding-right: 2px;
     }
     button.icon.slot_used {
         padding-right: 16px;
