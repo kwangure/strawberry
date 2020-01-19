@@ -45,6 +45,7 @@
 {/if}
 
 <style>
+    @import "../../css/strawberry.css";
     .overlay {
         position: fixed;
         top: 0;

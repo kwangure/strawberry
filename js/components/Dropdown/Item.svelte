@@ -9,6 +9,7 @@
 </div>
 
 <style>
+    @import "../../../css/strawberry.css";
     .menu-item {
         --vertical-padding: 8px;
         --horizontal-padding: 16px;

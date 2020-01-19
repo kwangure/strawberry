@@ -14,6 +14,7 @@
 </span>
 
 <style>
+    @import "../../css/strawberry.css";
     .active {
         position: relative;
     }

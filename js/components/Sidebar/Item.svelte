@@ -9,6 +9,7 @@
 </div>
 
 <style>
+    @import "../../../css/strawberry.css";
     .sidebar-item {
         --vertical-padding: 8px;
         --horizontal-padding: 12px;

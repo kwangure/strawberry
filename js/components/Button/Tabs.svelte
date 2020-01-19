@@ -28,6 +28,7 @@ export let tabs = [];
 {/if}
 
 <style>
+    @import "../../../css/strawberry.css";
     .tab-wrapper {
         padding: 5px 10px;
     }

@@ -30,6 +30,7 @@
 {/if}
 
 <style>
+    @import "../../css/strawberry.css";
     .wrapper {
         overflow: hidden;
         position: absolute;

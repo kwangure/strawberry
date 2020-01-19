@@ -34,6 +34,7 @@ export { className as class };
 </button>
 
 <style>
+    @import "../../../css/strawberry.css";
     button {
         line-height: 1.5;
         position: relative;

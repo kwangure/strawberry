@@ -24,6 +24,7 @@
 </div>
 
 <style>
+    @import "../../../css/strawberry.css";
     .sidebar {
         width: 240px;
         padding: 0 10px;
