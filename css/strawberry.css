@@ -92,8 +92,7 @@ a:focus { outline: none }
 */
 
 /*	typography ----------------------------- */
-body, 
-:host {
+body {
 	font-weight: 400;
 	font-size: var(--h6);
 	font-family: var(--font);
