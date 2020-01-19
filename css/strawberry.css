@@ -44,6 +44,16 @@
 	--h6: 1.4rem; /* default font-size */
 	--linemax: 42em; /* max line-length */
 	--lh: 1.5; /* base line-height */
+
+	/* Input styles */
+	/* Used here to solve preprocess problems **/
+	--vertical-padding: 5px;
+    --horizontal-padding: 12px;
+    --padding-right: 25px;
+    --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
+    --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
+    --padding-right-focus: calc(var(--padding-right) - 1px);
+    --postfix-width: 31px;
 }
 
 body, 
@@ -150,4 +160,14 @@ td, th {
 
 table code, table span {
 	white-space: pre;
+}
+
+.input-wrapper {
+    --vertical-padding: 5px;
+    --horizontal-padding: 12px;
+    --padding-right: 25px;
+    --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
+    --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
+    --padding-right-focus: calc(var(--padding-right) - 1px);
+    --postfix-width: 31px;
 }

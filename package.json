@@ -18,6 +18,7 @@
         "cssnano": "^4.1.10",
         "eslint": "^6.8.0",
         "eslint-plugin-svelte3": "^2.7.3",
+        "postcss-css-variables": "^0.14.0",
         "postcss-import": "^12.0.1",
         "rollup": "^1.27.11",
         "rollup-plugin-commonjs": "^10.1.0",
