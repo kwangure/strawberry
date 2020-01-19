@@ -5,6 +5,7 @@
     --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
     --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
     --padding-right-focus: calc(var(--padding-right) - 1px);
+    --postfix-width: 31px;
 }
 .input-wrapper {
     display: inline-block;
@@ -22,6 +23,35 @@
     color: var(--text);
     line-height: 0;
     left: 10px;
+}
+.input-postfix {
+    padding-right: calc(var(--postfix-width) + 1px);
+}
+.input-postfix:hover,
+.input-postfix:focus {
+    padding-right: var(--postfix-width);
+}
+.postfix-wrapper {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: var(--postfix-width);
+    height: var(--postfix-width);
+    z-index: 2;
+    color: var(--text);;
+    display: flex;
+    align-items: center;
+    border-radius: 0 2px 2px 0;
+    padding: 4px;
+    transition: all 0.5s ease;
+}
+.postfix-wrapper.visible,
+.postfix-wrapper.focused {
+    color: var(--primary);
+    background-color: var(--primary-light);
+}
+.input-wrapper:hover .postfix-wrapper:not(.visible):not(.focused) {
+    background-color: var(--grey-lightest);
 }
 input, textarea {
     text-align: inherit;
@@ -41,14 +71,16 @@ input {
     height: 35px;
 }
 input:hover,
-textarea:hover {
-    border-color: var(--border-hover);
-}
+textarea:hover,
 input:focus,
 textarea:focus {
     border: 2px solid var(--primary);
     padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
     outline: 0;
+}
+input:hover:not(:focus),
+textarea:hover:not(:focus) {
+    border-color: var(--grey-light);
 }
 .icon {
     padding-left: var(--icon-padding);

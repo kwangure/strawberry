@@ -36,12 +36,13 @@
 <svelte:options tag="berry-select"/>
  
 <Dropdown bind:items={options} bind:placement bind:visible bind:active>
-    <div slot="button" class="wrapper">
+    <div slot="button" class="input-wrapper">
         <!-- svelte-ignore a11y-autofocus -->
-        <input {autofocus} bind:this={input} bind:value={text} class:icon {disabled} 
+        <input {autofocus} bind:this={input} bind:value={text} class:icon 
+            class="input-postfix" {disabled} 
             on:blur placeholder={label} on:change on:input on:keypress on:focus 
             on:keydown readonly type='text'>
-        <div class="input-postfix" class:visible>
+        <div class="postfix-wrapper" class:visible>
             <Icon path={mdiChevronDown}></Icon>
         </div>
     </div>
@@ -51,52 +52,10 @@
 </Dropdown>
 
 <style>
-    .wrapper {
-        --vertical-padding: 5px;
-        --horizontal-padding: 12px;
-        --padding-right: 25px;
-        --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
-        --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
-        --padding-right-focus: calc(var(--padding-right) - 1px);
-    }
+    @import "../Input/Input.css";
+    .input-wrapper,
     input {
-        text-align: inherit;
-        display: inline-block;
-        padding: var(--vertical-padding) var(--horizontal-padding);
-        padding-right: var(--padding-right);
-        color: var(--text);
-        font-size: 14px;
-        line-height: 1.5;
-        background-color: var(--white);
-        background-image: none;
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        width: 100%;
-        height: 35px;
-    }
-    .wrapper:hover input {
-        border-color: var(--border);
-    }
-    input:focus {
-        border: 2px solid var(--primary) !important;
-        outline: 0;
-        padding: var(--vertical-padding-focus) var(--horizontal-padding-focus);
-        padding-right: var(--padding-right-focus);
-    }
-    .input-postfix {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        height: 31px;
-        z-index: 2;
-        color: var(--text);;
-        display: flex;
-        align-items: center;
-        border-radius: 0 2px 2px 0;
-        padding: 4px;
-    }
-    .input-postfix.visible {
-        color: var(--primary);
-        background-color: var(--primary-light);
+        cursor: pointer;
+        user-select: none;
     }
 </style>

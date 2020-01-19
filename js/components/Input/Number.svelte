@@ -42,12 +42,13 @@
         <!-- svelte-ignore a11y-autofocus -->
         <input 
             {autofocus} bind:value bind:this={input} class:icon class:is_invalid
+            class="input-postfix"
             {disabled} {min} {max} {name} on:blur on:blur={()=> focused = false} 
             on:blur={() => blurred = true} on:change 
             on:change={() => value = clamp(value, min, max)} on:input 
             on:keypress on:focus on:focus={()=> focused = true} on:keydown 
             {placeholder} readonly={stepOnly} type='number'>
-        <div class="input-postfix" class:focused>
+        <div class="postfix-wrapper" class:focused>
             <span class="postfix-up"
                 on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
                 <Icon path={mdiChevronUp} size={21}></Icon>
@@ -76,21 +77,8 @@
         appearance: none;
         margin: 0; 
     }
-    .input-postfix {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        z-index: 2;
-        height: 31px;
-        color: var(--text);
-        display: flex;
-        padding: 0 4px;
+    .postfix-wrapper {
         flex-direction: column;
-        border-radius: 0 2px 2px 0;
-    }
-    .focused {
-        color: var(--primary);
-        background-color: var(--primary-light);
     }
     .postfix-up,
     .postfix-down {
