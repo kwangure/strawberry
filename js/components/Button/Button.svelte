@@ -1,6 +1,5 @@
 <script>
     import Icon from "../Icon.svelte";
-    import { mdiLoading } from "@mdi/js";
 
     let className = "";
 export { className as class };
@@ -8,7 +7,6 @@ export { className as class };
     export let icon = "";
     export let iconProps = {};
     export let active = "";
-    export let loading = false;
     export let fullwidth = false;
     
     let slot_used = true;
@@ -16,17 +14,12 @@ export { className as class };
 
 <svelte:options tag="berry-button"/>
 
-<button class="{color? color: ''} {className}" class:icon class:slot_used class:loading class:fullwidth
+<button class="{color? color: ''} {className}" class:icon class:slot_used class:fullwidth
     class:active on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
                 <Icon path={icon} {...iconProps}></Icon>
-            </span>
-        {/if}
-        {#if loading}
-            <span class="loading-spinner {loading?'visible':''}">
-                <Icon path={ mdiLoading }></Icon>
             </span>
         {/if}
         <slot>{(slot_used = false) || ""}</slot>
@@ -88,38 +81,6 @@ export { className as class };
     }
     button.icon.slot_used {
         padding-right: 16px;
-    }
-    button.loading {
-        cursor: disabled;
-    }
-    button.loading:after {
-        content: ""; 
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--white);
-        opacity: .6;
-        cursor: disabled;
-        z-index: 2;
-    }
-    .loading-spinner {
-        position: absolute;
-        display: none;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 2;
-        font-size: 22px;
-        animation: spin 1s infinite linear;
-        color: var(--black);
-        z-index: 3;
-    }
-    @keyframes spin {
-        from {transform:rotate(0deg);}
-        to {transform:rotate(360deg);}
     }
     .visible {
         display: block;
