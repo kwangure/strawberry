@@ -2,7 +2,7 @@
     import Icon from "../Icon.svelte";
 
     let className = "";
-export { className as class };
+    export { className as class };
     export let color = ""; 
     export let icon = "";
     export let iconProps = {};
@@ -58,6 +58,19 @@ export { className as class };
         justify-content: center;
         line-height: 1.2;
     }
+    button:hover:not(:active):not(.active) {
+        background-color: var(--grey-lightest);
+        border-color: var(--grey-lightest);
+    }
+    button:active,
+    button.active {
+        background-color: var(--primary-light);
+        border-color: var(--primary-light);
+        color:  var(--primary);
+    }
+    button.none {
+        border: none;
+    }
     button.primary {
         color: var(--white);
         background-color: var(--primary);
@@ -65,16 +78,7 @@ export { className as class };
     }
     button.primary:active, 
     button.primary:hover {
-        color: var(--white);
-        background-color: var(--primary);
-    }
-    button.none {
-        border: none;
-    }
-    button.none:active,
-    button.none:hover {
-        background-color: var(--primary-light);
-        color:  var(--primary);
+        background-color: var(--primary-hover);
     }
     .button-prefix {
         display: flex;
@@ -84,15 +88,5 @@ export { className as class };
     }
     .visible {
         display: block;
-    }
-    button.primary.active,
-    button.primary:hover {
-        background-color: var(--primary-hover);
-        border-color: var(--primary-hover);
-    }
-    button.active,
-    button:hover {
-        background-color: var(--grey-light);
-        border-color: var(--border-hover);
     }
 </style>
