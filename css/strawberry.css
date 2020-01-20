@@ -33,8 +33,7 @@
 	--primary-light: var(--blue-light);
 	--text: var(--black);
 	--heading: var(--black);
-	--border: var(--grey-light);
-	--border-hover: var(--grey);
+	--border-color: var(--grey-light);
 	--code-fs: 1.3rem;
 	--h1: 3.2rem;
 	--h2: 3rem;

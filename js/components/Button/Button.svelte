@@ -46,7 +46,7 @@
         border-radius: 4px;
         color: var(--text);
         background-color: transparent;
-        border-color: var(--border);
+        border-color: var(--border-color);
         outline: none;
     }
     button.fullwidth {
