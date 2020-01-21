@@ -164,13 +164,3 @@ td, th {
 table code, table span {
 	white-space: pre;
 }
-
-.input-wrapper {
-    --vertical-padding: 5px;
-    --horizontal-padding: 12px;
-    --padding-right: 25px;
-    --vertical-padding-focus: calc(var(--vertical-padding) - 1px);
-    --horizontal-padding-focus: calc(var(--horizontal-padding) - 1px);
-    --padding-right-focus: calc(var(--padding-right) - 1px);
-    --postfix-width: 31px;
-}
