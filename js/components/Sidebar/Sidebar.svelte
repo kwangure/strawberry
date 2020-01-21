@@ -34,10 +34,6 @@
         flex: none;
         user-select: none;
     }
-    .sidebar-items {
-        overflow: hidden;
-        overflow-y: scroll;
-    }
     .sidebar-foot {
         margin-top: auto;
     }

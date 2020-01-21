@@ -58,6 +58,7 @@
         justify-content: center;
         line-height: 1.2;
     }
+    button:focus:not(:active):not(.active),
     button:hover:not(:active):not(.active) {
         background-color: var(--grey-lightest);
         border-color: var(--grey-lightest);
