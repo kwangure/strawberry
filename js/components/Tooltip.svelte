@@ -8,7 +8,7 @@
 
 <svelte:options tag="berry-tooltip"/>
 
-<span aria-label={label} class:active={label} class:left 
+<span aria-label={label} class="tooltip" class:active={label} class:left 
     class:center={!left && !right} class:right class:breakParent>
     <slot></slot>
 </span>
