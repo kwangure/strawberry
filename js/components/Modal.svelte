@@ -3,19 +3,23 @@
     import { mdiClose } from "@mdi/js";
     import { crossscale } from "./crosstransition.js";
     import { fade } from "svelte/transition";
+    import { createEventDispatcher } from "svelte";
 
     export let visible = false;
     export let closable = true;
 
+    const dispatch = createEventDispatcher();
     const [send, receive] = crossscale;
 
-    export function show(){
+    export function open() {
         visible = true;
     }
 
-    export function hide(){
+    export function close() {
         visible = false;
     }
+
+    $: visible ? dispatch("open") : dispatch("close");
 </script>
 
 <svelte:options tag="berry-modal"/>
@@ -86,5 +90,8 @@
     }
     .content > :global(*) {
         max-width: 100%;
+    }
+    .content {
+        overflow: auto;
     }
 </style>
