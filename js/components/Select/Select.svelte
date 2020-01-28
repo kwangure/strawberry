@@ -18,23 +18,28 @@
     let text     = Number.isInteger(active) ? extract(options[active]) : "";
     
     $: options = options.map((option, index) => {
+        //set initial active option
+        if(option.value === value) {
+            set(option, index);
+        }
         option.onclick = () => {
-            set(option);
-            active = index;
+            set(option, index);
             dispatchChange();
         };
         return option;
     });
 
+    // always focus on input if dropdown is open
     $: visible && input ? input.focus() : "";
 
     let dispatchChange = () => {
         input.dispatchEvent(new CustomEvent("change", {detail: value}));
     };
 
-    export function set(option){
+    export function set(option, index){
         value = option.value;
         text  = option.text || option.value;
+        active = index;
     }
 </script>
 
@@ -45,8 +50,8 @@
         <!-- svelte-ignore a11y-autofocus -->
         <input {autofocus} bind:this={input} bind:value={text} class:icon 
             class="input-postfix" {disabled} 
-            on:blur placeholder={label} on:change on:input on:keypress on:focus 
-            on:keydown readonly type='text'>
+            on:blur placeholder={label} on:change on:focus 
+            readonly type='text'>
         <div class="postfix-wrapper" class:visible>
             <Icon path={mdiChevronDown}></Icon>
         </div>
