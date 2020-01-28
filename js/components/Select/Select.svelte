@@ -21,11 +21,16 @@
         option.onclick = () => {
             set(option);
             active = index;
+            dispatchChange();
         };
         return option;
     });
 
     $: visible && input ? input.focus() : "";
+
+    let dispatchChange = () => {
+        input.dispatchEvent(new CustomEvent("change", {detail: value}));
+    };
 
     export function set(option){
         value = option.value;
