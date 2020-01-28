@@ -48,7 +48,7 @@
             on:change={() => value = clamp(value, min, max)} on:input 
             on:keypress on:focus on:focus={()=> focused = true} on:keydown 
             {placeholder} readonly={stepOnly} type='number'>
-        <div class="postfix-wrapper" class:focused>
+        <div class="postfix-wrapper" class:focused class:disabled>
             <span class="postfix-up"
                 on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
                 <Icon path={mdiChevronUp} size={21}></Icon>
@@ -79,6 +79,10 @@
     }
     .postfix-wrapper {
         flex-direction: column;
+    }
+    .postfix-wrapper.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
     }
     .postfix-up,
     .postfix-down {
