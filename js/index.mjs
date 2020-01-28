@@ -3,6 +3,7 @@ export { default as Dropdown } from "./components/Dropdown";
 export { default as Input } from "./components/Input";
 export { default as Select } from "./components/Select";
 export { default as Sidebar } from "./components/Sidebar";
+export { default as Steps } from "./components/Steps";
 export { default as Icon } from "./components/Icon.svelte";
 export { default as Modal } from "./components/Modal.svelte";
 export { default as Notification } from "./components/Notification.svelte";
