@@ -79,10 +79,13 @@
     }
     .postfix-wrapper {
         flex-direction: column;
+<<<<<<< HEAD
     }
     .postfix-wrapper.disabled {
         cursor: not-allowed;
         pointer-events: none;
+=======
+>>>>>>> f28ec3e44aa033936c134858ee75d53fa03df3cb
     }
     .postfix-up,
     .postfix-down {

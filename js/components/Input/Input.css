@@ -44,7 +44,10 @@
 }
 .input-wrapper:hover .postfix-wrapper:not(.visible):not(.focused) {
     background-color: var(--grey-lightest);
+<<<<<<< HEAD
     color: var(--grey-dark);
+=======
+>>>>>>> f28ec3e44aa033936c134858ee75d53fa03df3cb
 }
 input, textarea {
     text-align: inherit;
@@ -74,6 +77,15 @@ textarea:focus {
 input:hover:not(:focus),
 textarea:hover:not(:focus) {
     border-color: var(--grey-light);
+<<<<<<< HEAD
+=======
+}
+.icon {
+    padding-left: var(--icon-padding);
+}
+.icon:focus {
+    padding-left: var(--icon-padding-focus);
+>>>>>>> f28ec3e44aa033936c134858ee75d53fa03df3cb
 }
 .label {
     margin-bottom: 5px;
