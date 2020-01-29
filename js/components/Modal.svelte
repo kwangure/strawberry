@@ -91,7 +91,4 @@
     .content > :global(*) {
         max-width: 100%;
     }
-    .content {
-        overflow: auto;
-    }
 </style>
