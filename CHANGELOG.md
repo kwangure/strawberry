@@ -1,5 +1,19 @@
 # :strawberry: Strawberry changelog
 
+# 0.15.0
+This release has a lot more changes than previous ones. Here are a few notable ones:
+* feat: add ability for compiling to custom-elements
+* feat: add a select component
+* feat: add a notification component
+* feat: add a steps/progress component for forms
+* feat: add a preprocess
+* fix: make all input styles more consistent by sharing css
+* fix: use shared css vars across all components
+* fix: clean up buttons used with icons only
+* fix: improve modal positioning and scrolling
+* style: enforce eslint rules
+* build: rollup config exported for building Strawberry in other Svelte projects
+
 # 0.14.0
 * chore(build): export minified dist files
 * chore(build): add `pkg.svelte` to allow consuming original components
