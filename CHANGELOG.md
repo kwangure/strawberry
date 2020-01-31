@@ -1,5 +1,8 @@
 # :strawberry: Strawberry changelog
 
+# 0.15.1
+* fix: fix broken css in Input components. Heaven knows strawberry need tests.
+
 # 0.15.0
 This release has a lot more changes than previous ones. Here are a few notable ones:
 * feat: add ability for compiling to custom-elements
