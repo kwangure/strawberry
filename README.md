@@ -19,9 +19,10 @@ npm i @deimimi/strawberry
 <Button on:click="{() => value = 2}"></Button>
 ```
 
+### Setting up Rollup
+
 The build process is currently opinionated based on how I consume Strawberry in my projects.
 
-### Setting up Rollup
 ```javascript
 // rollup.config.js
 import config from "@deimimi/strawberry/strawberry.config";
@@ -36,4 +37,4 @@ plugins: [
     ...
 ],
 ```
-See the [config file](./strawberry.config.js) if you already have preprocessing for Svelte setup. Strawberry only <em>really</em> requires `postcss-import` to be successfully bundle.
+See the [config file](./strawberry.config.js) if you already have preprocessing for Svelte set up. Strawberry only <em>really</em> requires `postcss-import` to be successfully bundle.
