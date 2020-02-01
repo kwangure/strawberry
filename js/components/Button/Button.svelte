@@ -79,7 +79,7 @@
     }
     button.primary:active, 
     button.primary:hover {
-        background-color: var(--primary-hover);
+        background-color: var(--primary-hover) !important;
     }
     .button-prefix {
         display: flex;
