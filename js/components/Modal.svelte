@@ -81,11 +81,10 @@
     }
     .header-content {
         margin-right: 10px;
-        flex: auto;
         font-size: 16px !important;
         font-weight: 600 !important;
     }
-    .modal :global(button.close)  {
+    .close  {
         margin-left: auto;
     }
     .content > :global(*) {
