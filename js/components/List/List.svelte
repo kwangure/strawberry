@@ -136,7 +136,7 @@
                 break;
             case "Backspace":
                 Backspace = true;
-                break
+                break;
             case "Delete":
                 Delete = true;
                 break;
