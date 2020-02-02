@@ -125,11 +125,11 @@
         return !noBorder;
     }
 
-    let corneredtop = i => {
+    let corneredTop = i => {
         let roundtop = (i === 0) || (items[i-1] && !items[i-1].selected);
         return !roundtop;
     };
-    let corneredbottom = i => {
+    let corneredBottom = i => {
         let roundbottom = (i === items.length - 1)  || (items[i+1] && !items[i+1].selected);
         return !roundbottom;
     };
@@ -206,8 +206,8 @@
         <div class="berry-list-item"
             class:border-top={border && i === 0}
             class:border-bottom={border && borderBottom(i)}
-            class:corneredtop={item.selected && corneredtop(i)} 
-            class:corneredbottom={item.selected && corneredbottom(i)}
+            class:cornered-top={item.selected && corneredTop(i)} 
+            class:cornered-bottom={item.selected && corneredBottom(i)}
             class:focused={modifierPressed && item.focused}
             class:selected={item.selected}
             on:blur={(e) => deselectItem(i, e)}
@@ -256,11 +256,11 @@
         background-color: var(--primary-light);
         color: var(--primary);
     }
-    .selected.corneredtop {
+    .selected.cornered-top {
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
-    .selected.corneredbottom {
+    .selected.cornered-bottom {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
