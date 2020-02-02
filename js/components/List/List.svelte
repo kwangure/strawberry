@@ -20,7 +20,12 @@
         if(modifierPressed) {
             return;
         }
-        //deselect focused on only if another item is focused on
+        // do not deselect if focus is lost to child element
+        if(e.target.contains(e.relatedTarget)) {
+            return;
+        }
+        // deselect one item if another item is focused on
+        // otherwise deselect all
         if(e.relatedTarget) {
             items = items.map((item, i) => {
                 if (index === i) {
@@ -121,53 +126,62 @@
         return !roundbottom;
     };
 
-    onMount(() => {
-        function CtrlOrCmdPressed(e) {
-            return (isMacintosh && e.key === "Meta") || e.key === "Control";
+    function CtrlOrCmdPressed(e) {
+        return (isMacintosh && e.key === "Meta") || e.key === "Control";
+    }
+
+    function handleKeydown(e) {
+        if (CtrlOrCmdPressed(e)) {
+            CtrlOrCmd = true;
+        }
+        switch(e.key) {
+        case "Alt":
+            Alt = true;
+            break;
+        case "Backspace":
+            Backspace = true;
+            break;
+        case "Delete":
+            Delete = true;
+            break;
+        case "Shift":
+            Shift = true;
+            break;
+        }
+    }
+
+    function handleKeyup(e) {
+        if (CtrlOrCmdPressed(e)) {
+            CtrlOrCmd = false;
         }
 
-        addEventListener("keydown", (e) => {
-            if (CtrlOrCmdPressed(e)) {
-                CtrlOrCmd = true;
-            }
-            switch(e.key) {
-            case "Alt":
-                Alt = true;
-                break;
-            case "Backspace":
-                Backspace = true;
-                break;
-            case "Delete":
-                Delete = true;
-                break;
-            case "Shift":
-                Shift = true;
-                break;
-            }
-        });
+        switch(e.key) {
+        case "Alt":
+            Alt = false;
+            break;
+        case "Backspace":
+            Backspace = false;
+            break;
+        case "Delete":
+            Delete = false;
+            break;
+        case "Shift":
+            Shift = false;
+            break;
+        }
+    }
 
-        addEventListener("keyup", (e) => {
-            if (CtrlOrCmdPressed(e)) {
-                CtrlOrCmd = false;
-            }
-
-            switch(e.key) {
-            case "Alt":
-                Alt = false;
-                break;
-            case "Backspace":
-                Backspace = false;
-                break;
-            case "Delete":
-                Delete = false;
-                break;
-            case "Shift":
-                Shift = false;
-                break;
-            }
-        });
-        
+    onMount(() => {
+        addEventListener("keydown", handleKeydown);
+        addEventListener("keyup", handleKeyup);
         addEventListener("beforeunload", deselectAll);
+    });
+
+    onDestroy(() => {
+        removeEventListener("keydown", handleKeydown);
+        removeEventListener("keyup", handleKeyup);
+        removeEventListener("beforeunload", deselectAll);
+        deselectAll();
     });
 
     $: {
@@ -175,8 +189,6 @@
             items = items.filter(item => !item.selected);
         }
     }
-
-    onDestroy(() => deselectAll());
 </script>
 
 <svelte:options tag="berry-list"/>
@@ -206,7 +218,8 @@
         flex: auto;
         flex-direction: column;
     }
-    .berry-list-item {
+    .berry-list-item,
+    .berry-list-item > :global(*) {
         padding: 10px;
         outline: none;
         cursor: pointer;
@@ -215,13 +228,16 @@
         border-radius: 4px;
         position: relative;
     }
-    .berry-list-item.selected:not(.form-item) {
+    .berry-list-item.selected {
         background-color: var(--primary-light);
         color: var(--primary);
     }
-    .berry-list-item.focused:not(.form-item) {
+    .berry-list-item.focused {
         box-shadow: 0 0 3px var(--primary);
         z-index: 1;
+    }
+    .berry-list-item > :global(*) {
+        margin: -10px;
     }
     .selected.corneredtop {
         border-top-left-radius: 0;
