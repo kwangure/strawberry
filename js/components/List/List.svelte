@@ -101,7 +101,7 @@
         // prevent focus & click events overwriting each other
         if (items[index].dirty) return;
         items[index].dirty = true;
-        setTimeout(() => items[index].dirty = false, 80);
+        setTimeout(() => delete items[index].dirty, 80);
 
         CtrlOrCmd = CtrlOrCmd && !Shift && !Alt;
         Shift = !CtrlOrCmd && Shift && !Alt;
