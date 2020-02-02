@@ -4,6 +4,7 @@
     import { slide } from "svelte/transition";
 
     export let items = [];
+    export let border = false;
     export let deletable = false;
 
     let Alt = false;
@@ -117,6 +118,13 @@
         lastShiftSelection = Shift ? index : null;
     };
 
+    let borderBottom = i => {
+        let selected = items[i].selected;
+        let nextSelected = (items[i+1] && items[i+1].selected);
+        let noBorder = selected || nextSelected;
+        return !noBorder;
+    }
+
     let corneredtop = i => {
         let roundtop = (i === 0) || (items[i-1] && !items[i-1].selected);
         return !roundtop;
@@ -193,12 +201,15 @@
 
 <svelte:options tag="berry-list"/>
 
-<div class="berry-list">
+<div class="berry-list" class:border>
     {#each items as item, i (i)}
-        <div class="berry-list-item" class:selected={item.selected}
-            class:focused={modifierPressed && item.focused}
+        <div class="berry-list-item"
+            class:border-top={border && i === 0}
+            class:border-bottom={border && borderBottom(i)}
             class:corneredtop={item.selected && corneredtop(i)} 
             class:corneredbottom={item.selected && corneredbottom(i)}
+            class:focused={modifierPressed && item.focused}
+            class:selected={item.selected}
             on:blur={(e) => deselectItem(i, e)}
             on:click={() => selectItem(i)}
             on:focus={() => selectItem(i)}
@@ -228,16 +239,22 @@
         border-radius: 4px;
         position: relative;
     }
-    .berry-list-item.selected {
-        background-color: var(--primary-light);
-        color: var(--primary);
+    .berry-list-item > :global(*) {
+        margin: -10px;
     }
-    .berry-list-item.focused {
+    .border-top {
+        border-top: 1px solid var(--border-color);
+    }
+    .border-bottom {
+        border-bottom: 1px solid var(--border-color);
+    }
+    .focused {
         box-shadow: 0 0 3px var(--primary);
         z-index: 1;
     }
-    .berry-list-item > :global(*) {
-        margin: -10px;
+    .selected {
+        background-color: var(--primary-light);
+        color: var(--primary);
     }
     .selected.corneredtop {
         border-top-left-radius: 0;
