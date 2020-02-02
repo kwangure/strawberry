@@ -201,10 +201,11 @@
 
 <svelte:options tag="berry-list"/>
 
-<div class="berry-list" class:border>
+<div class="berry-list">
     {#each items as item, i (i)}
         <div class="berry-list-item"
-            class:border-top={border && i === 0}
+            class:border={border && !item.selected}
+            class:border-top={border && !item.selected && i === 0}
             class:border-bottom={border && borderBottom(i)}
             class:cornered-top={item.selected && corneredTop(i)} 
             class:cornered-bottom={item.selected && corneredBottom(i)}
@@ -236,8 +237,11 @@
         cursor: pointer;
         transition: all 250ms ease;
         user-select: none;
-        border-radius: 4px;
         position: relative;
+    }
+    .berry-list-item:not(.border),
+    .berry-list-item > :global(*) {
+        border-radius: 4px;
     }
     .berry-list-item > :global(*) {
         margin: -10px;
