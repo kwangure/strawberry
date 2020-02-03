@@ -62,6 +62,7 @@
     button:hover:not(:active):not(.active) {
         background-color: var(--grey-lightest);
         border-color: var(--grey-lightest);
+        color: var(--text);
     }
     button:active,
     button.active {
@@ -78,8 +79,10 @@
         border: none;
     }
     button.primary:active, 
-    button.primary:hover {
+    button.primary:hover,
+    button.primary:focus {
         background-color: var(--primary-hover) !important;
+        color: var(--white) !important;
     }
     .button-prefix {
         display: flex;
