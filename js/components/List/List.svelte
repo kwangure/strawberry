@@ -1,6 +1,6 @@
 <script>
     import { isMacintosh } from "../utils/platform";
-    import { onMount, onDestroy } from "svelte";
+    import { onDestroy } from "svelte";
     import { slide } from "svelte/transition";
 
     export let items = [];
@@ -50,8 +50,8 @@
         CtrlOrCmd = false;
         Shift = false;
         Alt = false;
-        // Backspase = false;
-        // Delete = false;
+        Backspace = false;
+        Delete = false;
         lastShiftSelection = null;  
     }
 
@@ -123,7 +123,7 @@
         let nextSelected = (items[i+1] && items[i+1].selected);
         let noBorder = selected || nextSelected;
         return !noBorder;
-    }
+    };
 
     let corneredTop = i => {
         let roundtop = (i === 0) || (items[i-1] && !items[i-1].selected);
@@ -186,6 +186,10 @@
             items = items.filter(item => !item.selected);
         }
     }
+
+    onDestroy(() => {
+        deselectAll();
+    });
 </script>
 
 <svelte:options tag="berry-list"/>
@@ -250,6 +254,7 @@
     }
     .focused {
         box-shadow: 0 0 3px var(--primary);
+        border-radius: 4px;
         z-index: 1;
     }
     .selected {
