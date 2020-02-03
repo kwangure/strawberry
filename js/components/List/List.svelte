@@ -203,7 +203,7 @@
             class:border-bottom={border && borderBottom(i)}
             class:cornered-top={item.selected && corneredTop(i)} 
             class:cornered-bottom={item.selected && corneredBottom(i)}
-            class:focused={modifierPressed && item.focused}
+            class:focus-ring={modifierPressed && item.focused}
             class:selected={item.selected}
             on:blur={(e) => deselectItem(i, e)}
             on:click={() => selectItem(i)}
@@ -252,11 +252,6 @@
     .border-bottom {
         border-bottom-color: var(--border-color);
     }
-    .focused {
-        box-shadow: 0 0 3px var(--primary);
-        border-radius: 4px;
-        z-index: 1;
-    }
     .selected {
         background-color: var(--primary-light);
         color: var(--primary);
@@ -268,5 +263,12 @@
     .selected.cornered-bottom {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+    }
+    .focus-ring,
+    .focus-ring.cornered-top,
+    .focus-ring.cornered-bottom {
+        box-shadow: 0 0 3px var(--primary);
+        border-radius: 4px;
+        z-index: 1;
     }
 </style>
