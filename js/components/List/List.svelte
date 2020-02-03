@@ -193,7 +193,8 @@
 <div class="berry-list">
     {#each items as item, i (i)}
         <div class="berry-list-item"
-            class:border={border && !item.selected}
+            class:border
+            class:border-no-radius={border && !item.selected}
             class:border-top={border && !item.selected && i === 0}
             class:border-bottom={border && borderBottom(i)}
             class:cornered-top={item.selected && corneredTop(i)} 
@@ -230,18 +231,22 @@
         user-select: none;
         position: relative;
     }
-    .berry-list-item:not(.border),
+    .berry-list-item:not(.border-no-radius),
     .berry-list-item > :global(*) {
         border-radius: 4px;
     }
     .berry-list-item > :global(*) {
         margin: -10px;
     }
+    .border {
+        border-top: 1px solid transparent; /* prevent shifting up and down when border's hidden */
+        border-bottom: 1px solid transparent;
+    }
     .border-top {
-        border-top: 1px solid var(--border-color);
+        border-top-color: var(--border-color);
     }
     .border-bottom {
-        border-bottom: 1px solid var(--border-color);
+        border-bottom-color: var(--border-color);
     }
     .focused {
         box-shadow: 0 0 3px var(--primary);
