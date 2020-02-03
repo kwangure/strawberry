@@ -139,6 +139,7 @@
     }
 
     function handleKeydown(e) {
+        e.stopPropagation();
         if (CtrlOrCmdPressed(e)) {
             CtrlOrCmd = true;
         }
@@ -159,6 +160,7 @@
     }
 
     function handleKeyup(e) {
+        e.stopPropagation();
         if (CtrlOrCmdPressed(e)) {
             CtrlOrCmd = false;
         }
@@ -178,19 +180,6 @@
             break;
         }
     }
-
-    onMount(() => {
-        addEventListener("keydown", handleKeydown);
-        addEventListener("keyup", handleKeyup);
-        addEventListener("beforeunload", deselectAll);
-    });
-
-    onDestroy(() => {
-        removeEventListener("keydown", handleKeydown);
-        removeEventListener("keyup", handleKeyup);
-        removeEventListener("beforeunload", deselectAll);
-        deselectAll();
-    });
 
     $: {
         if(deletable && (Backspace || Delete)) {
@@ -214,6 +203,8 @@
             on:blur={(e) => deselectItem(i, e)}
             on:click={() => selectItem(i)}
             on:focus={() => selectItem(i)}
+            on:keydown={handleKeydown}
+            on:keyup={handleKeyup}
             tabindex="0"
             transition:slide>
             <slot name="item" item={{...item, index: i}}></slot>
