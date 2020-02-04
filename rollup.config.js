@@ -1,49 +1,45 @@
-import { terser } from 'rollup-plugin-terser';
-import commonjs from 'rollup-plugin-commonjs';
-import globals from 'rollup-plugin-node-globals';
-import resolve from 'rollup-plugin-node-resolve';
-import svelte from 'rollup-plugin-svelte';
-import { config } from "./strawberry.config";
+import { terser } from "rollup-plugin-terser";
+import commonjs from "rollup-plugin-commonjs";
+import globals from "rollup-plugin-node-globals";
+import resolve from "rollup-plugin-node-resolve";
+import svelte from "rollup-plugin-svelte";
+import { customElementsPreprocess }  from "./strawberry.config";
 
-let nested  = ["Button", "Dropdown", "Input", "Sidebar", "Select",];
-let singles = ["Icon", "Modal", "Tooltip"];
-let paths = [
-    ...nested,
-    ...singles.map(component => `${component}.svelte`)
-]
+let components  = [
+    "Button", 
+    "Dropdown", 
+    "Input", 
+    "List", 
+    "Select", 
+    "Sidebar", 
+    "Steps",
+    "Icon", 
+    "Modal", 
+    "Tooltip"
+];
 
 export default [
-    ...paths.map(component => ({
+    ...components.map(component => ({
         input: `js/components/${component}`,
         output: {
-            name: component.replace(".svelte", ""),
-            file: `dist/${component.replace(".svelte", "")}.js`,
+            name: component,
+            file: `dist/${component}.js`,
             format: "umd",
-            sourcemap: true,
         },
         plugins: [
             svelte({
-                dev: false,
-                ...config,
-                css: true,
-                hydratable: true,
-                accessors: true,
+                preprocess: customElementsPreprocess,
+                customElement: true,
             }),
             resolve({
                 browser: true,
                 dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
-                preferBuiltins: true
+                preferBuiltins: true,
             }),
             commonjs(),
             globals(),
             terser(),
         ],
-        onwarn: function (message, warn) {
-			if (message.pluginCode === 'missing-custom-element-compile-options') {
-				return
-			}
-			warn(message)
-		}
     })),
 ];
 

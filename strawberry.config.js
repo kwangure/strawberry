@@ -1,20 +1,32 @@
-const sveltePreprocess = require("svelte-preprocess");
-const cssImport = require("postcss-import");
-const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
-const cssVars = require("postcss-css-variables");
+import sveltePreprocess from "svelte-preprocess";
+import cssImport from "postcss-import";
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
+import cssVars from "postcss-css-variables";
 
-module.exports = {
-    preprocess: sveltePreprocess({
-        postcss: {
-            plugins: [
-                cssImport(),
-                autoprefixer(),
-                cssnano({
-                    preset: 'default',
-                }),
-                cssVars(),
-            ],
-        },
-    }),
-}
+// for use with in Svelte projects
+export default sveltePreprocess({
+    postcss: {
+        plugins: [
+            cssImport(),
+            autoprefixer(),
+            cssnano({
+                preset: 'default',
+            }),
+        ],
+    },
+});
+
+// custom elements config
+export const customElementsPreprocess = sveltePreprocess({
+    postcss: {
+        plugins: [
+            cssImport(),
+            autoprefixer(),
+            cssnano({
+                preset: 'default',
+            }),
+            cssVars(),
+        ],
+    },
+});
