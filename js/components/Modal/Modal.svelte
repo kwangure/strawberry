@@ -1,7 +1,7 @@
 <script>
-    import Button from "./Button";
+    import Button from "../Button";
     import { mdiClose } from "@mdi/js";
-    import { crossscale } from "./utils/crosstransition.js";
+    import { crossscale } from "../utils/crosstransition.js";
     import { fade } from "svelte/transition";
     import { createEventDispatcher } from "svelte";
 
@@ -49,7 +49,7 @@
 {/if}
 
 <style>
-    @import "../../css/strawberry.css";
+    @import "../../../css/strawberry.css";
     .overlay {
         position: fixed;
         top: 0;

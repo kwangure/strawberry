@@ -2,7 +2,7 @@
     import { mdiChevronDown } from "@mdi/js";
     import { onDestroy } from "svelte";
     import fuzzy from "fuzzy";
-    import Icon from "../../Icon.svelte";
+    import Icon from "../../Icon";
     import Item from "./Item.svelte";
 
     export let options = [];

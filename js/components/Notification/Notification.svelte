@@ -1,5 +1,5 @@
 <script>
-    import Icon from "./Icon.svelte";
+    import Icon from "../Icon";
     import { mdiClose } from "@mdi/js";
     import { fly } from "svelte/transition";
     import { onMount } from "svelte";
@@ -30,7 +30,7 @@
 {/if}
 
 <style>
-    @import "../../css/strawberry.css";
+    @import "../../../css/strawberry.css";
     .wrapper {
         overflow: hidden;
         position: absolute;

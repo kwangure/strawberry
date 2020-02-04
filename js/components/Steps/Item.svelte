@@ -1,5 +1,5 @@
 <script>
-    import Icon from "../Icon.svelte";
+    import Icon from "../Icon";
     import { mdiCheck } from "@mdi/js";
     export let vertical = false;
     export let active = false;

@@ -1,5 +1,5 @@
 <script>
-    import Icon from "../Icon.svelte";
+    import Icon from "../Icon";
     import { slide } from "svelte/transition";
     export let name = "";
     export let label = "";

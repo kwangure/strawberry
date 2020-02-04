@@ -1,6 +1,6 @@
 <script>
     import { mdiChevronDown } from "@mdi/js";
-    import Icon from "../Icon.svelte";
+    import Icon from "../Icon";
     import Dropdown from "../Dropdown";
 
     export let options = [];

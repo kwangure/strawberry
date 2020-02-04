@@ -28,7 +28,7 @@
 </svg>
 
 <style>
-    @import "../../css/strawberry.css";
+    @import "../../../css/strawberry.css";
     svg.horizontal {
         transform: scale(-1, 1)
     }
