@@ -5,5 +5,3 @@ export { default as Input } from './dist/Input';
 export { default as Modal } from './dist/Modal';
 export { default as Sidebar } from './dist/Sidebar';
 export { default as Tooltip } from './dist/Tooltip';
-export { default as preprocessConfig } from './strawberry.config';
-export { customElementsPreprocess } from './strawberry.config';

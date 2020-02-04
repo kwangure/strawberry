@@ -3,7 +3,7 @@ import commonjs from "rollup-plugin-commonjs";
 import globals from "rollup-plugin-node-globals";
 import resolve from "rollup-plugin-node-resolve";
 import svelte from "rollup-plugin-svelte";
-import { customElementsPreprocess }  from "./strawberry.config";
+import { customElementsPreprocess }  from "./config/esm";
 
 let components  = [
     "Button", 
