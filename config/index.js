@@ -5,7 +5,7 @@ const cssnano = require("cssnano");
 const cssVars = require("postcss-css-variables");
 
 // for use with in Svelte projects
-module.exports = sveltePreprocess({
+module.exports.preprocessConfig = sveltePreprocess({
     postcss: {
         plugins: [
             cssImport(),
