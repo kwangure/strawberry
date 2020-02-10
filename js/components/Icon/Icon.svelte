@@ -4,6 +4,7 @@
     export let flip = "";
     export let spin = "";
     export let color = "";
+    export let rotate = 0;
 
     // a hacky way to check whether a slot is in use
     let slotUsed = true;
@@ -25,8 +26,8 @@
 <svelte:options tag="berry-icon"/>
 
 <svg class:horizontal class:vertical class:clockwise class:counterclockwise
-    height="{size}px" 
-    on:click on:dblclick viewBox="0 0 24 24" width="{size}px">
+    height="{size}px" on:click on:dblclick 
+    style="transform: rotate({rotate}deg);" viewBox="0 0 24 24" width="{size}px">
     {#if !slotUsed}
         <path d={path} fill={color || "currentColor"} />
     {/if}
