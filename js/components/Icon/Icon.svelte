@@ -1,5 +1,6 @@
 <script>
     export let size = 24;
+    export let units = "px";
     export let path = "";
     export let flip = "";
     export let spin = "";
@@ -26,8 +27,8 @@
 <svelte:options tag="berry-icon"/>
 
 <svg class:horizontal class:vertical class:clockwise class:counterclockwise
-    height="{size}px" on:click on:dblclick 
-    style="transform: rotate({rotate}deg);" viewBox="0 0 24 24" width="{size}px">
+    height="{size}{units}" on:click on:dblclick 
+    style="transform: rotate({rotate}deg);" viewBox="0 0 24 24" width="{size}{units}">
     {#if !slotUsed}
         <path d={path} fill={color || "currentColor"} />
     {/if}
