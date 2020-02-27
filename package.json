@@ -1,14 +1,15 @@
 {
     "name": "@deimimi/strawberry",
-    "version": "0.15.2",
+    "version": "0.15.3",
     "description": "A set of svelte components",
     "main": "index.mjs",
-    "svelte": "./js/index.mjs",
+    "svelte": "./src/index.mjs",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rollup -c",
         "dev": "rollup -cw",
-        "release": "standard-version"
+        "release": "standard-version",
+        "publish": "git push --follow-tags origin master && npm publish"
     },
     "dependencies": {
         "@mdi/js": "^4.7.95",
@@ -26,6 +27,7 @@
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-globals": "^1.4.0",
         "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-postcss": "^2.1.1",
         "rollup-plugin-svelte": "^5.1.1",
         "rollup-plugin-terser": "^5.1.3",
         "standard-version": "^7.1.0",
@@ -42,8 +44,8 @@
     },
     "homepage": "https://github.com/deimimi/strawberry#readme",
     "files": [
-        "css",
-        "js",
-        "config"
+        "src",
+        "config",
+        "dist"
     ]
 }
