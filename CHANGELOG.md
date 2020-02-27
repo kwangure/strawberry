@@ -1,4 +1,35 @@
-# :strawberry: Strawberry changelog
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.15.2](https://github.com/deimimi/strawberry/compare/v0.15.1...v0.15.2) (2020-02-27)
+
+
+### Features
+
+* add borders to list item ([49e9e43](https://github.com/deimimi/strawberry/commit/49e9e43238ce7a0094b258542e9ba1a9a7a884f5))
+* add option for custom icon paths ([66d56c6](https://github.com/deimimi/strawberry/commit/66d56c6106fdea2a860209c940a782e4680394f0))
+* add path component to icon ([a98742b](https://github.com/deimimi/strawberry/commit/a98742b4c1b9bf9b59a5ddedf6f8050d9210847a))
+* add rotate prop to icon ([34bac81](https://github.com/deimimi/strawberry/commit/34bac81b4da867408223b2b45f41f9c05086f305))
+* add selectable list component ([2034994](https://github.com/deimimi/strawberry/commit/203499410ac72651ec603839b5cb5cbc13d56871))
+* add support for dynamic icon units ([c782222](https://github.com/deimimi/strawberry/commit/c7822223adbef50f3b156453efc05180cdc3a491))
+
+
+### Bug Fixes
+
+* allow embeded lists or lists= stopPropagation ([a0f6ec7](https://github.com/deimimi/strawberry/commit/a0f6ec7a0649d206f46f34fc45a46ff6aa05387c))
+* avoid dirtifying external data ([20cb1cc](https://github.com/deimimi/strawberry/commit/20cb1cc7ed602ef7067f3bd95561f9a8ec0eb65d))
+* cleanly export config bundling config ([34f96f2](https://github.com/deimimi/strawberry/commit/34f96f278d62ccf9f035f14e0c0648184f7211e3))
+* correct border-radius styling ([a80ac75](https://github.com/deimimi/strawberry/commit/a80ac750561ca8929a0069fdc7040ca4e99f40ae))
+* deselect all list items onDestroy regression ([64ba0e8](https://github.com/deimimi/strawberry/commit/64ba0e89a23e6047f2bf6626f94a3e0ee81144d3))
+* export all components ([74a9c2b](https://github.com/deimimi/strawberry/commit/74a9c2b4cfa0226a80ffd968873e0af9ecb72a60))
+* export preprocessConfig ([cd47680](https://github.com/deimimi/strawberry/commit/cd47680b94795db6c4a5d1f988cd200d99e50c8b))
+* improve modal header styling ([98ceb10](https://github.com/deimimi/strawberry/commit/98ceb106a10a46222c94769220c6a6d1c89bd895))
+* prevent css button hover overwrite ([0a09e83](https://github.com/deimimi/strawberry/commit/0a09e837da23897538f184dcf1ec788c65d368e3))
+* prevent shifting up and down ([4c09d83](https://github.com/deimimi/strawberry/commit/4c09d83765504558a56bf32fff06f2152a7c91e1))
+* remove event listeners when list is destroyed ([17b8400](https://github.com/deimimi/strawberry/commit/17b8400a6e1188d89227fa0fa0b0cd5f7206961e))
+* round focus-ring on list item ([1c3b10d](https://github.com/deimimi/strawberry/commit/1c3b10d14239744eaeaa4a136a937277a4405239))
+* use consistent button styles ([f1aa124](https://github.com/deimimi/strawberry/commit/f1aa12492475aa13bbc931aa8512d44dcb8dfa77))
 
 # 0.15.1
 * fix: fix broken css in Input components. Heaven knows strawberry need tests.
