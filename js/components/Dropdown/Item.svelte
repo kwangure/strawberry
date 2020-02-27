@@ -9,7 +9,7 @@
 </div>
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
     .menu-item {
         clear: both;
         font-weight: normal;

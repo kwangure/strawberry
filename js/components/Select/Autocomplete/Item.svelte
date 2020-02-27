@@ -9,7 +9,7 @@
 </div>
 
 <style>
-    @import "../../../../css/strawberry.css";
+    @import "../../../css/shared.css";
     .menu-item {
         --vertical-padding: 8px;
         --horizontal-padding: 16px;

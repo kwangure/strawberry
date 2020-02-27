@@ -220,7 +220,7 @@
 </div>
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
     .berry-list {
         display: flex;
         flex: auto;

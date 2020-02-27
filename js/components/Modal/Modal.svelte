@@ -49,7 +49,7 @@
 {/if}
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
     .overlay {
         position: fixed;
         top: 0;

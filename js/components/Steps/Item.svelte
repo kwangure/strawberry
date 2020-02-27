@@ -21,7 +21,7 @@
 </div>
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
     .step-item {
         cursor: pointer;
         background-color: transparent;

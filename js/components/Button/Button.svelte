@@ -27,7 +27,7 @@
 </button>
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
     button {
         line-height: 1.5;
         position: relative;

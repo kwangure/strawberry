@@ -50,7 +50,7 @@
 </div>
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
 
     .steps {
         display: flex;

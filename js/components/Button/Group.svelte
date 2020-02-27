@@ -5,7 +5,7 @@
 <svelte:options tag="berry-button-group"/>
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
     .button-group :global(button) {
         border-radius: 0;
     }

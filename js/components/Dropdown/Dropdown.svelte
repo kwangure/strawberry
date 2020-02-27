@@ -71,7 +71,7 @@
 </div>
 
 <style>
-    @import "../../../css/strawberry.css";
+    @import "../../css/shared.css";
     .dropdown {
         position: relative;
         display: inline-block;
