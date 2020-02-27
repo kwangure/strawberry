@@ -3,7 +3,7 @@ import commonjs from "rollup-plugin-commonjs";
 import globals from "rollup-plugin-node-globals";
 import resolve from "rollup-plugin-node-resolve";
 import svelte from "rollup-plugin-svelte";
-import { customElementsPreprocess }  from "./config/esm";
+import { customElementsPreprocess }  from "./config/internal";
 
 let components  = [
     "Button", 
@@ -33,7 +33,7 @@ export default [
             }),
             resolve({
                 browser: true,
-                dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
+                dedupe: importee => importee === "svelte" || importee.startsWith("svelte/"),
                 preferBuiltins: true,
             }),
             commonjs(),
