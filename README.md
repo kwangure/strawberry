@@ -1,40 +1,8 @@
-# :strawberry: A set of Svelte components
+<p align="center">
+    <a href="#"><img src="./assets/strawberry_logo.svg" height="150px" /></a>
+</p>
 
-## Install
+<p align="center">
+    A set of web components built with Svelte.<br/>
+</p>
 
-```
-npm i @deimimi/strawberry
-```
-
-## Usage
-
-```html
-<script>
-    import { Button } from "@deimimi/strawberry";
-
-    let value = 1;
-</script>
-
-<p>I have {value} pencils.</p>
-<Button on:click="{() => value = 2}"></Button>
-```
-
-### Setting up Rollup
-
-The build process is currently opinionated based on how I consume Strawberry in my projects.
-
-```javascript
-// rollup.config.js
-import config from "@deimimi/strawberry/strawberry.config";
-
-plugins: [
-    ...,
-    svelte({
-        ...,
-        ...config, // postcss config to preprocess Strawberry 
-        ...,
-    }),
-    ...
-],
-```
-See the [config file](./strawberry.config.js) if you already have preprocessing for Svelte set up. Strawberry only <em>really</em> requires `postcss-import` to be successfully bundle.
