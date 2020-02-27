@@ -1,0 +1,166 @@
+/*
+-----------------------------------------------
+	vars – css custom-properties
+
+	NOTE
+	- some vars change inside media-queries!
+	- under normal conditions, there's no need to touch these
+-----------------------------------------------
+*/
+:root, 
+:host {
+	--red: rgb(255, 40, 30);
+	--red-hover: rgba(255, 60, 50);
+	--red-light: rgb(255, 230, 240);
+
+	--blue: rgb(25, 110, 255);
+	--blue-hover: rgb(40, 130, 255);
+	--blue-light: rgb(220, 235, 255);
+
+	--green: rgb(45, 190, 45);
+	--green-hover: rgb(55, 200, 55);
+	--green-light: rgb(210, 255, 200);
+
+	--black: #333;
+	--grey-dark: rgb(70, 80, 90);
+	--grey: rgb(150, 150, 150);
+	--grey-light: rgb(195, 195, 195);
+	--grey-lightest: rgb(240, 240, 240);
+	--white: #fff;
+	
+	--primary: var(--blue);
+	--primary-hover: var(--blue-hover);
+	--primary-light: var(--blue-light);
+	--text: var(--black);
+	--heading: var(--black);
+	--border-color: var(--grey-light);
+	--code-fs: 1.3rem;
+	--h1: 3.2rem;
+	--h2: 3rem;
+	--h3: 2.6rem;
+	--h4: 1.8rem;
+	--h5: 1.6rem;
+	--h6: 1.4rem; /* default font-size */
+	--linemax: 42em; /* max line-length */
+	--lh: 1.5; /* base line-height */
+
+	/* Used here to solve preprocess problems **/
+	--input-vertical-padding: 5px;
+    --input-horizontal-padding: 12px;
+    --input-padding-right: 25px;
+    --input-vertical-padding-focus: calc(var(--input-vertical-padding) - 1px);
+    --input-horizontal-padding-focus: calc(var(--input-horizontal-padding) - 1px);
+    --input-padding-right-focus: calc(var(--input-padding-right) - 1px);
+	--postfix-width: 31px;
+	
+	--item-vertical-padding: 8px;
+    --item-horizontal-padding: 12px;
+}
+
+body, 
+:host {
+	--font: 'Arial', Helvetica, sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+	--font-ui: var(--font-mono);
+	--font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/*	base reset ----------------------------- */
+html {
+	font-size: 62.5%;
+	-ms-text-size-adjust: 62.5%;
+	-webkit-text-size-adjust: 62.5%;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	border-collapse: collapse;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+*,
+:host * {
+	box-sizing: border-box;
+}
+
+/*	link reset ----------------------------- */
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: inherit;
+	transition: all 0.5s ease-in;
+}
+
+a:hover, a:active { color: var(--secondary) }
+a:focus { outline: none }
+
+/*
+-----------------------------------------------
+	global styles
+-----------------------------------------------
+*/
+
+/*	typography ----------------------------- */
+body {
+	font-weight: 400;
+	font-size: var(--h6);
+	font-family: var(--font);
+	color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6, blockquote {
+	position: relative;
+	margin: 0;
+	color: var(--heading);
+}
+
+h6 { font-size: var(--h6) }
+h5 { font-size: var(--h5) }
+h4 { font-size: var(--h4) }
+h3 { font-size: var(--h3) }
+h2 { font-size: var(--h2) }
+h1 { font-size: var(--h1) }
+
+h1, h2 {
+	font-family: var(--font);
+	line-height: 1.25;
+}
+
+h3 { font-weight: 300 }
+
+tt, code, kbd, samp {
+	font: 400 var(--code-fs) var(--font-mono);
+	line-height: 1.7;
+}
+
+
+/*  links ------------------------------------- */
+a {
+	user-select: none;
+	color: var(--primary);
+	transition: color .2s;
+}
+
+a:hover  {
+	color: var(--primary-hover);
+}
+
+/*  tables --------------------------------- */
+table {
+	width: 100%;
+	font-size: var(--h5);
+}
+
+td, th {
+	text-align: left;
+	border-bottom: 1px solid #eee;
+	padding: 0.4rem 0.8rem 0.4rem 0;
+}
+
+table code, table span {
+	white-space: pre;
+}
