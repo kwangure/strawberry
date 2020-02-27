@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.15.3](https://github.com/deimimi/strawberry/compare/v0.15.2...v0.15.3) (2020-02-27)
 
+### [0.15.3](https://github.com/deimimi/strawberry/compare/v0.15.2...v0.15.3) (2020-02-27)
+
 ### [0.15.2](https://github.com/deimimi/strawberry/compare/v0.15.1...v0.15.2) (2020-02-27)
 
 
