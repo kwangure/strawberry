@@ -1,6 +1,7 @@
 import { terser } from "rollup-plugin-terser";
 import commonjs from "rollup-plugin-commonjs";
 import globals from "rollup-plugin-node-globals";
+import postcss from "rollup-plugin-postcss";
 import resolve from "rollup-plugin-node-resolve";
 import svelte from "rollup-plugin-svelte";
 import { customElementsPreprocess }  from "./config/internal";
@@ -20,7 +21,7 @@ let components  = [
 
 export default [
     ...components.map(component => ({
-        input: `js/components/${component}`,
+        input: `src/components/${component}`,
         output: {
             name: component,
             file: `dist/${component}.js`,
@@ -41,5 +42,18 @@ export default [
             terser(),
         ],
     })),
+    {
+        input: "src/css/shared.css",
+        output: {
+            file: "dist/css/strawberry.css",
+            format: "es",
+        },
+        plugins: [
+            postcss({
+                modules: true,
+                extract: true,
+            }),
+        ],
+    },
 ];
 
