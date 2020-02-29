@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.4](https://github.com/deimimi/strawberry/compare/v0.15.3...v0.15.4) (2020-02-29)
+
+### Chores
+
+* upgrade Svelte
+
+### Bug Fixes
+
+* use unique placeholder attr in autocomplete select ([a130202](https://github.com/deimimi/strawberry/commit/a13020296f58b89d4a490f32e4ebb58db0ea6113))
+
 ### [0.15.3](https://github.com/deimimi/strawberry/compare/v0.15.2...v0.15.3) (2020-02-27)
 
 ### [0.15.2](https://github.com/deimimi/strawberry/compare/v0.15.1...v0.15.2) (2020-02-27)
