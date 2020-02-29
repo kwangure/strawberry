@@ -81,8 +81,8 @@
         <!-- svelte-ignore a11y-autofocus -->
         <input {autofocus} bind:this={input} bind:value={text} class:icon 
             class="input-postfix" {disabled} 
-            on:blur placeholder={label} on:change on:input on:keypress on:focus 
-            on:focus={open} on:keydown {placeholder} type='text'>
+            on:blur placeholder={placeholder || label} on:change on:input on:keypress on:focus 
+            on:focus={open} on:keydown type='text'>
         <div class="postfix-wrapper" class:visible on:click|stopPropagation={toggle}>
             <Icon path={mdiChevronDown}></Icon>
         </div>
