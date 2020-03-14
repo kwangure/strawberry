@@ -55,6 +55,43 @@ plugins: [
 ]
 ...
 ```
+
+## Known Issues
+### Web components
+Because Strawberry compiles to both Svelte components and web-components, you'll get 
+errors about missing component attributes when compiling to one and not the other.
+
+```javascript
+// rollup.config.js
+
+const onwarn = (warning, warn) => {
+    const strawberryCustomElementsWarning = (
+        warning.pluginCode === "missing-custom-element-compile-options" && 
+        /[/\\]@deimimi\/strawberry[/\\]/.test(warning.filename)
+    );
+    const strawberryUnusedCSSSelectorWarning = (
+        warning.pluginCode === "css-unused-selector" &&
+        /[/\\]@deimimi\/strawberry[/\\]/.test(warning.filename)
+    )
+	if(strawberryCustomElementsWarning || strawberryUnusedCSSSelectorWarning){
+		return;
+	}
+	warn(warning);
+};
+
+export default [{
+    ...
+    onwarn,
+    ...
+}]
+```
+
+### Sapper
+Sapper's rollup config fights the importing of Strawberry components using ES6 imports. To work around it,
+install Strawberry as a `dev` dependency using the `-D` option like so:
+```bash
+npm i -D @deimimi/strawberry
+```
 <!--
 ## Attribution
 The Strawberry logo was created using the Winnie font.-->
