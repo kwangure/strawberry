@@ -7,8 +7,6 @@
     export let color = "";
     export let rotate = 0;
 
-    // a hacky way to check whether a slot is in use
-    let slotUsed = true;
     
     function validSpin(spin) {
         return spin === "clockwise" || spin === "counterclockwise";
@@ -29,10 +27,8 @@
 <svg class:horizontal class:vertical class:clockwise class:counterclockwise
     height="{size}{units}" on:click on:dblclick 
     style="transform: rotate({rotate}deg);" viewBox="0 0 24 24" width="{size}{units}">
-    {#if !slotUsed}
-        <path d={path} fill={color || "currentColor"} />
-    {/if}
-    <slot>{(slotUsed = false) || ""}</slot>
+    <path d={path} fill={color || "currentColor"} />
+    <slot></slot>
 </svg>
 
 <style>
