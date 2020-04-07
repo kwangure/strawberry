@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.5](https://github.com/deimimi/strawberry/compare/v0.15.3...v0.15.5) (2020-04-07)
+
+
+### Features
+
+* remove path/slot restriction in Icon component ([e43f133](https://github.com/deimimi/strawberry/commit/e43f13337f3b66a6e9ff7a21a0b71625ec22445c))
+
+
+### Bug Fixes
+
+* use unique placeholder attr in autocomplete select ([a130202](https://github.com/deimimi/strawberry/commit/a13020296f58b89d4a490f32e4ebb58db0ea6113))
+
 ### [0.15.4](https://github.com/deimimi/strawberry/compare/v0.15.3...v0.15.4) (2020-02-29)
 
 ### Chores
