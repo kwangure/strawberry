@@ -65,15 +65,15 @@ errors about missing component attributes when compiling to one and not the othe
 // rollup.config.js
 
 const onwarn = (warning, warn) => {
-    const strawberryCustomElementsWarning = (
+    const customElementsWarning = 
         warning.pluginCode === "missing-custom-element-compile-options" && 
-        /[/\\]@deimimi[/\\]strawberry[/\\]/.test(warning.filename)
-    );
-    const strawberryUnusedCSSSelectorWarning = (
+        /[/\\]strawberry[/\\]/.test(warning.filename);
+
+    const unusedCSSWarning = 
         warning.pluginCode === "css-unused-selector" &&
-        /[/\\]@deimimi[/\\]strawberry[/\\]/.test(warning.filename)
-    )
-	if(strawberryCustomElementsWarning || strawberryUnusedCSSSelectorWarning){
+        /[/\\]strawberry[/\\]/.test(warning.filename);
+
+	if(customElementsWarning || unusedCSSWarning){
 		return;
 	}
 	warn(warning);
