@@ -67,11 +67,11 @@ errors about missing component attributes when compiling to one and not the othe
 const onwarn = (warning, warn) => {
     const strawberryCustomElementsWarning = (
         warning.pluginCode === "missing-custom-element-compile-options" && 
-        /[/\\]@deimimi\/strawberry[/\\]/.test(warning.filename)
+        /[/\\]@deimimi[/\\]strawberry[/\\]/.test(warning.filename)
     );
     const strawberryUnusedCSSSelectorWarning = (
         warning.pluginCode === "css-unused-selector" &&
-        /[/\\]@deimimi\/strawberry[/\\]/.test(warning.filename)
+        /[/\\]@deimimi[/\\]strawberry[/\\]/.test(warning.filename)
     )
 	if(strawberryCustomElementsWarning || strawberryUnusedCSSSelectorWarning){
 		return;
