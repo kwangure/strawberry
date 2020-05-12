@@ -48,7 +48,7 @@
         align-items: center;
         justify-content: center;
         min-width: 35px;
-        height: 35px;
+        height: var(--item-height);
         border-radius: 50%;
         background-color: var(--white);
         color: var(--primary);

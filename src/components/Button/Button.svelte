@@ -40,7 +40,7 @@
         transition: all .3s cubic-bezier(.645, .045, .355, 1);
         user-select: none;
         touch-action: manipulation;
-        height: 35px;
+        height: var(--item-height);
         padding: 0 10px;
         font-size: 14px;
         border-radius: 4px;

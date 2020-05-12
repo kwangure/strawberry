@@ -60,7 +60,7 @@ input, textarea {
 }
 input {
     width: 100%;
-    height: 35px;
+    height: var(--item-height);
 }
 input:hover,
 textarea:hover,

@@ -54,7 +54,8 @@
 	--postfix-width: 31px;
 	
 	--item-vertical-padding: 8px;
-    --item-horizontal-padding: 12px;
+	--item-horizontal-padding: 12px;
+	--item-height: 35px;
 }
 
 body, 
