@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.6](https://github.com/deimimi/strawberry/compare/v0.15.5...v0.15.6) (2020-05-12)
+
+
+### Features
+
+* add a standard way to change item-height ([f5c7d6d](https://github.com/deimimi/strawberry/commit/f5c7d6dbc14868055cd93b4f1dc244cdaa19083f))
+
+
+### Bug Fixes
+
+* cleanup link styling ([812a036](https://github.com/deimimi/strawberry/commit/812a036ba45fe3f84ad0d332af70c38c70a941c5))
+
 ### [0.15.5](https://github.com/deimimi/strawberry/compare/v0.15.3...v0.15.5) (2020-04-07)
 
 
