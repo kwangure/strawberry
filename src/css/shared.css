@@ -93,10 +93,8 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 	color: inherit;
-	transition: all 0.5s ease-in;
 }
 
-a:hover, a:active { color: var(--secondary) }
 a:focus { outline: none }
 
 /*
@@ -143,10 +141,11 @@ tt, code, kbd, samp {
 a {
 	user-select: none;
 	color: var(--primary);
-	transition: color .2s;
+	transition: all .5s ease-in;
 }
 
-a:hover  {
+a:hover, 
+a:active  {
 	color: var(--primary-hover);
 }
 
