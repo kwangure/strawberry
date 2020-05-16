@@ -5,6 +5,7 @@
     export { className as class };
     export let color = ""; 
     export let icon = "";
+    export let disabled = "";
     export let iconProps = {};
     export let active = "";
     export let fullwidth = false;
@@ -15,7 +16,7 @@
 <svelte:options tag="berry-button"/>
 
 <button class="{color? color: ''} {className}" class:icon class:slot_used class:fullwidth
-    class:active on:click on:hover on:mouseover on:mouseout>
+    class:active {disabled} on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
@@ -48,6 +49,9 @@
         background-color: transparent;
         border-color: var(--border-color);
         outline: none;
+    }
+    button:disabled {
+        cursor: not-allowed;
     }
     button.fullwidth {
         width:100%;
