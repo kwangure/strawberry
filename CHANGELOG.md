@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.7](https://github.com/deimimi/strawberry/compare/v0.15.6...v0.15.7) (2020-05-16)
+
+
+### Features
+
+* add a standard way to change border-radius ([b599e42](https://github.com/deimimi/strawberry/commit/b599e42b70562b64c17319f5dc7ac9a70cb772c2))
+* add disabled prop to Button component ([bdbfecd](https://github.com/deimimi/strawberry/commit/bdbfecdbc503a95061c6a692409542c44baefb0b))
+
 ### [0.15.6](https://github.com/deimimi/strawberry/compare/v0.15.5...v0.15.6) (2020-05-12)
 
 

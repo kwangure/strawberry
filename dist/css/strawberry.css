@@ -9,6 +9,7 @@
 */
 :root, 
 :host {
+	/* ----- Colors ----- */
 	--red: rgb(255, 40, 30);
 	--red-hover: rgba(255, 60, 50);
 	--red-light: rgb(255, 230, 240);
@@ -27,13 +28,18 @@
 	--grey-light: rgb(195, 195, 195);
 	--grey-lightest: rgb(240, 240, 240);
 	--white: #fff;
-	
+
 	--primary: var(--blue);
 	--primary-hover: var(--blue-hover);
 	--primary-light: var(--blue-light);
+
+	/* ----- Borders ----- */
+	--border-color: var(--grey-light);
+	--border-radius: 4px;
+	
+	/* ----- Text ----- */
 	--text: var(--black);
 	--heading: var(--black);
-	--border-color: var(--grey-light);
 	--code-fs: 1.3rem;
 	--h1: 3.2rem;
 	--h2: 3rem;
@@ -44,7 +50,7 @@
 	--linemax: 42em; /* max line-length */
 	--lh: 1.5; /* base line-height */
 
-	/* Used here to solve preprocess problems **/
+	/* ----- Inputs ----- **/
 	--input-vertical-padding: 5px;
     --input-horizontal-padding: 12px;
     --input-padding-right: 25px;
@@ -53,6 +59,7 @@
     --input-padding-right-focus: calc(var(--input-padding-right) - 1px);
 	--postfix-width: 31px;
 	
+	/* ----- Uncategorized/General ----- */
 	--item-vertical-padding: 8px;
 	--item-horizontal-padding: 12px;
 	--item-height: 35px;
