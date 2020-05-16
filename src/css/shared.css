@@ -35,6 +35,7 @@
 
 	/* ----- Borders ----- */
 	--border-color: var(--grey-light);
+	--border-radius: 4px;
 	
 	/* ----- Text ----- */
 	--text: var(--black);

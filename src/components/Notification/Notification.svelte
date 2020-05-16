@@ -45,7 +45,7 @@
         align-items: center;
         background-color: var(--grey-dark);
         color: var(--white);
-        border-radius: 4px;
+        border-radius: var(--border-radius);
         width: 210px;
         margin-left: auto;
     }

@@ -237,7 +237,7 @@
     }
     .berry-list-item:not(.border-no-radius),
     .berry-list-item > :global(*) {
-        border-radius: 4px;
+        border-radius: var(--border-radius);
     }
     .berry-list-item > :global(*) {
         margin: -10px;
@@ -268,7 +268,7 @@
     .focus-ring.cornered-top,
     .focus-ring.cornered-bottom {
         box-shadow: 0 0 3px var(--primary);
-        border-radius: 4px;
+        border-radius: var(--border-radius);
         z-index: 1;
     }
 </style>

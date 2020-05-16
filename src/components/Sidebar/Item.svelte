@@ -23,7 +23,7 @@
         line-height: 24px;
         text-decoration: none;
         padding: var(--item-vertical-padding) var(--item-horizontal-padding);
-        border-radius: 4px;
+        border-radius: var(--border-radius);
     }
     .sidebar-item > :global(a) {
         margin: calc(var(--item-vertical-padding) * -1) calc(var(--item-horizontal-padding) * -1);

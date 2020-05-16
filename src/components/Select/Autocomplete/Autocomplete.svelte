@@ -121,7 +121,7 @@
         position: absolute;
         margin-top: 5px;
         background-color: var(--white);
-        border-radius: 4px;
+        border-radius: var(--border-radius);
         outline: none;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         z-index: 100;

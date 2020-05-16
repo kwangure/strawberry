@@ -44,7 +44,7 @@
     .active:after {
         line-height: 2em;
         background: var(--grey-dark);
-        border-radius: 4px;
+        border-radius: var(--border-radius);
         top: calc(100% + 8px);
         color: var(--white);
         content: attr(aria-label);

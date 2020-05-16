@@ -44,7 +44,7 @@
         height: var(--item-height);
         padding: 0 10px;
         font-size: 14px;
-        border-radius: 4px;
+        border-radius: var(--border-radius);
         color: var(--text);
         background-color: transparent;
         border-color: var(--border-color);

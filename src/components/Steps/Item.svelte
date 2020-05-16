@@ -34,7 +34,7 @@
         min-height: 40px;
         line-height: 24px;
         padding: var(--item-vertical-padding) var(--item-horizontal-padding);
-        border-radius: 4px;
+        border-radius: var(--border-radius);
     }
     .step-item.active {
         background-color: var(--primary-light);

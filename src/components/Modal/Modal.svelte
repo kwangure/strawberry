@@ -71,7 +71,7 @@
         background-color: var(--white);
         padding: 20px 30px;
         box-shadow: 0 7px 15px rgba(0,0,0,0.35);
-        border-radius: 4px;
+        border-radius: var(--border-radius);
         transition: all 0.5s ease;
         max-width: 90%;
     }
