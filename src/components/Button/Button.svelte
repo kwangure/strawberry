@@ -89,6 +89,9 @@
     .button-prefix {
         display: flex;
     }
+    .button.slot_used :global(.berry-icon) {
+        margin-right: 5px;
+    }
     button.icon.slot_used {
         padding-right: 16px;
     }
