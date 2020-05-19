@@ -6,4 +6,4 @@
 
 <svelte:options tag="berry-icon-path"/>
 
-<path {d} {fill} {...props}/>
+<path class="berry-icon-path" {d} {fill} {...props}/>

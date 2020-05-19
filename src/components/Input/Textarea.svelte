@@ -23,7 +23,7 @@
     }
 </script>
 
-<span class="input-wrapper">
+<span class="berry-textarea input-wrapper">
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
     {/if}

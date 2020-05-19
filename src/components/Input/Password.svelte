@@ -20,7 +20,7 @@
 
 <svelte:options tag="berry-input-password"/>
 
-<label class="input-wrapper">
+<label class="berry-input-password input-wrapper">
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
     {/if}

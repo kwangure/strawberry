@@ -12,7 +12,7 @@
 
 <svelte:options tag="berry-input-checkbox"/>
 
-<label class="input-wrapper" on:click>
+<label class="berry-input-checkbox input-wrapper" on:click>
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:checked bind:this={input} {disabled} {name} on:blur on:change
         on:input on:focus type='checkbox'>

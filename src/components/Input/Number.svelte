@@ -29,7 +29,7 @@
     }
 </script>
 
-<label class="input-wrapper">
+<label class="berry-input-number input-wrapper">
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>
     {/if}

@@ -29,7 +29,7 @@
 
 <svelte:options tag="berry-steps"/>
 
-<div class="wrapper">
+<div class="berry-steps wrapper">
     <div class="steps" class:horizontal class:vertical>
         {#each steps as item, index}
             <Item active={activeIndex === index} 

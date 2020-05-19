@@ -11,7 +11,7 @@
 
 <svelte:options tag="berry-input-radio"/>
 
-<label class="input-wrapper" on:click>
+<label class="berry-input-radio input-wrapper" on:click>
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:this={input} checked {disabled} {name} on:blur on:change on:input 
         on:focus type="radio">

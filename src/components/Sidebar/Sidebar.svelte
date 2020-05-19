@@ -5,7 +5,7 @@
 
 <svelte:options tag="berry-sidebar"/>
 
-<div class="sidebar">
+<div class="berry-sidebar">
     <div class="sidebar-head">
         <slot name="head"></slot>
     </div>
@@ -25,7 +25,7 @@
 
 <style>
     @import "../../css/shared.css";
-    .sidebar {
+    .berry-sidebar {
         width: 240px;
         padding: 0 10px;
         height: 100%;

@@ -1,8 +1,6 @@
 <script>
     import Icon from "../Icon";
 
-    let className = "";
-    export { className as class };
     export let color = ""; 
     export let icon = "";
     export let disabled = "";
@@ -15,7 +13,7 @@
 
 <svelte:options tag="berry-button"/>
 
-<button class="{color? color: ''} {className}" class:icon class:slot_used class:fullwidth
+<button class="{color? color: ''} berry-button" class:icon class:slot_used class:fullwidth
     class:active {disabled} on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}

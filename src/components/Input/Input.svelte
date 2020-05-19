@@ -21,7 +21,7 @@
 
 <svelte:options tag="berry-input"/>
 
-<label class="input-wrapper">
+<label class="berry-input input-wrapper">
     <!-- label could be a boolean or a string-->
     {#if label}
         <div class="label">{label.length? label : placeholder}</div>

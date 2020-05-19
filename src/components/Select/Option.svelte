@@ -4,7 +4,7 @@
 
 <svelte:options tag="berry-option"/>
 
-<div class="menu-item" on:click transition:slide>
+<div class="berry-option menu-item" on:click transition:slide>
     <slot/>
 </div>
 

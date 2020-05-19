@@ -25,7 +25,7 @@
 <svelte:options tag="berry-modal"/>
 
 {#if visible}    
-    <div class="overlay" transition:fade
+    <div class="berry-modal overlay" transition:fade
         on:click|self={() => visible = closable ? false : visible}>
         <div class="wrapper">
             <div class="modal" out:send="{{key: 'modal'}}" in:receive="{{key: 'modal'}}">

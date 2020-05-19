@@ -1,4 +1,4 @@
-<div class="button-group">
+<div class="berry-button-group">
     <slot></slot>
 </div>
 
@@ -6,43 +6,43 @@
 
 <style>
     @import "../../css/shared.css";
-    .button-group :global(button) {
+    .berry-button-group :global(button) {
         border-radius: 0;
     }
 
-    .button-group > :global(button):first-child:not(:last-child), 
-    .button-group > :global(span:first-child:not(:last-child) > button) {
+    .berry-button-group > :global(button):first-child:not(:last-child), 
+    .berry-button-group > :global(span:first-child:not(:last-child) > button) {
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
     }
 
-    .button-group > :global(button):last-child:not(:first-child), 
-    .button-group > :global(span:last-child:not(:first-child) > button) {
+    .berry-button-group > :global(button):last-child:not(:first-child), 
+    .berry-button-group > :global(span:last-child:not(:first-child) > button) {
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
     }
 
-    .button-group :global(button + button), 
-    :global(button) + .button-group, 
-    .button-group :global(span + button), 
-    .button-group :global(button + span) , .button-group > :global(span + span), 
-    .button-group + :global(button), 
-    .button-group + .button-group {
+    .berry-button-group :global(button + button), 
+    :global(button) + .berry-button-group, 
+    .berry-button-group :global(span + button), 
+    .berry-button-group :global(button + span) , .berry-button-group > :global(span + span), 
+    .berry-button-group + :global(button), 
+    .berry-button-group + .berry-button-group {
         margin-left: -1px;
     }
     
-    .button-group > :global(button), .button-group > :global(span > button) {
+    .berry-button-group > :global(button), .berry-button-group > :global(span > button) {
         position: relative;
     }
 
-    .button-group > :global(button:hover), 
-    .button-group > :global(span > button:hover), 
-    .button-group > :global(button:focus), 
-    .button-group > :global(span > button:focus), 
-    .button-group > :global(button:active), 
-    .button-group > :global(span > button:active), 
-    .button-group > :global(button.active), 
-    .button-group > :global(span > button.active) {
+    .berry-button-group > :global(button:hover), 
+    .berry-button-group > :global(span > button:hover), 
+    .berry-button-group > :global(button:focus), 
+    .berry-button-group > :global(span > button:focus), 
+    .berry-button-group > :global(button:active), 
+    .berry-button-group > :global(span > button:active), 
+    .berry-button-group > :global(button.active), 
+    .berry-button-group > :global(span > button.active) {
         z-index: 2;
     }
 </style>
