@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/deimimi/strawberry/compare/v0.15.7...v0.16.0) (2020-05-19)
+
+
+### Features
+
+* add "berry-"classes for easier :global override ([dc6c825](https://github.com/deimimi/strawberry/commit/dc6c8255eb61d74fca72acabd9ac1955f1e0f628))
+
+
+### Bug Fixes
+
+* add spacing between icon and text in button ([a790fef](https://github.com/deimimi/strawberry/commit/a790fef75bb59adf8be528fe9ddf117cd6095ee2))
+* align menu-item children center ([f49f022](https://github.com/deimimi/strawberry/commit/f49f022649cd13e166cd29710cc5b247f3717a55))
+
 ### [0.15.7](https://github.com/deimimi/strawberry/compare/v0.15.6...v0.15.7) (2020-05-16)
 
 
