@@ -11,13 +11,14 @@
 <style>
     @import "../../css/shared.css";
     .menu-item {
-        clear: both;
         font-weight: normal;
         font-size: 14px;
         line-height: 22px;
         white-space: nowrap;
         cursor: pointer;
         transition: all .3s;
+        display: flex;
+        align-items: center;
         min-width: 130px;
         background-color: var(--white);
     }
