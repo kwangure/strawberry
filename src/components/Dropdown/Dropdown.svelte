@@ -52,7 +52,7 @@
  
 <svelte:options tag="berry-dropdown"/>
 
-<div class="dropdown" bind:this={dropdown}>
+<div class="berry-dropdown" bind:this={dropdown}>
     <div class="dropdown-button" on:click|stopPropagation={toggle}>
         <slot name="button"/>
     </div>
@@ -72,7 +72,7 @@
 
 <style>
     @import "../../css/shared.css";
-    .dropdown {
+    .berry-dropdown {
         position: relative;
         display: inline-block;
     }
@@ -103,11 +103,7 @@
     .dropdown-menu.right {
         right: 0;
     }
-    
-
     .menu-item > * {
         display: block;
     }
-
-    
 </style>
