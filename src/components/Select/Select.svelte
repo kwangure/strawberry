@@ -50,7 +50,7 @@
         <!-- svelte-ignore a11y-autofocus -->
         <input {autofocus} bind:this={input} bind:value={text} class:icon 
             class="input-postfix" {disabled} 
-            on:blur placeholder={label} on:change on:focus 
+            on:blur placeholder={label} on:focus 
             readonly type='text'>
         <div class="postfix-wrapper" class:visible>
             <Icon path={mdiChevronDown}></Icon>
