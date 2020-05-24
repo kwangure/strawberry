@@ -1,10 +1,14 @@
 import { terser } from "rollup-plugin-terser";
+import { eslint } from "rollup-plugin-eslint";
 import commonjs from "rollup-plugin-commonjs";
 import globals from "rollup-plugin-node-globals";
 import postcss from "rollup-plugin-postcss";
 import resolve from "rollup-plugin-node-resolve";
 import svelte from "rollup-plugin-svelte";
 import { customElementsPreprocess }  from "./config/internal";
+
+// eslint-disable-next-line no-undef
+const production = !process.env.ROLLUP_WATCH;
 
 let components  = [
     "Button", 
@@ -28,6 +32,9 @@ export default [
             format: "umd",
         },
         plugins: [
+            eslint({
+                fix: production,
+            }),
             svelte({
                 preprocess: customElementsPreprocess,
                 customElement: true,

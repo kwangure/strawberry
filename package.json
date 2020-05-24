@@ -26,6 +26,7 @@
         "eslint-plugin-svelte3": "^2.7.3",
         "rollup": "^1.27.11",
         "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-eslint": "^7.0.0",
         "rollup-plugin-node-globals": "^1.4.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-postcss": "^2.1.1",
