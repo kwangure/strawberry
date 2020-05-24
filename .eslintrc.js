@@ -47,5 +47,17 @@ module.exports = {
             "error",
             "always"
         ],
+        "comma-dangle": [
+            "error", 
+            "always-multiline"
+        ],
+        "no-unused-vars": [
+            "error", 
+            { 
+                "argsIgnorePattern": "^_", 
+                "args": "all" 
+            }
+        ],
+        "no-trailing-spaces": "error",
     }
 };
