@@ -9,8 +9,8 @@
 
     let textarea = null;
 
-    $: (focus && textarea) ? textarea.focus() : ""; 
-             
+    $: (focus && textarea) ? textarea.focus() : "";
+    
     function autosize(){
         const computed = getComputedStyle(textarea);
 

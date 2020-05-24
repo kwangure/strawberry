@@ -1,7 +1,7 @@
 <script>
     import Icon from "../Icon";
 
-    export let color = ""; 
+    export let color = "";
     export let icon = "";
     export let disabled = "";
     export let iconProps = {};

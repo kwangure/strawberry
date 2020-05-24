@@ -13,9 +13,9 @@ let _language = LANGUAGE_DEFAULT;
 let _translationsConfigFile = undefined;
 
 const isElectronRenderer = (
-    typeof process !== "undefined" && 
-    typeof process.versions !== "undefined" && 
-    typeof process.versions.electron !== "undefined" && 
+    typeof process !== "undefined" &&
+    typeof process.versions !== "undefined" &&
+    typeof process.versions.electron !== "undefined" &&
     process.type === "renderer"
 );
 
@@ -88,10 +88,10 @@ export const locale = _locale;
 export const translationsConfigFile = _translationsConfigFile;
 
 const _globals = (
-    typeof self === "object" 
-        ? self 
-        : typeof global === "object" 
-            ? global 
+    typeof self === "object"
+        ? self
+        : typeof global === "object"
+            ? global
             : {});
 export const globals = _globals;
 
@@ -116,9 +116,9 @@ const OperatingSystem = {
 };
 
 export const OS = (
-    _isMacintosh 
-        ? OperatingSystem.Macintosh 
-        : (_isWindows 
-            ? OperatingSystem.Windows 
+    _isMacintosh
+        ? OperatingSystem.Macintosh
+        : (_isWindows
+            ? OperatingSystem.Windows
             : OperatingSystem.Linux)
 );

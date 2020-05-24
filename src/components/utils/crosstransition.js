@@ -44,14 +44,14 @@ export function crosstransition({ fallback, ...defaults }) {
 				opacity: ${fade ? t * 1.5 * opacity : opacity};
 				transform-origin: top left;
 				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t + (1 - t) * dw}, ${t + (1 - t) * dh});
-			`
+			`,
         };
     }
 
     function transition(items, counterparts, intro) {
         return (node, params) => {
             items.set(params.key, {
-                rect: node.getBoundingClientRect()
+                rect: node.getBoundingClientRect(),
             });
 
             return () => {
@@ -73,7 +73,7 @@ export function crosstransition({ fallback, ...defaults }) {
 
     return [
         transition(to_send, to_receive, false),
-        transition(to_receive, to_send, true)
+        transition(to_receive, to_send, true),
     ];
 }
 

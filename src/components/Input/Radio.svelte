@@ -6,7 +6,7 @@
 
     let input = null;
 
-    $: (focus && input) ? input.focus() : ""; 
+    $: (focus && input) ? input.focus() : "";
 </script>
 
 <svelte:options tag="berry-input-radio"/>

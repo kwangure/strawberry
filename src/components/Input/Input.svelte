@@ -15,7 +15,7 @@
     let input = null;
     let blurred = false;
 
-    $: (focus && input) ? input.focus() : ""; 
+    $: (focus && input) ? input.focus() : "";
     $: is_invalid = blurred && invalid(value);
 </script>
 

@@ -36,7 +36,7 @@
                 return item;
             });
         } else {
-            deselectAll();            
+            deselectAll();
         }
     };
 
@@ -46,13 +46,13 @@
             item.focused = false;
             return item;
         });
-                
+    
         CtrlOrCmd = false;
         Shift = false;
         Alt = false;
         Backspace = false;
         Delete = false;
-        lastShiftSelection = null;  
+        lastShiftSelection = null;
     }
 
     // add/remove one item from selection

@@ -37,8 +37,8 @@
                 position={index + 1}
                 on:click={() => step(index)}>
                 <slot name="step" step={{
-                    ...item, 
-                    active: activeIndex === index, 
+                    ...item,
+                    active: activeIndex === index,
                     completed: activeIndex > index,
                     index}}></slot>
             </Item>

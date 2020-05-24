@@ -45,7 +45,7 @@
 
     export function toggle(){
         visible = !visible;
-        visible ? input.focus() : ""; 
+        visible ? input.focus() : "";
     }
     export function open(){
         visible = true;
