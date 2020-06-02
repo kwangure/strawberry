@@ -42,13 +42,16 @@
         content: "";
     }
     .active:after {
-        line-height: 2em;
+        height: var(--item-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: var(--grey-dark);
         border-radius: var(--border-radius);
         top: calc(100% + 8px);
         color: var(--white);
         content: attr(aria-label);
-        padding: 10px 20px;
+        padding: 10px;
         white-space: nowrap;
         font-size: 12px;
         text-transform: none;
