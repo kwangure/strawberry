@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.1](https://github.com/deimimi/strawberry/compare/v0.16.0...v0.16.1) (2020-06-05)
+
+
+### Features
+
+* set tool tip height based on `--item-height` ([3cb2dda](https://github.com/deimimi/strawberry/commit/3cb2ddaf5e2f27cb0c86cd8addb6dc8feceb082d))
+
+
+### Bug Fixes
+
+* add "berry-"class to Dropdown component ([a0f2261](https://github.com/deimimi/strawberry/commit/a0f22610697a78455ce9bfa0a6973f3eb12903aa))
+* add spacing between icon and text in button ([eee7e93](https://github.com/deimimi/strawberry/commit/eee7e93e75051f40905dfea05b5ee09ae1622dc4))
+* disable border-width transition causing reflow ([2f406fe](https://github.com/deimimi/strawberry/commit/2f406fe59286d365f7b8c3c24ec812b0cf0127bb))
+* use custom onChange event for select component ([3db8984](https://github.com/deimimi/strawberry/commit/3db8984d7fcd47aa11dae4d5cad4d9cba737e18c))
+
 ## [0.16.0](https://github.com/deimimi/strawberry/compare/v0.15.7...v0.16.0) (2020-05-19)
 
 
