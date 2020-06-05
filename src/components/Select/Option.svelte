@@ -1,11 +1,40 @@
 <script>
-    import { slide } from "svelte/transition";
+    import { SELECT_STORE_KEY  } from "./select.svelte";
+    import { getContext } from "svelte";
+
+    export let value = null;
+
+    let innerText = "";
+    function getInnerText(optionDOMNode) {
+        innerText = optionDOMNode.innerText;
+
+        // Set initial Select value as default
+        if ($selectStore.value === (value || innerText)) {
+            setSelectStore();
+        }
+    }
+
+    const selectStore = getContext(SELECT_STORE_KEY);
+    const changeEvent = new CustomEvent("change", { detail: value || innerText });
+
+    function setSelectStore() {
+        $selectStore = {
+            text: innerText,
+            value: value || innerText,
+        };
+    }
+    
+    function handleClick() {
+        setSelectStore();
+        dispatchEvent(changeEvent);
+    }
 </script>
 
 <svelte:options tag="berry-option"/>
 
-<div class="berry-option menu-item" on:click transition:slide>
-    <slot/>
+<div class="berry-option menu-item" class:active={$selectStore.text === innerText}
+    on:mousedown={handleClick} use:getInnerText>
+    <slot></slot>
 </div>
 
 <style>
@@ -15,26 +44,14 @@
         --horizontal-padding: 16px;
     }
     .menu-item {
-        clear: both;
-        font-weight: normal;
+        line-height: var(--item-height);
+        padding: 0 var(--horizontal-padding);
         font-size: 14px;
-        line-height: 22px;
-        white-space: nowrap;
         cursor: pointer;
         transition: all .3s;
-        min-width: 130px;
+        min-width: 150px;
         background-color: var(--white);
     }
-
-    .menu-item :global(b) {
-        color: var(--primary);
-        font-weight: 500;
-    }
-
-    .menu-item:not(.linked) {
-        padding: 8px 16px;
-    }
-
     .menu-item :global(a) {
         display: flex;
         padding: var(--vertical-padding) var(--horizontal-padding);
@@ -42,8 +59,8 @@
         text-decoration: none;
         color: inherit;
     }
-
-    .menu-item:hover {
+    .menu-item:hover,
+    .menu-item.active {
         color: var(--primary);
         background-color: var(--primary-light);
     }

@@ -37,7 +37,7 @@
 
 <div class="berry-dropdown">
     <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => visible = !visible}>
-        <slot name="button"/>
+        <slot name="button" {visible}/>
     </div>
     <div class="dropdown-menu" class:bottom class:left class:right class:top class:visible>
         <slot></slot>
