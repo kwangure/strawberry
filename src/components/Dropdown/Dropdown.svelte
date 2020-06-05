@@ -21,22 +21,12 @@
     $: left = valid(placement) && placement.includes("Left");
     $: right = valid(placement) && placement.includes("Right");
 
-    let dropdown = null;
+    let dropdownTarget = null;
 
     function handleDocumentClick(e) {
-        if(!dropdown.contains(e.target)){
+        if(!dropdownTarget.contains(e.target)){
             visible = false;
         }
-    }
-
-    export function toggle(){
-        visible = !visible;
-    }
-    export function open(){
-        visible = true;
-    }
-    export function close(){
-        visible = false;
     }
 
     $: {
@@ -52,13 +42,12 @@
  
 <svelte:options tag="berry-dropdown"/>
 
-<div class="berry-dropdown" bind:this={dropdown}>
-    <div class="dropdown-button" on:click|stopPropagation={toggle}>
+<div class="berry-dropdown">
+    <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => visible = !visible}>
         <slot name="button"/>
     </div>
     {#if visible}
-        <div class="dropdown-menu" class:bottom class:left class:right
-            class:top on:click={close}>
+        <div class="dropdown-menu" class:bottom class:left class:right class:top>
             {#each items as item, index}
                 <Item on:click={item.onclick} active={is_active(index)}>
                     <slot name="menu" item={{...item, index}}/>
