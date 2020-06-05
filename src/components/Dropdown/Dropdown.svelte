@@ -46,17 +46,15 @@
     <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => visible = !visible}>
         <slot name="button"/>
     </div>
-    {#if visible}
-        <div class="dropdown-menu" class:bottom class:left class:right class:top>
-            {#each items as item, index}
-                <Item on:click={item.onclick} active={is_active(index)}>
-                    <slot name="menu" item={{...item, index}}/>
-                </Item>
-            {:else}
-                <slot></slot>
-            {/each}
-        </div>
-    {/if}
+    <div class="dropdown-menu" class:bottom class:left class:right class:top class:visible>
+        {#each items as item, index}
+            <Item on:click={item.onclick} active={is_active(index)}>
+                <slot name="menu" item={{...item, index}}/>
+            </Item>
+        {:else}
+            <slot></slot>
+        {/each}
+    </div>
 </div>
 
 <style>
@@ -69,6 +67,7 @@
         display: inline-block;
     }
     .dropdown-menu {
+        display: none;
         position: absolute;
         margin-top: 5px;
         background-color: var(--white);
@@ -77,6 +76,9 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         z-index: 100;
         overflow: hidden;
+    }
+    .dropdown-menu.visible {
+        display: block;
     }
     .dropdown-menu.top {
         margin-bottom: 5px;
