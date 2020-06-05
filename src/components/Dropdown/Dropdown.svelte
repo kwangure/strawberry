@@ -1,16 +1,9 @@
 <script>
-    import { onDestroy } from "svelte";
-    import Item from "./Item.svelte";
-    
-    export let items = [];
-    export let active = [];
+    import { onDestroy } from "svelte";  
+
     export let placement = "bottomLeft";
     export let visible = false;
-    
-    $: active = Number.isInteger(active) ? [active]: active;
-    $: active_set =  new Set(active);
-    $: is_active = (index) => active_set.has(index);
-    
+        
     function valid(placement) {
         let positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
         return positions.includes(placement);
@@ -47,13 +40,7 @@
         <slot name="button"/>
     </div>
     <div class="dropdown-menu" class:bottom class:left class:right class:top class:visible>
-        {#each items as item, index}
-            <Item on:click={item.onclick} active={is_active(index)}>
-                <slot name="menu" item={{...item, index}}/>
-            </Item>
-        {:else}
-            <slot></slot>
-        {/each}
+        <slot></slot>
     </div>
 </div>
 
@@ -93,8 +80,5 @@
     }
     .dropdown-menu.right {
         right: 0;
-    }
-    .menu-item > * {
-        display: block;
     }
 </style>
