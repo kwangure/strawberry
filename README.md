@@ -12,21 +12,10 @@
     <a href="#attribution"><strong>Attribution</strong></a-->
 </p>
 
-## Quick Start
-```html
-<script src="https://unpkg.com/@deimimi/strawberry@latest/dist/Button.js"></script>
-
-<berry-button color="primary" onclick="alert('strawberry');">Click me!</berry-button>
-```
-#### 🐉 🔥 Here be dragons!
-While Strawberry components have been made available as web components, 
-Strawberry is best consumed as Svelte components inside Svelte projects. Svelte has [a few critical issues](https://github.com/sveltejs/svelte/issues?q=is%3Aissue+is%3Aopen+label%3A%22custom+element%22) that limit full
-support for compiling to web components (particularly nesting components).
-
 ## Installation and Usage
 #### Install
 ```bash
-npm i @deimimi/strawberry
+npm i -D @deimimi/strawberry
 ```
 
 #### Usage
@@ -54,43 +43,6 @@ plugins: [
     ...
 ]
 ...
-```
-
-## Known Issues
-### Web components
-Because Strawberry compiles to both Svelte components and web-components, you'll get 
-errors about missing component attributes when compiling to one and not the other.
-
-```javascript
-// rollup.config.js
-
-const onwarn = (warning, warn) => {
-    const customElementsWarning = 
-        warning.pluginCode === "missing-custom-element-compile-options" && 
-        /[/\\]strawberry[/\\]/.test(warning.filename);
-
-    const unusedCSSWarning = 
-        warning.pluginCode === "css-unused-selector" &&
-        /[/\\]strawberry[/\\]/.test(warning.filename);
-
-	if(customElementsWarning || unusedCSSWarning){
-		return;
-	}
-	warn(warning);
-};
-
-export default [{
-    ...
-    onwarn,
-    ...
-}]
-```
-
-### Sapper
-Sapper's rollup config fights the importing of Strawberry components using ES6 imports. To work around it,
-install Strawberry as a `dev` dependency using the `-D` option like so:
-```bash
-npm i -D @deimimi/strawberry
 ```
 <!--
 ## Attribution

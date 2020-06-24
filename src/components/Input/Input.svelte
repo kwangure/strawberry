@@ -19,8 +19,6 @@
     $: is_invalid = blurred && invalid(value);
 </script>
 
-<svelte:options tag="berry-input"/>
-
 <label class="berry-input input-wrapper">
     <!-- label could be a boolean or a string-->
     {#if label}

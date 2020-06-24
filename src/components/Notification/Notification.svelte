@@ -14,8 +14,6 @@
     });
 </script>
 
-<svelte:options tag="berry-notification"/>
-
 {#if visible}
     <div class="berry-notification wrapper">
         <div class="notification" transition:fly={{ x: 200, duration}}>

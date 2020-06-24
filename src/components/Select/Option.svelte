@@ -30,8 +30,6 @@
     }
 </script>
 
-<svelte:options tag="berry-option"/>
-
 <div class="berry-option menu-item" class:active={$selectStore.text === innerText}
     on:mousedown={handleClick} use:getInnerText>
     <slot></slot>

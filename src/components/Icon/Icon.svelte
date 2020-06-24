@@ -22,8 +22,6 @@
     $: counterclockwise = validSpin(spin) && spin === "counterclockwise";
 </script>
 
-<svelte:options tag="berry-icon"/>
-
 <svg class="berry-icon" class:horizontal class:vertical class:clockwise class:counterclockwise
     height="{size}{units}" on:click on:dblclick 
     style="transform: rotate({rotate}deg);" viewBox="0 0 24 24" width="{size}{units}">

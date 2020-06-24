@@ -11,8 +11,6 @@
     let slot_used = true;
 </script>
 
-<svelte:options tag="berry-button"/>
-
 <button class="{color? color: ''} berry-button" class:icon class:slot_used class:fullwidth
     class:active {disabled} on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">

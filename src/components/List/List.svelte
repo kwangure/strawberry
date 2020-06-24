@@ -192,8 +192,6 @@
     });
 </script>
 
-<svelte:options tag="berry-list"/>
-
 <div class="berry-list">
     {#each items as item, i (i)}
         <div class="berry-list-item"

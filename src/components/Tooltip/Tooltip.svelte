@@ -6,8 +6,6 @@
     export let label = "";
 </script>
 
-<svelte:options tag="berry-tooltip"/>
-
 <span aria-label={label} class="berry-tooltip" class:active={label} class:left 
     class:center={!left && !right} class:right class:breakParent>
     <slot></slot>

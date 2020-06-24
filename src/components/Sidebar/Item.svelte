@@ -2,8 +2,6 @@
     export let active = false;
 </script>
 
-<svelte:options tag="berry-sidebar-item"/>
-
 <div class="sidebar-item" class:active on:click>
     <slot></slot>
 </div>

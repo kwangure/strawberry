@@ -2,8 +2,6 @@
     <slot></slot>
 </div>
 
-<svelte:options tag="berry-button-group"/>
-
 <style>
     @import "../../css/shared.css";
     .berry-button-group :global(button) {

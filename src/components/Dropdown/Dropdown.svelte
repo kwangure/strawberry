@@ -1,9 +1,9 @@
 <script>
-    import { onDestroy } from "svelte";  
+    import { onDestroy } from "svelte";
 
     export let placement = "bottomLeft";
     export let visible = false;
-        
+    
     function valid(placement) {
         let positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
         return positions.includes(placement);
@@ -33,8 +33,6 @@
     });
 </script>
  
-<svelte:options tag="berry-dropdown"/>
-
 <div class="berry-dropdown">
     <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => visible = !visible}>
         <slot name="button" {visible}/>

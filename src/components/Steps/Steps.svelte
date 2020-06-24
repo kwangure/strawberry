@@ -27,8 +27,6 @@
     }
 </script>
 
-<svelte:options tag="berry-steps"/>
-
 <div class="berry-steps wrapper">
     <div class="steps" class:horizontal class:vertical>
         {#each steps as item, index}

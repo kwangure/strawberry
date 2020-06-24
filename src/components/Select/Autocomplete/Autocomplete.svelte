@@ -74,8 +74,6 @@
     });
 </script>
 
-<svelte:options tag="berry-select-autocomplete"/>
- 
 <div class="berry-select-autocomplete input-wrapper" bind:this={dropdown}>
     <div class="dropdown-button">
         <!-- svelte-ignore a11y-autofocus -->

@@ -22,8 +22,6 @@
     $: visible ? dispatch("open") : dispatch("close");
 </script>
 
-<svelte:options tag="berry-modal"/>
-
 {#if visible}    
     <div class="berry-modal overlay" transition:fade
         on:click|self={() => visible = closable ? false : visible}>

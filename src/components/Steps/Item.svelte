@@ -7,8 +7,6 @@
     export let position;
 </script>
 
-<svelte:options tag="berry-steps-item"/>
-
 <div class="step-item" class:active class:vertical on:click>
     <span class="progress-label" class:active>
         {#if completed}

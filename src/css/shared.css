@@ -7,8 +7,7 @@
 	- under normal conditions, there's no need to touch these
 -----------------------------------------------
 */
-:root, 
-:host {
+:root {
 	/* ----- Colors ----- */
 	--br-red: rgb(255, 40, 30);
 	--br-red-hover: rgba(255, 60, 50);
@@ -65,8 +64,7 @@
 	--br-item-height: 35px;
 }
 
-body, 
-:host {
+body {
 	--br-font: 'Arial', Helvetica, sans-serif;
 	--br-font-mono: 'Fira Mono', monospace;
 	--br-font-ui: var(--br-font-mono);
@@ -90,8 +88,7 @@ body {
 	padding: 0;
 }
 
-*,
-:host * {
+* {
 	box-sizing: border-box;
 }
 
