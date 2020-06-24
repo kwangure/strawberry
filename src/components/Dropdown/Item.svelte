@@ -20,7 +20,7 @@
         display: flex;
         align-items: center;
         min-width: 130px;
-        background-color: var(--white);
+        background-color: var(--br-white);
     }
 
     .menu-item:not(.linked) {
@@ -29,15 +29,15 @@
 
     .menu-item :global(a) {
         display: flex;
-        padding: var(--item-vertical-padding) var(--item-horizontal-padding);
-        margin: calc(-1 * var(--item-vertical-padding)) calc(-1 * var(--item-horizontal-padding));
+        padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
+        margin: calc(-1 * var(--br-item-vertical-padding)) calc(-1 * var(--br-item-horizontal-padding));
         text-decoration: none;
         color: inherit;
     }
 
     .menu-item.active,
     .menu-item:hover {
-        color: var(--primary);
-        background-color: var(--primary-light);
+        color: var(--br-primary);
+        background-color: var(--br-primary-light);
     }
 </style>

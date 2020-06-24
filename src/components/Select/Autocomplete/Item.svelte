@@ -23,11 +23,11 @@
         cursor: pointer;
         transition: all .3s;
         min-width: 130px;
-        background-color: var(--white);
+        background-color: var(--br-white);
     }
 
     .menu-item :global(b) {
-        color: var(--primary);
+        color: var(--br-primary);
         font-weight: 500;
     }
 
@@ -44,7 +44,7 @@
     }
 
     .menu-item:hover {
-        color: var(--primary);
-        background-color: var(--primary-light);
+        color: var(--br-primary);
+        background-color: var(--br-primary-light);
     }
 </style>

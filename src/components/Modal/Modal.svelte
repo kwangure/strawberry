@@ -68,10 +68,10 @@
         justify-content: center
     }
     .modal {
-        background-color: var(--white);
+        background-color: var(--br-white);
         padding: 20px 30px;
         box-shadow: 0 7px 15px rgba(0,0,0,0.35);
-        border-radius: var(--border-radius);
+        border-radius: var(--br-border-radius);
         transition: all 0.5s ease;
         max-width: 90%;
     }

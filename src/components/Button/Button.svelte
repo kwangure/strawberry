@@ -39,13 +39,13 @@
         transition: all .3s cubic-bezier(.645, .045, .355, 1);
         user-select: none;
         touch-action: manipulation;
-        height: var(--item-height);
+        height: var(--br-item-height);
         padding: 0 10px;
         font-size: 14px;
-        border-radius: var(--border-radius);
-        color: var(--text);
+        border-radius: var(--br-border-radius);
+        color: var(--br-text);
         background-color: transparent;
-        border-color: var(--border-color);
+        border-color: var(--br-border-color);
         outline: none;
     }
     button:disabled {
@@ -62,29 +62,29 @@
     }
     button:focus:not(:active):not(.active),
     button:hover:not(:active):not(.active) {
-        background-color: var(--grey-lightest);
-        border-color: var(--grey-lightest);
-        color: var(--text);
+        background-color: var(--br-grey-lightest);
+        border-color: var(--br-grey-lightest);
+        color: var(--br-text);
     }
     button:active,
     button.active {
-        background-color: var(--primary-light);
-        border-color: var(--primary-light);
-        color:  var(--primary);
+        background-color: var(--br-primary-light);
+        border-color: var(--br-primary-light);
+        color:  var(--br-primary);
     }
     button.none {
         border: none;
     }
     button.primary {
-        color: var(--white);
-        background-color: var(--primary);
+        color: var(--br-white);
+        background-color: var(--br-primary);
         border: none;
     }
     button.primary:active, 
     button.primary:hover,
     button.primary:focus {
-        background-color: var(--primary-hover) !important;
-        color: var(--white) !important;
+        background-color: var(--br-primary-hover) !important;
+        color: var(--br-white) !important;
     }
     .button-prefix {
         display: flex;

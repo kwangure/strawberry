@@ -44,13 +44,13 @@
         --horizontal-padding: 16px;
     }
     .menu-item {
-        line-height: var(--item-height);
+        line-height: var(--br-item-height);
         padding: 0 var(--horizontal-padding);
         font-size: 14px;
         cursor: pointer;
         transition: all .3s;
         min-width: 150px;
-        background-color: var(--white);
+        background-color: var(--br-white);
     }
     .menu-item :global(a) {
         display: flex;
@@ -61,7 +61,7 @@
     }
     .menu-item:hover,
     .menu-item.active {
-        color: var(--primary);
-        background-color: var(--primary-light);
+        color: var(--br-primary);
+        background-color: var(--br-primary-light);
     }
 </style>

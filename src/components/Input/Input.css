@@ -12,25 +12,25 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    color: var(--text);
+    color: var(--br-text);
     line-height: 0;
     left: 10px;
 }
 .input-postfix {
-    padding-right: calc(var(--postfix-width) + 1px);
+    padding-right: calc(var(--br-postfix-width) + 1px);
 }
 .input-postfix:hover,
 .input-postfix:focus {
-    padding-right: var(--postfix-width);
+    padding-right: var(--br-postfix-width);
 }
 .postfix-wrapper {
     position: absolute;
     top: 2px;
     right: 2px;
-    width: var(--postfix-width);
-    height: var(--postfix-width);
+    width: var(--br-postfix-width);
+    height: var(--br-postfix-width);
     z-index: 2;
-    color: var(--text);;
+    color: var(--br-text);;
     display: flex;
     align-items: center;
     border-radius: 0 2px 2px 0;
@@ -39,40 +39,40 @@
 }
 .postfix-wrapper.visible,
 .postfix-wrapper.focused {
-    color: var(--primary);
-    background-color: var(--primary-light);
+    color: var(--br-primary);
+    background-color: var(--br-primary-light);
 }
 .input-wrapper:hover .postfix-wrapper:not(.visible):not(.focused) {
-    background-color: var(--grey-lightest);
+    background-color: var(--br-grey-lightest);
 }
 input, textarea {
     text-align: inherit;
     display: inline-block;
-    padding: var(--input-vertical-padding) var(--input-horizontal-padding);
-    color: var(--text);
+    padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
+    color: var(--br-text);
     font-size: 14px;
     line-height: 1.5;
-    background-color: var(--white);
+    background-color: var(--br-white);
     background-image: none;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+    border: 1px solid var(--br-border-color);
+    border-radius: var(--br-border-radius);
     transition: border-color 0.5s ease;
 }
 input {
     width: 100%;
-    height: var(--item-height);
+    height: var(--br-item-height);
 }
 input:hover,
 textarea:hover,
 input:focus,
 textarea:focus {
-    border: 2px solid var(--primary);
-    padding: var(--input-vertical-padding-focus) var(--input-horizontal-padding-focus);
+    border: 2px solid var(--br-primary);
+    padding: var(--br-input-vertical-padding-focus) var(--br-input-horizontal-padding-focus);
     outline: 0;
 }
 input:hover:not(:focus),
 textarea:hover:not(:focus) {
-    border-color: var(--grey-light);
+    border-color: var(--br-grey-light);
 }
 .icon {
     padding-left: var(--icon-padding);
@@ -84,10 +84,10 @@ textarea:hover:not(:focus) {
     margin-bottom: 5px;
 }
 div.invalid {
-    color: var(--red);
+    color: var(--br-red);
     padding: 3px 10px 0px;
     font-size: 13px;
 }
 .is_invalid {
-    border-color: var(--red);
+    border-color: var(--br-red);
 }

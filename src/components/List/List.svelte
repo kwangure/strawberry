@@ -237,7 +237,7 @@
     }
     .berry-list-item:not(.border-no-radius),
     .berry-list-item > :global(*) {
-        border-radius: var(--border-radius);
+        border-radius: var(--br-border-radius);
     }
     .berry-list-item > :global(*) {
         margin: -10px;
@@ -247,14 +247,14 @@
         border-bottom: 1px solid transparent;
     }
     .border-top {
-        border-top-color: var(--border-color);
+        border-top-color: var(--br-border-color);
     }
     .border-bottom {
-        border-bottom-color: var(--border-color);
+        border-bottom-color: var(--br-border-color);
     }
     .selected {
-        background-color: var(--primary-light);
-        color: var(--primary);
+        background-color: var(--br-primary-light);
+        color: var(--br-primary);
     }
     .selected.cornered-top {
         border-top-left-radius: 0;
@@ -267,8 +267,8 @@
     .focus-ring,
     .focus-ring.cornered-top,
     .focus-ring.cornered-bottom {
-        box-shadow: 0 0 3px var(--primary);
-        border-radius: var(--border-radius);
+        box-shadow: 0 0 3px var(--br-primary);
+        border-radius: var(--br-border-radius);
         z-index: 1;
     }
 </style>

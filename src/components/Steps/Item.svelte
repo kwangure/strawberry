@@ -33,12 +33,12 @@
         flex: auto;
         min-height: 40px;
         line-height: 24px;
-        padding: var(--item-vertical-padding) var(--item-horizontal-padding);
-        border-radius: var(--border-radius);
+        padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
+        border-radius: var(--br-border-radius);
     }
     .step-item.active {
-        background-color: var(--primary-light);
-        color: var(--primary);
+        background-color: var(--br-primary-light);
+        color: var(--br-primary);
     }
     .step-item + .step-item {
         margin-left: 10px;
@@ -48,14 +48,14 @@
         align-items: center;
         justify-content: center;
         min-width: 35px;
-        height: var(--item-height);
+        height: var(--br-item-height);
         border-radius: 50%;
-        background-color: var(--white);
-        color: var(--primary);
-        border: 2px solid var(--primary);
+        background-color: var(--br-white);
+        color: var(--br-primary);
+        border: 2px solid var(--br-primary);
     }
     .progress-label.active {
-        background-color: var(--primary);
-        color: var(--white);
+        background-color: var(--br-primary);
+        color: var(--br-white);
     }
 </style>

@@ -22,22 +22,22 @@
         min-height: 40px;
         line-height: 24px;
         text-decoration: none;
-        padding: var(--item-vertical-padding) var(--item-horizontal-padding);
-        border-radius: var(--border-radius);
+        padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
+        border-radius: var(--br-border-radius);
     }
     .sidebar-item > :global(a) {
-        margin: calc(var(--item-vertical-padding) * -1) calc(var(--item-horizontal-padding) * -1);
+        margin: calc(var(--br-item-vertical-padding) * -1) calc(var(--br-item-horizontal-padding) * -1);
         color: inherit;
         flex: auto;
     }
     
     .sidebar-item:not(.active):hover,
     .sidebar-item:not(.active) > :global(a:focus) {
-        background-color: var(--grey-lightest);
+        background-color: var(--br-grey-lightest);
     }
     .sidebar-item.active {
-        background-color: var(--primary-light);
-        color: var(--primary);
+        background-color: var(--br-primary-light);
+        color: var(--br-primary);
     }
     .sidebar-item + .sidebar-item {
         margin-top: 3px;

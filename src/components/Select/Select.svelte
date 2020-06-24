@@ -36,8 +36,8 @@
 
 <style>
     .select {
-        --postfix-width: 31px;
-        --postfix-height: --postfix-width;
+        --br-postfix-width: 31px;
+        --br-postfix-height: --br-postfix-width;
     }
     .label {
         margin-bottom: 5px;
@@ -58,8 +58,8 @@
     }
     [slot="button"]:hover .postfix, 
     .postfix.open {
-        color: var(--primary);
-        background-color: var(--primary-light);
+        color: var(--br-primary);
+        background-color: var(--br-primary-light);
     }
     [slot="button"].disabled {
         pointer-events: none;
@@ -72,14 +72,14 @@
         user-select: none;
         flex: 1;
         user-select: none;
-        padding: var(--input-vertical-padding) var(--input-horizontal-padding);
+        padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
     }
     .postfix {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: var(--postfix-width);
-        height: var(--postfix-height);
+        width: var(--br-postfix-width);
+        height: var(--br-postfix-height);
     }
 </style>
 

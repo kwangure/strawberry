@@ -43,9 +43,9 @@
         padding: 10px 20px;
         display: flex;
         align-items: center;
-        background-color: var(--grey-dark);
-        color: var(--white);
-        border-radius: var(--border-radius);
+        background-color: var(--br-grey-dark);
+        color: var(--br-white);
+        border-radius: var(--br-border-radius);
         width: 210px;
         margin-left: auto;
     }

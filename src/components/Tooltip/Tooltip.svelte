@@ -37,19 +37,19 @@
     .active:before {
         top: calc(100%);
         border: solid;
-        border-color: var(--grey-dark) transparent;
+        border-color: var(--br-grey-dark) transparent;
         border-width: 0 8px 9px 8px;
         content: "";
     }
     .active:after {
-        height: var(--item-height);
+        height: var(--br-item-height);
         display: flex;
         align-items: center;
         justify-content: center;
-        background: var(--grey-dark);
-        border-radius: var(--border-radius);
+        background: var(--br-grey-dark);
+        border-radius: var(--br-border-radius);
         top: calc(100% + 8px);
-        color: var(--white);
+        color: var(--br-white);
         content: attr(aria-label);
         padding: 10px;
         white-space: nowrap;
