@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/deimimi/strawberry/compare/v0.16.1...v0.17.0) (2020-06-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* For easier maintaining, I've abandoned web components
+* Adding `br-` prevents CSS conflicts with  Strawberry.
+* The Select component now only accepts Option components via `<slot/>`.
+`active` is now set automatically, similar to the browser select. `icon` has been removed.
+* The dropdown component now only accepts children via `<slot/>`.
+* The dropdown component now only uses declarative prop-driven changes.
+
+### Features
+
+* add `br-` prefix to CSS custom properties ([7fe4330](https://github.com/deimimi/strawberry/commit/7fe433086c854042a4e652d594541428de5e674d))
+* remove `options`, `active`, `icon` prop from Select to simplify ([a896f34](https://github.com/deimimi/strawberry/commit/a896f345d4c1680341f5c0e46b337e60d6e7f27a))
+* remove `toggle`, `open` & `close` convenience methods ([5a3a468](https://github.com/deimimi/strawberry/commit/5a3a46839fff909890d213048a0907809f20c491))
+* remove nested dropdown items API to simplify ([3dc29ea](https://github.com/deimimi/strawberry/commit/3dc29ea806615c9ed67df95ee97a0f964ecf3878))
+* remove support for web components ([25d3f63](https://github.com/deimimi/strawberry/commit/25d3f63bb27b6f1a40e549294233bcd39754e697))
+
 ### [0.16.1](https://github.com/deimimi/strawberry/compare/v0.16.0...v0.16.1) (2020-06-05)
 
 
