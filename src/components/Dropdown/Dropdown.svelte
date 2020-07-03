@@ -24,7 +24,7 @@
 
     $: {
         visible
-            ? document.addEventListener("click", handleDocumentClick)
+            ? document.addEventListener("click", handleDocumentClick, true)
             : document.removeEventListener("click", handleDocumentClick);
     }
 
