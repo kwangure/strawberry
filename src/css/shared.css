@@ -7,7 +7,8 @@
 	- under normal conditions, there's no need to touch these
 -----------------------------------------------
 */
-* {
+*,
+:host {
 	/* ----- Colors ----- */
 	--br-red: rgb(255, 40, 30);
 	--br-red-hover: rgba(255, 60, 50);
