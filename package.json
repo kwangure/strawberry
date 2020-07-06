@@ -2,7 +2,7 @@
     "name": "@deimimi/strawberry",
     "version": "0.17.0",
     "description": "A set of svelte components",
-    "main": "index.mjs",
+    "main": "./src/index.mjs",
     "svelte": "./src/index.mjs",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -46,7 +46,6 @@
     "homepage": "https://github.com/deimimi/strawberry#readme",
     "files": [
         "src",
-        "config",
-        "dist"
+        "config"
     ]
 }
