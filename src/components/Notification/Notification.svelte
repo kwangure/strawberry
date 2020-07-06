@@ -28,7 +28,6 @@
 {/if}
 
 <style>
-    @import "../../css/shared.css";
     .wrapper {
         overflow: hidden;
         position: absolute;

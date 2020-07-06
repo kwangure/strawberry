@@ -218,7 +218,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
     .berry-list {
         display: flex;
         flex: auto;

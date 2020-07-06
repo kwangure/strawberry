@@ -47,7 +47,6 @@
 {/if}
 
 <style>
-    @import "../../css/shared.css";
     .overlay {
         position: fixed;
         top: 0;

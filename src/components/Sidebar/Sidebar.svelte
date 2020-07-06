@@ -22,7 +22,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
     .berry-sidebar {
         width: 240px;
         padding: 0 10px;

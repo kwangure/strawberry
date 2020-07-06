@@ -48,8 +48,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
-
     .steps {
         display: flex;
     }

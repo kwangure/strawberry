@@ -3,7 +3,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
     .berry-button-group :global(button) {
         border-radius: 0;
     }

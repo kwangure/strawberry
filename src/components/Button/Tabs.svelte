@@ -26,7 +26,6 @@
 {/if}
 
 <style>
-    @import "../../css/shared.css";
     .tab-wrapper {
         padding: 5px 10px;
     }

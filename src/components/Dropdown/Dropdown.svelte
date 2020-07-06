@@ -43,7 +43,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
     .berry-dropdown {
         position: relative;
         display: inline-block;

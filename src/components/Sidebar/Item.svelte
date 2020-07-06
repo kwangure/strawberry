@@ -7,7 +7,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
     .sidebar-item {
         cursor: pointer;
         background-color: transparent;

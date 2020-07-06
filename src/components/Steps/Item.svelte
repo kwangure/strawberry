@@ -19,7 +19,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
     .step-item {
         cursor: pointer;
         background-color: transparent;

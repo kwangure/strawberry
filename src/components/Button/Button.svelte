@@ -24,7 +24,6 @@
 </button>
 
 <style>
-    @import "../../css/shared.css";
     button {
         line-height: 1.5;
         position: relative;

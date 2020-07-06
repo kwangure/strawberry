@@ -12,7 +12,6 @@
 </span>
 
 <style>
-    @import "../../css/shared.css";
     .active {
         position: relative;
     }

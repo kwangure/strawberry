@@ -30,7 +30,6 @@
 </svg>
 
 <style>
-    @import "../../css/shared.css";
     svg.horizontal {
         transform: scale(-1, 1)
     }

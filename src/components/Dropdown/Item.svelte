@@ -7,7 +7,6 @@
 </div>
 
 <style>
-    @import "../../css/shared.css";
     .menu-item {
         font-weight: normal;
         font-size: 14px;
