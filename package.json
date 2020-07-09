@@ -47,5 +47,8 @@
     "files": [
         "src",
         "config"
-    ]
+    ],
+    "publishConfig": { 
+        "registry": "https://npm.pkg.github.com/" 
+    }
 }
