@@ -1,7 +1,7 @@
 <script>
     import Icon from "../Icon";
 
-    export let color = "";
+    export let primary = false;
     export let icon = "";
     export let disabled = "";
     export let iconProps = {};
@@ -11,7 +11,7 @@
     let slot_used = true;
 </script>
 
-<button class="{color? color: ''} berry-button" class:icon class:slot_used class:fullwidth
+<button class="berry-button" class:primary class:icon class:slot_used class:fullwidth
     class:active {disabled} on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
@@ -69,9 +69,6 @@
         border-color: var(--br-primary-light);
         color:  var(--br-primary);
     }
-    button.none {
-        border: none;
-    }
     button.primary {
         color: var(--br-white);
         background-color: var(--br-primary);
@@ -91,8 +88,5 @@
     }
     button.icon.slot_used {
         padding-right: 16px;
-    }
-    .visible {
-        display: block;
     }
 </style>
