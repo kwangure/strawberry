@@ -1,4 +1,5 @@
 <script>
+    import "./Input.css";
     import Icon from "../Icon";
     import { slide } from "svelte/transition";
     export let name = "";
@@ -42,7 +43,3 @@
         </div>
     {/if}
 </label>
-
-<style>
-    @import "./Input.css";
-</style>

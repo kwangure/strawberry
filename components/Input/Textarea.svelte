@@ -1,4 +1,5 @@
 <script>
+    import "./Input.css";
     export let name = "";
     export let placeholder = "";
     export let value = "";
@@ -32,7 +33,6 @@
 </span>
 
 <style>
-    @import "./Input.css";
     textarea {
         width: 100%;
         overflow: scroll;

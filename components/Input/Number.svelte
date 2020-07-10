@@ -1,4 +1,5 @@
 <script>
+    import "./Input.css";
     import Icon from "../Icon";
     import { slide } from "svelte/transition";
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
@@ -67,7 +68,6 @@
 </label>
 
 <style>
-    @import "./Input.css";
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
         -webkit-appearance: none;
