@@ -1,5 +1,5 @@
 <script>
-    import { SELECT_STORE_KEY  } from "./select.svelte";
+    import { SELECT_STORE_KEY  } from "./Select.svelte";
     import { getContext } from "svelte";
 
     export let value = null;
