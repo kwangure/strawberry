@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.0](https://github.com/deimimi/strawberry/compare/v0.17.0...v0.18.0) (2020-07-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* You should now import CSS custom properties/variables via `<link/>` to use a Strawberry component
+
+### Features
+
+* make CSS vars available to custom components ([e0e9f51](https://github.com/deimimi/strawberry/commit/e0e9f51104883f620e5c84875245289ae2e37340))
+* remove CSS imports via `[@import](https://github.com/import)` ([3f16ad5](https://github.com/deimimi/strawberry/commit/3f16ad5aeb508414c18713a5a267abff1519c481))
+
+
+### Bug Fixes
+
+* compact CSS in while preprocessing ([9813ff0](https://github.com/deimimi/strawberry/commit/9813ff07d49686665ac465cc9b86af6565b90601))
+* handle hide dropdown edge case ([7f06d96](https://github.com/deimimi/strawberry/commit/7f06d9600557a083d3fc996f8f140336cd3814b6))
+
 ## [0.17.0](https://github.com/deimimi/strawberry/compare/v0.16.1...v0.17.0) (2020-06-24)
 
 

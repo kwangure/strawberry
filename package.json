@@ -1,6 +1,6 @@
 {
     "name": "@deimimi/strawberry",
-    "version": "0.17.0",
+    "version": "0.18.0",
     "description": "A set of svelte components",
     "main": "./src/index.mjs",
     "svelte": "./src/index.mjs",
@@ -48,7 +48,7 @@
         "src",
         "config"
     ],
-    "publishConfig": { 
-        "registry": "https://npm.pkg.github.com/" 
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
     }
 }
