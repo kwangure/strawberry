@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0](https://github.com/deimimi/strawberry/compare/v0.18.0...v0.19.0) (2020-07-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* Instead of `color` pass the `primary` prop as a Boolean
+* Importing components directly now removes the `src` path. For example, what was `@deimimi/strawberry/src/components` is now  `@deimimi/strawberry/components/Button`
+
+### Features
+
+* deprecate `color` prop on Button in favour of `primary` ([34de027](https://github.com/deimimi/strawberry/commit/34de027a78268175eedbdd689c8bc62d0431e07b))
+
+
+* remove unneeded src folder ([53795c3](https://github.com/deimimi/strawberry/commit/53795c30ba9e21077b941fe9ad0c824796fefedb))
+
 ## [0.18.0](https://github.com/deimimi/strawberry/compare/v0.17.0...v0.18.0) (2020-07-10)
 
 
