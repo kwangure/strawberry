@@ -2,8 +2,8 @@
     "name": "@deimimi/strawberry",
     "version": "0.18.0",
     "description": "A set of svelte components",
-    "main": "./src/index.mjs",
-    "svelte": "./src/index.mjs",
+    "main": "./index.js",
+    "svelte": "./index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rollup -c",
@@ -45,8 +45,9 @@
     },
     "homepage": "https://github.com/deimimi/strawberry#readme",
     "files": [
-        "src",
-        "config"
+        "components",
+        "config",
+        "css"
     ],
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/"
