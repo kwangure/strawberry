@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.19.1](https://github.com/deimimi/strawberry/compare/v0.19.0...v0.19.1) (2020-07-10)
+
+
+### Bug Fixes
+
+* fix incorrect import of Select key ([4dcf11c](https://github.com/deimimi/strawberry/commit/4dcf11c46922aa3250c1a706300710fea048b4af))
+
 ## [0.19.0](https://github.com/deimimi/strawberry/compare/v0.18.0...v0.19.0) (2020-07-10)
 
 
