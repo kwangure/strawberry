@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.19.2](https://github.com/deimimi/strawberry/compare/v0.19.1...v0.19.2) (2020-07-12)
+
+
+### Features
+
+* temporarily disable Autocomplete; causing vite bugs ([427ac79](https://github.com/deimimi/strawberry/commit/427ac79635fff66679a65fcd86c5f7d4269d8b61))
+
+
+### Bug Fixes
+
+* stop inlining CSS vars, instead add fallback ([4b1121c](https://github.com/deimimi/strawberry/commit/4b1121cd0203b70baf8e2ca223513b0e8df4065e))
+
 ### [0.19.1](https://github.com/deimimi/strawberry/compare/v0.19.0...v0.19.1) (2020-07-10)
 
 
