@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.19.3](https://github.com/deimimi/strawberry/compare/v0.19.2...v0.19.3) (2020-07-12)
+
+
+### Bug Fixes
+
+* only leave out image assets when publishing ([409aa32](https://github.com/deimimi/strawberry/commit/409aa32b5ccfb5d1c347d1ecf2ba13129823a4b9))
+
 ### [0.19.2](https://github.com/deimimi/strawberry/compare/v0.19.1...v0.19.2) (2020-07-12)
 
 
