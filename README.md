@@ -8,8 +8,7 @@
 
 <p align="center">
     <a href="#quick-start"><strong> Quick Start </strong></a> •
-    <a href="#installation-and-usage"><strong>Installation and Usage</strong></a> <!--•
-    <a href="#attribution"><strong>Attribution</strong></a-->
+    <a href="#installation-and-usage"><strong>Installation and Usage</strong></a> 
 </p>
 
 ## Installation and Usage
@@ -44,6 +43,3 @@ plugins: [
 ]
 ...
 ```
-<!--
-## Attribution
-The Strawberry logo was created using the Winnie font.-->
