@@ -42,11 +42,6 @@
         "url": "https://github.com/deimimi/strawberry/issues"
     },
     "homepage": "https://github.com/deimimi/strawberry#readme",
-    "files": [
-        "components",
-        "config",
-        "css"
-    ],
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/"
     }
