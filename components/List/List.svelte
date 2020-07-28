@@ -1,5 +1,5 @@
 <script>
-    import { isMacintosh } from "../utils/platform";
+    import { isMacintosh, isIOS } from "../utils/platform";
     import { onDestroy } from "svelte";
     import { slide } from "svelte/transition";
 
@@ -135,7 +135,7 @@
     };
 
     function CtrlOrCmdPressed(e) {
-        return (isMacintosh && e.key === "Meta") || e.key === "Control";
+        return ((isMacintosh || isIOS ) && e.key === "Meta") || e.key === "Control";
     }
 
     function handleKeydown(e) {
