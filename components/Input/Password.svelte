@@ -1,9 +1,12 @@
 <script>
     import "./Input.css"
     import Icon from "../Icon";
+    import uid from 'uid';
     import { slide } from "svelte/transition";
+
     export let name = "";
-    export let label = "";
+    export let label;
+    export let hideLabel = false;
     export let placeholder = "";
     export let icon = "";
     export let value = "";
@@ -12,6 +15,17 @@
     export let focus = false;
     export let invalid = () => false;
 
+    if (import.meta.env.DEV) {
+        const isEmpty = (str) => (!str || 0 === str.length);
+        isEmpty(label) && console.error(`
+The 'label' prop must be included. If you want to hide it pass the 'hideLabel:boolean' prop.
+
+To read about a hidden '<label/>' for accessibility reasons, see:
+https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
+        `.trim());
+    }
+
+    let labelId = uid();
     let input = null;
     let blurred = false;
 
@@ -19,10 +33,8 @@
     $: is_invalid = blurred && invalid(value);
 </script>
 
-<label class="berry-input-password input-wrapper">
-    {#if label}
-        <div class="label">{label.length? label : placeholder}</div>
-    {/if}
+<div class="berry-input-password input-wrapper">
+    <label class:br-accessible-hide={hideLabel} for={labelId} >{label || ""}</label>
     <div class="container">
         {#if icon}
             <span class="input-prefix">
@@ -33,11 +45,11 @@
         <input 
             {autofocus} bind:this={input} bind:value class:icon class:is_invalid
             {disabled} {name} on:blur on:blur={() => blurred = true} on:change 
-            on:input on:keypress on:focus on:keydown {placeholder} type='password'/>
+            on:input on:keypress on:focus on:keydown {placeholder} type='password' id={labelId}/>
     </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>
             {is_invalid}
         </div>
     {/if}
-</label>
+</div>

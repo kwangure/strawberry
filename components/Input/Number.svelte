@@ -1,10 +1,13 @@
 <script>
     import "./Input.css";
     import Icon from "../Icon";
+    import uid from 'uid';
     import { slide } from "svelte/transition";
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
+
     export let name = "";
-    export let label = "";
+    export let label;
+    export let hideLabel = false;
     export let placeholder = "";
     export let icon = "";
     export let min = -Infinity;
@@ -17,8 +20,19 @@
     export let focus = false;
     export let invalid = () => false;
 
+    if (import.meta.env.DEV) {
+        const isEmpty = (str) => (!str || 0 === str.length);
+        isEmpty(label) && console.error(`
+The 'label' prop must be included. If you want to hide it pass the 'hideLabel:boolean' prop.
+
+To read about a hidden '<label/>' for accessibility reasons, see:
+https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
+        `.trim());
+    }
+
     let focused = false;
 
+    let labelId = uid();
     let input = null;
     let blurred = false;
 
@@ -30,10 +44,8 @@
     }
 </script>
 
-<label class="berry-input-number input-wrapper">
-    {#if label}
-        <div class="label">{label.length? label : placeholder}</div>
-    {/if}
+<div class="berry-input-number input-wrapper">
+    <label class:br-accessible-hide={hideLabel} for={labelId} >{label || ""}</label>
     <div class="container">
         {#if icon}
             <span class="input-prefix">
@@ -48,7 +60,7 @@
             on:blur={() => blurred = true} on:change 
             on:change={() => value = clamp(value, min, max)} on:input 
             on:keypress on:focus on:focus={()=> focused = true} on:keydown 
-            {placeholder} readonly={stepOnly} type='number'>
+            {placeholder} readonly={stepOnly} type='number' id={labelId}>
         <div class="postfix-wrapper" class:focused class:disabled>
             <span class="postfix-up"
                 on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
@@ -65,7 +77,7 @@
             {is_invalid}
         </div>
     {/if}
-</label>
+</div>
 
 <style>
     input[type=number]::-webkit-inner-spin-button, 
@@ -84,8 +96,5 @@
         min-height: 0;
         display: flex;
         align-items: center;
-    }
-    .label {
-        margin-bottom: 5px;
     }
 </style>

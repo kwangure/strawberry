@@ -7,6 +7,11 @@
 
     let input = null;
 
+    if (import.meta.env.DEV) {
+        const isEmpty = (str) => (!str || 0 === str.length);
+        isEmpty(label) && console.error(`The 'label' prop must be included.`);
+    }
+
     $: (focus && input) ? input.focus() : "";
 </script>
 
@@ -14,9 +19,7 @@
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:checked bind:this={input} {disabled} {name} on:blur on:change
         on:input on:focus type='checkbox'>
-    {#if label}
-        <span class="label">{ label }</span>
-    {/if}
+    <span>{ label }</span>
 </label>
 
 <style>
@@ -30,8 +33,5 @@
         line-height: 1.5;
         -webkit-transition: all .3s;
         transition: all .3s;
-    }
-    .label {
-        margin-bottom: 5px;
     }
 </style>

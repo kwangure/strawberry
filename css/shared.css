@@ -170,3 +170,11 @@ td, th {
 table code, table span {
 	white-space: pre;
 }
+
+.br-accessible-hide {
+	position: absolute !important;
+	height: 1px; width: 1px; 
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}

@@ -79,8 +79,11 @@ textarea:hover:not(:focus) {
 .icon:focus {
     padding-left: var(--icon-padding-focus);
 }
-.label {
+label:not(.berry-input-radio):not(.berry-input-checkbox) {
     margin-bottom: 5px;
+}
+label.hideLabel {
+    display: none;
 }
 div.invalid {
     color: var(--br-red);
