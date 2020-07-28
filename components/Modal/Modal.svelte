@@ -1,7 +1,7 @@
 <script>
     import Button from "../Button";
     import { mdiClose } from "@mdi/js";
-    import { crossscale } from "../utils/crosstransition.js";
+    import { crossscale } from "../../utils/crosstransition.js";
     import { fade } from "svelte/transition";
     import { createEventDispatcher } from "svelte";
 
