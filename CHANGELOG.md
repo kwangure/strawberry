@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.0](https://github.com/deimimi/strawberry/compare/v0.19.3...v0.20.0) (2020-07-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* You now need to import from components directly.
+```javascript
+import Select, { Option } from "@deimimi/strawberry/components/Select";
+```
+
+### Features
+
+* remove single entry ([29a4d78](https://github.com/deimimi/strawberry/commit/29a4d78293217674ccbfe1f4f204305e439dfb05))
+* require label prop in all inputs ([b63bd6e](https://github.com/deimimi/strawberry/commit/b63bd6e29540db86c58176b54d5702566b43c761))
+* support IOS and Mac for list ([3d35ab7](https://github.com/deimimi/strawberry/commit/3d35ab72a4bb87801c0ef2f3926919d2fbe48666))
+
+
+### Bug Fixes
+
+* add type commonjs for compat in config ([913040e](https://github.com/deimimi/strawberry/commit/913040e388f50f81228b0f363e7ad86370f9179c))
+* darken blue to increase contast ([795fdc0](https://github.com/deimimi/strawberry/commit/795fdc01d7a354054d91b75400a22bf3e21d5f29))
+* update internal.js to match index.js config ([c821052](https://github.com/deimimi/strawberry/commit/c8210529f5f69e405dc8c0764de0350111940590))
+
 ### [0.19.3](https://github.com/deimimi/strawberry/compare/v0.19.2...v0.19.3) (2020-07-12)
 
 
