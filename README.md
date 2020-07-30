@@ -7,8 +7,8 @@
 </p>
 
 <p align="center">
-    <a href="#quick-start"><strong> Quick Start </strong></a> •
-    <a href="#installation-and-usage"><strong>Installation and Usage</strong></a> 
+    <a href="#install"><strong>Install</strong></a> •
+    <a href="#usage"><strong>Usage</strong></a> 
 </p>
 
 ## Installation and Usage
