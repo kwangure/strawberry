@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.20.1](https://github.com/deimimi/strawberry/compare/v0.20.0...v0.20.1) (2020-08-02)
+
+
+### Bug Fixes
+
+* export sub-components idiomatically to echo https://github.com/deimimi/strawberry/tree/29a4d78293217674ccbfe1f4f204305e439dfb05 ([922bc55](https://github.com/deimimi/strawberry/commit/922bc557c7af1f1f30fb7d832d52f1f80359823c))
+* install postcss-custom-properties as depencency ([7520a43](https://github.com/deimimi/strawberry/commit/7520a43b6c9dfaeed917bfa0f455c7b28971301b))
+
 ## [0.20.0](https://github.com/deimimi/strawberry/compare/v0.19.3...v0.20.0) (2020-07-30)
 
 
