@@ -5,10 +5,5 @@ import Password  from "./Password.svelte";
 import Radio from "./Radio.svelte";
 import Textarea from "./Textarea.svelte";
 
-Input.Checkbox = Checkbox;
-Input.Number = Number;
-Input.Password = Password;
-Input.Radio = Radio;
-Input.Text = Textarea;
-
 export default Input;
+export { Checkbox, Number, Password, Radio, Textarea };
