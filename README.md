@@ -36,8 +36,7 @@ import replace from "@rollup/plugin-replace";
 ...
 plugins: [
     replace({
-        // defer reading ENV in function so that other plugins can change it if needed
-        // deferring is useful for Vite
+        // Tip: Vite replaces these vars Out of the Box™
         'import.meta.env.MODE': () => JSON.stringify(process.env.NODE_ENV),
         'import.meta.env.DEV': () => String(process.env.NODE_ENV === 'development'),
         'import.meta.env.PROD': () => String(process.env.NODE_ENV === 'production'),
