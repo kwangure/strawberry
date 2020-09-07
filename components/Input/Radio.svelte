@@ -30,7 +30,5 @@
     input {
         display: inline-block;
         line-height: 1.5;
-        -webkit-transition: all .3s;
-        transition: all .3s;
     }
 </style>

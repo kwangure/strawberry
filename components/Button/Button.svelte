@@ -33,7 +33,6 @@
         text-align: center;
         border: 1px solid transparent;
         cursor: pointer;
-        transition: all .3s cubic-bezier(.645, .045, .355, 1);
         user-select: none;
         touch-action: manipulation;
         height: var(--br-item-height);

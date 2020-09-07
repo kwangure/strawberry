@@ -18,7 +18,6 @@
         line-height: 22px;
         white-space: nowrap;
         cursor: pointer;
-        transition: all .3s;
         min-width: 130px;
         background-color: var(--br-white);
     }

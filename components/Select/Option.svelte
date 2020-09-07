@@ -45,7 +45,6 @@
         padding: 0 var(--horizontal-padding);
         font-size: 14px;
         cursor: pointer;
-        transition: all .3s;
         min-width: 150px;
         background-color: var(--br-white);
     }

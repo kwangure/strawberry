@@ -147,7 +147,6 @@ tt, code, kbd, samp {
 a {
 	user-select: none;
 	color: var(--br-primary);
-	transition: all .5s ease-in;
 }
 
 a:hover, 

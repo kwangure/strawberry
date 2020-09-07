@@ -228,7 +228,6 @@
         padding: 10px;
         outline: none;
         cursor: pointer;
-        transition: all 250ms ease;
         user-select: none;
         position: relative;
     }

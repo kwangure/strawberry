@@ -13,7 +13,6 @@
         line-height: 22px;
         white-space: nowrap;
         cursor: pointer;
-        transition: all .3s;
         display: flex;
         align-items: center;
         min-width: 130px;

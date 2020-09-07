@@ -55,7 +55,7 @@
         left: 0;
         z-index: 1050;
         background-color: rgba(0,0,0,0.5);
-        transition: all 1s ease;
+        transition: background-color 1s ease;
     }
     .wrapper {
         width: 100vw;
@@ -69,7 +69,7 @@
         padding: 20px 30px;
         box-shadow: 0 7px 15px rgba(0,0,0,0.35);
         border-radius: var(--br-border-radius);
-        transition: all 0.5s ease;
+        transition: background-color 0.3s ease;
         max-width: 90%;
     }
     .header {
