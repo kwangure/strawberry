@@ -28,10 +28,10 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     
     let labelId = uid();
     let input = null;
-    let blurred = false;
+    let focused = false;
+    let is_invalid = false;
 
     $: (focus && input) ? input.focus() : "";
-    $: is_invalid = blurred && invalid(value);
 </script>
 
 <div class="berry-input input-wrapper">
@@ -44,9 +44,18 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input 
-            {autofocus} bind:value bind:this={input} class:icon class:is_invalid {disabled} {name} on:blur
-            on:blur={() => blurred = true} on:change on:input on:keypress on:focus {readonly}
-            on:keydown {placeholder} type="text" id={labelId}>
+            {autofocus} bind:value bind:this={input} class:icon class:is_invalid
+            {disabled} {name} on:blur 
+            on:blur={() => is_invalid = invalid(value)} 
+            on:blur={()=> focused = false}
+            on:change on:input on:keypress on:focus 
+            on:focus={()=> focused = true} {readonly} on:keydown {placeholder} 
+            type="text" id={labelId}>
+        {#if $$slots.postfix}
+            <div class="postfix-wrapper" class:focused class:disabled>
+                <slot name="postfix"/>
+            </div>
+        {/if}
     </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>
