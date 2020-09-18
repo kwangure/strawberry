@@ -10,8 +10,8 @@
     export let hideLabel = false;
     export let placeholder = "";
     export let icon = "";
-    export let min = -Infinity;
-    export let max = Infinity;
+    export let min = Number.MIN_SAFE_INTEGER;
+    export let max = Number.MAX_SAFE_INTEGER;
     export let value = 0;
     export let step = 1;
     export let stepOnly = false;
