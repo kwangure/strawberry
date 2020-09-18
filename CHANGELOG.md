@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.20.2](https://github.com/deimimi/strawberry/compare/v0.20.1...v0.20.2) (2020-09-18)
+
+
+### Features
+
+* use text input for number ([e1ca75c](https://github.com/deimimi/strawberry/commit/e1ca75c2f396dd8d156ae117c233c65686305969))
+
+
+### Bug Fixes
+
+* remove superflous transitions ([5cdb60b](https://github.com/deimimi/strawberry/commit/5cdb60ba8535136b2ea009f01231102678c004b2))
+* use JS IntMax & IntMin for Input bounds ([2e44446](https://github.com/deimimi/strawberry/commit/2e4444666b8949208fa3463323b77ed13c78b310))
+
 ### [0.20.1](https://github.com/deimimi/strawberry/compare/v0.20.0...v0.20.1) (2020-08-02)
 
 
