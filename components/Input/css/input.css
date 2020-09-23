@@ -3,14 +3,6 @@
     width: 100%;
     line-height: 1.5;
 }
-.container {
-    display: flex;
-    border: 1px solid var(--br-border-color);
-    border-radius: var(--br-border-radius);
-    transition: border-color 0.25s ease;
-    overflow: hidden;
-    padding: 1px;
-}
 input, textarea {
     text-align: inherit;
     display: inline-block;
@@ -27,9 +19,7 @@ input {
     height: var(--br-item-height);
     padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
 }
-.container:hover,
 textarea:hover,
-.container:focus-within,
 textarea:focus {
     border: 2px solid var(--br-primary);
     padding: 0;

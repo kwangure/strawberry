@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    border: 1px solid var(--br-border-color);
+    border-radius: var(--br-border-radius);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+    overflow: hidden;
+    padding: 1px;
+    margin: 2px;
+}
+.container:hover:not(:focus-within) {
+    box-shadow: 0 0 0px 2px var(--br-primary-light);
+    border-color: var(--br-primary);
+}
+.container:focus-within {
+    border: 2px solid var(--br-primary);
+    padding: 0;
+}

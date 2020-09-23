@@ -1,5 +1,6 @@
 <script>
     import "../../Input/css/input.css";
+    import "../../Input/css/container.css";
     import { mdiChevronDown } from "@mdi/js";
     import { onDestroy } from "svelte";
     import fuzzy from "fuzzy";
