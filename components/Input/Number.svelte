@@ -1,8 +1,10 @@
 <script>
     import "./Input.css";
+    import "./css/postfix.css";
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
-    import Input from "./Input.svelte";
+    import { slide } from "svelte/transition";
     import Icon from "../Icon";
+    import uid from 'uid';
 
     export let label;
     export let hideLabel = false;
@@ -16,28 +18,107 @@
     export let disabled = false;
     export let autofocus = false;
     export let focus = false;
-    export let invalid = () => false;
+    let isInvalidFn = () => false;
+    export { isInvalidFn as isInvalid };
+    export let parser = (string) => parseFloat(string); 
+    export let formatter = (number) => number.toString();
+    export let formattedValue = formatter(value);
+
+    let input = null;
+    let labelId = uid();
+    let focused = false;
+    let isInvalid = false;
+
+    $: (focus && input) ? input.focus() : "";
+    $: formatValue(value);
+    $: parseValue(formattedValue);
+
+    function formatValue(value) {
+        formattedValue = formatter(value)
+    }
+
+    function parseValue(formattedValue) {
+        isInvalid = isInvalidFn(formattedValue);
+        if (!isInvalid) {
+            value = parser(formattedValue)
+        }
+    }
+
+    if (import.meta.env.DEV) {
+        const isEmpty = (str) => (!str || 0 === str.length);
+        isEmpty(label) && console.error(`
+The 'label' prop must be included. If you want to hide it pass the 'hideLabel:boolean' prop.
+
+To read about a hidden '<label/>' for accessibility reasons, see:
+https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
+        `.trim());
+    }
+
+    function increment(value, step) {
+        value = clamp(value + step, min, max);
+        return value;
+    }
+
+    function decrement(value, step) {
+        value = clamp(value - step, min, max);
+        return value;
+    }
+
+    function handleKeydown(e) {
+        if(e.key === "ArrowUp"){
+            e.preventDefault();
+            value = increment(value, step);
+        } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            value = decrement(value, step);
+        }
+    }
 
     function clamp(value, min, max) {
         if (isNaN(value)) return "";
         return Math.min(Math.max(value, min), max);
     }
+
+    function handleClickUp() {
+        value = increment(value, step);
+        input.focus();
+    }
+
+    function handleClickDown() {
+        value = increment(value, step);
+        input.focus();
+    }
 </script>
 
-<Input {autofocus} bind:value {disabled} {focus} {hideLabel} {icon} {invalid}
-    {label} on:change={() => value = clamp(value, min, max)} on:focus on:input
-    on:keypress on:keydown {placeholder} readonly={stepOnly}>
-    <div slot="postfix" class="postfix-wrapper">
-        <span class="postfix-up"
-            on:click|stopPropagation={() => value = clamp(value + step, min, max)}>
-            <Icon path={mdiChevronUp} size={21}></Icon>
-        </span>
-        <span class="postfix-down"
-            on:click|stopPropagation={() => value = clamp(value - step, min, max)}>
-            <Icon path={mdiChevronDown} size={21}></Icon>
-        </span>
+<div class="berry-input input-wrapper">
+    <label class:br-accessible-hide={hideLabel} for={labelId} >{label || ""}</label>
+    <div class="container">
+        {#if icon}
+            <span class="input-prefix">
+                <Icon size="18" path={icon}></Icon>
+            </span>
+        {/if}
+        <!-- svelte-ignore a11y-autofocus -->
+        <input 
+            {autofocus} bind:value={formattedValue} bind:this={input} class:icon class:is_invalid={isInvalid}
+            {disabled} on:blur on:blur={()=> focused = false} on:change on:input on:keypress on:focus
+            on:focus={()=> focused = true} readonly={stepOnly} on:keydown 
+            on:keydown={handleKeydown} {placeholder} type="text" id={labelId}>
+        <div class="postfix-wrapper" class:focused class:disabled>
+            <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
+                <Icon path={mdiChevronUp} size={21}></Icon>
+            </span>
+            <span class="postfix-down" on:click|stopPropagation={handleClickDown}>
+                <Icon path={mdiChevronDown} size={21}></Icon>
+            </span>
+        </div>
     </div>
-</Input>
+    {#if isInvalid}
+        <div class="invalid" transition:slide>
+            {isInvalid}
+        </div>
+    {/if}
+</div>
 
 <style>
     .postfix-wrapper {
