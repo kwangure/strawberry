@@ -76,10 +76,10 @@
 </script>
 
 <div class="berry-select-autocomplete input-wrapper" bind:this={dropdown}>
-    <div class="dropdown-button">
+    <div class="dropdown-button container">
         <!-- svelte-ignore a11y-autofocus -->
         <input {autofocus} bind:this={input} bind:value={text} class:icon 
-            class="input-postfix" {disabled} 
+            {disabled} 
             on:blur placeholder={placeholder || label} on:change on:input on:keypress on:focus 
             on:focus={open} on:keydown type='text'>
         <div class="postfix-wrapper" class:visible on:click|stopPropagation={toggle}>
