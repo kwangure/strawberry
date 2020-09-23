@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.20.3-alpha.0](https://github.com/deimimi/strawberry/compare/v0.20.2...v0.20.3-alpha.0) (2020-09-23)
+
+
+### Features
+
+* separate number component from text input ([c94b6b6](https://github.com/deimimi/strawberry/commit/c94b6b64c21e77fa4215a19ebe402b681fa2bf1c))
+
+
+### Bug Fixes
+
+* cleanup postfix styiling for Autocomplete ([8aeeb2c](https://github.com/deimimi/strawberry/commit/8aeeb2ca5bf5e24c611704b1858697f76d67fcc6))
+* cleanup postfix styling ([12286df](https://github.com/deimimi/strawberry/commit/12286df5066c3ee209948125b3e35346c3838507))
+
 ### [0.20.2](https://github.com/deimimi/strawberry/compare/v0.20.1...v0.20.2) (2020-09-18)
 
 
