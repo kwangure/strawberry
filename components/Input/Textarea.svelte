@@ -1,5 +1,5 @@
 <script>
-    import "./Input.css";
+    import "./css/input.css";
     import uid from 'uid';
 
     export let name = "";

@@ -1,5 +1,5 @@
 <script>
-    import "./Input.css";
+    import "./css/input.css";
     import Icon from "../Icon";
     import uid from 'uid';
     import { slide } from "svelte/transition";

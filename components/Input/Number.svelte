@@ -1,5 +1,5 @@
 <script>
-    import "./Input.css";
+    import "./css/input.css";
     import "./css/postfix.css";
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
     import { slide } from "svelte/transition";
