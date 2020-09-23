@@ -5,11 +5,6 @@
 }
 .container {
     display: flex;
-}
-.input-wrapper:hover .postfix-wrapper:not(.visible):not(.focused) {
-    background-color: var(--br-grey-lightest);
-}
-.container {
     border: 1px solid var(--br-border-color);
     border-radius: var(--br-border-radius);
     transition: border-color 0.25s ease;
