@@ -1,0 +1,15 @@
+.postfix-wrapper {
+    width: var(--br-postfix-width) ;
+    height: var(--br-item-height);
+    color: var(--br-text);;
+    display: flex;
+    align-items: center;
+    border-radius: 0 2px 2px 0;
+    transition: all 0.5s ease;
+}
+
+.container:hover .postfix-wrapper,
+.container:focus-within .postfix-wrapper {
+    color: var(--br-primary);
+    background-color: var(--br-primary-light);
+}

@@ -4,70 +4,40 @@
     line-height: 1.5;
 }
 .container {
-    position: relative;
-}
-.input-prefix {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    color: var(--br-text);
-    line-height: 0;
-    left: 10px;
-}
-.input-postfix {
-    padding-right: calc(var(--br-postfix-width) + 1px);
-}
-.input-postfix:hover,
-.input-postfix:focus {
-    padding-right: var(--br-postfix-width);
-}
-.postfix-wrapper {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    width: var(--br-postfix-width);
-    height: var(--br-postfix-width);
-    z-index: 2;
-    color: var(--br-text);;
     display: flex;
-    align-items: center;
-    border-radius: 0 2px 2px 0;
-    padding: 4px;
-    transition: all 0.5s ease;
-}
-.postfix-wrapper.visible,
-.postfix-wrapper.focused {
-    color: var(--br-primary);
-    background-color: var(--br-primary-light);
 }
 .input-wrapper:hover .postfix-wrapper:not(.visible):not(.focused) {
     background-color: var(--br-grey-lightest);
 }
+.container {
+    border: 1px solid var(--br-border-color);
+    border-radius: var(--br-border-radius);
+    transition: border-color 0.25s ease;
+    overflow: hidden;
+    padding: 1px;
+}
 input, textarea {
     text-align: inherit;
     display: inline-block;
-    padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
     color: var(--br-text);
     font-size: 14px;
     line-height: 1.5;
     background-color: var(--br-white);
     background-image: none;
-    border: 1px solid var(--br-border-color);
-    border-radius: var(--br-border-radius);
-    transition: border-color 0.5s ease;
+    border: none;
+    outline: 0;
 }
 input {
     width: 100%;
     height: var(--br-item-height);
+    padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
 }
-input:hover,
+.container:hover,
 textarea:hover,
-input:focus,
+.container:focus-within,
 textarea:focus {
     border: 2px solid var(--br-primary);
-    padding: var(--br-input-vertical-padding-focus) var(--br-input-horizontal-padding-focus);
-    outline: 0;
+    padding: 0;
 }
 input:hover:not(:focus),
 textarea:hover:not(:focus) {
