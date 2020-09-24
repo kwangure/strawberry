@@ -1,37 +1,27 @@
 <script>
-    import { SELECT_STORE_KEY  } from "./Select.svelte";
+    import { SELECT_VALUE_STORE_NAME } from "./Select.svelte";
     import { getContext } from "svelte";
 
-    export let value = null;
+    export let value;
+    const selectValueStore = getContext(SELECT_VALUE_STORE_NAME);
 
-    let innerText = "";
-    function getInnerText(optionDOMNode) {
-        innerText = optionDOMNode.innerText;
-
-        // Set initial Select value as default
-        if ($selectStore.value === (value || innerText)) {
-            setSelectStore();
+    let optionDisplayText = "";
+    function getDisplayText(divElement) {
+        optionDisplayText = divElement.innerText;
+        
+        // Set display text of <Select/> if this <Option/> is initially selected
+        if ($selectValueStore.value === value) {
+            setParentSelectValue();
         }
     }
 
-    const selectStore = getContext(SELECT_STORE_KEY);
-    const changeEvent = new CustomEvent("change", { detail: value || innerText });
-
-    function setSelectStore() {
-        $selectStore = {
-            text: innerText,
-            value: value || innerText,
-        };
-    }
-    
-    function handleClick() {
-        setSelectStore();
-        dispatchEvent(changeEvent);
-    }
+    function setParentSelectValue() {
+        $selectValueStore = { displayText: optionDisplayText, value };
+    }      
 </script>
 
-<div class="berry-option menu-item" class:active={$selectStore.text === innerText}
-    on:mousedown={handleClick} use:getInnerText>
+<div class="berry-option menu-item" class:active={$selectValueStore.value === value}
+    on:mousedown={setParentSelectValue} use:getDisplayText>
     <slot></slot>
 </div>
 

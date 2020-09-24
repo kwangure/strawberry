@@ -1,5 +1,5 @@
 <script>
-    import { onDestroy, setContext } from "svelte";
+    import { createEventDispatcher, setContext } from "svelte";
     import { writable } from "svelte/store";
     import { mdiChevronDown } from "@mdi/js";
     import Icon from "../Icon";
@@ -10,11 +10,21 @@
     export let value = "";
     export let label = "";
     export let disabled = false;
+    let displayText = placeholder;
 
-    const selectStore = writable({ text: placeholder, value });
-    $: value = $selectStore.value;
+    const selectValueStore = writable({ displayText, value });
+    const dispatch = createEventDispatcher();
+
+    $: handleValueChange($selectValueStore);
     
-    setContext(SELECT_STORE_KEY, selectStore);
+    function handleValueChange(selectValue) {
+        ({ displayText, value } = selectValue);
+        dispatch("change", value);
+    }
+    
+    // Children of <Select/> (i.e <Option/>) change the value of 
+    // this parent <Select/> via `getContext`
+    setContext(SELECT_VALUE_STORE_NAME, selectValueStore);
 </script>
 
 <div class="select" >
@@ -25,7 +35,7 @@
     {/if}
     <Dropdown {placement}>
         <div slot="button" let:visible class:open={visible} class:disabled>
-            <input bind:value={$selectStore.text} type="text" readonly>
+            <input bind:value={displayText} type="text" readonly>
             <div class="postfix" class:open={visible}>
                 <Icon path={mdiChevronDown}></Icon>
             </div>
@@ -84,5 +94,5 @@
 </style>
 
 <script context="module">
-    export const SELECT_STORE_KEY = "custom-select-option";
+    export const SELECT_VALUE_STORE_NAME = "custom-select-option";
 </script>
