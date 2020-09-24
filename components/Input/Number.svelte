@@ -101,8 +101,10 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input 
-            {autofocus} bind:value={formattedValue} bind:this={input} class:icon class:is_invalid={isInvalid}
-            {disabled} on:blur on:blur={()=> focused = false} on:change on:input on:keypress on:focus
+            {autofocus} bind:value={formattedValue} bind:this={input} class:icon
+            class:is_invalid={isInvalid} {disabled} on:blur 
+            on:blur={()=> focused = false} 
+            on:change={() => value = clamp(value, min, max)} on:change on:input on:keypress on:focus
             on:focus={()=> focused = true} readonly={stepOnly} on:keydown 
             on:keydown={handleKeydown} {placeholder} type="text" id={labelId}>
         <div class="postfix-wrapper" class:focused class:disabled>
