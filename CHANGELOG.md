@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.21.0-alpha.0](https://github.com/deimimi/strawberry/compare/v0.20.3-alpha.0...v0.21.0-alpha.0) (2020-09-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* Options components must now have a `value` prop
+
+### Features
+
+* simplify select to read better ([c1f58ed](https://github.com/deimimi/strawberry/commit/c1f58edae5d73c2aa4f212cf97afe24bdfd3b538))
+
+
+### Bug Fixes
+
+* clamp value on change ([becf3c7](https://github.com/deimimi/strawberry/commit/becf3c767b1d56dcf30e9d97651ed1f5c06a65c5))
+* remove conflicting style ([f1e48e9](https://github.com/deimimi/strawberry/commit/f1e48e969efb5c37d6a35bc790033416a0a60848))
+* separate out container.css ([fbed852](https://github.com/deimimi/strawberry/commit/fbed852171f4e2326a6d6bd47aa6ebeed9ec2899))
+* style input postfix ([d66e10d](https://github.com/deimimi/strawberry/commit/d66e10df9d99a4515e482b1c391e40650de416af))
+
 ### [0.20.3-alpha.0](https://github.com/deimimi/strawberry/compare/v0.20.2...v0.20.3-alpha.0) (2020-09-23)
 
 
