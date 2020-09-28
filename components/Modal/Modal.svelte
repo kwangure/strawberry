@@ -33,8 +33,7 @@
                     </div>
                     {#if closable}
                         <div class="close">
-                            <Button color="none" icon={mdiClose}
-                                on:click={()=> visible = false}/>
+                            <Button icon={mdiClose} on:click={()=> visible = false}/>
                         </div>
                     {/if}
                 </div>
@@ -83,6 +82,9 @@
     }
     .close  {
         margin-left: auto;
+    }
+    .close :global(.berry-button) {
+        border: none;
     }
     .content > :global(*) {
         max-width: 100%;

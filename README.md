@@ -24,7 +24,7 @@ npm i -D @deimimi/strawberry
     import { Button } from "@deimimi/strawberry";
 </script>
 
-<Button color="primary" on:click="{() => alert('strawberry')}">
+<Button on:click="{() => alert('strawberry')}">
     Click me!
 </Button>
 ```
