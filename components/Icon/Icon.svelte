@@ -6,7 +6,6 @@
     export let spin = "";
     export let color = "";
     export let rotate = 0;
-
     
     function validSpin(spin) {
         return spin === "clockwise" || spin === "counterclockwise";
@@ -16,27 +15,21 @@
         return flip === "horizontal" || flip === "vertical";
     }
 
-    $: horizontal = validFlip(flip) && flip === "horizontal";
-    $: vertical = validFlip(flip) && flip === "vertical";
+    $: horizontal = validFlip(flip) && flip === "horizontal" ? -1 : 1;
+    $: vertical = validFlip(flip) && flip === "vertical" ? -1 : 1;
     $: clockwise = validSpin(spin) && spin === "clockwise";
     $: counterclockwise = validSpin(spin) && spin === "counterclockwise";
 </script>
 
-<svg class="berry-icon" class:horizontal class:vertical class:clockwise class:counterclockwise
+<svg class="berry-icon" class:clockwise class:counterclockwise
     height="{size}{units}" on:click on:dblclick 
-    style="transform: rotate({rotate}deg);" viewBox="0 0 24 24" width="{size}{units}">
+    style="transform: rotate({rotate}deg) scale({horizontal}, {vertical})" 
+    viewBox="0 0 24 24" width="{size}{units}">
     <path d={path} fill={color || "currentColor"} />
     <slot></slot>
 </svg>
 
 <style>
-    svg.horizontal {
-        transform: scale(-1, 1)
-    }
-    svg.vertical {
-        transform: scale(1, -1)
-    }
-
     svg.clockwise {
         -webkit-animation: clockwise 2s infinite linear;
         animation: clockwise 2s infinite linear;
