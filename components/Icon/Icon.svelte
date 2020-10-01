@@ -2,13 +2,14 @@
     export let size = 24;
     export let units = "px";
     export let path = "";
-    export let flip = "";
+    export let flip = {};
     export let spin = "";
     export let color = "";
     export let rotate = 0;
 
-    $: horizontal = flip === "horizontal" ? -1 : 1;
-    $: vertical = flip === "vertical" ? -1 : 1;
+    $: ({ horizontal, vertical } = flip);
+    $: horizontal = horizontal ? -1 : 1;
+    $: vertical = vertical ? -1 : 1;
     $: clockwise = spin === "clockwise";
     $: counterclockwise = spin === "counterclockwise";
 </script>
