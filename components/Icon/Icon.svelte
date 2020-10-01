@@ -31,19 +31,7 @@
 
 <style>
     svg.clockwise {
-        -webkit-animation: clockwise 2s infinite linear;
         animation: clockwise 2s infinite linear;
-    }
-
-    @-webkit-keyframes clockwise {
-        0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
     }
 
     @keyframes clockwise {
@@ -58,19 +46,7 @@
     }
 
     svg.counterclockwise {
-        -webkit-animation: counterclockwise 2s infinite linear;
         animation: counterclockwise 2s infinite linear;
-    }
-
-    @-webkit-keyframes counterclockwise {
-        0% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
-        100% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }   
     }
 
     @keyframes counterclockwise {
@@ -83,5 +59,4 @@
             transform: rotate(0deg);
         }
     }
-
 </style>
