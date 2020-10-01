@@ -26,30 +26,16 @@
     svg.clockwise {
         animation: clockwise 2s infinite linear;
     }
-
     @keyframes clockwise {
-        0% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
+        0% { transform: rotate(0deg) }
+        100% { transform: rotate(359deg) }
     }
 
     svg.counterclockwise {
         animation: counterclockwise 2s infinite linear;
     }
-
     @keyframes counterclockwise {
-        0% {
-            -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-        }
-        100% {
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
+        0% { transform: rotate(359deg) }
+        100% { transform: rotate(0deg) }
     }
 </style>
