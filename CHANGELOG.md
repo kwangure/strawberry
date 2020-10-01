@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.21.0](https://github.com/deimimi/strawberry/compare/v0.21.0-alpha.0...v0.21.0) (2020-10-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* The `flip` prop now accepts a boolean object(e.g { horizontal: true, vertical: false })
+
+### Features
+
+* allow flipping icon horizontally & vertically ([7d02e63](https://github.com/deimimi/strawberry/commit/7d02e630cbb433f42a84fef9f505ca7aa99cca56))
+* handle options like native select ([e2d1f6c](https://github.com/deimimi/strawberry/commit/e2d1f6cb3e4fcef657403e3b24d6e5c39bdf075c))
+
+
+### Bug Fixes
+
+* prevent rotate/scale styles overwriting ([c99d310](https://github.com/deimimi/strawberry/commit/c99d3107b5f52a6a4308c4969052349864df1cf7))
+* update to reflect changed API ([4f3f75c](https://github.com/deimimi/strawberry/commit/4f3f75c864984025ccfdb161b41d47cace2126f3))
+
 ## [0.21.0-alpha.0](https://github.com/deimimi/strawberry/compare/v0.20.3-alpha.0...v0.21.0-alpha.0) (2020-09-24)
 
 
