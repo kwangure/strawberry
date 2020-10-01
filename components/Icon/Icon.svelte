@@ -6,19 +6,11 @@
     export let spin = "";
     export let color = "";
     export let rotate = 0;
-    
-    function validSpin(spin) {
-        return spin === "clockwise" || spin === "counterclockwise";
-    }
 
-    function validFlip(flip) {
-        return flip === "horizontal" || flip === "vertical";
-    }
-
-    $: horizontal = validFlip(flip) && flip === "horizontal" ? -1 : 1;
-    $: vertical = validFlip(flip) && flip === "vertical" ? -1 : 1;
-    $: clockwise = validSpin(spin) && spin === "clockwise";
-    $: counterclockwise = validSpin(spin) && spin === "counterclockwise";
+    $: horizontal = flip === "horizontal" ? -1 : 1;
+    $: vertical = flip === "vertical" ? -1 : 1;
+    $: clockwise = spin === "clockwise";
+    $: counterclockwise = spin === "counterclockwise";
 </script>
 
 <svg class="berry-icon" class:clockwise class:counterclockwise
