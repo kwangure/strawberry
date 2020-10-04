@@ -3,6 +3,8 @@
     export let label = "";
     export let disabled = false;
     export let focus = false;
+    export let group;
+    export let value;
 
     let input = null;
 
@@ -16,8 +18,8 @@
 
 <label class="berry-input-radio input-wrapper" on:click>
     <!-- svelte-ignore a11y-autofocus -->
-    <input bind:this={input} checked {disabled} {name} on:blur on:change on:input 
-        on:focus type="radio">
+    <input bind:this={input} bind:group {disabled} {name} on:blur on:change on:input 
+        on:focus type="radio" {value}>
     {#if $$slots.label}
         <slot name="label"/>
     {:else}
