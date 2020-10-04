@@ -1,5 +1,4 @@
 <script>
-    import "./css/checkboxRadio.css";
     export let name = "";
     export let label;
     export let disabled = false;
@@ -27,7 +26,5 @@
 </label>
 
 <style>
-    .input-wrapper {
-        display: flex;
-    }
+    @import "./css/checkboxRadio.css";
 </style>

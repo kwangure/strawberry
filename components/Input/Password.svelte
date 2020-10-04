@@ -1,6 +1,4 @@
 <script>
-    import "./css/input.css";
-    import "./css/container.css";
     import Icon from "../Icon";
     import uid from 'uid';
     import { slide } from "svelte/transition";
@@ -54,3 +52,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         </div>
     {/if}
 </div>
+
+<style>
+    @import "./css/input.css"; 
+    @import "./css/container.css";
+    @import "./css/postfix.css";
+</style>

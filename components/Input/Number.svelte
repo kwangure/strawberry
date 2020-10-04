@@ -1,7 +1,4 @@
 <script>
-    import "./css/input.css";
-    import "./css/container.css";
-    import "./css/postfix.css";
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
     import { slide } from "svelte/transition";
     import Icon from "../Icon";
@@ -124,6 +121,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </div>
 
 <style>
+    @import "./css/input.css"; 
+    @import "./css/container.css";
+    @import "./css/postfix.css";
     .postfix-wrapper {
         flex-direction: column;
     }

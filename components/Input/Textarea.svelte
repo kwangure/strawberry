@@ -1,5 +1,4 @@
 <script>
-    import "./css/input.css";
     import uid from 'uid';
 
     export let name = "";
@@ -45,6 +44,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </span>
 
 <style>
+    @import "./css/input.css";
     textarea {
         width: 100%;
         overflow: scroll;

@@ -1,6 +1,4 @@
 <script>
-    import "../../Input/css/input.css";
-    import "../../Input/css/container.css";
     import { mdiChevronDown } from "@mdi/js";
     import { onDestroy } from "svelte";
     import fuzzy from "fuzzy";
@@ -107,6 +105,8 @@
 </div>
 
 <style>
+    @import "../../Input/css/input.css";
+    @import "../../Input/css/container.css";
     .input-wrapper {
         display: inline-block;
         position: relative;

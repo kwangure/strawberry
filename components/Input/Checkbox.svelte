@@ -1,5 +1,4 @@
 <script>
-    import "./css/checkboxRadio.css";
     export let name = "";
     export let label = "";
     export let checked = false;
@@ -26,3 +25,7 @@
         <span>{ label }</span>
     {/if}
 </label>
+
+<style>
+    @import "./css/checkboxRadio.css";
+</style>
