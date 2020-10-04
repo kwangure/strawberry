@@ -3,7 +3,8 @@
     width: 100%;
     line-height: 1.5;
 }
-input, textarea {
+input:not([type='checkbox']):not([type='radio']), 
+textarea {
     text-align: inherit;
     display: inline-block;
     color: var(--br-text);
@@ -14,7 +15,7 @@ input, textarea {
     border: none;
     outline: 0;
 }
-input {
+input:not([type='checkbox']):not([type='radio']) {
     width: 100%;
     height: var(--br-item-height);
     padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
