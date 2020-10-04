@@ -1,0 +1,21 @@
+:host {
+	border-collapse: collapse;
+    font-weight: 400;
+    font-size: var(--br-h6);
+    font-family: var(--br-font);
+    color: var(--br-text);
+}
+
+:host {
+    --br-h1: 32px;
+	--br-h2: 30px;
+	--br-h3: 26px;
+	--br-h4: 18px;
+	--br-h5: 16px;
+	--br-h6: 14px; /* default font-size */
+	--br-linemax: 42px; /* max line-length */
+}
+
+:host * {
+	box-sizing: border-box;
+}

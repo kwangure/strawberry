@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	-ms-text-size-adjust: 62.5%;
+	-webkit-text-size-adjust: 62.5%;
+	border-collapse: collapse;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-weight: 400;
+	font-size: var(--br-h6);
+	font-family: var(--br-font);
+	color: var(--br-text);
+}

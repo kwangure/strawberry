@@ -71,29 +71,6 @@
 	--br-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-/*	base reset ----------------------------- */
-html {
-	font-size: 62.5%;
-	-ms-text-size-adjust: 62.5%;
-	-webkit-text-size-adjust: 62.5%;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
-	border-collapse: collapse;
-}
-
-html,
-body {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-*,
-:host * {
-	box-sizing: border-box;
-}
-
-/*	link reset ----------------------------- */
 a {
 	text-decoration: none;
 	cursor: pointer;
@@ -102,20 +79,7 @@ a {
 
 a:focus { outline: none }
 
-/*
------------------------------------------------
-	global styles
------------------------------------------------
-*/
-
-/*	typography ----------------------------- */
-body,
-:host {
-	font-weight: 400;
-	font-size: var(--br-h6);
-	font-family: var(--br-font);
-	color: var(--br-text);
-}
+/* --------------- typography --------------- */
 
 h1, h2, h3, h4, h5, h6, blockquote {
 	position: relative;
@@ -137,24 +101,22 @@ h1, h2 {
 
 h3 { font-weight: 300 }
 
-tt, code, kbd, samp {
-	font: 400 var(--br-code-fs) var(--br-font-mono);
-	line-height: 1.7;
-}
-
-
-/*  links ------------------------------------- */
+/* --------------- links --------------- */
 a {
+	text-decoration: none;
+	cursor: pointer;
 	user-select: none;
 	color: var(--br-primary);
 }
 
-a:hover, 
+a:hover,
 a:active  {
 	color: var(--br-primary-hover);
 }
 
-/*  tables --------------------------------- */
+a:focus { outline: none }
+
+/* --------------- tables --------------- */
 table {
 	width: 100%;
 	font-size: var(--br-h5);
@@ -170,6 +132,12 @@ table code, table span {
 	white-space: pre;
 }
 
+/* 
+ ---------------
+    Useful for hiding labels etc. that you want screen 
+    readers to find but not humans to see
+ ---------------
+*/
 .br-accessible-hide {
 	position: absolute !important;
 	height: 1px; width: 1px; 
