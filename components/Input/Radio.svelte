@@ -1,4 +1,5 @@
 <script>
+    import "./css/checkboxRadio.css";
     export let name = "";
     export let label;
     export let disabled = false;
@@ -23,12 +24,6 @@
 
 <style>
     .input-wrapper {
-        display: inline-block;
-        position: relative;
-        line-height: inherit;
-    }
-    input {
-        display: inline-block;
-        line-height: 1.5;
+        display: flex;
     }
 </style>

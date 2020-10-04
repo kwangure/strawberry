@@ -1,4 +1,5 @@
 <script>
+    import "./css/checkboxRadio.css";
     export let name = "";
     export let label = "";
     export let checked = false;
@@ -21,17 +22,3 @@
         on:input on:focus type='checkbox'>
     <span>{ label }</span>
 </label>
-
-<style>
-    .input-wrapper {
-        display: inline-block;
-        position: relative;
-        line-height: inherit;
-    }
-    input {
-        display: inline-block;
-        line-height: 1.5;
-        -webkit-transition: all .3s;
-        transition: all .3s;
-    }
-</style>
