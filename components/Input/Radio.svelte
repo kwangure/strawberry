@@ -1,6 +1,6 @@
 <script>
     export let name = "";
-    export let label;
+    export let label = "";
     export let disabled = false;
     export let focus = false;
 
