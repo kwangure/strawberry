@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.0](https://github.com/deimimi/strawberry/compare/v0.21.0...v0.22.0) (2020-10-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* To import css, now use `stawberry/css/customElement` or
+`strawberrycss/standardDOM` depending on your usecase
+
+### Features
+
+* add label slot for Checkbox and Radio component ([1dd5b34](https://github.com/deimimi/strawberry/commit/1dd5b340d7a02e0b8c23147823a3e38bcb4dcf05))
+* add radio bind group ([7048897](https://github.com/deimimi/strawberry/commit/7048897029e88989162643658bb24d47912ca688))
+* import css in css through postcss ([8c4ae77](https://github.com/deimimi/strawberry/commit/8c4ae77dd2a927effed2459caab5618917cfa1ca))
+* modularize CSS ([c4e65f0](https://github.com/deimimi/strawberry/commit/c4e65f0c6db1e41830f112437d53c008d4e7dacb))
+
+
+### Bug Fixes
+
+* add default input margin ([2af4e84](https://github.com/deimimi/strawberry/commit/2af4e8419473b119af5baf51bfc43afd854a3c5d))
+* make radio label optional ([ab68c4a](https://github.com/deimimi/strawberry/commit/ab68c4a8a4bae967a7625c877a0f1cf9bcdc209f))
+* remove checkbox/radio input styling ([1118cc2](https://github.com/deimimi/strawberry/commit/1118cc24527c3564f676a247be1f847707f3f50d))
+* use flex styling for Checkbox and Radio ([8dd2256](https://github.com/deimimi/strawberry/commit/8dd225695257fdd3c2fd86695f73f0c6b6c41cc7))
+* use input-number css name for Number input ([499f5a4](https://github.com/deimimi/strawberry/commit/499f5a4224d54785f773db17b17d45145493e93d))
+
 ## [0.21.0](https://github.com/deimimi/strawberry/compare/v0.21.0-alpha.0...v0.21.0) (2020-10-01)
 
 
