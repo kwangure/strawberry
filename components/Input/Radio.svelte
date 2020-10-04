@@ -9,7 +9,7 @@
 
     if (import.meta.env.DEV) {
         const isEmpty = (str) => (!str || 0 === str.length);
-        isEmpty(label) && console.error(`The 'label' prop must be included.`);
+        isEmpty(label) && !$$slots.label && console.error(`The 'label' prop must be included.`);
     }
 
     $: (focus && input) ? input.focus() : "";
@@ -19,7 +19,11 @@
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:this={input} checked {disabled} {name} on:blur on:change on:input 
         on:focus type="radio">
-    <span>{ label }</span>
+    {#if $$slots.label}
+        <slot name="label"/>
+    {:else}
+        <span>{ label }</span>
+    {/if}
 </label>
 
 <style>
