@@ -91,7 +91,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     }
 </script>
 
-<div class="berry-input input-wrapper">
+<div class="berry-input-number input-wrapper">
     <label class:br-accessible-hide={hideLabel} for={labelId} >{label || ""}</label>
     <div class="container">
         {#if icon}
