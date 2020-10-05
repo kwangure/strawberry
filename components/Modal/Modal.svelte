@@ -26,7 +26,7 @@
     <div class="berry-modal overlay" transition:fade
         on:click|self={() => visible = closable ? false : visible}>
         <div class="wrapper">
-            <div class="modal" out:send="{{key: 'modal'}}" in:receive="{{key: 'modal'}}">
+            <div class="modal" class:closable out:send="{{key: 'modal'}}" in:receive="{{key: 'modal'}}">
                 <div class="header">
                     <div class="header-content">
                         <slot name="header"></slot>
@@ -65,11 +65,14 @@
     }
     .modal {
         background-color: var(--br-white);
-        padding: 20px 30px;
+        padding: 30px 30px;
         box-shadow: 0 7px 15px rgba(0,0,0,0.35);
         border-radius: var(--br-border-radius);
         transition: background-color 0.3s ease;
         max-width: 90%;
+    }
+    .modal.closable {
+        padding: 20px 30px;
     }
     .header {
         display: flex;
