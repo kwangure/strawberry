@@ -4,9 +4,11 @@
 </script>
 
 <div class="berry-sidebar">
-    <div class="sidebar-head">
-        <slot name="head"></slot>
-    </div>
+    {#if $$slots.head}
+        <div class="sidebar-head">
+            <slot name="head"></slot>
+        </div>
+    {/if}
     <div class="sidebar-items">
         {#each items as item, index}
             <Item on:click={item.onclick} active={item.active}>
@@ -16,9 +18,11 @@
             <slot/>
         {/each}
     </div>
-    <div class="sidebar-foot">
-        <slot name="foot"></slot>
-    </div>
+    {#if $$slots.foot}
+        <div class="sidebar-foot">
+            <slot name="foot"></slot>
+        </div>
+    {/if}
 </div>
 
 <style>
