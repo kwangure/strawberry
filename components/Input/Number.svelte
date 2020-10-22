@@ -82,7 +82,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     }
 
     function handleClickDown() {
-        value = increment(value, step);
+        value = decrement(value, step);
         focus = true;
     }
 </script>
