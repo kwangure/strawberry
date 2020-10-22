@@ -24,7 +24,6 @@
     export let formattedValue = formatter(value);
 
     let labelId = uid();
-    let focused = false;
     let isInvalid = false;
 
     $: formatValue(value);
@@ -37,7 +36,7 @@
     function parseValue(formattedValue) {
         isInvalid = isInvalidFn(formattedValue);
         if (!isInvalid) {
-            value = parser(formattedValue)
+            value = parser(formattedValue);
         }
     }
 
@@ -99,11 +98,11 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <input 
             {autofocus} bind:value={formattedValue} class:icon
             class:is_invalid={isInvalid} {disabled} on:blur 
-            on:blur={()=> focused = focus = false} 
+            on:blur={()=> focus = false} 
             on:change={() => value = clamp(value, min, max)} on:change on:input on:keypress on:focus
-            on:focus={()=> focused = true} readonly={stepOnly} on:keydown 
+            readonly={stepOnly} on:keydown 
             on:keydown={handleKeydown} {placeholder} type="text" id={labelId} use:focusElement={focus}>
-        <div class="postfix-wrapper" class:focused class:disabled>
+        <div class="postfix-wrapper" class:disabled>
             <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
                 <Icon path={mdiChevronUp} size={21}></Icon>
             </span>

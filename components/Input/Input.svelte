@@ -27,7 +27,6 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     }
     
     let labelId = uid();
-    let focused = false;
     let is_invalid = false;
 </script>
 
@@ -43,13 +42,12 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <input 
             {autofocus} bind:value class:icon class:is_invalid
             {disabled} {name} on:blur 
-            on:blur={() => is_invalid = invalid(value)} 
-            on:blur={()=> focused = false}
-            on:change on:input on:keypress on:focus 
-            on:focus={()=> focused = true} {readonly} on:keydown {placeholder} 
+            on:blur={() => is_invalid = invalid(value)}
+            on:change on:input on:keypress on:focus {readonly} on:keydown 
+            {placeholder} 
             type="text" id={labelId} use:focusElement={focus}>
         {#if $$slots.postfix}
-            <div class="postfix-wrapper" class:focused class:disabled>
+            <div class="postfix-wrapper" class:disabled>
                 <slot name="postfix"/>
             </div>
         {/if}
