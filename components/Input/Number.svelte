@@ -1,6 +1,7 @@
 <script>
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
     import { slide } from "svelte/transition";
+    import { focusElement } from "./actions";
     import Icon from "../Icon";
     import uid from 'uid';
 
@@ -22,12 +23,10 @@
     export let formatter = (number) => number.toString();
     export let formattedValue = formatter(value);
 
-    let input = null;
     let labelId = uid();
     let focused = false;
     let isInvalid = false;
 
-    $: (focus && input) ? input.focus() : "";
     $: formatValue(value);
     $: parseValue(formattedValue);
 
@@ -79,12 +78,12 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 
     function handleClickUp() {
         value = increment(value, step);
-        input.focus();
+        focus = true;
     }
 
     function handleClickDown() {
         value = increment(value, step);
-        input.focus();
+        focus = true;
     }
 </script>
 
@@ -98,12 +97,12 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input 
-            {autofocus} bind:value={formattedValue} bind:this={input} class:icon
+            {autofocus} bind:value={formattedValue} class:icon
             class:is_invalid={isInvalid} {disabled} on:blur 
-            on:blur={()=> focused = false} 
+            on:blur={()=> focused = focus = false} 
             on:change={() => value = clamp(value, min, max)} on:change on:input on:keypress on:focus
             on:focus={()=> focused = true} readonly={stepOnly} on:keydown 
-            on:keydown={handleKeydown} {placeholder} type="text" id={labelId}>
+            on:keydown={handleKeydown} {placeholder} type="text" id={labelId} use:focusElement={focus}>
         <div class="postfix-wrapper" class:focused class:disabled>
             <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
                 <Icon path={mdiChevronUp} size={21}></Icon>

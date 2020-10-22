@@ -1,6 +1,7 @@
 <script>
     import Icon from "../Icon";
     import uid from 'uid';
+    import { focusElement } from "./actions";
     import { slide } from "svelte/transition";
 
     export let name = "";
@@ -25,10 +26,8 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     }
 
     let labelId = uid();
-    let input = null;
     let blurred = false;
 
-    $: (focus && input) ? input.focus() : "";
     $: is_invalid = blurred && invalid(value);
 </script>
 
@@ -42,9 +41,10 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input 
-            {autofocus} bind:this={input} bind:value class:icon class:is_invalid
+            {autofocus} bind:value class:icon class:is_invalid
             {disabled} {name} on:blur on:blur={() => blurred = true} on:change 
-            on:input on:keypress on:focus on:keydown {placeholder} type='password' id={labelId}/>
+            on:input on:keypress on:focus on:keydown {placeholder} type='password' id={labelId}
+            use:focusElement={focus}/>
     </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>

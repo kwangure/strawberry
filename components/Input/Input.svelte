@@ -2,6 +2,7 @@
     import Icon from "../Icon";
     import uid from 'uid';
     import { slide } from "svelte/transition";
+    import { focusElement } from "./actions";
 
     export let name = "";
     export let label;
@@ -26,11 +27,8 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     }
     
     let labelId = uid();
-    let input = null;
     let focused = false;
     let is_invalid = false;
-
-    $: (focus && input) ? input.focus() : "";
 </script>
 
 <div class="berry-input input-wrapper">
@@ -43,13 +41,13 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input 
-            {autofocus} bind:value bind:this={input} class:icon class:is_invalid
+            {autofocus} bind:value class:icon class:is_invalid
             {disabled} {name} on:blur 
             on:blur={() => is_invalid = invalid(value)} 
             on:blur={()=> focused = false}
             on:change on:input on:keypress on:focus 
             on:focus={()=> focused = true} {readonly} on:keydown {placeholder} 
-            type="text" id={labelId}>
+            type="text" id={labelId} use:focusElement={focus}>
         {#if $$slots.postfix}
             <div class="postfix-wrapper" class:focused class:disabled>
                 <slot name="postfix"/>
