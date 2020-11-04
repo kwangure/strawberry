@@ -25,6 +25,10 @@ To read about a hidden '<label/>' for accessibility reasons, see:
 https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         `.trim());
     }
+
+    function handleBlur() {
+        is_invalid = invalid(value);
+    }
     
     let labelId = uid();
     let is_invalid = false;
@@ -42,8 +46,8 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <input 
             {autofocus} bind:value class:icon class:is_invalid
             {disabled} {name} on:blur 
-            on:blur={() => is_invalid = invalid(value)}
-            on:change on:input on:keypress on:focus {readonly} on:keydown 
+            on:blur={handleBlur} on:change on:input on:keypress on:focus 
+            {readonly} on:keydown 
             {placeholder} 
             type="text" id={labelId} use:focusElement={focus}>
         {#if $$slots.postfix}
