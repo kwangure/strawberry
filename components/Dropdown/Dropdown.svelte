@@ -3,7 +3,7 @@
 
     export let placement = "bottomLeft";
     export let visible = false;
-    
+
     function valid(placement) {
         let positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
         return positions.includes(placement);
@@ -17,7 +17,7 @@
     let dropdownTarget = null;
 
     function handleDocumentClick(e) {
-        if(!dropdownTarget.contains(e.target)){
+        if(visible && !dropdownTarget.contains(e.target)) {
             visible = false;
         }
     }
@@ -32,7 +32,7 @@
         document.removeEventListener("click", handleDocumentClick);
     });
 </script>
- 
+
 <div class="berry-dropdown">
     <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => visible = !visible}>
         <slot name="button" {visible}/>
