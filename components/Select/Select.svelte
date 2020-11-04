@@ -1,5 +1,5 @@
 <script>
-    import { createEventDispatcher, setContext } from "svelte";
+    import { createEventDispatcher, setContext, tick } from "svelte";
     import { mdiChevronDown } from "@mdi/js";
     import { writable } from "svelte/store";
     import Icon from "../Icon";
@@ -11,27 +11,30 @@
     export let value = "";
     export let label = "";
     export let disabled = false;
+    export let compare = (a, b) => a === b;
+    export let format = ({optionDisplayText}) => optionDisplayText;
 
     const dispatch = createEventDispatcher();
     const activeOptionId = writable("");
     const options = writable(new Map());
-    let valueIsDirty = false;
+    let valueChangedByOption = false;
     let displayText = "";
 
-    $: handleValueChange($options, value);
-    
-    function handleValueChange(options, value) {
-        // value was changed by `updateSelectValue`
-        if (valueIsDirty) {
-            valueIsDirty = false;
-            dispatch("change", value);
-            return;
-        }
+    $: handleParentChangedValue(value);
+    $: handleParentChangedOptions($options)
 
-        // value was changed via props
+    function handleParentChangedOptions(options) {
+        syncOptionsWithValue(options, value);
+    }
+
+    function syncOptionsWithValue(options, value) {
         for (const [_id, option] of options) {
-            if (option.value === value) {
-                ({ displayText, id: $activeOptionId } = option);
+            if (compare(option.value, value)) {
+                displayText = format({
+                    optionDisplayText: option.displayText,
+                    value: option.value,
+                });
+                $activeOptionId = option.id;
                 return;
             }
         }
@@ -43,10 +46,20 @@
         }
     }
 
-    function updateSelectValue(option) {
+    function handleParentChangedValue(value) {
+        if (valueChangedByOption) return;
+        syncOptionsWithValue($options, value)
+    }
+
+    async function updateSelectValue(option) {
         // update scoped vars from outside
-        ({ value, displayText, id :$activeOptionId } = option);
-        valueIsDirty = true;
+        value = option.value;
+        displayText =  format({ optionDisplayText: option.displayText, value });
+        $activeOptionId = option.id;
+        valueChangedByOption = true;
+        await tick();
+        valueChangedByOption = false;
+        dispatch("change", value);
     }
 
     setContext(ACTIVE_OPTION, activeOptionId);
