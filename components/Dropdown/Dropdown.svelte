@@ -47,9 +47,6 @@
         position: relative;
         display: inline-block;
     }
-    .dropdown-button {
-        display: inline-block;
-    }
     .dropdown-menu {
         display: none;
         position: absolute;
