@@ -5,7 +5,7 @@
     transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
     overflow: hidden;
     padding: 1px;
-    margin: 2px;
+    height: var(--br-item-height);
 }
 .container:hover:not(:focus-within) {
     box-shadow: 0 0 0px 2px var(--br-primary-light);
