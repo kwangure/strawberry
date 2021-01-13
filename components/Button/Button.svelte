@@ -3,16 +3,15 @@
 
     export let primary = false;
     export let icon = "";
-    export let disabled = "";
     export let iconProps = {};
     export let active = "";
     export let fullwidth = false;
-    
+
     let slot_used = true;
 </script>
 
 <button class="berry-button" class:primary class:icon class:slot_used class:fullwidth
-    class:active {disabled} on:click on:hover on:mouseover on:mouseout>
+    class:active {...$$restProps} on:click on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
@@ -73,7 +72,7 @@
         background-color: var(--br-primary);
         border: none;
     }
-    button.primary:active, 
+    button.primary:active,
     button.primary:hover,
     button.primary:focus {
         background-color: var(--br-primary-hover) !important;
