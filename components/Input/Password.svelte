@@ -1,5 +1,4 @@
 <script>
-    import Icon from "../Icon";
     import uid from 'uid';
     import { focusElement } from "./actions";
     import { slide } from "svelte/transition";
@@ -7,7 +6,6 @@
     export let name = "";
     export let hideLabel = false;
     export let placeholder = "";
-    export let icon = "";
     export let value = "";
     export let disabled = false;
     export let autofocus = false;
@@ -34,14 +32,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <div class="container">
-        {#if icon}
-            <span class="input-prefix">
-                <Icon size="18" path={icon}></Icon>
-            </span>
-        {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input
-            {autofocus} bind:value class:icon class:is_invalid
+            {autofocus} bind:value class:is_invalid
             {disabled} {name} on:blur on:blur={() => blurred = true} on:change
             on:input on:keypress on:focus on:keydown {placeholder} type='password' id={labelId}
             use:focusElement={focus}/>

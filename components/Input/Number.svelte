@@ -7,7 +7,6 @@
 
     export let hideLabel = false;
     export let placeholder = "";
-    export let icon = "";
     export let min = Number.MIN_SAFE_INTEGER;
     export let max = Number.MAX_SAFE_INTEGER;
     export let value = "";
@@ -89,14 +88,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <div class="container">
-        {#if icon}
-            <span class="input-prefix">
-                <Icon size="18" path={icon}></Icon>
-            </span>
-        {/if}
         <!-- svelte-ignore a11y-autofocus -->
         <input
-            {autofocus} bind:value={formattedValue} class:icon
+            {autofocus} bind:value={formattedValue}
             class:is_invalid={isInvalid} {disabled} on:blur
             on:blur={()=> focus = false}
             on:change={() => value = clamp(value, min, max)} on:change on:input on:keypress on:focus

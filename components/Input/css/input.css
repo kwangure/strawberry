@@ -29,12 +29,6 @@ input:hover:not(:focus),
 textarea:hover:not(:focus) {
     border-color: var(--br-grey-light);
 }
-.icon {
-    padding-left: var(--icon-padding);
-}
-.icon:focus {
-    padding-left: var(--icon-padding-focus);
-}
 label:not(.berry-input-radio):not(.berry-input-checkbox) {
     margin-bottom: 5px;
 }
