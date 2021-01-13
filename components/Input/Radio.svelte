@@ -8,7 +8,7 @@
     export let value;
 
     if (import.meta.env.DEV && !$$slots.label) {
-        console.error(`The 'label' prop must be included.`);
+        console.error(`The 'label' slot must be included.`);
     }
 </script>
 

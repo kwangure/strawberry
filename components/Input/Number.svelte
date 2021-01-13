@@ -40,7 +40,7 @@
 
     if (import.meta.env.DEV && !$$slots.label) {
         console.error(`
-The 'label' prop must be included. If you want to hide it pass the 'hideLabel:boolean' prop.
+The 'label' slot must be included. If you want to hide it pass the 'hideLabel' prop.
 
 To read about a hidden '<label/>' for accessibility reasons, see:
 https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text

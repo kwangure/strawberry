@@ -70,7 +70,8 @@
 <div class="select" >
     <Dropdown {placement}>
         <div slot="button" class:disabled>
-            <Input bind:value={displayText} readonly {label}>
+            <Input bind:value={displayText} readonly>
+                <span slot="label">{label}</span>
                 <div slot="postfix">
                     <Icon path={mdiChevronDown}></Icon>
                 </div>

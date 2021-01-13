@@ -2,14 +2,12 @@
     import { focusElement } from "./actions";
 
     export let name = "";
-    export let label = "";
     export let checked = false;
     export let disabled = false;
     export let focus = false;
 
-    if (import.meta.env.DEV) {
-        const isEmpty = (str) => (!str || 0 === str.length);
-        isEmpty(label) && !$$slots.label && console.error(`The 'label' prop must be included.`);
+    if (import.meta.env.DEV && !$$slots.label) {
+        console.error(`The 'label' slot must be included.`);
     }
 </script>
 
@@ -17,11 +15,7 @@
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:checked {disabled} {name} on:blur on:change
         on:input on:focus type='checkbox' use:focusElement={focus}>
-    {#if $$slots.label}
-        <slot name="label"/>
-    {:else}
-        <span>{ label }</span>
-    {/if}
+    <slot name="label"/>
 </label>
 
 <style>
