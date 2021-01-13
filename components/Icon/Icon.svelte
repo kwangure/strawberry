@@ -1,6 +1,5 @@
 <script>
-    export let size = 24;
-    export let units = "px";
+    export let size = "24px";
     export let path = "";
     export let flip = {};
     export let spin = {};
@@ -23,8 +22,8 @@
     }
 </script>
 
-<svg class="berry-icon" height="{size}{units}"
-    {style} viewBox="0 0 24 24" width="{size}{units}"
+<svg class="berry-icon" height={size}
+    {style} viewBox="0 0 24 24" width={size}
     on:click on:dblclick>
     <path d={path} fill={color || "currentColor"} />
     <slot></slot>
