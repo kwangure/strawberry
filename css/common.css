@@ -35,8 +35,9 @@
 
 	/* ----- Borders ----- */
 	--br-border-color: var(--br-grey-light);
+	--br-border: 1px solid var(--br-border-color);
 	--br-border-radius: 4px;
-	
+
 	/* ----- Text ----- */
 	--br-text: var(--br-black);
 	--br-heading: var(--br-black);
@@ -58,7 +59,7 @@
     --br-input-horizontal-padding-focus: calc(var(--br-input-horizontal-padding) - 1px);
     --br-input-padding-right-focus: calc(var(--br-input-padding-right) - 1px);
 	--br-postfix-width: 31px;
-	
+
 	/* ----- Uncategorized/General ----- */
 	--br-item-vertical-padding: 8px;
 	--br-item-horizontal-padding: 12px;
@@ -124,7 +125,7 @@ table {
 
 td, th {
 	text-align: left;
-	border-bottom: 1px solid #eee;
+	border-bottom: var(--br-border);;
 	padding: 0.4rem 0.8rem 0.4rem 0;
 }
 
@@ -132,15 +133,15 @@ table code, table span {
 	white-space: pre;
 }
 
-/* 
+/*
  ---------------
-    Useful for hiding labels etc. that you want screen 
+    Useful for hiding labels etc. that you want screen
     readers to find but not humans to see
  ---------------
 */
 .br-accessible-hide {
 	position: absolute !important;
-	height: 1px; width: 1px; 
+	height: 1px; width: 1px;
 	overflow: hidden;
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);

@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    border: 1px solid var(--br-border-color);
+    border: var(--br-border);
     border-radius: var(--br-border-radius);
     transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
     overflow: hidden;

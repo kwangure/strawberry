@@ -30,7 +30,7 @@
         font-weight: 400;
         white-space: nowrap;
         text-align: center;
-        border: 1px solid transparent;
+        border: var(--br-border);
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
@@ -40,7 +40,6 @@
         border-radius: var(--br-border-radius);
         color: var(--br-text);
         background-color: transparent;
-        border-color: var(--br-border-color);
         outline: none;
     }
     button:disabled {
