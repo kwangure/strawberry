@@ -5,7 +5,6 @@
     import { focusElement } from "./actions";
 
     export let name = "";
-    export let label;
     export let hideLabel = false;
     export let placeholder = "";
     export let icon = "";
@@ -16,9 +15,8 @@
     export let focus = false;
     export let invalid = () => false;
 
-    if (import.meta.env.DEV) {
-        const isEmpty = (str) => (!str || 0 === str.length);
-        isEmpty(label) && console.error(`
+    if (import.meta.env.DEV && !$$slots.label) {
+        console.error(`
 The 'label' prop must be included. If you want to hide it pass the 'hideLabel:boolean' prop.
 
 To read about a hidden '<label/>' for accessibility reasons, see:
@@ -29,13 +27,15 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     function handleBlur() {
         is_invalid = invalid(value);
     }
-    
+
     let labelId = uid();
     let is_invalid = false;
 </script>
 
 <div class="berry-input input-wrapper">
-    <label class:br-accessible-hide={hideLabel} for={labelId} >{label || ""}</label>
+    <label class:br-accessible-hide={hideLabel} for={labelId} >
+        <slot name="label"/>
+    </label>
     <div class="container">
         {#if icon}
             <span class="input-prefix">
@@ -43,12 +43,12 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
             </span>
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
-        <input 
+        <input
             {autofocus} bind:value class:icon class:is_invalid
-            {disabled} {name} on:blur 
-            on:blur={handleBlur} on:change on:input on:keypress on:focus 
-            {readonly} on:keydown 
-            {placeholder} 
+            {disabled} {name} on:blur
+            on:blur={handleBlur} on:change on:input on:keypress on:focus
+            {readonly} on:keydown
+            {placeholder}
             type="text" id={labelId} use:focusElement={focus}>
         {#if $$slots.postfix}
             <div class="postfix-wrapper" class:disabled>
@@ -64,7 +64,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </div>
 
 <style>
-    @import "./css/input.css"; 
+    @import "./css/input.css";
     @import "./css/container.css";
     @import "./css/postfix.css";
 </style>

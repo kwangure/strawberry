@@ -5,7 +5,6 @@
     import { slide } from "svelte/transition";
 
     export let name = "";
-    export let label;
     export let hideLabel = false;
     export let placeholder = "";
     export let icon = "";
@@ -15,9 +14,8 @@
     export let focus = false;
     export let invalid = () => false;
 
-    if (import.meta.env.DEV) {
-        const isEmpty = (str) => (!str || 0 === str.length);
-        isEmpty(label) && console.error(`
+    if (import.meta.env.DEV && !$$slots.label) {
+        console.error(`
 The 'label' prop must be included. If you want to hide it pass the 'hideLabel:boolean' prop.
 
 To read about a hidden '<label/>' for accessibility reasons, see:
@@ -32,7 +30,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </script>
 
 <div class="berry-input-password input-wrapper">
-    <label class:br-accessible-hide={hideLabel} for={labelId} >{label || ""}</label>
+    <label class:br-accessible-hide={hideLabel} for={labelId}>
+        <slot name="label"/>
+    </label>
     <div class="container">
         {#if icon}
             <span class="input-prefix">
@@ -40,9 +40,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
             </span>
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
-        <input 
+        <input
             {autofocus} bind:value class:icon class:is_invalid
-            {disabled} {name} on:blur on:blur={() => blurred = true} on:change 
+            {disabled} {name} on:blur on:blur={() => blurred = true} on:change
             on:input on:keypress on:focus on:keydown {placeholder} type='password' id={labelId}
             use:focusElement={focus}/>
     </div>
@@ -54,7 +54,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </div>
 
 <style>
-    @import "./css/input.css"; 
+    @import "./css/input.css";
     @import "./css/container.css";
     @import "./css/postfix.css";
 </style>

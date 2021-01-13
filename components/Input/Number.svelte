@@ -5,7 +5,6 @@
     import Icon from "../Icon";
     import uid from 'uid';
 
-    export let label;
     export let hideLabel = false;
     export let placeholder = "";
     export let icon = "";
@@ -19,7 +18,7 @@
     export let focus = false;
     let isInvalidFn = () => false;
     export { isInvalidFn as isInvalid };
-    export let parser = (string) => parseFloat(string); 
+    export let parser = (string) => parseFloat(string);
     export let formatter = (number) => number.toString();
     export let formattedValue = formatter(value);
 
@@ -40,9 +39,8 @@
         }
     }
 
-    if (import.meta.env.DEV) {
-        const isEmpty = (str) => (!str || 0 === str.length);
-        isEmpty(label) && console.error(`
+    if (import.meta.env.DEV && !$$slots.label) {
+        console.error(`
 The 'label' prop must be included. If you want to hide it pass the 'hideLabel:boolean' prop.
 
 To read about a hidden '<label/>' for accessibility reasons, see:
@@ -87,7 +85,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </script>
 
 <div class="berry-input-number input-wrapper">
-    <label class:br-accessible-hide={hideLabel} for={labelId} >{label || ""}</label>
+    <label class:br-accessible-hide={hideLabel} for={labelId} >
+        <slot name="label"/>
+    </label>
     <div class="container">
         {#if icon}
             <span class="input-prefix">
@@ -95,12 +95,12 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
             </span>
         {/if}
         <!-- svelte-ignore a11y-autofocus -->
-        <input 
+        <input
             {autofocus} bind:value={formattedValue} class:icon
-            class:is_invalid={isInvalid} {disabled} on:blur 
-            on:blur={()=> focus = false} 
+            class:is_invalid={isInvalid} {disabled} on:blur
+            on:blur={()=> focus = false}
             on:change={() => value = clamp(value, min, max)} on:change on:input on:keypress on:focus
-            readonly={stepOnly} on:keydown 
+            readonly={stepOnly} on:keydown
             on:keydown={handleKeydown} {placeholder} type="text" id={labelId} use:focusElement={focus}>
         <div class="postfix-wrapper" class:disabled>
             <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
@@ -119,7 +119,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </div>
 
 <style>
-    @import "./css/input.css"; 
+    @import "./css/input.css";
     @import "./css/container.css";
     @import "./css/postfix.css";
     .postfix-wrapper {
