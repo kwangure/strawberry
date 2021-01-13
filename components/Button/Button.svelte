@@ -11,7 +11,7 @@
 </script>
 
 <button class="berry-button" class:primary class:icon class:slot_used class:fullwidth
-    class:active {...$$restProps} on:click on:hover on:mouseover on:mouseout>
+    class:active {...$$restProps} on:click on:dblclick on:hover on:mouseover on:mouseout>
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
