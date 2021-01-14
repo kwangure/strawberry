@@ -19,7 +19,7 @@
 <label class="berry-input-radio input-wrapper">
     <input on:change
         on:blur on:change={handleChange} on:input
-        on:focus type="radio" {value} name={group.name}>
+        on:focus type="radio" {value} name={group.name} {...$$restProps}>
     <slot name="label"/>
 </label>
 

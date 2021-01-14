@@ -3,12 +3,8 @@
     import { focusElement } from "./actions";
     import { slide } from "svelte/transition";
 
-    export let name = "";
     export let hideLabel = false;
-    export let placeholder = "";
     export let value = "";
-    export let disabled = false;
-    export let autofocus = false;
     export let focus = false;
     export let invalid = () => false;
 
@@ -32,12 +28,9 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <div class="container">
-        <!-- svelte-ignore a11y-autofocus -->
-        <input
-            {autofocus} bind:value class:is_invalid
-            {disabled} {name} on:blur on:blur={() => blurred = true} on:change
-            on:input on:keypress on:focus on:keydown {placeholder} type='password' id={labelId}
-            use:focusElement={focus}/>
+        <input bind:value class:is_invalid on:blur on:blur={() => blurred = true} on:change
+            on:input on:keypress on:focus on:keydown type='password' id={labelId}
+            use:focusElement={focus} {...$$restProps}/>
     </div>
     {#if is_invalid}
         <div class="invalid" transition:slide>

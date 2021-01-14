@@ -12,8 +12,6 @@
     export let label = "";
     export let placeholder = "";
     export let icon = "";
-    export let disabled = false;
-    export let autofocus = false;
 
     $: top = valid(placement) && placement.includes("top");
     $: bottom = valid(placement) && placement.includes("bottom");
@@ -76,11 +74,9 @@
 
 <div class="berry-select-autocomplete input-wrapper" bind:this={dropdown}>
     <div class="dropdown-button container">
-        <!-- svelte-ignore a11y-autofocus -->
-        <input {autofocus} bind:this={input} bind:value={text} class:icon 
-            {disabled} 
-            on:blur placeholder={placeholder || label} on:change on:input on:keypress on:focus 
-            on:focus={open} on:keydown type='text'>
+        <input bind:this={input} bind:value={text} class:icon
+            on:blur placeholder={placeholder || label} on:change on:input on:keypress on:focus
+            on:focus={open} on:keydown type='text' {...$$restProps}>
         <div class="postfix-wrapper" class:visible on:click|stopPropagation={toggle}>
             <Icon path={mdiChevronDown}></Icon>
         </div>

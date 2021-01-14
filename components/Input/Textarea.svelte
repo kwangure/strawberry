@@ -1,11 +1,7 @@
 <script>
     import uid from 'uid';
 
-    export let name = "";
-    export let placeholder = "";
     export let value = "";
-    export let disabled = false;
-    export let rows = 3;
     export let hideLabel = false;
     export let focus = false;
 
@@ -39,8 +35,8 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     <label class:br-accessible-hide={hideLabel} for={labelId} >
         <slot name="label"/>
     </label>
-    <textarea bind:this={textarea} {disabled} {name}
-        on:input={autosize} {placeholder} {rows} bind:value id={labelId}/>
+    <textarea bind:this={textarea} on:input={autosize}
+        bind:value id={labelId} {...$$restProps}/>
 </span>
 
 <style>

@@ -6,14 +6,11 @@
     import uid from 'uid';
 
     export let hideLabel = false;
-    export let placeholder = "";
     export let min = Number.MIN_SAFE_INTEGER;
     export let max = Number.MAX_SAFE_INTEGER;
     export let value = "";
     export let step = 1;
     export let stepOnly = false;
-    export let disabled = false;
-    export let autofocus = false;
     export let focus = false;
     let isInvalidFn = () => false;
     export { isInvalidFn as isInvalid };
@@ -88,15 +85,13 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <div class="container">
-        <!-- svelte-ignore a11y-autofocus -->
-        <input
-            {autofocus} bind:value={formattedValue}
-            class:is_invalid={isInvalid} {disabled} on:blur
+        <input bind:value={formattedValue}
+            class:is_invalid={isInvalid} on:blur
             on:blur={()=> focus = false}
             on:change={() => value = clamp(value, min, max)} on:change on:input on:keypress on:focus
             readonly={stepOnly} on:keydown
-            on:keydown={handleKeydown} {placeholder} type="text" id={labelId} use:focusElement={focus}>
-        <div class="postfix-wrapper" class:disabled>
+            on:keydown={handleKeydown} type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
+        <div class="postfix-wrapper">
             <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
                 <Icon path={mdiChevronUp} size={21}></Icon>
             </span>
