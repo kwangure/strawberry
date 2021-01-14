@@ -1,8 +1,11 @@
 <script>
+    import { createEventForwarder } from "$utils/forward-events.js";
     import { slide } from "svelte/transition";
+
+    const forward = createEventForwarder();
 </script>
 
-<div class="menu-item" on:click transition:slide>
+<div class="menu-item" use:forward transition:slide>
     <slot/>
 </div>
 

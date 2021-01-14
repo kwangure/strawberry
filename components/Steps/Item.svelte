@@ -1,13 +1,17 @@
 <script>
+    import { createEventForwarder } from "$utils/forward-events.js";
     import Icon from "../Icon";
     import { mdiCheck } from "@mdi/js";
+
     export let vertical = false;
     export let active = false;
     export let completed = false;
     export let position;
+
+    const forward = createEventForwarder();
 </script>
 
-<div class="step-item" class:active class:vertical on:click>
+<div class="step-item" class:active class:vertical use:forward >
     <span class="progress-label" class:active>
         {#if completed}
             <Icon path={mdiCheck}></Icon>

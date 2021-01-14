@@ -2,12 +2,16 @@
     import uid from 'uid';
     import { slide } from "svelte/transition";
     import { focusElement } from "./actions";
+    import { createEventForwarder } from "$utils/forward-events.js";
+
 
     export let hideLabel = false;
     export let value = "";
     export let focus = false;
     export let invalid = () => false;
 
+    const forward = createEventForwarder();
+    
     if (import.meta.env.DEV && !$$slots.label) {
         console.error(`
 The 'label' slot must be included. If you want to hide it pass the 'hideLabel' prop.
@@ -30,8 +34,8 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <div class="container">
-        <input bind:value class:is_invalid on:blur
-            on:blur={handleBlur} on:change on:input on:keypress on:focus
+        <input bind:value class:is_invalid
+            on:blur={handleBlur} use:forward
             on:keydown
             type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
         {#if $$slots.postfix}

@@ -1,10 +1,14 @@
 <script>
+    import { createEventForwarder } from "$utils/forward-events.js";
+
     export let size = "24px";
     export let path = "";
     export let flip = {};
     export let spin = {};
     export let color = "";
     export let rotate = 0;
+
+    const forward = createEventForwarder();
 
     let style = "";
 
@@ -24,7 +28,7 @@
 
 <svg class="berry-icon" height={size}
     {style} viewBox="0 0 24 24" width={size}
-    on:click on:dblclick>
+    use:forward>
     <path d={path} fill={color || "currentColor"} />
     <slot></slot>
 </svg>

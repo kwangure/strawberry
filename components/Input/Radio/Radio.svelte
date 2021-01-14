@@ -1,10 +1,13 @@
 <script>
     import { getContext } from "svelte";
     import { radioGroup } from "./Group.svelte";
+    import { createEventForwarder } from "$utils/forward-events.js";
 
     export let value;
 
+    const forward = createEventForwarder();
     const group = getContext(radioGroup);
+
     if (import.meta.env.DEV && !group) {
         throw Error(`'Radio' must be wrapped in a radio 'Group' parent.`);
     }
@@ -17,9 +20,8 @@
 </script>
 
 <label class="berry-input-radio input-wrapper">
-    <input on:change
-        on:blur on:change={handleChange} on:input
-        on:focus type="radio" {value} name={group.name} {...$$restProps}>
+    <input on:change={handleChange} type="radio" {value}
+        use:forward name={group.name} {...$$restProps}>
     <slot name="label"/>
 </label>
 

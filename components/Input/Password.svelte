@@ -1,4 +1,5 @@
 <script>
+    import { createEventForwarder } from "$utils/forward-events.js";
     import uid from 'uid';
     import { focusElement } from "./actions";
     import { slide } from "svelte/transition";
@@ -8,9 +9,11 @@
     export let focus = false;
     export let invalid = () => false;
 
+    const forward = createEventForwarder();
+    
     if (import.meta.env.DEV && !$$slots.label) {
         console.error(`
-The 'label' slot must be included. If you want to hide it pass the 'hideLabel' prop.
+        The 'label' slot must be included. If you want to hide it pass the 'hideLabel' prop.
 
 To read about a hidden '<label/>' for accessibility reasons, see:
 https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
@@ -28,8 +31,8 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <div class="container">
-        <input bind:value class:is_invalid on:blur on:blur={() => blurred = true} on:change
-            on:input on:keypress on:focus on:keydown type='password' id={labelId}
+        <input bind:value class:is_invalid on:blur={() => blurred = true}
+            use:forward type='password' id={labelId}
             use:focusElement={focus} {...$$restProps}/>
     </div>
     {#if is_invalid}

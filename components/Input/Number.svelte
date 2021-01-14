@@ -1,5 +1,6 @@
 <script>
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
+    import { createEventForwarder } from "$utils/forward-events.js";
     import { slide } from "svelte/transition";
     import { focusElement } from "./actions";
     import Icon from "../Icon";
@@ -17,6 +18,8 @@
     export let parser = (string) => parseFloat(string);
     export let formatter = (number) => number.toString();
     export let formattedValue = formatter(value);
+
+    const forward = createEventForwarder();
 
     let labelId = uid();
     let isInvalid = false;
@@ -86,11 +89,12 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     </label>
     <div class="container">
         <input bind:value={formattedValue}
-            class:is_invalid={isInvalid} on:blur
+            class:is_invalid={isInvalid}
             on:blur={()=> focus = false}
-            on:change={() => value = clamp(value, min, max)} on:change on:input on:keypress on:focus
-            readonly={stepOnly} on:keydown
-            on:keydown={handleKeydown} type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
+            on:change={() => value = clamp(value, min, max)}
+            readonly={stepOnly}
+            on:keydown={handleKeydown} use:forward
+            type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
         <div class="postfix-wrapper">
             <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
                 <Icon path={mdiChevronUp} size={21}></Icon>

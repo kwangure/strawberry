@@ -1,11 +1,14 @@
 <script>
 	import { getContext } from "svelte";
 	import { checkboxGroup } from "./Group.svelte";
+	import { createEventForwarder } from "$utils/forward-events.js";
 
 	export let value;
 	export let checked = false;
 
+	const forward = createEventForwarder();
 	const group = getContext(checkboxGroup);
+
 	$: handleCheck(checked);
 
 	function handleCheck(checked) {
@@ -18,9 +21,8 @@
 	}
 </script>
 
-<label class="berry-input-checkbox input-wrapper" on:click>
-    <input bind:checked on:blur on:input on:focus
-        type='checkbox' {...$$restProps}>
+<label class="berry-input-checkbox input-wrapper">
+    <input type='checkbox' use:forward {...$$restProps}>
     <slot name="label"/>
 </label>
 

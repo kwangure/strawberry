@@ -1,9 +1,12 @@
 <script>
+    import { createEventForwarder } from "$utils/forward-events.js";
     import uid from 'uid';
 
     export let value = "";
     export let hideLabel = false;
     export let focus = false;
+
+    const forward = createEventForwarder();
 
     let textarea = null;
     let labelId = uid();
@@ -36,7 +39,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <textarea bind:this={textarea} on:input={autosize}
-        bind:value id={labelId} {...$$restProps}/>
+        use:forward bind:value id={labelId} {...$$restProps}/>
 </span>
 
 <style>

@@ -1,4 +1,5 @@
 <script>
+    import { createEventForwarder } from "$utils/forward-events.js";
     import Icon from "../Icon";
 
     export let primary = false;
@@ -8,10 +9,12 @@
     export let fullwidth = false;
 
     let slot_used = true;
+
+    const forward = createEventForwarder();
 </script>
 
 <button class="berry-button" class:primary class:icon class:slot_used class:fullwidth
-    class:active {...$$restProps} on:click on:dblclick on:hover on:mouseover on:mouseout>
+    class:active {...$$restProps} use:forward>
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
