@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.23.2](https://github.com/kwangure/strawberry/compare/v0.23.1...v0.23.2) (2021-01-15)
+
+
+### Bug Fixes
+
+* use cjs for vite.config.js ([703d02e](https://github.com/kwangure/strawberry/commit/703d02ea31abb7d6304713dfa4466dc33ce2020a))
+* use relative paths instead of alias ([2b31b42](https://github.com/kwangure/strawberry/commit/2b31b42f648cb1e5805136525469ed65c8eaa4d7))
+
 ### [0.23.1](https://github.com/kwangure/strawberry/compare/v0.23.0...v0.23.1) (2021-01-15)
 
 
