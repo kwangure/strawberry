@@ -8,12 +8,11 @@
     export let active = "";
     export let fullwidth = false;
 
-    let slot_used = true;
-
     const forward = createEventForwarder();
 </script>
 
-<button class="berry-button" class:primary class:icon class:slot_used class:fullwidth
+<button class="berry-button" class:primary class:icon
+    class:slot_used={$$slots.default} class:fullwidth
     class:active {...$$restProps} use:forward>
     <div class="content-wrapper">
         {#if icon}
@@ -21,7 +20,7 @@
                 <Icon path={icon} {...iconProps}></Icon>
             </span>
         {/if}
-        <slot>{(slot_used = false) || ""}</slot>
+        <slot />
     </div>
 </button>
 
