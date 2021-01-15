@@ -1,11 +1,11 @@
 <script>
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
+    import Container from "./Container.svelte";
     import { createEventForwarder } from "$utils/forward-events.js";
     import { focusElement } from "./actions";
     import { handleInput } from "./number.js";
     import Icon from "../Icon";
     import { slide } from "svelte/transition";
-    import uid from 'uid';
 
     export let hideLabel = false;
     export let min = Number.MIN_SAFE_INTEGER;
@@ -17,19 +17,8 @@
 
     const forward = createEventForwarder();
 
-    let labelId = uid();
-
     $: isBelowMin = Number(value) < min;
     $: isAboveMax = Number(value) > max;
-
-    if (import.meta.env.DEV && !$$slots.label) {
-        console.error(`
-The 'label' slot must be included. If you want to hide it pass the 'hideLabel' prop.
-
-To read about a hidden '<label/>' for accessibility reasons, see:
-https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
-        `.trim());
-    }
 
     function increment(value, step) {
         value = clamp(value + step, min, max);
@@ -71,10 +60,8 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     };
 </script>
 
-<div class="berry-input-number input-wrapper">
-    <label class:br-accessible-hide={hideLabel} for={labelId} >
-        <slot name="label"/>
-    </label>
+<Container class="berry-input" {hideLabel} let:labelId>
+    <slot name="label" slot="label"/>
     <div class="container">
         <input bind:value on:blur={()=> focus = false}
             on:change={() => value = clamp(value, min, max)}
@@ -99,7 +86,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
             Maximum value is {min}.
         </div>
     {/if}
-</div>
+</Container>
 
 <style>
     @import "./css/input.css";
