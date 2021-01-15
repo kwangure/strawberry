@@ -1,5 +1,5 @@
 <script>
-    import { isMacintosh, isIOS } from "../../utils/platform";
+    import { isMacintosh, isIOS } from "$utils/platform";
     import { onDestroy } from "svelte";
     import { slide } from "svelte/transition";
 
@@ -12,7 +12,7 @@
     let CtrlOrCmd = false;
     let Delete = false;
     let Shift = false;
-    
+
     $: modifierPressed = CtrlOrCmd || Shift;
 
     let lastShiftSelection = null;
@@ -46,7 +46,7 @@
             item.focused = false;
             return item;
         });
-    
+
         CtrlOrCmd = false;
         Shift = false;
         Alt = false;
@@ -199,7 +199,7 @@
             class:border-no-radius={border && !item.selected}
             class:border-top={border && !item.selected && i === 0}
             class:border-bottom={border && borderBottom(i)}
-            class:cornered-top={item.selected && corneredTop(i)} 
+            class:cornered-top={item.selected && corneredTop(i)}
             class:cornered-bottom={item.selected && corneredBottom(i)}
             class:focus-ring={modifierPressed && item.focused}
             class:selected={item.selected}

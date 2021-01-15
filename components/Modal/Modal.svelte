@@ -1,7 +1,7 @@
 <script>
     import Button from "../Button";
     import { mdiClose } from "@mdi/js";
-    import { crossscale } from "../../utils/crosstransition.js";
+    import { crossscale } from "$utils/crosstransition.js";
     import { fade } from "svelte/transition";
     import { createEventDispatcher } from "svelte";
 
@@ -22,7 +22,7 @@
     $: visible ? dispatch("open") : dispatch("close");
 </script>
 
-{#if visible}    
+{#if visible}
     <div class="berry-modal overlay" transition:fade
         on:click|self={() => visible = closable ? false : visible}>
         <div class="wrapper">
