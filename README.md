@@ -8,20 +8,20 @@
 
 <p align="center">
     <a href="#install"><strong>Install</strong></a> •
-    <a href="#usage"><strong>Usage</strong></a> 
+    <a href="#usage"><strong>Usage</strong></a>
 </p>
 
 ## Installation and Usage
 #### Install
 ```bash
-npm i -D @deimimi/strawberry
+npm i -D @kwangure/strawberry
 ```
 
 #### Usage
 ```html
 <!--App.svelte-->
 <script>
-    import { Button } from "@deimimi/strawberry";
+    import { Button } from "@kwangure/strawberry";
 </script>
 
 <Button on:click="{() => alert('strawberry')}">
@@ -30,7 +30,7 @@ npm i -D @deimimi/strawberry
 ```
 ```javascript
 // rollup.config.js
-import { preprocessConfig } from "@deimimi/strawberry/config";
+import { preprocessConfig } from "@kwangure/strawberry/config";
 import replace from "@rollup/plugin-replace";
 
 ...

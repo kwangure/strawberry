@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [0.22.0](https://github.com/deimimi/strawberry/compare/v0.21.0...v0.22.0) (2020-10-04)
+## [0.22.0](https://github.com/kwangure/strawberry/compare/v0.21.0...v0.22.0) (2020-10-04)
 
 
 ### ⚠ BREAKING CHANGES
@@ -12,21 +12,21 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* add label slot for Checkbox and Radio component ([1dd5b34](https://github.com/deimimi/strawberry/commit/1dd5b340d7a02e0b8c23147823a3e38bcb4dcf05))
-* add radio bind group ([7048897](https://github.com/deimimi/strawberry/commit/7048897029e88989162643658bb24d47912ca688))
-* import css in css through postcss ([8c4ae77](https://github.com/deimimi/strawberry/commit/8c4ae77dd2a927effed2459caab5618917cfa1ca))
-* modularize CSS ([c4e65f0](https://github.com/deimimi/strawberry/commit/c4e65f0c6db1e41830f112437d53c008d4e7dacb))
+* add label slot for Checkbox and Radio component ([1dd5b34](https://github.com/kwangure/strawberry/commit/1dd5b340d7a02e0b8c23147823a3e38bcb4dcf05))
+* add radio bind group ([7048897](https://github.com/kwangure/strawberry/commit/7048897029e88989162643658bb24d47912ca688))
+* import css in css through postcss ([8c4ae77](https://github.com/kwangure/strawberry/commit/8c4ae77dd2a927effed2459caab5618917cfa1ca))
+* modularize CSS ([c4e65f0](https://github.com/kwangure/strawberry/commit/c4e65f0c6db1e41830f112437d53c008d4e7dacb))
 
 
 ### Bug Fixes
 
-* add default input margin ([2af4e84](https://github.com/deimimi/strawberry/commit/2af4e8419473b119af5baf51bfc43afd854a3c5d))
-* make radio label optional ([ab68c4a](https://github.com/deimimi/strawberry/commit/ab68c4a8a4bae967a7625c877a0f1cf9bcdc209f))
-* remove checkbox/radio input styling ([1118cc2](https://github.com/deimimi/strawberry/commit/1118cc24527c3564f676a247be1f847707f3f50d))
-* use flex styling for Checkbox and Radio ([8dd2256](https://github.com/deimimi/strawberry/commit/8dd225695257fdd3c2fd86695f73f0c6b6c41cc7))
-* use input-number css name for Number input ([499f5a4](https://github.com/deimimi/strawberry/commit/499f5a4224d54785f773db17b17d45145493e93d))
+* add default input margin ([2af4e84](https://github.com/kwangure/strawberry/commit/2af4e8419473b119af5baf51bfc43afd854a3c5d))
+* make radio label optional ([ab68c4a](https://github.com/kwangure/strawberry/commit/ab68c4a8a4bae967a7625c877a0f1cf9bcdc209f))
+* remove checkbox/radio input styling ([1118cc2](https://github.com/kwangure/strawberry/commit/1118cc24527c3564f676a247be1f847707f3f50d))
+* use flex styling for Checkbox and Radio ([8dd2256](https://github.com/kwangure/strawberry/commit/8dd225695257fdd3c2fd86695f73f0c6b6c41cc7))
+* use input-number css name for Number input ([499f5a4](https://github.com/kwangure/strawberry/commit/499f5a4224d54785f773db17b17d45145493e93d))
 
-## [0.21.0](https://github.com/deimimi/strawberry/compare/v0.21.0-alpha.0...v0.21.0) (2020-10-01)
+## [0.21.0](https://github.com/kwangure/strawberry/compare/v0.21.0-alpha.0...v0.21.0) (2020-10-01)
 
 
 ### ⚠ BREAKING CHANGES
@@ -35,16 +35,16 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* allow flipping icon horizontally & vertically ([7d02e63](https://github.com/deimimi/strawberry/commit/7d02e630cbb433f42a84fef9f505ca7aa99cca56))
-* handle options like native select ([e2d1f6c](https://github.com/deimimi/strawberry/commit/e2d1f6cb3e4fcef657403e3b24d6e5c39bdf075c))
+* allow flipping icon horizontally & vertically ([7d02e63](https://github.com/kwangure/strawberry/commit/7d02e630cbb433f42a84fef9f505ca7aa99cca56))
+* handle options like native select ([e2d1f6c](https://github.com/kwangure/strawberry/commit/e2d1f6cb3e4fcef657403e3b24d6e5c39bdf075c))
 
 
 ### Bug Fixes
 
-* prevent rotate/scale styles overwriting ([c99d310](https://github.com/deimimi/strawberry/commit/c99d3107b5f52a6a4308c4969052349864df1cf7))
-* update to reflect changed API ([4f3f75c](https://github.com/deimimi/strawberry/commit/4f3f75c864984025ccfdb161b41d47cace2126f3))
+* prevent rotate/scale styles overwriting ([c99d310](https://github.com/kwangure/strawberry/commit/c99d3107b5f52a6a4308c4969052349864df1cf7))
+* update to reflect changed API ([4f3f75c](https://github.com/kwangure/strawberry/commit/4f3f75c864984025ccfdb161b41d47cace2126f3))
 
-## [0.21.0-alpha.0](https://github.com/deimimi/strawberry/compare/v0.20.3-alpha.0...v0.21.0-alpha.0) (2020-09-24)
+## [0.21.0-alpha.0](https://github.com/kwangure/strawberry/compare/v0.20.3-alpha.0...v0.21.0-alpha.0) (2020-09-24)
 
 
 ### ⚠ BREAKING CHANGES
@@ -53,115 +53,115 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* simplify select to read better ([c1f58ed](https://github.com/deimimi/strawberry/commit/c1f58edae5d73c2aa4f212cf97afe24bdfd3b538))
+* simplify select to read better ([c1f58ed](https://github.com/kwangure/strawberry/commit/c1f58edae5d73c2aa4f212cf97afe24bdfd3b538))
 
 
 ### Bug Fixes
 
-* clamp value on change ([becf3c7](https://github.com/deimimi/strawberry/commit/becf3c767b1d56dcf30e9d97651ed1f5c06a65c5))
-* remove conflicting style ([f1e48e9](https://github.com/deimimi/strawberry/commit/f1e48e969efb5c37d6a35bc790033416a0a60848))
-* separate out container.css ([fbed852](https://github.com/deimimi/strawberry/commit/fbed852171f4e2326a6d6bd47aa6ebeed9ec2899))
-* style input postfix ([d66e10d](https://github.com/deimimi/strawberry/commit/d66e10df9d99a4515e482b1c391e40650de416af))
+* clamp value on change ([becf3c7](https://github.com/kwangure/strawberry/commit/becf3c767b1d56dcf30e9d97651ed1f5c06a65c5))
+* remove conflicting style ([f1e48e9](https://github.com/kwangure/strawberry/commit/f1e48e969efb5c37d6a35bc790033416a0a60848))
+* separate out container.css ([fbed852](https://github.com/kwangure/strawberry/commit/fbed852171f4e2326a6d6bd47aa6ebeed9ec2899))
+* style input postfix ([d66e10d](https://github.com/kwangure/strawberry/commit/d66e10df9d99a4515e482b1c391e40650de416af))
 
-### [0.20.3-alpha.0](https://github.com/deimimi/strawberry/compare/v0.20.2...v0.20.3-alpha.0) (2020-09-23)
+### [0.20.3-alpha.0](https://github.com/kwangure/strawberry/compare/v0.20.2...v0.20.3-alpha.0) (2020-09-23)
 
 
 ### Features
 
-* separate number component from text input ([c94b6b6](https://github.com/deimimi/strawberry/commit/c94b6b64c21e77fa4215a19ebe402b681fa2bf1c))
+* separate number component from text input ([c94b6b6](https://github.com/kwangure/strawberry/commit/c94b6b64c21e77fa4215a19ebe402b681fa2bf1c))
 
 
 ### Bug Fixes
 
-* cleanup postfix styiling for Autocomplete ([8aeeb2c](https://github.com/deimimi/strawberry/commit/8aeeb2ca5bf5e24c611704b1858697f76d67fcc6))
-* cleanup postfix styling ([12286df](https://github.com/deimimi/strawberry/commit/12286df5066c3ee209948125b3e35346c3838507))
+* cleanup postfix styiling for Autocomplete ([8aeeb2c](https://github.com/kwangure/strawberry/commit/8aeeb2ca5bf5e24c611704b1858697f76d67fcc6))
+* cleanup postfix styling ([12286df](https://github.com/kwangure/strawberry/commit/12286df5066c3ee209948125b3e35346c3838507))
 
-### [0.20.2](https://github.com/deimimi/strawberry/compare/v0.20.1...v0.20.2) (2020-09-18)
+### [0.20.2](https://github.com/kwangure/strawberry/compare/v0.20.1...v0.20.2) (2020-09-18)
 
 
 ### Features
 
-* use text input for number ([e1ca75c](https://github.com/deimimi/strawberry/commit/e1ca75c2f396dd8d156ae117c233c65686305969))
+* use text input for number ([e1ca75c](https://github.com/kwangure/strawberry/commit/e1ca75c2f396dd8d156ae117c233c65686305969))
 
 
 ### Bug Fixes
 
-* remove superflous transitions ([5cdb60b](https://github.com/deimimi/strawberry/commit/5cdb60ba8535136b2ea009f01231102678c004b2))
-* use JS IntMax & IntMin for Input bounds ([2e44446](https://github.com/deimimi/strawberry/commit/2e4444666b8949208fa3463323b77ed13c78b310))
+* remove superflous transitions ([5cdb60b](https://github.com/kwangure/strawberry/commit/5cdb60ba8535136b2ea009f01231102678c004b2))
+* use JS IntMax & IntMin for Input bounds ([2e44446](https://github.com/kwangure/strawberry/commit/2e4444666b8949208fa3463323b77ed13c78b310))
 
-### [0.20.1](https://github.com/deimimi/strawberry/compare/v0.20.0...v0.20.1) (2020-08-02)
+### [0.20.1](https://github.com/kwangure/strawberry/compare/v0.20.0...v0.20.1) (2020-08-02)
 
 
 ### Bug Fixes
 
-* export sub-components idiomatically to echo https://github.com/deimimi/strawberry/tree/29a4d78293217674ccbfe1f4f204305e439dfb05 ([922bc55](https://github.com/deimimi/strawberry/commit/922bc557c7af1f1f30fb7d832d52f1f80359823c))
-* install postcss-custom-properties as depencency ([7520a43](https://github.com/deimimi/strawberry/commit/7520a43b6c9dfaeed917bfa0f455c7b28971301b))
+* export sub-components idiomatically to echo https://github.com/kwangure/strawberry/tree/29a4d78293217674ccbfe1f4f204305e439dfb05 ([922bc55](https://github.com/kwangure/strawberry/commit/922bc557c7af1f1f30fb7d832d52f1f80359823c))
+* install postcss-custom-properties as depencency ([7520a43](https://github.com/kwangure/strawberry/commit/7520a43b6c9dfaeed917bfa0f455c7b28971301b))
 
-## [0.20.0](https://github.com/deimimi/strawberry/compare/v0.19.3...v0.20.0) (2020-07-30)
+## [0.20.0](https://github.com/kwangure/strawberry/compare/v0.19.3...v0.20.0) (2020-07-30)
 
 
 ### ⚠ BREAKING CHANGES
 
 * You now need to import from components directly.
 ```javascript
-import Select, { Option } from "@deimimi/strawberry/components/Select";
+import Select, { Option } from "@kwangure/strawberry/components/Select";
 ```
 
 ### Features
 
-* remove single entry ([29a4d78](https://github.com/deimimi/strawberry/commit/29a4d78293217674ccbfe1f4f204305e439dfb05))
-* require label prop in all inputs ([b63bd6e](https://github.com/deimimi/strawberry/commit/b63bd6e29540db86c58176b54d5702566b43c761))
-* support IOS and Mac for list ([3d35ab7](https://github.com/deimimi/strawberry/commit/3d35ab72a4bb87801c0ef2f3926919d2fbe48666))
+* remove single entry ([29a4d78](https://github.com/kwangure/strawberry/commit/29a4d78293217674ccbfe1f4f204305e439dfb05))
+* require label prop in all inputs ([b63bd6e](https://github.com/kwangure/strawberry/commit/b63bd6e29540db86c58176b54d5702566b43c761))
+* support IOS and Mac for list ([3d35ab7](https://github.com/kwangure/strawberry/commit/3d35ab72a4bb87801c0ef2f3926919d2fbe48666))
 
 
 ### Bug Fixes
 
-* add type commonjs for compat in config ([913040e](https://github.com/deimimi/strawberry/commit/913040e388f50f81228b0f363e7ad86370f9179c))
-* darken blue to increase contast ([795fdc0](https://github.com/deimimi/strawberry/commit/795fdc01d7a354054d91b75400a22bf3e21d5f29))
-* update internal.js to match index.js config ([c821052](https://github.com/deimimi/strawberry/commit/c8210529f5f69e405dc8c0764de0350111940590))
+* add type commonjs for compat in config ([913040e](https://github.com/kwangure/strawberry/commit/913040e388f50f81228b0f363e7ad86370f9179c))
+* darken blue to increase contast ([795fdc0](https://github.com/kwangure/strawberry/commit/795fdc01d7a354054d91b75400a22bf3e21d5f29))
+* update internal.js to match index.js config ([c821052](https://github.com/kwangure/strawberry/commit/c8210529f5f69e405dc8c0764de0350111940590))
 
-### [0.19.3](https://github.com/deimimi/strawberry/compare/v0.19.2...v0.19.3) (2020-07-12)
+### [0.19.3](https://github.com/kwangure/strawberry/compare/v0.19.2...v0.19.3) (2020-07-12)
 
 
 ### Bug Fixes
 
-* only leave out image assets when publishing ([409aa32](https://github.com/deimimi/strawberry/commit/409aa32b5ccfb5d1c347d1ecf2ba13129823a4b9))
+* only leave out image assets when publishing ([409aa32](https://github.com/kwangure/strawberry/commit/409aa32b5ccfb5d1c347d1ecf2ba13129823a4b9))
 
-### [0.19.2](https://github.com/deimimi/strawberry/compare/v0.19.1...v0.19.2) (2020-07-12)
+### [0.19.2](https://github.com/kwangure/strawberry/compare/v0.19.1...v0.19.2) (2020-07-12)
 
 
 ### Features
 
-* temporarily disable Autocomplete; causing vite bugs ([427ac79](https://github.com/deimimi/strawberry/commit/427ac79635fff66679a65fcd86c5f7d4269d8b61))
+* temporarily disable Autocomplete; causing vite bugs ([427ac79](https://github.com/kwangure/strawberry/commit/427ac79635fff66679a65fcd86c5f7d4269d8b61))
 
 
 ### Bug Fixes
 
-* stop inlining CSS vars, instead add fallback ([4b1121c](https://github.com/deimimi/strawberry/commit/4b1121cd0203b70baf8e2ca223513b0e8df4065e))
+* stop inlining CSS vars, instead add fallback ([4b1121c](https://github.com/kwangure/strawberry/commit/4b1121cd0203b70baf8e2ca223513b0e8df4065e))
 
-### [0.19.1](https://github.com/deimimi/strawberry/compare/v0.19.0...v0.19.1) (2020-07-10)
+### [0.19.1](https://github.com/kwangure/strawberry/compare/v0.19.0...v0.19.1) (2020-07-10)
 
 
 ### Bug Fixes
 
-* fix incorrect import of Select key ([4dcf11c](https://github.com/deimimi/strawberry/commit/4dcf11c46922aa3250c1a706300710fea048b4af))
+* fix incorrect import of Select key ([4dcf11c](https://github.com/kwangure/strawberry/commit/4dcf11c46922aa3250c1a706300710fea048b4af))
 
-## [0.19.0](https://github.com/deimimi/strawberry/compare/v0.18.0...v0.19.0) (2020-07-10)
+## [0.19.0](https://github.com/kwangure/strawberry/compare/v0.18.0...v0.19.0) (2020-07-10)
 
 
 ### ⚠ BREAKING CHANGES
 
 * Instead of `color` pass the `primary` prop as a Boolean
-* Importing components directly now removes the `src` path. For example, what was `@deimimi/strawberry/src/components` is now  `@deimimi/strawberry/components/Button`
+* Importing components directly now removes the `src` path. For example, what was `@kwangure/strawberry/src/components` is now  `@kwangure/strawberry/components/Button`
 
 ### Features
 
-* deprecate `color` prop on Button in favour of `primary` ([34de027](https://github.com/deimimi/strawberry/commit/34de027a78268175eedbdd689c8bc62d0431e07b))
+* deprecate `color` prop on Button in favour of `primary` ([34de027](https://github.com/kwangure/strawberry/commit/34de027a78268175eedbdd689c8bc62d0431e07b))
 
 
-* remove unneeded src folder ([53795c3](https://github.com/deimimi/strawberry/commit/53795c30ba9e21077b941fe9ad0c824796fefedb))
+* remove unneeded src folder ([53795c3](https://github.com/kwangure/strawberry/commit/53795c30ba9e21077b941fe9ad0c824796fefedb))
 
-## [0.18.0](https://github.com/deimimi/strawberry/compare/v0.17.0...v0.18.0) (2020-07-10)
+## [0.18.0](https://github.com/kwangure/strawberry/compare/v0.17.0...v0.18.0) (2020-07-10)
 
 
 ### ⚠ BREAKING CHANGES
@@ -170,16 +170,16 @@ import Select, { Option } from "@deimimi/strawberry/components/Select";
 
 ### Features
 
-* make CSS vars available to custom components ([e0e9f51](https://github.com/deimimi/strawberry/commit/e0e9f51104883f620e5c84875245289ae2e37340))
-* remove CSS imports via `[@import](https://github.com/import)` ([3f16ad5](https://github.com/deimimi/strawberry/commit/3f16ad5aeb508414c18713a5a267abff1519c481))
+* make CSS vars available to custom components ([e0e9f51](https://github.com/kwangure/strawberry/commit/e0e9f51104883f620e5c84875245289ae2e37340))
+* remove CSS imports via `[@import](https://github.com/import)` ([3f16ad5](https://github.com/kwangure/strawberry/commit/3f16ad5aeb508414c18713a5a267abff1519c481))
 
 
 ### Bug Fixes
 
-* compact CSS in while preprocessing ([9813ff0](https://github.com/deimimi/strawberry/commit/9813ff07d49686665ac465cc9b86af6565b90601))
-* handle hide dropdown edge case ([7f06d96](https://github.com/deimimi/strawberry/commit/7f06d9600557a083d3fc996f8f140336cd3814b6))
+* compact CSS in while preprocessing ([9813ff0](https://github.com/kwangure/strawberry/commit/9813ff07d49686665ac465cc9b86af6565b90601))
+* handle hide dropdown edge case ([7f06d96](https://github.com/kwangure/strawberry/commit/7f06d9600557a083d3fc996f8f140336cd3814b6))
 
-## [0.17.0](https://github.com/deimimi/strawberry/compare/v0.16.1...v0.17.0) (2020-06-24)
+## [0.17.0](https://github.com/kwangure/strawberry/compare/v0.16.1...v0.17.0) (2020-06-24)
 
 
 ### ⚠ BREAKING CHANGES
@@ -193,73 +193,73 @@ import Select, { Option } from "@deimimi/strawberry/components/Select";
 
 ### Features
 
-* add `br-` prefix to CSS custom properties ([7fe4330](https://github.com/deimimi/strawberry/commit/7fe433086c854042a4e652d594541428de5e674d))
-* remove `options`, `active`, `icon` prop from Select to simplify ([a896f34](https://github.com/deimimi/strawberry/commit/a896f345d4c1680341f5c0e46b337e60d6e7f27a))
-* remove `toggle`, `open` & `close` convenience methods ([5a3a468](https://github.com/deimimi/strawberry/commit/5a3a46839fff909890d213048a0907809f20c491))
-* remove nested dropdown items API to simplify ([3dc29ea](https://github.com/deimimi/strawberry/commit/3dc29ea806615c9ed67df95ee97a0f964ecf3878))
-* remove support for web components ([25d3f63](https://github.com/deimimi/strawberry/commit/25d3f63bb27b6f1a40e549294233bcd39754e697))
+* add `br-` prefix to CSS custom properties ([7fe4330](https://github.com/kwangure/strawberry/commit/7fe433086c854042a4e652d594541428de5e674d))
+* remove `options`, `active`, `icon` prop from Select to simplify ([a896f34](https://github.com/kwangure/strawberry/commit/a896f345d4c1680341f5c0e46b337e60d6e7f27a))
+* remove `toggle`, `open` & `close` convenience methods ([5a3a468](https://github.com/kwangure/strawberry/commit/5a3a46839fff909890d213048a0907809f20c491))
+* remove nested dropdown items API to simplify ([3dc29ea](https://github.com/kwangure/strawberry/commit/3dc29ea806615c9ed67df95ee97a0f964ecf3878))
+* remove support for web components ([25d3f63](https://github.com/kwangure/strawberry/commit/25d3f63bb27b6f1a40e549294233bcd39754e697))
 
-### [0.16.1](https://github.com/deimimi/strawberry/compare/v0.16.0...v0.16.1) (2020-06-05)
+### [0.16.1](https://github.com/kwangure/strawberry/compare/v0.16.0...v0.16.1) (2020-06-05)
 
 
 ### Features
 
-* set tool tip height based on `--item-height` ([3cb2dda](https://github.com/deimimi/strawberry/commit/3cb2ddaf5e2f27cb0c86cd8addb6dc8feceb082d))
+* set tool tip height based on `--item-height` ([3cb2dda](https://github.com/kwangure/strawberry/commit/3cb2ddaf5e2f27cb0c86cd8addb6dc8feceb082d))
 
 
 ### Bug Fixes
 
-* add "berry-"class to Dropdown component ([a0f2261](https://github.com/deimimi/strawberry/commit/a0f22610697a78455ce9bfa0a6973f3eb12903aa))
-* add spacing between icon and text in button ([eee7e93](https://github.com/deimimi/strawberry/commit/eee7e93e75051f40905dfea05b5ee09ae1622dc4))
-* disable border-width transition causing reflow ([2f406fe](https://github.com/deimimi/strawberry/commit/2f406fe59286d365f7b8c3c24ec812b0cf0127bb))
-* use custom onChange event for select component ([3db8984](https://github.com/deimimi/strawberry/commit/3db8984d7fcd47aa11dae4d5cad4d9cba737e18c))
+* add "berry-"class to Dropdown component ([a0f2261](https://github.com/kwangure/strawberry/commit/a0f22610697a78455ce9bfa0a6973f3eb12903aa))
+* add spacing between icon and text in button ([eee7e93](https://github.com/kwangure/strawberry/commit/eee7e93e75051f40905dfea05b5ee09ae1622dc4))
+* disable border-width transition causing reflow ([2f406fe](https://github.com/kwangure/strawberry/commit/2f406fe59286d365f7b8c3c24ec812b0cf0127bb))
+* use custom onChange event for select component ([3db8984](https://github.com/kwangure/strawberry/commit/3db8984d7fcd47aa11dae4d5cad4d9cba737e18c))
 
-## [0.16.0](https://github.com/deimimi/strawberry/compare/v0.15.7...v0.16.0) (2020-05-19)
+## [0.16.0](https://github.com/kwangure/strawberry/compare/v0.15.7...v0.16.0) (2020-05-19)
 
 
 ### Features
 
-* add "berry-"classes for easier :global override ([dc6c825](https://github.com/deimimi/strawberry/commit/dc6c8255eb61d74fca72acabd9ac1955f1e0f628))
+* add "berry-"classes for easier :global override ([dc6c825](https://github.com/kwangure/strawberry/commit/dc6c8255eb61d74fca72acabd9ac1955f1e0f628))
 
 
 ### Bug Fixes
 
-* add spacing between icon and text in button ([a790fef](https://github.com/deimimi/strawberry/commit/a790fef75bb59adf8be528fe9ddf117cd6095ee2))
-* align menu-item children center ([f49f022](https://github.com/deimimi/strawberry/commit/f49f022649cd13e166cd29710cc5b247f3717a55))
+* add spacing between icon and text in button ([a790fef](https://github.com/kwangure/strawberry/commit/a790fef75bb59adf8be528fe9ddf117cd6095ee2))
+* align menu-item children center ([f49f022](https://github.com/kwangure/strawberry/commit/f49f022649cd13e166cd29710cc5b247f3717a55))
 
-### [0.15.7](https://github.com/deimimi/strawberry/compare/v0.15.6...v0.15.7) (2020-05-16)
-
-
-### Features
-
-* add a standard way to change border-radius ([b599e42](https://github.com/deimimi/strawberry/commit/b599e42b70562b64c17319f5dc7ac9a70cb772c2))
-* add disabled prop to Button component ([bdbfecd](https://github.com/deimimi/strawberry/commit/bdbfecdbc503a95061c6a692409542c44baefb0b))
-
-### [0.15.6](https://github.com/deimimi/strawberry/compare/v0.15.5...v0.15.6) (2020-05-12)
+### [0.15.7](https://github.com/kwangure/strawberry/compare/v0.15.6...v0.15.7) (2020-05-16)
 
 
 ### Features
 
-* add a standard way to change item-height ([f5c7d6d](https://github.com/deimimi/strawberry/commit/f5c7d6dbc14868055cd93b4f1dc244cdaa19083f))
+* add a standard way to change border-radius ([b599e42](https://github.com/kwangure/strawberry/commit/b599e42b70562b64c17319f5dc7ac9a70cb772c2))
+* add disabled prop to Button component ([bdbfecd](https://github.com/kwangure/strawberry/commit/bdbfecdbc503a95061c6a692409542c44baefb0b))
+
+### [0.15.6](https://github.com/kwangure/strawberry/compare/v0.15.5...v0.15.6) (2020-05-12)
+
+
+### Features
+
+* add a standard way to change item-height ([f5c7d6d](https://github.com/kwangure/strawberry/commit/f5c7d6dbc14868055cd93b4f1dc244cdaa19083f))
 
 
 ### Bug Fixes
 
-* cleanup link styling ([812a036](https://github.com/deimimi/strawberry/commit/812a036ba45fe3f84ad0d332af70c38c70a941c5))
+* cleanup link styling ([812a036](https://github.com/kwangure/strawberry/commit/812a036ba45fe3f84ad0d332af70c38c70a941c5))
 
-### [0.15.5](https://github.com/deimimi/strawberry/compare/v0.15.3...v0.15.5) (2020-04-07)
+### [0.15.5](https://github.com/kwangure/strawberry/compare/v0.15.3...v0.15.5) (2020-04-07)
 
 
 ### Features
 
-* remove path/slot restriction in Icon component ([e43f133](https://github.com/deimimi/strawberry/commit/e43f13337f3b66a6e9ff7a21a0b71625ec22445c))
+* remove path/slot restriction in Icon component ([e43f133](https://github.com/kwangure/strawberry/commit/e43f13337f3b66a6e9ff7a21a0b71625ec22445c))
 
 
 ### Bug Fixes
 
-* use unique placeholder attr in autocomplete select ([a130202](https://github.com/deimimi/strawberry/commit/a13020296f58b89d4a490f32e4ebb58db0ea6113))
+* use unique placeholder attr in autocomplete select ([a130202](https://github.com/kwangure/strawberry/commit/a13020296f58b89d4a490f32e4ebb58db0ea6113))
 
-### [0.15.4](https://github.com/deimimi/strawberry/compare/v0.15.3...v0.15.4) (2020-02-29)
+### [0.15.4](https://github.com/kwangure/strawberry/compare/v0.15.3...v0.15.4) (2020-02-29)
 
 ### Chores
 
@@ -267,37 +267,37 @@ import Select, { Option } from "@deimimi/strawberry/components/Select";
 
 ### Bug Fixes
 
-* use unique placeholder attr in autocomplete select ([a130202](https://github.com/deimimi/strawberry/commit/a13020296f58b89d4a490f32e4ebb58db0ea6113))
+* use unique placeholder attr in autocomplete select ([a130202](https://github.com/kwangure/strawberry/commit/a13020296f58b89d4a490f32e4ebb58db0ea6113))
 
-### [0.15.3](https://github.com/deimimi/strawberry/compare/v0.15.2...v0.15.3) (2020-02-27)
+### [0.15.3](https://github.com/kwangure/strawberry/compare/v0.15.2...v0.15.3) (2020-02-27)
 
-### [0.15.2](https://github.com/deimimi/strawberry/compare/v0.15.1...v0.15.2) (2020-02-27)
+### [0.15.2](https://github.com/kwangure/strawberry/compare/v0.15.1...v0.15.2) (2020-02-27)
 
 ### Features
 
-* add borders to list item ([49e9e43](https://github.com/deimimi/strawberry/commit/49e9e43238ce7a0094b258542e9ba1a9a7a884f5))
-* add option for custom icon paths ([66d56c6](https://github.com/deimimi/strawberry/commit/66d56c6106fdea2a860209c940a782e4680394f0))
-* add path component to icon ([a98742b](https://github.com/deimimi/strawberry/commit/a98742b4c1b9bf9b59a5ddedf6f8050d9210847a))
-* add rotate prop to icon ([34bac81](https://github.com/deimimi/strawberry/commit/34bac81b4da867408223b2b45f41f9c05086f305))
-* add selectable list component ([2034994](https://github.com/deimimi/strawberry/commit/203499410ac72651ec603839b5cb5cbc13d56871))
-* add support for dynamic icon units ([c782222](https://github.com/deimimi/strawberry/commit/c7822223adbef50f3b156453efc05180cdc3a491))
+* add borders to list item ([49e9e43](https://github.com/kwangure/strawberry/commit/49e9e43238ce7a0094b258542e9ba1a9a7a884f5))
+* add option for custom icon paths ([66d56c6](https://github.com/kwangure/strawberry/commit/66d56c6106fdea2a860209c940a782e4680394f0))
+* add path component to icon ([a98742b](https://github.com/kwangure/strawberry/commit/a98742b4c1b9bf9b59a5ddedf6f8050d9210847a))
+* add rotate prop to icon ([34bac81](https://github.com/kwangure/strawberry/commit/34bac81b4da867408223b2b45f41f9c05086f305))
+* add selectable list component ([2034994](https://github.com/kwangure/strawberry/commit/203499410ac72651ec603839b5cb5cbc13d56871))
+* add support for dynamic icon units ([c782222](https://github.com/kwangure/strawberry/commit/c7822223adbef50f3b156453efc05180cdc3a491))
 
 
 ### Bug Fixes
 
-* allow embeded lists or lists= stopPropagation ([a0f6ec7](https://github.com/deimimi/strawberry/commit/a0f6ec7a0649d206f46f34fc45a46ff6aa05387c))
-* avoid dirtifying external data ([20cb1cc](https://github.com/deimimi/strawberry/commit/20cb1cc7ed602ef7067f3bd95561f9a8ec0eb65d))
-* cleanly export config bundling config ([34f96f2](https://github.com/deimimi/strawberry/commit/34f96f278d62ccf9f035f14e0c0648184f7211e3))
-* correct border-radius styling ([a80ac75](https://github.com/deimimi/strawberry/commit/a80ac750561ca8929a0069fdc7040ca4e99f40ae))
-* deselect all list items onDestroy regression ([64ba0e8](https://github.com/deimimi/strawberry/commit/64ba0e89a23e6047f2bf6626f94a3e0ee81144d3))
-* export all components ([74a9c2b](https://github.com/deimimi/strawberry/commit/74a9c2b4cfa0226a80ffd968873e0af9ecb72a60))
-* export preprocessConfig ([cd47680](https://github.com/deimimi/strawberry/commit/cd47680b94795db6c4a5d1f988cd200d99e50c8b))
-* improve modal header styling ([98ceb10](https://github.com/deimimi/strawberry/commit/98ceb106a10a46222c94769220c6a6d1c89bd895))
-* prevent css button hover overwrite ([0a09e83](https://github.com/deimimi/strawberry/commit/0a09e837da23897538f184dcf1ec788c65d368e3))
-* prevent shifting up and down ([4c09d83](https://github.com/deimimi/strawberry/commit/4c09d83765504558a56bf32fff06f2152a7c91e1))
-* remove event listeners when list is destroyed ([17b8400](https://github.com/deimimi/strawberry/commit/17b8400a6e1188d89227fa0fa0b0cd5f7206961e))
-* round focus-ring on list item ([1c3b10d](https://github.com/deimimi/strawberry/commit/1c3b10d14239744eaeaa4a136a937277a4405239))
-* use consistent button styles ([f1aa124](https://github.com/deimimi/strawberry/commit/f1aa12492475aa13bbc931aa8512d44dcb8dfa77))
+* allow embeded lists or lists= stopPropagation ([a0f6ec7](https://github.com/kwangure/strawberry/commit/a0f6ec7a0649d206f46f34fc45a46ff6aa05387c))
+* avoid dirtifying external data ([20cb1cc](https://github.com/kwangure/strawberry/commit/20cb1cc7ed602ef7067f3bd95561f9a8ec0eb65d))
+* cleanly export config bundling config ([34f96f2](https://github.com/kwangure/strawberry/commit/34f96f278d62ccf9f035f14e0c0648184f7211e3))
+* correct border-radius styling ([a80ac75](https://github.com/kwangure/strawberry/commit/a80ac750561ca8929a0069fdc7040ca4e99f40ae))
+* deselect all list items onDestroy regression ([64ba0e8](https://github.com/kwangure/strawberry/commit/64ba0e89a23e6047f2bf6626f94a3e0ee81144d3))
+* export all components ([74a9c2b](https://github.com/kwangure/strawberry/commit/74a9c2b4cfa0226a80ffd968873e0af9ecb72a60))
+* export preprocessConfig ([cd47680](https://github.com/kwangure/strawberry/commit/cd47680b94795db6c4a5d1f988cd200d99e50c8b))
+* improve modal header styling ([98ceb10](https://github.com/kwangure/strawberry/commit/98ceb106a10a46222c94769220c6a6d1c89bd895))
+* prevent css button hover overwrite ([0a09e83](https://github.com/kwangure/strawberry/commit/0a09e837da23897538f184dcf1ec788c65d368e3))
+* prevent shifting up and down ([4c09d83](https://github.com/kwangure/strawberry/commit/4c09d83765504558a56bf32fff06f2152a7c91e1))
+* remove event listeners when list is destroyed ([17b8400](https://github.com/kwangure/strawberry/commit/17b8400a6e1188d89227fa0fa0b0cd5f7206961e))
+* round focus-ring on list item ([1c3b10d](https://github.com/kwangure/strawberry/commit/1c3b10d14239744eaeaa4a136a937277a4405239))
+* use consistent button styles ([f1aa124](https://github.com/kwangure/strawberry/commit/f1aa12492475aa13bbc931aa8512d44dcb8dfa77))
 
 # 0.15.1
 * fix: fix broken css in Input components. Heaven knows strawberry need tests.
@@ -378,16 +378,16 @@ This release has a lot more changes than previous ones. Here are a few notable o
 
 ## 0.9.0
 * feat: add number input component
-  
+
 ## 0.8.1
 * fix: disable closability for modal overlay
-  
+
 ## 0.8.0
-* feat: ability to hide modal close button 
+* feat: ability to hide modal close button
 
 ## 0.7.0
 * feat: add ability to show modal via prop
-  
+
 ## 0.6.0
 * fix: standardize color pallete
 * fix: improve textarea + input border ui
@@ -401,13 +401,13 @@ This release has a lot more changes than previous ones. Here are a few notable o
 
 ## 0.4.1
 * fix: export dropdown component
-  
+
 ## 0.4.0
 * feat: add dropdown component
 
 ## 0.3.0
 * feat: make compilable to custom elements
-  
+
 ## 0.2.1
 * fix textarea component default props
 * fix conflicting and remove unused button styles
