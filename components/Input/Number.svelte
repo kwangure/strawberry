@@ -1,9 +1,10 @@
 <script>
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
     import { createEventForwarder } from "$utils/forward-events.js";
-    import { slide } from "svelte/transition";
     import { focusElement } from "./actions";
+    import { handleInput } from "./number.js";
     import Icon from "../Icon";
+    import { slide } from "svelte/transition";
     import uid from 'uid';
 
     export let hideLabel = false;
@@ -13,30 +14,13 @@
     export let step = 1;
     export let stepOnly = false;
     export let focus = false;
-    let isInvalidFn = () => false;
-    export { isInvalidFn as isInvalid };
-    export let parser = (string) => parseFloat(string);
-    export let formatter = (number) => number.toString();
-    export let formattedValue = formatter(value);
 
     const forward = createEventForwarder();
 
     let labelId = uid();
-    let isInvalid = false;
 
-    $: formatValue(value);
-    $: parseValue(formattedValue);
-
-    function formatValue(value) {
-        formattedValue = formatter(value)
-    }
-
-    function parseValue(formattedValue) {
-        isInvalid = isInvalidFn(formattedValue);
-        if (!isInvalid) {
-            value = parser(formattedValue);
-        }
-    }
+    $: isBelowMin = Number(value) < min;
+    $: isAboveMax = Number(value) > max;
 
     if (import.meta.env.DEV && !$$slots.label) {
         console.error(`
@@ -81,6 +65,10 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         value = decrement(value, step);
         focus = true;
     }
+
+    const handleInputOptions = {
+        pattern: /^-?\d*(\.\d*)?$/,
+    };
 </script>
 
 <div class="berry-input-number input-wrapper">
@@ -88,12 +76,10 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
         <slot name="label"/>
     </label>
     <div class="container">
-        <input bind:value={formattedValue}
-            class:is_invalid={isInvalid}
-            on:blur={()=> focus = false}
+        <input bind:value on:blur={()=> focus = false}
             on:change={() => value = clamp(value, min, max)}
             readonly={stepOnly}
-            on:keydown={handleKeydown} use:forward
+            on:keydown={handleKeydown} use:forward use:handleInput={handleInputOptions}
             type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
         <div class="postfix-wrapper">
             <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
@@ -104,9 +90,13 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
             </span>
         </div>
     </div>
-    {#if isInvalid}
+    {#if isBelowMin}
         <div class="invalid" transition:slide>
-            {isInvalid}
+            Minimum value is {min}.
+        </div>
+    {:else if isAboveMax}
+        <div class="invalid" transition:slide>
+            Maximum value is {min}.
         </div>
     {/if}
 </div>
