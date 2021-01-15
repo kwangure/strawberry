@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.23.0](https://github.com/kwangure/strawberry/compare/v0.22.0...v0.23.0) (2021-01-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* `parser`, `formatter` and `invalid` props removed since
+they're no longer needed.
+* use group wrappers for `Checkbox` and `Radio`
+* The icons added code to people who didn't use them
+We may add a `slot`-based API at a later date for more generic children
+* Use <element slot="label"/> to add a labels to
+input components
+* pass props normally to path (i.e now use
+`<Path stroke="red"/>` instead of `<Path props={stroke:"red"}/>`
+* instead of having a separate `units` prop in the `Icon`
+include units in the size prop (i.e `size="24px"`)
+* instead of using `spin=clockwise|counterclockise` on
+the `Icon` component, use
+spin={{direction: clockwise|counterclockise, duration: ""}}
+
+### Features
+
+* add `$$restProps` where necessary. ([f1152f0](https://github.com/kwangure/strawberry/commit/f1152f03a8a45664331d4cc10d106c5d607dbff4))
+* add `compare` and `format` functions ([84b97e7](https://github.com/kwangure/strawberry/commit/84b97e7e958ad5149e349ff515fdd517ecc4fe3c))
+* add double click event to button ([d534067](https://github.com/kwangure/strawberry/commit/d5340675d2012ada105428e285dacc61f71637b7))
+* add site to demo/experiment with components ([ecc42ce](https://github.com/kwangure/strawberry/commit/ecc42ced5774d17b1906a9303f3d3147f0a9cd45))
+* allow miscellaneous props on button ([b02eccd](https://github.com/kwangure/strawberry/commit/b02eccd7948b30afe50a01261d8f0d0002b61f76))
+* introduce 1px border variable ([76fa58b](https://github.com/kwangure/strawberry/commit/76fa58bc4798fa47aeeb3f70a4583959e1fbee0d))
+* make label a `slot` instead of `prop` ([cececd3](https://github.com/kwangure/strawberry/commit/cececd3a411f96a61624c72d20aa9b7226c23279))
+* pass props to `Path` without needing a `props` object. ([03c8edc](https://github.com/kwangure/strawberry/commit/03c8edc5b278a250b87a58ea69e826b1e9a6ed0d))
+* properly limit numeric characters ([010392b](https://github.com/kwangure/strawberry/commit/010392bb1b1245d145a6576a217ecbf672147a96))
+* remove icon api for inputs ([ee449d9](https://github.com/kwangure/strawberry/commit/ee449d941e8d2cc21ba4df88ddd4f7fe4f7a1631))
+* require object for spin prop ([685f7eb](https://github.com/kwangure/strawberry/commit/685f7eb9da7b9c95452cc7d643b2105de231b4a5))
+* require units in `size` prop of `Icon` ([4708d4b](https://github.com/kwangure/strawberry/commit/4708d4bedf94b0896eb1160a68f503cf9bd2cd12))
+* use a event-forwarding util to forward paths ([803585b](https://github.com/kwangure/strawberry/commit/803585b880785a74c4ea0da2aeb3ca351a20d170))
+* use group wrappers for `Checkbox` and `Radio` ([239b135](https://github.com/kwangure/strawberry/commit/239b1355dbb6ca447c2433c1f9931082c6055d17))
+
+
+### Bug Fixes
+
+* clean up label api for inputs ([b420922](https://github.com/kwangure/strawberry/commit/b420922dbff92d36b462ca7d9c7131433720b33c))
+* decrement on click down ([30905b3](https://github.com/kwangure/strawberry/commit/30905b300021a9cf014946870db3745ef026809e))
+* fit postfix wrapper in number input ([32772b2](https://github.com/kwangure/strawberry/commit/32772b24804611d673a6611b30b474c22b038c73))
+* focus inputs using action ([93740fe](https://github.com/kwangure/strawberry/commit/93740fee1eb2c7cbe11fbd876bf6547eb6a74596))
+* handle `bind:group` on `Radio` specially ([6070cc7](https://github.com/kwangure/strawberry/commit/6070cc72477d1d8ac40aaee962265f5f1a760e4a))
+* improve padding around modal ([8efc525](https://github.com/kwangure/strawberry/commit/8efc5254267355f3fdab8940bdd2fe3ae02dc6a0))
+* only run closer if dropdown was open ([cd59966](https://github.com/kwangure/strawberry/commit/cd59966a0b822f511298413f876cd7f9d0242b3d))
+* only show Sidebar header and footer if used ([600ff1b](https://github.com/kwangure/strawberry/commit/600ff1bcea88f9e1cc625dfb8c7be755e2e0da7b))
+* remove problematic style ([f13ebf2](https://github.com/kwangure/strawberry/commit/f13ebf221a5f98d86b1797437adab906634a86d1))
+* specify size of input container instead of input ([e12ded9](https://github.com/kwangure/strawberry/commit/e12ded903ca0f6e642b7f67a48bece87dddff515))
+
 ## [0.22.0](https://github.com/kwangure/strawberry/compare/v0.21.0...v0.22.0) (2020-10-04)
 
 
