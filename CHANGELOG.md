@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.23.1](https://github.com/kwangure/strawberry/compare/v0.23.0...v0.23.1) (2021-01-15)
+
+
+### Bug Fixes
+
+* export config as cjs ([f0620eb](https://github.com/kwangure/strawberry/commit/f0620eb06ec0c7687d95a4f23e9403ee10375875))
+* make package not module ([a5bb2bf](https://github.com/kwangure/strawberry/commit/a5bb2bfd9f15ec865e199d1300cfb6c36b9a46b5))
+* move config deps to pkg json dependencies ([29ece48](https://github.com/kwangure/strawberry/commit/29ece48497a39d6b5f4bdb02ce7705e66e75b2b2))
+
 ## [0.23.0](https://github.com/kwangure/strawberry/compare/v0.22.0...v0.23.0) (2021-01-15)
 
 
