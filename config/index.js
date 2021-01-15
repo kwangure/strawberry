@@ -1,9 +1,9 @@
-import sveltePreprocess from "svelte-preprocess";
-import cssnano from "cssnano";
-import cssImport from "postcss-import";
-import cssVars from "postcss-custom-properties";
+const sveltePreprocess = require("svelte-preprocess");
+const cssnano = require("cssnano");
+const cssImport = require("postcss-import");
+const cssVars = require("postcss-custom-properties");
 
-export const preprocessConfig = sveltePreprocess({
+module.exports.preprocessConfig = sveltePreprocess({
     postcss: {
         plugins: [
             cssImport(),
