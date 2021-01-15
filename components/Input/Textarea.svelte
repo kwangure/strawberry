@@ -1,6 +1,6 @@
 <script>
     import Container from "./Container.svelte";
-    import { createEventForwarder } from "$utils/forward-events.js";
+    import { createEventForwarder } from "../../utils/forward-events.js";
 
     export let value = "";
     export let hideLabel = false;

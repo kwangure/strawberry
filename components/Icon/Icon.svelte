@@ -1,5 +1,5 @@
 <script>
-    import { createEventForwarder } from "$utils/forward-events.js";
+    import { createEventForwarder } from "../../utils/forward-events.js";
 
     export let size = "24px";
     export let path = "";

@@ -1,5 +1,5 @@
 <script>
-    import { isMacintosh, isIOS } from "$utils/platform";
+    import { isMacintosh, isIOS } from "../../utils/platform";
     import { onDestroy } from "svelte";
     import { slide } from "svelte/transition";
 

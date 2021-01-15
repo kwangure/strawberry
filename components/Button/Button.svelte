@@ -1,5 +1,5 @@
 <script>
-    import { createEventForwarder } from "$utils/forward-events.js";
+    import { createEventForwarder } from "../../utils/forward-events.js";
     import Icon from "../Icon";
 
     export let primary = false;

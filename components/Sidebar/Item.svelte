@@ -1,6 +1,6 @@
 <script>
-    import { createEventForwarder } from "$utils/forward-events.js";
-    
+    import { createEventForwarder } from "../../utils/forward-events.js";
+
     export let active = false;
 
     const forward = createEventForwarder();

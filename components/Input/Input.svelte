@@ -2,7 +2,7 @@
     import Container from "./Container.svelte";
     import { slide } from "svelte/transition";
     import { focusElement } from "./actions";
-    import { createEventForwarder } from "$utils/forward-events.js";
+    import { createEventForwarder } from "../../utils/forward-events.js";
 
     export let hideLabel = false;
     export let value = "";

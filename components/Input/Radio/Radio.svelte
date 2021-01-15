@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { radioGroup } from "./Group.svelte";
-    import { createEventForwarder } from "$utils/forward-events.js";
+    import { createEventForwarder } from "../../../utils/forward-events.js";
 
     export let value;
 

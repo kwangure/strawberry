@@ -1,7 +1,7 @@
 <script>
     import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
     import Container from "./Container.svelte";
-    import { createEventForwarder } from "$utils/forward-events.js";
+    import { createEventForwarder } from "../../utils/forward-events.js";
     import { focusElement } from "./actions";
     import { handleInput } from "./number.js";
     import Icon from "../Icon";
