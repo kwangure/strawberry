@@ -12,20 +12,20 @@
     },
     "dependencies": {
         "@mdi/js": "^5.0.45",
+        "cssnano": "^4.1.10",
         "fuzzy": "^0.1.3",
+        "postcss-custom-properties": "^9.2.0",
+        "postcss-import": "^12.0.1",
+        "svelte-preprocess": "^3.9.12",
         "uid": "^1.0.0"
     },
     "devDependencies": {
         "@kwangure/svelte-pagejs-router": "^0.1.7",
-        "cssnano": "^4.1.10",
         "eslint": "^6.8.0",
         "eslint-plugin-svelte3": "^2.7.3",
-        "postcss-custom-properties": "^9.2.0",
-        "postcss-import": "^12.0.1",
         "rollup-plugin-svelte-hot": "^0.13.0",
         "standard-version": "^9.1.0",
         "svelte": "^3.31.2",
-        "svelte-preprocess": "^3.9.12",
         "vite": "^2.0.0-beta.27"
     },
     "peerDependencies": {
