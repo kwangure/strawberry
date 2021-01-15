@@ -2,7 +2,6 @@
     "name": "@kwangure/strawberry",
     "version": "0.23.0",
     "description": "A set of svelte components",
-    "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "vite build",
