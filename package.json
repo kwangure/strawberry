@@ -39,8 +39,5 @@
     "bugs": {
         "url": "https://github.com/kwangure/strawberry/issues"
     },
-    "homepage": "https://github.com/kwangure/strawberry#readme",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
-    }
+    "homepage": "https://github.com/kwangure/strawberry#readme"
 }
