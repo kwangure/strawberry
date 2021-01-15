@@ -1,10 +1,7 @@
-import { preprocessConfig } from "./config/index.js";
-import svelte from "rollup-plugin-svelte-hot";
+const { preprocessConfig } = require("./config/index.js");
+const svelte = require("rollup-plugin-svelte-hot");
 
-/**
- * @returns {import('vite').UserConfig}
- */
-export default  ({ _command, mode }) => {
+module.exports = ({ _command, mode }) => {
     return {
         plugins: [
             svelte({
