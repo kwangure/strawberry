@@ -9,7 +9,6 @@
     export let placeholder = "";
     export let placement = "bottomLeft";
     export let value = "";
-    export let label = "";
     export let disabled = false;
     export let compare = (a, b) => a === b;
     export let format = ({optionDisplayText}) => optionDisplayText;
@@ -67,11 +66,11 @@
     setContext(UPDATE_VALUE_FUNC, updateSelectValue);
 </script>
 
-<div class="berry-select">
+<div class="select" >
     <Dropdown {placement}>
         <div slot="button" class:disabled>
-            <Input bind:value={displayText} readonly>
-                <span slot="label">{label}</span>
+            <Input bind:value={displayText} {...$$restProps} readonly>
+                <slot name="label" slot="label"></slot>
                 <div slot="postfix">
                     <Icon path={mdiChevronDown}></Icon>
                 </div>
