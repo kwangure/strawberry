@@ -67,7 +67,7 @@
     setContext(UPDATE_VALUE_FUNC, updateSelectValue);
 </script>
 
-<div class="select" >
+<div class="berry-select">
     <Dropdown {placement}>
         <div slot="button" class:disabled>
             <Input bind:value={displayText} readonly>

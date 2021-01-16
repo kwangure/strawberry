@@ -16,7 +16,7 @@
     $: is_invalid = blurred && invalid(value);
 </script>
 
-<Container class="berry-input" {hideLabel} let:labelId>
+<Container class="berry-input-password" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
         <input bind:value class:is_invalid on:blur={() => blurred = true}

@@ -60,7 +60,7 @@
     };
 </script>
 
-<Container class="berry-input" {hideLabel} let:labelId>
+<Container class="berry-input-number" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
         <input bind:value on:blur={()=> focus = false}

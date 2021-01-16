@@ -24,7 +24,7 @@
     }
 </script>
 
-<Container class="berry-input" {hideLabel} let:labelId>
+<Container class="berry-input-textarea" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <textarea bind:this={textarea} on:input={autosize}
         use:forward bind:value id={labelId} {...$$restProps}/>
