@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.24.0](https://github.com/kwangure/strawberry/compare/v0.23.2...v0.24.0) (2021-01-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* use label slot instead of prop in `Select`
+
+### Features
+
+* use label slot instead of prop in `Select` ([0ee137b](https://github.com/kwangure/strawberry/commit/0ee137b22798eea7b60c7561122d403f9a68ab29))
+
+
+### Bug Fixes
+
+* check input based on initial group value ([36bd492](https://github.com/kwangure/strawberry/commit/36bd49267ba0f6944dbaa24809a4f1511ec958b2))
+* use correct CSS API for inputs ([5d138e6](https://github.com/kwangure/strawberry/commit/5d138e642d3906f4b943b3b580fae44d798e64d6))
+
 ### [0.23.2](https://github.com/kwangure/strawberry/compare/v0.23.1...v0.23.2) (2021-01-15)
 
 
