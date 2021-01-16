@@ -10,6 +10,7 @@
     setContext(radioGroup, {
         set: (v) => value = v,
         name: uid(),
+        initialValue: value,
     });
 </script>
 
