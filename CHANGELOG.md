@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.25.0](https://github.com/kwangure/strawberry/compare/v0.24.0...v0.25.0) (2021-01-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* add more capable `Tooltip`
+
+### Features
+
+* add more capable `Tooltip` ([e77e1d9](https://github.com/kwangure/strawberry/commit/e77e1d9961ea2156ffc55679bcc3fb4ccee9f555))
+
+
+### Bug Fixes
+
+* correct `Select` CSS API ([b3a90fb](https://github.com/kwangure/strawberry/commit/b3a90fbb3e09d3bdd87ef22cb9f94fb0a27985e3))
+
 ## [0.24.0](https://github.com/kwangure/strawberry/compare/v0.23.2...v0.24.0) (2021-01-16)
 
 
