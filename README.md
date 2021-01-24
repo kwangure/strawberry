@@ -19,9 +19,9 @@ npm i -D @kwangure/strawberry
 
 #### Usage
 ```html
-<!--App.svelte-->
+<!-- component.svelte -->
 <script>
-    import { Button } from "@kwangure/strawberry";
+    import Button from "@kwangure/strawberry/components/Button";
 </script>
 
 <Button on:click="{() => alert('strawberry')}">
@@ -41,9 +41,17 @@ plugins: [
         'import.meta.env.DEV': () => String(process.env.NODE_ENV === 'development'),
         'import.meta.env.PROD': () => String(process.env.NODE_ENV === 'production'),
     }),
+    // Compile strawberry
     svelte({
         ...
         preprocess: preprocessConfig,
+        include: "@kwangure/strawberry/**"
+        ...
+    }),
+    // Compile your components
+    svelte({
+        ...
+        exclude: "@kwangure/strawberry/**"
         ...
     }),
     ...
