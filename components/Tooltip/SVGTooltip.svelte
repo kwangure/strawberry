@@ -1,9 +1,11 @@
 <script>
     import { createPopper } from "@popperjs/core";
+    import { isSVGChild, getSVGParent } from "../../utils/svg.js";
     import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
 
-    export let placement = "bottom";
+    export let placement = "auto";
     export let followMouse = false;
+    export let text;
 
     let referenceElement;
     let showTooltip = false;
@@ -13,6 +15,11 @@
 
     function createPopup(popup, referenceElement) {
         if (!popup || !referenceElement) return;
+
+        // Remount our <div> popup outside of SVGs to make them visible
+        if (isSVGChild(referenceElement)) {
+            getSVGParent(referenceElement).append(popup);
+        }
 
         const reference = followMouse
             ? mousePosInBoundingRect(referenceElement)
@@ -55,8 +62,8 @@
 
 <slot reference={getReference} />
 
-<div class="berry-tooltip" use:createPopup={referenceElement} class:showTooltip>
-    <slot name="popup"></slot>
+<div use:createPopup={referenceElement} class:showTooltip>
+    {text}
 </div>
 
 <style>

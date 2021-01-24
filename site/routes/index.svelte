@@ -29,19 +29,22 @@
         </Sidebar>
     </div>
     <div class="right">
-        <Tooltip label="Yes, Papa. Drop me">
-            <Dropdown>
-                <slot slot="button">
-                    <Button>
-                        <Icon path={mdiClose}/>
-                        Hover me. Tooltip me! Click me. Drop me!
-                    </Button>
-                </slot>
-                <Item>Purple.</Item>
-                <Item>Penguin.</Item>
-                <Item>Has.</Item>
-                <Item>Dropped.</Item>
-            </Dropdown>
+        <Tooltip let:reference>
+            <span slot="popup">Yes, Papa. Drop me</span>
+            <div class="tooltip" use:reference>
+                <Dropdown>
+                    <slot slot="button">
+                        <Button>
+                            <Icon path={mdiClose}/>
+                            Hover me. Tooltip me! Click me. Drop me!
+                        </Button>
+                    </slot>
+                    <Item>Purple.</Item>
+                    <Item>Penguin.</Item>
+                    <Item>Has.</Item>
+                    <Item>Dropped.</Item>
+                </Dropdown>
+            </div>
         </Tooltip>
         <Input placeholder="Write me! I'm text input">
             <span slot="label">Write me! I'm text input</span>
@@ -110,9 +113,7 @@
     .right {
         padding: 10px;
     }
-    .right > :global(*:not(.berry-modal)) {
-        margin-bottom: 10px;
-    }
+    .right > :global(*:not(.berry-modal):not(.berry-tooltip)),
     .modal-content {
         margin-bottom: 10px;
     }

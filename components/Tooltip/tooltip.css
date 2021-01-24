@@ -1,0 +1,17 @@
+div {
+    padding: 6px 8px;
+    background-color: rgba(0,0,0,.75);
+    min-width: 30px;
+    min-height: var(--br-item-height);
+    color: var(--br-white);
+    border-radius: var(--br-border-radius);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    transition: opacity .5s ease;
+}
+div.showTooltip {
+    visibility: visible;
+    opacity: 1;
+}
