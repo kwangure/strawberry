@@ -2,7 +2,7 @@
     display: flex;
     border: var(--br-border);
     border-radius: var(--br-border-radius);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+    transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
     overflow: hidden;
     padding: 1px;
     height: var(--br-item-height);

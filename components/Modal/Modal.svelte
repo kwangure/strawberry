@@ -54,7 +54,7 @@
         left: 0;
         z-index: 1050;
         background-color: rgba(0,0,0,0.5);
-        transition: background-color 1s ease;
+        transition: background-color var(--br-transition-duration) ease;
     }
     .wrapper {
         width: 100vw;
@@ -68,7 +68,7 @@
         padding: 30px 30px;
         box-shadow: 0 7px 15px rgba(0,0,0,0.35);
         border-radius: var(--br-border-radius);
-        transition: background-color 0.3s ease;
+        transition: background-color var(--br-transition-duration) ease;
         max-width: 90%;
     }
     .modal.closable {
