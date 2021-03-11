@@ -9,7 +9,6 @@
     export let placeholder = "";
     export let placement = "bottomLeft";
     export let value = "";
-    export let disabled = false;
     export let compare = (a, b) => a === b;
     export let format = ({optionDisplayText}) => optionDisplayText;
 
@@ -68,27 +67,13 @@
 
 <div class="berry-select" >
     <Dropdown {placement}>
-        <div slot="button" class:disabled>
-            <Input bind:value={displayText} {...$$restProps} readonly>
-                <slot name="label" slot="label"></slot>
-                <div slot="postfix">
-                    <Icon path={mdiChevronDown}></Icon>
-                </div>
-            </Input>
-        </div>
+        <Input slot="button" bind:value={displayText} {...$$restProps} readonly>
+            <slot name="label" slot="label"></slot>
+            <Icon slot="postfix" path={mdiChevronDown}></Icon>
+        </Input>
         <slot></slot>
     </Dropdown>
 </div>
-
-<style>
-    [slot="postfix"] {
-        all: inherit;
-    }
-    [slot="button"].disabled {
-        pointer-events: none;
-        cursor: not-allowed;
-    }
-</style>
 
 <script context="module">
     export const ACTIVE_OPTION = "select-active-option";
