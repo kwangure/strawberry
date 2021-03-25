@@ -1,4 +1,5 @@
 <script>
+    import { browser } from "$app/env";
     import Button from "$components/Button";
     import Input, { Number, Password } from "$components/Input";
     import Checkbox, { Group as CheckboxGroup } from "$components/Input/Checkbox";
@@ -32,18 +33,20 @@
         <Tooltip let:reference>
             <span slot="popup">Yes, Papa. Drop me</span>
             <div class="tooltip" use:reference>
-                <Dropdown>
-                    <slot slot="button">
-                        <Button>
-                            <Icon path={mdiClose}/>
-                            Hover me. Tooltip me! Click me. Drop me!
-                        </Button>
-                    </slot>
-                    <Item>Purple.</Item>
-                    <Item>Penguin.</Item>
-                    <Item>Has.</Item>
-                    <Item>Dropped.</Item>
-                </Dropdown>
+                {#if browser}
+                    <Dropdown>
+                        <slot slot="button">
+                            <Button>
+                                <Icon path={mdiClose}/>
+                                Hover me. Tooltip me! Click me. Drop me!
+                            </Button>
+                        </slot>
+                        <Item>Purple.</Item>
+                        <Item>Penguin.</Item>
+                        <Item>Has.</Item>
+                        <Item>Dropped.</Item>
+                    </Dropdown>
+                {/if}
             </div>
         </Tooltip>
         <Input placeholder="Write me! I'm text input">
@@ -87,9 +90,11 @@
         <Password placeholder="Steal me! I'm password">
             <span slot="label">Steal me! I'm password</span>
         </Password>
-        <Select placeholder="Like I said..." label="Pick me! I'm smart.">
-            <Option value={"testicle"}>Testicle Rainbow</Option>
-        </Select>
+        {#if browser}
+            <Select placeholder="Like I said..." label="Pick me! I'm smart.">
+                <Option value={"testicle"}>Testicle Rainbow</Option>
+            </Select>
+        {/if}
         <Notification message="Prepare yee the way!"></Notification>
         <Modal bind:visible>
             <span slot="content">

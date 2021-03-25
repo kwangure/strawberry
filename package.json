@@ -4,8 +4,10 @@
     "description": "A set of svelte components",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "vite build",
-        "dev": "vite",
+        "build": "svelte-kit build",
+        "dev": "svelte-kit dev",
+        "start": "svelte-kit start",
+        "lint": "eslint .",
         "release": "standard-version -a",
         "publish": "git push --follow-tags origin master"
     },
@@ -16,17 +18,17 @@
         "fuzzy": "^0.1.3",
         "postcss-custom-properties": "^9.2.0",
         "postcss-import": "^12.0.1",
-        "svelte-preprocess": "^3.9.12",
         "uid": "^1.0.0"
     },
     "devDependencies": {
-        "@kwangure/svelte-pagejs-router": "^0.1.7",
+        "@sveltejs/adapter-node": "^1.0.0-next.10",
+        "@sveltejs/kit": "^1.0.0-next.59",
         "eslint": "^6.8.0",
-        "eslint-plugin-svelte3": "^2.7.3",
-        "rollup-plugin-svelte-hot": "^0.13.0",
+        "eslint-plugin-svelte3": "^3.1.2",
         "standard-version": "^9.1.0",
         "svelte": "^3.35.0",
-        "vite": "^2.0.0-beta.60"
+        "svelte-preprocess": "^4.6.9",
+        "vite": "^2.1.3"
     },
     "peerDependencies": {
         "svelte": "^3.35.1"

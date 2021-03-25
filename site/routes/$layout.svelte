@@ -4,7 +4,7 @@
 </script>
 
 <div class="app-layout">
-    <Nav on:navigate/>
+    <Nav/>
     <slot></slot>
 </div>
 
