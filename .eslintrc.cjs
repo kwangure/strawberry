@@ -9,7 +9,9 @@ module.exports = {
                 map: [
                     ["~@components", "./components/"],
                     ["~@css", "./css/"],
-                    ["$app", "./.svelte/dev/runtime/app/"],
+                    // escape `$` to work around eslint's Regex matching
+                    ["\\$app", "./.svelte/dev/runtime/app/"],
+                    ["\\$lib", "site/lib/"],
                 ],
                 extensions: [".js", ".svelte", ".json"],
             },
