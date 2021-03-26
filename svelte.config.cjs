@@ -1,13 +1,21 @@
-const node = require("@sveltejs/adapter-node");
 const path = require("path");
 const pkg = require("./package.json");
 const { preprocessConfig } = require("./config/index.cjs");
+const static = require("@sveltejs/adapter-static");
 
-/** @type {import('@sveltejs/kit').Config} */
+const MODE = process.env.NODE_ENV;
+const DEV = MODE === "development";
+const PROD = MODE === "production";
+
+/** @type {import("@sveltejs/kit").Config} */
 module.exports = {
     preprocess: preprocessConfig,
     kit: {
-        adapter: node(),
+        appDir: "app",
+        adapter: static(),
+        paths: {
+			base: PROD ? "/strawberry" : "",
+		},
         files: {
             routes: "site/routes",
             template: "site/app.html",
