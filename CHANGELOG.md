@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.26.0](https://github.com/kwangure/strawberry/compare/v0.25.0...v0.26.0) (2021-03-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* change preprocess to object
+* use shared eslint-config
+* require the v3.35.1 svelte
+
+### Features
+
+* change preprocess to object ([6ae5601](https://github.com/kwangure/strawberry/commit/6ae5601332ece66030c71aedece79ac668909941))
+* require the v3.35.1 svelte ([eb75d58](https://github.com/kwangure/strawberry/commit/eb75d58814444c987c62ec06c226e3372bb01d3a))
+* use shared eslint-config ([ab068a3](https://github.com/kwangure/strawberry/commit/ab068a3a041a005333a87a44783991b0b5e91c53))
+* use shared transition duration ([e562ef1](https://github.com/kwangure/strawberry/commit/e562ef1a17808cb308537de7f5670bbf72bc1e3d))
+* use sveltekit for site ([21d4210](https://github.com/kwangure/strawberry/commit/21d4210604b12142024dc0b36642dc677466f570))
+
+
+### Bug Fixes
+
+* depend on svelte@^3.35.0 ([e68b90e](https://github.com/kwangure/strawberry/commit/e68b90ef4bdbfe004ddc9d67d413b6f685413788))
+
 ## [0.25.0](https://github.com/kwangure/strawberry/compare/v0.24.0...v0.25.0) (2021-01-24)
 
 
