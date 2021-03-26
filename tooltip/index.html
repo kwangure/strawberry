@@ -12,8 +12,9 @@
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-d5522c54.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-02bd181d.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c767c60c.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/index.svelte-da1b3c74.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/tooltip.svelte-0e490574.js">
 			<link rel="stylesheet" href="/strawberry/app/assets/start-a19f5555.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/pages/tooltip.svelte-b7ee0f4d.css">
 
 
 		<script type="module">
@@ -25,11 +26,11 @@
 				error: null,
 				session: void 0,
 				nodes: [
-					import("/strawberry/app/pages/index.svelte-da1b3c74.js")
+					import("/strawberry/app/pages/tooltip.svelte-0e490574.js")
 				],
 				page: {
 					host: location.host,
-					path: "/",
+					path: "/tooltip",
 					query: new URLSearchParams(""),
 					params: {}
 				}
@@ -60,21 +61,14 @@
 </div>
                 <div class="sidebar-item svelte-18z72r2"><a href="/select">Select</a>
 </div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/tooltip">Tooltip</a>
+                <div class="sidebar-item svelte-18z72r2 active"><a href="/tooltip">Tooltip</a>
 </div></div>
     
 </div></div>
-        <div class="right svelte-qkpx1g">General usage
-<pre><code>
-&lt;!-- component.svelte --&gt;
-&lt;script&gt;
-    import Button from &quot;@kwangure/strawberry/components/Button&quot;;
-&lt;/script&gt;
+        <div class="right svelte-qkpx1g"><div class="tooltip"></div>
 
-&lt;Button on:click=&quot;{() =&gt; alert(&#39;strawberry&#39;)}&quot;&gt;
-    Click me!
-&lt;/Button&gt;
-    </code></pre></div></div>
+<div class="berry-tooltip svelte-92otam"><span slot="popup">Yes, Papa. Drop me</span>
+</div></div></div>
 </div>
 
 

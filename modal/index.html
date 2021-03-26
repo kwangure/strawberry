@@ -12,8 +12,15 @@
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-d5522c54.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-02bd181d.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c767c60c.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/index.svelte-da1b3c74.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/modal.svelte-04017543.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Tabs.svelte-23a25ff8.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-bb327692.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-94c9e8d2.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/mdi-7d43e9a7.js">
 			<link rel="stylesheet" href="/strawberry/app/assets/start-a19f5555.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/pages/modal.svelte-ed8948ab.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Tabs.svelte-2c077b5b.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Icon-937a1298.css">
 
 
 		<script type="module">
@@ -25,11 +32,11 @@
 				error: null,
 				session: void 0,
 				nodes: [
-					import("/strawberry/app/pages/index.svelte-da1b3c74.js")
+					import("/strawberry/app/pages/modal.svelte-04017543.js")
 				],
 				page: {
 					host: location.host,
-					path: "/",
+					path: "/modal",
 					query: new URLSearchParams(""),
 					params: {}
 				}
@@ -54,7 +61,7 @@
 </div>
                 <div class="sidebar-item svelte-18z72r2"><a href="/list">List</a>
 </div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/modal">Modal</a>
+                <div class="sidebar-item svelte-18z72r2 active"><a href="/modal">Modal</a>
 </div>
                 <div class="sidebar-item svelte-18z72r2"><a href="/notification">Notification</a>
 </div>
@@ -64,17 +71,12 @@
 </div></div>
     
 </div></div>
-        <div class="right svelte-qkpx1g">General usage
-<pre><code>
-&lt;!-- component.svelte --&gt;
-&lt;script&gt;
-    import Button from &quot;@kwangure/strawberry/components/Button&quot;;
-&lt;/script&gt;
+        <div class="right svelte-qkpx1g"><button class="berry-button   slot_used   svelte-17hi57g"><div class="content-wrapper svelte-17hi57g">
+        Open modal
+</div>
+</button>
 
-&lt;Button on:click=&quot;{() =&gt; alert(&#39;strawberry&#39;)}&quot;&gt;
-    Click me!
-&lt;/Button&gt;
-    </code></pre></div></div>
+</div></div>
 </div>
 
 

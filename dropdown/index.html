@@ -12,8 +12,14 @@
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-d5522c54.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-02bd181d.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c767c60c.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/index.svelte-da1b3c74.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/dropdown.svelte-dd5c485a.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Item.svelte-81a1015d.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Tabs.svelte-23a25ff8.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-bb327692.js">
 			<link rel="stylesheet" href="/strawberry/app/assets/start-a19f5555.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Item.svelte-08a5a91d.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Tabs.svelte-2c077b5b.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Icon-937a1298.css">
 
 
 		<script type="module">
@@ -25,11 +31,11 @@
 				error: null,
 				session: void 0,
 				nodes: [
-					import("/strawberry/app/pages/index.svelte-da1b3c74.js")
+					import("/strawberry/app/pages/dropdown.svelte-dd5c485a.js")
 				],
 				page: {
 					host: location.host,
-					path: "/",
+					path: "/dropdown",
 					query: new URLSearchParams(""),
 					params: {}
 				}
@@ -46,7 +52,7 @@
     <div class="components svelte-qkpx1g"><div class="left"><div class="berry-sidebar svelte-sgxfd6">
     <div class="sidebar-items"><div class="sidebar-item svelte-18z72r2"><a href="/button">Button</a>
 </div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/dropdown">Dropdown</a>
+                <div class="sidebar-item svelte-18z72r2 active"><a href="/dropdown">Dropdown</a>
 </div>
                 <div class="sidebar-item svelte-18z72r2"><a href="/icon">Icon</a>
 </div>
@@ -64,17 +70,7 @@
 </div></div>
     
 </div></div>
-        <div class="right svelte-qkpx1g">General usage
-<pre><code>
-&lt;!-- component.svelte --&gt;
-&lt;script&gt;
-    import Button from &quot;@kwangure/strawberry/components/Button&quot;;
-&lt;/script&gt;
-
-&lt;Button on:click=&quot;{() =&gt; alert(&#39;strawberry&#39;)}&quot;&gt;
-    Click me!
-&lt;/Button&gt;
-    </code></pre></div></div>
+        <div class="right svelte-qkpx1g"></div></div>
 </div>
 
 

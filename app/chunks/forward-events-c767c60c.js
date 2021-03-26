@@ -1,0 +1,1 @@
+import{O as s,P as c,Q as o}from"./index-d5522c54.js";function r(){const r=c();return c=>{const a=[];for(const n in r.$$.callbacks)if({}.hasOwnProperty.call(r.$$.callbacks,n)){const t=s(c,n,(s=>{o(r,s)}));a.push(t)}return{destroy:()=>{a.forEach((s=>s()))}}}}export{r as c};
