@@ -123,4 +123,7 @@
     .modal-content {
         margin-bottom: 10px;
     }
+    .tooltip {
+        width: fit-content;
+    }
 </style>
