@@ -1,9 +1,8 @@
-const sveltePreprocess = require("svelte-preprocess");
 const cssnano = require("cssnano");
 const cssImport = require("postcss-import");
 const cssVars = require("postcss-custom-properties");
 
-module.exports.preprocessConfig = sveltePreprocess({
+module.exports.preprocessConfig = {
     postcss: {
         plugins: [
             cssImport(),
@@ -13,4 +12,4 @@ module.exports.preprocessConfig = sveltePreprocess({
             }),
         ],
     },
-});
+};

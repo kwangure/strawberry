@@ -28,6 +28,27 @@ npm i -D @kwangure/strawberry
     Click me!
 </Button>
 ```
+You'll need to preprocess the components with postcss. Here's what it might look like depending on whether
+you're using `@sveltejs/kit` or `rollup`.
+##### @sveltejs/kit
+```javascript
+// svelte.config.js
+const { preprocessConfig } = require("@kwangure/strawberry/config");
+
+/** @type {import("@sveltejs/kit").Config} */
+module.exports = {
+    preprocess: sveltePreprocess({
+        postcss: {
+            plugins: [...preprocessConfig.postcss.plugins],
+        }
+    }),
+    kit: {
+        ...
+    }
+}
+...
+```
+##### Rollup
 ```javascript
 // rollup.config.js
 import { preprocessConfig } from "@kwangure/strawberry/config";
@@ -36,7 +57,7 @@ import replace from "@rollup/plugin-replace";
 ...
 plugins: [
     replace({
-        // Tip: Vite replaces these vars Out of the Box™
+        // Tip: SvelteKit replaces these vars Out of the Box™
         'import.meta.env.MODE': () => JSON.stringify(process.env.NODE_ENV),
         'import.meta.env.DEV': () => String(process.env.NODE_ENV === 'development'),
         'import.meta.env.PROD': () => String(process.env.NODE_ENV === 'production'),
@@ -44,7 +65,7 @@ plugins: [
     // Compile strawberry
     svelte({
         ...
-        preprocess: preprocessConfig,
+        preprocess: sveltePreprocess(preprocessConfig),
         include: "@kwangure/strawberry/**"
         ...
     }),
