@@ -7,8 +7,12 @@
     export let group = [];
 
     setContext(checkboxGroup, {
-        add: (value) => group = [...group, value],
-        remove: (value) => group = group.filter(v => v === value),
+        add: (value) => {
+            group = [...group, value];
+        },
+        remove: (value) => {
+            group = group.filter((v) => v === value);
+        },
     });
 
     if (import.meta.DEV && !Array.isArray(group)) {

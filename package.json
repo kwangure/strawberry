@@ -21,9 +21,13 @@
         "uid": "^1.0.0"
     },
     "devDependencies": {
+        "@kwangure/eslint-config-svelte": "^0.1.11",
+        "@rollup/plugin-eslint": "^8.0.1",
         "@sveltejs/adapter-node": "^1.0.0-next.10",
         "@sveltejs/kit": "^1.0.0-next.59",
-        "eslint": "^6.8.0",
+        "eslint": "^7.22.0",
+        "eslint-import-resolver-alias": "^1.1.2",
+        "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-svelte3": "^3.1.2",
         "standard-version": "^9.1.0",
         "svelte": "^3.35.0",
@@ -41,5 +45,6 @@
     "bugs": {
         "url": "https://github.com/kwangure/strawberry/issues"
     },
-    "homepage": "https://github.com/kwangure/strawberry#readme"
+    "homepage": "https://github.com/kwangure/strawberry#readme",
+    "type": "module"
 }

@@ -17,7 +17,8 @@
     function createStyle(flip, spin) {
         const horizontal = flip.horizontal ? -1 : 1;
         const vertical = flip.vertical ? -1 : 1;
-        style = `transform: rotate(${rotate}deg) scale(${horizontal}, ${vertical});`;
+        style
+            = `transform: rotate(${rotate}deg) scale(${horizontal}, ${vertical});`;
 
         const { direction = "", duration = "2s" } = spin;
         if (direction) {

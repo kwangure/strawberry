@@ -5,7 +5,7 @@
     export let visible = false;
 
     function valid(placement) {
-        let positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+        const positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
         return positions.includes(placement);
     }
 
@@ -16,16 +16,18 @@
 
     let dropdownTarget = null;
 
-    function handleDocumentClick(e) {
-        if(visible && !dropdownTarget.contains(e.target)) {
+    function handleDocumentClick(event) {
+        if (visible && !dropdownTarget.contains(event.target)) {
             visible = false;
         }
     }
 
     $: {
-        visible
-            ? document.addEventListener("click", handleDocumentClick, true)
-            : document.removeEventListener("click", handleDocumentClick);
+        if (visible) {
+            document.addEventListener("click", handleDocumentClick, true);
+        } else {
+            document.removeEventListener("click", handleDocumentClick);
+        }
     }
 
     onDestroy(() => {
@@ -34,7 +36,9 @@
 </script>
 
 <div class="berry-dropdown">
-    <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => visible = !visible}>
+    <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => {
+ visible = !visible;
+}}>
         <slot name="button" {visible}/>
     </div>
     <div class="dropdown-menu" class:bottom class:left class:right class:top class:visible>

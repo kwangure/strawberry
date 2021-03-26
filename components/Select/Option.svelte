@@ -1,5 +1,9 @@
 <script>
-    import { ACTIVE_OPTION, OPTIONS_STORE, UPDATE_VALUE_FUNC } from "./Select.svelte";
+    import {
+        ACTIVE_OPTION,
+        OPTIONS_STORE,
+        UPDATE_VALUE_FUNC,
+    } from "./Select.svelte";
     import { getContext } from "svelte";
     import uid from "uid";
 
@@ -14,16 +18,20 @@
 
     $: changeOptionValue(option, value);
 
-    function changeOptionValue(option, value){
+    function changeOptionValue(option, value) {
         if (option) {
-            optionValue = { displayText: option.innerText, id, value };
+            optionValue = {
+                displayText: option.innerText,
+                id: id,
+                value: value,
+            };
             $options = $options.set(id, optionValue);
         }
     }
 </script>
 
-<div bind:this={option} class="berry-option menu-item" 
-    class:active={id === $activeOptionId} 
+<div bind:this={option} class="berry-option menu-item"
+    class:active={id === $activeOptionId}
     on:mousedown={() => updateSelectValueFn(optionValue)}>
     <slot></slot>
 </div>

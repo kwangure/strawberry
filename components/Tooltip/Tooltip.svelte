@@ -1,6 +1,6 @@
 <script>
-    import { createPopper } from "@popperjs/core";
     import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
+    import { createPopper } from "@popperjs/core";
 
     export let placement = "bottom";
     export let followMouse = false;
@@ -8,8 +8,12 @@
     let referenceElement;
     let showTooltip = false;
 
-    const handleShow = () => showTooltip = true;
-    const handleHide =  () => showTooltip = false;
+    function handleShow() {
+        showTooltip = true;
+    }
+    function handleHide() {
+        showTooltip = false;
+    }
 
     function createPopup(popup, referenceElement) {
         if (!popup || !referenceElement) return;
@@ -18,18 +22,22 @@
             ? mousePosInBoundingRect(referenceElement)
             : referenceElement;
         const popperInstance = createPopper(reference, popup, {
-            placement,
+            placement: placement,
             modifiers: [{
                 name: "offset",
-                options: { offset: [5, 5] },
+                options: { offset: [5, 5]},
             }],
         });
 
         const showEvents = ["focus", "mouseenter"];
         const hideEvents = ["blur", "mouseleave"];
 
-        showEvents.forEach(e => toggleListener(referenceElement, e, handleShow, true));
-        hideEvents.forEach(e => toggleListener(referenceElement, e, handleHide, true));
+        showEvents.forEach((event) => {
+            toggleListener(referenceElement, event, handleShow, true);
+        });
+        hideEvents.forEach((event) => {
+            toggleListener(referenceElement, event, handleHide, true);
+        });
 
         if (followMouse) {
             reference.onchange(popperInstance.update);
@@ -41,8 +49,12 @@
                 createPopup(popup, reference);
             },
             destroy: () => {
-                showEvents.forEach(e => toggleListener(referenceElement, e, handleShow, false));
-                hideEvents.forEach(e => toggleListener(referenceElement, e, handleHide, false));
+                showEvents.forEach((event) => {
+                    toggleListener(referenceElement, event, handleShow, false);
+                });
+                hideEvents.forEach((event) => {
+                    toggleListener(referenceElement, event, handleHide, false);
+                });
                 popperInstance.destroy();
             },
         };

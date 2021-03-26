@@ -1,5 +1,6 @@
 <script>
-	import "$css/standardDOM";
+	import "~@css/common.css";
+	import "~@css/standardDOM.css";
 
 	export let status;
 	export let error;

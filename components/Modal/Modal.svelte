@@ -1,9 +1,9 @@
 <script>
     import Button from "../Button";
-    import { mdiClose } from "@mdi/js";
+    import { createEventDispatcher } from "svelte";
     import { crossscale } from "../../utils/crosstransition.js";
     import { fade } from "svelte/transition";
-    import { createEventDispatcher } from "svelte";
+    import { mdiClose } from "@mdi/js";
 
     export let visible = false;
     export let closable = true;
@@ -19,21 +19,29 @@
         visible = false;
     }
 
-    $: visible ? dispatch("open") : dispatch("close");
+    $: if (visible) {
+        dispatch("open");
+    } else {
+        dispatch("close");
+    }
 </script>
 
 {#if visible}
     <div class="berry-modal overlay" transition:fade
-        on:click|self={() => visible = closable ? false : visible}>
+        on:click|self={() => {
+ visible = closable ? false : visible;
+}}>
         <div class="wrapper">
-            <div class="modal" class:closable out:send="{{key: 'modal'}}" in:receive="{{key: 'modal'}}">
+            <div class="modal" class:closable out:send="{{ key: 'modal' }}" in:receive="{{ key: 'modal' }}">
                 <div class="header">
                     <div class="header-content">
                         <slot name="header"></slot>
                     </div>
                     {#if closable}
                         <div class="close">
-                            <Button icon={mdiClose} on:click={()=> visible = false}/>
+                            <Button icon={mdiClose} on:click={() => {
+ visible = false;
+}}/>
                         </div>
                     {/if}
                 </div>

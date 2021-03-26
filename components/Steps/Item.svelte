@@ -41,7 +41,7 @@
         background-color: var(--br-primary-light);
         color: var(--br-primary);
     }
-    .step-item + .step-item {
+    .step-item + :global(.step-item) {
         margin-left: 10px;
     }
     .progress-label {

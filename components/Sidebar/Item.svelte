@@ -40,7 +40,7 @@
         background-color: var(--br-primary-light);
         color: var(--br-primary);
     }
-    .sidebar-item + .sidebar-item {
+    .sidebar-item + :global(.sidebar-item) {
         margin-top: 3px;
     }
 </style>

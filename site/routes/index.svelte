@@ -1,18 +1,17 @@
 <script>
-    import { browser } from "$app/env";
-    import Button from "$components/Button";
-    import Input, { Number, Password } from "$components/Input";
-    import Checkbox, { Group as CheckboxGroup } from "$components/Input/Checkbox";
-    import Radio, { Group as RadioGroup } from "$components/Input/Radio";
-    import Select, { Option } from "$components/Select";
-    import Dropdown, { Item } from "$components/Dropdown";
-    import Icon from "$components/Icon";
-    import Modal from "$components/Modal";
-    import Notification from "$components/Notification";
-    import Sidebar, { Item as SidebarItem } from "$components/Sidebar";
-    import Tooltip from "$components/Tooltip";
-
+    import Checkbox, { Group as CheckboxGroup } from "~@components/Input/Checkbox";
+    import Dropdown, { Item } from "~@components/Dropdown";
+    import Input, { Number, Password } from "~@components/Input";
+    import Radio, { Group as RadioGroup } from "~@components/Input/Radio";
+    import Select, { Option } from "~@components/Select";
+    import Sidebar, { Item as SidebarItem } from "~@components/Sidebar";
+    import { browser } from "$app/env"; // eslint-disable-line import/no-unresolved
+    import Button from "~@components/Button";
+    import Icon from "~@components/Icon";
     import { mdiClose } from "@mdi/js";
+    import Modal from "~@components/Modal";
+    import Notification from "~@components/Notification";
+    import Tooltip from "~@components/Tooltip";
 
     let radioValue = "";
     let checkboxFruits = [];
@@ -23,7 +22,9 @@
     <div class="left">
         <Sidebar>
             <SidebarItem>Sidebar Item 1</SidebarItem>
-            <SidebarItem active on:click={() => visible = true}>
+            <SidebarItem active on:click={() => {
+ visible = true;
+}}>
                 Launch modal here! Click!!
             </SidebarItem>
             <SidebarItem>Blastoff!</SidebarItem>

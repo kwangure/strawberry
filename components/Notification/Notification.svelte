@@ -1,8 +1,9 @@
 <script>
+    import { fly } from "svelte/transition";
     import Icon from "../Icon";
     import { mdiClose } from "@mdi/js";
-    import { fly } from "svelte/transition";
     import { onMount } from "svelte";
+
     export let removeAfter = 4000;
     export let duration = 500;
     export let visible = false;
@@ -10,17 +11,21 @@
 
     onMount(() => {
         visible = true;
-        setTimeout(() => visible = false, removeAfter);
+        setTimeout(() => {
+            visible = false;
+        }, removeAfter);
     });
 </script>
 
 {#if visible}
     <div class="berry-notification wrapper">
-        <div class="notification" transition:fly={{ x: 200, duration}}>
+        <div class="notification" transition:fly={{ x: 200, duration: duration }}>
             <div class="message">
                 {message}
             </div>
-            <div class="close" on:click={() => visible = false}>
+            <div class="close" on:click={() => {
+ visible = false;
+}}>
                 <Icon path={mdiClose}></Icon>
             </div>
         </div>

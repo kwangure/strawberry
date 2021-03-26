@@ -2,25 +2,27 @@ import { cubicOut } from "svelte/easing";
 
 export function assign(tar, src) {
     for (const k in src) {
-        tar[k] = src[k];
+        if ({}.hasOwnProperty.call(src, k)) {
+            tar[k] = src[k];
+        }
     }
     return tar;
 }
 
-export function is_function(thing) {
+export function isFunction(thing) {
     return typeof thing === "function";
 }
 
 // https://github.com/sveltejs/svelte/blob/master/src/runtime/transition/index.ts
 // with added optional fading
 export function crosstransition({ fallback, ...defaults }) {
-    const to_receive = new Map();
-    const to_send = new Map();
+    const toReceive = new Map();
+    const toSend = new Map();
 
     function crosstransition(from, node, params) {
         const {
             delay = 0,
-            duration = d => Math.sqrt(d) * 30,
+            duration = (d) => Math.sqrt(d) * 30,
             easing = cubicOut,
             fade = true,
         } = assign(assign({}, defaults), params);
@@ -30,21 +32,23 @@ export function crosstransition({ fallback, ...defaults }) {
         const dy = from.top - to.top;
         const dw = from.width / to.width;
         const dh = from.height / to.height;
-        const d = Math.sqrt(dx * dx + dy * dy);
+        const d = Math.sqrt((dx * dx) + (dy * dy));
 
         const style = getComputedStyle(node);
         const transform = style.transform === "none" ? "" : style.transform;
-        const opacity = +style.opacity;
+        const opacity = Number(style.opacity);
 
         return {
-            delay,
-            duration: is_function(duration) ? duration(d) : duration,
-            easing,
+            delay: delay,
+            duration: isFunction(duration) ? duration(d) : duration,
+            easing: easing,
+            /* eslint-disable max-len */
             css: (t, u) => `
 				opacity: ${fade ? t * 1.5 * opacity : opacity};
 				transform-origin: top left;
-				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t + (1 - t) * dw}, ${t + (1 - t) * dh});
+				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t + ((1 - t) * dw)}, ${t + ((1 - t) * dh)});
 			`,
+            /* eslint-enable max-len */
         };
     }
 
@@ -72,8 +76,8 @@ export function crosstransition({ fallback, ...defaults }) {
     }
 
     return [
-        transition(to_send, to_receive, false),
-        transition(to_receive, to_send, true),
+        transition(toSend, toReceive, false),
+        transition(toReceive, toSend, true),
     ];
 }
 

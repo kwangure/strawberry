@@ -13,19 +13,22 @@
 
     let blurred = false;
 
-    $: is_invalid = blurred && invalid(value);
+    $: isInvalid = blurred && invalid(value);
 </script>
 
 <Container class="berry-input-password" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
-        <input bind:value class:is_invalid on:blur={() => blurred = true}
+        <input bind:value class:is_invalid={isInvalid}
+            on:blur={() => {
+ blurred = true;
+}}
             use:forward type='password' id={labelId}
             use:focusElement={focus} {...$$restProps}/>
     </div>
-    {#if is_invalid}
+    {#if isInvalid}
         <div class="invalid" transition:slide>
-            {is_invalid}
+            {isInvalid}
         </div>
     {/if}
 </Container>

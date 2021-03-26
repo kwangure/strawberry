@@ -12,7 +12,7 @@
     <div class="sidebar-items">
         {#each items as item, index}
             <Item on:click={item.onclick} active={item.active}>
-                <slot name="item" item={{...item, index}}></slot>
+                <slot name="item" item={{ ...item, index }}></slot>
             </Item>
         {:else}
             <slot/>

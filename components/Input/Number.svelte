@@ -1,5 +1,5 @@
 <script>
-    import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
+    import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
     import Container from "./Container.svelte";
     import { createEventForwarder } from "../../utils/forward-events.js";
     import { focusElement } from "./actions";
@@ -30,12 +30,12 @@
         return value;
     }
 
-    function handleKeydown(e) {
-        if(e.key === "ArrowUp"){
-            e.preventDefault();
+    function handleKeydown(event) {
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
             value = increment(value, step);
-        } else if (e.key === "ArrowDown") {
-            e.preventDefault();
+        } else if (event.key === "ArrowDown") {
+            event.preventDefault();
             value = decrement(value, step);
         }
     }
@@ -56,15 +56,19 @@
     }
 
     const handleInputOptions = {
-        pattern: /^-?\d*(\.\d*)?$/,
+        pattern: /^-?\d*(?<decimal>\.\d*)?$/u,
     };
 </script>
 
 <Container class="berry-input-number" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
-        <input bind:value on:blur={()=> focus = false}
-            on:change={() => value = clamp(value, min, max)}
+        <input bind:value on:blur={() => {
+ focus = false;
+}}
+            on:change={() => {
+ value = clamp(value, min, max);
+}}
             readonly={stepOnly}
             on:keydown={handleKeydown} use:forward use:handleInput={handleInputOptions}
             type="text" id={labelId} use:focusElement={focus} {...$$restProps}>

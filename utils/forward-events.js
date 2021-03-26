@@ -1,3 +1,4 @@
+// eslint-disable-next-line camelcase
 import { bubble, get_current_component, listen } from "svelte/internal";
 
 export function createEventForwarder() {
@@ -5,14 +6,18 @@ export function createEventForwarder() {
     return (node) => {
         const listeners = [];
 
-        for(const event in component.$$.callbacks) {
-            const removeListener = listen(node, event, e =>  bubble(component, e));
-            listeners.push(removeListener);
+        for (const event in component.$$.callbacks) {
+            if ({}.hasOwnProperty.call(component.$$.callbacks, event)) {
+                const removeListener = listen(node, event, (event) => {
+                    bubble(component, event);
+                });
+                listeners.push(removeListener);
+            }
         }
 
         return {
             destroy: () => {
-                listeners.forEach(removeListener => removeListener());
+                listeners.forEach((removeListener) => removeListener());
             },
         };
     };

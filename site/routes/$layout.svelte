@@ -1,5 +1,7 @@
 <script>
-    import "$css/standardDOM";
+    import "~@css/common.css";
+import "~@css/standardDOM.css";
+
     import Nav from "./__layout.svelte/Nav.svelte";
 </script>
 

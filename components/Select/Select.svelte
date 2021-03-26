@@ -1,16 +1,16 @@
 <script>
     import { createEventDispatcher, setContext, tick } from "svelte";
+    import Dropdown from "../Dropdown";
+    import Icon from "../Icon";
+    import Input from "../Input";
     import { mdiChevronDown } from "@mdi/js";
     import { writable } from "svelte/store";
-    import Icon from "../Icon";
-    import Dropdown from "../Dropdown";
-    import Input from "../Input";
 
     export let placeholder = "";
     export let placement = "bottomLeft";
     export let value = "";
     export let compare = (a, b) => a === b;
-    export let format = ({optionDisplayText}) => optionDisplayText;
+    export let format = ({ optionDisplayText }) => optionDisplayText;
 
     const dispatch = createEventDispatcher();
     const activeOptionId = writable("");
@@ -19,14 +19,14 @@
     let displayText = "";
 
     $: handleParentChangedValue(value);
-    $: handleParentChangedOptions($options)
+    $: handleParentChangedOptions($options);
 
     function handleParentChangedOptions(options) {
         syncOptionsWithValue(options, value);
     }
 
     function syncOptionsWithValue(options, value) {
-        for (const [_id, option] of options) {
+        for (const [, option] of options) {
             if (compare(option.value, value)) {
                 displayText = format({
                     optionDisplayText: option.displayText,
@@ -46,13 +46,17 @@
 
     function handleParentChangedValue(value) {
         if (valueChangedByOption) return;
-        syncOptionsWithValue($options, value)
+        syncOptionsWithValue($options, value);
     }
 
     async function updateSelectValue(option) {
         // update scoped vars from outside
-        value = option.value;
-        displayText =  format({ optionDisplayText: option.displayText, value });
+        ({ value } = option);
+        displayText = format({
+            optionDisplayText: option.displayText,
+            value: value,
+        });
+        // eslint-disable-next-line no-unused-vars
         $activeOptionId = option.id;
         valueChangedByOption = true;
         await tick();

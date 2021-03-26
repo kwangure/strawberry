@@ -10,9 +10,9 @@
 
     let textarea = null;
 
-    $: (focus && textarea) ? textarea.focus() : "";
+    $: if (focus && textarea) textarea.focus();
 
-    function autosize(){
+    function autosize() {
         const computed = getComputedStyle(textarea);
 
         let newHeight;
@@ -20,7 +20,7 @@
         newHeight += parseInt(computed.getPropertyValue("border-bottom-width"));
 
         newHeight += textarea.scrollHeight;
-        textarea.style.height =  `${newHeight}px`;
+        textarea.style.height = `${newHeight}px`;
     }
 </script>
 

@@ -1,8 +1,8 @@
 <script>
     import Container from "./Container.svelte";
-    import { slide } from "svelte/transition";
-    import { focusElement } from "./actions";
     import { createEventForwarder } from "../../utils/forward-events.js";
+    import { focusElement } from "./actions";
+    import { slide } from "svelte/transition";
 
     export let hideLabel = false;
     export let value = "";
@@ -12,16 +12,16 @@
     const forward = createEventForwarder();
 
     function handleBlur() {
-        is_invalid = invalid(value);
+        isInvalid = invalid(value);
     }
 
-    let is_invalid = false;
+    let isInvalid = false;
 </script>
 
 <Container class="berry-input" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
-        <input bind:value class:is_invalid
+        <input bind:value class:isInvalid
             on:blur={handleBlur} use:forward
             on:keydown
             type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
@@ -31,9 +31,9 @@
             </div>
         {/if}
     </div>
-    {#if is_invalid}
+    {#if isInvalid}
         <div class="invalid" transition:slide>
-            {is_invalid}
+            {isInvalid}
         </div>
     {/if}
 </Container>

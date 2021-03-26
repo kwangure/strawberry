@@ -1,9 +1,9 @@
 <script>
+    import fuzzy from "fuzzy";
+    import Icon from "../../Icon";
+    import Item from "./Item.svelte";
     import { mdiChevronDown } from "@mdi/js";
     import { onDestroy } from "svelte";
-    import fuzzy from "fuzzy";
-    import Icon from "$components/Icon";
-    import Item from "./Item.svelte";
 
     export let options = [];
     export let placement = "bottomLeft";
@@ -19,51 +19,51 @@
     $: right = valid(placement) && placement.includes("Right");
 
     let dropdown = null;
-    let input    = null;
-    let visible  = false;
-    let extract  = option => option.html || option.text || option.value;
-    let text     = fallback ? extract(fallback) : "";
-    let fuzzy_options = {
+    let input = null;
+    let visible = false;
+    const extract = (option) => option.html || option.text || option.value;
+    let text = fallback ? extract(fallback) : "";
+    const fuzzyOptions = {
         pre: "<b>",
         post: "</b>",
-        extract,
+        extract: extract,
     };
 
-    $: search  = text === extract(fallback) ? "" : text;
-    $: filtered_options = fuzzy
-        .filter(search, options, fuzzy_options)
-        .map(({string, original}) => (
-            {...original, html: string}
+    $: search = text === extract(fallback) ? "" : text;
+    $: filteredOptions = fuzzy
+        .filter(search, options, fuzzyOptions)
+        .map(({ string, original }) => (
+            { ...original, html: string }
         ));
-    $: {
-        visible
-            ? document.addEventListener("click", handleDocumentClick)
-            : document.removeEventListener("click", handleDocumentClick);
+    $: if (visible) {
+        document.addEventListener("click", handleDocumentClick);
+    } else {
+        document.removeEventListener("click", handleDocumentClick);
     }
 
-    export function toggle(){
+    export function toggle() {
         visible = !visible;
-        visible ? input.focus() : "";
+        if (visible) input.focus();
     }
-    export function open(){
+    export function open() {
         visible = true;
         input.setSelectionRange(0, input.value.length);
     }
-    export function close(){
+    export function close() {
         visible = false;
     }
-    export function set(option){
-        value = option.value;
-        text  = option.text || option.value;
+    export function set(option) {
+        ({ value } = option);
+        text = option.text || option.value;
     }
 
-    function handleDocumentClick(e) {
-        if(!dropdown.contains(e.target)){
+    function handleDocumentClick(event) {
+        if (!dropdown.contains(event.target)) {
             visible = false;
         }
     }
     function valid(placement) {
-        let positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+        const positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
         return positions.includes(placement);
     }
 
@@ -89,7 +89,7 @@
                     {extract(fallback)}
                 </Item>
             {/if}
-            {#each filtered_options as option, index}
+            {#each filteredOptions as option, index}
                 <Item on:click={() => set(option)}>
                     {@html extract(option)}
                 </Item>
@@ -136,7 +136,7 @@
     .dropdown-menu.right {
         right: 0;
     }
-    .menu-item > * {
+    .menu-item > :global(*) {
         display: block;
     }
 </style>

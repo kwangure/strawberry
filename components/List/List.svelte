@@ -1,5 +1,5 @@
 <script>
-    import { isMacintosh, isIOS } from "../../utils/platform";
+    import { isIOS, isMacintosh } from "../../utils/platform";
     import { onDestroy } from "svelte";
     import { slide } from "svelte/transition";
 
@@ -17,17 +17,17 @@
 
     let lastShiftSelection = null;
 
-    let deselectItem = (index, e) => {
-        if(modifierPressed) {
+    const deselectItem = (index, event) => {
+        if (modifierPressed) {
             return;
         }
         // do not deselect if focus is lost to child element
-        if(e.target.contains(e.relatedTarget)) {
+        if (event.target.contains(event.relatedTarget)) {
             return;
         }
         // deselect one item if another item is focused on
         // otherwise deselect all
-        if(e.relatedTarget) {
+        if (event.relatedTarget) {
             items = items.map((item, i) => {
                 if (index === i) {
                     item.selected = false;
@@ -76,7 +76,7 @@
     }
 
     function selectMultiple(index) {
-        let focused = items.findIndex(item => item.focused);
+        const focused = items.findIndex((item) => item.focused);
 
         if (focused > -1) {
             // deselect previous shift selection below if new selection is made above
@@ -97,7 +97,7 @@
         }
     }
 
-    let selectItem = (index) => {
+    const selectItem = (index) => {
         // prevent focus & click events overwriting each other
         if (items[index].dirty) return;
         items[index].dirty = true;
@@ -118,72 +118,76 @@
         lastShiftSelection = Shift ? index : null;
     };
 
-    let borderBottom = i => {
-        let selected = items[i].selected;
-        let nextSelected = (items[i+1] && items[i+1].selected);
-        let noBorder = selected || nextSelected;
+    const borderBottom = (i) => {
+        const { selected } = items[i];
+        const nextSelected = (items[i+1] && items[i+1].selected);
+        const noBorder = selected || nextSelected;
         return !noBorder;
     };
 
-    let corneredTop = i => {
-        let roundtop = (i === 0) || (items[i-1] && !items[i-1].selected);
+    const corneredTop = (i) => {
+        const roundtop = (i === 0) || (items[i-1] && !items[i-1].selected);
         return !roundtop;
     };
-    let corneredBottom = i => {
-        let roundbottom = (i === items.length - 1)  || (items[i+1] && !items[i+1].selected);
+    const corneredBottom = (i) => {
+        const roundbottom
+            = (i === items.length - 1) || (items[i+1] && !items[i+1].selected);
         return !roundbottom;
     };
 
-    function CtrlOrCmdPressed(e) {
-        return ((isMacintosh || isIOS ) && e.key === "Meta") || e.key === "Control";
+    function CtrlOrCmdPressed(event) {
+        return ((isMacintosh || isIOS) && event.key === "Meta")
+            || event.key === "Control";
     }
 
-    function handleKeydown(e) {
-        e.stopPropagation();
-        if (CtrlOrCmdPressed(e)) {
+    function handleKeydown(event) {
+        event.stopPropagation();
+        if (CtrlOrCmdPressed(event)) {
             CtrlOrCmd = true;
         }
-        switch(e.key) {
-        case "Alt":
-            Alt = true;
-            break;
-        case "Backspace":
-            Backspace = true;
-            break;
-        case "Delete":
-            Delete = true;
-            break;
-        case "Shift":
-            Shift = true;
-            break;
+        switch (event.key) {
+            case "Alt":
+                Alt = true;
+                break;
+            case "Backspace":
+                Backspace = true;
+                break;
+            case "Delete":
+                Delete = true;
+                break;
+            case "Shift":
+                Shift = true;
+                break;
+            default:
         }
     }
 
-    function handleKeyup(e) {
-        e.stopPropagation();
-        if (CtrlOrCmdPressed(e)) {
+    function handleKeyup(event) {
+        event.stopPropagation();
+        if (CtrlOrCmdPressed(event)) {
             CtrlOrCmd = false;
         }
 
-        switch(e.key) {
-        case "Alt":
-            Alt = false;
-            break;
-        case "Backspace":
-            Backspace = false;
-            break;
-        case "Delete":
-            Delete = false;
-            break;
-        case "Shift":
-            Shift = false;
-            break;
+        switch (event.key) {
+            case "Alt":
+                Alt = false;
+                break;
+            case "Backspace":
+                Backspace = false;
+                break;
+            case "Delete":
+                Delete = false;
+                break;
+            case "Shift":
+                Shift = false;
+                break;
+            default:
         }
     }
 
     $: {
-        if(deletable && (Backspace || Delete)) {
-            items = items.filter(item => !item.selected);
+        if (deletable && (Backspace || Delete)) {
+            items = items.filter((item) => !item.selected);
         }
     }
 
@@ -203,14 +207,14 @@
             class:cornered-bottom={item.selected && corneredBottom(i)}
             class:focus-ring={modifierPressed && item.focused}
             class:selected={item.selected}
-            on:blur={(e) => deselectItem(i, e)}
+            on:blur={(event) => deselectItem(i, event)}
             on:click={() => selectItem(i)}
             on:focus={() => selectItem(i)}
             on:keydown={handleKeydown}
             on:keyup={handleKeyup}
             tabindex="0"
             transition:slide>
-            <slot name="item" item={{...item, index: i}}></slot>
+            <slot name="item" item={{ ...item, index: i }}></slot>
         </div>
     {:else}
         <slot name="empty"></slot>

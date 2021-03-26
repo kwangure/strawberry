@@ -1,7 +1,7 @@
 <script>
+    import { createEventForwarder } from "../../../utils/forward-events.js";
     import { getContext } from "svelte";
     import { radioGroup } from "./Group.svelte";
-    import { createEventForwarder } from "../../../utils/forward-events.js";
 
     export let value;
 
@@ -9,10 +9,11 @@
     const group = getContext(radioGroup);
 
     if (import.meta.env.DEV && !group) {
-        throw Error(`'Radio' must be wrapped in a radio 'Group' parent.`);
+        throw Error("'Radio' must be wrapped in a radio 'Group' parent.");
     }
 
     function handleChange() {
+        // eslint-disable-next-line no-invalid-this
         if (this.checked) {
             group.set(value);
         }

@@ -1,9 +1,9 @@
 <script>
-    import ButtonGroup from "./Group.svelte";
     import Button from "./Button.svelte";
+    import ButtonGroup from "./Group.svelte";
 
     export let tabs = [];
-    let selected = tabs[0];
+    let [selected] = tabs;
 </script>
 
 {#if tabs.length > 0}
@@ -11,8 +11,10 @@
         <div class="tab-header">
             <ButtonGroup>
                 {#each tabs as tab, i}
-                    <Button 
-                        on:click={(_event, index=i) => {selected = tabs[index]; }}
+                    <Button
+                        on:click={(_event, index=i) => {
+ selected = tabs[index];
+}}
                         active={selected === tabs[i]}>
                         {tab.title}
                     </Button>
