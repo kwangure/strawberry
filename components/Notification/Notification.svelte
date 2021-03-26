@@ -2,19 +2,21 @@
     import { fly } from "svelte/transition";
     import Icon from "../Icon";
     import { mdiClose } from "@mdi/js";
-    import { onMount } from "svelte";
 
     export let removeAfter = 4000;
     export let duration = 500;
     export let visible = false;
     export let message;
 
-    onMount(() => {
-        visible = true;
+    $: if (visible) {
         setTimeout(() => {
             visible = false;
         }, removeAfter);
-    });
+    }
+
+    function hide() {
+        visible = false;
+    }
 </script>
 
 {#if visible}
@@ -23,9 +25,7 @@
             <div class="message">
                 {message}
             </div>
-            <div class="close" on:click={() => {
- visible = false;
-}}>
+            <div class="close" on:click={hide}>
                 <Icon path={mdiClose}></Icon>
             </div>
         </div>
