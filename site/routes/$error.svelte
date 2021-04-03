@@ -23,3 +23,7 @@
 
 <p>{error.message}</p>
 
+{#if error.stack}
+	<pre>{error.stack}</pre>
+{/if}
+
