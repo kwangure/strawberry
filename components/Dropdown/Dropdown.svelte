@@ -1,60 +1,65 @@
 <script>
-    import { onDestroy } from "svelte";
+    import { createPopper } from "@popperjs/core";
 
-    export let placement = "bottomLeft";
+    export let placement = "bottom-start";
     export let visible = false;
 
-    function valid(placement) {
-        const positions = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
-        return positions.includes(placement);
+    function createPopup(popup, _) {
+        const reference = popup.previousElementSibling;
+        const popperInstance = createPopper(reference, popup, {
+            placement: placement,
+            modifiers: [{
+                name: "offset",
+                options: { offset: [0, 5]},
+            }],
+        });
+
+        return {
+            update: (visible) => {
+                if (visible) popperInstance.update();
+            },
+            destroy: () => {
+                popperInstance.destroy();
+            },
+        };
     }
 
-    $: top = valid(placement) && placement.includes("top");
-    $: bottom = valid(placement) && placement.includes("bottom");
-    $: left = valid(placement) && placement.includes("Left");
-    $: right = valid(placement) && placement.includes("Right");
+    function handleDocumentClick(popup) {
+        const reference = popup.previousElementSibling;
 
-    let dropdownTarget = null;
+        reference.addEventListener("click", () => {
+            if (visible) {
+                document.addEventListener("click", hideIfExternalClick, true);
+                visible = false;
+            } else {
+                document.removeEventListener("click", hideIfExternalClick);
+                visible = true;
+            }
+        });
 
-    function handleDocumentClick(event) {
-        if (visible && !dropdownTarget.contains(event.target)) {
-            visible = false;
+        function hideIfExternalClick(event) {
+            if (visible && !reference.contains(event.target)) {
+                visible = false;
+            }
         }
-    }
 
-    $: {
-        if (visible) {
-            document.addEventListener("click", handleDocumentClick, true);
-        } else {
-            document.removeEventListener("click", handleDocumentClick);
-        }
+        return {
+            destroy: () => {
+                document.removeEventListener("click", hideIfExternalClick);
+            },
+        };
     }
-
-    onDestroy(() => {
-        document.removeEventListener("click", handleDocumentClick);
-    });
 </script>
 
-<div class="berry-dropdown">
-    <div class="dropdown-button" bind:this={dropdownTarget} on:click={() => {
- visible = !visible;
-}}>
-        <slot name="button" {visible}/>
-    </div>
-    <div class="dropdown-menu" class:bottom class:left class:right class:top class:visible>
-        <slot></slot>
-    </div>
+<slot name="button"/>
+<div class="berry-dropdown-menu" use:createPopup={visible}
+    use:handleDocumentClick class:visible>
+    <slot></slot>
 </div>
 
 <style>
-    .berry-dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    .dropdown-menu {
+    .berry-dropdown-menu {
         display: none;
-        position: absolute;
-        margin-top: 5px;
         background-color: var(--br-white);
         border-radius: var(--br-border-radius);
         outline: none;
@@ -62,21 +67,7 @@
         z-index: 100;
         overflow: hidden;
     }
-    .dropdown-menu.visible {
+    .berry-dropdown-menu.visible {
         display: block;
-    }
-    .dropdown-menu.top {
-        margin-bottom: 5px;
-        bottom: 100%;
-    }
-    .dropdown-menu.bottom {
-        margin-top: 5px;
-        top: 100%;
-    }
-    .dropdown-menu.left {
-        left: 0;
-    }
-    .dropdown-menu.right {
-        right: 0;
     }
 </style>

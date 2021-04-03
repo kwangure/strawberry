@@ -7,7 +7,7 @@
     import { writable } from "svelte/store";
 
     export let placeholder = "";
-    export let placement = "bottomLeft";
+    export let placement = "bottom-start";
     export let value = "";
     export let compare = (a, b) => a === b;
     export let format = ({ optionDisplayText }) => optionDisplayText;
