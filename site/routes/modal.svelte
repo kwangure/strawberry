@@ -1,5 +1,5 @@
 <script>
-    import Button from "~@components/Button/Button.svelte";
+    import Button from "~@components/Button/";
     import Modal from "~@components/Modal";
 
     let visible = false;
