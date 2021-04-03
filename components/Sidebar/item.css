@@ -1,0 +1,21 @@
+.sidebar-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: var(--br-item-height);
+    padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
+    border-radius: var(--br-border-radius);
+}
+.sidebar-item:hover {
+    background-color: var(--br-grey-lightest);
+}
+.sidebar-item.active {
+    background-color: var(--br-primary-light);
+    color: var(--br-primary);
+}
+.sidebar-item.active:hover {
+    background-color: var(--br-primary-light-hover);
+}
+.sidebar-item + :global(.sidebar-item) {
+    margin-top: var(--br-inner-gutter);
+}

@@ -17,6 +17,7 @@
 	--br-blue: rgb(25, 95, 255);
 	--br-blue-hover: rgb(30, 130, 255);
 	--br-blue-light: rgb(220, 235, 255);
+	--br-blue-light-hover: rgb(210, 225, 245);
 
 	--br-green: rgb(45, 190, 45);
 	--br-green-hover: rgb(55, 200, 55);
@@ -32,6 +33,7 @@
 	--br-primary: var(--br-blue);
 	--br-primary-hover: var(--br-blue-hover);
 	--br-primary-light: var(--br-blue-light);
+	--br-primary-light-hover: var(--br-blue-light-hover);
 
 	/* ----- Borders ----- */
 	--br-border-color: var(--br-grey-light);
@@ -60,10 +62,12 @@
     --br-input-padding-right-focus: calc(var(--br-input-padding-right) - 1px);
 	--br-postfix-width: 31px;
 
-	/* ----- Uncategorized/General ----- */
+	/* ----- Size/Spacing ----- */
 	--br-item-vertical-padding: 8px;
 	--br-item-horizontal-padding: 12px;
 	--br-item-height: 35px;
+	--br-outer-gutter: 8px;
+	--br-inner-gutter: calc(var(--br-outer-gutter) * 0.5);
 
 	/* ----- Font ----- */
 	--br-font: 'Arial', Helvetica, sans-serif;

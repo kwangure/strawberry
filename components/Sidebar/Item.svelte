@@ -11,36 +11,5 @@
 </div>
 
 <style>
-    .sidebar-item {
-        cursor: pointer;
-        background-color: transparent;
-        position: relative;
-    }
-    .sidebar-item,
-    .sidebar-item > :global(a) {
-        display: flex;
-        align-items: center;
-        min-height: 40px;
-        line-height: 24px;
-        text-decoration: none;
-        padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
-        border-radius: var(--br-border-radius);
-    }
-    .sidebar-item > :global(a) {
-        margin: calc(var(--br-item-vertical-padding) * -1) calc(var(--br-item-horizontal-padding) * -1);
-        color: inherit;
-        flex: auto;
-    }
-
-    .sidebar-item:not(.active):hover,
-    .sidebar-item:not(.active) > :global(a:focus) {
-        background-color: var(--br-grey-lightest);
-    }
-    .sidebar-item.active {
-        background-color: var(--br-primary-light);
-        color: var(--br-primary);
-    }
-    .sidebar-item + :global(.sidebar-item) {
-        margin-top: 3px;
-    }
+    @import "./item.css";
 </style>
