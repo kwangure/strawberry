@@ -1,6 +1,6 @@
 <script>
     import "~@css/standardDOM";
-    import Sidebar, { Item } from "~@components/Sidebar";
+    import Sidebar, { Link, Section } from "~@components/Sidebar";
     import Nav from "./_$layout.svelte/Nav.svelte";
     import { page } from "$app/stores";
 
@@ -12,33 +12,47 @@
     <div class="components">
         <div class="left">
             <Sidebar>
-                <Item active={path === "/button"}>
-                    <a href="/button">Button</a>
-                </Item>
-                <Item active={path === "/dropdown"}>
-                    <a href="/dropdown">Dropdown</a>
-                </Item>
-                <Item active={path === "/icon"}>
-                    <a href="/icon">Icon</a>
-                </Item>
-                <Item active={path === "/input"}>
-                    <a href="/input">Input</a>
-                </Item>
-                <Item active={path === "/list"}>
-                    <a href="/list">List</a>
-                </Item>
-                <Item active={path === "/modal"}>
-                    <a href="/modal">Modal</a>
-                </Item>
-                <Item active={path === "/notification"}>
-                    <a href="/notification">Notification</a>
-                </Item>
-                <Item active={path === "/select"}>
-                    <a href="/select">Select</a>
-                </Item>
-                <Item active={path === "/tooltip"}>
-                    <a href="/tooltip">Tooltip</a>
-                </Item>
+                <Link href="/button" {path}>
+                    Button
+                </Link>
+                <Link href="/dropdown" {path}>
+                    Dropdown
+                </Link>
+                <Link href="/icon" {path}>
+                    Icon
+                </Link>
+                <Section>
+                    <svelte:fragment slot="title">Inputs</svelte:fragment>
+                    <svelte:fragment slot="items">
+                        <Link href="/input" {path}>
+                            Text
+                        </Link>
+                        <Link href="/input/number" {path}>
+                            Number
+                        </Link>
+                        <Link href="/input/checkbox" {path}>
+                            Checkbox
+                        </Link>
+                        <Link href="/input/radio" {path}>
+                            Radio
+                        </Link>
+                    </svelte:fragment>
+                </Section>
+                <Link href="/list" {path}>
+                    List
+                </Link>
+                <Link href="/modal" {path}>
+                    Modal
+                </Link>
+                <Link href="/notification" {path}>
+                    Notification
+                </Link>
+                <Link href="/select" {path}>
+                    Select
+                </Link>
+                <Link href="/tooltip" {path}>
+                    Tooltip
+                </Link>
             </Sidebar>
         </div>
         <div class="right">
