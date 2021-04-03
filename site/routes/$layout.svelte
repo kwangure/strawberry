@@ -75,7 +75,4 @@
     .right {
         padding: 10px;
     }
-    .right > :global(*:not(.berry-modal):not(.berry-tooltip)) {
-        margin-bottom: 10px;
-    }
 </style>
