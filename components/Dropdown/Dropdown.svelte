@@ -29,11 +29,11 @@
 
         reference.addEventListener("click", () => {
             if (visible) {
-                document.addEventListener("click", hideIfExternalClick, true);
                 visible = false;
-            } else {
                 document.removeEventListener("click", hideIfExternalClick);
+            } else {
                 visible = true;
+                document.addEventListener("click", hideIfExternalClick, true);
             }
         });
 
