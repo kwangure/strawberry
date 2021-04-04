@@ -1,2 +1,6 @@
-.eslintrc.js
+.eslint*
 site/
+.svelte/
+build/
+svelte.config.cjs
+tsconfig.json
