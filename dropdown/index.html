@@ -8,36 +8,41 @@
 
 
 
-<link rel="modulepreload" href="/strawberry/app/start-7b0893bb.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-d5522c54.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-02bd181d.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c767c60c.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/dropdown.svelte-dd5c485a.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Item.svelte-81a1015d.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Tabs.svelte-23a25ff8.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-bb327692.js">
-			<link rel="stylesheet" href="/strawberry/app/assets/start-a19f5555.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/Item.svelte-08a5a91d.css">
+<link rel="modulepreload" href="/strawberry/app/start-b67a008c.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-c1703bba.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-44ed7d45.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-e98659b2.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/dropdown.svelte-3d796be2.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Item.svelte-c10c3927.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/popper-69ff30e9.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Tabs.svelte-da3b3964.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-c3f127b6.js">
+			<link rel="stylesheet" href="/strawberry/app/assets/start-ffa853c8.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte-8ab59f5a.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Item.svelte-3e594953.css">
 			<link rel="stylesheet" href="/strawberry/app/assets/Tabs.svelte-2c077b5b.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/Icon-937a1298.css">
 
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-7b0893bb.js";
+			import { start } from "/strawberry/app/start-b67a008c.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
-				status: 200,
-				error: null,
-				session: void 0,
-				nodes: [
-					import("/strawberry/app/pages/dropdown.svelte-dd5c485a.js")
-				],
-				page: {
-					host: location.host,
-					path: "/dropdown",
-					query: new URLSearchParams(""),
-					params: {}
+				session: {},
+				host: location.host,
+				route: true,
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/strawberry/app/pages/dropdown.svelte-3d796be2.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/dropdown",
+						query: new URLSearchParams(""),
+						params: {}
+					}
 				}
 			});
 		</script>
@@ -46,31 +51,62 @@
   
 
 
-<div class="app-layout svelte-qkpx1g"><nav class="svelte-xg7w9t"><div class="left svelte-xg7w9t"><a href="/" class="logo svelte-xg7w9t">🍓 <span class="text svelte-xg7w9t">STRAWBERRY!</span></a></div>
+<div class="app-layout svelte-16paip3"><nav class="svelte-xg7w9t"><div class="left svelte-xg7w9t"><a href="/" class="logo svelte-xg7w9t">🍓 <span class="text svelte-xg7w9t">STRAWBERRY!</span></a></div>
 	<div class="right svelte-xg7w9t"></div>
 </nav>
-    <div class="components svelte-qkpx1g"><div class="left"><div class="berry-sidebar svelte-sgxfd6">
-    <div class="sidebar-items"><div class="sidebar-item svelte-18z72r2"><a href="/button">Button</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2 active"><a href="/dropdown">Dropdown</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/icon">Icon</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/input">Input</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/list">List</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/modal">Modal</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/notification">Notification</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/select">Select</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/tooltip">Tooltip</a>
+    <div class="components svelte-16paip3"><div class="left"><div class="berry-sidebar svelte-1x3xlf5"><a href="/button" class="sidebar-item svelte-s5y525">Button
+                
+</a>
+                <a href="/dropdown" class="sidebar-item svelte-s5y525 active">Dropdown
+                
+</a>
+                <a href="/icon" class="sidebar-item svelte-s5y525">Icon
+                
+</a>
+                <section class="berry-sidebar-section sidebar-section svelte-f30t3y"><div class="title svelte-f30t3y">Inputs</div>
+    <div class="items svelte-f30t3y"><a href="/input" class="sidebar-item svelte-s5y525">Text
+                        
+</a>
+                        <a href="/input/number" class="sidebar-item svelte-s5y525">Number
+                        
+</a>
+                        <a href="/input/checkbox" class="sidebar-item svelte-s5y525">Checkbox
+                        
+</a>
+                        <a href="/input/radio" class="sidebar-item svelte-s5y525">Radio
+                        
+</a>
+                    </div>
+</section>
+                <a href="/list" class="sidebar-item svelte-s5y525">List
+                
+</a>
+                <a href="/modal" class="sidebar-item svelte-s5y525">Modal
+                
+</a>
+                <a href="/notification" class="sidebar-item svelte-s5y525">Notification
+                
+</a>
+                <a href="/select" class="sidebar-item svelte-s5y525">Select
+                
+</a>
+                <a href="/tooltip" class="sidebar-item svelte-s5y525">Tooltip
+                
+</a>
 </div></div>
-    
-</div></div>
-        <div class="right svelte-qkpx1g"></div></div>
+        <div class="right svelte-16paip3"><button class="berry-button   slot_used   svelte-17hi57g" slot="button"><div class="content-wrapper svelte-17hi57g">
+        Click for dropdown
+    </div>
+</button>
+<div class="berry-dropdown-menu svelte-1khx04q"><div class="menu-item svelte-wf42l4">Purple.
+</div>
+    <div class="menu-item svelte-wf42l4">Penguin.
+</div>
+    <div class="menu-item svelte-wf42l4">Has.
+</div>
+    <div class="menu-item svelte-wf42l4">Dropped.
+</div>
+</div></div></div>
 </div>
 
 

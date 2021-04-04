@@ -8,33 +8,37 @@
 
 
 
-<link rel="modulepreload" href="/strawberry/app/start-7b0893bb.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-d5522c54.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-02bd181d.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c767c60c.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/icon.svelte-0280cd2d.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-bb327692.js">
+<link rel="modulepreload" href="/strawberry/app/start-b67a008c.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-c1703bba.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-44ed7d45.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-e98659b2.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/icon.svelte-1c9d8773.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-c3f127b6.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/mdi-7d43e9a7.js">
-			<link rel="stylesheet" href="/strawberry/app/assets/start-a19f5555.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/Icon-937a1298.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/start-ffa853c8.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte-8ab59f5a.css">
 
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-7b0893bb.js";
+			import { start } from "/strawberry/app/start-b67a008c.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
-				status: 200,
-				error: null,
-				session: void 0,
-				nodes: [
-					import("/strawberry/app/pages/icon.svelte-0280cd2d.js")
-				],
-				page: {
-					host: location.host,
-					path: "/icon",
-					query: new URLSearchParams(""),
-					params: {}
+				session: {},
+				host: location.host,
+				route: true,
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/strawberry/app/pages/icon.svelte-1c9d8773.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/icon",
+						query: new URLSearchParams(""),
+						params: {}
+					}
 				}
 			});
 		</script>
@@ -43,31 +47,50 @@
   
 
 
-<div class="app-layout svelte-qkpx1g"><nav class="svelte-xg7w9t"><div class="left svelte-xg7w9t"><a href="/" class="logo svelte-xg7w9t">🍓 <span class="text svelte-xg7w9t">STRAWBERRY!</span></a></div>
+<div class="app-layout svelte-16paip3"><nav class="svelte-xg7w9t"><div class="left svelte-xg7w9t"><a href="/" class="logo svelte-xg7w9t">🍓 <span class="text svelte-xg7w9t">STRAWBERRY!</span></a></div>
 	<div class="right svelte-xg7w9t"></div>
 </nav>
-    <div class="components svelte-qkpx1g"><div class="left"><div class="berry-sidebar svelte-sgxfd6">
-    <div class="sidebar-items"><div class="sidebar-item svelte-18z72r2"><a href="/button">Button</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/dropdown">Dropdown</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2 active"><a href="/icon">Icon</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/input">Input</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/list">List</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/modal">Modal</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/notification">Notification</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/select">Select</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/tooltip">Tooltip</a>
+    <div class="components svelte-16paip3"><div class="left"><div class="berry-sidebar svelte-1x3xlf5"><a href="/button" class="sidebar-item svelte-s5y525">Button
+                
+</a>
+                <a href="/dropdown" class="sidebar-item svelte-s5y525">Dropdown
+                
+</a>
+                <a href="/icon" class="sidebar-item svelte-s5y525 active">Icon
+                
+</a>
+                <section class="berry-sidebar-section sidebar-section svelte-f30t3y"><div class="title svelte-f30t3y">Inputs</div>
+    <div class="items svelte-f30t3y"><a href="/input" class="sidebar-item svelte-s5y525">Text
+                        
+</a>
+                        <a href="/input/number" class="sidebar-item svelte-s5y525">Number
+                        
+</a>
+                        <a href="/input/checkbox" class="sidebar-item svelte-s5y525">Checkbox
+                        
+</a>
+                        <a href="/input/radio" class="sidebar-item svelte-s5y525">Radio
+                        
+</a>
+                    </div>
+</section>
+                <a href="/list" class="sidebar-item svelte-s5y525">List
+                
+</a>
+                <a href="/modal" class="sidebar-item svelte-s5y525">Modal
+                
+</a>
+                <a href="/notification" class="sidebar-item svelte-s5y525">Notification
+                
+</a>
+                <a href="/select" class="sidebar-item svelte-s5y525">Select
+                
+</a>
+                <a href="/tooltip" class="sidebar-item svelte-s5y525">Tooltip
+                
+</a>
 </div></div>
-    
-</div></div>
-        <div class="right svelte-qkpx1g"><svg class="berry-icon" height="24px" style="transform: rotate(0deg) scale(1, 1);" viewBox="0 0 24 24" width="24px"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" fill="currentColor"></path></svg></div></div>
+        <div class="right svelte-16paip3"><svg class="berry-icon" height="24px" style="transform: rotate(0deg) scale(1, 1);" viewBox="0 0 24 24" width="24px"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" fill="currentColor"></path></svg></div></div>
 </div>
 
 

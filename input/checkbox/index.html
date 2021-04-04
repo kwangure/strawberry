@@ -12,10 +12,9 @@
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-c1703bba.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-44ed7d45.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-e98659b2.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/tooltip.svelte-0e735811.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/popper-69ff30e9.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/input/checkbox.svelte-2434ee12.js">
 			<link rel="stylesheet" href="/strawberry/app/assets/start-ffa853c8.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/pages/tooltip.svelte-b7ee0f4d.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/pages/input/checkbox.svelte-e0fa0204.css">
 
 
 		<script type="module">
@@ -30,11 +29,11 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/pages/tooltip.svelte-0e735811.js")
+						import("/strawberry/app/pages/input/checkbox.svelte-2434ee12.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
-						path: "/tooltip",
+						path: "/input/checkbox",
 						query: new URLSearchParams(""),
 						params: {}
 					}
@@ -65,7 +64,7 @@
                         <a href="/input/number" class="sidebar-item svelte-s5y525">Number
                         
 </a>
-                        <a href="/input/checkbox" class="sidebar-item svelte-s5y525">Checkbox
+                        <a href="/input/checkbox" class="sidebar-item svelte-s5y525 active">Checkbox
                         
 </a>
                         <a href="/input/radio" class="sidebar-item svelte-s5y525">Radio
@@ -85,14 +84,21 @@
                 <a href="/select" class="sidebar-item svelte-s5y525">Select
                 
 </a>
-                <a href="/tooltip" class="sidebar-item svelte-s5y525 active">Tooltip
+                <a href="/tooltip" class="sidebar-item svelte-s5y525">Tooltip
                 
 </a>
 </div></div>
-        <div class="right svelte-16paip3"><div class="tooltip"></div>
-
-<div class="berry-tooltip svelte-92otam"><span slot="popup">Yes, Papa. Drop me</span>
-</div></div></div>
+        <div class="right svelte-16paip3"><label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
+    <span slot="label">Check me out! I&#39;m checkbox</span>
+</label>
+<div>I like:</div>
+    <label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
+    <span slot="label">Mango</span>
+</label>
+    <label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
+    <span slot="label">Nothing else</span>
+</label>
+    <div></div></div></div>
 </div>
 
 

@@ -12,10 +12,15 @@
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-c1703bba.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/index-44ed7d45.js">
 			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-e98659b2.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/tooltip.svelte-0e735811.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/popper-69ff30e9.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/input/number.svelte-ccace96b.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-8ba9bb0d.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Textarea.svelte-58902179.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/mdi-7d43e9a7.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-c3f127b6.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-a31f3896.js">
 			<link rel="stylesheet" href="/strawberry/app/assets/start-ffa853c8.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/pages/tooltip.svelte-b7ee0f4d.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte-8ab59f5a.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Textarea.svelte-5127e6a2.css">
 
 
 		<script type="module">
@@ -30,11 +35,11 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/pages/tooltip.svelte-0e735811.js")
+						import("/strawberry/app/pages/input/number.svelte-ccace96b.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
-						path: "/tooltip",
+						path: "/input/number",
 						query: new URLSearchParams(""),
 						params: {}
 					}
@@ -62,7 +67,7 @@
     <div class="items svelte-f30t3y"><a href="/input" class="sidebar-item svelte-s5y525">Text
                         
 </a>
-                        <a href="/input/number" class="sidebar-item svelte-s5y525">Number
+                        <a href="/input/number" class="sidebar-item svelte-s5y525 active">Number
                         
 </a>
                         <a href="/input/checkbox" class="sidebar-item svelte-s5y525">Checkbox
@@ -85,13 +90,15 @@
                 <a href="/select" class="sidebar-item svelte-s5y525">Select
                 
 </a>
-                <a href="/tooltip" class="sidebar-item svelte-s5y525 active">Tooltip
+                <a href="/tooltip" class="sidebar-item svelte-s5y525">Tooltip
                 
 </a>
 </div></div>
-        <div class="right svelte-16paip3"><div class="tooltip"></div>
-
-<div class="berry-tooltip svelte-92otam"><span slot="popup">Yes, Papa. Drop me</span>
+        <div class="right svelte-16paip3"><div class="berry-input-number container svelte-190pvgk"><label for="9zrql5br19p" class="svelte-190pvgk"><span slot="label">Count me! I&#39;m number input</span></label>
+    <div class="container svelte-4z2j45"><input type="text" id="9zrql5br19p" placeholder="Count me! I&#39;m number input" class="svelte-4z2j45">
+        <div class="postfix-wrapper svelte-4z2j45"><span class="postfix-up svelte-4z2j45"><svg class="berry-icon" height="21" style="transform: rotate(0deg) scale(1, 1);" viewBox="0 0 24 24" width="21"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" fill="currentColor"></path></svg></span>
+            <span class="postfix-down svelte-4z2j45"><svg class="berry-icon" height="21" style="transform: rotate(0deg) scale(1, 1);" viewBox="0 0 24 24" width="21"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"></path></svg></span></div></div>
+    
 </div></div></div>
 </div>
 

@@ -8,37 +8,40 @@
 
 
 
-<link rel="modulepreload" href="/strawberry/app/start-7b0893bb.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-d5522c54.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-02bd181d.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c767c60c.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/input.svelte-80eb699f.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Textarea.svelte-610a96df.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-94c9e8d2.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/mdi-7d43e9a7.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-bb327692.js">
-			<link rel="stylesheet" href="/strawberry/app/assets/start-a19f5555.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/pages/input.svelte-3dcf541f.css">
+<link rel="modulepreload" href="/strawberry/app/start-b67a008c.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-c1703bba.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-44ed7d45.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-e98659b2.js">
+			<link rel="modulepreload" href="/strawberry/app/pages/input/index.svelte-fe18d03b.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Input-10ef8b39.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/Textarea.svelte-58902179.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-8ba9bb0d.js">
+			<link rel="modulepreload" href="/strawberry/app/chunks/index-a31f3896.js">
+			<link rel="stylesheet" href="/strawberry/app/assets/start-ffa853c8.css">
+			<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte-8ab59f5a.css">
 			<link rel="stylesheet" href="/strawberry/app/assets/Textarea.svelte-5127e6a2.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/Icon-937a1298.css">
 
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-7b0893bb.js";
+			import { start } from "/strawberry/app/start-b67a008c.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
-				status: 200,
-				error: null,
-				session: void 0,
-				nodes: [
-					import("/strawberry/app/pages/input.svelte-80eb699f.js")
-				],
-				page: {
-					host: location.host,
-					path: "/input",
-					query: new URLSearchParams(""),
-					params: {}
+				session: {},
+				host: location.host,
+				route: true,
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/strawberry/app/pages/input/index.svelte-fe18d03b.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/input",
+						query: new URLSearchParams(""),
+						params: {}
+					}
 				}
 			});
 		</script>
@@ -47,62 +50,53 @@
   
 
 
-<div class="app-layout svelte-qkpx1g"><nav class="svelte-xg7w9t"><div class="left svelte-xg7w9t"><a href="/" class="logo svelte-xg7w9t">🍓 <span class="text svelte-xg7w9t">STRAWBERRY!</span></a></div>
+<div class="app-layout svelte-16paip3"><nav class="svelte-xg7w9t"><div class="left svelte-xg7w9t"><a href="/" class="logo svelte-xg7w9t">🍓 <span class="text svelte-xg7w9t">STRAWBERRY!</span></a></div>
 	<div class="right svelte-xg7w9t"></div>
 </nav>
-    <div class="components svelte-qkpx1g"><div class="left"><div class="berry-sidebar svelte-sgxfd6">
-    <div class="sidebar-items"><div class="sidebar-item svelte-18z72r2"><a href="/button">Button</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/dropdown">Dropdown</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/icon">Icon</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2 active"><a href="/input">Input</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/list">List</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/modal">Modal</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/notification">Notification</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/select">Select</a>
-</div>
-                <div class="sidebar-item svelte-18z72r2"><a href="/tooltip">Tooltip</a>
+    <div class="components svelte-16paip3"><div class="left"><div class="berry-sidebar svelte-1x3xlf5"><a href="/button" class="sidebar-item svelte-s5y525">Button
+                
+</a>
+                <a href="/dropdown" class="sidebar-item svelte-s5y525">Dropdown
+                
+</a>
+                <a href="/icon" class="sidebar-item svelte-s5y525">Icon
+                
+</a>
+                <section class="berry-sidebar-section sidebar-section svelte-f30t3y"><div class="title svelte-f30t3y">Inputs</div>
+    <div class="items svelte-f30t3y"><a href="/input" class="sidebar-item svelte-s5y525 active">Text
+                        
+</a>
+                        <a href="/input/number" class="sidebar-item svelte-s5y525">Number
+                        
+</a>
+                        <a href="/input/checkbox" class="sidebar-item svelte-s5y525">Checkbox
+                        
+</a>
+                        <a href="/input/radio" class="sidebar-item svelte-s5y525">Radio
+                        
+</a>
+                    </div>
+</section>
+                <a href="/list" class="sidebar-item svelte-s5y525">List
+                
+</a>
+                <a href="/modal" class="sidebar-item svelte-s5y525">Modal
+                
+</a>
+                <a href="/notification" class="sidebar-item svelte-s5y525">Notification
+                
+</a>
+                <a href="/select" class="sidebar-item svelte-s5y525">Select
+                
+</a>
+                <a href="/tooltip" class="sidebar-item svelte-s5y525">Tooltip
+                
+</a>
 </div></div>
-    
-</div></div>
-        <div class="right svelte-qkpx1g"><div class="berry-input container svelte-190pvgk"><label for="x4y2qoaxbdh" class="svelte-190pvgk"><span slot="label">Write me! I&#39;m text input</span></label>
-    <div class="container svelte-5nkv2r"><input type="text" id="x4y2qoaxbdh" placeholder="Write me! I&#39;m text input" class=" svelte-5nkv2r">
+        <div class="right svelte-16paip3"><div class="berry-input container svelte-190pvgk"><label for="j1yq6ly1lwn" class="svelte-190pvgk">Write me! I&#39;m text input
+    </label>
+    <div class="container svelte-5nkv2r"><input type="text" id="j1yq6ly1lwn" placeholder="Write me! I&#39;m text input" class=" svelte-5nkv2r">
         </div>
-    
-</div>
-<div class="berry-input-number container svelte-190pvgk"><label for="62ew8fecug1" class="svelte-190pvgk"><span slot="label">Count me! I&#39;m number input</span></label>
-    <div class="container svelte-4z2j45"><input type="text" id="62ew8fecug1" placeholder="Count me! I&#39;m number input" class="svelte-4z2j45">
-        <div class="postfix-wrapper svelte-4z2j45"><span class="postfix-up svelte-4z2j45"><svg class="berry-icon" height="21" style="transform: rotate(0deg) scale(1, 1);" viewBox="0 0 24 24" width="21"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" fill="currentColor"></path></svg></span>
-            <span class="postfix-down svelte-4z2j45"><svg class="berry-icon" height="21" style="transform: rotate(0deg) scale(1, 1);" viewBox="0 0 24 24" width="21"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"></path></svg></span></div></div>
-    
-</div>
-<label class="berry-input-radio input-wrapper svelte-1thz2i1"><input type="radio" value="chill" name="b9r87npofrk" class="svelte-1thz2i1">
-    <span slot="label">Listen to me! I&#39;m radio</span>
-</label>
-    <label class="berry-input-radio input-wrapper svelte-1thz2i1"><input type="radio" value="crae-crae" name="b9r87npofrk" class="svelte-1thz2i1">
-    <span slot="label">LISTEN TO ME! I&#39;M RADIO</span>
-</label>
-
-
-<label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
-    <span slot="label">Check me out! I&#39;m checkbox</span>
-</label>
-<div>I like:</div>
-    <label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
-    <span slot="label">Mango</span>
-</label>
-    <label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
-    <span slot="label">Nothing else</span>
-</label>
-    <div></div>
-<div class="berry-input-password container svelte-190pvgk"><label for="gaxltmbi41e" class="svelte-190pvgk"><span slot="label">Steal me! I&#39;m password</span></label>
-    <div class="container svelte-5nkv2r"><input type="password" id="gaxltmbi41e" placeholder="Steal me! I&#39;m password" class=" svelte-5nkv2r"></div>
     
 </div></div></div>
 </div>
