@@ -3,6 +3,7 @@
     import Sidebar, { Link, Section } from "~@components/Sidebar";
     import Nav from "./_$layout.svelte/Nav.svelte";
     import { page } from "$app/stores";
+    import { base } from "$app/paths";
 
     $: ({ path } = $page);
 </script>
@@ -12,45 +13,45 @@
     <div class="components">
         <div class="left">
             <Sidebar>
-                <Link href="/button" {path}>
+                <Link href="{base}/button" {path}>
                     Button
                 </Link>
-                <Link href="/dropdown" {path}>
+                <Link href="{base}/dropdown" {path}>
                     Dropdown
                 </Link>
-                <Link href="/icon" {path}>
+                <Link href="{base}/icon" {path}>
                     Icon
                 </Link>
                 <Section>
                     <svelte:fragment slot="title">Inputs</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <Link href="/input" {path}>
+                        <Link href="{base}/input" {path}>
                             Text
                         </Link>
-                        <Link href="/input/number" {path}>
+                        <Link href="{base}/input/number" {path}>
                             Number
                         </Link>
-                        <Link href="/input/checkbox" {path}>
+                        <Link href="{base}/input/checkbox" {path}>
                             Checkbox
                         </Link>
-                        <Link href="/input/radio" {path}>
+                        <Link href="{base}/input/radio" {path}>
                             Radio
                         </Link>
                     </svelte:fragment>
                 </Section>
-                <Link href="/list" {path}>
+                <Link href="{base}/list" {path}>
                     List
                 </Link>
-                <Link href="/modal" {path}>
+                <Link href="{base}/modal" {path}>
                     Modal
                 </Link>
-                <Link href="/notification" {path}>
+                <Link href="{base}/notification" {path}>
                     Notification
                 </Link>
-                <Link href="/select" {path}>
+                <Link href="{base}/select" {path}>
                     Select
                 </Link>
-                <Link href="/tooltip" {path}>
+                <Link href="{base}/tooltip" {path}>
                     Tooltip
                 </Link>
             </Sidebar>
