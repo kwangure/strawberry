@@ -7,7 +7,6 @@
     export let followMouse = false;
     export let text;
 
-    let referenceElement;
     let showTooltip = false;
 
     function handleShow() {
@@ -17,8 +16,8 @@
         showTooltip = false;
     }
 
-    function createPopup(popup, referenceElement) {
-        if (!popup || !referenceElement) return;
+    function createPopup(popup) {
+        const referenceElement = popup.previousElementSibling;
 
         // Remount our <div> popup outside of SVGs to make them visible
         if (isSVGChild(referenceElement)) {
@@ -32,7 +31,7 @@
             placement: placement,
             modifiers: [{
                 name: "offset",
-                options: { offset: [5, 5]},
+                options: { offset: [0, 5]},
             }],
         });
 
@@ -51,9 +50,9 @@
         }
 
         return {
-            update: (reference) => {
+            update: () => {
                 popperInstance.destroy();
-                createPopup(popup, reference);
+                createPopup(popup);
             },
             destroy: () => {
                 showEvents.forEach((event) => {
@@ -66,15 +65,10 @@
             },
         };
     }
-
-    function getReference(node) {
-        referenceElement = node;
-    }
 </script>
 
-<slot reference={getReference} />
-
-<div use:createPopup={referenceElement} class:showTooltip>
+<slot/>
+<div use:createPopup class:showTooltip>
     {text}
 </div>
 

@@ -5,7 +5,6 @@
     export let placement = "bottom";
     export let followMouse = false;
 
-    let referenceElement;
     let showTooltip = false;
 
     function handleShow() {
@@ -15,8 +14,8 @@
         showTooltip = false;
     }
 
-    function createPopup(popup, referenceElement) {
-        if (!popup || !referenceElement) return;
+    function createPopup(popup) {
+        const referenceElement = popup.previousElementSibling;
 
         const reference = followMouse
             ? mousePosInBoundingRect(referenceElement)
@@ -25,7 +24,7 @@
             placement: placement,
             modifiers: [{
                 name: "offset",
-                options: { offset: [5, 5]},
+                options: { offset: [0, 5]},
             }],
         });
 
@@ -44,9 +43,9 @@
         }
 
         return {
-            update: (reference) => {
+            update: () => {
                 popperInstance.destroy();
-                createPopup(popup, reference);
+                createPopup(popup);
             },
             destroy: () => {
                 showEvents.forEach((event) => {
@@ -59,15 +58,10 @@
             },
         };
     }
-
-    function getReference(node) {
-        referenceElement = node;
-    }
 </script>
 
-<slot reference={getReference} />
-
-<div class="berry-tooltip" use:createPopup={referenceElement} class:showTooltip>
+<slot/>
+<div class="berry-tooltip" use:createPopup class:showTooltip>
     <slot name="popup"></slot>
 </div>
 
