@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.27.0](https://github.com/kwangure/strawberry/compare/v0.26.0...v0.27.0) (2021-04-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* simplify creating tooltip
+* `placement` prop is now one of
+https://popper.js.org/docs/v2/constructors/#options `type Placement`
+* remove head and footer `Sidebar` API
+
+### Features
+
+* add `Link` to Sidebar ([ce93a84](https://github.com/kwangure/strawberry/commit/ce93a84aa59278898cbd839fe45f2446b7c1ef89))
+* add sidebar sections ([1ea308e](https://github.com/kwangure/strawberry/commit/1ea308e2c41b755e1a65319530d280f1c9b42058))
+* remove head and footer `Sidebar` API ([0e12287](https://github.com/kwangure/strawberry/commit/0e12287b66f90a545d5feec3d9e9a884512dfced))
+* show stack traces when available ([080e4b4](https://github.com/kwangure/strawberry/commit/080e4b4902f364f8b7f80ddaf96e53def84086f5))
+* simplify creating tooltip ([db5a3f1](https://github.com/kwangure/strawberry/commit/db5a3f1f43a1c7875e63314e174b090df8d2595f))
+* use popper.js for Dropdown & Select ([063afc0](https://github.com/kwangure/strawberry/commit/063afc01597bd356b3b8e74f6f46b5f1aefec871))
+
+
+### Bug Fixes
+
+* listen to document click correctly ([754396b](https://github.com/kwangure/strawberry/commit/754396ba68b29b8a7c65e36faafb2966af2bf05b))
+* remove unneeded style ([13452dd](https://github.com/kwangure/strawberry/commit/13452ddda4572cf03c01db2b339bb1fb638c4840))
+* route relative to base ([451e7cf](https://github.com/kwangure/strawberry/commit/451e7cf232dcc108d36bb00ff06d5def6bd6ebea))
+
 ## [0.26.0](https://github.com/kwangure/strawberry/compare/v0.25.0...v0.26.0) (2021-03-26)
 
 
