@@ -17,8 +17,7 @@
         position: sticky;
         top: 0;
         text-transform: uppercase;
-        color: var(--br-grey-dark);
-        font-weight: 600;
+        color: var(--br-grey);
         font-size: 12.5px;
     }
     .items {
