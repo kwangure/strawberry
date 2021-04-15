@@ -6,41 +6,44 @@
   <title>Strawberry</title>
   
 
+		
 
-
-<link rel="modulepreload" href="/strawberry/app/start-9dd0d2a0.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-c1703bba.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-44ed7d45.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-e98659b2.js">
-			<link rel="modulepreload" href="/strawberry/app/pages/select.svelte-c61be0ca.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Item.svelte-e34e4b8f.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/popper-69ff30e9.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Icon-c3f127b6.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Input-10ef8b39.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/Textarea.svelte-58902179.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-8ba9bb0d.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/index-a31f3896.js">
-			<link rel="modulepreload" href="/strawberry/app/chunks/mdi-7d43e9a7.js">
-			<link rel="stylesheet" href="/strawberry/app/assets/start-ffa853c8.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/pages/select.svelte-91d6c0e2.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte-8ab59f5a.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/Item.svelte-3e594953.css">
-			<link rel="stylesheet" href="/strawberry/app/assets/Textarea.svelte-5127e6a2.css">
-
+		<link rel="modulepreload" href="/strawberry/app/pages/$layout.svelte-f943fe03.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/index-f035eec9.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-b23ffd0e.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/paths-d3b7dcf1.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/select.svelte-b4b1d38e.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Item.svelte-b0346feb.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/popper-69ff30e9.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Icon-46dcd0dd.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Input-14078c9f.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Textarea.svelte-4089f91c.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/index-8ba9bb0d.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/index-b859a8b0.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/mdi-7d43e9a7.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/index-4a482fc7.js">
+		<link rel="stylesheet" href="/strawberry/app/assets/pages/$layout.svelte-4488b361.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-130ec10c.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/pages/select.svelte-91d6c0e2.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte-8ab59f5a.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Item.svelte-3e594953.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Textarea.svelte-5127e6a2.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-9dd0d2a0.js";
+			import { start } from "/strawberry/app/start-5eb19b8b.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
 				session: {},
 				host: location.host,
 				route: true,
+				spa: false,
 				hydrate: {
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/pages/select.svelte-c61be0ca.js")
+						import("/strawberry/app/pages/$layout.svelte-f943fe03.js"),
+						import("/strawberry/app/pages/select.svelte-b4b1d38e.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -59,17 +62,23 @@
 <div class="app-layout svelte-16paip3"><nav class="svelte-xg7w9t"><div class="left svelte-xg7w9t"><a href="/" class="logo svelte-xg7w9t">🍓 <span class="text svelte-xg7w9t">STRAWBERRY!</span></a></div>
 	<div class="right svelte-xg7w9t"></div>
 </nav>
-    <div class="components svelte-16paip3"><div class="left"><div class="berry-sidebar svelte-1x3xlf5"><a href="/strawberry/button" class="sidebar-item svelte-s5y525">Button
+    <div class="components svelte-16paip3"><div class="left"><div class="berry-sidebar svelte-1x3xlf5"><a href="/strawberry/" class="sidebar-item svelte-s5y525">Components Overview
                 
 </a>
-                <a href="/strawberry/dropdown" class="sidebar-item svelte-s5y525">Dropdown
-                
+                <section class="berry-sidebar-section sidebar-section svelte-17r5yu"><div class="title svelte-17r5yu">General</div>
+    <div class="items svelte-17r5yu"><a href="/strawberry/button" class="sidebar-item svelte-s5y525">Button
+                        
 </a>
-                <a href="/strawberry/icon" class="sidebar-item svelte-s5y525">Icon
-                
+                        <a href="/strawberry/dropdown" class="sidebar-item svelte-s5y525">Dropdown
+                        
 </a>
-                <section class="berry-sidebar-section sidebar-section svelte-f30t3y"><div class="title svelte-f30t3y">Inputs</div>
-    <div class="items svelte-f30t3y"><a href="/strawberry/input" class="sidebar-item svelte-s5y525">Text
+                        <a href="/strawberry/icon" class="sidebar-item svelte-s5y525">Icon
+                        
+</a>
+                    </div>
+</section>
+                <section class="berry-sidebar-section sidebar-section svelte-17r5yu"><div class="title svelte-17r5yu">Data Inputs</div>
+    <div class="items svelte-17r5yu"><a href="/strawberry/input" class="sidebar-item svelte-s5y525">Text
                         
 </a>
                         <a href="/strawberry/input/number" class="sidebar-item svelte-s5y525">Number
@@ -81,26 +90,29 @@
                         <a href="/strawberry/input/radio" class="sidebar-item svelte-s5y525">Radio
                         
 </a>
+                        <a href="/strawberry/select" class="sidebar-item svelte-s5y525">Select
+                        
+</a>
                     </div>
 </section>
-                <a href="/strawberry/list" class="sidebar-item svelte-s5y525">List
-                
+                <section class="berry-sidebar-section sidebar-section svelte-17r5yu"><div class="title svelte-17r5yu">Data Display</div>
+    <div class="items svelte-17r5yu"><a href="/strawberry/list" class="sidebar-item svelte-s5y525">List
+                        
 </a>
-                <a href="/strawberry/modal" class="sidebar-item svelte-s5y525">Modal
-                
+                        <a href="/strawberry/modal" class="sidebar-item svelte-s5y525">Modal
+                        
 </a>
-                <a href="/strawberry/notification" class="sidebar-item svelte-s5y525">Notification
-                
+                        <a href="/strawberry/notification" class="sidebar-item svelte-s5y525">Notification
+                        
 </a>
-                <a href="/strawberry/select" class="sidebar-item svelte-s5y525">Select
-                
+                        <a href="/strawberry/tooltip" class="sidebar-item svelte-s5y525">Tooltip
+                        
 </a>
-                <a href="/strawberry/tooltip" class="sidebar-item svelte-s5y525">Tooltip
-                
-</a>
+                    </div>
+</section>
 </div></div>
-        <div class="right svelte-16paip3"><div class="berry-select"><div class="berry-input container svelte-190pvgk"><label for="xcazp3lwz0z" class="svelte-190pvgk">Pick me! I&#39;m smart.</label>
-    <div class="container svelte-5nkv2r"><input type="text" id="xcazp3lwz0z" slot="button" readonly class=" svelte-5nkv2r" value="Like I said...">
+        <div class="right svelte-16paip3"><div class="berry-select"><div class="berry-input container svelte-190pvgk"><label for="nc8fuxkb0ze" class="svelte-190pvgk">Pick me! I&#39;m smart.</label>
+    <div class="container svelte-5nkv2r"><input type="text" id="nc8fuxkb0ze" slot="button" readonly class=" svelte-5nkv2r" value="Like I said...">
         <div class="postfix-wrapper svelte-5nkv2r"><svg class="berry-icon" height="24px" style="transform: rotate(0deg) scale(1, 1);" viewBox="0 0 24 24" width="24px"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"></path></svg></div></div>
     
 </div>
