@@ -5,7 +5,12 @@
     import Nav from "./_$layout.svelte/Nav.svelte";
     import { page } from "$app/stores";
 
+    let path;
+
     $: ({ path } = $page);
+    $: if (base) {
+        path = `${base}${path}`;
+    }
 </script>
 
 <div class="app-layout">
