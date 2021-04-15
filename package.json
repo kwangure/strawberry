@@ -4,7 +4,7 @@
     "description": "A set of svelte components",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "svelte-kit build",
+        "build": "rm -rf ./build && svelte-kit build",
         "dev": "svelte-kit dev",
         "deploy": "npm run build && gh-pages -t -d build",
         "start": "svelte-kit start",
