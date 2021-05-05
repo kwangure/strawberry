@@ -2,7 +2,7 @@
     import { createEventDispatcher, setContext, tick } from "svelte";
     import Dropdown from "../Dropdown";
     import Icon from "../Icon";
-    import Input from "../Input";
+    import Input from "../Input/Input.svelte";
     import { mdiChevronDown } from "@mdi/js";
     import { writable } from "svelte/store";
 
