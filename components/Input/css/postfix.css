@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 0 2px 2px 0;
+    flex: none;
 }
 
 .container:hover .postfix-wrapper,
