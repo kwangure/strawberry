@@ -18,7 +18,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     }
 </script>
 
-<div class="{className} container">
+<div class="{className} wrapper">
     <label class:br-accessible-hide={hideLabel} for={labelId} >
         <slot name="label"/>
     </label>
@@ -26,7 +26,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 </div>
 
 <style>
-    .container {
+    .wrapper {
         display: inline-block;
         width: 100%;
         line-height: 1.5;
@@ -34,8 +34,5 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     label {
         display: inline-block;
         margin-bottom: 5px;
-    }
-    .hideLabel {
-        display: none;
     }
 </style>
