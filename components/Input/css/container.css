@@ -5,6 +5,7 @@
     transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
     overflow: hidden;
     padding: 1px;
+    width: fit-content;
     height: var(--br-item-height);
 }
 .container:hover:not(:focus-within) {
