@@ -53,6 +53,9 @@
                         <Link href="{base}/select" {path}>
                             Select
                         </Link>
+                        <Link href="{base}/input/time" {path}>
+                            Time
+                        </Link>
                     </svelte:fragment>
                 </Section>
                 <Section>
