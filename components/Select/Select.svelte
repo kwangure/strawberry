@@ -17,6 +17,7 @@
     const options = writable(new Map());
     let valueChangedByOption = false;
     let displayText = "";
+    let usePlaceholder = false;
 
     $: handleParentChangedValue(value);
     $: handleParentChangedOptions($options);
@@ -26,6 +27,7 @@
     }
 
     function syncOptionsWithValue(options, value) {
+        usePlaceholder = false;
         for (const [, option] of options) {
             if (compare(option.value, value)) {
                 displayText = format({
@@ -38,6 +40,7 @@
         }
 
         // value doesn't match any child <Option/>
+        usePlaceholder = true;
         displayText = placeholder;
         if (import.meta.env.DEV && options.size > 0) {
             console.error(`No option with the value "${value}" was found.`);
@@ -62,6 +65,7 @@
         await tick();
         valueChangedByOption = false;
         dispatch("change", value);
+        usePlaceholder = false;
     }
 
     setContext(ACTIVE_OPTION, activeOptionId);
@@ -69,7 +73,7 @@
     setContext(UPDATE_VALUE_FUNC, updateSelectValue);
 </script>
 
-<div class="berry-select" >
+<div class="berry-select" class:placeholder={usePlaceholder}>
     <Dropdown {placement}>
         <Input slot="button" bind:value={displayText} {...$$restProps} readonly>
             <slot name="label" slot="label"></slot>
@@ -78,6 +82,17 @@
         <slot></slot>
     </Dropdown>
 </div>
+
+<style>
+    .berry-select,
+    .berry-select :global(.berry-input input) {
+        cursor: pointer;
+    }
+
+    .placeholder :global(.berry-input input) {
+        color: var(--br-grey)
+    }
+</style>
 
 <script context="module">
     export const ACTIVE_OPTION = "select-active-option";
