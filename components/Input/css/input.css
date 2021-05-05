@@ -1,4 +1,4 @@
-input:not([type='checkbox']):not([type='radio']),
+input,
 textarea {
     text-align: inherit;
     display: inline-block;
@@ -10,7 +10,7 @@ textarea {
     border: none;
     outline: 0;
 }
-input:not([type='checkbox']):not([type='radio']) {
+input {
     height: 100%;
     padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
 }
