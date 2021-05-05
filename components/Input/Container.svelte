@@ -28,7 +28,6 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
 <style>
     .wrapper {
         display: inline-block;
-        width: 100%;
         line-height: 1.5;
     }
     label {
