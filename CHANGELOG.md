@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.2](https://github.com/kwangure/strawberry/compare/v0.27.1...v0.27.2) (2021-05-06)
+
+
+### Bug Fixes
+
+* run minutes from 0 to 60 ([acbc8ef](https://github.com/kwangure/strawberry/commit/acbc8ef259f4eb48c015befe72065274c514a177))
+
 ### [0.27.1](https://github.com/kwangure/strawberry/compare/v0.27.0...v0.27.1) (2021-05-06)
 
 
