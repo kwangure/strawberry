@@ -60,7 +60,7 @@
     }
 </script>
 
-<Container class="berry-timepicker" {hideLabel} let:labelId>
+<Container class="berry-input-time" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
         <div class="time">
@@ -108,14 +108,15 @@
         display: none;
     }
     .container :global(.berry-select input) {
-        width: calc(2ch + 2 * var(--br-input-vertical-padding));
+        --input-padding: 1px;
+        width: calc(2ch + var(--input-padding)*2);
         text-align: right;
-        padding: var(--br-input-vertical-padding);
+        padding: var(--br-input-vertical-padding) var(--input-padding);
         font-variant-numeric: tabular-nums;
     }
     .container :global(.berry-select:nth-child(3) input) {
-        width: calc(3ch + 2 * var(--br-input-vertical-padding));
-        text-align: left;
+        width: calc(3ch + 2 * var(--input-padding));
+        text-align: center;
     }
     .container :global(.berry-select.placeholder input) {
         text-align: center;
