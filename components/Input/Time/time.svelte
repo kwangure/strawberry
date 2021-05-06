@@ -38,7 +38,7 @@
     }
 
     const hours = range(1, 13, { transform });
-    const minutes = range(1, 61, { transform });
+    const minutes = range(0, 60, { transform });
 
     function handleChange() {
         if (nowHour && nowMinutes && nowMeridiem) {
