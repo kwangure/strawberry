@@ -1,26 +1,28 @@
-const path = require("path");
-const pkg = require("./package.json");
-const { preprocessConfig } = require("./config/index.cjs");
-const static = require("@sveltejs/adapter-static");
-const sveltePreprocess = require("svelte-preprocess");
+import adapter from "@sveltejs/adapter-static";
+import { fileURLToPath } from "url";
+import path from "path";
+import { preprocessConfig } from "./config/index.cjs";
+import sveltePreprocess from "svelte-preprocess";
 
 const MODE = process.env.NODE_ENV;
 const DEV = MODE === "development";
 const PROD = MODE === "production";
 
+export const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 /** @type {import("@sveltejs/kit").Config} */
-module.exports = {
+export default {
     preprocess: sveltePreprocess({
         postcss: {
             plugins: [...preprocessConfig.postcss.plugins],
-        }
+        },
     }),
     kit: {
         appDir: "app",
-        adapter: static(),
+        adapter: adapter(),
         paths: {
-			base: PROD ? "/strawberry" : "",
-		},
+            base: PROD ? "/strawberry" : "",
+        },
         files: {
             routes: "site/routes",
             template: "site/app.html",
@@ -33,9 +35,6 @@ module.exports = {
                     "~@components": path.resolve(__dirname, "./components/"),
                     "~@utils": path.resolve(__dirname, "./utils/"),
                 },
-            },
-            ssr: {
-                noExternal: Object.keys(pkg.dependencies || {}),
             },
         },
     },

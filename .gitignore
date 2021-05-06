@@ -1,4 +1,4 @@
 .DS_Store
-.svelte
+.svelte-kit
 build
 node_modules
