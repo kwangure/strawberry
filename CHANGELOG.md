@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.1](https://github.com/kwangure/strawberry/compare/v0.27.0...v0.27.1) (2021-05-06)
+
+
+### Features
+
+* add time picker ([a93771c](https://github.com/kwangure/strawberry/commit/a93771cbc71e43f820cd1504fa061278fe78988e))
+* change sidebar section title style ([95a0208](https://github.com/kwangure/strawberry/commit/95a0208d61da12a2a1fa10063d9892ad5f492384))
+* color placeholder & add pointer ([35a6f0d](https://github.com/kwangure/strawberry/commit/35a6f0da32d080e9f1c5bbf2df3b132890882f59))
+
+
+### Bug Fixes
+
+* adjust section title styling ([4520c81](https://github.com/kwangure/strawberry/commit/4520c81d6ace9143c3dbd06a2f9d13ad907840b4))
+* correctly add base to path ([0ee9809](https://github.com/kwangure/strawberry/commit/0ee9809ceee164dcd90ca44dda704953e85a83ab))
+* guard against missing error ([4ac61de](https://github.com/kwangure/strawberry/commit/4ac61de8ec94406a351b1b574816c5a477db8a86))
+* prevent circular dependency on Input ([c50d3ac](https://github.com/kwangure/strawberry/commit/c50d3ac2f7ac8de1d177f1c7e9704f571e446c26))
+* remove unneeded specificity ([c59eb8c](https://github.com/kwangure/strawberry/commit/c59eb8cac7b3ccad8a314990ee05a1df49143298))
+* rename to wrapper to avoid conflicts ([02b0d97](https://github.com/kwangure/strawberry/commit/02b0d97113da2afe247c3255d48a82c2082d29c0))
+* use default input width ([25697cc](https://github.com/kwangure/strawberry/commit/25697cca493d28d8aabc3f3a71fba9edd12d6899))
+* use proper label API ([56f810f](https://github.com/kwangure/strawberry/commit/56f810fe842f2c1a0aabb0d939d889d4c1b54d31))
+* use stable postfix width ([6a1307b](https://github.com/kwangure/strawberry/commit/6a1307b567ec743d4734fcc8b5446c009a380ee8))
+
 ## [0.27.0](https://github.com/kwangure/strawberry/compare/v0.26.0...v0.27.0) (2021-04-04)
 
 
