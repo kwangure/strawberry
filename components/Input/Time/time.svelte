@@ -108,7 +108,7 @@
         display: none;
     }
     .container :global(.berry-select input) {
-        --input-padding: 1px;
+        --input-padding: 2px;
         width: calc(2ch + var(--input-padding)*2);
         text-align: right;
         padding: var(--br-input-vertical-padding) var(--input-padding);
