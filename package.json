@@ -7,7 +7,7 @@
         "build": "rm -rf ./build && svelte-kit build",
         "dev": "svelte-kit dev",
         "deploy": "npm run build && gh-pages -t -d build",
-        "start": "svelte-kit start",
+        "preview": "svelte-kit preview",
         "lint": "eslint .",
         "release": "standard-version -a",
         "publish": "git push --follow-tags origin master"
