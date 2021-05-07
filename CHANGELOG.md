@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.4](https://github.com/kwangure/strawberry/compare/v0.27.3...v0.27.4) (2021-05-07)
+
+
+### Bug Fixes
+
+* add a bit more padding ([d2e1e84](https://github.com/kwangure/strawberry/commit/d2e1e84b21e94da07b11a37e13918588ec99cca0))
+* switch to svelte-kit preview from start ([6b2853f](https://github.com/kwangure/strawberry/commit/6b2853f627141ec0a9b75f9d681d7890ef2ee0b7))
+* use shorter placeholder ([758536a](https://github.com/kwangure/strawberry/commit/758536aa2f88be1718198a92d0c1105f628b4a48))
+* work around CSS specificity issue ([6d6a633](https://github.com/kwangure/strawberry/commit/6d6a633ac79115565ca41da4db4986d0b3d3ac8d))
+
 ### [0.27.3](https://github.com/kwangure/strawberry/compare/v0.27.2...v0.27.3) (2021-05-06)
 
 
