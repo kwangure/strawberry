@@ -96,9 +96,13 @@
         display: flex;
         align-items: center;
     }
-    .container :global(.container),
-    .container :global(.container:focus-within),
-    .container :global(.container:hover:not(:focus-within)) {
+    /**
+        Work around https://github.com/sveltejs/svelte/issues/4374
+        See https://github.com/sveltejs/svelte/issues/4374#issuecomment-586045062.
+    */
+    .container :global(.container.container),
+    .container :global(.container.container:focus-within),
+    .container :global(.container.container:hover:not(:focus-within)) {
         border: 2px solid transparent;
         height: 100%;
         box-shadow: none;
