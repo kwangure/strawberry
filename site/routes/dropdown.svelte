@@ -1,5 +1,5 @@
 <script>
-    import Dropdown, { Item } from "~@components/Dropdown";
+    import Dropdown, { Item, Link } from "~@components/Dropdown";
     import Button from "~@components/Button";
 </script>
 
@@ -11,4 +11,13 @@
     <Item>Penguin.</Item>
     <Item>Has.</Item>
     <Item>Dropped.</Item>
+</Dropdown>
+
+<Dropdown>
+    <Button slot="button">
+        Linked dropdown
+    </Button>
+    <Link href="#see">See.</Link>
+    <Link href="#the">The.</Link>
+    <Link href="#hash">Hash.</Link>
 </Dropdown>
