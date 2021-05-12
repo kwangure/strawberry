@@ -27,18 +27,14 @@
     function handleDocumentClick(popup) {
         const reference = popup.previousElementSibling;
 
-        reference.addEventListener("click", () => {
-            if (visible) {
-                visible = false;
-                document.removeEventListener("click", hideIfExternalClick);
-            } else {
-                visible = true;
-                document.addEventListener("click", hideIfExternalClick, true);
-            }
-        });
+        document.addEventListener("click", hideIfExternalClick, true);
 
         function hideIfExternalClick(event) {
-            if (visible && !reference.contains(event.target)) {
+            const [target] = event.path || event.composedPath?.();
+            const isContained = reference.contains(target);
+            if (isContained) {
+                visible = !visible;
+            } else if (visible) {
                 visible = false;
             }
         }
