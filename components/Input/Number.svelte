@@ -10,7 +10,8 @@
     export let hideLabel = false;
     export let min = Number.MIN_SAFE_INTEGER;
     export let max = Number.MAX_SAFE_INTEGER;
-    export let value = "";
+    // eslint-disable-next-line no-undef-init
+    export let value = undefined;
     export let step = 1;
     export let stepOnly = false;
     export let focus = false;
@@ -21,13 +22,11 @@
     $: isAboveMax = Number(value) > max;
 
     function increment(value, step) {
-        value = clamp(value + step, min, max);
-        return value;
+        return clamp((Number(value)+ Number(step)).toFixed(12), min, max);
     }
 
     function decrement(value, step) {
-        value = clamp(value - step, min, max);
-        return value;
+        return clamp((Number(value) - Number(step)).toFixed(12), min, max);
     }
 
     function handleKeydown(event) {
