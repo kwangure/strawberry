@@ -15,11 +15,13 @@
     export let step = 1;
     export let stepOnly = false;
     export let focus = false;
+    export let valid = true;
 
     const forward = createEventForwarder();
 
     $: isBelowMin = Number(value) < min;
     $: isAboveMax = Number(value) > max;
+    $: valid = isNaN(Number(value)) || (!isBelowMin && !isAboveMax);
 
     function increment(value, step) {
         return clamp((Number(value)+ Number(step)).toFixed(12), min, max);
