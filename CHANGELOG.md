@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.5](https://github.com/kwangure/strawberry/compare/v0.27.4...v0.27.5) (2021-05-13)
+
+
+### Features
+
+* create link for dropdown item ([f6896c5](https://github.com/kwangure/strawberry/commit/f6896c5deb21a53dbf43d3b9b94a21be4387035f))
+
+
+### Bug Fixes
+
+* cleanup `Notification` component ([00a7234](https://github.com/kwangure/strawberry/commit/00a7234b4e80c3df177b8221ba618825294453bd))
+* handle string addition and float arithmetic ([b7279e8](https://github.com/kwangure/strawberry/commit/b7279e83f834c654db80ab302fed550f6e370edf))
+* prevent close dropdown race condition ([ca7339f](https://github.com/kwangure/strawberry/commit/ca7339fd94c1da64de2377074e746c0613d7c841))
+
 ### [0.27.4](https://github.com/kwangure/strawberry/compare/v0.27.3...v0.27.4) (2021-05-07)
 
 
