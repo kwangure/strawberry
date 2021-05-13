@@ -8,7 +8,7 @@
     export let visible = false;
     export let message;
 
-    $: if (visible) {
+    $: if (visible && removeAfter) {
         setTimeout(() => {
             visible = false;
         }, removeAfter);
@@ -26,7 +26,7 @@
                 {message}
             </div>
             <div class="close" on:click={hide}>
-                <Icon path={mdiClose}></Icon>
+                <Icon size="20px" path={mdiClose}></Icon>
             </div>
         </div>
     </div>
@@ -42,14 +42,16 @@
     }
     .notification {
         margin: 15px;
-        padding: 10px 20px;
         display: flex;
         align-items: center;
-        background-color: var(--br-grey-dark);
         color: var(--br-white);
         border-radius: var(--br-border-radius);
-        width: 210px;
+        width: fit-content;
         margin-left: auto;
+        padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
+        background-color: rgba(0,0,0,.75);
+        min-width: 30px;
+        min-height: var(--br-item-height);
     }
     .message {
         line-height: 2;
@@ -57,5 +59,6 @@
     .close {
         padding-left: 10px;
         margin-left: auto;
+        cursor: pointer;
     }
 </style>
