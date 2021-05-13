@@ -1,7 +1,10 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { fly } from "svelte/transition";
     import Icon from "../Icon";
     import { mdiClose } from "@mdi/js";
+
+    const dispatch = createEventDispatcher();
 
     export let removeAfter = 4000;
     export let duration = 500;
@@ -16,6 +19,7 @@
 
     function hide() {
         visible = false;
+        dispatch("dismiss");
     }
 </script>
 
