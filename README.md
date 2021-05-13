@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    A set Svelte components.<br/>
+    A set of Svelte components.<br/>
 </p>
 
 <p align="center">
