@@ -14,14 +14,14 @@
 </Button>
 
 <Modal bind:visible>
-    <span slot="content">
+    <svelte:fragment slot="content">
         <div class="modal-content">
             I am a modal. Hear me cry!
         </div>
         <Button primary fullwidth>
             Close me!
         </Button>
-    </span>
+    </svelte:fragment>
 </Modal>
 
 <style>
