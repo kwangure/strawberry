@@ -9,7 +9,7 @@
 <p align="center">
     <a href="#install"><strong>Install</strong></a> •
     <a href="#usage"><strong>Usage</strong></a> •
-    <a href="#license"><strong>❗️License❗️</strong></a>
+    <a href="#license"><strong>License</strong></a>
 </p>
 
 ## Installation and Usage
@@ -81,6 +81,4 @@ plugins: [
 ```
 
 ## LICENSE
-**NONE!**
-
-Yes, LBDT for now. I'm still deciding whether I want to open source this. While the package does not have an open source license, consider this a demo to learn from and nothing more.
+Apache 2.0 © Kafungo Wangure
