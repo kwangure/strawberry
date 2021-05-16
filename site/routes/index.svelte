@@ -1,8 +1,11 @@
 <script>
     /* eslint-disable no-useless-escape */
     const usage = `
-<!-- component.svelte -->
 \<script\>
+    /* Import one of the global styles in your layout or root file */
+    import "@kwangure/strawberry/css/standardDOM"; // Style a standard document
+    import "@kwangure/strawberry/css/customElement"; // Style a shadow root
+
     import Button from "@kwangure/strawberry/components/Button";
 \</script\>
 
