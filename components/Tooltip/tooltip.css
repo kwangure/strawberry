@@ -7,8 +7,6 @@ div {
     border-radius: var(--br-border-radius);
     opacity: 0;
     visibility: hidden;
-    display: flex;
-    align-items: center;
     transition: opacity var(--br-transition-duration) ease;
 }
 div.showTooltip {
