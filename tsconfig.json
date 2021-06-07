@@ -26,5 +26,5 @@
             "~@css/*": ["css/*"],
 		}
 	},
-	"include": ["site/**/*.d.ts", "site/**/*.js", "site/**/*.ts", "site/**/*.svelte"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }

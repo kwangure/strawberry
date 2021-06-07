@@ -2,7 +2,7 @@
     import "~@css/standardDOM";
     import Sidebar, { Link, Section } from "~@components/Sidebar";
     import { base } from "$app/paths";
-    import Nav from "./_$layout.svelte/Nav.svelte";
+    import Nav from "$lib/components/Nav.svelte";
     import { page } from "$app/stores";
 
     let path;
@@ -61,6 +61,9 @@
                 <Section>
                     <svelte:fragment slot="title">Data Display</svelte:fragment>
                     <svelte:fragment slot="items">
+                        <Link href="{base}/code" {path}>
+                            Code
+                        </Link>
                         <Link href="{base}/list" {path}>
                             List
                         </Link>

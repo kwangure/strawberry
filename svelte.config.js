@@ -23,10 +23,7 @@ export default {
         paths: {
             base: PROD ? "/strawberry" : "",
         },
-        files: {
-            routes: "site/routes",
-            template: "site/app.html",
-        },
+
         target: "#svelte",
         vite: {
             resolve: {
