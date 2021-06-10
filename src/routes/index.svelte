@@ -1,4 +1,5 @@
 <script>
+    import Code from "~@components/Code";
     /* eslint-disable no-useless-escape */
     const usage = `
 \<script\>
@@ -12,11 +13,8 @@
 \<Button on:click="{() => alert('strawberry')}">
     Click me!
 \</Button\>
-    `;
+    `.trim();
     /* eslint-enable no-useless-escape */
 </script>
 
-General usage
-<pre>
-<code>{usage}</code>
-</pre>
+<Code language="svelte">{usage}</Code>
