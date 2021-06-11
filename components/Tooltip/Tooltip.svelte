@@ -4,15 +4,9 @@
 
     export let placement = "bottom";
     export let followMouse = false;
+    export let gesture = "hover";
 
-    let showTooltip = false;
-
-    function handleShow() {
-        showTooltip = true;
-    }
-    function handleHide() {
-        showTooltip = false;
-    }
+    let visible = false;
 
     function createPopup(popup) {
         const referenceElement = popup.previousElementSibling;
@@ -28,40 +22,73 @@
             }],
         });
 
-        const showEvents = ["focus", "mouseenter"];
-        const hideEvents = ["blur", "mouseleave"];
-
-        showEvents.forEach((event) => {
-            toggleListener(referenceElement, event, handleShow, true);
-        });
-        hideEvents.forEach((event) => {
-            toggleListener(referenceElement, event, handleHide, true);
-        });
-
         if (followMouse) {
             reference.onchange(popperInstance.update);
         }
 
         return {
-            update: () => {
-                popperInstance.destroy();
-                createPopup(popup);
+            update: (visible) => {
+                if (visible) popperInstance.update();
             },
             destroy: () => {
-                showEvents.forEach((event) => {
-                    toggleListener(referenceElement, event, handleShow, false);
-                });
-                hideEvents.forEach((event) => {
-                    toggleListener(referenceElement, event, handleHide, false);
-                });
                 popperInstance.destroy();
+            },
+        };
+    }
+
+    function handleTooltipHover(popup) {
+        if (gesture !== "hover") return;
+
+        const referenceElement = popup.previousElementSibling;
+
+        const showEvents = ["focus", "mouseenter"];
+        const hideEvents = ["blur", "mouseleave"];
+
+        function show() {
+            visible = true;
+        }
+        function hide() {
+            visible = false;
+        }
+
+        showEvents.forEach((event) => {
+            toggleListener(referenceElement, event, show, true);
+        });
+        hideEvents.forEach((event) => {
+            toggleListener(referenceElement, event, hide, true);
+        });
+    }
+
+    function handleDocumentClick(popup) {
+        if (gesture !== "click") return;
+
+        const reference = popup.previousElementSibling;
+
+        document.addEventListener("click", hideIfExternalClick, true);
+
+        function hideIfExternalClick(event) {
+            const [target] = event.path || event.composedPath?.();
+            const isContained = reference.contains(target);
+            if (isContained) {
+                visible = !visible;
+            } else if (visible) {
+                visible = false;
+            }
+        }
+
+        return {
+            destroy: () => {
+                document.removeEventListener("click", hideIfExternalClick);
             },
         };
     }
 </script>
 
 <slot/>
-<div class="berry-tooltip" use:createPopup class:showTooltip>
+<div class="berry-tooltip" use:createPopup
+    use:handleDocumentClick
+    use:handleTooltipHover
+    class:visible>
     <slot name="popup"></slot>
 </div>
 

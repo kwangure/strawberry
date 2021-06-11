@@ -9,7 +9,7 @@ div {
     visibility: hidden;
     transition: opacity var(--br-transition-duration) ease;
 }
-div.showTooltip {
+div.visible {
     visibility: visible;
     opacity: 1;
 }

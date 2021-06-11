@@ -9,3 +9,10 @@
     </Button>
     <span slot="popup">Yes, Mi tooltip.</span>
 </Tooltip>
+
+<Tooltip gesture="click">
+    <Button>
+        Click for tooltip.
+    </Button>
+    <span slot="popup">Yes, Mi tooltip.</span>
+</Tooltip>
