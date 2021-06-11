@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.6](https://github.com/kwangure/strawberry/compare/v0.27.5...v0.27.6) (2021-06-11)
+
+
+### Features
+
+* add click gesture to Tooltip ([b84367d](https://github.com/kwangure/strawberry/commit/b84367de17e9ce330f99bc713b3cebe131579c22))
+* add code component ([5a6130e](https://github.com/kwangure/strawberry/commit/5a6130e7bf1b51730c7aeb5cab48b72fda9dfe63))
+* emit dismiss for closed `Notifications` ([21d8d16](https://github.com/kwangure/strawberry/commit/21d8d16675ebf13c6b61cfa86162c73844a1b049))
+* validate number ([a41de1d](https://github.com/kwangure/strawberry/commit/a41de1da0dcde2a3c8154d6136a717342f3269ee))
+
+
+### Bug Fixes
+
+* allow multiple content types in tooltip ([0dcc27b](https://github.com/kwangure/strawberry/commit/0dcc27b26c0a9eece6afb01b90b609c5887acb1a))
+
 ### [0.27.5](https://github.com/kwangure/strawberry/compare/v0.27.4...v0.27.5) (2021-05-13)
 
 
