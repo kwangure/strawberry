@@ -2,13 +2,15 @@
     import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
     import { createPopper } from "@popperjs/core";
 
+    /** @type {import("@popperjs/core").Placement} */
     export let placement = "bottom";
     export let followMouse = false;
     export let gesture = "hover";
+    export let arrow = true;
 
     let visible = false;
 
-    function createPopup(popup) {
+    function createPopup(popup, _visible) {
         const referenceElement = popup.previousElementSibling;
 
         const reference = followMouse
@@ -85,10 +87,13 @@
 </script>
 
 <slot/>
-<div class="berry-tooltip" use:createPopup
+<div class="berry-tooltip" use:createPopup={visible}
     use:handleDocumentClick
     use:handleTooltipHover
-    class:visible>
+    class:visible data-popper-placement={placement}>
+    {#if arrow}
+        <div class="arrow"></div>
+    {/if}
     <slot name="popup"></slot>
 </div>
 
