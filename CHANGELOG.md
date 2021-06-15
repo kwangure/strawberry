@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.27.7](https://github.com/kwangure/strawberry/compare/v0.27.6...v0.27.7) (2021-06-15)
+
+
+### Features
+
+* add arrow to tooltip ([d010f32](https://github.com/kwangure/strawberry/commit/d010f32a82ea075e3f4be1834a53d22db79f8bc1))
+
 ### [0.27.6](https://github.com/kwangure/strawberry/compare/v0.27.5...v0.27.6) (2021-06-11)
 
 
