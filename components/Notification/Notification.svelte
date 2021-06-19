@@ -52,7 +52,7 @@
         border-radius: var(--br-border-radius);
         width: fit-content;
         margin-left: auto;
-        padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
+        padding: var(--br-item-block-padding) var(--br-item-inline-padding);
         background-color: rgba(0,0,0,.75);
         min-width: 30px;
         min-height: var(--br-item-height);

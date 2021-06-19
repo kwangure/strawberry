@@ -13,7 +13,7 @@
         padding-bottom: var(--br-inner-gutter);
     }
     .title {
-        padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding) var(--br-inner-gutter);
+        padding: var(--br-item-block-padding) var(--br-item-inline-padding) var(--br-inner-gutter);
         position: sticky;
         top: 0;
         text-transform: uppercase;

@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     height: var(--br-item-height);
-    padding: var(--br-item-vertical-padding) var(--br-item-horizontal-padding);
+    padding: var(--br-item-block-padding) var(--br-item-inline-padding);
     border-radius: var(--br-border-radius);
 }
 .sidebar-item:hover {

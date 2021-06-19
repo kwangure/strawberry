@@ -115,7 +115,7 @@
         --input-padding: 2px;
         width: calc(2ch + var(--input-padding)*2);
         text-align: right;
-        padding: var(--br-input-vertical-padding) var(--input-padding);
+        padding: var(--br-input-block-padding) var(--input-padding);
         font-variant-numeric: tabular-nums;
     }
     .container :global(.berry-select:nth-child(3) input) {

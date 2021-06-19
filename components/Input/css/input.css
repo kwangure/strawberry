@@ -12,7 +12,7 @@ textarea {
 }
 input {
     height: 100%;
-    padding: var(--br-input-vertical-padding) var(--br-input-horizontal-padding);
+    padding: var(--br-input-block-padding) var(--br-input-inline-padding);
 }
 textarea:hover,
 textarea:focus {
