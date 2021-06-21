@@ -2,7 +2,7 @@
     import "~@css/standardDOM";
     import Sidebar, { Link, Section } from "~@components/Sidebar";
     import { base } from "$app/paths";
-    import Nav from "$lib/components/Nav.svelte";
+    import Navbar from "~@components/Navbar";
     import { page } from "$app/stores";
 
     let path;
@@ -14,7 +14,11 @@
 </script>
 
 <div class="app-layout">
-    <Nav/>
+    <Navbar>
+        <svelte:fragment slot="logo">
+            🍓 <span class="text">strawberry</span>
+        </svelte:fragment>
+    </Navbar>
     <div class="components">
         <div class="left">
             <Sidebar>
@@ -91,6 +95,9 @@
         display: flex;
         flex-direction: column;
         min-height: 100%;
+    }
+    .app-layout :global(.berry-nav) {
+        --br-nav-border: var(--br-border);
     }
     .components {
         display: grid;

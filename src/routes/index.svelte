@@ -17,4 +17,7 @@
     /* eslint-enable no-useless-escape */
 </script>
 
+<p>
+    General Usage:
+</p>
 <Code language="svelte">{usage}</Code>
