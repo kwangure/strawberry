@@ -1,7 +1,7 @@
 import adapter from "@sveltejs/adapter-static";
 import { fileURLToPath } from "url";
 import path from "path";
-import { preprocessConfig } from "./config/index.cjs";
+import { preprocessConfig } from "./config/index.js";
 import sveltePreprocess from "svelte-preprocess";
 
 const MODE = process.env.NODE_ENV;

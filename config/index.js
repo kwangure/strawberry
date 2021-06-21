@@ -1,8 +1,8 @@
-const cssnano = require("cssnano");
-const cssImport = require("postcss-import");
-const cssVars = require("postcss-custom-properties");
+import cssImport from "postcss-import";
+import cssnano from "cssnano";
+import cssVars from "postcss-custom-properties";
 
-module.exports.preprocessConfig = {
+export const preprocessConfig = {
     postcss: {
         plugins: [
             cssImport(),
