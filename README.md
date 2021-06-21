@@ -37,15 +37,13 @@ you're using `@sveltejs/kit` or `rollup`.
 ##### @sveltejs/kit
 ```javascript
 // svelte.config.js
-const { preprocessConfig } = require("@kwangure/strawberry/config");
+import { preprocessConfig } from "@kwangure/strawberry/config/index.js";
 
 /** @type {import("@sveltejs/kit").Config} */
-module.exports = {
-    preprocess: sveltePreprocess({
-        postcss: {
-            plugins: [...preprocessConfig.postcss.plugins],
-        }
-    }),
+export default {
+    preprocess: [
+        sveltePreprocess(preprocessConfig),
+    ],
     kit: {
         ...
     }
