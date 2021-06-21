@@ -1,29 +1,47 @@
 <script>
+    import { createEventForwarder } from "../../utils/forward-events.js";
+
+    export let path;
     export let href;
+
+    $: active = href === path;
+
+    const forward = createEventForwarder();
 </script>
 
-<li>
-    <a {href}><slot/></a>
+<li class="berry-navbar-link">
+    <a {href} class:active use:forward><slot/></a>
 </li>
 
 <style>
-    a {
-        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    li {
         display: flex;
         align-items: center;
-        color: var(--br-grey-dark);
-        font-size: 0.875rem;
+        position: relative;
+        height: 100%;
+    }
+    a {
         padding: 5px 8px;
         border-radius: var(--br-border-radius);
         transition: all 0.5s ease;
+        color: inherit;
     }
     a:hover {
-        color: var(--br-white);
-        background-color: var(--br-grey-dark);
+        color: var(--br-primary);
+        background-color: var(--br-primary-light);
     }
-    @media only screen and (min-width: 500px) {
-        a {
-            font-size: 1rem;
-        }
+    a.active {
+        color: var(--br-primary);
+    }
+    a::before {
+       display: block;
+       content: "";
+       position: absolute;
+       inset: 0px;
+    }
+    a.active:before {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 3px solid var(--br-primary);
     }
 </style>

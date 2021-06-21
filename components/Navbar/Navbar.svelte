@@ -19,14 +19,12 @@
 
 <nav class="berry-nav" bind:offsetHeight={$navHeight}>
     <div class="nav-wrapper ">
-        <div class="nav-links">
-            <a class="logo" href="/">
-                <slot name="logo"/>
-            </a>
-            <ul class="links">
-                <slot name="nav-links"/>
-            </ul>
-        </div>
+        <a class="logo" href="/">
+            <slot name="logo"/>
+        </a>
+        <ul class="nav-links">
+            <slot name="nav-links"/>
+        </ul>
         <ul class="calls-to-action">
             <slot name="calls-to-action"/>
         </ul>
@@ -34,63 +32,42 @@
 </nav>
 
 <style>
-    nav,
-    .nav-wrapper,
-    .nav-links {
-        display: flex;
-        align-items: center;
-    }
     nav {
         --br-nav-block-padding: 0px;
         --br-nav-border:;
+        --br-nav-height: 48px;
         --br-nav-max-width: 100%;
         --br-nav-padding: var(--br-outer-gutter);
         --br-nav-width: 100%;
+        --br-logo-width: auto;
+    }
+    nav, .nav-wrapper, ul {
+        display: flex;
+        align-items: center;
+        height: var(--br-nav-height);
     }
     nav {
-        display: flex;
         justify-content: center;
         border-bottom: var(--br-nav-border);
-        padding-left: var(--br-nav-padding);
-        padding-right: var(--br-nav-padding);
+        height: var(--br-nav-height);
     }
     .nav-wrapper {
         width: var(--br-nav-width);
         max-width: var(--br-nav-max-width);
-        justify-content: space-between;
-        padding-top: var(--br-nav-block-padding);
-        padding-bottom: var(--br-nav-block-padding);
     }
-    .links {
-        display: none;
+    .nav-links {
+        padding-left: var(--br-outer-gutter);
+        padding-right: var(--br-outer-gutter);
     }
     .logo {
         padding: var(--br-item-block-padding) var(--br-item-inline-padding);
-        margin-right: 1rem;
         font-weight: 600;
+        width: var(--br-logo-width);
     }
     ul {
-        display: flex;
         gap: 0.5rem;
         list-style: none;
         margin: 0;
         padding: 0;
-    }
-    /* TODO: use @container queries */
-    @media only screen and (min-width: 500px) {
-        .links {
-            display: flex;
-        }
-    }
-    @media only screen and (min-width: 669px) {
-        .nav-wrapper {
-            --br-nav-block-padding: 0.75rem;
-        }
-        ul {
-            gap: 1.5rem;
-        }
-        .logo {
-            margin-right: 2.25rem;
-        }
     }
 </style>

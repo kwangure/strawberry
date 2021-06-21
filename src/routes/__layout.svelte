@@ -1,8 +1,8 @@
 <script>
     import "~@css/standardDOM";
+    import Navbar, { Link as NavLink } from "~@components/Navbar";
     import Sidebar, { Link, Section } from "~@components/Sidebar";
     import { base } from "$app/paths";
-    import Navbar from "~@components/Navbar";
     import { page } from "$app/stores";
 
     let path;
@@ -17,6 +17,11 @@
     <Navbar>
         <svelte:fragment slot="logo">
             🍓 <span class="text">strawberry</span>
+        </svelte:fragment>
+        <svelte:fragment slot="nav-links">
+            <NavLink href="/" {path}>
+                Components
+            </NavLink>
         </svelte:fragment>
     </Navbar>
     <div class="components">
@@ -98,6 +103,7 @@
     }
     .app-layout :global(.berry-nav) {
         --br-nav-border: var(--br-border);
+        --br-logo-width: 240px;
     }
     .components {
         display: grid;
