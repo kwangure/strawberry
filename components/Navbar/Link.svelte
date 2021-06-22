@@ -1,10 +1,18 @@
 <script>
     import { createEventForwarder } from "../../utils/forward-events.js";
+    import location from "../../utils/stores/location.js";
+    import { matchSome } from "../../utils/regex.js";
 
-    export let path;
+    /** @type {string} */
     export let href;
+    /**
+     * The link is colored active `window.location.pathname`
+     * satisfies any of the pattern(s).
+     * @type {string | string[]}
+     */
+    export let pattern;
 
-    $: active = href === path;
+    $: active = matchSome($location?.pathname, pattern);
 
     const forward = createEventForwarder();
 </script>

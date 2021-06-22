@@ -19,7 +19,7 @@
             🍓 <span class="text">strawberry</span>
         </svelte:fragment>
         <svelte:fragment slot="nav-links">
-            <NavLink href="/" {path}>
+            <NavLink href="{base}/" pattern={["/", "/components", "/components/*"]}>
                 Components
             </NavLink>
         </svelte:fragment>
