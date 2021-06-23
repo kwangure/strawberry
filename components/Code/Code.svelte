@@ -1,29 +1,29 @@
 <script>
     import "highlight.js/styles/github.css";
+    import { escape } from "html-escaper";
+    import { tick as forceRerender } from "svelte";
     import hljs from "highlight.js/lib/core";
 
     export let language;
 
     let highlightedCode = "";
-    const highlighterPromise = loadHighlighter();
 
-    async function loadHighlighter() {
-        const highlighter = await import(`./languages/${language}.js`);
-        hljs.registerLanguage(language, highlighter.default);
-    }
-
-    function highlight(code) {
-        highlightedCode = hljs.highlight(code.textContent, {
-            language,
-        }).value;
+    function highlight({ textContent: code }) {
+        highlightedCode = escape(code);
+        forceRerender();
+        import(`./languages/${language}.js`)
+            .then((highlighter) => {
+                hljs.registerLanguage(language, highlighter.default);
+                highlightedCode = hljs.highlight(code, {
+                    language,
+                }).value;
+            });
     }
 </script>
 
-{#await highlighterPromise then _}
-    <pre class="input" use:highlight>
-        <slot/>
-    </pre>
-{/await}
+<pre class="input" use:highlight>
+    <slot/>
+</pre>
 
 <pre>
     {@html highlightedCode}
