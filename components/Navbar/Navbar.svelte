@@ -70,4 +70,7 @@
         margin: 0;
         padding: 0;
     }
+    .calls-to-action {
+        margin-left: auto;
+    }
 </style>
