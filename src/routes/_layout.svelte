@@ -5,15 +5,15 @@
 </script>
 
 <div class="app-layout">
-    <Navbar>
+    <Navbar logoHref="{base}/">
         <svelte:fragment slot="logo">
             🍓 <span class="text">strawberry</span>
         </svelte:fragment>
         <svelte:fragment slot="nav-links">
-            <NavLink href="{base}/components" pattern={["/components", "/components/*"]}>
+            <NavLink href="{base}/components" pattern={[`${base}/components`, `${base}/components/*`]}>
                 Components
             </NavLink>
-            <NavLink href="{base}/typography" pattern="/typography">
+            <NavLink href="{base}/typography" pattern="{base}/typography">
                 Typography
             </NavLink>
         </svelte:fragment>

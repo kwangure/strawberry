@@ -12,6 +12,7 @@
     import { setContext } from "svelte";
     import { writable } from "svelte/store";
 
+    export let logoHref = "/";
     const navHeight = writable("");
 
     setContext(key, { navHeight });
@@ -19,7 +20,7 @@
 
 <nav class="berry-nav" bind:offsetHeight={$navHeight}>
     <div class="nav-wrapper ">
-        <a class="logo" href="/">
+        <a class="logo" href={logoHref}>
             <slot name="logo"/>
         </a>
         <ul class="nav-links">

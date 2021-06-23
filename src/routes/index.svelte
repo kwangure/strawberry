@@ -1,11 +1,12 @@
 <script>
+    import { base } from "$app/paths";
     import Button from "~@components/Button";
     import { mdiGithub } from "@mdi/js";
     import Navbar from "~@components/Navbar";
 </script>
 
 <div class="layout">
-    <Navbar>
+    <Navbar logoHref="{base}/">
         <svelte:fragment slot="logo">
             🍓 <span class="text">strawberry</span>
         </svelte:fragment>
@@ -23,14 +24,14 @@
 
         <div class="link">
             <h3>
-                <a href="/components">Components</a>
+                <a href="{base}/components">Components</a>
             </h3>
             Documentation on how to use Strawberry components.
         </div>
 
         <div class="link">
             <h3>
-                <a href="/typography">Typography</a>
+                <a href="{base}/typography">Typography</a>
             </h3>
             See how typography is used in Strawberry.
         </div>
