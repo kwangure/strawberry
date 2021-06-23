@@ -3,9 +3,13 @@
 </script>
 
 <Layout>
-    <slot/>
+    <div class="typography">
+        <slot/>
+    </div>
 </Layout>
 
 <style>
-
+    .typography {
+        padding: var(--br-item-block-padding) var(--br-item-inline-padding);
+    }
 </style>
