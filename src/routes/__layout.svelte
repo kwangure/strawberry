@@ -22,6 +22,9 @@
             <NavLink href="{base}/" pattern={["/", "/components", "/components/*"]}>
                 Components
             </NavLink>
+            <NavLink href="{base}/typography" pattern="/typography">
+                Typography
+            </NavLink>
         </svelte:fragment>
     </Navbar>
     <div class="components">

@@ -1,12 +1,7 @@
-* {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
-}
-
-html {
-	font-size: 62.5%;
-	-ms-text-size-adjust: 62.5%;
-	-webkit-text-size-adjust: 62.5%;
-	border-collapse: collapse;
 }
 
 html,
@@ -18,8 +13,8 @@ body {
 }
 
 body {
-	font-weight: 400;
-	font-size: var(--br-h6);
-	font-family: var(--br-font);
-	color: var(--br-text);
+	font-size: var(--br-font-size);
+	line-height: 1.5;
+	font-family: var(--br-font-family);
+	color: var(--br-text-color);
 }

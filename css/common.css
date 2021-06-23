@@ -40,18 +40,6 @@
 	--br-border: 1px solid var(--br-border-color);
 	--br-border-radius: 4px;
 
-	/* ----- Text ----- */
-	--br-text: var(--br-black);
-	--br-heading: var(--br-black);
-	--br-code-fs: 1.3rem;
-	--br-h1: 3.2rem;
-	--br-h2: 3rem;
-	--br-h3: 2.6rem;
-	--br-h4: 1.8rem;
-	--br-h5: 1.6rem;
-	--br-h6: 1.4rem; /* default font-size */
-	--br-linemax: 42em; /* max line-length */
-	--br-lh: 1.5; /* base line-height */
 
 	/* ----- Inputs ----- **/
 	--br-input-block-padding: 5px;
@@ -69,45 +57,10 @@
 	--br-outer-gutter: 8px;
 	--br-inner-gutter: calc(var(--br-outer-gutter) * 0.5);
 
-	/* ----- Font ----- */
-	--br-font: 'Arial', Helvetica, sans-serif;
-	--br-font-mono: 'Fira Mono', monospace;
-	--br-font-ui: var(--br-font-mono);
-	--br-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
 	/* Animation */
 	--br-transition-duration: 0.25s;
 }
-
-a {
-	text-decoration: none;
-	cursor: pointer;
-	color: inherit;
-}
-
-a:focus { outline: none }
-
-/* --------------- typography --------------- */
-
-h1, h2, h3, h4, h5, h6, blockquote {
-	position: relative;
-	margin: 0;
-	color: var(--br-heading);
-}
-
-h6 { font-size: var(--br-h6) }
-h5 { font-size: var(--br-h5) }
-h4 { font-size: var(--br-h4) }
-h3 { font-size: var(--br-h3) }
-h2 { font-size: var(--br-h2) }
-h1 { font-size: var(--br-h1) }
-
-h1, h2 {
-	font-family: var(--br-font);
-	line-height: 1.25;
-}
-
-h3 { font-weight: 300 }
 
 /* --------------- links --------------- */
 a {

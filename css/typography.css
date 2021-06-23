@@ -1,0 +1,71 @@
+:root,
+:host {
+    /* ----- Color ----- */
+	--br-text-color: var(--br-black);
+	--br-heading-color: var(--br-black);
+
+    /* ----- Size + Line Height presets ----- */
+    --br-preset-1-font-size: 40px;
+    --br-preset-1-line-height: calc(var(--br-preset-1-font-size) * 1.25);
+
+    --br-preset-2-font-size: 32px;
+    --br-preset-2-line-height: calc(var(--br-preset-2-font-size) * 1.25);
+
+    --br-preset-3-font-size: 24px;
+    --br-preset-3-line-height: calc(var(--br-preset-3-font-size) * 1.25);
+
+    --br-preset-4-font-size: 20px;
+    --br-preset-4-line-height: calc(var(--br-preset-4-font-size) * 1.25);
+
+    --br-preset-5-font-size: 16px;
+    --br-preset-5-line-height: calc(var(--br-preset-5-font-size) * 1.25);
+
+    --br-preset-6-font-size: 14px;
+    --br-preset-6-line-height: calc(var(--br-preset-6-font-size) * 1.25);
+
+    --br-preset-7-font-size: 12px;
+    --br-preset-7-line-height: calc(var(--br-preset-7-font-size) * 1.25);
+
+    /* ----- Font ----- */
+	--br-font-family: 'Arial', Helvetica, sans-serif;
+	--br-font-size: var(--br-preset-6-font-size);
+    --br-line-height: var(--br-preset-6-line-height);
+	--br-font-mono: 'Fira Mono', monospace;
+	--br-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--br-heading-color);
+    line-height: 1;
+}
+
+h1 {
+    font-size: var(--br-preset-1-font-size);
+    font-weight: 400;
+    margin: 0 0 8px;
+}
+h2 {
+    font-size: var(--br-preset-2-font-size);
+    font-weight: 400;
+    margin: 32px 0 8px;
+}
+h3 {
+    font-size: var(--br-preset-3-font-size);
+    font-weight: 600;
+    margin: 24px 0 8px;
+}
+h4 {
+    font-size: var(--br-preset-4-font-size);
+    font-weight: 600;
+    margin: 20px 0 4px;
+}
+h5 {
+    font-size: var(--br-preset-5-font-size);
+    font-weight: 600;
+    margin: 16px 0 4px;
+}
+h6 {
+    font-size: var(--br-preset-6-font-size);
+    font-weight: 600;
+    margin: 14px 0 4px;
+}
