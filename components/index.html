@@ -8,17 +8,17 @@
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-788a154d.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-ab46ac5d.js">
+		<link rel="modulepreload" href="/strawberry/app/start-fb01d75b.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-9d63b597.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-9f12a5fd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-a7ea5cad.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-3bf4d45a.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-3e74393b.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-faae64b5.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-b9d8ea15.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/index.svelte-7ba93ebb.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Code-55f0d01a.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-6cafe6eb.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-73a3d5fe.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c6737fa2.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-ca76d853.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-eea2a2f8.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/index.svelte-e3a9c5e0.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-2def993c.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-f7fb3cd0.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-25487804.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-348c346d.css">
@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="/strawberry/app/assets/Code-bb1afd07.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-788a154d.js";
+			import { start } from "/strawberry/app/start-fb01d75b.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -40,9 +40,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-a7ea5cad.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-3bf4d45a.js"),
-						import("/strawberry/app/pages/components/index.svelte-7ba93ebb.js")
+						import("/strawberry/app/layout.svelte-6cafe6eb.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-73a3d5fe.js"),
+						import("/strawberry/app/pages/components/index.svelte-e3a9c5e0.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -125,7 +125,17 @@
 </div></div>
         <div class="right svelte-vp6l69"><p>General Usage:
 </p>
+<pre class="input svelte-195i5sz">&lt;script&gt;
+    /* Import one of the global styles in your layout or root file */
+    import &quot;@kwangure/strawberry/css/standardDOM&quot;; // Style a standard document
+    import &quot;@kwangure/strawberry/css/customElement&quot;; // Style a shadow root
 
+    import Button from &quot;@kwangure/strawberry/components/Button&quot;;
+&lt;/script&gt;
+
+&lt;Button on:click=&quot;{() =&gt; alert(&#39;strawberry&#39;)}&quot;&gt;
+    Click me!
+&lt;/Button&gt;</pre>
 
 <pre class="svelte-195i5sz">
 </pre></div></div>
