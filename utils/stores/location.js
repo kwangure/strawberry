@@ -6,6 +6,8 @@ if (typeof window !== "undefined") {
 }
 
 const location = readable(windowLocation, (set) => {
+    if (typeof window === "undefined") return;
+
     function setLocation() {
         set(window.location);
     }
