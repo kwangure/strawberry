@@ -9,7 +9,7 @@
 
     $: ({ path } = $page);
     $: if (base) {
-        path = `${base}/components${path}`;
+        path = `${base}${path}`;
     }
 </script>
 
