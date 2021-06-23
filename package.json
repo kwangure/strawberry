@@ -26,7 +26,7 @@
         "uid": "^1.0.0"
     },
     "devDependencies": {
-        "@kwangure/eslint-config-svelte": "^0.1.11",
+        "@kwangure/eslint-config-svelte": "^0.1.12",
         "@rollup/plugin-eslint": "^8.0.1",
         "@sveltejs/adapter-static": "^1.0.0-next.13",
         "@sveltejs/kit": "^1.0.0-next.113",
