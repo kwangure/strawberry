@@ -1,7 +1,7 @@
 <script>
+    import { mdiGithub, mdiNpm } from "@mdi/js";
     import { base } from "$app/paths";
     import Button from "~@components/Button";
-    import { mdiGithub } from "@mdi/js";
     import Navbar from "~@components/Navbar";
 </script>
 
@@ -14,6 +14,11 @@
             <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
                 <Button icon={mdiGithub}>
                     GitHub
+                </Button>
+            </a>
+            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
+                <Button icon={mdiNpm}>
+                    NPM
                 </Button>
             </a>
         </svelte:fragment>
