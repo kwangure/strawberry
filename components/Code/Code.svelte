@@ -4,13 +4,15 @@
     import { tick as forceRerender } from "svelte";
     import hljs from "highlight.js/lib/core";
 
-    export let language;
+    export let language = "";
+    export let inline = false;
 
     let highlightedCode = "";
 
     function highlight({ textContent: code }) {
         highlightedCode = escape(code);
         forceRerender();
+        if (!language) return;
         import(`./languages/${language}.js`)
             .then((highlighter) => {
                 hljs.registerLanguage(language, highlighter.default);
@@ -25,7 +27,7 @@
     <slot/>
 </pre>
 
-<pre>
+<pre class:inline>
     {@html highlightedCode}
 </pre>
 
@@ -41,5 +43,9 @@
         background-color: var(--br-grey-lightest);
         border-radius: var(--br-border-radius);
         margin: 0;
+    }
+    .inline {
+        display: inline;
+        padding: 0.6ch 1ch;
     }
 </style>
