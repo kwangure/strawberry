@@ -6,13 +6,12 @@
     export let icon = "";
     export let iconProps = {};
     export let active = "";
-    export let fullwidth = false;
 
     const forward = createEventForwarder();
 </script>
 
 <button class="berry-button" class:primary class:icon
-    class:slot_used={$$slots.default} class:fullwidth
+    class:slot_used={$$slots.default}
     class:active {...$$restProps} use:forward>
     <div class="content-wrapper">
         {#if icon}
@@ -25,6 +24,9 @@
 </button>
 
 <style>
+    .berry-button {
+        --br-button-width: auto;
+    }
     button {
         line-height: 1.5;
         position: relative;
@@ -43,12 +45,10 @@
         color: var(--br-text);
         background-color: transparent;
         outline: none;
+        width: var(--br-button-width);
     }
     button:disabled {
         cursor: not-allowed;
-    }
-    button.fullwidth {
-        width:100%;
     }
     button .content-wrapper {
         display: flex;
