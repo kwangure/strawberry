@@ -44,6 +44,25 @@
     "peerDependencies": {
         "svelte": "^3.35.0"
     },
+    "keywords": [
+        "svelte",
+        "sveltejs",
+        "component",
+        "components",
+        "button",
+        "code",
+        "dropdown",
+        "icon",
+        "input",
+        "list",
+        "modal",
+        "navbar",
+        "notification",
+        "select",
+        "sidebar",
+        "steps",
+        "tooltip"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/kwangure/strawberry.git"
