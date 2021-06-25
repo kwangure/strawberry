@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.28.0](https://github.com/kwangure/strawberry/compare/v0.27.7...v0.28.0) (2021-06-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* replace `fullwidth` prop in Button with `--br-button-width`
+* make config ES module
+* rename padding CSS vars to match browser APIs
+
+### Features
+
+* add inline option to Code ([2593f6c](https://github.com/kwangure/strawberry/commit/2593f6c61d4d9882f92a0708062836913558bd9b))
+* add nav component ([ab74a55](https://github.com/kwangure/strawberry/commit/ab74a55db1dc60108d41e0a6d2a9728f3ab73a53))
+* add nav link ([b24850e](https://github.com/kwangure/strawberry/commit/b24850e95058bc0db802e6579365edabfe7c4d78))
+* add padding around typography ([9842498](https://github.com/kwangure/strawberry/commit/98424988ac977e21486cf2e140e134350d3f3026))
+* add pattern to Navbar Links ([26bf080](https://github.com/kwangure/strawberry/commit/26bf080d5079c0e78868eefe428678e1ba5625e6))
+* cleanup typograph styling ([0b7d856](https://github.com/kwangure/strawberry/commit/0b7d856c781e9290b2518c34bb252988ef1223ec))
+* guard against window in Node ([4793e02](https://github.com/kwangure/strawberry/commit/4793e02b33ce87edd677aff41bd2efdb42d6e73c))
+* make config ES module ([6f9bf50](https://github.com/kwangure/strawberry/commit/6f9bf50b3de9e6454e597a62c854ea3457950fce))
+* rename padding CSS vars to match browser APIs ([d9c349f](https://github.com/kwangure/strawberry/commit/d9c349f928f89e8e0e6981b16154cd3d1bafbffb))
+* render code before highlighting ([d13297b](https://github.com/kwangure/strawberry/commit/d13297be758615d5ae0a025bf4aef425b39ff273))
+* replace `fullwidth` prop in Button with `--br-button-width` ([0671740](https://github.com/kwangure/strawberry/commit/06717402e966a6e1e89acb78313626507dd42af3))
+
+
+### Bug Fixes
+
+* combine base an path correctly ([292e8e2](https://github.com/kwangure/strawberry/commit/292e8e2b92a681ce12694c371028f4fa35fdae4b))
+* position Navbar calls-to-action right ([b101809](https://github.com/kwangure/strawberry/commit/b1018092fc9a5fdb962ec6ab5218f7a402899208))
+* update eslint to latest svelte-kit API ([a5d8833](https://github.com/kwangure/strawberry/commit/a5d88333b2d2b2ef4db73bd55254a7bdb3a8f373))
+* use base in nested root ([d022b7e](https://github.com/kwangure/strawberry/commit/d022b7ee620e82b171313bee0cd0c2cfe7a242a0))
+
 ### [0.27.7](https://github.com/kwangure/strawberry/compare/v0.27.6...v0.27.7) (2021-06-15)
 
 
