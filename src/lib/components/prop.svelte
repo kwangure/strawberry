@@ -16,12 +16,12 @@
     <Code language="javascript">
 {#if defaultValue}
 /**
- * @type {type}
+ * @type &#123;{type}&#125;
  * @default {defaultValue}
  */
 {:else}
 /**
- * @type {type}
+ * @type &#123;{type}&#125;
  */
 {/if}
 let {name};
