@@ -15,6 +15,7 @@
         if (!language) return;
         import(`./languages/${language}.js`)
             .then((highlighter) => {
+                console.log({ language, highlighter: highlighter.default });
                 hljs.registerLanguage(language, highlighter.default);
                 highlightedCode = hljs.highlight(code, {
                     language,
@@ -27,12 +28,15 @@
     <slot/>
 </pre>
 
-<pre class:inline>
+<pre class="berry-code" class:inline>
     {@html highlightedCode}
 </pre>
 
 <style>
-    pre.input {
+    .berry-code {
+        --br-code-background: var(--br-grey-lightest);
+    }
+    .input {
         display: none;
     }
     pre {
@@ -40,7 +44,7 @@
         overflow: auto;
         font-size: 85%;
         line-height: 1.45;
-        background-color: var(--br-grey-lightest);
+        background-color: var(--br-code-background);
         border-radius: var(--br-border-radius);
         margin: 0;
     }
