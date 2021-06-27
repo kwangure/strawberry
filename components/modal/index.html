@@ -4,33 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strawberry</title>
-  
+  <title> Svelte Modal Component </title>
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-d600b6e4.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-39a5e3d3.js">
+		<link rel="modulepreload" href="/strawberry/app/start-907b7e10.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-b64adbb1.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-9f12a5fd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-644b07b5.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-7141defb.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-b37f2b97.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-5afb1ca1.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-246baaca.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/modal.svelte-25375a0f.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Tabs.svelte_svelte&type=style&lang-45be5249.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Icon-38449f47.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-d81f9a34.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-fa3b1410.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-bee474ea.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-edeca1e2.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-b84d902e.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/modal.svelte-f843601c.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-d5e414a8.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-e046253d.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-f7fb3cd0.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-25487804.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-348c346d.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/_layout-c10a535c.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/Navbar-a81b795c.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/modal.svelte-46dcc454.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte_svelte&type=style&lang-c96fd61e.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Tabs.svelte_svelte&type=style&lang-8b032b85.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/component-8968ca70.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Code-80878437.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-d600b6e4.js";
+			import { start } from "/strawberry/app/start-907b7e10.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -43,9 +42,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-644b07b5.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-7141defb.js"),
-						import("/strawberry/app/pages/components/modal.svelte-25375a0f.js")
+						import("/strawberry/app/layout.svelte-d81f9a34.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-fa3b1410.js"),
+						import("/strawberry/app/pages/components/modal.svelte-f843601c.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -126,12 +125,44 @@
                     </div>
 </section>
 </div></div>
-        <div class="right svelte-vp6l69"><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        Open modal
-</div>
-</button>
+        <div class="right svelte-vp6l69">
 
-</div></div>
+<h1 class="svelte-1tlff4l">Modal</h1>
+<h3 class="svelte-1tlff4l">Props</h3>
+<details class="prop svelte-vo42wa"><summary><span>visible</span>
+        <p class="svelte-vo42wa">Whether to show the modal or not</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let visible;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>closable</span>
+        <p class="svelte-vo42wa">Whether to show a close button and allow the user to close the modal by clicking the overlay.
+
+Useful if you want to implement your own closing mechanism.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {undefined}
+ * @default true
+ */
+let closable;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details></div></div>
 </div>
 
 
