@@ -8,31 +8,28 @@
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-9b6abacc.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-9d63b597.js">
+		<link rel="modulepreload" href="/strawberry/app/start-d600b6e4.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-39a5e3d3.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-9f12a5fd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-6cafe6eb.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-015661a2.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-c6737fa2.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-ca76d853.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-eea2a2f8.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/button.svelte-83ed36b9.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Tabs.svelte_svelte&type=style&lang-61a74b9a.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Icon-09a7619f.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Code-d8300f2c.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-644b07b5.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-7141defb.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-b37f2b97.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-5afb1ca1.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-246baaca.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/button.svelte-22b0c3ae.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-806da7d7.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-7d30f9c4.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-f7fb3cd0.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-25487804.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-348c346d.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/_layout-c10a535c.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/Navbar-a81b795c.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/button.svelte-92867e06.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte_svelte&type=style&lang-c96fd61e.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Tabs.svelte_svelte&type=style&lang-8b032b85.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Code-3f6b9f5a.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/component-8968ca70.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Code-80878437.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-9b6abacc.js";
+			import { start } from "/strawberry/app/start-d600b6e4.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -45,9 +42,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-6cafe6eb.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-015661a2.js"),
-						import("/strawberry/app/pages/components/button.svelte-83ed36b9.js")
+						import("/strawberry/app/layout.svelte-644b07b5.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-7141defb.js"),
+						import("/strawberry/app/pages/components/button.svelte-22b0c3ae.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -132,87 +129,46 @@
 
 <h1 class="svelte-1tlff4l">Button</h1>
 <h3 class="svelte-1tlff4l">Props</h3>
-<details class="prop svelte-1h2c4zd"><summary><span>primary</span>
-        <p class="svelte-1h2c4zd">Indicates whether the button should be coloured using the primary colour.
-            </p></summary>
+<details class="prop svelte-vo42wa"><summary><span>primary</span>
+        <p class="svelte-vo42wa">Indicates whether the button should be coloured using the primary colour.</p></summary>
 
-    <pre class="input svelte-sw4hy2">/**
- * @type boolean
- * @default false
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
  */
-let primary;
-    </pre>
+let primary;</pre>
 
-<pre class="svelte-sw4hy2">
-</pre>
-
-    <p class="svelte-1h2c4zd">Usage:</p>
-        <pre class="input svelte-sw4hy2">&lt;Button primary&gt;
-    I&#39;m a primary button
-&lt;/Button&gt;
-            </pre>
-
-<pre class="svelte-sw4hy2">
-</pre>
-
-    <p class="svelte-1h2c4zd">Example:</p>
-        <div class="example"><button class="berry-button primary  slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        I&#39;m a primary button.
-                </div>
-</button>
-                 
-                <button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        I&#39;m the default button.
-                </div>
-</button>
-            </div>
-</details>
-        <details class="prop svelte-1h2c4zd"><summary><span>icon</span>
-        <p class="svelte-1h2c4zd">A <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d"><pre class="input svelte-sw4hy2">d</pre>
-
-<pre class="svelte-sw4hy2 inline">
-</pre> string
-            </a> that is usable in an SVG <pre class="input svelte-sw4hy2">&lt;path/&gt;</pre>
-
-<pre class="svelte-sw4hy2 inline">
-</pre>
-            element.
-            </p></summary>
-
-    <pre class="input svelte-sw4hy2">/**
- * @type string
- */
-let icon;
-    </pre>
-
-<pre class="svelte-sw4hy2">
-</pre>
-
-    <p class="svelte-1h2c4zd">Usage:</p>
-        <pre class="input svelte-sw4hy2">&lt;script&gt;
-    import { mdiPencil } from &quot;@mdi/js&quot;;
-&lt;/script&gt;
-&lt;Button icon={mdiPencil}&gt;
-    I&#39;m an edit button
-&lt;/Button&gt;
-            </pre>
-
-<pre class="svelte-sw4hy2">
+<pre class="berry-code svelte-1guodq7">
 </pre>
 
     
-</details>
-        <details class="prop svelte-1h2c4zd"><summary><span>iconProps</span>
-        <p class="svelte-1h2c4zd">Props to be passed to the <a href="/strawberry/components/icon">Icon component</a>.
-        </p></summary>
 
-    <pre class="input svelte-sw4hy2">/**
- * @type Object
+    
+</details><details class="prop svelte-vo42wa"><summary><span>icon</span>
+        <p class="svelte-vo42wa">A &quot;d&quot; string that is usable in an SVG path element.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {string}
  */
-let iconProps;
-    </pre>
+let icon;</pre>
 
-<pre class="svelte-sw4hy2">
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>iconProps</span>
+        <p class="svelte-vo42wa"></p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {any}
+ */
+let iconProps;</pre>
+
+<pre class="berry-code svelte-1guodq7">
 </pre>
 
     
