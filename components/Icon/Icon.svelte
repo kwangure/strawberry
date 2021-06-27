@@ -1,46 +1,37 @@
 <script>
     import { createEventForwarder } from "../../utils/forward-events.js";
 
-    export let size = "24px";
+    /**
+     * A "d" string is valid in an SVG path element.
+     * @type {string}
+     */
     export let path = "";
-    export let flip = {};
-    export let spin = {};
-    export let color = "";
-    export let rotate = 0;
 
     const forward = createEventForwarder();
-
-    let style = "";
-
-    $: createStyle(flip, spin);
-
-    function createStyle(flip, spin) {
-        const horizontal = flip.horizontal ? -1 : 1;
-        const vertical = flip.vertical ? -1 : 1;
-        style
-            = `transform: rotate(${rotate}deg) scale(${horizontal}, ${vertical});`;
-
-        const { direction = "", duration = "2s" } = spin;
-        if (direction) {
-            style = `${style} animation: ${direction} ${duration} infinite linear;`;
-        }
-    }
 </script>
 
-<svg class="berry-icon" height={size}
-    {style} viewBox="0 0 24 24" width={size}
-    use:forward>
-    <path d={path} fill={color || "currentColor"} />
+<svg class="berry-icon" viewBox="0 0 24 24" use:forward>
+    <path d={path}/>
     <slot></slot>
 </svg>
 
 <style>
-    @keyframes clockwise {
-        0% { transform: rotate(0deg) }
-        100% { transform: rotate(359deg) }
+    .berry-icon {
+        --br-icon-animation: none;
+        --br-icon-fill: "currentColor";
+        --br-icon-transform: none;
+
+        --br-icon-size: 24px;
+        --br-icon-height: var(--br-icon-size);
+        --br-icon-width: var(--br-icon-size);
     }
-    @keyframes counterclockwise {
-        0% { transform: rotate(359deg) }
-        100% { transform: rotate(0deg) }
+    svg {
+        width: var(--br-icon-width);
+        height: var(--br-icon-height);
+        transform: var(--br-icon-transform);
+        animation: var(--br-icon-animation);
+    }
+    path {
+        fill: var(--br-icon-fill);
     }
 </style>
