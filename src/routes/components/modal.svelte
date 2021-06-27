@@ -1,31 +1,7 @@
 <script>
-    import Button from "~@components/Button/";
-    import Modal from "~@components/Modal";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Modal/docs";
 
-    let visible = false;
-
-    function hide() {
-        visible = true;
-    }
 </script>
 
-<Button on:click={hide}>
-    Open modal
-</Button>
-
-<Modal bind:visible>
-    <svelte:fragment slot="content">
-        <div class="modal-content">
-            I am a modal. Hear me cry!
-        </div>
-        <Button primary fullwidth>
-            Close me!
-        </Button>
-    </svelte:fragment>
-</Modal>
-
-<style>
-    .modal-content {
-        margin-bottom: 10px;
-    }
-</style>
+<Component {docs}></Component>

@@ -5,7 +5,18 @@
     import { fade } from "svelte/transition";
     import { mdiClose } from "@mdi/js";
 
+    /**
+     * Whether to show the modal or not
+     * @type {boolean}
+     */
     export let visible = false;
+    /**
+     * Whether to show a close button and allow the user to close the modal by clicking the overlay.
+     *
+     * Useful if you want to implement your own closing mechanism.
+     *
+     * @type {boolean}
+     */
     export let closable = true;
 
     const dispatch = createEventDispatcher();

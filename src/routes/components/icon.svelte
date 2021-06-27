@@ -1,6 +1,7 @@
 <script>
-    import Icon from "~@components/Icon";
-    import { mdiPencil } from "@mdi/js";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Icon/docs";
+
 </script>
 
-<Icon path={mdiPencil}/>
+<Component {docs}></Component>
