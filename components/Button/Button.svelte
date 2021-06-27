@@ -2,9 +2,25 @@
     import { createEventForwarder } from "../../utils/forward-events.js";
     import Icon from "../Icon";
 
+    /**
+     * Indicates whether the button should be coloured using the primary colour.
+     * @type {boolean}
+     */
     export let primary = false;
+    /**
+     * A "d" string that is usable in an SVG path element.
+     * @type {string}
+     */
     export let icon = "";
+    /**
+     * @type {{ size: (string|undefined), flip: ({ horizontal: boolean, vertical: boolean } | undefined), spin: ("clockwise" | "counterclockwise" | undefined), rotate: (number| undefined)
+     * }}
+    */
+    // @ts-ignore
     export let iconProps = {};
+    /**
+     * @private
+     */
     export let active = "";
 
     const forward = createEventForwarder();

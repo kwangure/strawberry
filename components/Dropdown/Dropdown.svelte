@@ -1,13 +1,21 @@
 <script>
     import { createPopper } from "@popperjs/core";
 
+    /**
+     * Where to position the popup relative to the dropdown button.
+     * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
+     */
     export let placement = "bottom-start";
+    /**
+     * Whether the popup is visible
+     * @type {boolean}
+     */
     export let visible = false;
 
     function createPopup(popup, _) {
         const reference = popup.previousElementSibling;
         const popperInstance = createPopper(reference, popup, {
-            placement: placement,
+            placement,
             modifiers: [{
                 name: "offset",
                 options: { offset: [0, 5]},
@@ -15,10 +23,10 @@
         });
 
         return {
-            update: (visible) => {
+            update(visible) {
                 if (visible) popperInstance.update();
             },
-            destroy: () => {
+            destroy() {
                 popperInstance.destroy();
             },
         };
@@ -30,7 +38,8 @@
         document.addEventListener("click", hideIfExternalClick, true);
 
         function hideIfExternalClick(event) {
-            const [target] = event.path || event.composedPath?.();
+            const [target] = event.path
+                || (event.composedPath && event.composedPath());
             const isContained = reference.contains(target);
             if (isContained) {
                 visible = !visible;

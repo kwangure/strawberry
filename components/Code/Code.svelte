@@ -3,8 +3,17 @@
     import { escape } from "html-escaper";
     import { tick as forceRerender } from "svelte";
     import hljs from "highlight.js/lib/core";
+    import loadHighlighter from "./loader.js";
 
+    /**
+     * Which syntax highlighter to use.
+     * @type {"" | "javascript" | "svelte"}
+    */
     export let language = "";
+    /**
+     * Whether to treat a codeblock as an inline element.
+     * @type {boolean}
+     */
     export let inline = false;
 
     let highlightedCode = "";
@@ -13,10 +22,9 @@
         highlightedCode = escape(code);
         forceRerender();
         if (!language) return;
-        import(`./languages/${language}.js`)
+        loadHighlighter(language)
             .then((highlighter) => {
-                console.log({ language, highlighter: highlighter.default });
-                hljs.registerLanguage(language, highlighter.default);
+                hljs.registerLanguage(language, highlighter);
                 highlightedCode = hljs.highlight(code, {
                     language,
                 }).value;

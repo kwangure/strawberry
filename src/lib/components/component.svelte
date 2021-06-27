@@ -1,5 +1,8 @@
 <script>
-    export let name;
+    import Prop from "./prop.svelte";
+    export let docs;
+
+    const { name, props } = docs;
 </script>
 
 <svelte:head>
@@ -9,7 +12,9 @@
 
 <h1>{name}</h1>
 <h3>Props</h3>
-<slot name="props"/>
+{#each props as prop}
+    <Prop {prop}></Prop>
+{/each}
 
 <style>
     h1 {

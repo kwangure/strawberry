@@ -1,30 +1,47 @@
 <script>
     import Code from "~@components/Code";
 
-    export let name;
-    export let type;
-    let defaultValue = "";
-    export { defaultValue as default };
+    export let prop;
+
+    const {
+        defaultValue,
+        description,
+        name,
+        kind,
+        type: { text: type },
+    } = prop;
+
+    // @ts-ignore
+    if (import.meta.DEV && !description) {
+        console.warn(`"${name}" property is missing description`);
+    }
+
+    // @ts-ignore
+    if (import.meta.DEV && type === "any") {
+        console.warn(`"${name}" property is typed "any". Use a stronger type.`);
+    }
 </script>
 
 <details class="prop">
     <summary>
         <span>{name}</span>
-        <p><slot/></p>
+        <p>{description}</p>
     </summary>
 
     <Code language="javascript">
-{#if defaultValue}
+        <!-- Repeating some code avoids whitespace problems -->
+        {#if defaultValue}
 /**
- * @type &#123;{type}&#125;
+ * @type &#123;{type[type.kind]}&#125;
  * @default {defaultValue}
  */
-{:else}
+{kind} {name};
+        {:else}
 /**
  * @type &#123;{type}&#125;
  */
-{/if}
-let {name};
+{kind} {name};
+        {/if}
     </Code>
 
     {#if $$slots.usage}
@@ -45,6 +62,9 @@ let {name};
 <style>
     .prop {
         margin-bottom: 10px;
+    }
+    .prop :global(.berry-code) {
+        white-space: pre-wrap;
     }
     p {
         margin: 1em 0 0.25em;

@@ -1,4 +1,5 @@
 import adapter from "@sveltejs/adapter-static";
+import docs from "./scripts/vite-plugin-svelte-docs.js";
 import { fileURLToPath } from "url";
 import path from "path";
 import { preprocessConfig } from "./config/index.js";
@@ -12,11 +13,7 @@ export const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
-    preprocess: sveltePreprocess({
-        postcss: {
-            plugins: [...preprocessConfig.postcss.plugins],
-        },
-    }),
+    preprocess: sveltePreprocess(preprocessConfig),
     kit: {
         appDir: "app",
         adapter: adapter(),
@@ -25,6 +22,9 @@ export default {
         },
         target: "#svelte",
         vite: {
+            plugins: [
+                docs(),
+            ],
             resolve: {
                 alias: {
                     "~@css": path.resolve(__dirname, "./css/"),
