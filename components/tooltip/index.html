@@ -4,35 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strawberry</title>
-  
+  <title> Svelte Tooltip Component </title>
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-1b59b711.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-c84aae5c.js">
+		<link rel="modulepreload" href="/strawberry/app/start-ef5f7e34.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-fcc0febb.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-9f12a5fd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-59b7904a.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-7421acc9.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-62e002f6.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-a2b4be6a.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-76a3afc0.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/tooltip.svelte-fd008797.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Tabs.svelte_svelte&type=style&lang-4da58230.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Icon-f351a058.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Code-069688ed.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-4e5df6c3.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-ccf1f490.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-9a1b4b68.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-eebb6697.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-2acbdf56.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/tooltip.svelte-db71b4a0.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-78ff8dbc.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-96580854.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-f7fb3cd0.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-25487804.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-3f1b26f4.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/_layout-c10a535c.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/Navbar-a81b795c.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/tooltip.svelte-2278a9e7.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Tabs.svelte_svelte&type=style&lang-8b032b85.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Icon-0a6cb7de.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/component-8968ca70.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/Code-80878437.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-1b59b711.js";
+			import { start } from "/strawberry/app/start-ef5f7e34.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -45,9 +42,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-59b7904a.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-7421acc9.js"),
-						import("/strawberry/app/pages/components/tooltip.svelte-fd008797.js")
+						import("/strawberry/app/layout.svelte-4e5df6c3.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-ccf1f490.js"),
+						import("/strawberry/app/pages/components/tooltip.svelte-db71b4a0.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -128,122 +125,74 @@
                     </div>
 </section>
 </div></div>
-        <div class="right svelte-vp6l69"><h1>Tooltip</h1>
-<h4 class="svelte-5ld90b">Properties</h4>
-<h5 class="svelte-5ld90b">Placement</h5>
-<p>Type:</p>
-<pre class="input svelte-1guodq7">&quot;top&quot; | &quot;top-start&quot; | &quot;top-end&quot; | &quot;right&quot; | &quot;right-start&quot; | &quot;right-end&quot; | &quot;bottom&quot; | &quot;bottom-start&quot; | &quot;bottom-end&quot; | &quot;left&quot; | &quot;left-start&quot; | &quot;left-end&quot;</pre>
+        <div class="right svelte-vp6l69">
+
+<h1 class="svelte-1tlff4l">Tooltip</h1>
+<h3 class="svelte-1tlff4l">Props</h3>
+<details class="prop svelte-vo42wa"><summary><span>placement</span>
+        <p class="svelte-vo42wa">Where to position the popup relative to the reference element.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {&quot;top&quot; | &quot;top-start&quot; | &quot;top-end&quot; | &quot;right&quot; | &quot;right-start&quot; | &quot;right-end&quot; | &quot;bottom&quot; | &quot;bottom-start&quot; | &quot;bottom-end&quot; | &quot;left&quot; | &quot;left-start&quot; | &quot;left-end&quot;}
+ * @default bottom
+ */
+let placement;</pre>
 
 <pre class="berry-code svelte-1guodq7">
 </pre>
-<p>Usage:</p>
-<pre class="input svelte-1guodq7">&lt;Tooltip placement=&quot;bottom&quot;&gt;
-    &lt;div class=&quot;my-element&quot;&gt;Hover me for a tooltip!&lt;/div&gt;
-&lt;/Tooltip&gt;</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>followMouse</span>
+        </summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let followMouse;</pre>
 
 <pre class="berry-code svelte-1guodq7">
 </pre>
-<p>Examples:</p>
-<div class="properties examples svelte-5ld90b"><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        top</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="top"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>top</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        top-start</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="top-start"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>top-start</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        top-end</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="top-end"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>top-end</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        right</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="right"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>right</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        right-start</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="right-start"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>right-start</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        right-end</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="right-end"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>right-end</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        bottom</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="bottom"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>bottom</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        bottom-start</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="bottom-start"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>bottom-start</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        bottom-end</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="bottom-end"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>bottom-end</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        left</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="left"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>left</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        left-start</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="left-start"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>left-start</b> tooltip!</span>
-</div><button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        left-end</div>
-</button>
-            
-        
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="left-end"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">I&#39;m a <b>left-end</b> tooltip!</span>
-</div></div>
-<button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        Hover for tooltip.
-    </div>
-</button>
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="bottom"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">Yes, Mi tooltip.</span>
-</div>
 
-<button class="berry-button   slot_used  svelte-8rq718"><div class="content-wrapper svelte-8rq718">
-        Click for tooltip.
-    </div>
-</button>
-<div class="berry-tooltip svelte-xnpbv9" data-popper-placement="bottom"><div class="arrow svelte-xnpbv9"></div>
-    <span slot="popup">Yes, Mi tooltip.</span>
-</div></div></div>
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>gesture</span>
+        </summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {string}
+ * @default hover
+ */
+let gesture;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>arrow</span>
+        </summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ * @default true
+ */
+let arrow;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details></div></div>
 </div>
 
 
