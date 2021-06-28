@@ -14,7 +14,7 @@
 <div class="step-item" class:active class:vertical use:forward >
     <span class="progress-label" class:active>
         {#if completed}
-            <Icon path={mdiCheck}></Icon>
+            <Icon path={mdiCheck}/>
         {:else}
             {position}
         {/if}

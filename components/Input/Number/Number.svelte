@@ -110,10 +110,10 @@
             type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
         <div class="postfix-wrapper">
             <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
-                <Icon path={mdiChevronUp} size={21}></Icon>
+                <Icon path={mdiChevronUp}/>
             </span>
             <span class="postfix-down" on:click|stopPropagation={handleClickDown}>
-                <Icon path={mdiChevronDown} size={21}></Icon>
+                <Icon path={mdiChevronDown}/>
             </span>
         </div>
     </div>
@@ -141,5 +141,8 @@
         min-height: 0;
         display: flex;
         align-items: center;
+    }
+    .postfix-up :global(.berry-icon) {
+        --br-icon-size: 21px;
     }
 </style>

@@ -78,7 +78,7 @@
             on:blur placeholder={placeholder || label} on:change on:input on:keypress on:focus
             on:focus={open} on:keydown type='text' {...$$restProps}>
         <div class="postfix-wrapper" class:visible on:click|stopPropagation={toggle}>
-            <Icon path={mdiChevronDown}></Icon>
+            <Icon path={mdiChevronDown}/>
         </div>
     </div>
     {#if visible}

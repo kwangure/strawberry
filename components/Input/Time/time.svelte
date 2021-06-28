@@ -143,4 +143,7 @@
         max-height: calc(10 * var(--br-item-height));
         overflow-y: scroll;
     }
+    .postfix-wrapper :global(.berry-icon) {
+        --br-icon-size: 21px;
+    }
 </style>

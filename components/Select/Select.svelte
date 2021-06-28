@@ -78,7 +78,7 @@
     <Dropdown {placement}>
         <Input slot="button" bind:value={displayText} {...$$restProps} readonly>
             <slot name="label" slot="label"></slot>
-            <Icon slot="postfix" path={mdiChevronDown}></Icon>
+            <Icon slot="postfix" path={mdiChevronDown}/>
         </Input>
         <slot></slot>
     </Dropdown>

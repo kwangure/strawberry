@@ -25,12 +25,12 @@
 
 {#if visible}
     <div class="berry-notification wrapper">
-        <div class="notification" transition:fly={{ x: 200, duration: duration }}>
+        <div class="notification" transition:fly={{ x: 200, duration }}>
             <div class="message">
                 {message}
             </div>
             <div class="close" on:click={hide}>
-                <Icon size="20px" path={mdiClose}></Icon>
+                <Icon path={mdiClose}></Icon>
             </div>
         </div>
     </div>
@@ -64,5 +64,8 @@
         padding-left: 10px;
         margin-left: auto;
         cursor: pointer;
+    }
+    .close :global(.berry-icon) {
+        --br-icon-size: 20px;
     }
 </style>
