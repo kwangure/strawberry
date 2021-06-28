@@ -1,12 +1,18 @@
-/*
------------------------------------------------
-	vars – css custom-properties
+/**
+ * Make box-sizing easier to override in child components
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+:root,
+:host {
+	box-sizing: border-box;
+}
 
-	NOTE
-	- some vars change inside media-queries!
-	- under normal conditions, there's no need to touch these
------------------------------------------------
-*/
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 :root,
 :host {
 	/* ----- Colors ----- */
