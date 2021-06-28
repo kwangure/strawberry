@@ -13,12 +13,6 @@
      */
     export let icon = "";
     /**
-     * @type {{ size: (string|undefined), flip: ({ horizontal: boolean, vertical: boolean } | undefined), spin: ("clockwise" | "counterclockwise" | undefined), rotate: (number| undefined)
-     * }}
-    */
-    // @ts-ignore
-    export let iconProps = {};
-    /**
      * @private
      */
     export let active = "";
@@ -32,7 +26,7 @@
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
-                <Icon path={icon} {...iconProps}></Icon>
+                <Icon path={icon}/>
             </span>
         {/if}
         <slot />
