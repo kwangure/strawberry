@@ -1,9 +1,23 @@
 <script>
-    import Container from "./Container.svelte";
-    import { createEventForwarder } from "../../utils/forward-events.js";
+    import Container from "../Container.svelte";
+    import { createEventForwarder } from "../../../utils/forward-events.js";
 
+    /**
+     * The initial value of the component.
+     * @type {string | undefined}
+     */
     export let value = "";
+    /**
+     * Whether to hide the input label.
+     *
+     * @type {boolean}
+     */
     export let hideLabel = false;
+    /**
+     * Whether the input is focused.
+     *
+     * @type {boolean}
+     */
     export let focus = false;
 
     const forward = createEventForwarder();

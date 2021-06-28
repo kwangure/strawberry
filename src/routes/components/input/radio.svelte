@@ -1,19 +1,7 @@
 <script>
-    import Radio, { Group as RadioGroup } from "~@components/Input/Radio";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Input/Radio/docs";
 
-    let radioValue = "";
 </script>
 
-<RadioGroup bind:value={radioValue}>
-    <Radio value="chill">
-        <span slot="label">Listen to me! I'm radio</span>
-    </Radio>
-    <Radio value="crae-crae">
-        <span slot="label">LISTEN TO ME! I'M RADIO</span>
-    </Radio>
-</RadioGroup>
-{#if radioValue}
-    <div>
-        You're {radioValue} like me!😍
-    </div>
-{/if}
+<Component {docs}></Component>

@@ -2,7 +2,10 @@
     import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
     import { createPopper } from "@popperjs/core";
 
-    /** @type {import("@popperjs/core").Placement} */
+    /**
+     * Where to position the popup relative to the reference element.
+     * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
+     */
     export let placement = "bottom";
     export let followMouse = false;
     export let gesture = "hover";
@@ -69,7 +72,8 @@
         document.addEventListener("click", hideIfExternalClick, true);
 
         function hideIfExternalClick(event) {
-            const [target] = event.path || event.composedPath?.();
+            const [target] = event.path
+                || (event.composedPath && event.composedPath());
             const isContained = reference.contains(target);
             if (isContained) {
                 visible = !visible;

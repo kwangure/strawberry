@@ -1,17 +1,7 @@
 <script>
-    import Button from "~@components/Button";
-    import Notification from "~@components/Notification";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Notification/docs";
 
-    let visible;
-
-    $: handleClick = visible
-        ? () => {}
-        : () => {
-                visible = true;
-            };
 </script>
 
-<Button on:click={handleClick}>
-    Click to show notification
-</Button>
-<Notification bind:visible message="Prepare yee the way!"/>
+<Component {docs}></Component>

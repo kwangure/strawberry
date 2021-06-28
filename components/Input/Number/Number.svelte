@@ -1,20 +1,55 @@
 <script>
     import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
-    import Container from "./Container.svelte";
-    import { createEventForwarder } from "../../utils/forward-events.js";
-    import { focusElement } from "./actions";
+    import Container from "../Container.svelte";
+    import { createEventForwarder } from "../../../utils/forward-events.js";
+    import { focusElement } from "../actions";
     import { handleInput } from "./number.js";
-    import Icon from "../Icon";
+    import Icon from "../../Icon";
     import { slide } from "svelte/transition";
 
+    /**
+     * Whether to hide the input label.
+     *
+     * @type {boolean}
+     */
     export let hideLabel = false;
+    /**
+     * The minimum value to accept.
+     * @type {number}
+     */
     export let min = Number.MIN_SAFE_INTEGER;
+    /**
+     * The maximum value to accept.
+     * @type {number}
+     */
     export let max = Number.MAX_SAFE_INTEGER;
-    // eslint-disable-next-line no-undef-init
-    export let value = undefined;
+    /**
+     * The initial value of the component.
+     * @type {number | undefined}
+     */
+    export let value = undefined; // eslint-disable-line no-undef-init
+    /**
+     * A stepping interval to use when using up and down arrows to adjust the value, as well as for validation.
+     * @type {number}
+     */
     export let step = 1;
+    /**
+     * Whether the user can only edit the value using up and down arrows.
+     * @type {boolean}
+    */
     export let stepOnly = false;
+    /**
+     * Whether the input is focused.
+     *
+     * @type {boolean}
+     */
     export let focus = false;
+    /**
+     * Whether "value" is a number between "min" and "max".
+     *
+     * @type {boolean}
+     * @readonly
+     */
     export let valid = true;
 
     const forward = createEventForwarder();
@@ -42,7 +77,7 @@
     }
 
     function clamp(value, min, max) {
-        if (isNaN(value)) return "";
+        if (isNaN(value)) return;
         return Math.min(Math.max(value, min), max);
     }
 
@@ -94,9 +129,9 @@
 </Container>
 
 <style>
-    @import "./css/input.css";
-    @import "./css/container.css";
-    @import "./css/postfix.css";
+    @import "../css/input.css";
+    @import "../css/container.css";
+    @import "../css/postfix.css";
     .postfix-wrapper {
         flex-direction: column;
     }

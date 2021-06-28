@@ -25,14 +25,16 @@
 <details class="prop">
     <summary>
         <span>{name}</span>
-        <p>{description}</p>
+        {#if description}
+            <p>{description}</p>
+        {/if}
     </summary>
 
     <Code language="javascript">
         <!-- Repeating some code avoids whitespace problems -->
         {#if defaultValue}
 /**
- * @type &#123;{type[type.kind]}&#125;
+ * @type &#123;{type}&#125;
  * @default {defaultValue}
  */
 {kind} {name};

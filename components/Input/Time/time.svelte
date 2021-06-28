@@ -5,9 +5,19 @@
     import { mdiClockOutline } from "@mdi/js";
     import parseTime from "./parseTime";
 
-    /** @type {boolean}*/
+    /**
+     * Whether to hide the input label.
+     *
+     * @type {boolean}
+     */
     export let hideLabel = false;
-    /** @type {string | Date } An ISO 8601 dateString or Date */
+    /**
+     * The initial value of the input.
+     *
+     * An ISO 8601 dateString or Date.
+     *
+     * @type {string | Date }
+     */
     export let value = "";
 
     function pad(value, length, padString) {

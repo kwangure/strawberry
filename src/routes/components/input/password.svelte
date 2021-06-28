@@ -1,7 +1,7 @@
 <script>
-    import { Password } from "~@components/Input";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Input/Password/docs";
+
 </script>
 
-<Password placeholder="Steal me! I'm password">
-    <svelte:fragment slot="label">Steal me! I'm password</svelte:fragment>
-</Password>
+<Component {docs}></Component>

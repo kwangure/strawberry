@@ -1,7 +1,7 @@
 <script>
-    import { Number } from "~@components/Input";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Input/Number/docs";
+
 </script>
 
-<Number placeholder="I'm number input">
-    <span slot="label">Count me! I'm number input</span>
-</Number>
+<Component {docs}></Component>

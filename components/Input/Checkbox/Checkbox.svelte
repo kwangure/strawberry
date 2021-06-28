@@ -3,7 +3,16 @@
 	import { createEventForwarder } from "../../../utils/forward-events.js";
 	import { getContext } from "svelte";
 
+	/**
+     * The value of the component if checked.
+     * @type {string}
+     */
 	export let value;
+	/**
+	 * Whether the command or control is checked
+	 *
+	 * @type {boolean}
+	 */
 	export let checked = false;
 
 	const forward = createEventForwarder();

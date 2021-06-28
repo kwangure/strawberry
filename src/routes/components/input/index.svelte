@@ -1,9 +1,7 @@
 <script>
-    import Input from "~@components/Input";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Input/Text/docs";
+
 </script>
 
-<Input placeholder="Write me! I'm text input">
-    <svelte:fragment slot="label">
-        Write me! I'm text input
-    </svelte:fragment>
-</Input>
+<Component {docs}></Component>

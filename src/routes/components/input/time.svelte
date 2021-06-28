@@ -1,17 +1,7 @@
 <script>
-    import Button from "~@components/Button";
-    import { Time } from "~@components/Input";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Input/Time/docs";
 
-    let value;
-
-    const reset = () => value = "";
-    const now = () => value = new Date().toString();
 </script>
 
-<Time bind:value></Time>
-<Button on:click={reset}>Reset</Button>
-<Button on:click={now}>Now</Button>
-
-<style>
-
-</style>
+<Component {docs}></Component>

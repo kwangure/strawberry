@@ -1,11 +1,25 @@
 <script>
-    import Container from "./Container.svelte";
-    import { createEventForwarder } from "../../utils/forward-events.js";
-    import { focusElement } from "./actions";
+    import Container from "../Container.svelte";
+    import { createEventForwarder } from "../../../utils/forward-events.js";
+    import { focusElement } from "../actions";
     import { slide } from "svelte/transition";
 
+    /**
+     * Whether to hide the input label.
+     *
+     * @type {boolean}
+     */
     export let hideLabel = false;
+    /**
+     * The initial value of the component.
+     * @type {string | undefined}
+     */
     export let value = "";
+    /**
+     * Whether the input is focused.
+     *
+     * @type {boolean}
+     */
     export let focus = false;
     export let invalid = () => false;
 

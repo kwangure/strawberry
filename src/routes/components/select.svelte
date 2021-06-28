@@ -1,8 +1,7 @@
 <script>
-    import Select, { Option } from "~@components/Select";
+    import Component from "$lib/components/component.svelte";
+    import docs from "~@components/Select/docs";
+
 </script>
 
-<Select placeholder="Like I said...">
-    <svelte:fragment slot="label">Pick me! I'm smart.</svelte:fragment>
-    <Option value={"testicle"}>Testicle Rainbow</Option>
-</Select>
+<Component {docs}></Component>

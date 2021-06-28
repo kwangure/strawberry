@@ -2,7 +2,7 @@
     import { createEventDispatcher, setContext, tick } from "svelte";
     import Dropdown from "../Dropdown";
     import Icon from "../Icon";
-    import Input from "../Input/Input.svelte";
+    import Input from "../Input/Text/Text.svelte";
     import { mdiChevronDown } from "@mdi/js";
     import { writable } from "svelte/store";
 
@@ -42,9 +42,10 @@
         // value doesn't match any child <Option/>
         usePlaceholder = true;
         displayText = placeholder;
-        if (import.meta.env.DEV && options.size > 0) {
-            console.error(`No option with the value "${value}" was found.`);
-        }
+        /* Temporarily disable to work around sveltedoc-parser */
+        // if (import.meta.env.DEV && options.size > 0) {
+        //     console.error(`No option with the value "${value}" was found.`);
+        // }
     }
 
     function handleParentChangedValue(value) {
@@ -95,7 +96,16 @@
 </style>
 
 <script context="module">
+    /**
+     * @private
+     */
     export const ACTIVE_OPTION = "select-active-option";
+    /**
+     * @private
+     */
     export const OPTIONS_STORE = "select-options-map";
+    /**
+     * @private
+     */
     export const UPDATE_VALUE_FUNC = "select-update-func";
 </script>
