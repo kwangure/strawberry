@@ -4,29 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strawberry</title>
-  
+  <title> Svelte Checkbox Component </title>
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-907b7e10.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-b64adbb1.js">
+		<link rel="modulepreload" href="/strawberry/app/start-1b59b711.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-c84aae5c.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-9f12a5fd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-d81f9a34.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-fa3b1410.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-bee474ea.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-edeca1e2.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-b84d902e.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/input/checkbox.svelte-c1bc5ecc.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-59b7904a.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-7421acc9.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-62e002f6.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-a2b4be6a.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-76a3afc0.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/input/checkbox.svelte-544d3029.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-350425b3.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-069688ed.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-f7fb3cd0.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-25487804.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-348c346d.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-3f1b26f4.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/_layout-c10a535c.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/Navbar-a81b795c.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/input/checkbox.svelte-a8fa5ffb.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/component-8968ca70.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Code-80878437.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-907b7e10.js";
+			import { start } from "/strawberry/app/start-1b59b711.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -39,9 +42,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-d81f9a34.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-fa3b1410.js"),
-						import("/strawberry/app/pages/components/input/checkbox.svelte-c1bc5ecc.js")
+						import("/strawberry/app/layout.svelte-59b7904a.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-7421acc9.js"),
+						import("/strawberry/app/pages/components/input/checkbox.svelte-544d3029.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -122,17 +125,41 @@
                     </div>
 </section>
 </div></div>
-        <div class="right svelte-vp6l69"><label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
-    <span slot="label">Check me out! I&#39;m checkbox</span>
-</label>
-<div>I like:</div>
-    <label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
-    <span slot="label">Mango</span>
-</label>
-    <label class="berry-input-checkbox input-wrapper svelte-1thz2i1"><input type="checkbox" class="svelte-1thz2i1">
-    <span slot="label">Nothing else</span>
-</label>
-    <div></div></div></div>
+        <div class="right svelte-vp6l69">
+
+<h1 class="svelte-1tlff4l">Checkbox</h1>
+<h3 class="svelte-1tlff4l">Props</h3>
+<details class="prop svelte-vo42wa"><summary><span>value</span>
+        <p class="svelte-vo42wa">The value of the component if checked.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {string}
+ */
+let value;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>checked</span>
+        <p class="svelte-vo42wa">Whether the command or control is checked</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let checked;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details></div></div>
 </div>
 
 

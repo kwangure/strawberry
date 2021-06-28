@@ -4,32 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strawberry</title>
-  
+  <title> Svelte Password Component </title>
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-907b7e10.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-b64adbb1.js">
+		<link rel="modulepreload" href="/strawberry/app/start-1b59b711.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-c84aae5c.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-9f12a5fd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-d81f9a34.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-fa3b1410.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-bee474ea.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-edeca1e2.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-b84d902e.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/input/password.svelte-3a4e89f0.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Option.svelte_svelte&type=style&lang-f4df1b0e.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-59b7904a.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-7421acc9.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-62e002f6.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-a2b4be6a.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-76a3afc0.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/input/password.svelte-f65b4229.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-350425b3.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-069688ed.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-f7fb3cd0.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-25487804.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-348c346d.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-3f1b26f4.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/_layout-c10a535c.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/Navbar-a81b795c.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte_svelte&type=style&lang-77ee13ed.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/time.svelte_svelte&type=style&lang-42684eb1.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Option.svelte_svelte&type=style&lang-63e0649c.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/component-8968ca70.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Code-80878437.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-907b7e10.js";
+			import { start } from "/strawberry/app/start-1b59b711.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -42,9 +42,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-d81f9a34.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-fa3b1410.js"),
-						import("/strawberry/app/pages/components/input/password.svelte-3a4e89f0.js")
+						import("/strawberry/app/layout.svelte-59b7904a.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-7421acc9.js"),
+						import("/strawberry/app/pages/components/input/password.svelte-f65b4229.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -125,10 +125,71 @@
                     </div>
 </section>
 </div></div>
-        <div class="right svelte-vp6l69"><div class="berry-input-password wrapper svelte-1g0jp5d"><label for="hsnl2oox1nj" class="svelte-1g0jp5d">Steal me! I&#39;m password</label>
-    <div class="container svelte-w0c26w"><input type="password" id="hsnl2oox1nj" placeholder="Steal me! I&#39;m password" class=" svelte-w0c26w"></div>
+        <div class="right svelte-vp6l69">
+
+<h1 class="svelte-1tlff4l">Password</h1>
+<h3 class="svelte-1tlff4l">Props</h3>
+<details class="prop svelte-vo42wa"><summary><span>hideLabel</span>
+        <p class="svelte-vo42wa">Whether to hide the input label.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let hideLabel;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
     
-</div></div></div>
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>value</span>
+        <p class="svelte-vo42wa">The initial value of the component.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {string | undefined}
+ */
+let value;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>focus</span>
+        <p class="svelte-vo42wa">Whether the input is focused.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let focus;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>invalid</span>
+        </summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {any}
+ */
+let invalid;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details></div></div>
 </div>
 
 

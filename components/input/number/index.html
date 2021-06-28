@@ -4,33 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strawberry</title>
-  
+  <title> Svelte Number Component </title>
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-907b7e10.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-b64adbb1.js">
+		<link rel="modulepreload" href="/strawberry/app/start-1b59b711.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-c84aae5c.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-9f12a5fd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-d81f9a34.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-fa3b1410.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-bee474ea.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-edeca1e2.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-b84d902e.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/input/number.svelte-bf3ad793.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Option.svelte_svelte&type=style&lang-f4df1b0e.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Icon-0eb73a7c.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-59b7904a.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-7421acc9.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-62e002f6.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-a2b4be6a.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-76a3afc0.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/input/number.svelte-97e0059e.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-350425b3.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-069688ed.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-f7fb3cd0.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-25487804.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-348c346d.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-3f1b26f4.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/_layout-c10a535c.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/Navbar-a81b795c.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/time.svelte_svelte&type=style&lang-42684eb1.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Icon.svelte_svelte&type=style&lang-77ee13ed.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Option.svelte_svelte&type=style&lang-63e0649c.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/component-8968ca70.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Code-80878437.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-907b7e10.js";
+			import { start } from "/strawberry/app/start-1b59b711.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -43,9 +42,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-d81f9a34.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-fa3b1410.js"),
-						import("/strawberry/app/pages/components/input/number.svelte-bf3ad793.js")
+						import("/strawberry/app/layout.svelte-59b7904a.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-7421acc9.js"),
+						import("/strawberry/app/pages/components/input/number.svelte-97e0059e.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -126,12 +125,133 @@
                     </div>
 </section>
 </div></div>
-        <div class="right svelte-vp6l69"><div class="berry-input-number wrapper svelte-1g0jp5d"><label for="w5xw1rcpe5n" class="svelte-1g0jp5d"><span slot="label">Count me! I&#39;m number input</span></label>
-    <div class="container svelte-c0sydi"><input type="text" id="w5xw1rcpe5n" placeholder="I&#39;m number input" class="svelte-c0sydi">
-        <div class="postfix-wrapper svelte-c0sydi"><span class="postfix-up svelte-c0sydi"><svg class="berry-icon svelte-16r4ecs" viewBox="0 0 24 24"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" class="svelte-16r4ecs"></path></svg></span>
-            <span class="postfix-down svelte-c0sydi"><svg class="berry-icon svelte-16r4ecs" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="svelte-16r4ecs"></path></svg></span></div></div>
+        <div class="right svelte-vp6l69">
+
+<h1 class="svelte-1tlff4l">Number</h1>
+<h3 class="svelte-1tlff4l">Props</h3>
+<details class="prop svelte-vo42wa"><summary><span>hideLabel</span>
+        <p class="svelte-vo42wa">Whether to hide the input label.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let hideLabel;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
     
-</div></div></div>
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>min</span>
+        <p class="svelte-vo42wa">The minimum value to accept.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {number}
+ */
+let min;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>max</span>
+        <p class="svelte-vo42wa">The maximum value to accept.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {number}
+ */
+let max;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>value</span>
+        <p class="svelte-vo42wa">The initial value of the component.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {number | undefined}
+ */
+let value;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>step</span>
+        <p class="svelte-vo42wa">A stepping interval to use when using up and down arrows to adjust the value, as well as for validation.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {number}
+ * @default 1
+ */
+let step;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>stepOnly</span>
+        <p class="svelte-vo42wa">Whether the user can only edit the value using up and down arrows.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let stepOnly;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>focus</span>
+        <p class="svelte-vo42wa">Whether the input is focused.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ */
+let focus;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details><details class="prop svelte-vo42wa"><summary><span>valid</span>
+        <p class="svelte-vo42wa">Whether &quot;value&quot; is a number between &quot;min&quot; and &quot;max&quot;.</p></summary>
+
+    <pre class="input svelte-1guodq7">
+        /**
+ * @type {boolean}
+ * @default true
+ */
+let valid;</pre>
+
+<pre class="berry-code svelte-1guodq7">
+</pre>
+
+    
+
+    
+</details></div></div>
 </div>
 
 
