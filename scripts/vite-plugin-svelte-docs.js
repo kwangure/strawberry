@@ -1,6 +1,6 @@
 import escapeStringRegexp from "escape-string-regexp";
 import { readFileSync } from "fs";
-import sveltedoc from "sveltedoc-parser";
+import sveltedoc from "@kwangure/svelte-docs";
 
 export default function docs(opts = {}) {
     opts = Object.assign({}, { prefix: "docs" }, opts);
@@ -44,7 +44,7 @@ export default function docs(opts = {}) {
             if (!id.startsWith(prefix)) return;
 
             const realFilepath = cleanId(id);
-            const docs = await sveltedoc.parse({
+            const docs = await sveltedoc({
                 filename: realFilepath,
                 fileContent: code,
                 version: 3,
