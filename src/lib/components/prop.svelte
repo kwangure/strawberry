@@ -22,7 +22,7 @@
     }
 </script>
 
-<details class="prop">
+<details>
     <summary>
         <span>{name}</span>
         {#if description}
@@ -62,10 +62,10 @@
 </details>
 
 <style>
-    .prop {
+    details {
         margin-bottom: 10px;
     }
-    .prop :global(.berry-code) {
+    details :global(.berry-code) {
         white-space: pre-wrap;
     }
     p {
