@@ -3,13 +3,7 @@
 
     export let prop;
 
-    const {
-        defaultValue,
-        description,
-        name,
-        kind,
-        type: { text: type },
-    } = prop;
+    $: ({ defaultValue, description, name, kind, type: { text: type }} = prop);
 
     // @ts-ignore
     if (import.meta.DEV && !description) {
@@ -70,5 +64,8 @@
     }
     p {
         margin: 1em 0 0.25em;
+    }
+    summary p {
+        margin: 0.25em 0 1em;
     }
 </style>
