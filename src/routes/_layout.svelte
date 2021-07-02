@@ -1,7 +1,9 @@
 <script>
     import "~@css/standardDOM";
+    import { mdiGithub, mdiNpm } from "@mdi/js";
     import Navbar, { Link as NavLink } from "~@components/Navbar";
     import { base } from "$app/paths";
+    import Button from "~@components/Button";
 </script>
 
 <div class="app-layout">
@@ -16,6 +18,18 @@
             <NavLink href="{base}/typography" pattern="{base}/typography">
                 Typography
             </NavLink>
+        </svelte:fragment>
+        <svelte:fragment slot="calls-to-action">
+            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
+                <Button icon={mdiGithub}>
+                    GitHub
+                </Button>
+            </a>
+            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
+                <Button icon={mdiNpm}>
+                    NPM
+                </Button>
+            </a>
         </svelte:fragment>
     </Navbar>
     <slot/>
