@@ -29,6 +29,14 @@
                 <Icon path={icon}/>
             </span>
         {/if}
+        <!--
+            Any content that is acceptable in a HTMLButtonElement.
+            @usage
+            <Button>
+                // Default slot content
+                I am button content
+            </Button>
+        -->
         <slot />
     </div>
 </button>

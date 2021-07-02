@@ -56,9 +56,17 @@
     }
 </script>
 
+<!--
+    Any element that can respond to the click MouseEvent.
+    When the element is clicked the dropdown popup will be shown.
+-->
 <slot name="button"/>
 <div class="berry-dropdown-menu" use:createPopup={visible}
     use:handleDocumentClick class:visible>
+    <!--
+        One or more Dropdown.Item or Dropown.Link components to
+        be shown when the Dropdown[slot=button] is clicked.
+    -->
     <slot></slot>
 </div>
 
