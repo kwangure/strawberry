@@ -94,7 +94,7 @@
             </Select>
         </div>
         <div class="postfix-wrapper">
-            <Icon path={mdiClockOutline} size="21"></Icon>
+            <Icon path={mdiClockOutline}></Icon>
         </div>
     </div>
 </Container>
