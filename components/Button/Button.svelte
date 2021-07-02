@@ -60,7 +60,7 @@
         padding: 0 10px;
         font-size: 14px;
         border-radius: var(--br-border-radius);
-        color: var(--br-text);
+        color: var(--br-text-color);
         background-color: transparent;
         outline: none;
         width: var(--br-button-width);
@@ -78,7 +78,7 @@
     button:hover:not(:active):not(.active) {
         background-color: var(--br-grey-lightest);
         border-color: var(--br-grey-lightest);
-        color: var(--br-text);
+        color: var(--br-text-color);
     }
     button:active,
     button.active {

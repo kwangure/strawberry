@@ -3,7 +3,7 @@
     font-weight: 400;
     font-size: var(--br-h6);
     font-family: var(--br-font);
-    color: var(--br-text);
+    color: var(--br-text-color);
 }
 
 :host * {

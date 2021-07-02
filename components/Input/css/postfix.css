@@ -1,6 +1,6 @@
 .postfix-wrapper {
     width: var(--br-postfix-width) ;
-    color: var(--br-text);;
+    color: var(--br-text-color);;
     display: flex;
     align-items: center;
     justify-content: center;
