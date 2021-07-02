@@ -18,7 +18,7 @@
     setContext(key, { navHeight });
 </script>
 
-<nav class="berry-nav" bind:offsetHeight={$navHeight}>
+<nav class="berry-navbar" bind:offsetHeight={$navHeight}>
     <div class="nav-wrapper ">
         <a class="logo" href={logoHref}>
             <slot name="logo"/>
@@ -33,9 +33,9 @@
 </nav>
 
 <style>
-    nav {
+    .berry-navbar {
         --br-nav-block-padding: var(--br-outer-gutter);
-        --br-nav-border:;
+        --br-nav-border: none;
         --br-nav-height: 48px;
         --br-nav-max-width: 100%;
         --br-nav-width: 100%;
