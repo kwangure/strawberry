@@ -86,7 +86,6 @@ a:focus { outline: none }
 /* --------------- tables --------------- */
 table {
 	width: 100%;
-	font-size: var(--br-h5);
 }
 
 td, th {

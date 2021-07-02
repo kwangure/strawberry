@@ -1,8 +1,8 @@
 :host {
 	border-collapse: collapse;
     font-weight: 400;
-    font-size: var(--br-h6);
-    font-family: var(--br-font);
+    font-size: var(--br-font-size);
+    font-family: var(--br-font-family);
     color: var(--br-text-color);
 }
 
