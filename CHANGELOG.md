@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.29.0](https://github.com/kwangure/strawberry/compare/v0.28.0...v0.29.0) (2021-07-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* setup preprocessing in Strawberry
+* remove icon props from Button
+* This removes the props `size`, `flip`, `spin`, `color` and `rotate` in
+favour of the custom properties
+```css
+--br-icon-animation: none;
+--br-icon-fill: "currentColor";
+--br-icon-transform: none;
+
+--br-icon-size: 24px;
+--br-icon-height: var(--br-icon-size);
+--br-icon-width: var(--br-icon-size);
+```
+
+### Features
+
+* add CSS .berry-code API to Code ([818b355](https://github.com/kwangure/strawberry/commit/818b355c9502b7b6124450a5a9937a13ed565ec4))
+* remove icon props from Button ([73e93ac](https://github.com/kwangure/strawberry/commit/73e93ac637257057347e5997567141a7e5969f11))
+* setup preprocessing in Strawberry ([a438635](https://github.com/kwangure/strawberry/commit/a43863519a9d5f5b41c9df931b28b2da8883d135))
+* shift headings sizes 1 font preset down ([7ec2d37](https://github.com/kwangure/strawberry/commit/7ec2d374cb9f102c7193c53d8f3f2046e3e34b94))
+
+
+### Bug Fixes
+
+* adjust to breaking Icon changes ([66536a1](https://github.com/kwangure/strawberry/commit/66536a1be8fe985d7c0503dc9abc3bd8b12b47ed))
+* remove unneeded styles ([2245d21](https://github.com/kwangure/strawberry/commit/2245d2163acb8c60eb5c29e53785aea07008e9b0))
+* use boer-box in all situations ([c4f313a](https://github.com/kwangure/strawberry/commit/c4f313acf01937cb8961a963210d4c5a6f6e5ca8))
+
+
+* feat! switch to custom properties instead of props ([849c51c](https://github.com/kwangure/strawberry/commit/849c51c824c18f643b609e3536dcef7ca6931584))
+
 ## [0.28.0](https://github.com/kwangure/strawberry/compare/v0.27.7...v0.28.0) (2021-06-25)
 
 
