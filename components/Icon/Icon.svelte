@@ -18,7 +18,7 @@
 <style>
     .berry-icon {
         --br-icon-animation: none;
-        --br-icon-fill: "currentColor";
+        --br-icon-fill: currentColor;
         --br-icon-transform: none;
 
         --br-icon-size: 24px;
