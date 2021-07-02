@@ -12,17 +12,13 @@
      * @type {string}
      */
     export let icon = "";
-    /**
-     * @private
-     */
-    export let active = "";
 
     const forward = createEventForwarder();
 </script>
 
 <button class="berry-button" class:primary class:icon
     class:slot_used={$$slots.default}
-    class:active {...$$restProps} use:forward>
+    {...$$restProps} use:forward>
     <div class="content-wrapper">
         {#if icon}
             <span class="button-prefix">
@@ -44,6 +40,7 @@
 <style>
     .berry-button {
         --br-button-width: auto;
+        --br-button-border: var(--br-border);
     }
     button {
         line-height: 1.5;
@@ -52,7 +49,7 @@
         font-weight: 400;
         white-space: nowrap;
         text-align: center;
-        border: var(--br-border);
+        border: var(--br-button-border);
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
@@ -74,17 +71,11 @@
         justify-content: center;
         line-height: 1.2;
     }
-    button:focus:not(:active):not(.active),
-    button:hover:not(:active):not(.active) {
+    button:focus:not(:active),
+    button:hover:not(:active) {
         background-color: var(--br-grey-lightest);
         border-color: var(--br-grey-lightest);
         color: var(--br-text-color);
-    }
-    button:active,
-    button.active {
-        background-color: var(--br-primary-light);
-        border-color: var(--br-primary-light);
-        color:  var(--br-primary);
     }
     button.primary {
         color: var(--br-white);
