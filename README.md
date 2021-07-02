@@ -6,24 +6,21 @@
     A set of Svelte components.<br/>
 </p>
 
-<p align="center">
-    <a href="#install"><strong>Install</strong></a> •
-    <a href="#usage"><strong>Usage</strong></a> •
-    <a href="#license"><strong>License</strong></a>
-</p>
-
-## Installation and Usage
-#### Install
+## Installation
 ```bash
 npm i @kwangure/strawberry
 ```
 
-#### Usage
+## Usage
+### Styling and Imports
 ```html
 <script>
-    /* Import one of the global styles in your layout or root file */
-    import "@kwangure/strawberry/css/standardDOM"; // Style a standard document
-    import "@kwangure/strawberry/css/customElement"; // Style a shadow root
+    /* Import one global stylesheet in root file */
+
+    // Style for standard document
+    import "@kwangure/strawberry/css/standardDOM";
+    // Style for shadow root
+    import "@kwangure/strawberry/css/customElement";
 
     import Button from "@kwangure/strawberry/components/Button";
 </script>
@@ -32,55 +29,42 @@ npm i @kwangure/strawberry
     Click me!
 </Button>
 ```
-You'll need to preprocess the components with postcss. Here's what it might look like depending on whether
-you're using `@sveltejs/kit` or `rollup`.
-##### @sveltejs/kit
+### Preprocessing
+Sveltekit
 ```javascript
 // svelte.config.js
-import { preprocessConfig } from "@kwangure/strawberry/config/index.js";
+import { strawberryPreprocess } from "@kwangure/strawberry/config/index.js";
 
-/** @type {import("@sveltejs/kit").Config} */
 export default {
     preprocess: [
-        sveltePreprocess(preprocessConfig),
+        strawberryPreprocess,
+        // ... your preprocessors
     ],
-    kit: {
-        ...
-    }
-}
-...
+    ...
+};
 ```
-##### Rollup
+
+Rollup
 ```javascript
 // rollup.config.js
-import { preprocessConfig } from "@kwangure/strawberry/config";
+import { strawberryPreprocess, sveltekitGlobals } from "@kwangure/strawberry/config";
 import replace from "@rollup/plugin-replace";
 
 ...
 plugins: [
-    replace({
-        // Tip: SvelteKit replaces these vars Out of the Box™
-        'import.meta.env.MODE': () => JSON.stringify(process.env.NODE_ENV),
-        'import.meta.env.DEV': () => String(process.env.NODE_ENV === 'development'),
-        'import.meta.env.PROD': () => String(process.env.NODE_ENV === 'production'),
-    }),
-    // Compile strawberry
+    // SvelteKit replaces these Out of the Box™
+    replace(sveltekitGlobals),
     svelte({
         ...
-        preprocess: sveltePreprocess(preprocessConfig),
-        include: "@kwangure/strawberry/**"
+        preprocess: [
+            strawberryPreprocess,
+            // ...your preprocessors
+        ]
         ...
     }),
-    // Compile your components
-    svelte({
-        ...
-        exclude: "@kwangure/strawberry/**"
-        ...
-    }),
-    ...
 ]
 ...
 ```
 
-## LICENSE
-Apache 2.0 © Kafungo Wangure
+## License
+[Apache 2.0](./LICENSE) © Kafungo Wangure
