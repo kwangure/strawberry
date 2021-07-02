@@ -13,7 +13,6 @@
         }
     }
     $: ({ usage = "" } = keywordObj);
-    $: console.log({ slotDocs, keywordObj });
 </script>
 
 <details>
