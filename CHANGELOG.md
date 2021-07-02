@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.29.1](https://github.com/kwangure/strawberry/compare/v0.29.0...v0.29.1) (2021-07-02)
+
+
+### Bug Fixes
+
+*  use renamed custom property ([d87ec71](https://github.com/kwangure/strawberry/commit/d87ec713115535c3cb43d8a626171258c979308b))
+* add default nav padding ([5694867](https://github.com/kwangure/strawberry/commit/5694867a0e9b9f2343e6a502adfe5d9286cf598a))
+* correct icon fill ([81ef92b](https://github.com/kwangure/strawberry/commit/81ef92b8a915fddf0cf10ed01617a4052794f58d))
+* install svelte-preprocess as dependency ([c5f2f2b](https://github.com/kwangure/strawberry/commit/c5f2f2be5a0d43474bacd6b533c867c4aeae76a4))
+* upgrade escape string regexp ([05f76cc](https://github.com/kwangure/strawberry/commit/05f76cc11575b0c10a0ffc4d52eab289c94209e4))
+* use correct font custom properties ([3f3d6e1](https://github.com/kwangure/strawberry/commit/3f3d6e150fe27485140783349b62e179019f4c70))
+* use correct path for inputs ([2d7acf7](https://github.com/kwangure/strawberry/commit/2d7acf72e40ffd64289804dd15013b5b2c5ccc3f))
+
 ## [0.29.0](https://github.com/kwangure/strawberry/compare/v0.28.0...v0.29.0) (2021-07-02)
 
 
