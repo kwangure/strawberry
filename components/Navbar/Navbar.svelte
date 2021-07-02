@@ -34,11 +34,10 @@
 
 <style>
     nav {
-        --br-nav-block-padding: 0px;
+        --br-nav-block-padding: var(--br-outer-gutter);
         --br-nav-border:;
         --br-nav-height: 48px;
         --br-nav-max-width: 100%;
-        --br-nav-padding: var(--br-outer-gutter);
         --br-nav-width: 100%;
         --br-logo-width: auto;
     }
@@ -51,6 +50,8 @@
         justify-content: center;
         border-bottom: var(--br-nav-border);
         height: var(--br-nav-height);
+        padding-left: var(--br-nav-block-padding);
+        padding-right: var(--br-nav-block-padding);
     }
     .nav-wrapper {
         width: var(--br-nav-width);
