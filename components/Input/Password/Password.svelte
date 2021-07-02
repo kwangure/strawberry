@@ -48,7 +48,7 @@
 </Container>
 
 <style>
-    @import "./css/input.css";
-    @import "./css/container.css";
-    @import "./css/postfix.css";
+    @import "../css/input.css";
+    @import "../css/container.css";
+    @import "../css/postfix.css";
 </style>

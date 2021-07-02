@@ -45,7 +45,7 @@
 </Container>
 
 <style>
-    @import "./css/input.css";
+    @import "../css/input.css";
     textarea {
         width: 100%;
         overflow: scroll;
