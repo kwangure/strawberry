@@ -1,14 +1,3 @@
-import cssImport from "postcss-import";
-import preprocess from "svelte-preprocess";
-
-export const strawberryPreprocess = preprocess({
-    postcss: {
-        plugins: [
-            cssImport(),
-        ],
-    },
-});
-
 // Tip: Sveltekit replaces these Out of the Box™
 export const sveltekitGlobals = {
     "import.meta.env.MODE": () => JSON.stringify(process.env.NODE_ENV),

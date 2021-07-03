@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="#"><img src="./assets/strawberry_logo.png" height="150px" /></a>
+    <img src="./assets/strawberry_logo.png" height="150px">
 </p>
 
 <p align="center">
@@ -29,39 +29,17 @@ npm i @kwangure/strawberry
     Click me!
 </Button>
 ```
-### Preprocessing
-Sveltekit
-```javascript
-// svelte.config.js
-import { strawberryPreprocess } from "@kwangure/strawberry/config/index.js";
+### ENV Variables
 
-export default {
-    preprocess: [
-        strawberryPreprocess,
-        // ... your preprocessors
-    ],
-    ...
-};
-```
-
-Rollup
 ```javascript
 // rollup.config.js
-import { strawberryPreprocess, sveltekitGlobals } from "@kwangure/strawberry/config";
+import { sveltekitGlobals } from "@kwangure/strawberry/config";
 import replace from "@rollup/plugin-replace";
 
 ...
 plugins: [
     // SvelteKit replaces these Out of the Box™
     replace(sveltekitGlobals),
-    svelte({
-        ...
-        preprocess: [
-            strawberryPreprocess,
-            // ...your preprocessors
-        ]
-        ...
-    }),
 ]
 ...
 ```

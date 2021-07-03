@@ -10,7 +10,7 @@
         "preview": "svelte-kit preview",
         "lint": "eslint .",
         "release": "standard-version -a",
-        "publish": "git push --follow-tags origin master"
+        "publish": "node ./scripts/make-package.js && npm publish package && git push --follow-tags origin master"
     },
     "dependencies": {
         "@mdi/js": "^5.0.45",
@@ -38,6 +38,7 @@
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-svelte3": "^3.1.2",
         "gh-pages": "^3.1.0",
+        "globrex": "^0.1.2",
         "standard-version": "^9.1.0",
         "svelte": "^3.35.0",
         "sveltedoc-parser": "^4.1.0",
