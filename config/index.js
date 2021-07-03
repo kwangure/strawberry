@@ -1,7 +1,7 @@
 import cssImport from "postcss-import";
 import preprocess from "svelte-preprocess";
 
-export const strawberryPreproces = preprocess({
+export const strawberryPreprocess = preprocess({
     postcss: {
         plugins: [
             cssImport(),

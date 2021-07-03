@@ -2,7 +2,7 @@ import adapter from "@sveltejs/adapter-static";
 import docs from "./scripts/vite-plugin-svelte-docs.js";
 import { fileURLToPath } from "url";
 import path from "path";
-import { strawberryPreproces } from "./config/index.js";
+import { strawberryPreprocess } from "./config/index.js";
 
 const MODE = process.env.NODE_ENV
 const PROD = MODE === "production";
@@ -11,7 +11,7 @@ export const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
-    preprocess: strawberryPreproces,
+    preprocess: strawberryPreprocess,
     kit: {
         appDir: "app",
         adapter: adapter(),
