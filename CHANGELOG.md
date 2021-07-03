@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.29.2](https://github.com/kwangure/strawberry/compare/v0.29.1...v0.29.2) (2021-07-03)
+
+
+### Bug Fixes
+
+* typo ([431b7c4](https://github.com/kwangure/strawberry/commit/431b7c4765754e0973073d89480a14b41dd26223))
+* use 'berry-navbar' for css API ([3d057cb](https://github.com/kwangure/strawberry/commit/3d057cb16469feb23188c494aa6d1e0f7b1700dc))
+
 ### [0.29.1](https://github.com/kwangure/strawberry/compare/v0.29.0...v0.29.1) (2021-07-02)
 
 
