@@ -41,7 +41,7 @@
         flex-direction: column;
         min-height: 100%;
     }
-    .app-layout :global(.berry-nav) {
+    .app-layout :global(.berry-navbar) {
         --br-nav-border: var(--br-border);
         --br-logo-width: 240px;
     }

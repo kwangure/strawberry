@@ -52,7 +52,7 @@
     .layout {
         display: contents;
     }
-    .layout :global(.berry-nav) {
+    .layout :global(.berry-navbar) {
         --br-nav-max-width: var(--page-max-width);
         --br-nav-width: var(--page-width);
         --br-nav-height: var(--nav-height);
