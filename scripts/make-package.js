@@ -11,6 +11,7 @@ const dirs = [
     "components",
     "config",
     "css",
+    "utils",
 ];
 
 make_package();
