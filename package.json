@@ -10,7 +10,7 @@
         "preview": "svelte-kit preview",
         "lint": "eslint .",
         "release": "standard-version -a",
-        "publish": "node ./scripts/make-package.js && npm publish package && git push --follow-tags origin master"
+        "publish": "node ./scripts/make-package.js && npm publish ./package && git push --follow-tags origin master"
     },
     "dependencies": {
         "@mdi/js": "^5.0.45",
