@@ -11,7 +11,7 @@ module.exports = {
                     ["~@css", "./css/"],
                     // escape `$` to work around eslint's Regex matching
                     ["\\$app", "./.svelte-kit/dev/runtime/app/"],
-                    ["\\$lib", "src/lib/"],
+                    ["\\$lib", "./src/lib/"],
                 ],
                 extensions: [".js", ".svelte", ".json"],
             },
