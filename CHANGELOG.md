@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.29.3](https://github.com/kwangure/strawberry/compare/v0.29.2...v0.29.3) (2021-07-04)
+
+
+### Features
+
+* preprocess before publishing ([1b9bbbe](https://github.com/kwangure/strawberry/commit/1b9bbbe77a9eb5c8abd61a4b1300e4c3ab2d9864))
+
 ### [0.29.2](https://github.com/kwangure/strawberry/compare/v0.29.1...v0.29.2) (2021-07-03)
 
 
