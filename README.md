@@ -1,6 +1,6 @@
-<p align="center">
-    <img src="./assets/strawberry_logo.png" height="150px">
-</p>
+<div align="center">
+    <img src="./assets/strawberry_logo.png" style="max-height: 150px">
+</div>
 
 <p align="center">
     A set of Svelte components.<br/>
