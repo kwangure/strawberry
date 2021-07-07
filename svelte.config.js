@@ -21,7 +21,9 @@ export default {
         target: "#svelte",
         vite: {
             plugins: [
-                docs(),
+                docs({
+                    include: "components/**",
+                }),
             ],
             resolve: {
                 alias: {

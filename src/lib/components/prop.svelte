@@ -3,11 +3,13 @@
 
     export let prop;
 
-    $: ({ defaultValue, description, name, kind, type: { text: type }} = prop);
+    $: ({ kind, name, optional, value, jsDoc } = prop);
+    $: ({ description, tags = []} = jsDoc || {});
+    $: ({ type } = tags.find((t) => t.tag === "type") || {});
 
     // @ts-ignore
     if (import.meta.DEV && !description) {
-        console.warn(`"${name}" property is missing description`);
+        console.warn(`"${name}" prop is missing a description`);
     }
 
     // @ts-ignore
@@ -26,15 +28,15 @@
 
     <Code language="javascript">
         <!-- Repeating some code avoids whitespace problems -->
-        {#if defaultValue}
+        {#if optional && type}
 /**
  * @type &#123;{type}&#125;
- * @default {defaultValue}
  */
 {kind} {name};
-        {:else}
+        {:else if type}
 /**
  * @type &#123;{type}&#125;
+ * @default {value}
  */
 {kind} {name};
         {/if}

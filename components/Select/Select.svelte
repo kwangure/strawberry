@@ -6,11 +6,36 @@
     import { mdiChevronDown } from "@mdi/js";
     import { writable } from "svelte/store";
 
+    /** Inline Block */
+    /**
+     * Text that appears in the form control when it has no value set
+     * @type {string}
+    */
     export let placeholder = "";
+    /**
+     * Where to position the popup relative to the dropdown button.
+     * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
+     */
     export let placement = "bottom-start";
+    /**
+     * The initial value of the component.
+     * @type {any}
+     */
     export let value = "";
-    export let compare = (a, b) => a === b;
-    export let format = ({ optionDisplayText }) => optionDisplayText;
+    /**
+     * Compares whether the `Select.value` an `Option.value` are equal.
+     * @type {(value, optionValue) => boolean}
+     */
+    export function compare(a, b) {
+        return a === b;
+    }
+    /**
+     * Choose the text displayed when an Option is selected.
+     * @type {({ optionValue, optionDisplayText }) => string}
+     */
+    export function format({ optionDisplayText }) {
+        return optionDisplayText;
+    }
 
     const dispatch = createEventDispatcher();
     const activeOptionId = writable("");
@@ -58,7 +83,7 @@
         ({ value } = option);
         displayText = format({
             optionDisplayText: option.displayText,
-            value: value,
+            value,
         });
         // eslint-disable-next-line no-unused-vars
         $activeOptionId = option.id;
@@ -97,14 +122,17 @@
 
 <script context="module">
     /**
+     * Internally used to identify the active option
      * @private
      */
     export const ACTIVE_OPTION = "select-active-option";
     /**
+     * Used internally to communicate between `Select` an `Option`
      * @private
      */
     export const OPTIONS_STORE = "select-options-map";
     /**
+     * Used internally to update `Select` when an `Option` is selected.
      * @private
      */
     export const UPDATE_VALUE_FUNC = "select-update-func";

@@ -1,6 +1,6 @@
 <script>
     import Component from "$lib/components/component.svelte";
-    import docs from "~@components/Tooltip/docs";
+    import { docs } from "~@components/Tooltip";
 
 </script>
 

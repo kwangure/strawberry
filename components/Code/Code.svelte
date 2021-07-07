@@ -7,7 +7,7 @@
 
     /**
      * Which syntax highlighter to use.
-     * @type {"" | "javascript" | "svelte"}
+     * @type {"" | "css"| "javascript" | "svelte"}
     */
     export let language = "";
     /**

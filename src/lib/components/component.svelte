@@ -1,10 +1,13 @@
 <script>
+    import CustomProperty from "./custom-property.svelte";
     import Prop from "./prop.svelte";
-    import Slot from "./slot.svelte";
 
+    /**
+     * @type {object}
+     */
     export let docs;
 
-    const { name, props, slots } = docs;
+    const { name, props, customProperties } = docs.main;
 </script>
 
 <svelte:head>
@@ -18,10 +21,14 @@
     <Prop {prop}></Prop>
 {/each}
 
-<h2>Slots</h2>
-{#each slots as slot}
-    <Slot slotDocs={slot}></Slot>
-{/each}
+<h2>Custom Properties</h2>
+{#if customProperties.length > 0}
+    {#each customProperties as property}
+        <CustomProperty propertyDocs={property}></CustomProperty>
+    {/each}
+{:else}
+    None.
+{/if}
 
 <style>
     h1 {

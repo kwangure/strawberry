@@ -1,5 +1,9 @@
+import Navbar, { docs as navbarDocs } from "./Navbar.svelte";
 import Link from "./Link.svelte";
-import Navbar from "./Navbar.svelte";
 
 export default Navbar;
 export { Link };
+
+export const docs = {
+    main: navbarDocs,
+};
