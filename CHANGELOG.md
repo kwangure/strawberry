@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.30.0](https://github.com/kwangure/strawberry/compare/v0.29.4...v0.30.0) (2021-07-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* The path to importing input components has changed.
+
+```diff
+- import Input { Number, Password } from "@kwangure/strawberry/components/Input";
++import Text from "@kwangure/strawberry/components/Input/Text";
++import Number from "@kwangure/strawberry/components/Input/Number";
++import Password from "@kwangure/strawberry/components/Input/Password";
+```
+
+### Features
+
+* switch to documenting using @kwangure/svelte-docs ([e04ac88](https://github.com/kwangure/strawberry/commit/e04ac882e91f273f5d3e27ae6a75be88944d5c4d))
+
+
+### Bug Fixes
+
+* add utils to deployed packages ([44acbb6](https://github.com/kwangure/strawberry/commit/44acbb6a4df7136375651647c0d458b851c5f81a))
+
 ### [0.29.4](https://github.com/kwangure/strawberry/compare/v0.29.3...v0.29.4) (2021-07-04)
 
 ### [0.29.3](https://github.com/kwangure/strawberry/compare/v0.29.2...v0.29.3) (2021-07-04)
