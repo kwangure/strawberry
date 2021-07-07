@@ -2,7 +2,6 @@
 import { mkdirp, rimraf } from "./filesystem.js";
 import config from "../svelte.config.js";
 import fs from "fs";
-import globrex from "globrex";
 import path from "path";
 import { preprocess } from "svelte/compiler";
 
@@ -152,23 +151,6 @@ function load_tsconfig(filename, ts) {
         tsconfig_filename
     );
     return options;
-}
-
-/**
- * @param {{
- *   include: string[];
- *   exclude: string[];
- * }} options
- */
-function create_filter(options) {
-    const include = options.include.map((str) => str && globrex(str));
-    const exclude = options.exclude.map((str) => str && globrex(str));
-
-    /** @param {string} str */
-    return function filter(str) {
-        return include.some((glob) => glob.regex.test(str))
-            && !exclude.some((glob) => glob.regex.test(str));
-    };
 }
 
 /**
