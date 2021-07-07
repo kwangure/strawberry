@@ -1,0 +1,1 @@
+import"./vendor-a289ca3a.js";JSON.parse('{"name":"Container","props":[{"kind":"alias","name":"class","alias":"className"},{"kind":"let","name":"hideLabel","optional":true,"value":false}],"exports":[],"customProperties":[]}');
