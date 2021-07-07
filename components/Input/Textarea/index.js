@@ -1,7 +1,3 @@
-import Textarea, { docs as textareaDocs } from "./Textarea.svelte";
+import Textarea from "./Textarea.svelte";
 
 export default Textarea;
-
-export const docs = {
-    main: textareaDocs,
-};
