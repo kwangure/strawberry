@@ -99,7 +99,7 @@
 <Container class="berry-input-number" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
-        <input bind:value on:blur={() => {
+        <input class="text-input" bind:value on:blur={() => {
  focus = false;
 }}
             on:change={() => {
@@ -119,11 +119,11 @@
     </div>
     {#if isBelowMin}
         <div class="invalid" transition:slide>
-            Minimum value is {min}.
+            Use a number larger than {min}.
         </div>
     {:else if isAboveMax}
         <div class="invalid" transition:slide>
-            Maximum value is {min}.
+            Use a number smaller than {max}.
         </div>
     {/if}
 </Container>

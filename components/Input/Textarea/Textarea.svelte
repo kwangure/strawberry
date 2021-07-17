@@ -1,6 +1,7 @@
 <script>
     import Container from "../Container.svelte";
     import { createEventForwarder } from "../../../utils/forward-events.js";
+    import { slide } from "svelte/transition";
 
     /**
      * The initial value of the component.
@@ -19,12 +20,15 @@
      * @type {boolean}
      */
     export let focus = false;
+    export let invalid = () => false;
 
     const forward = createEventForwarder();
 
     let textarea = null;
+    let blurred = false;
 
     $: if (focus && textarea) textarea.focus();
+    $: isInvalid = blurred && invalid(value);
 
     function autosize() {
         const computed = getComputedStyle(textarea);
@@ -40,8 +44,15 @@
 
 <Container class="berry-input-textarea" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
-    <textarea bind:this={textarea} on:input={autosize}
+    <textarea class="text-input" class:is_invalid={isInvalid}
+        bind:this={textarea} on:input={autosize}
+        on:blur={() => blurred = true}
         use:forward bind:value id={labelId} {...$$restProps}/>
+    {#if isInvalid}
+    <div class="invalid" transition:slide>
+        {isInvalid}
+    </div>
+    {/if}
 </Container>
 
 <style>
@@ -55,5 +66,10 @@
     }
     textarea::-webkit-scrollbar {
         display: none;
+    }
+    textarea:hover,
+    textarea:focus {
+        border: 2px solid var(--br-primary);
+        padding: 0;
     }
 </style>

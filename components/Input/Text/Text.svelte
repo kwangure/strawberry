@@ -39,7 +39,7 @@
 <Container class="berry-input" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
-        <input bind:value class:isInvalid
+        <input class="text-input" bind:value class:isInvalid
             on:blur={handleBlur} use:forward
             on:keydown
             type="text" id={labelId} use:focusElement={focus} {...$$restProps}>

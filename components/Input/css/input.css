@@ -1,5 +1,4 @@
-input,
-textarea {
+.text-input {
     text-align: inherit;
     display: inline-block;
     color: var(--br-text-color);
@@ -10,17 +9,11 @@ textarea {
     border: none;
     outline: 0;
 }
-input {
+.text-input:not(textarea) {
     height: 100%;
     padding: var(--br-input-block-padding) var(--br-input-inline-padding);
 }
-textarea:hover,
-textarea:focus {
-    border: 2px solid var(--br-primary);
-    padding: 0;
-}
-input:hover:not(:focus),
-textarea:hover:not(:focus) {
+.text-input:hover:not(:focus) {
     border-color: var(--br-grey-light);
 }
 div.invalid {
