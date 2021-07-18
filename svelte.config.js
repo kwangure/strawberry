@@ -7,7 +7,12 @@ import path from "path";
 const MODE = process.env.NODE_ENV;
 const PROD = MODE === "production";
 
-export const __dirname = path.dirname(fileURLToPath(import.meta.url));
+export const __filename = fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(__filename);
+
+function resolve(pathname) {
+    return path.resolve(__dirname, pathname);
+}
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
@@ -15,6 +20,19 @@ export default {
     kit: {
         appDir: "app",
         adapter: adapter(),
+        package: {
+            exports: {
+                exclude: [
+                    "components/**/*.svelte",
+                    "components/**/*.css",
+                    "utils/**",
+                ],
+            },
+            files: {
+                include: ["components/**", "css/**", "utils/**"],
+                exclude: ["**/docs.js"],
+            },
+        },
         paths: {
             base: PROD ? "/strawberry" : "",
         },
@@ -27,9 +45,9 @@ export default {
             ],
             resolve: {
                 alias: {
-                    "~@css": path.resolve(__dirname, "./css/"),
-                    "~@components": path.resolve(__dirname, "./components/"),
-                    "~@utils": path.resolve(__dirname, "./utils/"),
+                    "~@css": resolve("./src/lib/css/"),
+                    "~@components": resolve("./src/lib/components/"),
+                    "~@utils": resolve("./src/lib/utils/"),
                 },
             },
             optimizeDeps: {

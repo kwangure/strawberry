@@ -1,5 +1,5 @@
 <script>
-    import Component from "$lib/components/component.svelte";
+    import Component from "$lib/internal/component.svelte";
     import { docs } from "~@components/Tooltip/docs";
 
 </script>
