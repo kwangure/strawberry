@@ -21,13 +21,14 @@ export default {
         appDir: "app",
         adapter: adapter(),
         package: {
-            exports: {
-                exclude: [
-                    "components/**/*.svelte",
-                    "components/**/*.css",
-                    "utils/**",
-                ],
-            },
+            // TODO: Uncomment and rewrite `pkg.exports` after https://github.com/sveltejs/kit/issues/1944 is resolved
+            // exports: {
+            //     exclude: [
+            //         "components/**/*.svelte",
+            //         "components/**/*.css",
+            //         "utils/**",
+            //     ],
+            // },
             files: {
                 include: ["components/**", "css/**", "utils/**"],
                 exclude: ["**/docs.js"],
