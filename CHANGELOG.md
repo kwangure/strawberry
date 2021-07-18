@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.3-rc.0](https://github.com/kwangure/strawberry/compare/v0.30.2...v0.30.3-rc.0) (2021-07-18)
+
+
+### Features
+
+* cleanup validation and styling for all text inputs ([441a50c](https://github.com/kwangure/strawberry/commit/441a50c8d2611df4ad8500a3bed17986e476b9e4))
+
 ### [0.30.2](https://github.com/kwangure/strawberry/compare/v0.30.1...v0.30.2) (2021-07-07)
 
 
