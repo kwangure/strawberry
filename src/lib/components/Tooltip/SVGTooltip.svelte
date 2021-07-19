@@ -3,17 +3,21 @@
     import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
     import { createPopper } from "@popperjs/core";
 
+    /**
+     * Where to position the popup relative to the reference element.
+     * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
+     */
     export let placement = "auto";
     export let followMouse = false;
-    export let text;
+    export let arrow = true;
 
-    let showTooltip = false;
+    let visible = false;
 
     function handleShow() {
-        showTooltip = true;
+        visible = true;
     }
     function handleHide() {
-        showTooltip = false;
+        visible = false;
     }
 
     function createPopup(popup) {
@@ -68,8 +72,11 @@
 </script>
 
 <slot/>
-<div use:createPopup class:showTooltip>
-    {text}
+<div class="berry-tooltip" use:createPopup class:visible data-popper-placement={placement}>
+    {#if arrow}
+        <div class="arrow"></div>
+    {/if}
+    <slot name="popup"></slot>
 </div>
 
 <style>
