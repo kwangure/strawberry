@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.3-rc.2](https://github.com/kwangure/strawberry/compare/v0.30.3-rc.1...v0.30.3-rc.2) (2021-07-19)
+
+
+### Features
+
+* include config in build ([ff6cff5](https://github.com/kwangure/strawberry/commit/ff6cff57efd07113459bf0183cea60575f363b69))
+* make SVG Tooltip implementation close to tootltip ([dc42a9b](https://github.com/kwangure/strawberry/commit/dc42a9b166c91b3e3c073f7f987c57bf00c9fd2b))
+
 ### [0.30.3-rc.1](https://github.com/kwangure/strawberry/compare/v0.30.3-rc.0...v0.30.3-rc.1) (2021-07-18)
 
 ### [0.30.3-rc.0](https://github.com/kwangure/strawberry/compare/v0.30.2...v0.30.3-rc.0) (2021-07-18)
