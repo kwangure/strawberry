@@ -30,8 +30,8 @@ export default {
             //     ],
             // },
             files: {
-                include: ["components/**", "css/**", "utils/**"],
-                exclude: ["**/docs.js"],
+                include: ["components/**", "css/**", "utils/**", "config/**"],
+                exclude: ["**/docs.js", "components/**/*.css"],
             },
         },
         paths: {
