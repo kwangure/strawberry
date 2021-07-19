@@ -5,7 +5,7 @@ let _userAgent;
 if (typeof navigator === "object") {
     _userAgent = navigator.userAgent;
     _isMacintosh = _userAgent.indexOf("Macintosh") >= 0;
-    _isIOS = ((/iPad|iPhone|iPod|Macintosh/u)
+    _isIOS = ((/iPad|iPhone|iPod|Macintosh/)
         .test(navigator.userAgent)) && navigator.maxTouchPoints > 0;
 }
 

@@ -8,7 +8,10 @@
     export let value = "";
 
     setContext(radioGroup, {
-        set: (v) => value = v, // eslint-disable-line no-return-assign
+        set: (v) => {
+            value = v;
+            return v;
+        },
         name: uid(),
         initialValue: value,
     });

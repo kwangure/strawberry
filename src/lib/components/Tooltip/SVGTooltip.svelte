@@ -32,7 +32,7 @@
             ? mousePosInBoundingRect(referenceElement)
             : referenceElement;
         const popperInstance = createPopper(reference, popup, {
-            placement: placement,
+            placement,
             modifiers: [{
                 name: "offset",
                 options: { offset: [0, 5]},

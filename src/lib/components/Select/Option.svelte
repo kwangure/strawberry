@@ -22,8 +22,8 @@
         if (option) {
             optionValue = {
                 displayText: option.innerText,
-                id: id,
-                value: value,
+                id,
+                value,
             };
             $options = $options.set(id, optionValue);
         }

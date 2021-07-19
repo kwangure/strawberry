@@ -38,7 +38,7 @@
                 <slot name="step" step={{ ...item,
                     active: activeIndex === index,
                     completed: activeIndex > index,
-                    index: index }}></slot>
+                    index }}></slot>
             </Item>
         {/each}
     </div>

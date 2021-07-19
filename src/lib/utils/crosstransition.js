@@ -39,9 +39,9 @@ export function crosstransition({ fallback, ...defaults }) {
         const opacity = Number(style.opacity);
 
         return {
-            delay: delay,
+            delay,
             duration: isFunction(duration) ? duration(d) : duration,
-            easing: easing,
+            easing,
             /* eslint-disable max-len */
             css: (t, u) => `
 				opacity: ${fade ? t * 1.5 * opacity : opacity};

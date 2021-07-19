@@ -92,7 +92,7 @@
     }
 
     const handleInputOptions = {
-        pattern: /^-?\d*(?<decimal>\.\d*)?$/u,
+        pattern: /^-?\d*(\.\d*)?$/,
     };
 </script>
 

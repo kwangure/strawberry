@@ -26,7 +26,7 @@
     const fuzzyOptions = {
         pre: "<b>",
         post: "</b>",
-        extract: extract,
+        extract,
     };
 
     $: search = text === extract(fallback) ? "" : text;
