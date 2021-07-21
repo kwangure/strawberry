@@ -121,22 +121,22 @@
     .container :global(.berry-input .postfix-wrapper) {
         display: none;
     }
-    .container :global(.berry-select input) {
+    .container :global(.berry-select input.text-input) {
         --input-padding: 2px;
         width: calc(2ch + var(--input-padding)*2);
         text-align: right;
         padding: var(--br-input-block-padding) var(--input-padding);
         font-variant-numeric: tabular-nums;
     }
-    .container :global(.berry-select:nth-child(3) input) {
+    .container :global(.berry-select:nth-child(3) input.text-input) {
         width: calc(3ch + 2 * var(--input-padding));
         text-align: center;
     }
-    .container :global(.berry-select.placeholder input) {
+    .container :global(.berry-select.placeholder input.text-input) {
         text-align: center;
     }
     .container :global(.container input:hover),
-    .container :global(.container:focus-within input) {
+    .container :global(.container:focus-within input.text-input) {
         background-color: var(--br-primary-light);
     }
     .container :global(.berry-dropdown-menu) {
