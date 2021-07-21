@@ -41,7 +41,7 @@ export default {
         vite: {
             plugins: [
                 docs({
-                    include: "components/**",
+                    include: "src/lib/components/**",
                 }),
             ],
             resolve: {
