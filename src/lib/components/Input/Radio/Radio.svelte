@@ -12,10 +12,9 @@
     const forward = createEventForwarder();
     const group = getContext(radioGroup);
 
-    /* Temporarily disable to work around "sveltedoc-parser" */
-    // if (import.meta.env.DEV && !group) {
-    //     throw Error("'Radio' must be wrapped in a radio 'Group' parent.");
-    // }
+    if (import.meta.env.DEV && !group) {
+        throw Error("'Radio' must be wrapped in a radio 'Group' parent.");
+    }
 
     function handleChange() {
         // eslint-disable-next-line no-invalid-this

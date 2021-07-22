@@ -67,10 +67,10 @@
         // value doesn't match any child <Option/>
         usePlaceholder = true;
         displayText = placeholder;
-        /* Temporarily disable to work around sveltedoc-parser */
-        // if (import.meta.env.DEV && options.size > 0) {
-        //     console.error(`No option with the value "${value}" was found.`);
-        // }
+
+        if (import.meta.env.DEV && options.size > 0) {
+            console.error(`No option with the value "${value}" was found.`);
+        }
     }
 
     function handleParentChangedValue(value) {
