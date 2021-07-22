@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.3-rc.3](https://github.com/kwangure/strawberry/compare/v0.30.3-rc.2...v0.30.3-rc.3) (2021-07-22)
+
+
+### Bug Fixes
+
+* increase CSS specificity override ([501ccee](https://github.com/kwangure/strawberry/commit/501cceecfa32e6f8522fd42109320d390700a0cc))
+* remove remnants of sveltedoc parser ([8612ae9](https://github.com/kwangure/strawberry/commit/8612ae9c6be13ac890260dfc27843a80ad1c2bcf))
+* use less transparent black in popups ([6480efc](https://github.com/kwangure/strawberry/commit/6480efcc7ecba7ca2674d96881567b04421b59c8))
+
 ### [0.30.3-rc.2](https://github.com/kwangure/strawberry/compare/v0.30.3-rc.1...v0.30.3-rc.2) (2021-07-19)
 
 
