@@ -3,7 +3,6 @@
     import Container from "../Container.svelte";
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import { focusElement } from "../actions";
-    import { handleInput } from "./number.js";
     import Icon from "../../Icon";
     import { slide } from "svelte/transition";
 
@@ -15,14 +14,14 @@
     export let hideLabel = false;
     /**
      * The minimum value to accept.
-     * @type {number}
+     * @type {number | undefined}
      */
-    export let min = Number.MIN_SAFE_INTEGER;
+    export let min = undefined; // eslint-disable-line no-undef-init
     /**
      * The maximum value to accept.
-     * @type {number}
+     * @type {number | undefined}
      */
-    export let max = Number.MAX_SAFE_INTEGER;
+    export let max = undefined; // eslint-disable-line no-undef-init
     /**
      * The initial value of the component.
      * @type {number | undefined}
@@ -34,16 +33,18 @@
      */
     export let step = 1;
     /**
-     * Whether the user can only edit the value using up and down arrows.
-     * @type {boolean}
-    */
-    export let stepOnly = false;
-    /**
      * Whether the input is focused.
      *
      * @type {boolean}
      */
     export let focus = false;
+
+    /**
+     * Text that appears in the form control when it has no value set
+     *
+     * @type {string}
+     */
+    export let placeholder = "";
     /**
      * Whether "value" is a number between "min" and "max".
      *
@@ -54,65 +55,42 @@
 
     const forward = createEventForwarder();
 
-    $: isBelowMin = Number(value) < min;
-    $: isAboveMax = Number(value) > max;
+    $: isBelowMin = min && Number(value) < min;
+    $: isAboveMax = max && Number(value) > max;
     $: valid = isNaN(Number(value)) || (!isBelowMin && !isAboveMax);
 
-    function increment(value, step) {
-        return clamp((Number(value)+ Number(step)).toFixed(12), min, max);
-    }
-
-    function decrement(value, step) {
-        return clamp((Number(value) - Number(step)).toFixed(12), min, max);
-    }
-
-    function handleKeydown(event) {
-        if (event.key === "ArrowUp") {
-            event.preventDefault();
-            value = increment(value, step);
-        } else if (event.key === "ArrowDown") {
-            event.preventDefault();
-            value = decrement(value, step);
-        }
-    }
-
-    function clamp(value, min, max) {
-        if (isNaN(value)) return;
-        return Math.min(Math.max(value, min), max);
-    }
-
-    function handleClickUp() {
-        value = increment(value, step);
-        focus = true;
-    }
-
-    function handleClickDown() {
-        value = decrement(value, step);
-        focus = true;
-    }
-
-    const handleInputOptions = {
-        pattern: /^-?\d*(\.\d*)?$/,
+    /** @type {HTMLInputElement}*/
+    let input = {
+        stepUp() {},
+        stepDown() {},
     };
+
+    function dispatchChange() {
+        input.dispatchEvent(new Event("change"));
+    }
+
+    function stepUp() {
+        input.stepUp();
+        dispatchChange();
+    }
+
+    function stepDown() {
+        input.stepDown();
+        dispatchChange();
+    }
 </script>
 
 <Container class="berry-input-number" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
-    <div class="container">
-        <input class="text-input" bind:value on:blur={() => {
- focus = false;
-}}
-            on:change={() => {
- value = clamp(value, min, max);
-}}
-            readonly={stepOnly}
-            on:keydown={handleKeydown} use:forward use:handleInput={handleInputOptions}
-            type="text" id={labelId} use:focusElement={focus} {...$$restProps}>
+    <div class="container" class:invalid={!valid}>
+        <input bind:this={input} bind:value class="text-input"
+            id={labelId} on:blur={() => focus = false} {placeholder}
+            {step} type="number" use:focusElement={focus} use:forward>
         <div class="postfix-wrapper">
-            <span class="postfix-up"on:click|stopPropagation={handleClickUp}>
+            <span class="postfix-up"on:click={stepUp}>
                 <Icon path={mdiChevronUp}/>
             </span>
-            <span class="postfix-down" on:click|stopPropagation={handleClickDown}>
+            <span class="postfix-down" on:click={stepDown}>
                 <Icon path={mdiChevronDown}/>
             </span>
         </div>
@@ -132,6 +110,16 @@
     @import "../css/input.css";
     @import "../css/container.css";
     @import "../css/postfix.css";
+    [type=number]::-webkit-outer-spin-button,
+    [type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    [type=number] {
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
     .postfix-wrapper {
         flex-direction: column;
     }
