@@ -40,6 +40,9 @@
                         <Link href="{base}/components/input" {path}>
                             Text
                         </Link>
+                        <Link href="{base}/components/input/password" {path}>
+                            Password
+                        </Link>
                         <Link href="{base}/components/input/number" {path}>
                             Number
                         </Link>
