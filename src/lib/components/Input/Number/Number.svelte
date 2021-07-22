@@ -16,17 +16,17 @@
      * The minimum value to accept.
      * @type {number | undefined}
      */
-    export let min = undefined; // eslint-disable-line no-undef-init
+    export let min = undefined;
     /**
      * The maximum value to accept.
      * @type {number | undefined}
      */
-    export let max = undefined; // eslint-disable-line no-undef-init
+    export let max = undefined;
     /**
      * The initial value of the component.
      * @type {number | undefined}
      */
-    export let value = undefined; // eslint-disable-line no-undef-init
+    export let value = undefined;
     /**
      * A stepping interval to use when using up and down arrows to adjust the value, as well as for validation.
      * @type {number}

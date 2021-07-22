@@ -50,7 +50,7 @@
         "uid": "^1.0.0"
     },
     "devDependencies": {
-        "@kwangure/eslint-config-svelte": "^0.1.14",
+        "@kwangure/eslint-config-svelte": "^0.1.15",
         "@kwangure/svelte-docs": "^0.0.2",
         "@rollup/plugin-eslint": "^8.0.1",
         "@rollup/pluginutils": "^4.1.0",

@@ -31,11 +31,9 @@ export default function svelteDos(options = {}) {
                 preprocess,
             }));
 
-            // eslint-disable-next-line max-len
             code += `export const ${exportName} = JSON.parse(${JSON.stringify(docs)});`;
             const error = isMalformed(code);
             if (error) {
-                // eslint-disable-next-line max-len
                 throw Error(`Could not export documentation in '${filename}'. ${error.message}`);
             }
 
