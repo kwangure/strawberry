@@ -30,6 +30,7 @@
 	--br-green-light: rgb(210, 255, 200);
 
 	--br-black: #333;
+	--br-black-transparent: rgba(30, 30, 30, 0.9);
 	--br-grey-dark: rgb(70, 80, 90);
 	--br-grey: rgb(150, 150, 150);
 	--br-grey-light: rgb(195, 195, 195);

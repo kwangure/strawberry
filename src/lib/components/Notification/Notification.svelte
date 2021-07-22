@@ -53,7 +53,7 @@
         width: fit-content;
         margin-left: auto;
         padding: var(--br-item-block-padding) var(--br-item-inline-padding);
-        background-color: rgba(0,0,0,.75);
+        background-color: var(--br-black-transparent);
         min-width: 30px;
         min-height: var(--br-item-height);
     }

@@ -1,6 +1,6 @@
 .berry-tooltip {
     padding: 6px 8px;
-    background-color: rgba(0,0,0,.75);
+    background-color: var(--br-black-transparent);
     min-width: 30px;
     min-height: var(--br-item-height);
     color: var(--br-white);
