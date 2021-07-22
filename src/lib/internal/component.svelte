@@ -16,6 +16,16 @@
 </svelte:head>
 
 <h1>{name}</h1>
+{#if $$slots.inline || $$slots.block}
+    <h2>Example</h2>
+    <div class="usage inline">
+        <slot name="inline"/>
+    </div>
+    <div class="usage block">
+        <slot name="block"/>
+    </div>
+{/if}
+
 <h2>Props</h2>
 {#each props as prop}
     <Prop {prop}></Prop>
@@ -31,11 +41,17 @@
 {/if}
 
 <style>
-    h1 {
-        font-size: 32px;
+    h1 + h2 {
+        margin-top: 16px;
     }
     h2 {
-        font-weight: 400;
-        margin: 16px 0 8px;
+        margin: 24px 0 8px;
+    }
+    .usage {
+        display: flex;
+        gap: 5px;
+    }
+    .block {
+        flex-direction: column;
     }
 </style>

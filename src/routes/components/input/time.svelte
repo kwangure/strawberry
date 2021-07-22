@@ -1,7 +1,15 @@
 <script>
     import Component from "$lib/internal/component.svelte";
     import { docs } from "~@components/Input/Time/docs";
-
+    import Time from "~@components/Input/Time";
 </script>
 
-<Component {docs}></Component>
+<Component {docs}>
+    <svelte:fragment slot="inline">
+        <Time value={new Date()}>
+            <svelte:fragment slot="label">
+                I label your time!
+            </svelte:fragment>
+        </Time>
+    </svelte:fragment>
+</Component>

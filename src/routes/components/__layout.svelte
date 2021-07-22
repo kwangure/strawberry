@@ -63,9 +63,6 @@
                         <Link href="{base}/components/code" {path}>
                             Code
                         </Link>
-                        <Link href="{base}/components/list" {path}>
-                            List
-                        </Link>
                         <Link href="{base}/components/modal" {path}>
                             Modal
                         </Link>

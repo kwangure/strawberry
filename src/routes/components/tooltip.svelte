@@ -1,7 +1,35 @@
 <script>
+    import Button from "~@components/Button";
     import Component from "$lib/internal/component.svelte";
     import { docs } from "~@components/Tooltip/docs";
+    import Tooltip from "~@components/Tooltip";
 
+    const sides = ["top", "right", "bottom", "left"];
+    const sideModifiers = ["", "-start", "-end"];
+    const placements = [];
+
+    for (const side of sides) {
+        placements.push(...sideModifiers.map((mod) => side + mod));
+    }
 </script>
 
-<Component {docs}></Component>
+<Component {docs}>
+    <svelte:fragment slot="block">
+        <div class="properties examples">
+            {#each placements as placement}
+                <Tooltip {placement}>
+                    <Button primary>{placement}</Button>
+                    <span slot="popup">I'm a <b>{placement}</b> tooltip!</span>
+                </Tooltip>
+            {/each}
+        </div>
+    </svelte:fragment>
+</Component>
+
+<style>
+    .properties.examples {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(3, max-content);
+    }
+</style>
