@@ -32,8 +32,8 @@
 
 <Container class="berry-input-password" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
-    <div class="container">
-        <input class="text-input" bind:value class:is_invalid={isInvalid}
+    <div class="container" class:invalid={isInvalid}>
+        <input class="text-input" bind:value
             on:blur={() => {
  blurred = true;
 }}

@@ -16,3 +16,6 @@
     border: 2px solid var(--br-primary);
     padding: 0;
 }
+.container.invalid {
+    border-color: var(--br-red);
+}

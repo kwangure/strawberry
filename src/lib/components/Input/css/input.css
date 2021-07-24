@@ -13,14 +13,8 @@
     height: 100%;
     padding: var(--br-input-block-padding) var(--br-input-inline-padding);
 }
-.text-input:hover:not(:focus) {
-    border-color: var(--br-grey-light);
-}
 div.invalid {
     color: var(--br-red);
     padding: 3px 10px 0px;
     font-size: 13px;
-}
-.is_invalid {
-    border-color: var(--br-red);
 }
