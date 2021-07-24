@@ -52,6 +52,12 @@
      * @readonly
      */
     export let valid = true;
+    /**
+     * Whether the input is readonly
+     *
+     * @type {boolean}
+     */
+    export let readonly = false;
 
     const forward = createEventForwarder();
 
@@ -85,7 +91,7 @@
     <div class="container" class:invalid={!valid}>
         <input bind:this={input} bind:value class="text-input"
             id={labelId} on:blur={() => focus = false} {placeholder}
-            {step} type="number" use:focusElement={focus} use:forward>
+            {readonly} {step} type="number" use:focusElement={focus} use:forward>
         <div class="postfix-wrapper">
             <span class="postfix-up"on:click={stepUp}>
                 <Icon path={mdiChevronUp}/>
