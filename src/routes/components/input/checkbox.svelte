@@ -5,7 +5,7 @@
 </script>
 
 <Component {docs}>
-    <svelte:fragment slot="inline">
+    <svelte:fragment slot="block">
         <Checkbox>
             <svelte:fragment slot="label">
                 Awesome label...<wbr>check!
