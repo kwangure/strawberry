@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.31.0-rc.0](https://github.com/kwangure/strawberry/compare/v0.30.3-rc.3...v0.31.0-rc.0) (2021-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* switch to native time input
+
+### Features
+
+* add readonly prop to Number ([58ce85b](https://github.com/kwangure/strawberry/commit/58ce85bd8068292b55d0a241671d222340afc648))
+* switch to native time input ([abf194e](https://github.com/kwangure/strawberry/commit/abf194e3227b095867110f21c880eca01615fe66))
+
+
+### Bug Fixes
+
+* correctly colour invalid inputs ([fa64dcd](https://github.com/kwangure/strawberry/commit/fa64dcdf151a0b10d5ef99214bdaf64576bb555c))
+* use native number input instead of text input ([07aa5da](https://github.com/kwangure/strawberry/commit/07aa5da13bf8f1583c3e90b06cad85c103f3c3c2))
+
 ### [0.30.3-rc.3](https://github.com/kwangure/strawberry/compare/v0.30.3-rc.2...v0.30.3-rc.3) (2021-07-22)
 
 

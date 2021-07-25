@@ -1,6 +1,6 @@
 {
     "name": "@kwangure/strawberry",
-    "version": "0.30.3-rc.3",
+    "version": "0.31.0-rc.0",
     "description": "A set of svelte components",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
