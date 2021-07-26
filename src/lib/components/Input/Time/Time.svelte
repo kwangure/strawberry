@@ -1,5 +1,6 @@
 <script>
     import Container from "../Container.svelte";
+    import { createEventDispatcher } from "svelte";
     import Icon from "../../Icon";
     import { mdiClockOutline } from "@mdi/js";
 
@@ -18,49 +19,161 @@
      */
     export let value = undefined;
 
-    $: inputValue = dateToTime(value);
+    let hours, minutes;
+    let hoursInput, minutesInput;
 
-    function parseTime(timeString) {
-        const [hours, minutes] = timeString.split(":").map(Number);
-        const date = new Date();
+    $: dateToValues(value);
 
-        date.setHours(hours);
-        date.setMinutes(minutes);
-
-        return date;
-    }
-
-    /**
-     *
-     * @param {string | Date} dirtyDate
-    */
-    function dateToTime(dirtyDate) {
-        if (!dirtyDate) return "";
+    function dateToValues(dirtyDate) {
         const date = new Date(dirtyDate);
-        const [hours, minutes] = [
-            date.getHours(),
-            date.getMinutes(),
-        ].map((t) => String(t).padStart(2, "0"));
-
-        return `${hours}:${minutes}`;
+        [hours, minutes] = [
+            pad(date.getHours()),
+            pad(date.getMinutes()),
+        ];
     }
 
-    function input(event) {
-        const date = parseTime(event.target.value);
+    const dispatch = createEventDispatcher();
+    function setValue() {
+        const date = new Date();
+        const [hh, mm] = [Number(hours), Number(minutes)];
+        date.setHours(hh, mm);
+
         if (value instanceof Date) {
             value = date;
         } else {
             value = date.toISOString();
         }
+
+        dispatch("change", { value });
+    }
+
+    function pad(num) {
+        return String(num).padStart(2, "0");
+    }
+
+    function filled() {
+        return [hours, minutes].every((a) => typeof a === "string");
+    }
+
+    const handleHourInput = input({
+        min: 0,
+        max: 23,
+        set(hr) {
+            hours = hr;
+            if (filled()) setValue();
+        },
+        format(hr) {
+            return pad(hr);
+        },
+        onInputEnd(input) {
+            if (!minutesInput.value) {
+                minutesInput.focus();
+            } else {
+                input.blur();
+            }
+        },
+    });
+
+    const handleMinuteInput = input({
+        min: 0,
+        max: 59,
+        set(min) {
+            minutes = min;
+            if (filled()) setValue();
+        },
+        format(min) {
+            return pad(min);
+        },
+        onInputEnd(input) {
+            if (!hoursInput.value) {
+                hoursInput.focus();
+            } else {
+                input.blur();
+            }
+        },
+    });
+
+
+    /**
+     *
+     * @param {{
+     *    max: number;
+     *    min: number;
+     *    set: (value: number) => void;
+     *    format: (value: number) => string;
+     *    onInputEnd: (input: HTMLInputElement) => void;
+     * }} options
+     */
+    function input(options) {
+        const { max, min, set, format, onInputEnd } = options;
+        const maxPrefix = parseInt(String(max).slice(0, -1));
+
+        /**
+         *
+         * @param {Event | InputEvent} event
+         */
+        return function loop(event) {
+            const { target } = event;
+
+            ensureValid(target, (val) => val >= (min-1) && val <= (max+1));
+
+            let value = parseInt(target.value);
+            if (value < min) {
+                value = max;
+            } else if (value > max) {
+                value = min;
+            }
+
+            const formatted = format(value);
+            target.value = formatted;
+            set(formatted);
+
+            const isUsingArrows = !event.inputType;
+            if (!isUsingArrows && value > maxPrefix) {
+                onInputEnd(target);
+            }
+        };
+    }
+
+    /**
+     * @param {number} number
+     */
+    function isInteger(number) {
+        return number % 1 === 0;
+    }
+    /**
+     *
+     * @param {HTMLInputElement} input
+     * @param {(value:string) => boolean} validate
+     */
+    function ensureValid(input, validate) {
+        const value = Number(input.value);
+        const isValid = isInteger(value) && validate(value);
+
+        if (isValid) {
+            input.oldValue = input.value;
+        } else if (Object.hasOwnProperty.call(input, "oldValue")) {
+            input.value = input.oldValue;
+        } else {
+            input.value= "";
+        }
+    }
+
+    function focusInput() {
+        if (!hoursInput.value) return hoursInput.focus();
+        if (!minutesInput.value) return minutesInput.focus();
+        hoursInput.focus();
     }
 </script>
 
 <Container class="berry-input-time" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container"  class:invalid={false}>
-        <input class="text-input" type="time" on:input={input}
-            value={inputValue} placeholder="--"/>
-        <div class="postfix-wrapper">
+        <input bind:this={hoursInput} class="text-input" type="number"
+            on:input={handleHourInput} placeholder="--" value={hours}>:
+        <input bind:this={minutesInput} class="text-input" type="number"
+            on:input={handleMinuteInput} placeholder="--" value={minutes}>
+        <div class="postfix-wrapper" on:click={focusInput}>
             <Icon path={mdiClockOutline}></Icon>
         </div>
     </div>
@@ -74,68 +187,35 @@
     :global(.berry-input-time) {
         --br-input-time-icon-size: 21px;
     }
-    /* fight Svelte's specificity shenanigans */
-    .text-input.text-input {
-        padding: initial;
-        /* Negative margin and transparency to make postfix visible + clickable */
-        margin-right: calc(-1 * var(--br-postfix-width));
-        background-color: transparent;
-    }
-    input[type=time] {
-        font-family: var(--br-font-family);
-    }
-
-    /*
-    💡  Pro-tip: Enable User Agent Shadow DOM in Chrome Devtools to see these.
-        > Devtools > Settings > Preferences > Elements:Show user agent shadow DOM
-    */
-
-    input[type=time]::-webkit-datetime-edit,
-    input[type=time]::-webkit-datetime-edit-fields-wrapper {
-        height: 100%;
-        min-width: fit-content;
-    }
-    input[type=time]::-webkit-datetime-edit-fields-wrapper {
-        display: grid;
-        gap: 2px;
-        grid-auto-flow: column;
-        box-sizing: border-box;
-    }
-    input[type=time]::-webkit-datetime-edit-hour-field,
-    input[type=time]::-webkit-datetime-edit-minute-field,
-    input[type=time]::-webkit-datetime-edit-ampm-field,
-    input[type=time]::-webkit-datetime-edit-text {
+    .container {
         display: flex;
         align-items: center;
-        border-radius: var(--br-border-radius);
-        box-sizing: border-box;
+        width: -moz-fit-content;
+        width: fit-content;
     }
-    input[type=time]::-webkit-datetime-edit-hour-field,
-    input[type=time]::-webkit-datetime-edit-minute-field,
-    input[type=time]::-webkit-datetime-edit-ampm-field {
+    input.text-input {
         padding: 2px;
+        width: 3ch;
+        border: 2px solid var(--br-white);
     }
-    /* An innerbox wrapping indiviually hour/minute/am+pm inputs */
-    input[type=time]::-webkit-datetime-edit-hour-field:hover,
-    input[type=time]::-webkit-datetime-edit-minute-field:hover,
-    input[type=time]::-webkit-datetime-edit-ampm-field:hover,
-    input[type=time]::-webkit-datetime-edit-hour-field:focus,
-    input[type=time]::-webkit-datetime-edit-minute-field:focus,
-    input[type=time]::-webkit-datetime-edit-ampm-field:focus {
+    input:hover,
+    input:focus {
         background-color: var(--br-primary-light);
-        color: var(--br-black);
+        border-radius: var(--br-border-radius);
     }
-    input[type="time"]::-webkit-calendar-picker-indicator {
-        height: 100%;
-        width: var(--br-postfix-width);
-        opacity: 0;
-        box-sizing: border-box;
-        z-index: 1;
-        margin-inline-start: 0;
+    [type=number]::-webkit-outer-spin-button,
+    [type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    [type=number] {
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
+        width: 2ch;
     }
     .postfix-wrapper {
-        position: relative;
-        z-index: -1;
+        height: 100%;
     }
     .postfix-wrapper :global(.berry-icon) {
         --br-icon-size: var(--br-input-time-icon-size);
