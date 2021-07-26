@@ -1,13 +1,14 @@
 <script>
     import CustomProperty from "./custom-property.svelte";
     import Prop from "./prop.svelte";
+    import Slot from "./slot.svelte";
 
     /**
      * @type {object}
      */
     export let docs;
 
-    const { name, props, customProperties } = docs.main;
+    const { description, name, props, customProperties, slots } = docs.main;
 </script>
 
 <svelte:head>
@@ -16,6 +17,7 @@
 </svelte:head>
 
 <h1>{name}</h1>
+{description}
 {#if $$slots.inline || $$slots.block}
     <h2>Example</h2>
     <div class="usage inline">
@@ -29,6 +31,11 @@
 <h2>Props</h2>
 {#each props as prop}
     <Prop {prop}></Prop>
+{/each}
+
+<h2>Slots</h2>
+{#each slots as slot}
+    <Slot slotDocs={slot}></Slot>
 {/each}
 
 <h2>Custom Properties</h2>

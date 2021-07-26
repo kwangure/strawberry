@@ -51,7 +51,7 @@
     },
     "devDependencies": {
         "@kwangure/eslint-config-svelte": "^0.1.15",
-        "@kwangure/svelte-docs": "^0.0.2",
+        "@kwangure/svelte-docs": "^0.0.3",
         "@rollup/plugin-eslint": "^8.0.1",
         "@rollup/pluginutils": "^4.1.0",
         "@sveltejs/adapter-static": "^1.0.0-next.13",

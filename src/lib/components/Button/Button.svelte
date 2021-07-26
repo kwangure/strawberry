@@ -1,3 +1,8 @@
+<!--
+    @component
+
+    A button triggers an event or action. They let users know what will happen next.
+-->
 <script>
     import { createEventForwarder } from "../../utils/forward-events.js";
     import Icon from "../Icon";
@@ -15,6 +20,7 @@
 
     const forward = createEventForwarder();
 </script>
+
 
 <button class="berry-button" class:primary class:icon
     class:slot_used={$$slots.default}

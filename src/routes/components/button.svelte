@@ -6,7 +6,7 @@
 
 <Component {docs}>
     <svelte:fragment slot="inline">
-        <Button primary>I'm a primary button!</Button>
-        <Button>I'm a regular button!</Button>
+        <Button primary>I do nothing primary!</Button>
+        <Button>I do nothing too!</Button>
     </svelte:fragment>
 </Component>

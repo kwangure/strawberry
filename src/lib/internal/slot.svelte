@@ -5,7 +5,7 @@
 
     let keywordObj = {};
 
-    $: ({ name, description, keywords } = slotDocs);
+    $: ({ name, description = "", keywords = []} = slotDocs);
     $: {
         keywordObj = {};
         for (const { name, description } of keywords) {
