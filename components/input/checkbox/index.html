@@ -8,20 +8,20 @@
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-44891d19.js">
+		<link rel="modulepreload" href="/strawberry/app/start-73bebba7.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-60cb395e.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-13c00eaa.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
 		<link rel="modulepreload" href="/strawberry/app/layout.svelte-9ad88666.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-fcfe9a00.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-30e44f16.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-13fb088f.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-ff9de812.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-ac4b231a.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Tabs-c2c8209b.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Path-ca4bed92.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/input/checkbox.svelte-24ebea4d.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/component-86562754.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Code-662f6bfa.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-063ca175.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-0c335746.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Tabs-2f7d063e.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Path-a25a428a.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/input/checkbox.svelte-9cbcdb86.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-68462293.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-1d083102.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-a8cd1609.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-45f4e08d.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-e6c7b595.css">
@@ -34,7 +34,7 @@
 		<link rel="stylesheet" href="/strawberry/app/assets/Code-78286aa0.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-44891d19.js";
+			import { start } from "/strawberry/app/start-73bebba7.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -48,8 +48,8 @@
 					error: null,
 					nodes: [
 						import("/strawberry/app/layout.svelte-9ad88666.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-fcfe9a00.js"),
-						import("/strawberry/app/pages/components/input/checkbox.svelte-24ebea4d.js")
+						import("/strawberry/app/pages/components/__layout.svelte-30e44f16.js"),
+						import("/strawberry/app/pages/components/input/checkbox.svelte-9cbcdb86.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -168,7 +168,11 @@
         <p class="svelte-19juwlw">The value of the component if checked.</p></summary>
 
     <pre class="input svelte-a9jkpn">
-        </pre>
+        /**
+ * @type {string}
+ * @default undefined
+ */
+let value;</pre>
 
 <pre class="berry-code svelte-a9jkpn"><!-- HTML_TAG_START --><!-- HTML_TAG_END -->
 </pre>
@@ -180,7 +184,10 @@
         <p class="svelte-19juwlw">Whether the command or control is checked</p></summary>
 
     <pre class="input svelte-a9jkpn">
-        </pre>
+        /**
+ * @type {boolean}
+ */
+let checked;</pre>
 
 <pre class="berry-code svelte-a9jkpn"><!-- HTML_TAG_START --><!-- HTML_TAG_END -->
 </pre>

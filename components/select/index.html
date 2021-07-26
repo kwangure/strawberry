@@ -8,24 +8,24 @@
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-44891d19.js">
+		<link rel="modulepreload" href="/strawberry/app/start-73bebba7.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-60cb395e.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/preload-helper-13c00eaa.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-45dac81d.js">
 		<link rel="modulepreload" href="/strawberry/app/layout.svelte-9ad88666.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-fcfe9a00.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-30e44f16.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-13fb088f.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-ff9de812.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-ac4b231a.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Tabs-c2c8209b.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Path-ca4bed92.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/select.svelte-9dda210d.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Link-0901b3aa.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Text-4ca3bc55.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/_layout-063ca175.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Navbar-0c335746.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Tabs-2f7d063e.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Path-a25a428a.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/select.svelte-76ccbd9a.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Link-9d82bad1.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Text-5809fe1c.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/Container-8580a7b3.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/actions-f8e73d02.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/component-86562754.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Code-662f6bfa.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/component-68462293.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Code-1d083102.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-a8cd1609.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-45f4e08d.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/standardDOM-e6c7b595.css">
@@ -41,7 +41,7 @@
 		<link rel="stylesheet" href="/strawberry/app/assets/Code-78286aa0.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-44891d19.js";
+			import { start } from "/strawberry/app/start-73bebba7.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":"/strawberry"},
@@ -55,8 +55,8 @@
 					error: null,
 					nodes: [
 						import("/strawberry/app/layout.svelte-9ad88666.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-fcfe9a00.js"),
-						import("/strawberry/app/pages/components/select.svelte-9dda210d.js")
+						import("/strawberry/app/pages/components/__layout.svelte-30e44f16.js"),
+						import("/strawberry/app/pages/components/select.svelte-76ccbd9a.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -161,8 +161,8 @@
 
 <h2 class="svelte-hdc6l4">Example</h2>
     <div class="usage inline svelte-hdc6l4"><div class="berry-select svelte-1qlzaul placeholder">
-<div class="berry-input wrapper svelte-ocexhd"><label for="743w7hm7sxh" class="svelte-ocexhd">I label selects.</label>
-    <div class="container svelte-of9o5"><input class="text-input  svelte-of9o5" type="text" id="743w7hm7sxh" slot="button" readonly value="Like I said...">
+<div class="berry-input wrapper svelte-ocexhd"><label for="pj5erl0bcdz" class="svelte-ocexhd">I label selects.</label>
+    <div class="container svelte-of9o5"><input class="text-input  svelte-of9o5" type="text" id="pj5erl0bcdz" slot="button" readonly value="Like I said...">
         <div class="postfix-wrapper svelte-of9o5"><svg class="berry-icon svelte-kjuo95" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="svelte-kjuo95"></path></svg></div></div>
     
 </div>
@@ -180,7 +180,10 @@
         <p class="svelte-19juwlw">Text that appears in the form control when it has no value set</p></summary>
 
     <pre class="input svelte-a9jkpn">
-        </pre>
+        /**
+ * @type {string}
+ */
+let placeholder;</pre>
 
 <pre class="berry-code svelte-a9jkpn"><!-- HTML_TAG_START --><!-- HTML_TAG_END -->
 </pre>
@@ -192,7 +195,10 @@
         <p class="svelte-19juwlw">Where to position the popup relative to the dropdown button.</p></summary>
 
     <pre class="input svelte-a9jkpn">
-        </pre>
+        /**
+ * @type {&quot;top&quot; | &quot;top-start&quot; | &quot;top-end&quot; | &quot;right&quot; | &quot;right-start&quot; | &quot;right-end&quot; | &quot;bottom&quot; | &quot;bottom-start&quot; | &quot;bottom-end&quot; | &quot;left&quot; | &quot;left-start&quot; | &quot;left-end&quot;}
+ */
+let placement;</pre>
 
 <pre class="berry-code svelte-a9jkpn"><!-- HTML_TAG_START --><!-- HTML_TAG_END -->
 </pre>
@@ -204,7 +210,10 @@
         <p class="svelte-19juwlw">The initial value of the component.</p></summary>
 
     <pre class="input svelte-a9jkpn">
-        </pre>
+        /**
+ * @type {any}
+ */
+let value;</pre>
 
 <pre class="berry-code svelte-a9jkpn"><!-- HTML_TAG_START --><!-- HTML_TAG_END -->
 </pre>
@@ -216,7 +225,11 @@
         <p class="svelte-19juwlw">Compares whether the `Select.value` an `Option.value` are equal.</p></summary>
 
     <pre class="input svelte-a9jkpn">
-        </pre>
+        /**
+ * @type {(value, optionValue) =&gt; boolean}
+ * @default undefined
+ */
+function compare;</pre>
 
 <pre class="berry-code svelte-a9jkpn"><!-- HTML_TAG_START --><!-- HTML_TAG_END -->
 </pre>
@@ -228,7 +241,11 @@
         <p class="svelte-19juwlw">Choose the text displayed when an Option is selected.</p></summary>
 
     <pre class="input svelte-a9jkpn">
-        </pre>
+        /**
+ * @type {({ optionValue, optionDisplayText }) =&gt; string}
+ * @default undefined
+ */
+function format;</pre>
 
 <pre class="berry-code svelte-a9jkpn"><!-- HTML_TAG_START --><!-- HTML_TAG_END -->
 </pre>
