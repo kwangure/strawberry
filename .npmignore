@@ -1,6 +1,0 @@
-.eslint*
-src/
-.svelte-kit/
-build/
-svelte.config.cjs
-tsconfig.json
