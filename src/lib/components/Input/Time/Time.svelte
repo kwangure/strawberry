@@ -3,6 +3,7 @@
     import { createEventDispatcher } from "svelte";
     import Icon from "../../Icon";
     import { mdiClockOutline } from "@mdi/js";
+    import { transformable } from "storables";
 
     /**
      * Whether to hide the input label.
@@ -19,144 +20,111 @@
      */
     export let value = undefined;
 
-    let hours, minutes;
     let hoursInput, minutesInput;
 
-    $: dateToValues(value);
-
-    function dateToValues(dirtyDate) {
-        const date = new Date(dirtyDate);
-        [hours, minutes] = [
-            pad(date.getHours()),
-            pad(date.getMinutes()),
-        ];
+    function isInteger(number) {
+        return parseFloat(number) % 1 === 0;
     }
 
     const dispatch = createEventDispatcher();
-    function setValue() {
-        const date = new Date();
-        const [hh, mm] = [Number(hours), Number(minutes)];
-        date.setHours(hh, mm);
+    /**
+     * @typedef {{ hours: string; minutes: string; }} Time
+     */
+    const options = {
+        name: "date",
+        transforms: {
+            time: {
+                /**
+                 * @param {Date} date
+                 * @returns {Time}
+                 */
+                from(date) {
+                    return date
+                        ? {
+                                hours: pad(date.getHours()),
+                                minutes: pad(date.getMinutes()),
+                            }
+                        : { hours: "", minutes: "" };
+                },
+                /**
+                 * @param {Time} time
+                 * @returns {Date}
+                 */
+                to(time) {
+                    const date = new Date();
+                    date.setHours(time.hours, time.minutes);
+                    return date;
+                },
+                /**
+                 * @param {Time} time
+                 * @returns {boolean | Error}
+                 */
+                validate(time) {
+                    const { hours, minutes } = time;
+                    if (!isInteger(hours) || !isInteger(minutes)) return false;
 
-        if (value instanceof Date) {
-            value = date;
-        } else {
-            value = date.toISOString();
-        }
+                    return (hours >= 0 && hours <= 23)
+                        && (minutes >= 0 && minutes <= 59);
+                },
+            },
+        },
+        validate(date) {
+            return date instanceof Date;
+        },
+    };
 
-        dispatch("change", { value });
-    }
+    $: ({ date, time } = transformable(options, value));
+    $: value = $date;
+    $: dispatch("change", value);
 
     function pad(num) {
         return String(num).padStart(2, "0");
     }
 
-    function filled() {
-        return [hours, minutes].every((a) => typeof a === "string");
-    }
-
-    const handleHourInput = input({
-        min: 0,
-        max: 23,
-        set(hr) {
-            hours = hr;
-            if (filled()) setValue();
-        },
-        format(hr) {
-            return pad(hr);
-        },
-        onInputEnd(input) {
-            if (!minutesInput.value) {
-                minutesInput.focus();
-            } else {
-                input.blur();
-            }
-        },
-    });
-
-    const handleMinuteInput = input({
-        min: 0,
-        max: 59,
-        set(min) {
-            minutes = min;
-            if (filled()) setValue();
-        },
-        format(min) {
-            return pad(min);
-        },
-        onInputEnd(input) {
-            if (!hoursInput.value) {
-                hoursInput.focus();
-            } else {
-                input.blur();
-            }
-        },
-    });
-
-
-    /**
-     *
-     * @param {{
-     *    max: number;
-     *    min: number;
-     *    set: (value: number) => void;
-     *    format: (value: number) => string;
-     *    onInputEnd: (input: HTMLInputElement) => void;
-     * }} options
-     */
-    function input(options) {
-        const { max, min, set, format, onInputEnd } = options;
-        const maxPrefix = parseInt(String(max).slice(0, -1));
-
-        /**
-         *
-         * @param {Event | InputEvent} event
-         */
-        return function loop(event) {
-            const { target } = event;
-
-            ensureValid(target, (val) => val >= (min-1) && val <= (max+1));
-
-            let value = parseInt(target.value);
-            if (value < min) {
-                value = max;
-            } else if (value > max) {
-                value = min;
-            }
-
-            const formatted = format(value);
-            target.value = formatted;
-            set(formatted);
-
-            const isUsingArrows = !event.inputType;
-            if (!isUsingArrows && value > maxPrefix) {
-                onInputEnd(target);
-            }
-        };
-    }
-
-    /**
-     * @param {number} number
-     */
-    function isInteger(number) {
-        return number % 1 === 0;
-    }
-    /**
-     *
-     * @param {HTMLInputElement} input
-     * @param {(value:string) => boolean} validate
-     */
-    function ensureValid(input, validate) {
-        const value = Number(input.value);
-        const isValid = isInteger(value) && validate(value);
-
-        if (isValid) {
-            input.oldValue = input.value;
-        } else if (Object.hasOwnProperty.call(input, "oldValue")) {
-            input.value = input.oldValue;
-        } else {
-            input.value= "";
+    function hourInputEnd() {
+        if (!minutesInput.value) {
+            minutesInput.focus();
         }
+    }
+
+    function minuteInputEnd() {
+        if (!hoursInput.value) {
+            hoursInput.focus();
+        }
+    }
+
+    /**
+     * @param {Event | InputEvent} event
+     */
+    function emitInputEnd(event) {
+        const { target } = event;
+        const maxPrefix = Number(target.max.slice(0, -1));
+
+        const isUsingArrowKeys = !event.inputType;
+        if (!isUsingArrowKeys && Number(target.value) > maxPrefix) {
+            target.dispatchEvent(new Event("inputend"));
+        }
+    }
+
+    /**
+     * Cycle values that exceeds boundary back within boundary
+     * @param {InputEvent} event
+     */
+    function loopValue(event) {
+        const { target } = event;
+        if (target.value.length === 0) return;
+
+        const max = Number(target.max);
+        const min = Number(target.min);
+        let value = Number(target.value);
+
+        if (value < min) {
+            value = max;
+        } else if (value > max) {
+            value = min;
+        }
+
+        target.value = pad(value);
     }
 
     function focusInput() {
@@ -169,10 +137,12 @@
 <Container class="berry-input-time" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container"  class:invalid={false}>
-        <input bind:this={hoursInput} class="text-input" type="number"
-            on:input={handleHourInput} placeholder="--" value={hours}>:
-        <input bind:this={minutesInput} class="text-input" type="number"
-            on:input={handleMinuteInput} placeholder="--" value={minutes}>
+        <input bind:this={hoursInput} class="text-input" type="number" min="0" max="23"
+            on:input={emitInputEnd} on:inputend={hourInputEnd}
+            placeholder="--" bind:value={$time.hours} on:input={loopValue}>:
+        <input bind:this={minutesInput} class="text-input" type="number" min="0" max="59"
+            on:input={emitInputEnd} on:inputend={minuteInputEnd}
+            placeholder="--" bind:value={$time.minutes} on:input={loopValue}>
         <div class="postfix-wrapper" on:click={focusInput}>
             <Icon path={mdiClockOutline}></Icon>
         </div>
@@ -197,6 +167,7 @@
         padding: 2px;
         width: 3ch;
         border: 2px solid var(--br-white);
+        text-align: center;
     }
     input:hover,
     input:focus {
