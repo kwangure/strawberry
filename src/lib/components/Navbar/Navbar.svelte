@@ -35,11 +35,14 @@
 <style>
     .berry-navbar {
         --br-nav-block-padding: var(--br-outer-gutter);
+        --br-nav-inline-padding: auto;
         --br-nav-border: none;
         --br-nav-height: 48px;
         --br-nav-max-width: 100%;
         --br-nav-width: 100%;
         --br-logo-width: auto;
+        --br-logo-block-padding: var(--br-outer-gutter);
+        --br-logo-inline-padding:  var(--br-outer-gutter);
     }
     nav, .nav-wrapper, ul {
         display: flex;
@@ -50,11 +53,10 @@
         justify-content: center;
         border-bottom: var(--br-nav-border);
         height: var(--br-nav-height);
-        padding-left: var(--br-nav-block-padding);
-        padding-right: var(--br-nav-block-padding);
+        padding: var(--br-nav-block-padding) var(--br-nav-inline-padding);
     }
     .nav-wrapper {
-        width: var(--br-nav-width);
+        width: calc(var(--br-nav-width) + var(--br-nav-block-padding)*2);
         max-width: var(--br-nav-max-width);
     }
     .nav-links {
@@ -62,7 +64,7 @@
         padding-right: var(--br-outer-gutter);
     }
     .logo {
-        padding: var(--br-item-block-padding) var(--br-item-inline-padding);
+        padding: var(--br-logo-block-padding) var(--br-logo-inline-padding);
         font-weight: 600;
         width: var(--br-logo-width);
     }
