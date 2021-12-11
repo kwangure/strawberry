@@ -1,4 +1,4 @@
-import { docs as sidebarDocs } from "./Sidebar.svelte";
+import { docs as sidebarDocs } from "./Sidebar.svelte:docs";
 
 export const docs = {
     main: sidebarDocs,
