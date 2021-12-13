@@ -2,6 +2,7 @@ import adapter from "@sveltejs/adapter-static";
 import docs from "./scripts/vite-plugin-svelte-docs.js";
 import { fileURLToPath } from "url";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
+import match from 'micromatch';
 import path from "path";
 
 const MODE = process.env.NODE_ENV;
@@ -21,17 +22,27 @@ export default {
         appDir: "app",
         adapter: adapter(),
         package: {
-            // TODO: Uncomment and rewrite `pkg.exports` after https://github.com/sveltejs/kit/issues/1944 is resolved
-            // exports: {
-            //     exclude: [
-            //         "components/**/*.svelte",
-            //         "components/**/*.css",
-            //         "utils/**",
-            //     ],
-            // },
-            files: {
-                include: ["components/**", "css/**", "utils/**", "config/**"],
-                exclude: ["**/docs.js", "components/**/*.css"],
+            exports: (filepath) => {
+                if (filepath.endsWith('.d.ts')) return false;
+
+                const value = match.isMatch(filepath, [
+                    'components/**/index.js',
+                    'css/**/*.js',
+                    'utils/forward-events.js',
+                ]);
+
+                return value;
+            },
+            files: (filepath) => {
+                return match.some(filepath, [
+                    'components/**',
+                    'css/**',
+                    'utils/**',
+                    'config/**',
+                ]) && !match.some(filepath, [
+                    "components/**/docs.js",
+                    "components/**/*.css",
+                ]);
             },
         },
         paths: {
@@ -40,9 +51,7 @@ export default {
         target: "#svelte",
         vite: {
             plugins: [
-                docs({
-                    include: "src/lib/components/**",
-                }),
+                docs(),
             ],
             resolve: {
                 alias: {

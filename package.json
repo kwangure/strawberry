@@ -13,30 +13,7 @@
         "release": "standard-version -a && svelte-kit package && npm publish ./package && git push --follow-tags origin master"
     },
     "exports": {
-        "./package.json": "./package.json",
-        "./components/Button": "./components/Button/index.js",
-        "./components/Code": "./components/Code/index.js",
-        "./components/Dropdown": "./components/Dropdown/index.js",
-        "./components/Icon": "./components/Icon/index.js",
-        "./components/Input/Checkbox": "./components/Input/Checkbox/index.js",
-        "./components/Input/Number": "./components/Input/Number/index.js",
-        "./components/Input/Password": "./components/Input/Password/index.js",
-        "./components/Input/Radio": "./components/Input/Radio/index.js",
-        "./components/Input/Text": "./components/Input/Text/index.js",
-        "./components/Input/Textarea": "./components/Input/Textarea/index.js",
-        "./components/Input/Time": "./components/Input/Time/index.js",
-        "./components/List": "./components/List/index.js",
-        "./components/Modal": "./components/Modal/index.js",
-        "./components/Navbar": "./components/Navbar/index.js",
-        "./components/Notification": "./components/Notification/index.js",
-        "./components/Select/Autocomplete": "./components/Select/Autocomplete/index.js",
-        "./components/Select": "./components/Select/index.js",
-        "./components/Sidebar": "./components/Sidebar/index.js",
-        "./components/Steps": "./components/Steps/index.js",
-        "./components/Tooltip": "./components/Tooltip/index.js",
-        "./css/customElement": "./css/customElement.js",
-        "./css/standardDOM": "./css/standardDOM.js",
-        "./utils/forward-events": "./utils/forward-events.js"
+        ".": "./"
     },
     "dependencies": {
         "@mdi/js": "^5.0.45",
@@ -53,25 +30,26 @@
         "@kwangure/eslint-config-svelte": "^0.1.16",
         "@kwangure/svelte-docs": "^0.0.3",
         "@rollup/plugin-eslint": "^8.0.1",
-        "@rollup/pluginutils": "^4.1.0",
         "@sveltejs/adapter-static": "^1.0.0-next.13",
-        "@sveltejs/kit": "^1.0.0-next.132",
+        "@sveltejs/kit": "^1.0.0-next.201",
         "acorn": "^7.4.1",
         "acorn-class-fields": "^1.0.0",
         "acorn-static-class-features": "^1.0.0",
         "eslint": "^7.31.0",
         "eslint-import-resolver-alias": "^1.1.2",
         "gh-pages": "^3.1.0",
+        "micromatch": "^4.0.4",
         "standard-version": "^9.1.0",
-        "storables": "^0.0.1",
+        "storables": "^0.2.0",
         "svelte": "^3.35.0",
         "svelte2tsx": "^0.4.2",
         "typescript": "^4.3.5",
-        "vite": "^2.1.3"
+        "vite": "^2.1.3",
+        "vite-plugin-inspect": "^0.3.11"
     },
     "peerDependencies": {
-        "svelte": "^3.35.0",
-        "storables": "^0.0.1"
+        "storables": "^0.2.0",
+        "svelte": "^3.35.0"
     },
     "keywords": [
         "svelte",
