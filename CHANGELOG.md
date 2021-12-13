@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.31.0](https://github.com/kwangure/strawberry/compare/v0.31.0-rc.0...v0.31.0) (2021-12-13)
+
+
+### Features
+
+* away with native! ([531730b](https://github.com/kwangure/strawberry/commit/531730b96e1c79b78f4771c42bced6522fe810f2))
+* make padding more configurable ([1890ad4](https://github.com/kwangure/strawberry/commit/1890ad4d0fead17a7f2811ef6ecfa0aa664d195c))
+
 ## [0.31.0-rc.0](https://github.com/kwangure/strawberry/compare/v0.30.3-rc.3...v0.31.0-rc.0) (2021-07-25)
 
 
