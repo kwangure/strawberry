@@ -76,7 +76,7 @@
         background-color: var(--br-white);
         border-radius: var(--br-border-radius);
         outline: none;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        box-shadow: var(--br-box-shadow);
         z-index: 100;
         overflow: hidden;
     }

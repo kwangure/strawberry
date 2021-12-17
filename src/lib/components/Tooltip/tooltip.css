@@ -17,6 +17,7 @@
     transition: opacity var(--br-transition-duration) ease;
     position: relative;
     z-index: 1;
+    box-shadow: var(--br-box-shadow);
 }
 .berry-tooltip.visible {
     visibility: visible;

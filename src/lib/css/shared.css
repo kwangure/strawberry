@@ -32,7 +32,6 @@
 	--br-border: 1px solid var(--br-border-color);
 	--br-border-radius: 4px;
 
-
 	/* ----- Inputs ----- */
 	--br-input-block-padding: 5px;
     --br-input-inline-padding: 12px;
@@ -51,6 +50,9 @@
 
 	/* ----- Animation ----- */
 	--br-transition-duration: 0.25s;
+
+	/* ----- Box Shadow ----- */
+	--br-box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* ----- Links ----- **/

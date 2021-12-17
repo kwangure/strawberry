@@ -85,7 +85,7 @@
     .modal {
         background-color: var(--br-white);
         padding: 30px 30px;
-        box-shadow: 0 7px 15px rgba(0,0,0,0.35);
+        box-shadow: var(--br-box-shadow);
         border-radius: var(--br-border-radius);
         transition: background-color var(--br-transition-duration) ease;
         max-width: 90%;
