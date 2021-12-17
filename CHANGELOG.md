@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.1](https://github.com/kwangure/strawberry/compare/v0.31.0...v0.31.1) (2021-12-17)
+
+
+### Features
+
+* add box-shadow to tooltip ([edcad7c](https://github.com/kwangure/strawberry/commit/edcad7c45de639127d26c35dae1ea6eca58a70d5))
+* export css files ([20ae784](https://github.com/kwangure/strawberry/commit/20ae784be3b21cd3ec2892bf4df6f1a1d8b13f8d))
+* make tooltip padding configurable ([c58498c](https://github.com/kwangure/strawberry/commit/c58498c919386554e5e3a24e2be4e3c13cd2dcf6))
+
 ## [0.31.0](https://github.com/kwangure/strawberry/compare/v0.31.0-rc.0...v0.31.0) (2021-12-13)
 
 
