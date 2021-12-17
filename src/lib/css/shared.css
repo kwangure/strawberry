@@ -1,18 +1,3 @@
-/**
- * Make box-sizing easier to override in child components
- * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
- */
-:root,
-:host {
-	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
-
 :root,
 :host {
 	/* ----- Colors ----- */
@@ -48,7 +33,7 @@
 	--br-border-radius: 4px;
 
 
-	/* ----- Inputs ----- **/
+	/* ----- Inputs ----- */
 	--br-input-block-padding: 5px;
     --br-input-inline-padding: 12px;
     --br-input-padding-right: 25px;
@@ -64,12 +49,11 @@
 	--br-outer-gutter: 8px;
 	--br-inner-gutter: calc(var(--br-outer-gutter) * 0.5);
 
-
-	/* Animation */
+	/* ----- Animation ----- */
 	--br-transition-duration: 0.25s;
 }
 
-/* --------------- links --------------- */
+/* ----- Links ----- **/
 a {
 	text-decoration: none;
 	cursor: pointer;
@@ -82,33 +66,11 @@ a:active  {
 	color: var(--br-primary-hover);
 }
 
-a:focus { outline: none }
-
-/* --------------- tables --------------- */
-table {
-	width: 100%;
-}
-
-td, th {
-	text-align: left;
-	border-bottom: var(--br-border);;
-	padding: 0.4rem 0.8rem 0.4rem 0;
-}
-
-table code, table span {
-	white-space: pre;
-}
-
-/*
- ---------------
-    Useful for hiding labels etc. that you want screen
-    readers to find but not humans to see
- ---------------
-*/
+/* Util for hiding elements you want screen
+readers to find but not humans to see. */
 .br-accessible-hide {
 	position: absolute !important;
 	height: 1px; width: 1px;
 	overflow: hidden;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);
 }

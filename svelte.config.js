@@ -27,7 +27,7 @@ export default {
 
                 const value = match.isMatch(filepath, [
                     'components/**/index.js',
-                    'css/**/*.js',
+                    'css/**/*.(js|css)',
                     'utils/forward-events.js',
                 ]);
 
