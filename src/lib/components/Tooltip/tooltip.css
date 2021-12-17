@@ -1,5 +1,12 @@
 .berry-tooltip {
-    padding: 6px 8px;
+    --br-padding-inline: 8px;
+    --br-padding-block: 6px;
+    --br-arrow-skidding-inline: 12px;
+    --br-arrow-skidding-block: 5px;
+}
+
+.berry-tooltip {
+    padding: var(--br-padding-block) var(--br-padding-inline);
     background-color: var(--br-black-transparent);
     min-width: 30px;
     min-height: var(--br-item-height);
@@ -14,10 +21,6 @@
 .berry-tooltip.visible {
     visibility: visible;
     opacity: 1;
-}
-.berry-tooltip {
-    --br-arrow-skidding-inline: 12px;
-    --br-arrow-skidding-block: 5px;
 }
 .arrow {
     position: absolute;
