@@ -55,19 +55,6 @@
 	--br-box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* ----- Links ----- **/
-a {
-	text-decoration: none;
-	cursor: pointer;
-	user-select: none;
-	color: var(--br-primary);
-}
-
-a:hover,
-a:active  {
-	color: var(--br-primary-hover);
-}
-
 /* Util for hiding elements you want screen
 readers to find but not humans to see. */
 .br-accessible-hide {
