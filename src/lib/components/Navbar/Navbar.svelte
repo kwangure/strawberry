@@ -20,15 +20,21 @@
 
 <nav class="berry-navbar" bind:offsetHeight={$navHeight}>
     <div class="nav-wrapper ">
-        <a class="logo" href={logoHref}>
-            <slot name="logo"/>
-        </a>
-        <ul class="nav-links">
-            <slot name="nav-links"/>
-        </ul>
-        <ul class="calls-to-action">
-            <slot name="calls-to-action"/>
-        </ul>
+        {#if $$slots.logo}
+            <a class="logo" href={logoHref}>
+                <slot name="logo"/>
+            </a>
+        {/if}
+        {#if $$slots["nav-links"]}
+            <ul class="nav-links">
+                <slot name="nav-links"/>
+            </ul>
+        {/if}
+        {#if $$slots["calls-to-action"]}
+            <ul class="calls-to-action">
+                <slot name="calls-to-action"/>
+            </ul>
+        {/if}
     </div>
 </nav>
 
