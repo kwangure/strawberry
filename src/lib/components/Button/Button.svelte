@@ -5,42 +5,27 @@
 -->
 <script>
     import { createEventForwarder } from "../../utils/forward-events.js";
-    import Icon from "../Icon";
 
     /**
      * Indicates whether the button should be coloured using the primary colour.
      * @type {boolean}
      */
     export let primary = false;
-    /**
-     * A "d" string that is usable in an SVG path element.
-     * @type {string}
-     */
-    export let icon = "";
 
     const forward = createEventForwarder();
 </script>
 
-
-<button class="berry-button" class:primary class:icon
-    class:slot_used={$$slots.default}
+<button class="berry-button" class:primary
     {...$$restProps} use:forward>
-    <div class="content-wrapper">
-        {#if icon}
-            <span class="button-prefix">
-                <Icon path={icon}/>
-            </span>
-        {/if}
-        <!--
-            Any content that is acceptable in a HTMLButtonElement.
-            @usage
-            <Button>
-                // Default slot content
-                I am button content
-            </Button>
-        -->
-        <slot />
-    </div>
+    <!--
+        Any content that is acceptable in a HTMLButtonElement.
+        @usage
+        <Button>
+            // Default slot content
+            I am button content
+        </Button>
+    -->
+    <slot />
 </button>
 
 <style>
@@ -51,7 +36,7 @@
     button {
         line-height: 1.5;
         position: relative;
-        display: inline-block;
+        display: inline-flex;
         font-weight: 400;
         white-space: nowrap;
         text-align: center;
@@ -67,15 +52,11 @@
         background-color: transparent;
         outline: none;
         width: var(--br-button-width);
+        align-items: center;
+        justify-content: center;
     }
     button:disabled {
         cursor: not-allowed;
-    }
-    button .content-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1.2;
     }
     button:focus:not(:active),
     button:hover:not(:active) {
@@ -93,14 +74,5 @@
     button.primary:focus {
         background-color: var(--br-primary-hover) !important;
         color: var(--br-white) !important;
-    }
-    .button-prefix {
-        display: flex;
-    }
-    button.slot_used :global(.berry-icon) {
-        margin-right: 5px;
-    }
-    button.icon.slot_used {
-        padding-right: 16px;
     }
 </style>
