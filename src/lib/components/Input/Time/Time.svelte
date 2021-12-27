@@ -52,7 +52,7 @@
                  */
                 to(time) {
                     const date = new Date();
-                    date.setHours(time.hours, time.minutes);
+                    date.setHours(time.hours, time.minutes, 0, 0);
                     return date;
                 },
                 /**
