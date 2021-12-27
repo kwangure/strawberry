@@ -73,9 +73,23 @@
         },
     };
 
-    $: ({ date, time } = transformable(options, value));
-    $: value = $date;
-    $: dispatch("change", value);
+    const { date, time } = transformable(options, value);
+
+    // We guard against unnecessary updates, change dispatch and $date
+    // subscriber calls below, Since `onExternalValue` and `onDateChange`
+    // are both run even if only one of them had an updated dependency
+    function onExternalValue(value) {
+        if ($date === value) return;
+        $date = value;
+    }
+    function onDateChange(date) {
+        if (value === date) return;
+        value = date;
+        dispatch("change", value);
+    }
+
+    $: onExternalValue(value);
+    $: onDateChange($date);
 
     function pad(num) {
         return String(num).padStart(2, "0");
