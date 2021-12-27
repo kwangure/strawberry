@@ -156,6 +156,8 @@
 
     :global(.berry-input-time) {
         --br-input-time-icon-size: 21px;
+        --br-input-time-number-input-background-color: var(--br-primary-light);
+        --br-input-time-number-input-border-radius: var(--br-border-radius);
     }
     .container {
         display: flex;
@@ -171,8 +173,8 @@
     }
     input:hover,
     input:focus {
-        background-color: var(--br-primary-light);
-        border-radius: var(--br-border-radius);
+        background-color: var(--br-input-time-number-input-background-color);
+        border-radius: var(--br-input-time-number-input-border-radius);
     }
     [type=number]::-webkit-outer-spin-button,
     [type=number]::-webkit-inner-spin-button {
