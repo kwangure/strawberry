@@ -40,39 +40,40 @@
 
 <style>
     :export {
-        --br-nav-block-padding: var(--br-outer-gutter);
-        --br-nav-inline-padding: auto;
-        --br-nav-border: none;
-        --br-nav-height: 48px;
+        /* TODO: Refactor markup to simplify CSS API */
+        --br-nav-padding-block: var(--br-outer-gutter);
+        --br-nav-padding-inline: ;
+        --br-nav-border: ;
+        --br-nav-height: ;
         --br-nav-max-width: 100%;
         --br-nav-width: 100%;
-        --br-logo-width: auto;
-        --br-logo-block-padding: var(--br-outer-gutter);
-        --br-logo-inline-padding:  var(--br-outer-gutter);
+        --br-logo-width: ;
+        --br-logo-padding-block: ;
+        --br-logo-padding-inline: ;
     }
     nav, .nav-wrapper, ul {
         display: flex;
         align-items: center;
-        height: var(--br-nav-height);
+        height: var(--br-nav-height, 48px);
     }
     nav {
         justify-content: center;
-        border-bottom: var(--br-nav-border);
+        border-bottom: var(--br-nav-border, none);
         height: var(--br-nav-height);
-        padding: var(--br-nav-block-padding) var(--br-nav-inline-padding);
+        padding: var(--br-nav-padding-block) var(--br-nav-padding-inline, auto);
     }
     .nav-wrapper {
-        width: calc(var(--br-nav-width) + var(--br-nav-block-padding)*2);
-        max-width: var(--br-nav-max-width);
+        width: calc(var(--br-nav-width, 100%) + var(--br-nav-padding-block)*2);
+        max-width: var(--br-nav-max-width, 100%);
     }
     .nav-links {
         padding-left: var(--br-outer-gutter);
         padding-right: var(--br-outer-gutter);
     }
     .logo {
-        padding: var(--br-logo-block-padding) var(--br-logo-inline-padding);
+        padding: var(--br-logo-padding-block, var(--br-outer-gutter)) var(--br-logo-padding-inline, var(--br-outer-gutter));
         font-weight: 600;
-        width: var(--br-logo-width);
+        width: var(--br-logo-width, auto);
     }
     ul {
         gap: 0.5rem;

@@ -32,18 +32,9 @@
 	--br-border: 1px solid var(--br-border-color);
 	--br-border-radius: 4px;
 
-	/* ----- Inputs ----- */
-	--br-input-block-padding: 5px;
-    --br-input-inline-padding: 12px;
-    --br-input-padding-right: 25px;
-    --br-input-block-padding-focus: calc(var(--br-input-block-padding) - 1px);
-    --br-input-inline-padding-focus: calc(var(--br-input-inline-padding) - 1px);
-    --br-input-padding-right-focus: calc(var(--br-input-padding-right) - 1px);
-	--br-postfix-width: 31px;
-
 	/* ----- Size/Spacing ----- */
-	--br-item-block-padding: 8px;
-	--br-item-inline-padding: 12px;
+	--br-item-padding-block: 8px;
+	--br-item-padding-inline: 12px;
 	--br-item-height: 35px;
 	--br-outer-gutter: 8px;
 	--br-inner-gutter: calc(var(--br-outer-gutter) * 0.5);
@@ -52,14 +43,15 @@
 	--br-transition-duration: 0.25s;
 
 	/* ----- Box Shadow ----- */
-	--br-box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+	--br-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Util for hiding elements you want screen
 readers to find but not humans to see. */
 .br-accessible-hide {
 	position: absolute !important;
-	height: 1px; width: 1px;
+	height: 1px;
+	width: 1px;
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
 }

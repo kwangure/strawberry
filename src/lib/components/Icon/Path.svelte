@@ -14,9 +14,9 @@
 
 <style>
     :export {
-        --br-icon-path-fill: currentColor;
+        --br-icon-path-fill: ;
     }
     path {
-        fill: var(--br-icon-path-fill);
+        fill: var(--br-icon-path-fill, currentColor);
     }
 </style>

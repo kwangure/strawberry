@@ -1,37 +1,43 @@
 :export {
-    --br-tooltip-arrow-skidding-inline: 12px;
-    --br-tooltip-arrow-skidding-block: 5px;
-    --br-tooltip-box-shadow: var(--br-box-shadow);
-    --br-tooltip-background-color: var(--br-black-transparent);
-    --br-tooltip-color: var(--br-white);
-    --br-tooltip-padding-inline: 8px;
-    --br-tooltip-padding-block: 6px;
-    --br-tooltip-transition-duration: var(--br-transition-duration);
-    --br-tooltip-transition-delay: 0;
-    --br-tooltip-transition-function: ease;
+    --br-tooltip-arrow-skidding-inline: ;
+    --br-tooltip-arrow-skidding-block: ;
+    --br-tooltip-box-shadow: ;
+    --br-tooltip-background-color: ;
+    --br-tooltip-text-color: ;
+    --br-tooltip-padding-inline: ;
+    --br-tooltip-padding-block: ;
+    --br-tooltip-transition-duration: ;
+    --br-tooltip-transition-delay: ;
+    --br-tooltip-transition-function: ;
 }
 
 .berry-tooltip {
-    padding: var(--br-tooltip-padding-block) var(--br-tooltip-padding-inline);
-    background-color: var(--br-tooltip-background-color);
+    padding: var(--br-tooltip-padding-block, 6px) var(--br-tooltip-padding-inline, 8px);
+    background-color: var(--br-tooltip-background-color, var(--br-black-transparent));
     min-width: 30px;
     min-height: 1em;
-    color: var(--br-tooltip-color);
+    color: var(--br-tooltip-text-color, var(--br-white));
     border-radius: var(--br-border-radius);
     opacity: 0;
     visibility: hidden;
     transition: opacity;
-    transition-timing-function: var(--br-tooltip-transition-function);
-    transition-duration: var(--br-tooltip-transition-duration);
-    transition-delay: var(--br-tooltip-transition-delay);
+    transition-timing-function: var(--br-tooltip-transition-function, ease);
+    transition-duration: var(--br-tooltip-transition-duration, var(--br-transition-duration));
+    transition-delay: var(--br-tooltip-transition-delay, 0);
     position: relative;
     z-index: 1;
-    box-shadow: var(--br-tooltip-box-shadow);
+    box-shadow: var(--br-tooltip-box-shadow, var(--br-box-shadow));
 }
 .berry-tooltip.visible {
     visibility: visible;
     opacity: 1;
 }
+
+.arrow {
+    --arrow-skidding-inline: 12px;
+    --arrow-skidding-block: 5px;
+}
+
 .arrow {
     position: absolute;
     width: 12px;
@@ -54,10 +60,10 @@
     --br-translate-x: -50%;
 }
 [data-popper-placement="top-start"] .arrow {
-    left: var(--br-tooltip-arrow-skidding-inline)
+    left: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
 }
 [data-popper-placement="top-end"] .arrow {
-    right: var(--br-tooltip-arrow-skidding-inline);
+    right: var(--br-tooltip-arrow-skidding-inline,var(--arrow-skidding-inline));
 }
 
 [data-popper-placement^="right"] .arrow {
@@ -70,11 +76,11 @@
     --br-translate-y: -50%;
 }
 [data-popper-placement="right-start"] .arrow {
-    top: var(--br-tooltip-arrow-skidding-block);
+    top: var(--br-tooltip-arrow-skidding-block, --arrow-skidding-block);
 }
 
 [data-popper-placement="right-end"] .arrow {
-    bottom: var(--br-tooltip-arrow-skidding-block);
+    bottom: var(--br-tooltip-arrow-skidding-block, --arrow-skidding-block);
 }
 
 [data-popper-placement^="left"] .arrow {
@@ -86,10 +92,10 @@
     --br-translate-y: 50%;
 }
 [data-popper-placement="left-start"] .arrow {
-    top: var(--br-tooltip-arrow-skidding-block);
+    top: var(--br-tooltip-arrow-skidding-block, var(--arrow-skidding-block));
 }
 [data-popper-placement="left-end"] .arrow {
-    bottom: var(--br-tooltip-arrow-skidding-block);
+    bottom: var(--br-tooltip-arrow-skidding-block, var(--arrow-skidding-block));
 }
 
 [data-popper-placement^="bottom"] .arrow {
@@ -102,8 +108,8 @@
     --br-translate-x: -50%;
 }
 [data-popper-placement="bottom-start"] .arrow {
-    left: var(--br-tooltip-arrow-skidding-inline);
+    left: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
 }
 [data-popper-placement="bottom-end"] .arrow {
-    right: var(--br-tooltip-arrow-skidding-inline);
+    right: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
 }

@@ -10,6 +10,6 @@
 
 <style>
     .typography {
-        padding: var(--br-item-block-padding) var(--br-item-inline-padding);
+        padding: var(--br-item-padding-block) var(--br-item-padding-inline);
     }
 </style>

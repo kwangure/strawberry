@@ -10,28 +10,26 @@
     const forward = createEventForwarder();
 </script>
 
-<svg class="berry-icon" viewBox="0 0 24 24" use:forward>
+<svg viewBox="0 0 24 24" use:forward>
     <path d={path}/>
     <slot></slot>
 </svg>
 
 <style>
     :export {
-        --br-icon-animation: none;
-        --br-icon-fill: currentColor;
-        --br-icon-transform: none;
-
-        --br-icon-size: 24px;
-        --br-icon-height: var(--br-icon-size);
-        --br-icon-width: var(--br-icon-size);
+        --br-icon-animation: ;
+        --br-icon-fill: ;
+        --br-icon-transform: ;
+        --br-icon-height: ;
+        --br-icon-width: ;
     }
     svg {
-        width: var(--br-icon-width);
-        height: var(--br-icon-height);
-        transform: var(--br-icon-transform);
-        animation: var(--br-icon-animation);
+        animation: var(--br-icon-animation, none);
+        width: var(--br-icon-width, 24px);
+        height: var(--br-icon-height, 24px);
+        transform: var(--br-icon-transform, none);
     }
     path {
-        fill: var(--br-icon-fill);
+        fill: var(--br-icon-fill, currentColor);
     }
 </style>

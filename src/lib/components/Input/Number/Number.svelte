@@ -136,7 +136,7 @@
         display: flex;
         align-items: center;
     }
-    .postfix-up :global(.berry-icon) {
-        --br-icon-size: 21px;
+    .postfix-up {
+        --br-icon-height: 21px;
     }
 </style>

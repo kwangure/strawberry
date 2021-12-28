@@ -38,8 +38,8 @@
 
 <style>
     :export {
-        --br-notification-padding-block: var(--br-item-block-padding);
-        --br-notification-padding-inline: var(--br-item-inline-padding);
+        --br-notification-padding-block: ;
+        --br-notification-padding-inline: ;
     }
     .wrapper {
         overflow: hidden;
@@ -56,7 +56,7 @@
         border-radius: var(--br-border-radius);
         width: fit-content;
         margin-left: auto;
-        padding: var(--br-notification-padding-block) var(--br-notification-padding-inline);
+        padding: var(--br-notification-padding-block, var(--br-item-padding-block)) var(--br-notification-padding-inline, var(--br-item-padding-inline));
         background-color: var(--br-black-transparent);
         min-width: 30px;
         min-height: var(--br-item-height);
