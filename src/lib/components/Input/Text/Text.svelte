@@ -36,7 +36,7 @@
     let isInvalid = false;
 </script>
 
-<Container class="berry-input" {hideLabel} let:labelId>
+<Container class="berry-input berry-input-text" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
         <input class="text-input" bind:value class:isInvalid

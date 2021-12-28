@@ -86,7 +86,7 @@
     }
 </script>
 
-<Container class="berry-input-number" {hideLabel} let:labelId>
+<Container class="berry-input berry-input-number" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container" class:invalid={!valid}>
         <input bind:this={input} bind:value class="text-input"

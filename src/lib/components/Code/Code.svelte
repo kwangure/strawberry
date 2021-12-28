@@ -43,6 +43,7 @@
 <style>
     .berry-code {
         --br-code-background: var(--br-grey-lightest);
+        --br-code-border-radius: var(--br-border-radius);
     }
     .input {
         display: none;
@@ -53,7 +54,7 @@
         font-size: 85%;
         line-height: 1.45;
         background-color: var(--br-code-background);
-        border-radius: var(--br-border-radius);
+        border-radius: var(--br-code-border-radius);
         margin: 0;
     }
     .inline {

@@ -42,7 +42,7 @@
     }
 </script>
 
-<Container class="berry-input-textarea" {hideLabel} let:labelId>
+<Container class="berry-input berry-input-textarea" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <textarea class="text-input" class:is_invalid={isInvalid}
         bind:this={textarea} on:input={autosize}

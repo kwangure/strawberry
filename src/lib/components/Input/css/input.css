@@ -1,10 +1,16 @@
+/* TODO: Remove the need for this by unwrapping the <Container/> around inputs */
+:global(.berry-input) {
+    --br-input-color: var(--br-text-color);
+    --br-input-background-color: var(--br-white);
+    --br-input-font-family: var(--br-font-family);
+}
 .text-input {
     text-align: inherit;
     display: inline-block;
-    color: var(--br-text-color);
+    color: var(--br-input-color);
     font-size: 14px;
     line-height: 1.5;
-    background-color: var(--br-white);
+    background-color: var(--br-input-background-color);
     background-image: none;
     border: none;
     outline: 0;

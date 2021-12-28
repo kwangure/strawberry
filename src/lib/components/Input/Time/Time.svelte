@@ -148,7 +148,7 @@
     }
 </script>
 
-<Container class="berry-input-time" {hideLabel} let:labelId>
+<Container class="berry-input berry-input-time" {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container"  class:invalid={false}>
         <input bind:this={hoursInput} class="text-input" type="number" min="0" max="23"

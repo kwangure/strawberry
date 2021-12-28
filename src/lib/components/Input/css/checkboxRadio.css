@@ -1,6 +1,10 @@
+.berry-input-checkbox-radio {
+    --br-input-checkbox-radio-margin-inline: 5px;
+    --br-input-checkbox-radio-margin-block: 5px;
+}
 .input-wrapper {
     display: flex;
 }
 input {
-    margin: 5px;
+    margin: var(--br-input-checkbox-radio-margin-block) var(--br-input-checkbox-radio-margin-inline);
 }

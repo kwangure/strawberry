@@ -111,11 +111,11 @@
 
 <style>
     .berry-select,
-    .berry-select :global(.berry-input input) {
+    .berry-select :global(.berry-input-text input) {
         cursor: pointer;
     }
 
-    .placeholder :global(.berry-input input) {
+    .placeholder :global(.berry-input-text input) {
         color: var(--br-grey)
     }
 </style>
