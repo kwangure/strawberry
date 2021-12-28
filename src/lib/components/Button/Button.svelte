@@ -44,7 +44,7 @@
 </button>
 
 <style>
-    .berry-button {
+    :export {
         --br-button-width: auto;
         --br-button-border: var(--br-border);
     }

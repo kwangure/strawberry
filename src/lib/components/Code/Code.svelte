@@ -41,7 +41,7 @@
 </pre>
 
 <style>
-    .berry-code {
+    :export {
         --br-code-background: var(--br-grey-lightest);
         --br-code-border-radius: var(--br-border-radius);
     }

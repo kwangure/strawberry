@@ -1,4 +1,4 @@
-.berry-tooltip {
+:export {
     --br-tooltip-arrow-skidding-inline: 12px;
     --br-tooltip-arrow-skidding-block: 5px;
     --br-tooltip-box-shadow: var(--br-box-shadow);

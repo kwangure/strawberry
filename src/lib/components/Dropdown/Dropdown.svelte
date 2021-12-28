@@ -71,7 +71,7 @@
 </div>
 
 <style>
-    .berry-dropdown-menu {
+    :export {
         --br-dropdown-background-color: var(--br-white);
         --br-dropdown-border-radius: var(--br-border-radius);
         --br-dropdown-box-shadow: var(--br-box-shadow);

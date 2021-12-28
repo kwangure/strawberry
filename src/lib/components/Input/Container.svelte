@@ -1,8 +1,6 @@
 <script>
     import uid from "uid";
 
-    let className = "";
-    export { className as class };
     export let hideLabel = false;
 
     const labelId = uid();
@@ -18,7 +16,7 @@ https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text
     }
 </script>
 
-<div class="{className} wrapper">
+<div class="wrapper">
     <label class:br-accessible-hide={hideLabel} for={labelId} >
         <slot name="label"/>
     </label>

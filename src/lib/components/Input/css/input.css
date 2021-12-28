@@ -1,5 +1,4 @@
-/* TODO: Remove the need for this by unwrapping the <Container/> around inputs */
-:global(.berry-input) {
+:export {
     --br-input-color: var(--br-text-color);
     --br-input-background-color: var(--br-white);
     --br-input-font-family: var(--br-font-family);

@@ -39,7 +39,7 @@
 </nav>
 
 <style>
-    .berry-navbar {
+    :export {
         --br-nav-block-padding: var(--br-outer-gutter);
         --br-nav-inline-padding: auto;
         --br-nav-border: none;

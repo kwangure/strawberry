@@ -37,7 +37,7 @@
 {/if}
 
 <style>
-    .berry-notification {
+    :export {
         --br-notification-padding-block: var(--br-item-block-padding);
         --br-notification-padding-inline: var(--br-item-inline-padding);
     }

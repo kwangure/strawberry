@@ -3,8 +3,20 @@
 
     const forward = createEventForwarder();
 
+    /**
+     * A "d" string that is usable in an SVG path element.
+     * @type {string}
+     */
     export let d;
-    export let fill="currentColor";
 </script>
 
-<path class="berry-icon-path" use:forward {d} {fill} {...$$restProps}/>
+<path class="berry-icon-path" use:forward {d} {...$$restProps}/>
+
+<style>
+    :export {
+        --br-icon-path-fill: currentColor;
+    }
+    path {
+        fill: var(--br-icon-path-fill);
+    }
+</style>

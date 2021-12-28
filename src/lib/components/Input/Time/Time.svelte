@@ -148,7 +148,7 @@
     }
 </script>
 
-<Container class="berry-input berry-input-time" {hideLabel} let:labelId>
+<Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container"  class:invalid={false}>
         <input bind:this={hoursInput} class="text-input" type="number" min="0" max="23"
@@ -168,7 +168,7 @@
     @import "../css/input.css";
     @import "../css/postfix.css";
 
-    :global(.berry-input-time) {
+    :export {
         --br-input-time-icon-size: 21px;
         --br-input-time-number-input-background-color: var(--br-primary-light);
         --br-input-time-number-input-border-radius: var(--br-border-radius);

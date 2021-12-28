@@ -16,7 +16,7 @@
 </svg>
 
 <style>
-    .berry-icon {
+    :export {
         --br-icon-animation: none;
         --br-icon-fill: currentColor;
         --br-icon-transform: none;
