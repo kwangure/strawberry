@@ -15,13 +15,13 @@ export default {
      * }} options
      * @returns {PreprocessResult}
      **/
-    async markup({ content, filename }) {
+    markup({ content, filename }) {
         const ast = parse(content).css;
         if (!ast) return;
 
         const s = new MagicString(content, { filename });
 
-        await walk(ast, {
+        walk(ast, {
             enter(node) {
                 const { type, name, start, end } = node;
                 if (!(type === "PseudoClassSelector" && name === "export")) return;
