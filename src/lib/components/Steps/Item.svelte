@@ -34,7 +34,7 @@
         flex: auto;
         min-height: 40px;
         line-height: 24px;
-        padding: var(--br-item-block-padding) var(--br-item-inline-padding);
+        padding: var(--br-item-padding-block) var(--br-item-padding-inline);
         border-radius: var(--br-border-radius);
     }
     .step-item.active {

@@ -30,7 +30,7 @@
     $: isInvalid = blurred && invalid(value);
 </script>
 
-<Container class="berry-input-password" {hideLabel} let:labelId>
+<Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container" class:invalid={isInvalid}>
         <input class="text-input" bind:value

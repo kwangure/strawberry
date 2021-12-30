@@ -86,7 +86,7 @@
     }
 </script>
 
-<Container class="berry-input-number" {hideLabel} let:labelId>
+<Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container" class:invalid={!valid}>
         <input bind:this={input} bind:value class="text-input"
@@ -136,7 +136,7 @@
         display: flex;
         align-items: center;
     }
-    .postfix-up :global(.berry-icon) {
-        --br-icon-size: 21px;
+    .postfix-up {
+        --br-icon-height: 21px;
     }
 </style>

@@ -2,6 +2,7 @@ import adapter from "@sveltejs/adapter-static";
 import docs from "./scripts/vite-plugin-svelte-docs.js";
 import { fileURLToPath } from "url";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
+import exportCustormProperties from "./scripts/preprocess-extract-custom-properties.js";
 import match from 'micromatch';
 import path from "path";
 
@@ -15,9 +16,14 @@ function resolve(pathname) {
     return path.resolve(__dirname, pathname);
 }
 
+const preprocess = [
+    inlineImport,
+    exportCustormProperties,
+];
+
 /** @type {import("@sveltejs/kit").Config} */
 export default {
-    preprocess: inlineImport,
+    preprocess,
     kit: {
         appDir: "app",
         adapter: adapter(),
@@ -51,7 +57,7 @@ export default {
         target: "#svelte",
         vite: {
             plugins: [
-                docs(),
+                docs({ preprocess }),
             ],
             resolve: {
                 alias: {

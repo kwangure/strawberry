@@ -24,7 +24,7 @@
     }
 </script>
 
-<label class="berry-input-radio input-wrapper">
+<label class="input-wrapper">
     <input on:change={handleChange} type="radio" {value}
         use:forward name={group.name} {...$$restProps}
         checked={group.initialValue === value}>

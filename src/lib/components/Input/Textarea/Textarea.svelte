@@ -42,7 +42,7 @@
     }
 </script>
 
-<Container class="berry-input-textarea" {hideLabel} let:labelId>
+<Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <textarea class="text-input" class:is_invalid={isInvalid}
         bind:this={textarea} on:input={autosize}
@@ -57,6 +57,9 @@
 
 <style>
     @import "../css/input.css";
+    :export {
+        --br-textarea-border: ;
+    }
     textarea {
         width: 100%;
         overflow: scroll;
@@ -69,7 +72,7 @@
     }
     textarea:hover,
     textarea:focus {
-        border: 2px solid var(--br-primary);
+        border: var(--br-textarea-border, 2px solid var(--br-primary));
         padding: 0;
     }
 </style>

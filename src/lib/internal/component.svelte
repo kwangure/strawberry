@@ -35,7 +35,7 @@
 
 <h2>Slots</h2>
 {#each slots as slot}
-    <Slot slotDocs={slot}></Slot>
+    <Slot slotDocs={slot || {}}></Slot>
 {/each}
 
 <h2>Custom Properties</h2>

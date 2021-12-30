@@ -30,7 +30,7 @@
 	}
 </script>
 
-<label class="berry-input-checkbox input-wrapper">
+<label class="input-wrapper">
     <input type='checkbox' use:forward {...$$restProps}>
     <slot name="label"/>
 </label>

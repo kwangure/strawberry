@@ -28,7 +28,7 @@
     },
     "devDependencies": {
         "@kwangure/eslint-config-svelte": "^0.1.16",
-        "@kwangure/svelte-docs": "^0.0.3",
+        "@kwangure/svelte-docs": "^0.2.0",
         "@rollup/plugin-eslint": "^8.0.1",
         "@sveltejs/adapter-static": "^1.0.0-next.13",
         "@sveltejs/kit": "^1.0.0-next.201",
@@ -38,6 +38,7 @@
         "eslint": "^7.31.0",
         "eslint-import-resolver-alias": "^1.1.2",
         "gh-pages": "^3.1.0",
+        "magic-string": "^0.25.7",
         "micromatch": "^4.0.4",
         "standard-version": "^9.1.0",
         "storables": "^0.2.0",

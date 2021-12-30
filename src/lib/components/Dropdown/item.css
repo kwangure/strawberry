@@ -8,8 +8,9 @@
     align-items: center;
     min-width: 130px;
     background-color: var(--br-white);
-    padding: var(--br-item-block-padding) var(--br-item-inline-padding);
+    padding: var(--br-item-padding-block) var(--br-item-padding-inline);
 }
+
 .menu-item.active,
 .menu-item:hover {
     color: var(--br-primary);

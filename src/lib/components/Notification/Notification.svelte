@@ -37,6 +37,10 @@
 {/if}
 
 <style>
+    :export {
+        --br-notification-padding-block: ;
+        --br-notification-padding-inline: ;
+    }
     .wrapper {
         overflow: hidden;
         position: absolute;
@@ -52,7 +56,7 @@
         border-radius: var(--br-border-radius);
         width: fit-content;
         margin-left: auto;
-        padding: var(--br-item-block-padding) var(--br-item-inline-padding);
+        padding: var(--br-notification-padding-block, var(--br-item-padding-block)) var(--br-notification-padding-inline, var(--br-item-padding-inline));
         background-color: var(--br-black-transparent);
         min-width: 30px;
         min-height: var(--br-item-height);

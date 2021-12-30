@@ -148,7 +148,7 @@
     }
 </script>
 
-<Container class="berry-input-time" {hideLabel} let:labelId>
+<Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container"  class:invalid={false}>
         <input bind:this={hoursInput} class="text-input" type="number" min="0" max="23"
@@ -168,10 +168,10 @@
     @import "../css/input.css";
     @import "../css/postfix.css";
 
-    :global(.berry-input-time) {
-        --br-input-time-icon-size: 21px;
-        --br-input-time-number-input-background-color: var(--br-primary-light);
-        --br-input-time-number-input-border-radius: var(--br-border-radius);
+    :export {
+        --br-input-time-icon-size: ;
+        --br-input-time-number-input-background-color: ;
+        --br-input-time-number-input-border-radius: ;
     }
     .container {
         display: flex;
@@ -187,8 +187,8 @@
     }
     input:hover,
     input:focus {
-        background-color: var(--br-input-time-number-input-background-color);
-        border-radius: var(--br-input-time-number-input-border-radius);
+        background-color: var(--br-input-time-number-input-background-color, var(--br-primary-light));
+        border-radius: var(--br-input-time-number-input-border-radius, var(--br-border-radius));
     }
     [type=number]::-webkit-outer-spin-button,
     [type=number]::-webkit-inner-spin-button {
@@ -205,6 +205,6 @@
         height: 100%;
     }
     .postfix-wrapper :global(.berry-icon) {
-        --br-icon-size: var(--br-input-time-icon-size);
+        --br-icon-size: var(--br-input-time-icon-size, 21px);
     }
 </style>

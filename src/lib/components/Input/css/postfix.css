@@ -1,6 +1,9 @@
+:export {
+	--br-postfix-width: ;
+}
 .postfix-wrapper {
-    width: var(--br-postfix-width) ;
-    color: var(--br-text-color);;
+    width: var(--br-postfix-width, 31px) ;
+    color: var(--br-text-color);
     display: flex;
     align-items: center;
     justify-content: center;

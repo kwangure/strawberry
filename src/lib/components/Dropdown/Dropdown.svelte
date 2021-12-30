@@ -71,12 +71,17 @@
 </div>
 
 <style>
+    :export {
+        --br-dropdown-background-color: ;
+        --br-dropdown-border-radius: ;
+        --br-dropdown-box-shadow: ;
+    }
     .berry-dropdown-menu {
         display: none;
-        background-color: var(--br-white);
-        border-radius: var(--br-border-radius);
+        background-color: var(--br-dropdown-background-color, var(--br-white));
+        border-radius: var(--br-dropdown-border-radius, var(--br-border-radius));
         outline: none;
-        box-shadow: var(--br-box-shadow);
+        box-shadow: var(--br-dropdown-box-shadow, var(--br-box-shadow));
         z-index: 100;
         overflow: hidden;
     }

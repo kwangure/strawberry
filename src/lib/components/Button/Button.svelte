@@ -44,9 +44,12 @@
 </button>
 
 <style>
-    .berry-button {
-        --br-button-width: auto;
-        --br-button-border: var(--br-border);
+    :export {
+        --br-button-width: ;
+        --br-button-height: ;
+        --br-button-border: ;
+        --br-button-border-radius: ;
+        --br-button-text-color: ;
     }
     button {
         line-height: 1.5;
@@ -55,18 +58,18 @@
         font-weight: 400;
         white-space: nowrap;
         text-align: center;
-        border: var(--br-button-border);
+        border: var(--br-button-border, var(--br-border));
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
-        height: var(--br-item-height);
+        height: var(--br-button-height, var(--br-item-height));
         padding: 0 10px;
         font-size: 14px;
-        border-radius: var(--br-border-radius);
-        color: var(--br-text-color);
+        border-radius: var(--br-button-border-radius, var(--br-border-radius));
+        color: var(--br-button-text-color, var(--br-text-color));
         background-color: transparent;
         outline: none;
-        width: var(--br-button-width);
+        width: var(--br-button-width, auto);
     }
     button:disabled {
         cursor: not-allowed;
