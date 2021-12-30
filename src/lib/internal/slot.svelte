@@ -3,6 +3,8 @@
 
     export let slotDocs;
 
+    console.log({ slotDocs });
+
     let keywordObj = {};
 
     $: ({ name, description = "", keywords = []} = slotDocs);

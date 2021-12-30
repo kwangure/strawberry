@@ -16,12 +16,14 @@ function resolve(pathname) {
     return path.resolve(__dirname, pathname);
 }
 
+const preprocess = [
+    inlineImport,
+    exportCustormProperties,
+];
+
 /** @type {import("@sveltejs/kit").Config} */
 export default {
-    preprocess: [
-        inlineImport,
-        exportCustormProperties,
-    ],
+    preprocess,
     kit: {
         appDir: "app",
         adapter: adapter(),
@@ -55,7 +57,7 @@ export default {
         target: "#svelte",
         vite: {
             plugins: [
-                docs(),
+                docs({ preprocess }),
             ],
             resolve: {
                 alias: {
