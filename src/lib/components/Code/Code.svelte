@@ -1,6 +1,5 @@
 <script>
     import "highlight.js/styles/github.css";
-    import { escape } from "html-escaper";
     import { tick as forceRerender } from "svelte";
     import hljs from "highlight.js/lib/core";
     import loadHighlighter from "./loader.js";
@@ -19,7 +18,7 @@
     let highlightedCode = "";
 
     function highlight({ textContent: code }) {
-        highlightedCode = escape(code);
+        highlightedCode = code;
         forceRerender();
         if (!language) return;
         loadHighlighter(language)
