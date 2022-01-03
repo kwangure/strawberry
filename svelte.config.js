@@ -66,13 +66,6 @@ export default {
                     "~@utils": resolve("./src/lib/utils/"),
                 },
             },
-            optimizeDeps: {
-                // Svelte-kit expects component dependencies to be ESM.
-                // CJS deps fail unless included here.
-                // ESM work is in progress for `highlight.js@12.0`.
-                // TODO: Remove `highlight.js@12.0` from here once it's released.
-                include: ["highlight.js"],
-            },
         },
     },
 };
