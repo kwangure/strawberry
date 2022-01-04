@@ -6,6 +6,8 @@
     A set of Svelte components.<br/>
 </p>
 
+> 🍓 **Strawberry is not stable.** Its APIs are useable for most uses cases, but are not "finalized" and will have breaking changes. We're still getting the architecture right.
+
 ## Installation
 ```bash
 npm i @kwangure/strawberry
@@ -46,7 +48,7 @@ npm i @kwangure/strawberry
 
 ```
 ### ENV Variables
-
+This step is only required if you're not using Svelte-kit or Vite.
 ```javascript
 // rollup.config.js
 import { sveltekitGlobals } from "@kwangure/strawberry/config";
