@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.32.0](https://github.com/kwangure/strawberry/compare/v0.31.1...v0.32.0) (2022-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* `.berry-[component]` classnames have been removed in favour of
+component-specific custom properties.
+
+Instead of:
+```css
+.my-class :global(.berry-button) {
+    --br-color: red;
+}
+````
+You should now do:
+```css
+.my-class {
+    --br-button-color: red;
+}
+```
+* improve the CSS API across components
+
+### Features
+
+* export component-level CSS variables to `:root` ([54bc673](https://github.com/kwangure/strawberry/commit/54bc673432814e1de062e1b54447719903cd90aa))
+* improve `Time` input style configurability ([f2a10aa](https://github.com/kwangure/strawberry/commit/f2a10aaaba2c36cb0a34f56c77e9d5589cf680f9))
+* improve the CSS API across components ([2e03afc](https://github.com/kwangure/strawberry/commit/2e03afc97f210945d4ca2ca20422b090591e0f15))
+* improve tooltip configurability ([85a3ef4](https://github.com/kwangure/strawberry/commit/85a3ef40c269e82a27e3bab08ff94e828218b2d6))
+* make navbar slots optional ([842c919](https://github.com/kwangure/strawberry/commit/842c919f61d18b60b4a2f3a9cd97a865447df974))
+* remove code escape. ([c94f470](https://github.com/kwangure/strawberry/commit/c94f47031258d362834099a671c8d3a30d1154a9))
+
+
+### Bug Fixes
+
+* clip the seconds and milliseconds of time value ([a344ad7](https://github.com/kwangure/strawberry/commit/a344ad7dade13f7f41bb25b2676e896cda50a7d5))
+
 ### [0.31.1](https://github.com/kwangure/strawberry/compare/v0.31.0...v0.31.1) (2021-12-17)
 
 
