@@ -1,6 +1,7 @@
 import adapter from "@sveltejs/adapter-static";
 import docs from "./scripts/vite-plugin-svelte-docs.js";
 import { fileURLToPath } from "url";
+import { prebundle } from "./scripts/preprocess-prebundle.js";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import exportCustormProperties from "./scripts/preprocess-extract-custom-properties.js";
 import match from 'micromatch';
@@ -8,6 +9,9 @@ import path from "path";
 
 const MODE = process.env.NODE_ENV;
 const PROD = MODE === "production";
+if (MODE === undefined) {
+    console.warn("[svelte.config.js] 'NODE_ENV' is undefined. Did you mean to set it to 'packaging'?\n");
+}
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -17,6 +21,7 @@ function resolve(pathname) {
 }
 
 const preprocess = [
+    MODE === "packaging" ? prebundle() : undefined,
     inlineImport,
     exportCustormProperties,
 ];
@@ -65,13 +70,6 @@ export default {
                     "~@components": resolve("./src/lib/components/"),
                     "~@utils": resolve("./src/lib/utils/"),
                 },
-            },
-            optimizeDeps: {
-                // Svelte-kit expects component dependencies to be ESM.
-                // CJS deps fail unless included here.
-                // ESM work is in progress for `highlight.js@12.0`.
-                // TODO: Remove `highlight.js@12.0` from here once it's released.
-                include: ["highlight.js"],
             },
         },
     },

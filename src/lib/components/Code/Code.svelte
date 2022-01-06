@@ -1,9 +1,7 @@
 <script>
     import "highlight.js/styles/github.css";
-    import { escape } from "html-escaper";
     import { tick as forceRerender } from "svelte";
-    import hljs from "highlight.js/lib/core";
-    import loadHighlighter from "./loader.js";
+    import { HighlightJS } from "prebundle:highlight.js/lib/core";
 
     /**
      * Which syntax highlighter to use.
@@ -18,17 +16,13 @@
 
     let highlightedCode = "";
 
-    function highlight({ textContent: code }) {
-        highlightedCode = escape(code);
+    async function highlight({ textContent: code }) {
+        highlightedCode = code;
         forceRerender();
         if (!language) return;
-        loadHighlighter(language)
-            .then((highlighter) => {
-                hljs.registerLanguage(language, highlighter);
-                highlightedCode = hljs.highlight(code, {
-                    language,
-                }).value;
-            });
+        const highlighter = (await import(`./languages/${language}.js`)).default;
+        HighlightJS.registerLanguage(language, highlighter);
+        highlightedCode = HighlightJS.highlight(code, { language }).value;
     }
 </script>
 
