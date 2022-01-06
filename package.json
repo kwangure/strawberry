@@ -9,8 +9,8 @@
         "deploy": "npm run build && gh-pages -t -d build",
         "preview": "svelte-kit preview",
         "lint": "eslint .",
-        "release-candidate": "standard-version -a --prerelease rc && svelte-kit package && npm publish ./package --tag rc && git push --follow-tags origin master",
-        "release": "standard-version -a && svelte-kit package && npm publish ./package && git push --follow-tags origin master"
+        "release-candidate": "NODE_ENV=packaging svelte-kit package && standard-version -a --prerelease rc && NODE_ENV=packaging svelte-kit package && npm publish ./package --tag rc && git push --follow-tags origin master",
+        "release": "NODE_ENV=packaging svelte-kit package && standard-version -a && NODE_ENV=packaging svelte-kit package && npm publish ./package && git push --follow-tags origin master"
     },
     "exports": {
         ".": "./"

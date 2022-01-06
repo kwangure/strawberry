@@ -42,6 +42,8 @@ export function prebundle(options = {}) {
                 },
             }));
 
+            if (imports.size === 0) return;
+
             const bundles = await bundle_imports({ imports, out_dir });
 
             // This is where we expect `svelte-kit package` to output the svelte file inside `out_dir`
