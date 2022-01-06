@@ -21,10 +21,10 @@ function resolve(pathname) {
 }
 
 const preprocess = [
-    MODE === "packaging" ? prebundle() : undefined,
+    prebundle({ bundle: MODE === "packaging" }),
     inlineImport,
     exportCustormProperties,
-];
+].filter(Boolean);
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {

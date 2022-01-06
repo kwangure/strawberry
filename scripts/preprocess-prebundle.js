@@ -7,6 +7,7 @@ export function prebundle(options = {}) {
     const {
         outDir: out_dir = "package",
         rootDir: root_dir = "src/lib",
+        bundle = true,
     } = options;
     return {
         async markup(input) {
@@ -14,10 +15,15 @@ export function prebundle(options = {}) {
             const s = new MagicString(content, { filename });
             const { module, instance } = parse(content);
 
+            if (!bundle) {
+                [module, instance].forEach((script) => remove_prebundle_prefixes(script, s));
+                return {
+                    code: s.toString(),
+                    map: s.generateMap(),
+                };
+            }
+
             const imports = new Map();
-
-            if (!filename.includes("Code.svelte")) return;
-
             [module, instance].forEach((script) => walk(script, {
                 enter(node) {
                     const { type, source } = node;
@@ -59,6 +65,25 @@ export function prebundle(options = {}) {
             };
         },
     };
+}
+
+function remove_prebundle_prefixes(script, s) {
+    walk(script, {
+        enter(node) {
+            if (node.type === "ImportDeclaration") {
+                walk(node, {
+                    enter(node) {
+                        const { end, start, type, value } = node;
+                        if (type === "Literal" && value?.startsWith("prebundle:")) {
+                            // Leave quotes in place
+                            s.overwrite(start + 1, end - 1, value.replace("prebundle:", ""));
+                        }
+                    },
+                });
+                this.skip();
+            }
+        }
+    });
 }
 
 function get_import(import_ast, magic_string) {
