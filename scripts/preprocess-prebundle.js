@@ -7,21 +7,16 @@ export function prebundle(options = {}) {
     const {
         outDir: out_dir = "package",
         rootDir: root_dir = "src/lib",
-        bundle = true,
+        bundle = [],
     } = options;
     return {
         async markup(input) {
+            if (bundle.length === 0) return;
+
+            const bundle_set = new Set(bundle);
             const { content, filename } = input;
             const s = new MagicString(content, { filename });
             const { module, instance } = parse(content);
-
-            if (!bundle) {
-                [module, instance].forEach((script) => remove_prebundle_prefixes(script, s));
-                return {
-                    code: s.toString(),
-                    map: s.generateMap(),
-                };
-            }
 
             const imports = new Map();
             [module, instance].forEach((script) => walk(script, {
@@ -29,7 +24,7 @@ export function prebundle(options = {}) {
                     const { type, source } = node;
                     if (
                         type === "ImportDeclaration"
-                        && source.value.startsWith("prebundle:")
+                        && bundle_set.has(source.value)
                     ) {
                         const { import_identifiers, bundle_entry } = get_import(node, s);
                         imports.set(path.resolve(import_identifiers), {

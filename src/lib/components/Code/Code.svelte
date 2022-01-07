@@ -1,7 +1,7 @@
 <script>
     import "highlight.js/styles/github.css";
     import { tick as forceRerender } from "svelte";
-    import { HighlightJS } from "prebundle:highlight.js/lib/core";
+    import { HighlightJS } from "highlight.js/lib/core";
 
     /**
      * Which syntax highlighter to use.
