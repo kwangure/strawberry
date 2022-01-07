@@ -5,10 +5,28 @@
 :root,
 :host {
 	box-sizing: border-box;
+	overflow-wrap: break-word;
 }
 
 *,
 *:before,
-*:after {
+*:after,
+:host * {
+	/* inherit border-box instead of setting directly for easier override */
 	box-sizing: inherit;
+	overflow-wrap: inherit;
+
+	/* disable default margin for body, h1, h2, h3, h4, h5, h6, ul, ol, p etc. */
+	margin: 0;
+}
+
+html,
+body {
+	/* Allow percentage-based heights in the application */
+	height: 100%;
+}
+
+/* Remove built-in form typography styles */
+button, input, textarea, select {
+	font: inherit;
 }

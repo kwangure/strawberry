@@ -17,31 +17,27 @@ npm i @kwangure/strawberry
 ### Styling and Imports
 ```svelte
 <script>
-    /* Import one global stylesheet in root file */
-
-    // Style for standard document
-    import "@kwangure/strawberry/css/standardDOM";
-    // Style for shadow root
-    import "@kwangure/strawberry/css/customElement";
+    // Import global stylesheet
+    import "@kwangure/strawberry/css/styles";
 
     import Button from "@kwangure/strawberry/components/Button";
 </script>
 
 <!--
-    Use attribute or <style/> custom properties to override styles.
-    See docs for supported `--br-[component]-#` custom properties.
+    Use custom properties to override styles. See docs for supported
+    `--br-[component]-#` custom properties.
 -->
 
 <div class="document">
     Text
-    <Button primary --br-button-width="50px"
-        on:click={() => console.log('strawberry')}>
+    <Button primary on:click={() => console.log('strawberry')}>
         Click me!
     </Button>
 </div>
 
 <style>
     .document {
+        --br-button-width: "50px";
         --br-button-border: 3px solid red;
     }
 </style>

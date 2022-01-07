@@ -1,7 +1,6 @@
 :export {
     --br-input-text-color: ;
     --br-input-background-color: ;
-    --br-input-font-family: ;
     --br-input-padding-block: ;
     --br-input-padding-inline: ;
 }
@@ -9,14 +8,13 @@
 .text-input {
     text-align: inherit;
     display: inline-block;
-    color: var(--br-input-text-color, var(--br-text-color));
+    color: var(--br-input-text-color, var(--br-text-color), inherit);
     font-size: 14px;
     line-height: 1.5;
-    background-color: var(--br-input-background-color, var(--br-white));
+    background-color: var(--br-input-background-color, var(--br-white), transparent);
     background-image: none;
     border: none;
     outline: 0;
-    font-family: var(--br-input-font-family, var(--br-font-family));
 }
 
 .text-input:not(textarea) {
