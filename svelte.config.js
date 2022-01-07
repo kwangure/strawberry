@@ -21,7 +21,11 @@ function resolve(pathname) {
 }
 
 const preprocess = [
-    prebundle({ bundle: MODE === "packaging" }),
+    prebundle({
+        bundle: MODE === "packaging"
+            ? ["highlight.js/lib/core"]
+            : []
+    }),
     inlineImport,
     exportCustormProperties,
 ].filter(Boolean);
