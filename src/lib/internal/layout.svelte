@@ -11,7 +11,7 @@
         <svelte:fragment slot="logo">
             🍓 <span class="text">strawberry</span>
         </svelte:fragment>
-        <svelte:fragment slot="nav-links">
+        <svelte:fragment slot="links">
             <NavLink href="{base}/components" pattern={[`${base}/components`, `${base}/components/*`]}>
                 Components
             </NavLink>
@@ -19,7 +19,7 @@
                 Typography
             </NavLink>
         </svelte:fragment>
-        <svelte:fragment slot="calls-to-action">
+        <svelte:fragment slot="actions">
             <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
                 <Button icon={mdiGithub}>
                     GitHub
@@ -41,9 +41,9 @@
         flex-direction: column;
         min-height: 100%;
     }
-    .app-layout :global(.berry-navbar) {
-        --br-nav-border: var(--br-border);
-        --br-logo-width: 240px;
+    .app-layout {
+        --br-navbar-border-bottom: var(--br-border);
+        --br-navbar-logo-width: 240px;
     }
     .cta {
         --br-text-color: var(--br-black);
