@@ -1,4 +1,5 @@
 <script>
+    import "~@css/styles";
     import { mdiGithub, mdiNpm } from "@mdi/js";
     import { base } from "$app/paths";
     import Button from "~@components/Button";

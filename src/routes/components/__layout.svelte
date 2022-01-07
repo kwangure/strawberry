@@ -2,7 +2,7 @@
     import "~@css/styles";
     import Sidebar, { Link, Section } from "~@components/Sidebar";
     import { base } from "$app/paths";
-    import Layout from "../_layout.svelte";
+    import Layout from "$lib/internal/layout.svelte";
     import { page } from "$app/stores";
 
     let path;
