@@ -1,5 +1,5 @@
 <script>
-    import "~@css/standardDOM";
+    import "~@css/styles";
     import { mdiGithub, mdiNpm } from "@mdi/js";
     import Navbar, { Link as NavLink } from "~@components/Navbar";
     import { base } from "$app/paths";
@@ -44,5 +44,8 @@
     .app-layout :global(.berry-navbar) {
         --br-nav-border: var(--br-border);
         --br-logo-width: 240px;
+    }
+    .cta {
+        --br-text-color: var(--br-black);
     }
 </style>

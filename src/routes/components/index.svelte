@@ -3,11 +3,8 @@
     /* eslint-disable no-useless-escape */
     const usage = `
 <script\>
-    /* Import a global stylesheet in root file */
-    // Style for standard document
-    import "@kwangure/strawberry/css/standardDOM";
-    // Style for shadow root
-    import "@kwangure/strawberry/css/customElement";
+    // Import global stylesheet
+    import "@kwangure/strawberry/css/styles";
 
     import Button from "@kwangure/strawberry/components/Button";
 </script\>
