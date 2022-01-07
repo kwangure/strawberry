@@ -52,3 +52,7 @@
     @import "../css/container.css";
     @import "../css/postfix.css";
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

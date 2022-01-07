@@ -76,3 +76,7 @@
         padding: 0;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

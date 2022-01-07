@@ -1,5 +1,6 @@
 <script context="module">
     export const checkboxGroup = "berry-checkbox-group";
+    export const docs = true;
 </script>
 <script>
     import { setContext } from "svelte";

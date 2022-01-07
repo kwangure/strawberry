@@ -24,3 +24,7 @@
         padding-left: var(--br-outer-gutter);
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

@@ -12,3 +12,7 @@
         user-select: none;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

@@ -1,4 +1,4 @@
-import { docs as selectDocs } from "./Select.svelte:docs";
+import { docs as selectDocs } from "./Select.svelte";
 
 export const docs = {
     main: selectDocs,

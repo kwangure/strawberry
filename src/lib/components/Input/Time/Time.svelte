@@ -208,3 +208,7 @@
         --br-icon-size: var(--br-input-time-icon-size, 21px);
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

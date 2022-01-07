@@ -20,3 +20,7 @@
         color: inherit;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

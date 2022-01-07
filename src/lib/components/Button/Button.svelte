@@ -107,3 +107,7 @@
         padding-right: 16px;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

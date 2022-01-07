@@ -112,3 +112,7 @@
         max-width: 100%;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>
