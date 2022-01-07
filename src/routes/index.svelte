@@ -11,7 +11,7 @@
         <svelte:fragment slot="logo">
             🍓 <span class="text">strawberry</span>
         </svelte:fragment>
-        <svelte:fragment slot="calls-to-action">
+        <svelte:fragment slot="actions">
             <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
                 <Button icon={mdiGithub}>
                     GitHub
@@ -48,21 +48,22 @@
     .layout {
         --nav-height: 64px;
         --page-max-width: 56rem;
-        --page-width: 92%;
     }
     .layout {
         display: contents;
     }
-    .layout :global(.berry-navbar) {
-        --br-nav-max-width: var(--page-max-width);
-        --br-nav-width: var(--page-width);
-        --br-nav-height: var(--nav-height);
+    .layout {
+        --br-navbar-max-width: var(--page-max-width);
+        --br-navbar-height: var(--nav-height);
     }
     main {
         max-width: var(--page-max-width);
-        width: var(--page-width);
         height: calc(100% - var(--nav-height));
         margin: auto;
+        padding-inline: 8px;
+
+        /* Prevent heading margin collapse */
+        display: flow-root;
     }
     h3 {
         margin-top: 0px;
