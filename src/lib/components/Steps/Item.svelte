@@ -60,3 +60,7 @@
         color: var(--br-white);
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

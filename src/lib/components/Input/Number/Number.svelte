@@ -140,3 +140,7 @@
         --br-icon-height: 21px;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

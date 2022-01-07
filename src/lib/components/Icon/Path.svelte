@@ -20,3 +20,7 @@
         fill: var(--br-icon-path-fill, currentColor);
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

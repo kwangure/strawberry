@@ -28,7 +28,7 @@
     },
     "devDependencies": {
         "@kwangure/eslint-config-svelte": "^0.1.16",
-        "@kwangure/svelte-docs": "^0.2.0",
+        "@kwangure/svelte-docs": "^0.3.0",
         "@rollup/plugin-eslint": "^8.0.1",
         "@sveltejs/adapter-static": "^1.0.0-next.13",
         "@sveltejs/kit": "^1.0.0-next.201",

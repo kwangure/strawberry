@@ -136,4 +136,6 @@
      * @private
      */
     export const UPDATE_VALUE_FUNC = "select-update-func";
+
+    export const docs = true;
 </script>

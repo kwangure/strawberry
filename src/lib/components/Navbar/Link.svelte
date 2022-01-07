@@ -53,3 +53,7 @@
         border-bottom: 3px solid var(--br-primary);
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

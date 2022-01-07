@@ -64,25 +64,6 @@ export function prebundle(options = {}) {
     };
 }
 
-function remove_prebundle_prefixes(script, s) {
-    walk(script, {
-        enter(node) {
-            if (node.type === "ImportDeclaration") {
-                walk(node, {
-                    enter(node) {
-                        const { end, start, type, value } = node;
-                        if (type === "Literal" && value?.startsWith("prebundle:")) {
-                            // Leave quotes in place
-                            s.overwrite(start + 1, end - 1, value.replace("prebundle:", ""));
-                        }
-                    },
-                });
-                this.skip();
-            }
-        }
-    });
-}
-
 function get_import(import_ast, magic_string) {
     const import_string = magic_string
         .slice(import_ast.start, import_ast.end)

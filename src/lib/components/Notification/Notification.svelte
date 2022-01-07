@@ -73,3 +73,7 @@
         --br-icon-size: 20px;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

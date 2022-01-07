@@ -33,3 +33,7 @@
         fill: var(--br-icon-fill, currentColor);
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

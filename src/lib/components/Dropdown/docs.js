@@ -1,4 +1,4 @@
-import { docs as dropdownDocs } from "./Dropdown.svelte:docs";
+import { docs as dropdownDocs } from "./Dropdown.svelte";
 
 export const docs = {
     main: dropdownDocs,

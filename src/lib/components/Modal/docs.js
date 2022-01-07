@@ -1,4 +1,4 @@
-import { docs as modalDocs } from "./Modal.svelte:docs";
+import { docs as modalDocs } from "./Modal.svelte";
 
 export const docs = {
     main: modalDocs,

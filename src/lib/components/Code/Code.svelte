@@ -56,3 +56,7 @@
         padding: 0.6ch 1ch;
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>

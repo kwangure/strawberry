@@ -1,8 +1,9 @@
 <script context="module">
     import { getContext } from "svelte";
 
-    const key = {};
+    export const docs = true;
 
+    const key = {};
     export function stores() {
         return getContext(key);
     }

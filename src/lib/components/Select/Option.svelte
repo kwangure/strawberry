@@ -62,3 +62,7 @@
         background-color: var(--br-primary-light);
     }
 </style>
+
+<script context="module">
+    export const docs = true;
+</script>
