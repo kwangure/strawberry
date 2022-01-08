@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.34.0](https://github.com/kwangure/strawberry/compare/v0.33.0...v0.34.0) (2022-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* You should now import the syntax highlighter from
+the component i.e:
+
+```javascript
+`import Code, { svelte } from ".../Code";`
+<Code language={svelte} code="5 !== 6"/>
+```
+
+### Features
+
+* make getting syntax highlighter synchronous ([cc64349](https://github.com/kwangure/strawberry/commit/cc643495d585de18de3538fe32ba551b6107401d))
+
 ## [0.33.0](https://github.com/kwangure/strawberry/compare/v0.32.0...v0.33.0) (2022-01-08)
 
 
