@@ -1,5 +1,5 @@
 <script>
-    import Code from "~@components/Code";
+    import Code, { css } from "~@components/Code";
 
     export let propertyDocs;
 
@@ -18,4 +18,4 @@
     }
 </script>
 
-<Code language="css" inline>{property}</Code>&nbsp;
+<Code language={css} inline code={property}/>&nbsp;

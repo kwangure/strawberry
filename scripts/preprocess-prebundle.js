@@ -7,13 +7,12 @@ export function prebundle(options = {}) {
     const {
         outDir: out_dir = "package",
         rootDir: root_dir = "src/lib",
-        bundle = [],
+        bundle = () => false,
     } = options;
     return {
         async markup(input) {
             if (bundle.length === 0) return;
 
-            const bundle_set = new Set(bundle);
             const { content, filename } = input;
             const s = new MagicString(content, { filename });
             const { module, instance } = parse(content);
@@ -24,7 +23,7 @@ export function prebundle(options = {}) {
                     const { type, source } = node;
                     if (
                         type === "ImportDeclaration"
-                        && bundle_set.has(source.value)
+                        && bundle(source.value)
                     ) {
                         const { import_identifiers, bundle_entry } = get_import(node, s);
                         imports.set(path.resolve(import_identifiers), {
