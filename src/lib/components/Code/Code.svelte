@@ -1,13 +1,91 @@
+<script context="module">
+    import highlight_css from "highlight.js/lib/languages/css";
+    import highlight_javascript from "highlight.js/lib/languages/javascript";
+    import highlight_xml from "highlight.js/lib/languages/xml";
+
+    export const css = { name: "css", highlighter: highlight_css };
+    export const javascript = { name: "js", highlighter: highlight_javascript };
+    export const xml = { name: "xml", highlighter: highlight_xml };
+    export const html = xml;
+
+    // Adapted from https://github.com/AlexxNB/highlightjs-svelte
+    export const svelte = {
+        name: "svelte",
+        highlighter(hljs) {
+            hljs.registerLanguage("css", highlight_css);
+            hljs.registerLanguage("javascript", highlight_javascript);
+            hljs.registerLanguage("xml", highlight_xml);
+            return {
+                name: "svelte",
+                subLanguage: "xml",
+                contains: [
+                    hljs.COMMENT("<!--", "-->", {
+                        relevance: 10,
+                    }),
+                    {
+                        begin: /^(\s*)(<script(\s*context="module")?>)/gm,
+                        end: /^(\s*)(<\/script>)/gm,
+                        subLanguage: "javascript",
+                        excludeBegin: true,
+                        excludeEnd: true,
+                        contains: [
+                            {
+                                begin: /^(\s*)(\$:)/gm,
+                                end: /(\s*)/gm,
+                                className: "keyword",
+                            },
+                        ],
+                    },
+                    {
+                        // Add a redundant `{1}` qualifier because Svelte compiler chokes
+                        // I haven't filed a bug. I'm lazy. Please do before you delete this comment
+                        begin: /^(\s*)(<st{1}yle.*>)/gm,
+                        end: /^(\s*)(<\/style>)/gm,
+                        subLanguage: "css",
+                        excludeBegin: true,
+                        excludeEnd: true,
+                    },
+                    {
+                        begin: /\{/gm,
+                        end: /\}/gm,
+                        subLanguage: "javascript",
+                        contains: [
+                            {
+                                begin: /[{]/,
+                                end: /[}]/,
+                                skip: true,
+                            },
+                            {
+                                begin: /([#:/@])(if|else|each|await|then|catch|debug|html)/gm,
+                                className: "keyword",
+                                relevance: 10,
+                            },
+                        ],
+                    },
+                ],
+            };
+        },
+    };
+
+    export const docs = true;
+</script>
+
 <script>
     import "highlight.js/styles/github.css";
-    import { tick as forceRerender } from "svelte";
     import { HighlightJS } from "highlight.js/lib/core";
 
     /**
+     * @template T
+     * @typedef {{ name: T, highlighter: any }} Language<T>
+     */
+
+    /**
      * Which syntax highlighter to use.
-     * @type {"" | "css"| "javascript" | "svelte"}
+     * @type {Language<"" | "css" | "html" | "javascript"> | "svelte" | "xml">}
     */
     export let language = "";
+
+    export let code = "";
     /**
      * Whether to treat a codeblock as an inline element.
      * @type {boolean}
@@ -15,20 +93,17 @@
     export let inline = false;
 
     let highlightedCode = "";
-
-    async function highlight({ textContent: code }) {
+    $: if (language) {
+        const { name, highlighter } = language;
+        console.log({ name, highlighter });
+        HighlightJS.registerLanguage(name, highlighter);
+        ({ value: highlightedCode } = HighlightJS.highlight(code, {
+            language: name,
+        }));
+    } else {
         highlightedCode = code;
-        forceRerender();
-        if (!language) return;
-        const highlighter = (await import(`./languages/${language}.js`)).default;
-        HighlightJS.registerLanguage(language, highlighter);
-        highlightedCode = HighlightJS.highlight(code, { language }).value;
     }
 </script>
-
-<pre class="input" use:highlight>
-    <slot/>
-</pre>
 
 <pre class="berry-code" class:inline>
     {@html highlightedCode}
@@ -38,9 +113,6 @@
     :export {
         --br-code-background: ;
         --br-code-border-radius: ;
-    }
-    .input {
-        display: none;
     }
     pre {
         padding: 16px;
@@ -56,7 +128,3 @@
         padding: 0.6ch 1ch;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

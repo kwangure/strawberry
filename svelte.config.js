@@ -3,7 +3,7 @@ import docs from "@kwangure/svelte-docs";
 import { fileURLToPath } from "url";
 import { prebundle } from "./scripts/preprocess-prebundle.js";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
-import match from 'micromatch';
+import micromatch from 'micromatch';
 import path from "path";
 
 const MODE = process.env.NODE_ENV;
@@ -19,12 +19,12 @@ function resolve(pathname) {
     return path.resolve(__dirname, pathname);
 }
 
+const is_highlightjs = micromatch.matcher("highlight.js/lib/**");
 const preprocess = [
     docs(),
     prebundle({
-        bundle: MODE === "packaging"
-            ? ["highlight.js/lib/core"]
-            : []
+        bundle: (filename) => MODE === "packaging"
+            && is_highlightjs(filename),
     }),
     inlineImport,
 ];
@@ -39,7 +39,7 @@ export default {
             exports: (filepath) => {
                 if (filepath.endsWith('.d.ts')) return false;
 
-                const value = match.isMatch(filepath, [
+                const value = micromatch.isMatch(filepath, [
                     'components/**/index.js',
                     'css/**/*.(js|css)',
                     'utils/forward-events.js',
@@ -48,11 +48,11 @@ export default {
                 return value;
             },
             files: (filepath) => {
-                return match.some(filepath, [
+                return micromatch.some(filepath, [
                     'components/**',
                     'css/**',
                     'utils/**',
-                ]) && !match.some(filepath, [
+                ]) && !micromatch.some(filepath, [
                     "components/**/docs.js",
                     "components/**/*.css",
                 ]);

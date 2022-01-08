@@ -1,5 +1,5 @@
 <script>
-    import Code from "~@components/Code";
+    import Code, { javascript, svelte } from "~@components/Code";
 
     export let prop;
 
@@ -26,25 +26,18 @@
         {/if}
     </summary>
 
-    <Code language="javascript">
-        <!-- Repeating some code avoids whitespace problems -->
-        {#if optional && type}
+    {#if type}
+    <Code language={javascript} code={`
 /**
- * @type &#123;{type}&#125;
+ * @type {{${type}}}; ${optional ? `\n * @default ${value}`: ""}
  */
-{kind} {name};
-        {:else if type}
-/**
- * @type &#123;{type}&#125;
- * @default {value}
- */
-{kind} {name};
-        {/if}
-    </Code>
+${kind} ${name}
+`}/>
+    {/if}
 
     {#if $$slots.usage}
         <p>Usage:</p>
-        <Code language="svelte">
+        <Code language={svelte}>
             <slot name="usage"/>
         </Code>
     {/if}
