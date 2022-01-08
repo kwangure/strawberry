@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.33.0](https://github.com/kwangure/strawberry/compare/v0.32.0...v0.33.0) (2022-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **docs:** svelteKit globals config is no longer packaged.
+* simplify navbar CSS API
+* To import styles you should use
+`@kwangure/strawberry/css/styles` instead of
+"@kwangure/strawberry/css/(standardDOM|customElement)".
+We now have one unified API.
+If you were importing styles directly, consult the source code for the
+contents of the different stylesheets.
+
+### Features
+
+* include treeshakable documentation for each component ([ab8224d](https://github.com/kwangure/strawberry/commit/ab8224d1ef119dfea613a48fb4b138aa0cdd2f77))
+* simplify navbar CSS API ([3dab42d](https://github.com/kwangure/strawberry/commit/3dab42d88356748c6a5da2d71c8e2ad9d36394ba))
+* simplify styling across different ENVs ([aece11f](https://github.com/kwangure/strawberry/commit/aece11fc4d5b7ae90057569320aa5c70cbfcf454))
+
+
+### Bug Fixes
+
+* correct button color inheritance ([4f0e8c1](https://github.com/kwangure/strawberry/commit/4f0e8c152f299c1962f5bfcb73a61dd2a7d69c0c))
+* reset heading to zero margin-top ([b617e5a](https://github.com/kwangure/strawberry/commit/b617e5aa8c1733cad9adebe5fac52d9e3ffb46c6))
+
+
+* **docs:** clarify the "unsupportedness" of non-Sveltekit places ([6ccb597](https://github.com/kwangure/strawberry/commit/6ccb597c5d52d0c284b6f3d210ab309671525003))
+
 ## [0.32.0](https://github.com/kwangure/strawberry/compare/v0.31.1...v0.32.0) (2022-01-06)
 
 
