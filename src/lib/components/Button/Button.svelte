@@ -66,7 +66,7 @@
         padding: 0 10px;
         font-size: 14px;
         border-radius: var(--br-button-border-radius, var(--br-border-radius));
-        color: var(--br-button-text-color, var(--br-text-color), inherit);
+        color: var(--br-button-text-color, var(--br-text-color, inherit));
         background-color: transparent;
         outline: none;
         width: var(--br-button-width, auto);
