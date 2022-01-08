@@ -95,7 +95,6 @@
     let highlightedCode = "";
     $: if (language) {
         const { name, highlighter } = language;
-        console.log({ name, highlighter });
         HighlightJS.registerLanguage(name, highlighter);
         ({ value: highlightedCode } = HighlightJS.highlight(code, {
             language: name,

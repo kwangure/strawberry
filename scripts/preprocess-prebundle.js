@@ -97,7 +97,6 @@ function get_import(import_ast, magic_string) {
                     break;
                 }
                 default:
-                    console.log(node.type);
                     break;
             }
         },
