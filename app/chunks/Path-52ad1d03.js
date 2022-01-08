@@ -1,1 +1,0 @@
-import"./vendor-a289ca3a.js";JSON.parse('{"name":"Path","props":[{"kind":"let","name":"d","optional":false},{"kind":"let","name":"fill","optional":true,"value":"currentColor"}],"exports":[],"customProperties":[]}');

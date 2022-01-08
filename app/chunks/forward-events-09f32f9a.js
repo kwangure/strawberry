@@ -1,1 +1,0 @@
-import{W as s,X as o,Y as r}from"./vendor-017d3a3b.js";function a(){const a=r();return r=>{const c=[];for(const n in a.$$.callbacks)if({}.hasOwnProperty.call(a.$$.callbacks,n)){const t=s(r,n,(s=>{o(a,s)}));c.push(t)}return{destroy:()=>{c.forEach((s=>s()))}}}}export{a as c};

@@ -1,1 +1,1 @@
-function n(n,t){function u(t){t&&n.focus()}return u(t),{update:u}}export{n as f};
+function e(n,t){function f(u){u&&n.focus()}return f(t),{update:f}}export{e as f};

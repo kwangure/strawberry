@@ -1,1 +1,0 @@
-import"./vendor-a289ca3a.js";import"./Button-c3707006.js";JSON.parse('{"name":"Group","props":[],"exports":[],"customProperties":[]}');JSON.parse('{"name":"Tabs","props":[{"kind":"let","name":"tabs","optional":true}],"exports":[],"customProperties":[]}');
