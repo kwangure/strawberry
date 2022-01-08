@@ -14,46 +14,43 @@ npm i @kwangure/strawberry
 ```
 
 ## Usage
-### Styling and Imports
 ```svelte
 <script>
-    // Import global stylesheet
     import "@kwangure/strawberry/css/styles";
 
     import Button from "@kwangure/strawberry/components/Button";
+
+    const hello = () => console.log('strawberry');
 </script>
 
-<!--
-    Use custom properties to override styles. See docs for supported
-    `--br-[component]-#` custom properties.
--->
-
 <div class="document">
-    Text
-    <Button primary on:click={() => console.log('strawberry')}>
-        Click me!
-    </Button>
+    <Button on:click={hello}>Click me!</Button>
 </div>
 
 <style>
     .document {
-        --br-button-width: "50px";
+        --br-button-width: 50px;
         --br-button-border: 3px solid red;
     }
 </style>
 
 ```
-### ENV Variables
-This step is only required if you're not using Svelte-kit or Vite.
+## Limitations
+This is a compnent library built in and for Sveltekit. Replacing Sveltekit ENV
+variables is a good place to start if you'd like to use it in other contexts.
+Though it may work, other enviroments are not actively supported.
 ```javascript
 // rollup.config.js
-import { sveltekitGlobals } from "@kwangure/strawberry/config";
 import replace from "@rollup/plugin-replace";
 
 ...
 plugins: [
     // SvelteKit replaces these Out of the Box™
-    replace(sveltekitGlobals),
+    replace({
+    "import.meta.env.MODE": () => JSON.stringify(process.env.NODE_ENV),
+    "import.meta.env.DEV": () => String(process.env.NODE_ENV === "development"),
+    "import.meta.env.PROD": () => String(process.env.NODE_ENV === "production"),
+}),
 ]
 ...
 ```

@@ -52,7 +52,6 @@ export default {
                     'components/**',
                     'css/**',
                     'utils/**',
-                    'config/**',
                 ]) && !match.some(filepath, [
                     "components/**/docs.js",
                     "components/**/*.css",

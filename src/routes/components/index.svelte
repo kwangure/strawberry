@@ -3,27 +3,20 @@
     /* eslint-disable no-useless-escape */
     const usage = `
 <script\>
-    // Import global stylesheet
     import "@kwangure/strawberry/css/styles";
 
     import Button from "@kwangure/strawberry/components/Button";
+
+    const hello = () => console.log('strawberry');
 </script\>
 
-<!--
-    Use attribute or <style/> custom properties to override styles.
-    See docs for supported \`--br-[component]-#\` custom properties.
--->
-
 <div class="document">
-    Text
-    <Button primary --br-button-width="50px"
-        on:click={() => console.log('strawberry')}>
-        Click me!
-    </Button>
+    <Button on:click={hello}>Click me!</Button>
 </div>
 
 <style>
     .document {
+        --br-button-width: 50px;
         --br-button-border: 3px solid red;
     }
 </style\>
