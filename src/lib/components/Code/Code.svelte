@@ -1,89 +1,20 @@
 <script context="module">
-    import highlight_css from "highlight.js/lib/languages/css";
-    import highlight_javascript from "highlight.js/lib/languages/javascript";
-    import highlight_xml from "highlight.js/lib/languages/xml";
-
-    export const css = { name: "css", highlighter: highlight_css };
-    export const javascript = { name: "js", highlighter: highlight_javascript };
-    export const xml = { name: "xml", highlighter: highlight_xml };
-    export const html = xml;
-
-    // Adapted from https://github.com/AlexxNB/highlightjs-svelte
-    export const svelte = {
-        name: "svelte",
-        highlighter(hljs) {
-            hljs.registerLanguage("css", highlight_css);
-            hljs.registerLanguage("javascript", highlight_javascript);
-            hljs.registerLanguage("xml", highlight_xml);
-            return {
-                name: "svelte",
-                subLanguage: "xml",
-                contains: [
-                    hljs.COMMENT("<!--", "-->", {
-                        relevance: 10,
-                    }),
-                    {
-                        begin: /^(\s*)(<script(\s*context="module")?>)/gm,
-                        end: /^(\s*)(<\/script>)/gm,
-                        subLanguage: "javascript",
-                        excludeBegin: true,
-                        excludeEnd: true,
-                        contains: [
-                            {
-                                begin: /^(\s*)(\$:)/gm,
-                                end: /(\s*)/gm,
-                                className: "keyword",
-                            },
-                        ],
-                    },
-                    {
-                        // Add a redundant `{1}` qualifier because Svelte compiler chokes
-                        // I haven't filed a bug. I'm lazy. Please do before you delete this comment
-                        begin: /^(\s*)(<st{1}yle.*>)/gm,
-                        end: /^(\s*)(<\/style>)/gm,
-                        subLanguage: "css",
-                        excludeBegin: true,
-                        excludeEnd: true,
-                    },
-                    {
-                        begin: /\{/gm,
-                        end: /\}/gm,
-                        subLanguage: "javascript",
-                        contains: [
-                            {
-                                begin: /[{]/,
-                                end: /[}]/,
-                                skip: true,
-                            },
-                            {
-                                begin: /([#:/@])(if|else|each|await|then|catch|debug|html)/gm,
-                                className: "keyword",
-                                relevance: 10,
-                            },
-                        ],
-                    },
-                ],
-            };
-        },
-    };
-
     export const docs = true;
 </script>
 
 <script>
-    import "highlight.js/styles/github.css";
     import { HighlightJS } from "highlight.js/lib/core";
 
     /**
      * @template T
-     * @typedef {{ name: T, highlighter: any }} Language<T>
+     * @typedef {{ name: T, highlighter: function }} Language<T>
      */
 
     /**
      * Which syntax highlighter to use.
-     * @type {Language<"" | "css" | "html" | "javascript"> | "svelte" | "xml">}
-    */
-    export let language = "";
+     * @type {Language<"css" | "html" | "javascript"> | "svelte" | "xml">}
+     */
+    export let language = null;
 
     export let code = "";
     /**
@@ -95,7 +26,7 @@
     let highlightedCode = "";
     $: if (language) {
         const { name, highlighter } = language;
-        HighlightJS.registerLanguage(name, highlighter);
+        HighlightJS.registerLanguage(undefined, language.highlighter);
         ({ value: highlightedCode } = HighlightJS.highlight(code, {
             language: name,
         }));
@@ -104,14 +35,18 @@
     }
 </script>
 
-<pre class="berry-code" class:inline>
-    {@html highlightedCode}
+<pre class="berry-code hljs" class:inline>
+    <div class="language-{language?.name || ''}">
+        {@html highlightedCode}
+    </div>
 </pre>
 
 <style>
     :export {
         --br-code-background: ;
         --br-code-border-radius: ;
+        --br-code-string-color: ;
+        --br-code-comment-color: ;
     }
     pre {
         padding: 16px;
@@ -122,8 +57,32 @@
         border-radius: var(--br-code-border-radius, var(--br-border-radius));
         margin: 0;
     }
+    pre :global([class^="language-"]) {
+        --_vs_blue_name: #569cd6;
+        --_vs_blue_value: #9cdcfe;
+        --_vs_brown_string: #d69d85;
+        --_vs_gold: #d7ba7d;
+        --_vs_green_comment: #6a9955;
+        --_vs_green_number: #b5cea8;
+        --_vs_green_type: #4ec9b0;
+        --_vs_yellow_function: #dcdcaa;
+        --_vs_purple_keyword: #c586c0;
+    }
+    [class^="language-"] {
+        display: contents;
+    }
     .inline {
         display: inline;
         padding: 0.6ch 1ch;
+    }
+    .hljs {
+        background: #1e1e1e;
+        color: #dcdcdc;
+    }
+    pre :global(.hljs-string) {
+        color: var(--br-code-string-color, var(--_vs_brown_string));
+    }
+    pre :global(.hljs-comment) {
+        color: var(--br-code-comment-color, var(--_vs_green_comment));
     }
 </style>

@@ -1,4 +1,7 @@
 import Code from "./Code.svelte";
 
 export default Code;
-export * from "./Code.svelte";
+export * as css from "./languages/CSS.svelte";
+export * as html from "./languages/HTML.svelte";
+export * as javascript from "./languages/JavaScript.svelte";
+export * as svelte from "./languages/Svelte.svelte";

@@ -17,7 +17,7 @@
 <style>
     .document {
         --br-button-width: 50px;
-        --br-button-border: 3px solid red;
+        --br-button-border: 3px solid var(--my-primary-color);
     }
 </style\>
     `.trim();
