@@ -16,17 +16,27 @@
      */
     export let language = null;
 
-    export let code = "";
+    /**
+     * Code to be highlighted
+     @type {string}
+     */
+    export let code;
     /**
      * Whether to treat a codeblock as an inline element.
      * @type {boolean}
      */
     export let inline = false;
 
+    /**
+     * Whether to use the dark editor.
+     * @type {boolean}
+     */
+    export let dark = false;
+
     let highlightedCode = "";
     $: if (language) {
         const { name, highlighter } = language;
-        HighlightJS.registerLanguage(undefined, language.highlighter);
+        HighlightJS.registerLanguage(name, highlighter);
         ({ value: highlightedCode } = HighlightJS.highlight(code, {
             language: name,
         }));
@@ -35,7 +45,7 @@
     }
 </script>
 
-<pre class="berry-code hljs" class:inline>
+<pre class="berry-code hljs" class:dark class:inline>
     <div class="language-{language?.name || ''}">
         {@html highlightedCode}
     </div>
@@ -57,16 +67,31 @@
         border-radius: var(--br-code-border-radius, var(--br-border-radius));
         margin: 0;
     }
+    pre.dark {
+        background-color: #1e1e1e;
+        color: #dcdcdc;
+    }
     pre :global([class^="language-"]) {
-        --_vs_blue_name: #569cd6;
-        --_vs_blue_value: #9cdcfe;
-        --_vs_brown_string: #d69d85;
-        --_vs_gold: #d7ba7d;
-        --_vs_green_comment: #6a9955;
-        --_vs_green_number: #b5cea8;
-        --_vs_green_type: #4ec9b0;
-        --_vs_yellow_function: #dcdcaa;
-        --_vs_purple_keyword: #c586c0;
+        --_name_color: #0021b3;
+        --_string_color: #be6404;
+        --_value_color: #037e0b;
+        --_classname_color: #c79e09;
+        --_comment_color: #2f9d62;
+        --_number_color: #085ad6;
+        --_type_color: #cf222e;
+        --_function_color: #0021b3;
+        --_keyword_color: #c123b4;
+    }
+    pre.dark :global([class^="language-"]) {
+        --_name_color: #569cd6;
+        --_string_color: #d69d85;
+        --_value_color: #9cdcfe;
+        --_classname_color: #d7ba7d;
+        --_comment_color: #6a9955;
+        --_number_color: #b5cea8;
+        --_type_color: #4ec9b0;
+        --_function_color: #dcdcaa;
+        --_keyword_color: #c586c0;
     }
     [class^="language-"] {
         display: contents;
@@ -74,15 +99,5 @@
     .inline {
         display: inline;
         padding: 0.6ch 1ch;
-    }
-    .hljs {
-        background: #1e1e1e;
-        color: #dcdcdc;
-    }
-    pre :global(.hljs-string) {
-        color: var(--br-code-string-color, var(--_vs_brown_string));
-    }
-    pre :global(.hljs-comment) {
-        color: var(--br-code-comment-color, var(--_vs_green_comment));
     }
 </style>
