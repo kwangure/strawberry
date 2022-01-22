@@ -29,7 +29,7 @@
     {#if type}
     <Code language={javascript} code={`
 /**
- * @type {{${type}}}; ${optional ? `\n * @default ${value}`: ""}
+ * @type {${type}}; ${optional ? `\n * @default ${value}`: ""}
  */
 ${kind} ${name}
 `}/>
