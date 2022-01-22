@@ -57,6 +57,7 @@
         --br-code-border-radius: ;
         --br-code-string-color: ;
         --br-code-comment-color: ;
+        --br-code-white-space: ;
     }
     pre {
         padding: 16px;
@@ -66,6 +67,7 @@
         background-color: var(--br-code-background, var(--br-grey-lightest));
         border-radius: var(--br-code-border-radius, var(--br-border-radius));
         margin: 0;
+        white-space: var(--br-code-white-space, pre);
     }
     pre.dark {
         background-color: #1e1e1e;
