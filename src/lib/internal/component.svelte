@@ -29,14 +29,28 @@
 {/if}
 
 <h2>Props</h2>
-{#each props as prop}
-    <Prop {prop}></Prop>
-{/each}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Descriptoin</th>
+    </tr>
+    {#each props as prop}
+        <Prop {prop}></Prop>
+    {/each}
+</table>
 
 <h2>Slots</h2>
-{#each slots as slot}
-    <Slot slotDocs={slot || {}}></Slot>
-{/each}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Descriptoin</th>
+    </tr>
+    {#each slots as slot}
+        <Slot slotDocs={slot || {}}></Slot>
+    {/each}
+</table>
 
 <h2>Custom Properties</h2>
 {#if customProperties.length > 0}
@@ -63,5 +77,20 @@
     }
     .block {
         flex-direction: column;
+    }
+    table {
+        border: var(--br-border);
+        border-collapse: collapse;
+        /* Zooming makes collapsed border twice as thick sometimes */
+        /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
+        border-width: 0.5px;
+    }
+    th {
+        border: var(--br-border);
+        padding: 8px;
+        text-align: left;
+        /* Zooming makes collapsed border twice as thick sometimes */
+        /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
+        border-width: 0.5px;
     }
 </style>

@@ -15,30 +15,25 @@
     $: ({ usage = "" } = keywordObj);
 </script>
 
-<details>
-    <summary>
-        <span>{name}</span>
-        {#if description}
-            <p>{description}</p>
-        {/if}
-    </summary>
-    {#if usage}
-        <p>Usage:</p>
-        <Code language="svelte">{usage}</Code>
-    {/if}
-</details>
+<tr>
+    <td>
+        {name}
+    </td>
+    <td>
+        {description || "—"}
+    </td>
+</tr>
 
 <style>
-    details {
-        margin-bottom: 10px;
+    td {
+        border: var(--br-border);
+        padding: 8px;
+        line-height: 2;
+        /* Zooming makes collapsed border twice as thick sometimes */
+        /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
+        border-width: 0.5px;
     }
-    details :global(.berry-code) {
-        white-space: pre-wrap;
-    }
-    p {
-        margin: 1em 0 0.25em;
-    }
-    summary p {
-        margin: 0.25em 0 1em;
+    td {
+        --br-code-white-space: pre-wrap;
     }
 </style>

@@ -18,49 +18,42 @@
     }
 </script>
 
-<details>
-    <summary>
+<tr>
+    <td>
         <span>{name}</span>
-        {#if description}
-            <p>{description}</p>
+    </td>
+    <td class="type">
+        {#if type}
+            <Code inline language={javascript} code={type}/>
+        {:else}
+            —
         {/if}
-    </summary>
-
-    {#if type}
-    <Code language={javascript} code={`
-/**
- * @type {${type}}; ${optional ? `\n * @default ${value}`: ""}
- */
-${kind} ${name}
-`}/>
-    {/if}
-
-    {#if $$slots.usage}
-        <p>Usage:</p>
-        <Code language={svelte}>
-            <slot name="usage"/>
-        </Code>
-    {/if}
-
-    {#if $$slots.example}
-        <p>Example:</p>
-        <div class="example">
-            <slot name="example"/>
-        </div>
-    {/if}
-</details>
+    </td>
+    <td>
+        {#if optional && JSON.stringify(value) !== undefined}
+            <Code inline language={javascript} code={JSON.stringify(value)}/>
+        {:else}
+            —
+        {/if}
+    </td>
+    <td>
+        {description || "—"}
+    </td>
+</tr>
 
 <style>
-    details {
-        margin-bottom: 10px;
+    td {
+        border: var(--br-border);
+        padding: 8px;
+        line-height: 2;
+        /* Zooming makes collapsed border twice as thick sometimes */
+        /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
+        border-width: 0.5px;
     }
-    details :global(.berry-code) {
-        white-space: pre-wrap;
+    td {
+        --br-code-white-space: pre-wrap;
     }
-    p {
-        margin: 1em 0 0.25em;
-    }
-    summary p {
-        margin: 0.25em 0 1em;
+    .type {
+        max-width: 300px;
     }
 </style>
