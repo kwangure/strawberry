@@ -5,32 +5,19 @@
 -->
 <script>
     import { createEventForwarder } from "../../utils/forward-events.js";
-    import Icon from "../Icon";
 
     /**
      * Indicates whether the button should be coloured using the primary colour.
      * @type {boolean}
      */
     export let primary = false;
-    /**
-     * A "d" string that is usable in an SVG path element.
-     * @type {string}
-     */
-    export let icon = "";
 
     const forward = createEventForwarder();
 </script>
 
 
-<button class="berry-button" class:primary class:icon
-    class:slot_used={$$slots.default}
-    {...$$restProps} use:forward>
+<button class="berry-button" class:primary {...$$restProps} use:forward>
     <div class="content-wrapper">
-        {#if icon}
-            <span class="button-prefix">
-                <Icon path={icon}/>
-            </span>
-        {/if}
         <!--
             Any content that is acceptable in a HTMLButtonElement.
             @usage
@@ -53,11 +40,11 @@
     }
     button {
         line-height: 1.5;
-        position: relative;
-        display: inline-block;
+        display: inline-flex;
         font-weight: 400;
         white-space: nowrap;
-        text-align: center;
+        align-items: center;
+        justify-content: center;
         border: var(--br-button-border, var(--br-border));
         cursor: pointer;
         user-select: none;
@@ -70,6 +57,7 @@
         background-color: transparent;
         outline: none;
         width: var(--br-button-width, auto);
+        gap: 5px;
     }
     button:disabled {
         cursor: not-allowed;
@@ -99,12 +87,6 @@
     }
     .button-prefix {
         display: flex;
-    }
-    button.slot_used :global(.berry-icon) {
-        margin-right: 5px;
-    }
-    button.icon.slot_used {
-        padding-right: 16px;
     }
 </style>
 
