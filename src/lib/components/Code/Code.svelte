@@ -69,31 +69,9 @@
         margin: 0;
         white-space: var(--br-code-white-space, pre);
     }
-    pre.dark {
+    :global(.br-dark) pre {
         background-color: #1e1e1e;
         color: #dcdcdc;
-    }
-    pre :global([class^="language-"]) {
-        --_name_color: #0021b3;
-        --_string_color: #be6404;
-        --_value_color: #037e0b;
-        --_classname_color: #c79e09;
-        --_comment_color: #2f9d62;
-        --_number_color: #085ad6;
-        --_type_color: #cf222e;
-        --_function_color: #0021b3;
-        --_keyword_color: #c123b4;
-    }
-    pre.dark :global([class^="language-"]) {
-        --_name_color: #569cd6;
-        --_string_color: #d69d85;
-        --_value_color: #9cdcfe;
-        --_classname_color: #d7ba7d;
-        --_comment_color: #6a9955;
-        --_number_color: #b5cea8;
-        --_type_color: #4ec9b0;
-        --_function_color: #dcdcaa;
-        --_keyword_color: #c586c0;
     }
     [class^="language-"] {
         display: contents;
