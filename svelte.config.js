@@ -1,4 +1,5 @@
 import adapter from "@sveltejs/adapter-static";
+import darkmode from "./scripts/vite-plugin-svelte-darkmode.js";
 import docs from "@kwangure/svelte-docs";
 import { fileURLToPath } from "url";
 import { prebundle } from "./scripts/preprocess-prebundle.js";
@@ -63,6 +64,9 @@ export default {
         },
         target: "#svelte",
         vite: {
+            plugins: [
+                darkmode(),
+            ],
             resolve: {
                 alias: {
                     "~@css": resolve("./src/lib/css/"),
