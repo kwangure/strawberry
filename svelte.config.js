@@ -1,5 +1,5 @@
 import adapter from "@sveltejs/adapter-static";
-import darkmode from "./scripts/vite-plugin-svelte-darkmode.js";
+import darkmode from "./scripts/sveltekit-plugin-darkmode/index.js";
 import docs from "@kwangure/svelte-docs";
 import { fileURLToPath } from "url";
 import { prebundle } from "./scripts/preprocess-prebundle.js";
@@ -75,6 +75,7 @@ export default {
                     "~@css": resolve("./src/lib/css/"),
                     "~@components": resolve("./src/lib/components/"),
                     "~@utils": resolve("./src/lib/utils/"),
+                    "@kwangure/strawberry/css/styles": resolve("./src/lib/css/styles.js"),
                 },
             },
         },

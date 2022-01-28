@@ -1,6 +1,6 @@
+export const serveTemplate = ({ update_event }) => `
 <script>
     import "@kwangure/strawberry/css/styles";
-    import { getStylesheetStore } from "@theme-list";
     import { onMount } from "svelte";
 
     export let theme = "berry";
@@ -9,7 +9,15 @@
     // Default to light for SSR
     let system_mode = "light";
 
-    $: stylesheet = getStylesheetStore(theme, mode || system_mode);
+    let styles = {};
+
+    $: css = styles?.[theme]?.[mode];
+
+    if (import.meta.hot) {
+        import.meta.hot.on("${update_event}", async (data) => {
+            styles = data;
+        });
+    }
 
     onMount(() => {
         const prefersDark = matchMedia("(prefers-color-scheme: dark)");
@@ -21,7 +29,6 @@
 </script>
 
 <svelte:head>
-    <link rel="stylesheet" href="{$stylesheet}"/>
+    <style>{css}</style>
 </svelte:head>
-
-<slot mode="{mode}"/>
+`;
