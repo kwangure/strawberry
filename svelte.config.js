@@ -20,6 +20,7 @@ function resolve(pathname) {
     return path.resolve(__dirname, pathname);
 }
 
+const appDir = "app";
 const is_highlightjs = micromatch.matcher("highlight.js/lib/**");
 const preprocess = [
     docs(),
@@ -34,7 +35,7 @@ const preprocess = [
 export default {
     preprocess,
     kit: {
-        appDir: "app",
+        appDir,
         adapter: adapter(),
         package: {
             exports: (filepath) => {
@@ -65,7 +66,9 @@ export default {
         target: "#svelte",
         vite: {
             plugins: [
-                darkmode(),
+                darkmode({
+                    appDir,
+                }),
             ],
             resolve: {
                 alias: {

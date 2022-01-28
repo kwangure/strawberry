@@ -3,9 +3,12 @@ import MagicString from "magic-string";
 import { transform, formatMessages } from 'esbuild';
 
 const THEME_LIST = "@theme-list";
+const THEME_CSS = "@theme-css.css";
 const META = "___REPLACABLE_STRING___";
+const SEPARATOR = "::";
 
 const isThemeList = (id) => id.endsWith(THEME_LIST);
+const isThemeCSS = (id) => id.includes(THEME_CSS);
 
 function isPseudoSelector(node) {
     return node.type === "PseudoClassSelector";
@@ -97,11 +100,12 @@ async function minifyCSS(css, config) {
 }
 
 export default function darkmode(options = {}) {
+    const app_dir = options.appDir;
     const theme_properties = new Map();
 
     let config;
     return {
-        name: "sveltekit-darmode",
+        name: "sveltekit-darkmode",
         enforce: "pre",
         configResolved(resolvedConfig) {
             config = resolvedConfig;
@@ -110,7 +114,40 @@ export default function darkmode(options = {}) {
             if (isThemeList(id)) return id;
         },
         load(id) {
-            if (isThemeList(id)) return `export default ${META};`;
+            if (isThemeList(id)) {
+                let source = [];
+                if (config.command === "build") {
+                    source = [
+                        `const themeMap = ${META};`,
+                        `console.log({ themeMap });`,
+                        `return themeMap.get(theme)[mode];;`
+                    ];
+                } else if (config.command === "serve") {
+                    source = [
+                        [
+                            "return `/${theme}", "${mode}", `${THEME_CSS}\`;`
+                        ].join(SEPARATOR),
+                    ];
+                } else {
+                    config.logger.error(`Unknown Vite command. Unable to load '${id}.'`);
+                }
+                return [
+                    `export function getThemeCSS(theme, mode) {`,
+                    ...source,
+                    `}`
+                ].join("\n");
+            };
+            if (isThemeCSS(id)) {
+                const [theme, mode] = id.slice("/".length).split(SEPARATOR);
+                let css = "";
+                for (const properties of theme_properties.values()) {
+                    const modes = properties.get(theme);
+                    if (Object.hasOwnProperty.call(modes, mode)) {
+                        css += modes[mode];
+                    }
+                }
+                return `:root{${css}};`;
+            }
         },
         transform(code, id) {
             if (!id.endsWith(".svelte")) return;
@@ -129,7 +166,7 @@ export default function darkmode(options = {}) {
                     properties = new Map();
                     theme_properties.set(id, properties);
                 }
-                properties.set(theme,  {
+                properties.set(theme, {
                     dark: dark
                         ? magic_string.slice(dark.block.start, dark.block.end)
                         : "",
@@ -157,7 +194,7 @@ export default function darkmode(options = {}) {
             const magic_string = new MagicString(code);
 
             const theme_CSS = new Map();
-            for (const [id, properties] of theme_properties) {
+            for (const properties of theme_properties.values()) {
                 for (const [theme, { dark, light }] of properties) {
                     let modes = theme_CSS.get(theme);
                     if (!modes) {
@@ -171,7 +208,7 @@ export default function darkmode(options = {}) {
 
             const theme_paths = [];
             for (const [theme, { dark, light }] of theme_CSS) {
-                const [ mini_dark, mini_light ] = await Promise.all([
+                const [mini_dark, mini_light] = await Promise.all([
                     dark && minifyCSS(`:root{${dark}}`, config),
                     light && minifyCSS(`:root{${light}}`, config),
                 ]);
@@ -183,7 +220,7 @@ export default function darkmode(options = {}) {
                         name: `${theme}.dark.css`,
                         source: mini_dark,
                     });
-                    paths.dark = this.getFileName(dark_ref);
+                    paths.dark = `/${app_dir}/${this.getFileName(dark_ref)}`;
                 }
 
                 if (mini_light) {
@@ -192,16 +229,19 @@ export default function darkmode(options = {}) {
                         name: `${theme}.dark.css`,
                         source: mini_light,
                     });
-                    paths.light = this.getFileName(light_ref);
+                    paths.light = `/${app_dir}/${this.getFileName(light_ref)}`;
                 }
 
-                theme_paths.push([theme, paths]);
+                theme_paths.push({ theme, paths });
             }
 
             const result = [
                 `new Map([`,
                 ...theme_paths
-                    .map(([theme, paths]) => `["${theme}", ${JSON.stringify(paths)}],`),
+                    .map((manifest) => {
+                        const { theme, paths } = manifest;
+                        return `["${theme}", ${JSON.stringify(paths)}]`;
+                    }),
                 `]);`
             ].join("");
 

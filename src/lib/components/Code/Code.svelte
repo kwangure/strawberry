@@ -59,7 +59,7 @@
         --br-code-comment-color: ;
         --br-code-white-space: ;
     }
-    :theme(strawberry, dark) {
+    :theme(berry, dark) {
         --_name_color: #569cd6;
         --_string_color: #d69d85;
         --_value_color: #9cdcfe;
@@ -70,7 +70,7 @@
         --_function_color: #dcdcaa;
         --_keyword_color: #c586c0;
     }
-    :theme(strawberry, light) {
+    :theme(berry, light) {
         --_name_color: #0021b3;
         --_string_color: #be6404;
         --_value_color: #037e0b;
