@@ -1,15 +1,14 @@
-import { parse, walk } from "svelte/compiler";
+import { buildTemplate, serveTemplate } from "./template.js";
 import { transform, formatMessages } from 'esbuild';
 import MagicString from "magic-string";
-import { buildTemplate, serveTemplate } from "./template.js";
+import parser from "css-tree/parser";
+import walk from "css-tree/walker";
 
 const THEME_UPDATE = "@theme-update";
 const STYLE_REPLACE = "___REPLACABLE_STRING___";
 
-// TODO: get from package.json
-const BERRY_THEME = "@kwangure/strawberry/css/Theme";
-
-const isThemer = (id) => id.startsWith(BERRY_THEME) || id.startsWith(`/${BERRY_THEME}`);
+const isThemer = (id) => /@kwangure\/strawberry\/css\/Theme/.test(id);
+const isCSS = (id) => /\.css($|\?)/.test(id);
 
 function isPseudoSelector(node) {
     return node.type === "PseudoClassSelector";
@@ -17,34 +16,31 @@ function isPseudoSelector(node) {
 
 function getThemeExport(prelude) {
     let themeExport = [];
-    walk(prelude, {
-        enter(node) {
-            if (isPseudoSelector(node) && node.name === "theme") {
-                let error = [];
-                if (!node.children.length) {
-                    error.push("Missing theme name and mode.");
-                } else {
-                    let [theme, mode] = node.children[0].value.split(",");
-                    [theme, mode] = [theme?.trim(), mode?.trim()]
-                    if (!theme) {
-                        error.push("Missing theme.");
-                    } else if (!mode) {
-                        error.push("Missing mode");
-                    } else {
-                        themeExport = [theme, mode];
-                    }
-                }
-                if (error.length) {
-                    throw Error(error.concat([
-                        `Usage:`,
-                        `     :theme(theme_name, light) {`,
-                        `          --property: value;`,
-                        `     }`
-                    ]).join("\n"));
+    walk(prelude, (node, parent) => {
+        if (isPseudoSelector(node) && node.name === "theme") {
+            let error = [];
 
-                }
+            let [theme, mode] = node.children.head.data.value.split(",");
+            [theme, mode] = [theme?.trim(), mode?.trim()]
+            if (!theme) {
+                error.push("Missing theme.");
+            } else if (!mode) {
+                error.push("Missing mode");
+            } else {
+                const className = parent.prev?.data.name;
+                themeExport = [theme, mode, className ? `.${className}` : ":root, :host"];
             }
-        },
+
+            if (error.length) {
+                throw Error(error.concat([
+                    `Usage:`,
+                    `     :theme(theme_name, light) {`,
+                    `          --property: value;`,
+                    `     }`
+                ]).join("\n"));
+
+            }
+        }
     });
     return themeExport;
 }
@@ -52,34 +48,33 @@ function getThemeExport(prelude) {
 function getThemeExports(css) {
     const exports = new Map();
 
-    walk(css, {
-        enter(node) {
-            if (node.type !== "Rule") return;
-            const themeExport = getThemeExport(node.prelude);
-            if (!themeExport.length) return;
+    walk(css, (node) => {
+        if (node.type !== "Rule") return;
+        const themeExport = getThemeExport(node.prelude);
+        if (!themeExport.length) return;
 
-            const [theme, mode] = themeExport;
+        const [theme, mode, selector] = themeExport;
 
-            let modes = exports.get(theme);
-            if (!modes) {
-                modes = {};
-                exports.set(theme, modes);
-            }
+        let modes = exports.get(theme);
+        if (!modes) {
+            modes = {};
+            exports.set(theme, modes);
+        }
 
-            Object.assign(modes, {
-                [mode]: {
-                    rule: {
-                        start: node.start,
-                        end: node.end,
-                    },
-                    // Ignore curly braces of CSS block
-                    block: {
-                        start: node.block.start + 1,
-                        end: node.block.end - 1
-                    },
+        Object.assign(modes, {
+            selector,
+            [mode]: {
+                rule: {
+                    start: node.loc.start.offset,
+                    end: node.loc.end.offset,
                 },
-            });
-        },
+                // Ignore curly braces of CSS block
+                block: {
+                    start: node.block.loc.start.offset + 1,
+                    end: node.block.loc.end.offset - 1
+                },
+            },
+        });
     });
 
     return exports;
@@ -177,15 +172,15 @@ export function strawberry(options = {}) {
                 }
             },
             async transform(code, id) {
-                if (!id.endsWith(".svelte")) return;
+                if (!isCSS(id)) return;
 
                 const magic_string = new MagicString(code);
-                const { css } = parse(code);
+                const css = parser(code, { positions: true });
 
                 const exports = getThemeExports(css);
                 if (exports.size === 0) return;
 
-                for (const [theme, { dark, light }] of exports) {
+                for (const [theme, { dark, light, selector }] of exports) {
                     let dark_css = "";
                     let light_css = "";
                     if (light) {
@@ -196,8 +191,10 @@ export function strawberry(options = {}) {
                         dark_css = magic_string.slice(dark.block.start, dark.block.end);
                         magic_string.remove(dark.rule.start, dark.rule.end);
                     }
-                    manifest.set(id, theme, "dark", dark_css);
-                    manifest.set(id, theme, "light", light_css);
+                    // We use the selector as is e.g :root{ ... }
+                    // Minfier will take care of merging repeated selectors etc.
+                    manifest.set(id, theme, "dark", `${selector}{${dark_css}}`);
+                    manifest.set(id, theme, "light", `${selector}{${light_css}}`);
                 }
 
                 if (is_dev) {
@@ -220,8 +217,8 @@ export function strawberry(options = {}) {
                 const theme_paths = {};
                 for (const [theme, { dark, light }] of themes) {
                     const [mini_dark, mini_light] = await Promise.all([
-                        dark && minifyCSS(`:root{${dark}}`, config),
-                        light && minifyCSS(`:root{${light}}`, config),
+                        dark && minifyCSS(dark, config),
+                        light && minifyCSS(light, config),
                     ]);
 
                     const paths = {};
@@ -259,7 +256,7 @@ export function strawberry(options = {}) {
         {
             name: "sveltekit-darkmode",
             async handleHotUpdate(context) {
-                const { file, modules, server: { moduleGraph }} = context;
+                const { file, modules, server: { moduleGraph } } = context;
                 if (!manifest.has(file)) return;
                 const svelte_module = moduleGraph.getModuleById(file);
 

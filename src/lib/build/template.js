@@ -23,11 +23,10 @@ export const serveTemplate = ({ update_event, styles }) => `
         prefersDark.addEventListener("change", ({ matches }) => {
             system_mode = matches ? "dark" : "light";
         });
-
-        style.textContent = \`:root{\${css}}\`;
+        style.textContent = css;
         return {
             update(css) {
-                style.textContent = \`:root{\${css}}\`;
+                style.textContent = css;
             }
         };
     }
