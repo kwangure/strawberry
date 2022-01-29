@@ -35,25 +35,8 @@ npm i @kwangure/strawberry
 </style>
 
 ```
-## Limitations
-This is a compnent library built in and for Sveltekit. Replacing Sveltekit ENV
-variables is a good place to start if you'd like to use it in other contexts.
-Though it may work, other enviroments are not actively supported.
-```javascript
-// rollup.config.js
-import replace from "@rollup/plugin-replace";
 
-...
-plugins: [
-    // SvelteKit replaces these Out of the Box™
-    replace({
-    "import.meta.env.MODE": () => JSON.stringify(process.env.NODE_ENV),
-    "import.meta.env.DEV": () => String(process.env.NODE_ENV === "development"),
-    "import.meta.env.PROD": () => String(process.env.NODE_ENV === "production"),
-}),
-]
-...
-```
+*Note:* This library is for use in svelte-kit projects only.
 
 ## License
 [Apache 2.0](./LICENSE) © Kafungo Wangure
