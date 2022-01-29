@@ -14,7 +14,7 @@
      * Which syntax highlighter to use.
      * @type {Language<"css" | "html" | "javascript"> | "svelte" | "xml">}
      */
-    export let language = null;
+    export let language;
 
     /**
      * Code to be highlighted
@@ -34,8 +34,8 @@
     export let dark = false;
 
     let highlightedCode = "";
-    $: if (language) {
-        const { name, highlighter } = language;
+    $: ({ default: component, name, highlighter } = language);
+    $: if (highlighter) {
         HighlightJS.registerLanguage(name, highlighter);
         ({ value: highlightedCode } = HighlightJS.highlight(code, {
             language: name,
@@ -46,54 +46,65 @@
 </script>
 
 <pre class="berry-code hljs" class:dark class:inline>
-    <div class="language-{language?.name || ''}">
+    <svelte:component this={component}>
         {@html highlightedCode}
-    </div>
+    </svelte:component>
 </pre>
 
 <style>
     :export {
-        --br-code-background: ;
+        --br-code-background-color: ;
+        --br-code-text-color: ;
         --br-code-border-radius: ;
         --br-code-string-color: ;
         --br-code-comment-color: ;
         --br-code-white-space: ;
     }
     :theme(berry, dark) {
-        --_name_color: #569cd6;
-        --_string_color: #d69d85;
-        --_value_color: #9cdcfe;
-        --_classname_color: #d7ba7d;
-        --_comment_color: #6a9955;
-        --_number_color: #b5cea8;
-        --_type_color: #4ec9b0;
-        --_function_color: #dcdcaa;
-        --_keyword_color: #c586c0;
+        --_code-background-color: #1e1e1e;
+        --_code-text-color: #dcdcdc;
+
+        /* Syntax highlighter */
+        --_name-color: #569cd6;
+        --_string-color: #d69d85;
+        --_value-color: #9cdcfe;
+        --_classname-color: #d7ba7d;
+        --_comment-color: #6a9955;
+        --_number-color: #b5cea8;
+        --_type-color: #4ec9b0;
+        --_function-color: #dcdcaa;
+        --_keyword-color: #c586c0;
     }
     :theme(berry, light) {
-        --_name_color: #0021b3;
-        --_string_color: #be6404;
-        --_value_color: #037e0b;
-        --_classname_color: #c79e09;
-        --_comment_color: #2f9d62;
-        --_number_color: #085ad6;
-        --_type_color: #cf222e;
-        --_function_color: #0021b3;
-        --_keyword_color: #c123b4;
+        --_code-background-color: #f0f0f0;
+        --_code-text-color: #333;
+
+        --_name-color: #0021b3;
+        --_string-color: #be6404;
+        --_value-color: #037e0b;
+        --_classname-color: #c79e09;
+        --_comment-color: #2f9d62;
+        --_number-color: #085ad6;
+        --_type-color: #cf222e;
+        --_function-color: #0021b3;
+        --_keyword-color: #c123b4;
     }
     pre {
         padding: 16px;
         overflow: auto;
         font-size: 85%;
         line-height: 1.45;
-        background-color: var(--br-code-background, var(--br-grey-lightest));
+        background-color: var(
+            --br-code-background-color,
+            var(--br-secondary-background-color, var(--_code-background-color))
+        );
+        color: var(
+            --br-code-text-color,
+            var(--br-secondary-text-color, var(--_code-text-color))
+        );
         border-radius: var(--br-code-border-radius, var(--br-border-radius));
         margin: 0;
         white-space: var(--br-code-white-space, pre);
-    }
-    :global(.br-dark) pre {
-        background-color: #1e1e1e;
-        color: #dcdcdc;
     }
     [class^="language-"] {
         display: contents;
