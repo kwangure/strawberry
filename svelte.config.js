@@ -1,11 +1,11 @@
 import adapter from "@sveltejs/adapter-static";
-import darkmode from "./scripts/sveltekit-plugin-darkmode/index.js";
 import docs from "@kwangure/svelte-docs";
 import { fileURLToPath } from "url";
 import { prebundle } from "./scripts/preprocess-prebundle.js";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import micromatch from 'micromatch';
 import path from "path";
+import { strawberry } from "./src/lib/build/vite-plugin-strawberry.js";
 
 const MODE = process.env.NODE_ENV;
 const PROD = MODE === "production";
@@ -66,7 +66,7 @@ export default {
         target: "#svelte",
         vite: {
             plugins: [
-                darkmode({
+                strawberry({
                     appDir,
                 }),
             ],

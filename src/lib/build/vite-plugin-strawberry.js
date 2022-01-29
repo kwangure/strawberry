@@ -4,7 +4,7 @@ import MagicString from "magic-string";
 import { buildTemplate, serveTemplate } from "./template.js";
 
 const THEME_UPDATE = "@theme-update";
-const META = "___REPLACABLE_STRING___";
+const STYLE_REPLACE = "___REPLACABLE_STRING___";
 
 // TODO: get from package.json
 const BERRY_THEME = "@kwangure/strawberry/css/Theme";
@@ -141,7 +141,7 @@ class ThemeManifest {
     }
 }
 
-export default function darkmode(options = {}) {
+export function strawberry(options = {}) {
     const manifest = new ThemeManifest();
 
     let command, is_dev, server, config;
@@ -172,7 +172,7 @@ export default function darkmode(options = {}) {
                         const styles = Object.fromEntries(all_themes);
                         return serveTemplate({ update_event: THEME_UPDATE, styles });
                     } else if (command === "build") {
-                        return buildTemplate({ placeholder: META });
+                        return buildTemplate({ placeholder: STYLE_REPLACE });
                     }
                 }
             },
@@ -212,7 +212,7 @@ export default function darkmode(options = {}) {
                 };
             },
             async renderChunk(code) {
-                const to_replace = code.indexOf(META);
+                const to_replace = code.indexOf(STYLE_REPLACE);
                 if (to_replace < 0) return;
 
                 const magic_string = new MagicString(code);
@@ -237,7 +237,7 @@ export default function darkmode(options = {}) {
                     if (mini_light) {
                         const light_ref = this.emitFile({
                             type: "asset",
-                            name: `${theme}.dark.css`,
+                            name: `${theme}.light.css`,
                             source: mini_light,
                         });
                         paths.light = `${config.base}${this.getFileName(light_ref)}`;
@@ -247,7 +247,7 @@ export default function darkmode(options = {}) {
                 }
 
                 const result = JSON.stringify(theme_paths)
-                magic_string.overwrite(to_replace, to_replace + META.length, result);
+                magic_string.overwrite(to_replace, to_replace + STYLE_REPLACE.length, result);
 
                 return {
                     code: magic_string.toString(),
