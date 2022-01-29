@@ -5,6 +5,7 @@ import { prebundle } from "./scripts/preprocess-prebundle.js";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import micromatch from 'micromatch';
 import path from "path";
+import { strawberry } from "./src/lib/build/vite-plugin-strawberry.js";
 
 const MODE = process.env.NODE_ENV;
 const PROD = MODE === "production";
@@ -19,6 +20,7 @@ function resolve(pathname) {
     return path.resolve(__dirname, pathname);
 }
 
+const appDir = "app";
 const is_highlightjs = micromatch.matcher("highlight.js/lib/**");
 const preprocess = [
     docs(),
@@ -33,7 +35,7 @@ const preprocess = [
 export default {
     preprocess,
     kit: {
-        appDir: "app",
+        appDir,
         adapter: adapter(),
         package: {
             exports: (filepath) => {
@@ -63,11 +65,17 @@ export default {
         },
         target: "#svelte",
         vite: {
+            plugins: [
+                strawberry({
+                    appDir,
+                }),
+            ],
             resolve: {
                 alias: {
                     "~@css": resolve("./src/lib/css/"),
                     "~@components": resolve("./src/lib/components/"),
                     "~@utils": resolve("./src/lib/utils/"),
+                    "@kwangure/strawberry/css/styles": resolve("./src/lib/css/styles.js"),
                 },
             },
         },

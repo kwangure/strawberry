@@ -1,5 +1,4 @@
 <script>
-    import "~@css/styles";
     import Sidebar, { Link, Section } from "~@components/Sidebar";
     import { base } from "$app/paths";
     import Layout from "$lib/internal/layout.svelte";

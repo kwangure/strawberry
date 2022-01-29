@@ -1,10 +1,13 @@
 <script>
-    import "~@css/styles";
     import { mdiGithub, mdiNpm } from "@mdi/js";
     import { base } from "$app/paths";
     import Button from "~@components/Button";
     import Navbar from "~@components/Navbar";
+
+    import Theme from "@kwangure/strawberry/css/Theme";
 </script>
+
+<Theme/>
 
 <div class="layout">
     <Navbar logoHref="{base}/">
