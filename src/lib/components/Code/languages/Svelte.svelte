@@ -60,3 +60,7 @@
         };
     };
 </script>
+
+<div class="language-svelte">
+    <slot/>
+</div>
