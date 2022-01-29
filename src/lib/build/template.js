@@ -77,6 +77,15 @@ export const buildTemplate = ({ placeholder }) => `
         light_media = "all";
         light_disabled = false;
     }
+
+    function disabled(link, value) {
+        link.disabled = value;
+        return {
+            update(value) {
+                link.disabled = value;
+            },
+        };
+    }
 </script>
 
 <svelte:head>
@@ -85,7 +94,7 @@ export const buildTemplate = ({ placeholder }) => `
         Non-matching stylesheets still get loaded, but don't compete for bandwidth in the
         critical rendering path.
     -->
-    <link rel="stylesheet" href="{styles[theme].dark}" media={dark_media}>
-    <link rel="stylesheet" href="{styles[theme].light}" media={light_media}>
+    <link rel="stylesheet" href="{styles[theme].dark}" media={dark_media} use:disabled={dark_disabled}>
+    <link rel="stylesheet" href="{styles[theme].light}" media={light_media} use:disabled={light_disabled}>
 </svelte:head>
 `;
