@@ -4,10 +4,10 @@
     import Button from "~@components/Button";
     import Navbar from "~@components/Navbar";
 
-    import Style from "$lib/components/Styles/Styles.svelte";
+    import Theme from "@kwangure/strawberry/css/Theme";
 </script>
 
-<Style/>
+<Theme/>
 
 <div class="layout">
     <Navbar logoHref="{base}/">

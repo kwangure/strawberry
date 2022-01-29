@@ -4,10 +4,10 @@
     import { base } from "$app/paths";
     import Button from "~@components/Button";
 
-    import Styles from "$lib/components/Styles/Styles.svelte";
+    import Theme from "@kwangure/strawberry/css/Theme";
 </script>
 
-<Styles/>
+<Theme/>
 
 <div class="app-layout">
     <Navbar logoHref="{base}/">

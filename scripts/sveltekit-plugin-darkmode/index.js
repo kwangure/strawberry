@@ -1,15 +1,15 @@
 import { parse, walk } from "svelte/compiler";
 import { transform, formatMessages } from 'esbuild';
 import MagicString from "magic-string";
+import { buildTemplate, serveTemplate } from "./template.js";
 
-const THEME_LIST = "@theme-list";
-const THEME_CSS = "@theme-css.css";
 const THEME_UPDATE = "@theme-update";
 const META = "___REPLACABLE_STRING___";
-const SEPARATOR = "_._";
 
-const isThemeList = (id) => id.endsWith(THEME_LIST);
-const isThemeCSS = (id) => id.includes(THEME_CSS);
+// TODO: get from package.json
+const BERRY_THEME = "@kwangure/strawberry/css/Theme";
+
+const isThemer = (id) => id.startsWith(BERRY_THEME) || id.startsWith(`/${BERRY_THEME}`);
 
 function isPseudoSelector(node) {
     return node.type === "PseudoClassSelector";
@@ -100,93 +100,83 @@ async function minifyCSS(css, config) {
     return code;
 }
 
-export default function darkmode(options = {}) {
-    const app_dir = options.appDir;
-    const theme_properties = new Map();
+class ThemeManifest {
+    constructor() {
+        this.manifest = new Map();
+    }
+    set(file, theme, mode, properties) {
+        // Index themes on files so that if we transform it
+        // than once we replace all its styles easily
+        let themes = this.manifest.get(file);
+        if (!themes) {
+            themes = new Map();
+            this.manifest.set(file, themes);
+        }
 
-    let command, is_dev, server, theme_css_path;
-    // vite.watcher.on('add', update_manifest);
-    // vite.watcher.on('remove', update_manifest);
+        let modes = themes.get(theme);
+        if (!modes) {
+            modes = { dark: "", light: "" };
+            themes.set(theme, modes);
+        }
+
+        modes[mode] = properties;
+    }
+    has(file) {
+        return this.manifest.has(file);
+    }
+    getAllThemes() {
+        const theme_manifest = new Map();
+        for (const themes of this.manifest.values()) {
+            for (const [theme, { dark, light }] of themes) {
+                let modes = theme_manifest.get(theme);
+                if (!modes) {
+                    modes = { dark: "", light: "" };
+                    theme_manifest.set(theme, modes);
+                }
+                modes.dark += dark;
+                modes.light += light;
+            }
+        }
+        return theme_manifest;
+    }
+}
+
+export default function darkmode(options = {}) {
+    const manifest = new ThemeManifest();
+
+    let command, is_dev, server, config;
+    // TODO: remove deleted files from manifest during dev
+    // server.watcher.on('remove', update_manifest);
     return [
         {
             name: "sveltekit-darkmode-pre",
             enforce: "pre",
-            configResolved(config) {
-                command = config.command;
-                is_dev = config.mode === "development";
+            configResolved(resolvedConfig) {
+                config = resolvedConfig;
+                command = resolvedConfig.command;
+                is_dev = resolvedConfig.mode === "development";
             },
             configureServer(viteServer) {
                 server = viteServer;
             },
             resolveId(id) {
-                if (isThemeList(id)) return id;
-                if (isThemeCSS(id)) {
-
+                if (isThemer(id)) {
+                    if (id.endsWith(".svelte")) return id;
+                    return `/${id}.svelte`;
                 }
             },
             async load(id) {
-                if (isThemeList(id)) {
-                    let source = [];
-                    if (command === "build") {
-                        source = [
-                            `export function getStylesheetStore(theme, mode) {`,
-                            `    const themeMap = ${META};`,
-                            `    return {`,
-                            `        subscribe(fn) {`,
-                            `           fn(themeMap.get(theme)[mode])};`,
-                            `           return () => {};`,
-                            `        }`,
-                            `    };`
-                                `}`,
-                        ];
-                    } else if (command === "serve") {
-                        source = [
-                            `export function getStylesheetStore(theme, mode) {`,
-                            // Change string to force updates
-                            `    let count = 0;`,
-                            `    let cssPath = () => { `,
-                            `        count += 1;`,
-                            `        return \`\${theme}${SEPARATOR}\${mode}${SEPARATOR}\${count}${THEME_CSS}\`;`,
-                            `    };`,
-                            `    const subscribers = new Set();`,
-                            `    if (import.meta.hot) {`,
-                            `        import.meta.hot.on("${THEME_UPDATE}", (data) => {`,
-                            `            for (const subscriber of subscribers) {`,
-                            `                subscriber(cssPath());`,
-                            `            }`,
-                            `        });`,
-                            `    }`,
-                            `    return {`,
-                            `        subscribe(fn) {`,
-                            `            fn(cssPath());`,
-                            `            subscribers.add(fn);`,
-                            `            return () => subscribers.delete(fn);`,
-                            `        },`,
-                            `    };`,
-                            `};`,
-                        ];
-                    } else {
-                        config.logger.error(`Unknown Vite command. Unable to load '${id}.'`);
+                if (isThemer(id)) {
+                    if (command === "serve") {
+                        const all_themes = manifest.getAllThemes();
+                        const styles = Object.fromEntries(all_themes);
+                        return serveTemplate({ update_event: THEME_UPDATE, styles });
+                    } else if (command === "build") {
+                        return buildTemplate({ placeholder: META });
                     }
-
-                    return source.join("\n");
-                };
-                if (isThemeCSS(id)) {
-                    const [theme, mode] = id.slice("/".length).split(SEPARATOR);
-                    let css = "";
-                    for (const properties of theme_properties.values()) {
-                        const modes = properties.get(theme);
-                        if (Object.hasOwnProperty.call(modes, mode)) {
-                            css += modes[mode];
-                        }
-                    }
-
-                    theme_css_path = id;
-
-                    return `:root{${css}};`;
                 }
             },
-            transform(code, id) {
+            async transform(code, id) {
                 if (!id.endsWith(".svelte")) return;
 
                 const magic_string = new MagicString(code);
@@ -196,36 +186,24 @@ export default function darkmode(options = {}) {
                 if (exports.size === 0) return;
 
                 for (const [theme, { dark, light }] of exports) {
-                    // Index themes on file ids so that if we transform a file more
-                    // than once we replacing its styles easily
-                    let properties = theme_properties.get(id);
-                    if (!properties) {
-                        properties = new Map();
-                        theme_properties.set(id, properties);
-                    }
-                    properties.set(theme, {
-                        dark: dark
-                            ? magic_string.slice(dark.block.start, dark.block.end)
-                            : "",
-                        light: light
-                            ? magic_string.slice(light.block.start, light.block.end)
-                            : "",
-                    });
-
+                    let dark_css = "";
+                    let light_css = "";
                     if (light) {
+                        light_css = magic_string.slice(light.block.start, light.block.end);
                         magic_string.remove(light.rule.start, light.rule.end);
                     }
                     if (dark) {
+                        dark_css = magic_string.slice(dark.block.start, dark.block.end);
                         magic_string.remove(dark.rule.start, dark.rule.end);
                     }
+                    manifest.set(id, theme, "dark", dark_css);
+                    manifest.set(id, theme, "light", light_css);
                 }
 
-                if (is_dev && theme_properties.has(id)) {
-                    const { moduleGraph, ws } = server;
-                    const thisModule = moduleGraph.getModuleById(id);
-                    if (thisModule.lastHMRTimestamp) {
-                        ws.send({ type: 'custom', event: THEME_UPDATE });
-                    }
+                if (is_dev) {
+                    const { ws } = server;
+                    const data = Object.fromEntries(manifest.getAllThemes());
+                    ws.send({ type: "custom", event: THEME_UPDATE, data });
                 }
 
                 return {
@@ -236,23 +214,11 @@ export default function darkmode(options = {}) {
             async renderChunk(code) {
                 const to_replace = code.indexOf(META);
                 if (to_replace < 0) return;
+
                 const magic_string = new MagicString(code);
-
-                const theme_CSS = new Map();
-                for (const properties of theme_properties.values()) {
-                    for (const [theme, { dark, light }] of properties) {
-                        let modes = theme_CSS.get(theme);
-                        if (!modes) {
-                            modes = { dark: "", light: "" };
-                            theme_CSS.set(theme, modes);
-                        }
-                        modes.dark += dark;
-                        modes.light += light;
-                    }
-                }
-
-                const theme_paths = [];
-                for (const [theme, { dark, light }] of theme_CSS) {
+                const themes = manifest.getAllThemes();
+                const theme_paths = {};
+                for (const [theme, { dark, light }] of themes) {
                     const [mini_dark, mini_light] = await Promise.all([
                         dark && minifyCSS(`:root{${dark}}`, config),
                         light && minifyCSS(`:root{${light}}`, config),
@@ -265,7 +231,7 @@ export default function darkmode(options = {}) {
                             name: `${theme}.dark.css`,
                             source: mini_dark,
                         });
-                        paths.dark = `/${app_dir}/${this.getFileName(dark_ref)}`;
+                        paths.dark = `${config.base}${this.getFileName(dark_ref)}`;
                     }
 
                     if (mini_light) {
@@ -274,22 +240,13 @@ export default function darkmode(options = {}) {
                             name: `${theme}.dark.css`,
                             source: mini_light,
                         });
-                        paths.light = `/${app_dir}/${this.getFileName(light_ref)}`;
+                        paths.light = `${config.base}${this.getFileName(light_ref)}`;
                     }
 
-                    theme_paths.push({ theme, paths });
+                    theme_paths[theme] = paths;
                 }
 
-                const result = [
-                    `new Map([`,
-                    ...theme_paths
-                        .map((manifest) => {
-                            const { theme, paths } = manifest;
-                            return `["${theme}", ${JSON.stringify(paths)}]`;
-                        }),
-                    `]);`
-                ].join("");
-
+                const result = JSON.stringify(theme_paths)
                 magic_string.overwrite(to_replace, to_replace + META.length, result);
 
                 return {
@@ -298,15 +255,15 @@ export default function darkmode(options = {}) {
                 };
             },
         },
+        // Handle HMR after vite-plugin-svelte
         {
             name: "sveltekit-darkmode",
             async handleHotUpdate(context) {
-                const { file, modules, server } = context;
-                if (!theme_css_path || !theme_properties.has(file)) return;
-                const svelteModule = server.moduleGraph.getModuleById(file);
-                const themeModule = server.moduleGraph.getModuleById(theme_css_path);
+                const { file, modules, server: { moduleGraph }} = context;
+                if (!manifest.has(file)) return;
+                const svelte_module = moduleGraph.getModuleById(file);
 
-                return [...new Set([...modules, svelteModule, themeModule])];
+                return [...new Set([...modules, svelte_module])];
             },
         }
     ];

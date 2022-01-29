@@ -1,4 +1,44 @@
-export const serveTemplate = ({ update_event }) => `
+export const serveTemplate = ({ update_event, styles }) => `
+<script>
+    import "@kwangure/strawberry/css/styles";
+
+    export let theme = "berry";
+    export let mode = "";
+
+    let system_mode = "light";
+    let styles = ${JSON.stringify(styles)};
+
+    $: internal = mode || system_mode;
+    $: css = styles?.[theme]?.[internal];
+
+    if (import.meta.hot) {
+        import.meta.hot.on("${update_event}", (data) => {
+            styles = data;
+        });
+    }
+
+    function inject(style, css) {
+        const prefersDark = matchMedia("(prefers-color-scheme: dark)");
+        system_mode = prefersDark.matches ? "dark" : "light";
+        prefersDark.addEventListener("change", ({ matches }) => {
+            system_mode = matches ? "dark" : "light";
+        });
+
+        style.textContent = \`:root{\${css}}\`;
+        return {
+            update(css) {
+                style.textContent = \`:root{\${css}}\`;
+            }
+        };
+    }
+</script>
+
+<svelte:head>
+    <style use:inject={css}></style>
+</svelte:head>
+`;
+
+export const buildTemplate = ({ placeholder }) => `
 <script>
     import "@kwangure/strawberry/css/styles";
     import { onMount } from "svelte";
@@ -6,18 +46,11 @@ export const serveTemplate = ({ update_event }) => `
     export let theme = "berry";
     export let mode = "";
 
-    // Default to light for SSR
     let system_mode = "light";
+    let styles = ${placeholder};
 
-    let styles = {};
-
-    $: css = styles?.[theme]?.[mode];
-
-    if (import.meta.hot) {
-        import.meta.hot.on("${update_event}", async (data) => {
-            styles = data;
-        });
-    }
+    $: internal = mode || system_mode;
+    $: stylesheet = styles[theme][internal];
 
     onMount(() => {
         const prefersDark = matchMedia("(prefers-color-scheme: dark)");
@@ -29,6 +62,6 @@ export const serveTemplate = ({ update_event }) => `
 </script>
 
 <svelte:head>
-    <style>{css}</style>
+    <link rel="stylesheet" href={stylesheet}/>
 </svelte:head>
 `;
