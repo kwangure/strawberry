@@ -17,7 +17,7 @@ npm i @kwangure/strawberry
 Include the Strawberry Vite plugin in your config.
 ```javascript
 // svelte.config.js
-import { strawberry } from "@kwangure/strawberry/build/vite-plugin-strawberry.js";
+import { strawberry } from "@kwangure/strawberry/build/vite-plugin-strawberry";
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
