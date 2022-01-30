@@ -146,6 +146,13 @@ export function strawberry(options = {}) {
         {
             name: "sveltekit-darkmode-pre",
             enforce: "pre",
+            config() {
+                return {
+                    optimizeDeps: {
+                        exclude: ["@kwangure/strawberry/css/Theme.svelte"],
+                    },
+                };
+            },
             configResolved(resolvedConfig) {
                 config = resolvedConfig;
                 command = resolvedConfig.command;
@@ -157,7 +164,7 @@ export function strawberry(options = {}) {
             resolveId(id) {
                 if (isThemer(id)) {
                     if (id.endsWith(".svelte")) return id;
-                    return `/${id}.svelte`;
+                    return `${id}.svelte`;
                 }
             },
             async load(id) {
