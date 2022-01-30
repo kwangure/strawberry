@@ -106,6 +106,9 @@
         margin: 0;
         white-space: var(--br-code-white-space, pre);
     }
+    pre > :global(div) {
+        display: contents;
+    }
     .inline {
         display: inline;
         padding: 0.6ch 1ch;
