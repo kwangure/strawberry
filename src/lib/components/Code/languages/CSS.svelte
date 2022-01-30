@@ -9,11 +9,15 @@
 
 <style>
     /* e.g `.class_name` */
-    :global(.language-css .hljs-selector-class) {
+    :global(.language-css .hljs-selector-class),
+    /* e.g `button` */
+    :global(.language-css .hljs-selector-tag) {
         color: var(--br-code-css-class-color, var(--_classname-color));
     }
-    /* e.g `width:`, `--custom-property:` */
-    :global(.language-css .hljs-attr) {
+    /* e.g `--custom-property:` */
+    :global(.language-css .hljs-attr),
+    /* e.g `width:` */
+    :global(.language-css .hljs-attribute) {
         color: var(--br-code-css-attribute-color, var(--_value-color));
     }
     /* e.g `50px` */
