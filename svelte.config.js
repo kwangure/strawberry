@@ -42,6 +42,7 @@ export default {
                 if (filepath.endsWith('.d.ts')) return false;
 
                 const value = micromatch.isMatch(filepath, [
+                    'build/vite-plugin-strawberry.js',
                     'components/**/index.js',
                     'css/**/*.(js|css)',
                     'utils/forward-events.js',
@@ -51,6 +52,7 @@ export default {
             },
             files: (filepath) => {
                 return micromatch.some(filepath, [
+                    'build/**',
                     'components/**',
                     'css/**',
                     'utils/**',
