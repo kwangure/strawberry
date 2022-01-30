@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.35.0](https://github.com/kwangure/strawberry/compare/v0.34.0...v0.35.0) (2022-01-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove Icon from Button component
+
+### Features
+
+* add css-tree to deps ([2f5428b](https://github.com/kwangure/strawberry/commit/2f5428b507a1fe5e264e78801dffae3cdb67d3e5))
+* add dark mode for color component ([3b5a5fb](https://github.com/kwangure/strawberry/commit/3b5a5fb3a82f5a75d1ea55da87db46d7947c386f))
+* add darkmode support in dev mode ([b8a83d5](https://github.com/kwangure/strawberry/commit/b8a83d5c3442c7d5f3564c51ca9f63d4ce9ccda3))
+* add initial support for dark mode ([f7ed298](https://github.com/kwangure/strawberry/commit/f7ed298f3f6d84275a948a5e514be750427b5504))
+* chunk css themes during build mode ([8176cd9](https://github.com/kwangure/strawberry/commit/8176cd9a03290d4e89b326feefde39ae00f0fc34))
+* disable unused stylesheets ([270a943](https://github.com/kwangure/strawberry/commit/270a9435f1e44a942337ce59e76a5c9de868f0d8))
+* improve build ssr/browser support ([2316131](https://github.com/kwangure/strawberry/commit/23161310dd8d5e3ded9fbfa843a6685ed6863c8c))
+* improve Code CSS API and dark mode ([a945d4f](https://github.com/kwangure/strawberry/commit/a945d4f5fcbfea0ed9cf243b01019d92c59233ed))
+* improve CSS syntax highlighting ([164ba92](https://github.com/kwangure/strawberry/commit/164ba92470d4e4a436205ca3a54fed73e2177e62))
+* improve darkmode styling in multiple components ([3801220](https://github.com/kwangure/strawberry/commit/380122032ffb836795db09d4ad97b8aa5d689be8))
+* improve darkmode styling in multiple components ([2f968c7](https://github.com/kwangure/strawberry/commit/2f968c7fbf12f5bf9965c8b202a1da51aa665312))
+* include plugin in package ([ede206f](https://github.com/kwangure/strawberry/commit/ede206f7ef94d6ddbd077b80a9d92ccb84037357))
+* make code whitespace configurable ([93c5bfe](https://github.com/kwangure/strawberry/commit/93c5bfe303cbc494a486a70322cdb1916442c1ce))
+* remove Icon from Button component ([36e0616](https://github.com/kwangure/strawberry/commit/36e0616b2d194d14efb78a23f5a85665ed8c4516))
+* scope themes to Svelte files ([45f17ca](https://github.com/kwangure/strawberry/commit/45f17caac74f6159aa452b7f56f3b33d7a3726ac))
+* use generated svelte component for Theme ([e94e0b0](https://github.com/kwangure/strawberry/commit/e94e0b0413717d531d398cf29603120868ff13a8))
+
+
+### Bug Fixes
+
+* correct bundling path ([8122f86](https://github.com/kwangure/strawberry/commit/8122f86c94c67797aeaff56daec0ed18ed2b0242))
+* don't optimize non-existent file ([049a632](https://github.com/kwangure/strawberry/commit/049a632cfa9e51255231511469108ee69fd34d41))
+* don't optimize non-existent file ([1556996](https://github.com/kwangure/strawberry/commit/1556996c1fb19ac01734fdac416257a8189761cb))
+* improve HMR for devmode ([4fb4952](https://github.com/kwangure/strawberry/commit/4fb4952026bb24884b4ef358028dde772190fb55))
+* output into bundle so that `emptyOutdir` doesn't nuke everything else ([eb7fd0c](https://github.com/kwangure/strawberry/commit/eb7fd0c585d92ba7a3a878e5d8216b596ba1bd4a))
+* regression ([e7d8840](https://github.com/kwangure/strawberry/commit/e7d8840cccad3ff58537df0dbc58726d6f266b70))
+* regression ([f78a8d7](https://github.com/kwangure/strawberry/commit/f78a8d7ed625593e74ad30456d230d0d1d2fe974))
+* remove debug logging ([052a817](https://github.com/kwangure/strawberry/commit/052a81781ea51bccb7844bcbad16f9cdf6f92a41))
+* revert styling to global for the sake of Svelte components ([957f57d](https://github.com/kwangure/strawberry/commit/957f57d7df73a5b48225396bac08ab4251fa1399))
+* revert styling to global for the sake of Svelte components ([e719e2f](https://github.com/kwangure/strawberry/commit/e719e2f93ab640b62c7184e248acd44a7983eac7))
+* scope styles to code component ([b9e9e67](https://github.com/kwangure/strawberry/commit/b9e9e677ed31f7c7e56c19250eb2ea8caeca9cd1))
+* scope styles to code component ([825db4d](https://github.com/kwangure/strawberry/commit/825db4dae1b15731f0c63d6b2abc2b9ebb60f683))
+
 ## [0.34.0](https://github.com/kwangure/strawberry/compare/v0.33.0...v0.34.0) (2022-01-08)
 
 
