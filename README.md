@@ -14,14 +14,36 @@ npm i @kwangure/strawberry
 ```
 
 ## Usage
+Include the Strawberry Vite plugin in your config.
+```javascript
+// svelte.config.js
+import { strawberry } from "@kwangure/strawberry/build/vite-plugin-strawberry";
+
+/** @type {import("@sveltejs/kit").Config} */
+export default {
+    kit: {
+        ...
+        vite: {
+            plugins: [
+                strawberry(),
+                ...
+            ],
+        }
+        ...
+    }
+};
+```
 ```svelte
 <script>
-    import "@kwangure/strawberry/css/styles";
+    // Import the `Theme` component to add styling
+    import Theme from "@kwangure/strawberry/css/Theme";
 
     import Button from "@kwangure/strawberry/components/Button";
 
     const hello = () => console.log('strawberry');
 </script>
+
+<Theme />
 
 <div class="document">
     <Button on:click={hello}>Click me!</Button>

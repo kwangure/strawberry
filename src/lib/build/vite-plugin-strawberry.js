@@ -142,126 +142,120 @@ export function strawberry(options = {}) {
     let command, is_dev, server, config;
     // TODO: remove deleted files from manifest during dev
     // server.watcher.on('remove', update_manifest);
-    return [
-        {
-            name: "sveltekit-darkmode-pre",
-            enforce: "pre",
-            configResolved(resolvedConfig) {
-                config = resolvedConfig;
-                command = resolvedConfig.command;
-                is_dev = resolvedConfig.mode === "development";
-            },
-            configureServer(viteServer) {
-                server = viteServer;
-            },
-            resolveId(id) {
-                if (isThemer(id)) {
-                    if (id.endsWith(".svelte")) return id;
-                    return `/${id}.svelte`;
-                }
-            },
-            async load(id) {
-                if (isThemer(id)) {
-                    if (command === "serve") {
-                        const all_themes = manifest.getAllThemes();
-                        const styles = Object.fromEntries(all_themes);
-                        return serveTemplate({ update_event: THEME_UPDATE, styles });
-                    } else if (command === "build") {
-                        return buildTemplate({ placeholder: STYLE_REPLACE });
-                    }
-                }
-            },
-            async transform(code, id) {
-                if (!isCSS(id)) return;
-
-                const magic_string = new MagicString(code);
-                const css = parser(code, { positions: true });
-
-                const exports = getThemeExports(css);
-                if (exports.size === 0) return;
-
-                for (const [theme, { dark, light, selector }] of exports) {
-                    let dark_css = "";
-                    let light_css = "";
-                    if (light) {
-                        light_css = magic_string.slice(light.block.start, light.block.end);
-                        magic_string.remove(light.rule.start, light.rule.end);
-                    }
-                    if (dark) {
-                        dark_css = magic_string.slice(dark.block.start, dark.block.end);
-                        magic_string.remove(dark.rule.start, dark.rule.end);
-                    }
-                    // We use the selector as is e.g :root{ ... }
-                    // Minfier will take care of merging repeated selectors etc.
-                    manifest.set(id, theme, "dark", `${selector}{${dark_css}}`);
-                    manifest.set(id, theme, "light", `${selector}{${light_css}}`);
-                }
-
-                if (is_dev) {
-                    const { ws } = server;
-                    const data = Object.fromEntries(manifest.getAllThemes());
-                    ws.send({ type: "custom", event: THEME_UPDATE, data });
-                }
-
-                return {
-                    code: magic_string.toString(),
-                    map: magic_string.generateMap(),
-                };
-            },
-            async renderChunk(code) {
-                const to_replace = code.indexOf(STYLE_REPLACE);
-                if (to_replace < 0) return;
-
-                const magic_string = new MagicString(code);
-                const themes = manifest.getAllThemes();
-                const theme_paths = {};
-                for (const [theme, { dark, light }] of themes) {
-                    const [mini_dark, mini_light] = await Promise.all([
-                        dark && minifyCSS(dark, config),
-                        light && minifyCSS(light, config),
-                    ]);
-
-                    const paths = {};
-                    if (mini_dark) {
-                        const dark_ref = this.emitFile({
-                            type: "asset",
-                            name: `${theme}.dark.css`,
-                            source: mini_dark,
-                        });
-                        paths.dark = `${config.base}${this.getFileName(dark_ref)}`;
-                    }
-
-                    if (mini_light) {
-                        const light_ref = this.emitFile({
-                            type: "asset",
-                            name: `${theme}.light.css`,
-                            source: mini_light,
-                        });
-                        paths.light = `${config.base}${this.getFileName(light_ref)}`;
-                    }
-
-                    theme_paths[theme] = paths;
-                }
-
-                const result = JSON.stringify(theme_paths)
-                magic_string.overwrite(to_replace, to_replace + STYLE_REPLACE.length, result);
-
-                return {
-                    code: magic_string.toString(),
-                    map: magic_string.generateMap(),
-                };
-            },
+    return {
+        name: "sveltekit-darkmode-pre",
+        enforce: "pre",
+        config() {
+            return {
+                optimizeDeps: {
+                    exclude: ["@kwangure/strawberry/css/Theme.svelte"],
+                },
+            };
         },
-        // Handle HMR after vite-plugin-svelte
-        {
-            name: "sveltekit-darkmode",
-            async handleHotUpdate(context) {
-                const { file, modules, server: { moduleGraph } } = context;
-                if (!manifest.has(file)) return;
-                const svelte_module = moduleGraph.getModuleById(file);
+        configResolved(resolvedConfig) {
+            config = resolvedConfig;
+            command = resolvedConfig.command;
+            is_dev = resolvedConfig.mode === "development";
+        },
+        configureServer(viteServer) {
+            server = viteServer;
+        },
+        resolveId(id) {
+            if (isThemer(id)) {
+                if (id.endsWith(".svelte")) return id;
+                return `${id}.svelte`;
+            }
+        },
+        async load(id) {
+            if (isThemer(id)) {
+                if (command === "serve") {
+                    const all_themes = manifest.getAllThemes();
+                    const styles = Object.fromEntries(all_themes);
+                    return serveTemplate({ update_event: THEME_UPDATE, styles });
+                } else if (command === "build") {
+                    return buildTemplate({ placeholder: STYLE_REPLACE });
+                }
+            }
+        },
+        async transform(code, id) {
+            if (!isCSS(id)) return;
 
-                return [...new Set([...modules, svelte_module])];
-            },
-        }
-    ];
+            const magic_string = new MagicString(code);
+            const css = parser(code, { positions: true });
+
+            const exports = getThemeExports(css);
+            if (exports.size === 0) return;
+
+            for (const [theme, { dark, light, selector }] of exports) {
+                let dark_css = "";
+                let light_css = "";
+                if (light) {
+                    light_css = magic_string.slice(light.block.start, light.block.end);
+                    magic_string.remove(light.rule.start, light.rule.end);
+                }
+                if (dark) {
+                    dark_css = magic_string.slice(dark.block.start, dark.block.end);
+                    magic_string.remove(dark.rule.start, dark.rule.end);
+                }
+                // We use the selector as is e.g :root{ ... }
+                // Minfier will take care of merging repeated selectors etc.
+                manifest.set(id, theme, "dark", `${selector}{${dark_css}}`);
+                manifest.set(id, theme, "light", `${selector}{${light_css}}`);
+            }
+
+            if (is_dev) {
+                const { ws } = server;
+                const data = Object.fromEntries(manifest.getAllThemes());
+                ws.send({ type: "custom", event: THEME_UPDATE, data });
+            }
+
+            return {
+                code: magic_string.toString(),
+                map: magic_string.generateMap(),
+            };
+        },
+        async renderChunk(code) {
+            const to_replace = code.indexOf(STYLE_REPLACE);
+            if (to_replace < 0) return;
+
+            const magic_string = new MagicString(code);
+            const themes = manifest.getAllThemes();
+            const theme_paths = {};
+            for (const [theme, { dark, light }] of themes) {
+                const [mini_dark, mini_light] = await Promise.all([
+                    dark && minifyCSS(dark, config),
+                    light && minifyCSS(light, config),
+                ]);
+
+                const paths = {};
+                if (mini_dark) {
+                    const dark_ref = this.emitFile({
+                        type: "asset",
+                        name: `${theme}.dark.css`,
+                        source: mini_dark,
+                    });
+                    paths.dark = `${config.base}${this.getFileName(dark_ref)}`;
+                }
+
+                if (mini_light) {
+                    const light_ref = this.emitFile({
+                        type: "asset",
+                        name: `${theme}.light.css`,
+                        source: mini_light,
+                    });
+                    paths.light = `${config.base}${this.getFileName(light_ref)}`;
+                }
+
+                theme_paths[theme] = paths;
+            }
+
+            const result = JSON.stringify(theme_paths)
+            magic_string.overwrite(to_replace, to_replace + STYLE_REPLACE.length, result);
+
+            return {
+                code: magic_string.toString(),
+                map: magic_string.generateMap(),
+            };
+        },
+    };
 }

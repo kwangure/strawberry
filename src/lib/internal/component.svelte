@@ -13,7 +13,7 @@
 
 <svelte:head>
     <!-- Component title for SEO -->
-    <title> Strawberry | Svelte {name} Component </title>
+    <title>Strawberry | Svelte {name} Component</title>
 </svelte:head>
 
 <h1>{name}</h1>
@@ -21,10 +21,10 @@
 {#if $$slots.inline || $$slots.block}
     <h2>Example</h2>
     <div class="usage inline">
-        <slot name="inline"/>
+        <slot name="inline" />
     </div>
     <div class="usage block">
-        <slot name="block"/>
+        <slot name="block" />
     </div>
 {/if}
 
@@ -34,10 +34,10 @@
         <th>Name</th>
         <th>Type</th>
         <th>Default</th>
-        <th>Descriptoin</th>
+        <th>Description</th>
     </tr>
     {#each props as prop}
-        <Prop {prop}></Prop>
+        <Prop prop="{prop}" />
     {/each}
 </table>
 
@@ -48,14 +48,14 @@
         <th>Descriptoin</th>
     </tr>
     {#each slots as slot}
-        <Slot slotDocs={slot || {}}></Slot>
+        <Slot slotDocs="{slot || {}}" />
     {/each}
 </table>
 
 <h2>Custom Properties</h2>
 {#if customProperties.length > 0}
     {#each customProperties as property}
-        <CustomProperty propertyDocs={property}></CustomProperty>
+        <CustomProperty propertyDocs="{property}" />
     {/each}
 {:else}
     None.
@@ -79,14 +79,14 @@
         flex-direction: column;
     }
     table {
-        border: var(--br-border);
+        border: var(--br-default-border);
         border-collapse: collapse;
         /* Zooming makes collapsed border twice as thick sometimes */
         /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
         border-width: 0.5px;
     }
     th {
-        border: var(--br-border);
+        border: var(--br-default-border);
         padding: 8px;
         text-align: left;
         /* Zooming makes collapsed border twice as thick sometimes */

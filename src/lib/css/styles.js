@@ -1,3 +1,3 @@
 import "./reset.css";
-import "./shared.css";
+import "./globals.css";
 import "./typography.css";

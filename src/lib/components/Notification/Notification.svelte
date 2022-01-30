@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import { createEventDispatcher } from "svelte";
     import { fly } from "svelte/transition";
@@ -25,12 +29,12 @@
 
 {#if visible}
     <div class="berry-notification wrapper">
-        <div class="notification" transition:fly={{ x: 200, duration }}>
+        <div class="notification" transition:fly="{{ x: 200, duration }}">
             <div class="message">
                 {message}
             </div>
-            <div class="close" on:click={hide}>
-                <Icon path={mdiClose}></Icon>
+            <div class="close" on:click="{hide}">
+                <Icon path="{mdiClose}" />
             </div>
         </div>
     </div>
@@ -56,10 +60,14 @@
         border-radius: var(--br-border-radius);
         width: fit-content;
         margin-left: auto;
-        padding: var(--br-notification-padding-block, var(--br-item-padding-block)) var(--br-notification-padding-inline, var(--br-item-padding-inline));
+        padding: var(
+                --br-notification-padding-block,
+                var(--br-item-padding-block)
+            )
+            var(--br-notification-padding-inline, var(--br-item-padding-inline));
         background-color: var(--br-black-transparent);
         min-width: 30px;
-        min-height: var(--br-item-height);
+        min-height: var(--br-default-item-height);
     }
     .message {
         line-height: 2;
@@ -73,7 +81,3 @@
         --br-icon-size: 20px;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

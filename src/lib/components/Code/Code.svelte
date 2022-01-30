@@ -106,7 +106,7 @@
         margin: 0;
         white-space: var(--br-code-white-space, pre);
     }
-    [class^="language-"] {
+    pre > :global(div) {
         display: contents;
     }
     .inline {

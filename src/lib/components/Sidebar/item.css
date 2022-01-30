@@ -1,25 +1,46 @@
+:export {
+    --br-sidebar-item-background-color: ;
+    --br-sidebar-item-active-background-color: ;
+    --br-sidebar-item-active-hover-background-color: ;
+}
+
+:theme(berry, light) {
+    --_item-active-background-color: var(--br-primary-light);
+    --_item-active-hover-background-color: var(--br-primary-light-hover);
+    --_item-active-text-color: var(--br-primary);
+    --_item-hover-background-color: var(--br-grey-lightest);
+}
+
+:theme(berry, dark) {
+    --_item-active-background-color: #222;
+    --_item-active-hover-background-color: #444;
+    --_item-active-text-color: inherit;
+    --_item-hover-background-color: #333;
+}
+
 .sidebar-item {
     cursor: pointer;
     display: flex;
     align-items: center;
-    height: var(--br-item-height);
+    height: var(--br-default-item-height);
     padding: var(--br-item-padding-block) var(--br-item-padding-inline);
     border-radius: var(--br-border-radius);
+    color: var(--br-default-text-color);
 }
 
 .sidebar-item:hover {
-    background-color: var(--br-grey-lightest);
+    background-color: var(--br-sidebar-item-hover-background-color, var(--br-item-hover-background-color, var(--_item-hover-background-color)));
 }
 
 .sidebar-item.active {
-    background-color: var(--br-primary-light);
-    color: var(--br-primary);
+    background-color: var(--br-sidebar-item-active-background-color, var(--br-item-active-background-color, var(--_item-active-background-color)));
+    color: var(--_item-active-text-color);
 }
 
 .sidebar-item.active:hover {
-    background-color: var(--br-primary-light-hover);
+    background-color: var(--br-sidebar-item-active-hover-background-color, var(--br-item-active-hover-background-color, var(--_item-active-hover-background-color)));
 }
 
-.sidebar-item+ :global(.sidebar-item) {
+.sidebar-item + :global(.sidebar-item) {
     margin-top: var(--br-inner-gutter);
 }

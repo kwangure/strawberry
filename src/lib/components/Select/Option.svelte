@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import {
         ACTIVE_OPTION,
@@ -30,10 +34,13 @@
     }
 </script>
 
-<div bind:this={option} class="berry-option menu-item"
-    class:active={id === $activeOptionId}
-    on:mousedown={() => updateSelectValueFn(optionValue)}>
-    <slot></slot>
+<div
+    bind:this="{option}"
+    class="berry-option menu-item"
+    class:active="{id === $activeOptionId}"
+    on:mousedown="{() => updateSelectValueFn(optionValue)}"
+>
+    <slot />
 </div>
 
 <style>
@@ -42,7 +49,7 @@
         --horizontal-padding: 16px;
     }
     .menu-item {
-        line-height: var(--br-item-height);
+        line-height: var(--br-default-item-height);
         padding: 0 var(--horizontal-padding);
         font-size: 14px;
         cursor: pointer;
@@ -52,7 +59,8 @@
     .menu-item :global(a) {
         display: flex;
         padding: var(--vertical-padding) var(--horizontal-padding);
-        margin: calc(-1 * var(--vertical-padding)) calc(-1 * var(--horizontal-padding));
+        margin: calc(-1 * var(--vertical-padding))
+            calc(-1 * var(--horizontal-padding));
         text-decoration: none;
         color: inherit;
     }
@@ -62,7 +70,3 @@
         background-color: var(--br-primary-light);
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

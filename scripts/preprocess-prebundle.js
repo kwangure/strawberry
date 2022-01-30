@@ -38,7 +38,8 @@ export function prebundle(options = {}) {
 
             if (imports.size === 0) return;
 
-            const bundles = await bundle_imports({ imports, out_dir });
+            const bundle_outdir = `${out_dir}/bundle`;
+            const bundles = await bundle_imports({ imports, out_dir: bundle_outdir });
 
             // This is where we expect `svelte-kit package` to output the svelte file inside `out_dir`
             // e.g. components/Code/
@@ -49,7 +50,7 @@ export function prebundle(options = {}) {
             const file_dest_absolute = path.resolve(out_dir, file_dest);
             for (const { end, import_identifiers, filename, start } of bundles) {
                 // e.g [cwd]/[out_dir]/bundle/bundle.js
-                const preprocess_dest = path.resolve(out_dir, filename);
+                const preprocess_dest = path.resolve(bundle_outdir, filename);
                 const module_path = `import ${import_identifiers} from "${path.relative(file_dest_absolute, preprocess_dest)}"`;
 
                 s.overwrite(start, end, module_path);
@@ -112,7 +113,7 @@ async function bundle_imports(options) {
     const { imports, out_dir } = options;
     const { output }  = await vite.build({
         build: {
-            outDir: `${out_dir}/bundle`,
+            outDir: out_dir,
             minify: false,
             rollupOptions: {
                 input: [...imports.keys()],
