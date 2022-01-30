@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import { createEventForwarder } from "../../utils/forward-events.js";
     import Icon from "../Icon";
@@ -11,15 +15,15 @@
     const forward = createEventForwarder();
 </script>
 
-<div class="step-item" class:active class:vertical use:forward >
+<div class="step-item" class:active class:vertical use:forward>
     <span class="progress-label" class:active>
         {#if completed}
-            <Icon path={mdiCheck}/>
+            <Icon path="{mdiCheck}" />
         {:else}
             {position}
         {/if}
     </span>
-    <slot></slot>
+    <slot />
 </div>
 
 <style>
@@ -49,7 +53,7 @@
         align-items: center;
         justify-content: center;
         min-width: 35px;
-        height: var(--br-item-height);
+        height: var(--br-default-item-height);
         border-radius: 50%;
         background-color: var(--br-white);
         color: var(--br-primary);
@@ -60,7 +64,3 @@
         color: var(--br-white);
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

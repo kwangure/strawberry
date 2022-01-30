@@ -7,7 +7,7 @@
     import Theme from "@kwangure/strawberry/css/Theme";
 </script>
 
-<Theme/>
+<Theme />
 
 <div class="layout">
     <Navbar logoHref="{base}/">
@@ -15,20 +15,24 @@
             🍓 <span class="text">strawberry</span>
         </svelte:fragment>
         <svelte:fragment slot="actions">
-            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
-                <Button icon={mdiGithub}>
-                    GitHub
-                </Button>
+            <a
+                class="cta"
+                href="https://github.com/kwangure/strawberry"
+                target="_blank"
+            >
+                <Button icon="{mdiGithub}">GitHub</Button>
             </a>
-            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
-                <Button icon={mdiNpm}>
-                    NPM
-                </Button>
+            <a
+                class="cta"
+                href="https://www.npmjs.com/package/@kwangure/strawberry"
+                target="_blank"
+            >
+                <Button icon="{mdiNpm}">NPM</Button>
             </a>
         </svelte:fragment>
     </Navbar>
     <main>
-        <h1> Strawberry </h1>
+        <h1>Strawberry</h1>
         Strawberry is a set of Svelte components.
 
         <div class="link">
@@ -74,7 +78,7 @@
     .link {
         position: relative;
         padding: 16px;
-        border: var(--br-border);
+        border: var(--br-default-border);
         border-radius: var(--br-border-radius);
         margin-top: 15px;
     }

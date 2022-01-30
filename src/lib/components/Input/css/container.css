@@ -1,12 +1,12 @@
 .container {
     display: flex;
-    border: var(--br-border);
+    border: var(--br-default-border);
     border-radius: var(--br-border-radius);
     transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
     overflow: hidden;
     padding: 1px;
     width: fit-content;
-    height: var(--br-item-height);
+    height: var(--br-default-item-height);
 }
 .container:hover:not(:focus-within) {
     box-shadow: 0 0 0px 2px var(--br-primary-light);

@@ -1,13 +1,11 @@
 <script>
-    import { mdiGithub, mdiNpm } from "@mdi/js";
     import Navbar, { Link as NavLink } from "~@components/Navbar";
     import { base } from "$app/paths";
-    import Button from "~@components/Button";
 
     import Theme from "@kwangure/strawberry/css/Theme";
 </script>
 
-<Theme/>
+<Theme />
 
 <div class="app-layout">
     <Navbar logoHref="{base}/">
@@ -15,7 +13,10 @@
             🍓 <span class="text">strawberry</span>
         </svelte:fragment>
         <svelte:fragment slot="links">
-            <NavLink href="{base}/components" pattern={[`${base}/components`, `${base}/components/*`]}>
+            <NavLink
+                href="{base}/components"
+                pattern="{[`${base}/components`, `${base}/components/*`]}"
+            >
                 Components
             </NavLink>
             <NavLink href="{base}/typography" pattern="{base}/typography">
@@ -23,19 +24,23 @@
             </NavLink>
         </svelte:fragment>
         <svelte:fragment slot="actions">
-            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
-                <Button icon={mdiGithub}>
-                    GitHub
-                </Button>
+            <a
+                class="cta"
+                href="https://github.com/kwangure/strawberry"
+                target="_blank"
+            >
+                GitHub
             </a>
-            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
-                <Button icon={mdiNpm}>
-                    NPM
-                </Button>
+            <a
+                class="cta"
+                href="https://www.npmjs.com/package/@kwangure/strawberry"
+                target="_blank"
+            >
+                NPM
             </a>
         </svelte:fragment>
     </Navbar>
-    <slot/>
+    <slot />
 </div>
 
 <style>
@@ -45,10 +50,10 @@
         min-height: 100%;
     }
     .app-layout {
-        --br-navbar-border-bottom: var(--br-border);
+        --br-navbar-border-bottom: var(--br-default-border);
         --br-navbar-logo-width: 240px;
     }
     .cta {
-        --br-text-color: var(--br-black);
+        --br-text-color: var(--_black);
     }
 </style>

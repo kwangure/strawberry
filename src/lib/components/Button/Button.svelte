@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <!--
     @component
 
@@ -14,7 +18,6 @@
 
     const forward = createEventForwarder();
 </script>
-
 
 <button class="berry-button" class:primary {...$$restProps} use:forward>
     <div class="content-wrapper">
@@ -45,14 +48,17 @@
         white-space: nowrap;
         align-items: center;
         justify-content: center;
-        border: var(--br-button-border, var(--br-border));
+        border: var(
+            --br-button-border,
+            var(--br-border, var(--br-default-border))
+        );
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
-        height: var(--br-button-height, var(--br-item-height));
+        height: var(--br-button-height, var(--br-item-height, var(--br-default-item-height)));
         padding: 0 10px;
         font-size: 14px;
-        border-radius: var(--br-button-border-radius, var(--br-border-radius));
+        border-radius: var(--br-button-border-radius, var(--br-border-radius, var(--br-default-border-radius)));
         color: var(--br-button-text-color, var(--br-text-color, inherit));
         background-color: transparent;
         outline: none;
@@ -89,7 +95,3 @@
         display: flex;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>
