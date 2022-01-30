@@ -112,8 +112,7 @@ async function bundle_imports(options) {
     const { imports, out_dir } = options;
     const { output }  = await vite.build({
         build: {
-            outDir: out_dir,
-            assetsDir: "bundle",
+            outDir: `${out_dir}/bundle`,
             minify: false,
             rollupOptions: {
                 input: [...imports.keys()],
