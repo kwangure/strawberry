@@ -106,9 +106,6 @@
         margin: 0;
         white-space: var(--br-code-white-space, pre);
     }
-    [class^="language-"] {
-        display: contents;
-    }
     .inline {
         display: inline;
         padding: 0.6ch 1ch;
