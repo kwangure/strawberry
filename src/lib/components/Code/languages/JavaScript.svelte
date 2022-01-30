@@ -9,39 +9,39 @@
 
 <style>
     /* e.g `if`, `else`, `import`, `default` */
-    .language-javascript :global(.hljs-keyword) {
+    :global(.language-javascript .hljs-keyword) {
         color: var(--br-code-js-keyword-color, var(--_keyword-color));
     }
     /* e.g `@type` */
-    .language-javascript :global(.hljs-doctag) {
+    :global(.language-javascript .hljs-doctag) {
         color: var(--br-code-js-doctag-color, var(--_name-color));
     }
     /* e.g `console`, `window`, `x` */
-    .language-javascript :global(.hljs-variable) {
+    :global(.language-javascript .hljs-variable) {
         color: var(--br-code-js-variable-color, var(--_value-color));
     }
     /* e.g `500` */
-    .language-javascript :global(.hljs-number) {
+    :global(.language-javascript .hljs-number) {
         color: var(--br-code-js-number-color, var(--_number-color));
     }
     /* e.g `Object`, `Number`, `String` */
-    .language-javascript :global(.hljs-title.class_) {
+    :global(.language-javascript .hljs-title.class_) {
         color: var(--br-code-js-class-color, var(--_type-color));
     }
     /* e.g `{{}}` in JSDoc */
-    .language-javascript :global(.hljs-type) {
+    :global(.language-javascript .hljs-type) {
         color: var(--br-code-js-type-color, var(--_type-color));
     }
     /* e.g `addEventListener()` */
-    .language-javascript :global(.hljs-title.function_) {
+    :global(.language-javascript .hljs-title.function_) {
         color: var(--br-code-js-function-color, var(--_function-color));
     }
     /* e.g `"string"` */
-    .language-javascript :global(.hljs-string) {
+    :global(.language-javascript .hljs-string) {
         color: var(--br-code-js-string-color, var(--_string-color));
     }
     /* e.g `// this is a comment` */
-    .language-javascript :global(.hljs-comment) {
+    :global(.language-javascript .hljs-comment) {
         color: var(--br-code-js-comment-color, var(--_comment-color));
     }
 </style>

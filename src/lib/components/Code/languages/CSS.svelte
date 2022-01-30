@@ -9,23 +9,23 @@
 
 <style>
     /* e.g `.class_name` */
-    .language-css :global(.hljs-selector-class) {
+    :global(.language-css .hljs-selector-class) {
         color: var(--br-code-css-class-color, var(--_classname-color));
     }
     /* e.g `width:`, `--custom-property:` */
-    .language-css :global(.hljs-attr) {
+    :global(.language-css .hljs-attr) {
         color: var(--br-code-css-attribute-color, var(--_value-color));
     }
     /* e.g `50px` */
-    .language-css :global(.hljs-number) {
+    :global(.language-css .hljs-number) {
         color: var(--br-code-css-number-color, var(--_number-color));
     }
     /* e.g `var()`, `max()` */
-    .language-css :global(.hljs-built_in) {
+    :global(.language-css .hljs-built_in) {
         color: var(--br-code-css-function-color, var(--_function-color));
     }
     /* e.g `/* This is an escaped comment *\/` */
-    .language-css :global(.hljs-comment) {
+    :global(.language-css .hljs-comment) {
         color: var(--br-code-css-comment-color, var(--_comment-color));
     }
 </style>
