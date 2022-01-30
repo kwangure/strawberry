@@ -4,7 +4,7 @@
     export let prop;
 
     $: ({ kind, name, optional, value, jsDoc } = prop);
-    $: ({ description, tags = []} = jsDoc || {});
+    $: ({ description, tags = [] } = jsDoc || {});
     $: ({ type } = tags.find((t) => t.tag === "type") || {});
 
     // @ts-ignore
@@ -24,14 +24,18 @@
     </td>
     <td class="type">
         {#if type}
-            <Code inline language={javascript} code={type}/>
+            <Code inline language="{javascript}" code="{type}" />
         {:else}
             —
         {/if}
     </td>
     <td>
         {#if optional && JSON.stringify(value) !== undefined}
-            <Code inline language={javascript} code={JSON.stringify(value)}/>
+            <Code
+                inline
+                language="{javascript}"
+                code="{JSON.stringify(value)}"
+            />
         {:else}
             —
         {/if}
@@ -43,7 +47,7 @@
 
 <style>
     td {
-        border: var(--br-border);
+        border: var(--br-default-border);
         padding: 8px;
         line-height: 2;
         /* Zooming makes collapsed border twice as thick sometimes */

@@ -40,12 +40,20 @@
     font-weight: 400;
 	line-height: 1.5;
 	font-family: var(--br-font-family);
-	color: var(--br-text-color, var(--br-black));
+    color: var(--br-default-text-color);
+}
+
+:theme(berry, dark) {
+	--br-default-text-color: #ddd;
+}
+
+:theme(berry, light) {
+	--br-default-text-color: var(--_black);
 }
 
 /* ----- Headers ----- */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--br-heading-color, --br-text-color, var(--br-black));
+    color: var(--br-heading-color, --br-text-color, var(--br-default-text-color));
     line-height: 1;
 }
 

@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import { isIOS, isMacintosh } from "../../utils/platform";
     import { onDestroy } from "svelte";
@@ -32,7 +36,7 @@
                 if (index === i) {
                     item.selected = false;
                 }
-                item.focused = (index === i);
+                item.focused = index === i;
                 return item;
             });
         } else {
@@ -69,8 +73,8 @@
     // deselect all but currently focused item
     function selectSingle(index) {
         items = items.map((item, i) => {
-            item.selected = (index === i);
-            item.focused = (index === i);
+            item.selected = index === i;
+            item.focused = index === i;
             return item;
         });
     }
@@ -83,13 +87,13 @@
             // and vice versa, to match macOs's finder behaviour
             if (lastShiftSelection !== null) {
                 const [start, end] = [focused, lastShiftSelection].sort();
-                for (let i = start; i < (end + 1); i++) {
+                for (let i = start; i < end + 1; i++) {
                     items[i].selected = false;
                 }
             }
             // select range between previously and currently focused item
             const [start, end] = [focused, index].sort();
-            for (let i = start; i < (end + 1); i++) {
+            for (let i = start; i < end + 1; i++) {
                 items[i].selected = true;
             }
         } else {
@@ -120,24 +124,26 @@
 
     const borderBottom = (i) => {
         const { selected } = items[i];
-        const nextSelected = (items[i+1] && items[i+1].selected);
+        const nextSelected = items[i + 1] && items[i + 1].selected;
         const noBorder = selected || nextSelected;
         return !noBorder;
     };
 
     const corneredTop = (i) => {
-        const roundtop = (i === 0) || (items[i-1] && !items[i-1].selected);
+        const roundtop = i === 0 || (items[i - 1] && !items[i - 1].selected);
         return !roundtop;
     };
     const corneredBottom = (i) => {
-        const roundbottom
-            = (i === items.length - 1) || (items[i+1] && !items[i+1].selected);
+        const roundbottom =
+            i === items.length - 1 || (items[i + 1] && !items[i + 1].selected);
         return !roundbottom;
     };
 
     function CtrlOrCmdPressed(event) {
-        return ((isMacintosh || isIOS) && event.key === "Meta")
-            || event.key === "Control";
+        return (
+            ((isMacintosh || isIOS) && event.key === "Meta") ||
+            event.key === "Control"
+        );
     }
 
     function handleKeydown(event) {
@@ -198,26 +204,28 @@
 
 <div class="berry-list">
     {#each items as item, i (i)}
-        <div class="berry-list-item"
+        <div
+            class="berry-list-item"
             class:border
-            class:border-no-radius={border && !item.selected}
-            class:border-top={border && !item.selected && i === 0}
-            class:border-bottom={border && borderBottom(i)}
-            class:cornered-top={item.selected && corneredTop(i)}
-            class:cornered-bottom={item.selected && corneredBottom(i)}
-            class:focus-ring={modifierPressed && item.focused}
-            class:selected={item.selected}
-            on:blur={(event) => deselectItem(i, event)}
-            on:click={() => selectItem(i)}
-            on:focus={() => selectItem(i)}
-            on:keydown={handleKeydown}
-            on:keyup={handleKeyup}
+            class:border-no-radius="{border && !item.selected}"
+            class:border-top="{border && !item.selected && i === 0}"
+            class:border-bottom="{border && borderBottom(i)}"
+            class:cornered-top="{item.selected && corneredTop(i)}"
+            class:cornered-bottom="{item.selected && corneredBottom(i)}"
+            class:focus-ring="{modifierPressed && item.focused}"
+            class:selected="{item.selected}"
+            on:blur="{(event) => deselectItem(i, event)}"
+            on:click="{() => selectItem(i)}"
+            on:focus="{() => selectItem(i)}"
+            on:keydown="{handleKeydown}"
+            on:keyup="{handleKeyup}"
             tabindex="0"
-            transition:slide>
-            <slot name="item" item={{ ...item, index: i }}></slot>
+            transition:slide
+        >
+            <slot name="item" item="{{ ...item, index: i }}" />
         </div>
     {:else}
-        <slot name="empty"></slot>
+        <slot name="empty" />
     {/each}
 </div>
 
@@ -247,7 +255,7 @@
         border-bottom: 1px solid transparent;
     }
     .border-top {
-        border-top-color: var(--br-border-color);
+        border-top-color: var(--br-default-border-color);
     }
     .border-bottom {
         border-bottom-color: var(--br-border-color);
@@ -272,7 +280,3 @@
         z-index: 1;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

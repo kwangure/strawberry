@@ -5,7 +5,7 @@
 
     let keywordObj = {};
 
-    $: ({ name, description = "", keywords = []} = slotDocs);
+    $: ({ name, description = "", keywords = [] } = slotDocs);
     $: {
         keywordObj = {};
         for (const { name, description } of keywords) {
@@ -26,7 +26,7 @@
 
 <style>
     td {
-        border: var(--br-border);
+        border: var(--br-default-border);
         padding: 8px;
         line-height: 2;
         /* Zooming makes collapsed border twice as thick sometimes */
