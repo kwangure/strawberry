@@ -3,6 +3,7 @@ import docs from "@kwangure/svelte-docs";
 import { fileURLToPath } from "url";
 import { prebundle } from "./scripts/preprocess-prebundle.js";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
+import inspect from "vite-plugin-inspect";
 import micromatch from 'micromatch';
 import path from "path";
 import { strawberry } from "./src/lib/build/vite-plugin-strawberry.js";
@@ -68,6 +69,7 @@ export default {
         target: "#svelte",
         vite: {
             plugins: [
+                inspect(),
                 strawberry({
                     appDir,
                 }),
