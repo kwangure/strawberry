@@ -12,8 +12,12 @@ export const serveTemplate = ({ update_event, styles }) => `
     $: css = styles?.[theme]?.[internal];
 
     if (import.meta.hot) {
-        import.meta.hot.on("${update_event}", (data) => {
-            styles = data;
+        if (import.meta.hot.data.styles) {
+            styles =  import.meta.hot.data.styles;
+        }
+        import.meta.hot.on("${update_event}", (update) => {
+            styles = update;
+            import.meta.hot.data.styles = update;
         });
     }
 

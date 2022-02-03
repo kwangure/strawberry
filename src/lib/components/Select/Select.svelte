@@ -110,13 +110,12 @@
 </div>
 
 <style>
-    .berry-select,
-    .berry-select :global(input) {
-        cursor: pointer;
+    .berry-select {
+        display: contents;
+        --br-input-container-cursor: pointer;
     }
-
-    .placeholder :global(input) {
-        color: var(--br-grey)
+    .placeholder {
+        --br-input-text-color: var(--br-grey);
     }
 </style>
 
