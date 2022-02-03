@@ -1,3 +1,6 @@
+:export {
+    --br-input-container-cursor: ;
+}
 .container {
     display: flex;
     border: var(--br-default-border);
@@ -7,6 +10,7 @@
     padding: 1px;
     width: fit-content;
     height: var(--br-default-item-height);
+    cursor: var(--br-input-container-cursor);
 }
 .container:hover:not(:focus-within) {
     box-shadow: 0 0 0px 2px var(--br-primary-light);
