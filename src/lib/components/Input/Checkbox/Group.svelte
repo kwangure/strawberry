@@ -12,7 +12,7 @@
             group = [...group, value];
         },
         remove: (value) => {
-            group = group.filter((v) => v === value);
+            group = group.filter((v) => v !== value);
         },
     });
 
