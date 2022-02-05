@@ -31,7 +31,7 @@
 </script>
 
 <label class="input-wrapper">
-    <input type='checkbox' use:forward {...$$restProps}>
+    <input type='checkbox' bind:checked use:forward {...$$restProps}>
     <slot name="label"/>
 </label>
 
