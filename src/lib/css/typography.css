@@ -43,12 +43,16 @@
     color: var(--br-default-text-color);
 }
 
-:theme(berry, dark) {
-	--br-default-text-color: #ddd;
+@media (theme: berry) and (prefers-color-scheme: dark) {
+    :root {
+	    --br-default-text-color: #ddd;
+    }
 }
 
-:theme(berry, light) {
-	--br-default-text-color: var(--_black);
+@media (theme: berry) and (prefers-color-scheme: light) {
+    :root {
+	    --br-default-text-color: var(--_black);
+    }
 }
 
 /* ----- Headers ----- */
