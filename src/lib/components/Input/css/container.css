@@ -1,6 +1,20 @@
 :export {
     --br-input-container-cursor: ;
 }
+@media (theme: berry) and (prefers-color-scheme: dark) {
+    :scope {
+        --_container-box-shadow-color: var(--br-primary);
+        --_container-border-color: var(--blue-3);
+        --_container-text-color: #dcdcdc;
+    }
+}
+@media (theme: berry) and (prefers-color-scheme: light) {
+    :scope {
+        --_container-box-shadow-color: var(--br-primary-light);
+        --_container-border-color: var(--br-primary);
+        --_container-text-color: #dcdcdc;
+    }
+}
 .container {
     display: flex;
     border: var(--br-default-border);
@@ -13,8 +27,8 @@
     cursor: var(--br-input-container-cursor);
 }
 .container:hover:not(:focus-within) {
-    box-shadow: 0 0 0px 2px var(--br-primary-light);
-    border-color: var(--br-primary);
+    box-shadow: 0 0 0px 2px var(--_container-box-shadow-color);
+    border-color: var(--_container-border-color);
 }
 .container:focus-within {
     border: 2px solid var(--br-primary);

@@ -1,6 +1,7 @@
 import { buildTemplate, serveTemplate } from "./template.js";
 import { transform, formatMessages } from 'esbuild';
 import MagicString from "magic-string";
+import jitOpenProps from "./open-props.cjs";
 import parser from "css-tree/parser";
 import walk from "css-tree/walker";
 
@@ -146,20 +147,18 @@ function getThemeExports(css, isSvelteFile) {
 
         let modes = exports.get(theme);
         if (!modes) {
-            modes = {};
+            modes = [];
             exports.set(theme, modes);
         }
 
-        Object.assign(modes, {
-            [mode]: {
-                rule: {
-                    start: node.loc.start.offset,
-                    end: node.loc.end.offset,
-                },
-                blocks: rules
-                    .map(([selector, { block }]) => ({ selector, block })),
+        modes.push([mode, {
+            rule: {
+                start: node.loc.start.offset,
+                end: node.loc.end.offset,
             },
-        });
+            blocks: rules
+                .map(([selector, { block }]) => ({ selector, block })),
+        }]);
     });
     return exports;
 }
@@ -231,6 +230,15 @@ export function strawberry(options = {}) {
         enforce: "pre",
         config() {
             return {
+                css: {
+                    postcss: {
+                        // TODO: Fork JITProps to inject props into specific theme files only
+                        // for smaller bundles
+
+                        // only vars used are in build output
+                        plugins: [jitOpenProps],
+                    },
+                },
                 optimizeDeps: {
                     exclude: ["@kwangure/strawberry/css/Theme.svelte"],
                 },
@@ -270,25 +278,24 @@ export function strawberry(options = {}) {
             const exports = getThemeExports(css, isSvelteFile);
             if (exports.size === 0) return;
 
-            for (const [theme, { dark, light }] of exports) {
+            for (const [theme, modeDeclarations] of exports) {
                 let dark_css = "";
                 let light_css = "";
 
-                // We use the selectors as is e.g :root{ ... }
-                // Minfier will take care of merging repeated selectors etc.
-                if (light) {
-                    for (const { selector, block } of light.blocks) {
-                        light_css += `${selector}{${magicString.slice(block.start, block.end)}}`;
+                for (const [mode, { blocks, rule }] of modeDeclarations) {
+                    // We use the selectors as is e.g :root{ ... }
+                    // Minfier will take care of merging repeated selectors etc.
+                    for (const { selector, block } of blocks) {
+                        const css = `${selector}{${magicString.slice(block.start, block.end)}}`;
+                        if (mode === "light") {
+                            light_css += css;
+                        } else if (mode === "dark") {
+                            dark_css += css;
+                        }
                     }
-                    magicString.remove(light.rule.start, light.rule.end);
-                }
-                if (dark) {
-                    for (const { selector, block } of dark.blocks) {
-                        dark_css += `${selector}{${magicString.slice(block.start, block.end)}}`;
-                    }
-                    magicString.remove(dark.rule.start, dark.rule.end);
-                }
 
+                    magicString.remove(rule.start, rule.end);
+                }
                 manifest.set(id, theme, "dark", dark_css);
                 manifest.set(id, theme, "light", light_css);
             }

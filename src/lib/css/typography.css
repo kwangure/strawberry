@@ -92,10 +92,21 @@ h6 {
     margin: 14px 0 4px;
 }
 
+@media (theme: berry) and (prefers-color-scheme: dark) {
+    :root {
+        --_link-color: var(--blue-5);
+    }
+}
+@media (theme: berry) and (prefers-color-scheme: light) {
+    :root {
+        --_link-color: var(--br-primary);
+    }
+}
+
 /* ----- Links ----- */
 a {
 	text-decoration: none;
-	color: var(--br-primary);
+	color: var(--_link-color);
 }
 
 a:hover,
