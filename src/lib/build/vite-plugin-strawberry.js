@@ -8,7 +8,8 @@ import walk from "css-tree/walker";
 const THEME_UPDATE = "@theme-update";
 const STYLE_REPLACE = "___REPLACABLE_STRING___";
 
-const isThemer = (id) => /@kwangure\/strawberry\/css\/Theme/.test(id);
+const isOldThemer = (id) => /@kwangure\/strawberry\/css\/Theme/.test(id);
+const isThemer = (id) => /@kwangure\/strawberry\/components\/Theme/.test(id);
 const isCSS = (id) => /\.css($|\?)/.test(id);
 const isSvelte = (id) => /\.svelte($|\?)/.test(id);
 
@@ -240,7 +241,10 @@ export function strawberry(options = {}) {
                     },
                 },
                 optimizeDeps: {
-                    exclude: ["@kwangure/strawberry/css/Theme.svelte"],
+                    exclude: [
+                        "@kwangure/strawberry/components/Theme",
+                        "@kwangure/strawberry/components/Theme.svelte",
+                    ],
                 },
             };
         },
@@ -256,6 +260,10 @@ export function strawberry(options = {}) {
             if (isThemer(id)) {
                 if (id.endsWith(".svelte")) return id;
                 return `${id}.svelte`;
+            }
+
+            if (isOldThemer(id)) {
+                throw "The 'Theme' component has moved to '@kwangure/strawberry/components/Theme'";
             }
         },
         async load(id) {
