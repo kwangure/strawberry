@@ -46,7 +46,7 @@
 </script>
 
 <pre class="berry-code hljs" class:dark class:inline>
-    <svelte:component this={component}>
+    <svelte:component this="{component}">
         {@html highlightedCode}
     </svelte:component>
 </pre>
@@ -60,34 +60,38 @@
         --br-code-comment-color: ;
         --br-code-white-space: ;
     }
-    :theme(berry, dark) {
-        --_code-background-color: #1e1e1e;
-        --_code-text-color: #dcdcdc;
+    @media (theme: berry) and (prefers-color-scheme: dark) {
+        :scope {
+            --_code-background-color: #1e1e1e;
+            --_code-text-color: #dcdcdc;
 
-        /* Syntax highlighter */
-        --_name-color: #569cd6;
-        --_string-color: #d69d85;
-        --_value-color: #9cdcfe;
-        --_classname-color: #d7ba7d;
-        --_comment-color: #6a9955;
-        --_number-color: #b5cea8;
-        --_type-color: #4ec9b0;
-        --_function-color: #dcdcaa;
-        --_keyword-color: #c586c0;
+            /* Syntax highlighter */
+            --_name-color: #569cd6;
+            --_string-color: #d69d85;
+            --_value-color: #9cdcfe;
+            --_classname-color: #d7ba7d;
+            --_comment-color: #6a9955;
+            --_number-color: #b5cea8;
+            --_type-color: #4ec9b0;
+            --_function-color: #dcdcaa;
+            --_keyword-color: #c586c0;
+        }
     }
-    :theme(berry, light) {
-        --_code-background-color: #f0f0f0;
-        --_code-text-color: #333;
+    @media (theme: berry) and (prefers-color-scheme: light) {
+        :scope {
+            --_code-background-color: #f0f0f0;
+            --_code-text-color: #333;
 
-        --_name-color: #0021b3;
-        --_string-color: #be6404;
-        --_value-color: #037e0b;
-        --_classname-color: #c79e09;
-        --_comment-color: #2f9d62;
-        --_number-color: #085ad6;
-        --_type-color: #cf222e;
-        --_function-color: #0021b3;
-        --_keyword-color: #c123b4;
+            --_name-color: #0021b3;
+            --_string-color: #be6404;
+            --_value-color: #037e0b;
+            --_classname-color: #c79e09;
+            --_comment-color: #2f9d62;
+            --_number-color: #085ad6;
+            --_type-color: #cf222e;
+            --_function-color: #0021b3;
+            --_keyword-color: #c123b4;
+        }
     }
     pre {
         padding: 16px;

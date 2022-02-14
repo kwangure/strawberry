@@ -4,18 +4,22 @@
     --br-sidebar-item-active-hover-background-color: ;
 }
 
-:theme(berry, light) {
-    --_item-active-background-color: var(--br-primary-light);
-    --_item-active-hover-background-color: var(--br-primary-light-hover);
-    --_item-active-text-color: var(--br-primary);
-    --_item-hover-background-color: var(--br-grey-lightest);
+@media (theme: berry) and (prefers-color-scheme: light) {
+    :root {
+        --_item-active-background-color: var(--br-primary-light);
+        --_item-active-hover-background-color: var(--br-primary-light-hover);
+        --_item-active-text-color: var(--br-primary);
+        --_item-hover-background-color: var(--br-grey-lightest);
+    }
 }
 
-:theme(berry, dark) {
-    --_item-active-background-color: #222;
-    --_item-active-hover-background-color: #444;
-    --_item-active-text-color: inherit;
-    --_item-hover-background-color: #333;
+@media (theme: berry) and (prefers-color-scheme: dark) {
+    :root {
+        --_item-active-background-color: #222;
+        --_item-active-hover-background-color: #444;
+        --_item-active-text-color: inherit;
+        --_item-hover-background-color: #333;
+    }
 }
 
 .sidebar-item {

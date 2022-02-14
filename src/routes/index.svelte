@@ -4,7 +4,7 @@
     import Button from "~@components/Button";
     import Navbar from "~@components/Navbar";
 
-    import Theme from "@kwangure/strawberry/css/Theme";
+    import Theme from "@kwangure/strawberry/components/Theme";
 </script>
 
 <Theme />

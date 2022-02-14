@@ -43,12 +43,16 @@
     color: var(--br-default-text-color);
 }
 
-:theme(berry, dark) {
-	--br-default-text-color: #ddd;
+@media (theme: berry) and (prefers-color-scheme: dark) {
+    :root {
+	    --br-default-text-color: #ddd;
+    }
 }
 
-:theme(berry, light) {
-	--br-default-text-color: var(--_black);
+@media (theme: berry) and (prefers-color-scheme: light) {
+    :root {
+	    --br-default-text-color: var(--_black);
+    }
 }
 
 /* ----- Headers ----- */
@@ -88,10 +92,21 @@ h6 {
     margin: 14px 0 4px;
 }
 
+@media (theme: berry) and (prefers-color-scheme: dark) {
+    :root {
+        --_link-color: var(--blue-5);
+    }
+}
+@media (theme: berry) and (prefers-color-scheme: light) {
+    :root {
+        --_link-color: var(--br-primary);
+    }
+}
+
 /* ----- Links ----- */
 a {
 	text-decoration: none;
-	color: var(--br-primary);
+	color: var(--_link-color);
 }
 
 a:hover,

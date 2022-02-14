@@ -36,7 +36,7 @@ export default {
 ```svelte
 <script>
     // Import the `Theme` component to add styling
-    import Theme from "@kwangure/strawberry/css/Theme";
+    import Theme from "@kwangure/strawberry/components/Theme";
 
     import Button from "@kwangure/strawberry/components/Button";
 

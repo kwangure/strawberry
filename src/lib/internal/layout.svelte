@@ -2,7 +2,7 @@
     import Navbar, { Link as NavLink } from "~@components/Navbar";
     import { base } from "$app/paths";
 
-    import Theme from "@kwangure/strawberry/css/Theme";
+    import Theme from "@kwangure/strawberry/components/Theme";
 </script>
 
 <Theme />

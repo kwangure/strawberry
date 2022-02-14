@@ -29,7 +29,6 @@
 
 	/* ----- Borders ----- */
 	--br-border-color: var(--br-grey-light);
-	--br-border: 1px solid var(--br-border-color);
 	--br-border-radius: 4px;
 
 	/* ----- Size/Spacing ----- */
@@ -60,14 +59,18 @@ readers to find but not humans to see. */
 	--br-default-border: 1px solid var(--br-default-border-color);
 }
 
-:theme(berry, dark) {
-	--br-default-background-color: #161616;
-	--br-default-border-color: #30363d;
+@media (theme: berry) and (prefers-color-scheme: dark) {
+	:root {
+		--br-default-background-color: #161616;
+		--br-default-border-color: #474b50;
+	}
 }
 
-:theme(berry, light) {
-	--br-default-background-color: initial;
-	--br-default-border-color: #c3c3c3;
+@media (theme: berry) and (prefers-color-scheme: light) {
+	:root {
+		--br-default-background-color: initial;
+		--br-default-border-color: #c3c3c3;
+	}
 }
 
 body {

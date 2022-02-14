@@ -1,6 +1,18 @@
 :export {
 	--br-postfix-width: ;
 }
+@media (theme: berry) and (prefers-color-scheme: dark) {
+    :scope {
+        --_postfix-background-color: var(--br-primary);
+        --_postfix-text-color: var(--br-primary-light);
+    }
+}
+@media (theme: berry) and (prefers-color-scheme: light) {
+    :scope {
+        --_postfix-background-color: var(--br-primary-light);
+        --_postfix-text-color: var(--br-primary);
+    }
+}
 .postfix-wrapper {
     width: var(--br-postfix-width, 31px);
     color: var(--br-text-color, inherit);
@@ -13,6 +25,6 @@
 
 .container:hover .postfix-wrapper,
 .container:focus-within .postfix-wrapper {
-    color: var(--br-primary);
-    background-color: var(--br-primary-light);
+    color: var(--_postfix-text-color);
+    background-color: var(--_postfix-background-color);
 }
