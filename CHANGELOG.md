@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.36.0](https://github.com/kwangure/strawberry/compare/v0.35.0...v0.36.0) (2022-02-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* short background-color overrides & add hover
+* move Theme file to components folder
+
+### Features
+
+* allow multiple theme queries and add open props ([ef0d8b0](https://github.com/kwangure/strawberry/commit/ef0d8b06cb8b2151998d4ca5efb7b1b8aaf7cdde))
+* move Theme file to components folder ([57ac40d](https://github.com/kwangure/strawberry/commit/57ac40dc660883e24833a0c769d5651a856cce41))
+* short background-color overrides & add hover ([26cf188](https://github.com/kwangure/strawberry/commit/26cf188b98586fb6bea2497b074d18b00f69e3a0))
+* switch theme syntax to media queries ([b1df61d](https://github.com/kwangure/strawberry/commit/b1df61de3523cbd3b84885c852452b63be8f08ec))
+
+
+### Bug Fixes
+
+* doing wrong filter check ([940f477](https://github.com/kwangure/strawberry/commit/940f477bfe7f434db0f7bfb60e3df81b1974d09d))
+* improve select display rendering ([2c9e05e](https://github.com/kwangure/strawberry/commit/2c9e05efbef42ed20d4ed16c2f77a6710e9d03cd))
+* mark checkbox as checked ([bb43825](https://github.com/kwangure/strawberry/commit/bb4382578df6eebb69a6a7a08c292fa16c16e435))
+* preserve styles on navigate ([6a7ef4a](https://github.com/kwangure/strawberry/commit/6a7ef4a8095a9acbaaba7fa0fdcba2dc0abc3457))
+
 ## [0.35.0](https://github.com/kwangure/strawberry/compare/v0.34.0...v0.35.0) (2022-01-30)
 
 
