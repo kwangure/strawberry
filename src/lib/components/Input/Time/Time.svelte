@@ -170,8 +170,18 @@
 
     :export {
         --br-input-time-icon-size: ;
-        --br-input-time-number-input-background-color: ;
-        --br-input-time-number-input-border-radius: ;
+        --br-input-time-number-background-color: ;
+        --br-input-time-number-border-radius: ;
+    }
+    @media (theme: berry) and (prefers-color-scheme: dark) {
+        :scope {
+            --_number-hover-background-color: #555;
+        }
+    }
+    @media (theme: berry) and (prefers-color-scheme: light) {
+        :scope {
+            --_number-hover-background-color: var(--br-primary-light);
+        }
     }
     .container {
         display: flex;
@@ -187,8 +197,8 @@
     }
     input:hover,
     input:focus {
-        background-color: var(--br-input-time-number-input-background-color, var(--br-primary-light));
-        border-radius: var(--br-input-time-number-input-border-radius, var(--br-border-radius));
+        background-color: var(--br-input-time-number-background-color, var(--_number-hover-background-color));
+        border-radius: var(--br-input-time-number-border-radius, var(--br-border-radius));
     }
     [type=number]::-webkit-outer-spin-button,
     [type=number]::-webkit-inner-spin-button {
