@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import Button from "../Button";
     import { createEventDispatcher } from "svelte";
@@ -38,26 +42,37 @@
 </script>
 
 {#if visible}
-    <div class="berry-modal overlay" transition:fade
-        on:click|self={() => {
- visible = closable ? false : visible;
-}}>
+    <div
+        class="berry-modal overlay"
+        transition:fade
+        on:click|self="{() => {
+            visible = closable ? false : visible;
+        }}"
+    >
         <div class="wrapper">
-            <div class="modal" class:closable out:send="{{ key: 'modal' }}" in:receive="{{ key: 'modal' }}">
+            <div
+                class="modal"
+                class:closable
+                out:send="{{ key: 'modal' }}"
+                in:receive="{{ key: 'modal' }}"
+            >
                 <div class="header">
                     <div class="header-content">
-                        <slot name="header"></slot>
+                        <slot name="header" />
                     </div>
                     {#if closable}
                         <div class="close">
-                            <Button icon={mdiClose} on:click={() => {
- visible = false;
-}}/>
+                            <Button
+                                icon="{mdiClose}"
+                                on:click="{() => {
+                                    visible = false;
+                                }}"
+                            />
                         </div>
                     {/if}
                 </div>
                 <div class="content">
-                    <slot name="content"></slot>
+                    <slot name="content" />
                 </div>
             </div>
         </div>
@@ -72,7 +87,7 @@
         bottom: 0;
         left: 0;
         z-index: 1050;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0, 0, 0, 0.5);
         transition: background-color var(--br-transition-duration) ease;
     }
     .wrapper {
@@ -80,12 +95,15 @@
         height: 100vh;
         display: flex;
         align-items: center;
-        justify-content: center
+        justify-content: center;
     }
     .modal {
-        background-color: var(--br-white);
+        background-color: var(
+            --br-modal-background-color,
+            var(--br-default-background-color)
+        );
         padding: 30px 30px;
-        box-shadow: var(--br-box-shadow);
+        box-shadow: var(--br-box-shadow, var(--br-default-box-shadow));
         border-radius: var(--br-border-radius);
         transition: background-color var(--br-transition-duration) ease;
         max-width: 90%;
@@ -102,7 +120,7 @@
         font-size: 16px !important;
         font-weight: 600 !important;
     }
-    .close  {
+    .close {
         margin-left: auto;
     }
     .close :global(.berry-button) {
@@ -112,7 +130,3 @@
         max-width: 100%;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

@@ -44,6 +44,8 @@
     :export {
         --br-notification-padding-block: ;
         --br-notification-padding-inline: ;
+        --br-notification-background-color: ;
+        --br-notification-text-color: ;
     }
     .wrapper {
         overflow: hidden;
@@ -56,7 +58,10 @@
         margin: 15px;
         display: flex;
         align-items: center;
-        color: var(--br-white);
+        color: var(
+            --br-notification-text-color,
+            var(--br-default-overlay-text-color)
+        );
         border-radius: var(--br-border-radius);
         width: fit-content;
         margin-left: auto;
@@ -65,7 +70,15 @@
                 var(--br-item-padding-block)
             )
             var(--br-notification-padding-inline, var(--br-item-padding-inline));
-        background-color: var(--br-black-transparent);
+        background-color: var(
+            --br-notification-background-color,
+            var(--br-default-overlay-background-color)
+        );
+        z-index: 1;
+        box-shadow: var(
+            --br-tooltip-box-shadow,
+            var(--br-box-shadow, var(--br-default-box-shadow))
+        );
         min-width: 30px;
         min-height: var(--br-default-item-height);
     }
