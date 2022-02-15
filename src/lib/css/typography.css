@@ -58,33 +58,33 @@
 /* ----- Headers ----- */
 h1, h2, h3, h4, h5, h6 {
     color: var(--br-heading-color, --br-text-color, var(--br-default-text-color));
-    line-height: 1;
+    line-height: 1.5;
 }
 
 h1 {
     font-size: var(--br-preset-2-font-size);
     font-weight: 400;
-    margin: 40px 0 8px;
+    margin: 20px 0 4px;
 }
 h2 {
     font-size: var(--br-preset-3-font-size);
     font-weight: 400;
-    margin: 32px 0 8px;
+    margin: 20px 0 4px;
 }
 h3 {
     font-size: var(--br-preset-4-font-size);
     font-weight: 600;
-    margin: 24px 0 8px;
+    margin: 16px 0 4px;
 }
 h4 {
     font-size: var(--br-preset-5-font-size);
     font-weight: 600;
-    margin: 20px 0 4px;
+    margin: 16px 0 4px;
 }
 h5 {
     font-size: var(--br-preset-6-font-size);
     font-weight: 600;
-    margin: 16px 0 4px;
+    margin: 14px 0 4px;
 }
 h6 {
     font-size: var(--br-preset-7-font-size);
