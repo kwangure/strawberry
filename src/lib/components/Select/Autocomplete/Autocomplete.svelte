@@ -118,7 +118,7 @@
         background-color: var(--br-white);
         border-radius: var(--br-border-radius);
         outline: none;
-        box-shadow: var(--br-box-shadow);
+        box-shadow: var(--br-box-shadow, var(--br-default-box-shadow));
         z-index: 100;
         overflow: hidden;
     }

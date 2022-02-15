@@ -40,9 +40,6 @@
 
 	/* ----- Animation ----- */
 	--br-transition-duration: 0.25s;
-
-	/* ----- Box Shadow ----- */
-	--br-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Util for hiding elements you want screen
@@ -61,15 +58,21 @@ readers to find but not humans to see. */
 
 @media (theme: berry) and (prefers-color-scheme: dark) {
 	:root {
-		--br-default-background-color: #161616;
+		--br-default-background-color: #222;
+		--br-default-overlay-background-color: #444;
+		--br-default-overlay-text-color: #fff;
 		--br-default-border-color: #474b50;
+		--br-default-box-shadow: 0 2px 8px #111;
 	}
 }
 
 @media (theme: berry) and (prefers-color-scheme: light) {
 	:root {
-		--br-default-background-color: initial;
+		--br-default-background-color: #fff;
+		--br-default-overlay-background-color: var(--br-black-transparent);
+		--br-default-overlay-text-color: #fff;
 		--br-default-border-color: #c3c3c3;
+		--br-default-box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 	}
 }
 

@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import { createPopper } from "@popperjs/core";
 
@@ -16,10 +20,12 @@
         const reference = popup.previousElementSibling;
         const popperInstance = createPopper(reference, popup, {
             placement,
-            modifiers: [{
-                name: "offset",
-                options: { offset: [0, 5]},
-            }],
+            modifiers: [
+                {
+                    name: "offset",
+                    options: { offset: [0, 5] },
+                },
+            ],
         });
 
         return {
@@ -38,8 +44,8 @@
         document.addEventListener("click", hideIfExternalClick, true);
 
         function hideIfExternalClick(event) {
-            const [target] = event.path
-                || (event.composedPath && event.composedPath());
+            const [target] =
+                event.path || (event.composedPath && event.composedPath());
             const isContained = reference.contains(target);
             if (isContained) {
                 visible = !visible;
@@ -60,14 +66,18 @@
     Any element that can respond to the click MouseEvent.
     When the element is clicked the dropdown popup will be shown.
 -->
-<slot name="button"/>
-<div class="berry-dropdown-menu" use:createPopup={visible}
-    use:handleDocumentClick class:visible>
+<slot name="button" />
+<div
+    class="berry-dropdown-menu"
+    use:createPopup="{visible}"
+    use:handleDocumentClick
+    class:visible
+>
     <!--
         One or more Dropdown.Item or Dropown.Link components to
         be shown when the Dropdown[slot=button] is clicked.
     -->
-    <slot></slot>
+    <slot />
 </div>
 
 <style>
@@ -78,10 +88,19 @@
     }
     .berry-dropdown-menu {
         display: none;
-        background-color: var(--br-dropdown-background-color, var(--br-white));
-        border-radius: var(--br-dropdown-border-radius, var(--br-border-radius));
+        background-color: var(
+            --br-dropdown-background-color,
+            var(--br-default-background-color)
+        );
+        border-radius: var(
+            --br-dropdown-border-radius,
+            var(--br-border-radius)
+        );
         outline: none;
-        box-shadow: var(--br-dropdown-box-shadow, var(--br-box-shadow));
+        box-shadow: var(
+            --br-dropdown-box-shadow,
+            var(--br-box-shadow, var(--br-default-box-shadow))
+        );
         z-index: 100;
         overflow: hidden;
     }
@@ -89,7 +108,3 @@
         display: block;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>
