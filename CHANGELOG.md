@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.37.0](https://github.com/kwangure/strawberry/compare/v0.36.0...v0.37.0) (2022-02-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* consolidate background colors & box shadows
+* cleanup and improve heading styles
+
+### Features
+
+* cleanup and improve heading styles ([c4e11e8](https://github.com/kwangure/strawberry/commit/c4e11e87b8d17f0806e385745ce7683f30c583b5))
+* consolidate background colors & box shadows ([f54a0e0](https://github.com/kwangure/strawberry/commit/f54a0e0092b5da87f83ef35d32791d1ec7be5525))
+* reduce heading margins ([dcff5ed](https://github.com/kwangure/strawberry/commit/dcff5edc7b6dad374b1929b8ff04a84b99084d5c))
+* tighten padding around inline codeblocks ([#51](https://github.com/kwangure/strawberry/issues/51)) ([b2898a9](https://github.com/kwangure/strawberry/commit/b2898a94d825aeaef7f153565b0d91cea7f78d41))
+
 ## [0.36.0](https://github.com/kwangure/strawberry/compare/v0.35.0...v0.36.0) (2022-02-14)
 
 
