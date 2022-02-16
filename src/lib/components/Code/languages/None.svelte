@@ -2,6 +2,6 @@
     export const docs = true;
 </script>
 
-<div class="language-svelte">
+<div>
     <slot/>
 </div>
