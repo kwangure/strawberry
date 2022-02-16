@@ -115,6 +115,6 @@
     }
     .inline {
         display: inline;
-        padding: 0.6ch 1ch;
+        padding: 0.15ch 0.5ch;
     }
 </style>
