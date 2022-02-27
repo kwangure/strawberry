@@ -1,7 +1,6 @@
 import adapter from "@sveltejs/adapter-static";
 import docs from "@kwangure/svelte-docs";
 import { fileURLToPath } from "url";
-import { prebundle } from "./scripts/preprocess-prebundle.js";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import inspect from "vite-plugin-inspect";
 import micromatch from 'micromatch';
@@ -22,13 +21,8 @@ function resolve(pathname) {
 }
 
 const appDir = "app";
-const is_highlightjs = micromatch.matcher("highlight.js/lib/**");
 const preprocess = [
     docs(),
-    prebundle({
-        bundle: (filename) => MODE === "packaging"
-            && is_highlightjs(filename),
-    }),
     inlineImport,
 ];
 
@@ -45,6 +39,7 @@ export default {
                 const value = micromatch.isMatch(filepath, [
                     'build/vite-plugin-strawberry.js',
                     'components/**/index.js',
+                    'components/Code/languages/**/*.js',
                     'css/**/*.(js|css)',
                     'utils/forward-events.js',
                 ]);
@@ -59,7 +54,7 @@ export default {
                     'utils/**',
                 ]) && !micromatch.some(filepath, [
                     "components/**/docs.js",
-                    "components/**/*.css",
+                    "components/Input/css/**",
                 ]);
             },
         },

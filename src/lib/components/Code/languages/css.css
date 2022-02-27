@@ -1,0 +1,24 @@
+/* e.g `.class_name` */
+.language-css .hljs-selector-class,
+/* e.g `button` */
+.language-css .hljs-selector-tag {
+    color: var(--br-code-css-class-color, var(--_classname-color));
+}
+/* e.g `--custom-property:` */
+.language-css .hljs-attr,
+/* e.g `width:` */
+.language-css .hljs-attribute {
+    color: var(--br-code-css-attribute-color, var(--_value-color));
+}
+/* e.g `50px` */
+.language-css .hljs-number {
+    color: var(--br-code-css-number-color, var(--_number-color));
+}
+/* e.g `var()`, `max()` */
+.language-css .hljs-built_in {
+    color: var(--br-code-css-function-color, var(--_function-color));
+}
+/* e.g `/* This is an escaped comment *\/` */
+.language-css .hljs-comment {
+    color: var(--br-code-css-comment-color, var(--_comment-color));
+}

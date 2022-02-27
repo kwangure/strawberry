@@ -3,8 +3,6 @@
 </script>
 
 <script>
-    import { HighlightJS } from "highlight.js/lib/core";
-
     /**
      * @template T
      * @typedef {{ name: T, highlighter: function }} Language<T>
@@ -21,34 +19,18 @@
      @type {string}
      */
     export let code;
+
     /**
      * Whether to treat a codeblock as an inline element.
      * @type {boolean}
      */
     export let inline = false;
-
-    /**
-     * Whether to use the dark editor.
-     * @type {boolean}
-     */
-    export let dark = false;
-
-    let highlightedCode = "";
-    $: ({ default: component, name, highlighter } = language);
-    $: if (highlighter) {
-        HighlightJS.registerLanguage(name, highlighter);
-        ({ value: highlightedCode } = HighlightJS.highlight(code, {
-            language: name,
-        }));
-    } else {
-        highlightedCode = code;
-    }
 </script>
 
-<pre class="berry-code hljs" class:dark class:inline>
-    <svelte:component this="{component}">
-        {@html highlightedCode}
-    </svelte:component>
+<pre class="berry-code hljs" class:inline>
+    <code>
+        {@html language(code.replace(" *{}", ""))}
+    </code>
 </pre>
 
 <style>
@@ -110,7 +92,7 @@
         margin: 0;
         white-space: var(--br-code-white-space, pre);
     }
-    pre > :global(div) {
+    code {
         display: contents;
     }
     .inline {

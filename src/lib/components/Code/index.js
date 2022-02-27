@@ -1,8 +1,9 @@
 import Code from "./Code.svelte";
 
 export default Code;
-export * as css from "./languages/CSS.svelte";
-export * as html from "./languages/HTML.svelte";
-export * as javascript from "./languages/JavaScript.svelte";
-export * as none from "./languages/None.svelte";
-export * as svelte from "./languages/Svelte.svelte";
+export { default as css } from "./languages/css.js";
+export { default as html } from "./languages/html.js";
+export { default as javascript } from "./languages/javascript.js";
+export { default as js } from "./languages/javascript.js";
+export { default as none } from "./languages/none.js";
+export { default as svelte } from "./languages/svelte.js";
