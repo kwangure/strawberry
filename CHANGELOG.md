@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.38.0](https://github.com/kwangure/strawberry/compare/v0.37.0...v0.38.0) (2022-02-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* abandon prebundling
+
+### Features
+
+* abandon prebundling ([2370b2f](https://github.com/kwangure/strawberry/commit/2370b2f053aac1e75d59d9516d0d54f6d8c20225))
+
+
+### Bug Fixes
+
+* actually export non-language ([07c60ca](https://github.com/kwangure/strawberry/commit/07c60ca739f5960f189cade4a29e1b03bd983d31))
+
 ## [0.37.0](https://github.com/kwangure/strawberry/compare/v0.36.0...v0.37.0) (2022-02-16)
 
 
