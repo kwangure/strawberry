@@ -55,6 +55,9 @@
                             Radio
                         </Link>
                         <Link href="{base}/components/select" {path}>
+                            Select (deprecated)
+                        </Link>
+                        <Link href="{base}/components/input/select" {path}>
                             Select
                         </Link>
                         <Link href="{base}/components/input/time" {path}>

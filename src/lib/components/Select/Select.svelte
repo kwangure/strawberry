@@ -6,6 +6,10 @@
     import { mdiChevronDown } from "@mdi/js";
     import { writable } from "svelte/store";
 
+    console.error(`
+This component is deprecated and no longer maintained. Please use the Select component at "@kwangure/strawberry/components/Input/Select".
+`.trim());
+
     /** Inline Block */
     /**
      * Text that appears in the form control when it has no value set
