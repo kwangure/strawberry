@@ -36,6 +36,9 @@
                 <Section>
                     <svelte:fragment slot="title">Data Inputs</svelte:fragment>
                     <svelte:fragment slot="items">
+                        <Link href="{base}/components/input/date" {path}>
+                            Date
+                        </Link>
                         <Link href="{base}/components/input" {path}>
                             Text
                         </Link>
