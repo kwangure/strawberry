@@ -57,23 +57,43 @@
 
 <style>
     @import "../css/input.css";
+    @import "../css/container.css";
     :export {
         --br-textarea-border: ;
     }
-    textarea {
+    @media (theme: berry) and (prefers-color-scheme: dark) {
+        :scope {
+            --_textarea-box-shadow-color: var(--br-primary);
+            --_textarea-border-color: var(--blue-3);
+            --_textarea-text-color: #dcdcdc;
+        }
+    }
+    @media (theme: berry) and (prefers-color-scheme: light) {
+        :scope {
+            --_textarea-box-shadow-color: var(--br-primary-light);
+            --_textarea-border-color: var(--br-primary);
+            --_textarea-text-color: #dcdcdc;
+        }
+    }
+    textarea.text-input {
         width: 100%;
         overflow: scroll;
         overflow-x: hidden;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        border: var(--br-textarea-border, var(--br-default-border));
+        border-radius: var(--br-textarea-border-radius, var(--br-border-radius));
     }
     textarea::-webkit-scrollbar {
         display: none;
     }
-    textarea:hover,
+    textarea:hover:not(:focus) {
+        box-shadow: 0 0 0px 2px var(--_container-box-shadow-color);
+        border-color: var(--_container-border-color);
+    }
     textarea:focus {
-        border: var(--br-textarea-border, 2px solid var(--br-primary));
-        padding: 0;
+        border: 2px solid var(--br-primary);
+        padding: calc(var(--br-input-padding-block, 5px) - 1px) calc(var(--br-input-padding-inline, 12px) - 1px);
     }
 </style>
 

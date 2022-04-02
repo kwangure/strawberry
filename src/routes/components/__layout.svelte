@@ -60,6 +60,9 @@
                         <Link href="{base}/components/input/select" {path}>
                             Select
                         </Link>
+                        <Link href="{base}/components/input/textarea" {path}>
+                            Textarea
+                        </Link>
                         <Link href="{base}/components/input/time" {path}>
                             Time
                         </Link>
