@@ -4,28 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strawberry</title>
-  <link rel="stylesheet" href="/strawberry/app/assets/berry.dark-f20090a7.css" media="(prefers-color-scheme: dark)" data-svelte="svelte-1l8l244"><link rel="stylesheet" href="/strawberry/app/assets/berry.light-cd553406.css" media="(prefers-color-scheme: light)" data-svelte="svelte-1l8l244">
+  <link rel="stylesheet" href="/strawberry/app/assets/berry.dark-901f2d10.css" media="(prefers-color-scheme: dark)" data-svelte="svelte-1l8l244"><link rel="stylesheet" href="/strawberry/app/assets/berry.light-166e723f.css" media="(prefers-color-scheme: light)" data-svelte="svelte-1l8l244">
 
 		
 
-		<link rel="modulepreload" href="/strawberry/app/start-2b39dde3.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-fab38dda.js">
+		<link rel="modulepreload" href="/strawberry/app/start-1a77d6f9.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/vendor-5dcc93bd.js">
 		<link rel="modulepreload" href="/strawberry/app/chunks/paths-28a87002.js">
-		<link rel="modulepreload" href="/strawberry/app/layout.svelte-08843934.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-4e7a58e0.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-b24822df.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/layout-f13a44e7.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/Theme-baf22297.js">
-		<link rel="modulepreload" href="/strawberry/app/pages/components/index.svelte-81027df6.js">
-		<link rel="modulepreload" href="/strawberry/app/chunks/JavaScript.svelte_svelte_type_style_lang-99e8b40e.js">
+		<link rel="modulepreload" href="/strawberry/app/layout.svelte-9a3ca20e.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/__layout.svelte-c812caa9.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/forward-events-341ce30a.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/layout-41a5c24d.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/Theme-7e0e4291.js">
+		<link rel="modulepreload" href="/strawberry/app/pages/components/index.svelte-35ddf1f6.js">
+		<link rel="modulepreload" href="/strawberry/app/chunks/svelte-7f3d56d8.js">
 		<link rel="stylesheet" href="/strawberry/app/assets/start-61d1577b.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/pages/components/__layout.svelte-df1ff4eb.css">
 		<link rel="stylesheet" href="/strawberry/app/assets/layout-c5cbc765.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/Theme-74f72e56.css">
-		<link rel="stylesheet" href="/strawberry/app/assets/JavaScript.svelte_svelte_type_style_lang-a4101298.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/Theme-c139773c.css">
+		<link rel="stylesheet" href="/strawberry/app/assets/svelte-e982fac4.css">
 
 		<script type="module">
-			import { start } from "/strawberry/app/start-2b39dde3.js";
+			import { start } from "/strawberry/app/start-1a77d6f9.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/strawberry","assets":""},
@@ -38,9 +38,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/strawberry/app/layout.svelte-08843934.js"),
-						import("/strawberry/app/pages/components/__layout.svelte-4e7a58e0.js"),
-						import("/strawberry/app/pages/components/index.svelte-81027df6.js")
+						import("/strawberry/app/layout.svelte-9a3ca20e.js"),
+						import("/strawberry/app/pages/components/__layout.svelte-c812caa9.js"),
+						import("/strawberry/app/pages/components/index.svelte-35ddf1f6.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -89,7 +89,10 @@
                     </div>
 </section>
                 <section class="berry-sidebar-section sidebar-section svelte-rmr5lz"><div class="title svelte-rmr5lz">Data Inputs</div>
-    <div class="items svelte-rmr5lz"><a href="/strawberry/components/input" class="sidebar-item svelte-gjg4f3">Text
+    <div class="items svelte-rmr5lz"><a href="/strawberry/components/input/date" class="sidebar-item svelte-gjg4f3">Date
+                        
+</a>
+                        <a href="/strawberry/components/input" class="sidebar-item svelte-gjg4f3">Text
                         
 </a>
                         <a href="/strawberry/components/input/password" class="sidebar-item svelte-gjg4f3">Password
@@ -104,7 +107,13 @@
                         <a href="/strawberry/components/input/radio" class="sidebar-item svelte-gjg4f3">Radio
                         
 </a>
-                        <a href="/strawberry/components/select" class="sidebar-item svelte-gjg4f3">Select
+                        <a href="/strawberry/components/select" class="sidebar-item svelte-gjg4f3">Select (deprecated)
+                        
+</a>
+                        <a href="/strawberry/components/input/select" class="sidebar-item svelte-gjg4f3">Select
+                        
+</a>
+                        <a href="/strawberry/components/input/textarea" class="sidebar-item svelte-gjg4f3">Textarea
                         
 </a>
                         <a href="/strawberry/components/input/time" class="sidebar-item svelte-gjg4f3">Time
@@ -131,7 +140,7 @@
         <div class="right svelte-nenj4r"><p>General Usage:
 </p>
 
-<pre class="berry-code hljs svelte-7ed6ex"><div class="language-svelte"><!-- HTML_TAG_START --><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><span class="language-javascript">
+<pre class="berry-code hljs svelte-ayg4fc"><code class="svelte-ayg4fc"><!-- HTML_TAG_START --><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><span class="language-javascript">
     <span class="hljs-keyword">import</span> <span class="hljs-string">&quot;@kwangure/strawberry/css/styles&quot;</span>;
 
     <span class="hljs-keyword">import</span> <span class="hljs-title class_">Button</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@kwangure/strawberry/components/Button&quot;</span>;
@@ -148,7 +157,7 @@
         <span class="hljs-attr">--br-button-width</span>: <span class="hljs-number">50px</span>;
         <span class="hljs-attr">--br-button-border</span>: <span class="hljs-number">3px</span> solid <span class="hljs-built_in">var</span>(--my-primary-color);
     }
-</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><!-- HTML_TAG_END --></div>
+</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><!-- HTML_TAG_END --></code>
 </pre></div></div>
 </div>
 
