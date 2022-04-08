@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.38.1](https://github.com/kwangure/strawberry/compare/v0.38.0...v0.38.1) (2022-04-08)
+
+
+### Features
+
+* add date component ([cf66774](https://github.com/kwangure/strawberry/commit/cf667743309708ba7e8adf2fdec542b19d13b99a))
+* add native select component ([19adf61](https://github.com/kwangure/strawberry/commit/19adf61ea3ba2f9db975a172e1987099e8f8062f))
+
+
+### Bug Fixes
+
+* package magic string as build step depencency ([9c4429d](https://github.com/kwangure/strawberry/commit/9c4429d4611e3953b60fc514214f69cbfc84e1dc))
+* pad textarea ([7830122](https://github.com/kwangure/strawberry/commit/7830122bc5d80eead60d0a7d69a4bb8b52c4779a))
+* prefer fetch over import.meta.hot.data ([13eb128](https://github.com/kwangure/strawberry/commit/13eb1283d3500dec0eeaa1ecdcdd9d91850bc7e2))
+
 ## [0.38.0](https://github.com/kwangure/strawberry/compare/v0.37.0...v0.38.0) (2022-02-27)
 
 
