@@ -12,12 +12,13 @@ export const serveTemplate = ({ update_event, styles }) => `
     $: css = styles?.[theme]?.[internal];
 
     if (import.meta.hot) {
-        if (import.meta.hot.data.styles) {
-            styles =  import.meta.hot.data.styles;
-        }
+        fetch("http://localhost:3000/__themer_api/styles")
+            .then(async (response) => {
+                styles = await response.json();
+            });
+
         import.meta.hot.on("${update_event}", (update) => {
             styles = update;
-            import.meta.hot.data.styles = update;
         });
     }
 

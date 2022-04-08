@@ -255,6 +255,11 @@ export function strawberry(options = {}) {
         },
         configureServer(viteServer) {
             server = viteServer;
+            server.middlewares.use("/__themer_api/styles", (_req, res) => {
+                const response = Object.fromEntries(manifest.getAllThemes());
+                res.write(JSON.stringify(response, null, 4));
+                res.end();
+            });
         },
         resolveId(id) {
             if (isThemer(id)) {
