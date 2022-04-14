@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.38.2](https://github.com/kwangure/strawberry/compare/v0.38.1...v0.38.2) (2022-04-14)
+
+
+### Bug Fixes
+
+* **temp:** improve button hover ([feb757a](https://github.com/kwangure/strawberry/commit/feb757a4fe270cb014ae6f6c70a0bafec9e4ea6c))
+
 ### [0.38.1](https://github.com/kwangure/strawberry/compare/v0.38.0...v0.38.1) (2022-04-08)
 
 
