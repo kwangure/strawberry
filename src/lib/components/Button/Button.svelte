@@ -41,6 +41,20 @@
         --br-button-border-radius: ;
         --br-button-text-color: ;
     }
+    @media (theme: berry) and (prefers-color-scheme: dark) {
+        :scope {
+            --_button-background-color: rgba(255,255,255, 0.05);
+            --_button-hover-background-color: rgba(255,255,255, 0.2);
+            --_button-text-color: #dcdcdc;
+        }
+    }
+    @media (theme: berry) and (prefers-color-scheme: light) {
+        :scope {
+            --_button-background-color: transparent;
+            --_button-hover-background-color: rgba(0,0,0, 0.1);
+            --_button-text-color: #333;
+        }
+    }
     button {
         line-height: 1.5;
         display: inline-flex;
@@ -60,7 +74,7 @@
         font-size: 14px;
         border-radius: var(--br-button-border-radius, var(--br-border-radius, var(--br-default-border-radius)));
         color: var(--br-button-text-color, var(--br-text-color, inherit));
-        background-color: transparent;
+        background-color: var(--_button-background-color);
         outline: none;
         width: var(--br-button-width, auto);
         gap: 5px;
@@ -76,12 +90,12 @@
     }
     button:focus:not(:active),
     button:hover:not(:active) {
-        background-color: var(--br-grey-lightest);
-        border-color: var(--br-grey-lightest);
+        background-color: var(--_button-hover-background-color);
+        border-color: var(--_button-hover-background-color);
         color: var(--br-text-color, inherit);
     }
     button.primary {
-        color: var(--br-white);
+        color: #fff;
         background-color: var(--br-primary);
         border: none;
     }
@@ -89,7 +103,7 @@
     button.primary:hover,
     button.primary:focus {
         background-color: var(--br-primary-hover) !important;
-        color: var(--br-white) !important;
+        color: #fff !important;
     }
     .button-prefix {
         display: flex;
