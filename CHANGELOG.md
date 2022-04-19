@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.38.3](https://github.com/kwangure/strawberry/compare/v0.38.2...v0.38.3) (2022-04-19)
+
+
+### Bug Fixes
+
+* upgrade modal button ([085bdaa](https://github.com/kwangure/strawberry/commit/085bdaa37c382e279626b4ac0f0ebbb20d628e68))
+
 ### [0.38.2](https://github.com/kwangure/strawberry/compare/v0.38.1...v0.38.2) (2022-04-14)
 
 
