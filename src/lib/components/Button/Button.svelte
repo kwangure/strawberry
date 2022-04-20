@@ -40,6 +40,7 @@
         --br-button-border: ;
         --br-button-border-radius: ;
         --br-button-text-color: ;
+        --br-button-gap: ;
     }
     @media (theme: berry) and (prefers-color-scheme: dark) {
         :scope {
@@ -77,7 +78,6 @@
         background-color: var(--_button-background-color);
         outline: none;
         width: var(--br-button-width, auto);
-        gap: 5px;
     }
     button:disabled {
         cursor: not-allowed;
@@ -87,6 +87,7 @@
         align-items: center;
         justify-content: center;
         line-height: 1.2;
+        gap: var(--br-button-gap, 5px);
     }
     button:focus:not(:active),
     button:hover:not(:active) {
