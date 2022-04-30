@@ -31,6 +31,9 @@
                         <Link href="{base}/components/icon" {path}>
                             Icon
                         </Link>
+                        <Link href="{base}/components/switch" {path}>
+                            Switch
+                        </Link>
                     </svelte:fragment>
                 </Section>
                 <Section>
