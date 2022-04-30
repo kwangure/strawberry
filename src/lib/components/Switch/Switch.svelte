@@ -4,11 +4,40 @@
 
 <script>
     import { createEventForwarder } from "../../utils/forward-events.js";
+    import { listen } from "svelte/internal";
 
     const forward = createEventForwarder();
 
+    /**
+	 * Whether the switch is checked
+	 *
+	 * @type {boolean | "indeterminate"}
+	 */
     export let checked = false;
+    /**
+     * When true, prevents the user from interacting with the switch.
+     *
+     * @type {boolean}
+     */
     export let disabled = false;
+    /**
+     * The name of the switch. Submitted with its parent form as part of a name/value pair.
+     *
+     * @type {string}
+     */
+    export let name = undefined;
+    /**
+     * When true, indicates that the user must check the switch before the parent form can be submitted.
+     *
+     * @type {boolean}
+     */
+    export let required = undefined;
+    /**
+     * The value given as data when submitted with a name.
+     *
+     * @type {string}
+     */
+    export let value = "on";
 
     function getStyle(element, prop) {
         const computedStylesheet = window.getComputedStyle(element);
@@ -127,12 +156,29 @@
             },
         };
     }
+
+    function indeterminate(input, value) {
+        function updateChecked(value) {
+            if (value === "indeterminate") {
+                input.indeterminate = true;
+            } else {
+                input.checked = value ?? false;
+            }
+        }
+        updateChecked(value);
+
+        const unlisten = listen(input, "change", () => ({ checked } = input));
+        return {
+            destroy: unlisten,
+            update: updateChecked,
+        };
+    }
 </script>
 
 <label>
     <slot/>
-    <input type="checkbox" bind:checked disabled="{disabled}" role="switch"
-        use:drag use:forward/>
+    <input type="checkbox" disabled="{disabled}" {name} {required}
+        role="switch" {value} use:indeterminate={checked} use:drag use:forward/>
 </label>
 
 <style>
