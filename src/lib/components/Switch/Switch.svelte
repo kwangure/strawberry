@@ -50,6 +50,23 @@
     }
 
     /**
+     *
+     * @param {FocusEvent} event
+     */
+    function handleFocus(event) {
+        const removeKeydownHandler = listen(event.currentTarget, "keydown", (event) => {
+            if (event.code === "Enter") {
+                event.currentTarget.checked = !event.currentTarget.checked;
+            }
+        });
+
+        const removeBlurHandler= listen(event.currentTarget, "blur", () => {
+            removeKeydownHandler();
+            removeBlurHandler();
+        });
+    }
+
+    /**
      * Toggle switch by dragging
      *
      * @param {HTMLInputElement} input
@@ -74,6 +91,7 @@
         };
 
         const removePointerDownHandler = listen(input, "pointerdown", dragInit);
+        const removeFocusHandler = listen(input, "focus", handleFocus);
 
         function dragInit(pointerDown) {
             if (input.disabled) return;
@@ -142,6 +160,7 @@
         return {
             destroy() {
                 removePointerDownHandler();
+                removeFocusHandler();
             },
         };
     }
@@ -153,7 +172,7 @@
         <label for="berry-switch"><slot/></label>
     {/if}
     <input type="checkbox" id="berry-switch" disabled="{disabled}" {name} {required}
-        role="switch" {value}  use:drag use:forward/>
+        role="switch" {value} on:focus={handleFocus} use:drag use:forward/>
 </div>
 
 <style>
