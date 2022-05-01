@@ -49,9 +49,12 @@
         return parseInt(computedStylesheet.getPropertyValue(prop));
     }
 
+    /**
+     * Toggle switch by dragging
+     *
+     * @param {HTMLInputElement} input
+     */
     function drag(input) {
-        let isDragging = false;
-        let recentlyDragged = false;
         let thumbsize = 0;
         let padding = 0;
         let bounds = {
@@ -70,45 +73,48 @@
             upper: input.clientWidth - thumbsize - padding,
         };
 
-        input.addEventListener("pointerdown", dragInit);
-        input.addEventListener("pointerup", dragEnd);
-        input.addEventListener("click", preventBlubbling);
+        const removePointerDownHandler = listen(input, "pointerdown", dragInit);
 
-        window.addEventListener("pointerup", dragEnd);
-
-        function dragInit() {
+        function dragInit(pointerDown) {
             if (input.disabled) return;
-
-            isDragging = true;
-
-            input.addEventListener("pointermove", dragging);
             input.style.setProperty("--thumb-transition-duration", "0s");
-        }
+            const removePointerMoveHandler = listen(input, "pointermove", dragging);
+            const removePointerUpHandler = listen(window, "pointerup", function click(pointerUp) {
+                try {
+                    const tapTime = pointerUp.timeStamp - pointerDown.timeStamp;
+                    const isClick = (tapTime < 300)
+                        || (
+                            Math.abs(pointerUp.clientX - pointerDown.clientX) < 5
+                            && Math.abs(pointerUp.clientY - pointerDown.clientY) < 5
+                        );
+                    if (isClick) return;
+                    // prevent race with change event which happens after pointerup
+                    const dragResult = determineChecked();
 
-        function dragEnd() {
-            if (isDragging !== true) return;
+                    // If mouse is outside input after drag, change will not fire, we update checked on pointerup
+                    // If mouse is within input after drag, change will fire and overwrite our pointerup write
+                    // So we rerun update after on change as well
+                    if (pointerUp.target === input) {
+                        const removeChangeHandler = listen(input, "change", () => {
+                            input.checked = dragResult;
+                            removeChangeHandler();
+                        });
+                    }
 
-            input.checked = determineChecked();
-
-            if (input.indeterminate) {
-                input.indeterminate = false;
-            }
-
-            input.style.removeProperty("--thumb-transition-duration");
-            input.style.removeProperty("--thumb-position");
-            input.removeEventListener("pointermove", dragging);
-
-            isDragging = false;
-
-            padRelease();
+                    checked = dragResult;
+                    input.checked = dragResult;
+                    input.style.removeProperty("--thumb-transition-duration");
+                    input.style.removeProperty("--thumb-position");
+                } finally {
+                    removePointerMoveHandler();
+                    removePointerUpHandler();
+                }
+            });
         }
 
         function dragging(event) {
-            if (isDragging !== true) return;
-
             const directionality = getStyle(input, "--isLTR");
-            const track
-            = directionality === -1
+            const track = directionality === -1
                 ? (input.clientWidth * -1) + thumbsize + padding
                 : 0;
 
@@ -133,60 +139,29 @@
             return curpos >= bounds.middle;
         }
 
-        function padRelease() {
-            recentlyDragged = true;
-
-            setTimeout((_) => (recentlyDragged = false), 300);
-        }
-
-        function preventBlubbling(event) {
-            if (recentlyDragged) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-        }
-
         return {
             destroy() {
-                input.removeEventListener("pointerdown", dragInit);
-                input.removeEventListener("pointerup", dragEnd);
-                input.removeEventListener("click", preventBlubbling);
-
-                window.removeEventListener("pointerup", dragEnd);
+                removePointerDownHandler();
             },
         };
     }
 
-    function indeterminate(input, value) {
-        function updateChecked(value) {
-            if (value === "indeterminate") {
-                input.indeterminate = true;
-            } else {
-                input.checked = value ?? false;
-            }
-        }
-        updateChecked(value);
-
-        const unlisten = listen(input, "change", () => ({ checked } = input));
-        return {
-            destroy: unlisten,
-            update: updateChecked,
-        };
-    }
 </script>
 
-<label>
-    <slot/>
-    <input type="checkbox" disabled="{disabled}" {name} {required}
-        role="switch" {value} use:indeterminate={checked} use:drag use:forward/>
-</label>
+<div>
+    {#if $$slots.default}
+        <label for="berry-switch"><slot/></label>
+    {/if}
+    <input type="checkbox" id="berry-switch" disabled="{disabled}" {name} {required}
+        role="switch" {value}  use:drag use:forward/>
+</div>
 
 <style>
     :export {
         --br-switch-flex-direction: ;
     }
 
-    label {
+    div {
         --thumb-size: 1.25rem;
 
         --track-size: calc(var(--thumb-size) * 2);
@@ -209,7 +184,7 @@
         -webkit-tap-highlight-color: transparent;
     }
 
-    label:dir(rtl) {
+    div:dir(rtl) {
         --isLTR: -1;
     }
 
@@ -276,6 +251,14 @@
         transition: transform var(--thumb-transition-duration) ease,
             box-shadow 0.25s ease;
         transform: translateX(var(--thumb-position));
+    }
+
+    input::after {
+        content: "";
+        cursor: pointer;
+        pointer-events: auto;
+        grid-area: track;
+        block-size: var(--thumb-size);
     }
 
     input:not(:disabled):hover::before {
