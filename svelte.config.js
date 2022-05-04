@@ -3,6 +3,7 @@ import docs from "@kwangure/svelte-docs";
 import { fileURLToPath } from "url";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import inspect from "vite-plugin-inspect";
+import localPackageWatch from "./scripts/local-pkg-watch/index.js";
 import micromatch from 'micromatch';
 import path from "path";
 import { strawberry } from "./src/lib/build/vite-plugin-strawberry.js";
@@ -68,6 +69,7 @@ export default {
                 strawberry({
                     appDir,
                 }),
+                localPackageWatch(),
             ],
             resolve: {
                 alias: {
