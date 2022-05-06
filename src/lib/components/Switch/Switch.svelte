@@ -71,7 +71,16 @@
      *
      * @param {HTMLInputElement} input
      */
-    function drag(input) {
+    function drag(input, checkedInitial) {
+        function updateChecked(checked) {
+            if (checked === "indeterminate") {
+                input.indeterminate = true;
+            } else {
+                input.checked = checked;
+            }
+        }
+        updateChecked(checkedInitial);
+
         let thumbsize = 0;
         let padding = 0;
         let bounds = {
@@ -92,6 +101,11 @@
 
         const removePointerDownHandler = listen(input, "pointerdown", dragInit);
         const removeFocusHandler = listen(input, "focus", handleFocus);
+        // Coordinating change events and dragging + clicks is unnecessarily involving
+        // So we treat `checked` as only source of truth
+        const removeChangeHandler = listen(input, "change", (event) => {
+            event.target.checked = checked;
+        });
 
         function dragInit(pointerDown) {
             if (input.disabled) return;
@@ -105,22 +119,11 @@
                             Math.abs(pointerUp.clientX - pointerDown.clientX) < 5
                             && Math.abs(pointerUp.clientY - pointerDown.clientY) < 5
                         );
-                    if (isClick) return;
-                    // prevent race with change event which happens after pointerup
-                    const dragResult = determineChecked();
-
-                    // If mouse is outside input after drag, change will not fire, we update checked on pointerup
-                    // If mouse is within input after drag, change will fire and overwrite our pointerup write
-                    // So we rerun update after on change as well
-                    if (pointerUp.target === input) {
-                        const removeChangeHandler = listen(input, "change", () => {
-                            input.checked = dragResult;
-                            removeChangeHandler();
-                        });
+                    if (isClick) {
+                        checked = checked === "indeterminate" ? true : !checked;
+                        return;
                     }
-
-                    checked = dragResult;
-                    input.checked = dragResult;
+                    checked = determineChecked();
                     input.style.removeProperty("--thumb-transition-duration");
                     input.style.removeProperty("--thumb-position");
                 } finally {
@@ -148,9 +151,10 @@
         }
 
         function determineChecked() {
-            let curpos = Math.abs(parseInt(input.style.getPropertyValue("--thumb-position")));
+            const thumbPos = input.style.getPropertyValue("--thumb-position");
+            let curpos = Math.abs(parseInt(thumbPos));
 
-            if (!curpos) {
+            if (thumbPos === "") {
                 curpos = input.checked ? bounds.lower : bounds.upper;
             }
 
@@ -158,9 +162,11 @@
         }
 
         return {
+            update: updateChecked,
             destroy() {
                 removePointerDownHandler();
                 removeFocusHandler();
+                removeChangeHandler();
             },
         };
     }
@@ -172,7 +178,7 @@
         <label for="berry-switch"><slot/></label>
     {/if}
     <input type="checkbox" id="berry-switch" disabled="{disabled}" {name} {required}
-        role="switch" {value} on:focus={handleFocus} use:drag use:forward/>
+        role="switch" {value} on:focus={handleFocus} use:drag={checked} use:forward/>
 </div>
 
 <style>
