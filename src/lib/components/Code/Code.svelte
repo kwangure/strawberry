@@ -27,11 +27,8 @@
     export let inline = false;
 </script>
 
-<pre class="berry-code hljs" class:inline>
-    <code>
-        {@html language(code.replace(" *{}", ""))}
-    </code>
-</pre>
+<!-- Leave as one long line since `pre` preserves whitespace-->
+<pre class="berry-code hljs" class:inline><code>{@html language(code.replace(" *{}", ""))}</code></pre>
 
 <style>
     :export {

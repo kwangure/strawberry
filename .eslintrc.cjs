@@ -1,4 +1,5 @@
 module.exports = {
+    root: true,
     extends: [
         "@kwangure/eslint-config-svelte",
     ],
@@ -23,4 +24,13 @@ module.exports = {
             processor: "svelte3/svelte3",
         },
     ],
+    parserOptions: {
+        sourceType: "module",
+        ecmaVersion: 2020
+    },
+    env: {
+        browser: true,
+        es2017: true,
+        node: true,
+    },
 };

@@ -1,5 +1,5 @@
-import { test as baseTest, expect } from "@playwright/test";
-import { fixtures } from "sitgent/playwright";
+import { test as baseTest, expect } from "sitgent/playwright-test";
+import { fixtures } from "sitgent/fixtures";
 
 const test = baseTest.extend(fixtures);
 

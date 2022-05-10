@@ -4,9 +4,10 @@
     import Layout from "$lib/internal/layout.svelte";
     import { page } from "$app/stores";
 
+    /** @type {string} */
     let path;
 
-    $: ({ path } = $page);
+    $: ({ pathname: path } = $page.url);
     $: if (base) {
         path = `${base}${path}`;
     }

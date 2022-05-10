@@ -7,12 +7,10 @@ import localPackageWatch from "./scripts/local-pkg-watch/index.js";
 import micromatch from 'micromatch';
 import path from "path";
 import { strawberry } from "./src/lib/build/vite-plugin-strawberry.js";
+import test from "sitgent/plugin";
 
 const MODE = process.env.NODE_ENV;
 const PROD = MODE === "production";
-if (MODE === undefined) {
-    console.warn("[svelte.config.js] 'NODE_ENV' is undefined. Did you mean to set it to 'packaging'?\n");
-}
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -62,7 +60,6 @@ export default {
         paths: {
             base: PROD ? "/strawberry" : "",
         },
-        target: "#svelte",
         vite: {
             plugins: [
                 inspect(),
@@ -70,6 +67,7 @@ export default {
                     appDir,
                 }),
                 localPackageWatch(),
+                test(),
             ],
             resolve: {
                 alias: {
