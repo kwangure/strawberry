@@ -4,7 +4,7 @@ import { fixtures } from "sitgent/fixtures";
 const test = baseTest.extend(fixtures);
 
 test("Toggle switch", async ({ page, queries }) => {
-    await page.goto("http://localhost:3000/components/switch");
+    await page.goto("/components/switch");
     const switchLocator = await queries.getByRole("switch");
     await expect(switchLocator, "Switch 'input' should be checked when 'checked' prop is true.").toBeChecked();
     await switchLocator.click();
