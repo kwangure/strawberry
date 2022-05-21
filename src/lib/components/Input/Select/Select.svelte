@@ -7,28 +7,28 @@
      * Guidance to the browser on information expected in the field.
      * Helps UserAgent automate filling form field values.
      *
-     * @type {"off" | "on"}
+     * @type {"off" | "on" | undefined}
      */
     export let autocomplete = undefined;
 
     /**
      * Whether select should have input focus when the page loads.
      *
-     * @type {boolean}
+     * @type {boolean | undefined}
      */
     export let autofocus = undefined;
 
     /**
      * Indicates that the user cannot interact with the Select.
      *
-     * @type {boolean}
+     * @type {boolean | undefined}
      */
     export let disabled = undefined;
 
     /**
      * The id of the form to associate with a Select
      *
-     * @type {string}
+     * @type {string | undefined}
      */
     export let form = undefined;
 
@@ -41,14 +41,14 @@
 
     /**
      *  Briefly hints the kind of information is expected in the field
-     * @type {string}
+     * @type {string | undefined}
      */
-    export let placeholder;
+    export let placeholder = undefined;
 
     /**
      * Indicate that an Option with a non-empty string value must be selected
      *
-     * @type {string}
+     * @type {boolean | undefined}
      */
     export let required = undefined;
 
@@ -68,7 +68,9 @@
         <!-- svelte-ignore a11y-autofocus -->
         <select {autocomplete} {autofocus} {disabled} {form} {required}
             bind:value id={labelId} {placeholder} use:forward>
-            <Option value="" disabled selected>{placeholder}</Option>
+            {#if placeholder}
+                <Option value="" disabled selected>{placeholder}</Option>
+            {/if}
             <slot></slot>
         </select>
     </div>
