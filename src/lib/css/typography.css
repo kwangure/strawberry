@@ -22,7 +22,8 @@
 }
 
 :root,
-:host {
+:host,
+body {
     font-size: var(--br-font-size);
     font-weight: 400;
     line-height: var(--br-line-height);
