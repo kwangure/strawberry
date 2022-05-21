@@ -7,7 +7,7 @@ import localPackageWatch from "./scripts/local-pkg-watch/index.js";
 import micromatch from 'micromatch';
 import path from "path";
 import { strawberry } from "./src/lib/build/vite-plugin-strawberry.js";
-import test from "sitgent/plugin";
+import { sveltekitPluginDtl } from "sitgent/plugin";
 
 const MODE = process.env.NODE_ENV;
 const PROD = MODE === "production";
@@ -67,7 +67,7 @@ export default {
                     appDir,
                 }),
                 localPackageWatch(),
-                test(),
+                sveltekitPluginDtl(),
             ],
             resolve: {
                 alias: {
