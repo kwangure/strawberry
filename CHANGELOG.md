@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.39.0](https://github.com/kwangure/strawberry/compare/v0.38.3...v0.39.0) (2022-05-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* refine input validation (#57)
+
+### Features
+
+* add `name`, `required`, `value` and `indeterminate` props ([03563f8](https://github.com/kwangure/strawberry/commit/03563f87ee78d86bb1fd465dabe57e94344a476d))
+* add button gap ([d97fd69](https://github.com/kwangure/strawberry/commit/d97fd69bc8d88c1ca4de66f5785f1b1770fd9384))
+* implement switch ([aeff0e7](https://github.com/kwangure/strawberry/commit/aeff0e7fb20275dd0eb1361d69ea077146ca4c73))
+* refine input validation ([#57](https://github.com/kwangure/strawberry/issues/57)) ([264216a](https://github.com/kwangure/strawberry/commit/264216a0f15d88085a943f8597df19cf017b3e04))
+* toggle switch with enter key ([e6679b8](https://github.com/kwangure/strawberry/commit/e6679b8a28f39f5a91ca4299d5343565e6bdab6c))
+
+
+### Bug Fixes
+
+* add typography styles to body ([e21a0d7](https://github.com/kwangure/strawberry/commit/e21a0d778204e80c70299f9afd1468940eed33e8))
+* add value to checkbox ([2aaac46](https://github.com/kwangure/strawberry/commit/2aaac468928a8618414e7a6234cc53a67bb9b9a0))
+* correct onchange race condition ([ec46c09](https://github.com/kwangure/strawberry/commit/ec46c094d2444f3623425d2493812c71a13a2c15))
+* prevent Switch race condition with onchange ([e84af08](https://github.com/kwangure/strawberry/commit/e84af082af9418f131a00b1b9f3773f50ce5b423))
+
 ### [0.38.3](https://github.com/kwangure/strawberry/compare/v0.38.2...v0.38.3) (2022-04-19)
 
 
