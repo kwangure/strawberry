@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.39.2](https://github.com/kwangure/strawberry/compare/v0.39.1...v0.39.2) (2022-05-25)
+
+
+### Features
+
+* add missing name prop in Select ([fea8db0](https://github.com/kwangure/strawberry/commit/fea8db0fd9642f1e71503e74250fec9986b1e472))
+* simplify sidebar items spacing ([f28b7a6](https://github.com/kwangure/strawberry/commit/f28b7a6864c9c02a7a326a7ab68aa0063c719499))
+
 ### [0.39.1](https://github.com/kwangure/strawberry/compare/v0.39.0...v0.39.1) (2022-05-22)
 
 ## [0.39.0](https://github.com/kwangure/strawberry/compare/v0.38.3...v0.39.0) (2022-05-22)
