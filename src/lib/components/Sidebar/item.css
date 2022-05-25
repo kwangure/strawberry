@@ -44,7 +44,3 @@
 .sidebar-item.active:hover {
     background-color: var(--br-sidebar-item-active-hover-background-color, var(--br-item-active-hover-background-color, var(--_item-active-hover-background-color)));
 }
-
-.sidebar-item + :global(.sidebar-item) {
-    margin-top: var(--br-inner-gutter);
-}

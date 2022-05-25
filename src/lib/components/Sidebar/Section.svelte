@@ -8,10 +8,6 @@
 </section>
 
 <style>
-    :global(*) + .sidebar-section {
-        padding-top: var(--br-inner-gutter);
-        padding-bottom: var(--br-inner-gutter);
-    }
     .title {
         padding: var(--br-item-padding-block) var(--br-item-padding-inline) var(--br-inner-gutter);
         position: sticky;
@@ -21,7 +17,10 @@
         font-size: 12.5px;
     }
     .items {
+        display: flex;
+        flex-direction: column;
         padding-left: var(--br-outer-gutter);
+        gap: var(--br-inner-gutter);
     }
 </style>
 

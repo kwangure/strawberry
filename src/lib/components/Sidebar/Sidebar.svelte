@@ -10,6 +10,7 @@
         display: flex;
         flex-direction: column;
         user-select: none;
+        gap: var(--br-inner-gutter);
     }
 </style>
 
