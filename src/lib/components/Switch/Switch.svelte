@@ -23,13 +23,13 @@
     /**
      * The name of the switch. Submitted with its parent form as part of a name/value pair.
      *
-     * @type {string}
+     * @type {string | undefined}
      */
     export let name = undefined;
     /**
      * When true, indicates that the user must check the switch before the parent form can be submitted.
      *
-     * @type {boolean}
+     * @type {boolean | undefined}
      */
     export let required = undefined;
     /**

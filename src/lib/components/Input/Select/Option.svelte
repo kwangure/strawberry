@@ -4,7 +4,7 @@
     /**
      * If this Boolean attribute is set, this option is not checkable.
      *
-     * @type {boolean}
+     * @type {boolean | undefined}
      */
     export let disabled = undefined;
 
@@ -12,14 +12,14 @@
      * Indicates the meaning of the Option. Falls back to the text content
      * of the option.
      *
-     * @type {string}
+     * @type {string | undefined}
      */
     export let label = undefined;
 
     /**
      * Indicates this the Option is initially selected.
      *
-     * @type {boolean}
+     * @type {boolean | undefined}
      */
     export let selected = undefined;
 

@@ -62,9 +62,9 @@
     /**
      * The value of the Select.
      *
-     * @type {string}
+     * @type {string | undefined}
      */
-    export let value = "";
+    export let value = undefined;
 
     const forward = createEventForwarder();
 </script>
