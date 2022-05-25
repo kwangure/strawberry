@@ -40,6 +40,13 @@
     export let hideLabel = false;
 
     /**
+     * The name of the select. Submitted with form as part of a name/value pair.
+     *
+     * @type {string | undefined}
+     */
+    export let name = undefined;
+
+    /**
      *  Briefly hints the kind of information is expected in the field
      * @type {string | undefined}
      */
@@ -66,7 +73,8 @@
     <slot name="label" slot="label"/>
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
-        <select {autocomplete} {autofocus} {disabled} {form} {required}
+        <select {autocomplete} {autofocus} {disabled} {form}
+            {name} {required}
             bind:value id={labelId} {placeholder} use:forward>
             {#if placeholder}
                 <Option value="" disabled selected>{placeholder}</Option>
