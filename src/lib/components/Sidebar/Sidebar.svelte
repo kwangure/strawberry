@@ -1,3 +1,7 @@
+<script>
+    import "$lib/css/styles";
+</script>
+
 <div class="berry-sidebar">
     <slot/>
 </div>

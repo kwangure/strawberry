@@ -35,15 +35,10 @@ export default {
 ```
 ```svelte
 <script>
-    // Import the `Theme` component to add styling
-    import Theme from "@kwangure/strawberry/components/Theme";
-
     import Button from "@kwangure/strawberry/components/Button";
 
     const hello = () => console.log('strawberry');
 </script>
-
-<Theme />
 
 <div class="document">
     <Button on:click={hello}>Click me!</Button>

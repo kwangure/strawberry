@@ -1,11 +1,12 @@
 <script>
+    import "$lib/css/styles";
     import { getSVGParent, isSVGChild } from "../../utils/svg.js";
     import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
     import { createPopper } from "@popperjs/core";
 
     /**
      * Where to position the popup relative to the reference element.
-     * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
+     * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end"}
      */
     export let placement = "auto";
     export let followMouse = false;

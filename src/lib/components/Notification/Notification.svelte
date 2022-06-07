@@ -3,6 +3,7 @@
 </script>
 
 <script>
+    import "$lib/css/styles";   
     import { createEventDispatcher } from "svelte";
     import { fly } from "svelte/transition";
     import Icon from "../Icon";

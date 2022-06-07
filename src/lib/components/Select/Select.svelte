@@ -1,4 +1,5 @@
 <script>
+    import "$lib/css/styles";
     import { createEventDispatcher, setContext, tick } from "svelte";
     import Dropdown from "../Dropdown";
     import Icon from "../Icon";

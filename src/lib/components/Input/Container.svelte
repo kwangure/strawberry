@@ -1,4 +1,6 @@
 <script>
+    import "$lib/css/styles";
+    
     import uid from "uid";
 
     export let hideLabel = false;

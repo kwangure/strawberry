@@ -3,6 +3,7 @@
 </script>
 
 <script>
+    import "$lib/css/styles";
     /**
      * @template T
      * @typedef {{ name: T, highlighter: function }} Language<T>

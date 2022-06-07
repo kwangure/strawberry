@@ -10,6 +10,7 @@
 </script>
 
 <script>
+    import "$lib/css/styles";
     import { setContext } from "svelte";
     import { writable } from "svelte/store";
 

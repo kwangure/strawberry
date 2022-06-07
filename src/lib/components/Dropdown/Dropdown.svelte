@@ -3,6 +3,7 @@
 </script>
 
 <script>
+    import "$lib/css/styles";
     import { createPopper } from "@popperjs/core";
 
     /**

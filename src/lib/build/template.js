@@ -1,7 +1,5 @@
 export const serveTemplate = ({ update_event, styles }) => `
 <script>
-    import "@kwangure/strawberry/css/styles";
-
     export let theme = "berry";
     export let mode = "";
 
@@ -44,7 +42,6 @@ export const serveTemplate = ({ update_event, styles }) => `
 
 export const buildTemplate = ({ placeholder }) => `
 <script>
-    import "@kwangure/strawberry/css/styles";
     import { browser } from '$app/env';
 
     export let theme = "berry";

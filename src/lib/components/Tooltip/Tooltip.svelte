@@ -1,4 +1,5 @@
 <script>
+    import "$lib/css/styles";
     import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
     import { createPopper } from "@popperjs/core";
 

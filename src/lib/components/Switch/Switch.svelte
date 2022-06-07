@@ -3,6 +3,7 @@
 </script>
 
 <script>
+    import "$lib/css/styles";
     import { createEventForwarder } from "../../utils/forward-events.js";
     import { listen } from "svelte/internal";
 

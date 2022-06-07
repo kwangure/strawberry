@@ -1,4 +1,5 @@
 <script>
+    import "$lib/css/styles";
     import { createEventDispatcher } from "svelte";
     import Item from "./Item.svelte";
 
