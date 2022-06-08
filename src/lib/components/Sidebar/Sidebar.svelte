@@ -1,5 +1,5 @@
 <script>
-    import "$lib/css/styles";
+    import "../../css/styles.js";
 </script>
 
 <div class="berry-sidebar">

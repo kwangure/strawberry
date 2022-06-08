@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import "$lib/css/styles";
+    import "../../css/styles.js";
     import { isIOS, isMacintosh } from "../../utils/platform";
     import { onDestroy } from "svelte";
     import { slide } from "svelte/transition";

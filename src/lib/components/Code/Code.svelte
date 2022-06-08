@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import "$lib/css/styles";
+    import "../../css/styles.js";
     /**
      * @template T
      * @typedef {{ name: T, highlighter: function }} Language<T>

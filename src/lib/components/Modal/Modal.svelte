@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import "$lib/css/styles";
+    import "../../css/styles.js";
     import Button from "../Button";
     import Icon from "../Icon";
     import { createEventDispatcher } from "svelte";

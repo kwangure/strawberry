@@ -8,7 +8,7 @@
     A button triggers an event or action. They let users know what will happen next.
 -->
 <script>
-    import "$lib/css/styles";
+    import "../../css/styles.js";
     import { createEventForwarder } from "../../utils/forward-events.js";
 
     /**

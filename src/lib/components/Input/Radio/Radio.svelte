@@ -1,5 +1,5 @@
 <script>
-    import "$lib/css/styles";
+    import "../../../css/styles.js";
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import { getContext } from "svelte";
     import { radioGroup } from "./Group.svelte";
