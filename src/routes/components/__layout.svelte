@@ -43,6 +43,9 @@
                         <Link href="{base}/components/input/date" {path}>
                             Date
                         </Link>
+                        <Link href="{base}/components/input/datetime" {path}>
+                            DateTime
+                        </Link>
                         <Link href="{base}/components/input" {path}>
                             Text
                         </Link>

@@ -3,8 +3,6 @@
     /* eslint-disable no-useless-escape */
     const usage = `
 <script\>
-    import "@kwangure/strawberry/css/styles";
-
     import Button from "@kwangure/strawberry/components/Button";
 
     const hello = () => console.log('strawberry');
