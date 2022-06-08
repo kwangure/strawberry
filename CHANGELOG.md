@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.40.2](https://github.com/kwangure/strawberry/compare/v0.40.1...v0.40.2) (2022-06-08)
+
 ### [0.40.1](https://github.com/kwangure/strawberry/compare/v0.40.0...v0.40.1) (2022-06-08)
 
 
