@@ -21,17 +21,15 @@
 </script>
 
 <button class="berry-button" class:primary {...$$restProps} use:forward>
-    <div class="content-wrapper">
-        <!--
-            Any content that is acceptable in a HTMLButtonElement.
-            @usage
-            <Button>
-                // Default slot content
-                I am button content
-            </Button>
-        -->
-        <slot />
-    </div>
+    <!--
+        Any content that is acceptable in a HTMLButtonElement.
+        @usage
+        <Button>
+            // Default slot content
+            I am button content
+        </Button>
+    -->
+    <slot />
 </button>
 
 <style>
@@ -58,7 +56,7 @@
         }
     }
     button {
-        line-height: 1.5;
+        line-height: 1.2;
         display: inline-flex;
         font-weight: 400;
         white-space: nowrap;
@@ -79,16 +77,10 @@
         background-color: var(--_button-background-color);
         outline: none;
         width: var(--br-button-width, auto);
+        gap: var(--br-button-gap, 5px);
     }
     button:disabled {
         cursor: not-allowed;
-    }
-    button .content-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1.2;
-        gap: var(--br-button-gap, 5px);
     }
     button:focus:not(:active),
     button:hover:not(:active) {
