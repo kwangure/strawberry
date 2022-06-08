@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.40.0](https://github.com/kwangure/strawberry/compare/v0.39.2...v0.40.0) (2022-06-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* add active and download attribute
+
+### Features
+
+* add active and download attribute ([9da1a22](https://github.com/kwangure/strawberry/commit/9da1a22fb2c47160162eefd66052fa0ca9b00e2d))
+* add datetime component ([18f2138](https://github.com/kwangure/strawberry/commit/18f2138f61562cd307a0094ea2400f32f8644a1e))
+* load styles from individual components ([857788c](https://github.com/kwangure/strawberry/commit/857788c4def8b40e8e504219831d954f545be2bf))
+
 ### [0.39.2](https://github.com/kwangure/strawberry/compare/v0.39.1...v0.39.2) (2022-05-25)
 
 
