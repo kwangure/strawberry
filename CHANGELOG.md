@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.40.1](https://github.com/kwangure/strawberry/compare/v0.40.0...v0.40.1) (2022-06-08)
+
+
+### Features
+
+* upgrade sveltekit ([3be9146](https://github.com/kwangure/strawberry/commit/3be914602c7edff6266367a46ac7480d9d6a4cad))
+
+
+### Bug Fixes
+
+* use manual style path ([f5a9f1d](https://github.com/kwangure/strawberry/commit/f5a9f1d19eeba529c59be7c3d39445e2671e985e))
+
 ## [0.40.0](https://github.com/kwangure/strawberry/compare/v0.39.2...v0.40.0) (2022-06-08)
 
 
