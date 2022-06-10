@@ -29,6 +29,9 @@
                         <Link href="{base}/components/dropdown" {path}>
                             Dropdown
                         </Link>
+                        <Link href="{base}/components/element" {path}>
+                            Element
+                        </Link>
                         <Link href="{base}/components/icon" {path}>
                             Icon
                         </Link>
