@@ -40,11 +40,19 @@
      */
     export let value = "on";
 
+    /**
+     * @param {Element} element
+     * @param {string} prop
+     */
     function getStyle(element, prop) {
         const computedStylesheet = window.getComputedStyle(element);
         return parseInt(computedStylesheet.getPropertyValue(prop));
     }
 
+    /**
+     * @param {Element} element
+     * @param {string} prop
+     */
     function getPseudoStyle(element, prop) {
         const computedStylesheet = window.getComputedStyle(element, ":before");
         return parseInt(computedStylesheet.getPropertyValue(prop));
@@ -55,13 +63,14 @@
      * @param {FocusEvent} event
      */
     function handleFocus(event) {
-        const removeKeydownHandler = listen(event.currentTarget, "keydown", (event) => {
-            if (event.code === "Enter") {
-                event.currentTarget.checked = !event.currentTarget.checked;
+        const currentTarget = /** @type {HTMLInputElement}*/ (event.currentTarget);
+        const removeKeydownHandler = listen(currentTarget, "keydown", (event) => {
+            if (/** @type {KeyboardEvent}*/ (event).code === "Enter") {
+                currentTarget.checked = !currentTarget.checked;
             }
         });
 
-        const removeBlurHandler= listen(event.currentTarget, "blur", () => {
+        const removeBlurHandler= listen(currentTarget, "blur", () => {
             removeKeydownHandler();
             removeBlurHandler();
         });
@@ -69,10 +78,13 @@
 
     /**
      * Toggle switch by dragging
-     *
      * @param {HTMLInputElement} input
+     * @param {"indeterminate" | boolean} checkedInitial
      */
     function drag(input, checkedInitial) {
+        /**
+         * @param {"indeterminate" | boolean} checked
+         */
         function updateChecked(checked) {
             if (checked === "indeterminate") {
                 input.indeterminate = true;
@@ -100,25 +112,26 @@
             upper: input.clientWidth - thumbsize - padding,
         };
 
-        const removePointerDownHandler = listen(input, "pointerdown", dragInit);
-        const removeFocusHandler = listen(input, "focus", handleFocus);
+        const removePointerDownHandler = listen(input, "pointerdown", /** @type {(event: Event) => void}*/ (dragInit));
+        const removeFocusHandler = listen(input, "focus", /** @type {(event: Event) => void}*/ (handleFocus));
         // Coordinating change events and dragging + clicks is unnecessarily involving
         // So we treat `checked` as only source of truth
-        const removeChangeHandler = listen(input, "change", (event) => {
-            event.target.checked = checked;
-        });
+        const removeChangeHandler = listen(input, "change", () => updateChecked(checked));
 
+        /**
+         * @param {PointerEvent} pointerDown
+         */
         function dragInit(pointerDown) {
             if (input.disabled) return;
             input.style.setProperty("--thumb-transition-duration", "0s");
-            const removePointerMoveHandler = listen(input, "pointermove", dragging);
+            const removePointerMoveHandler = listen(input, "pointermove", /** @type {(event: Event) => void}*/ (dragging));
             const removePointerUpHandler = listen(window, "pointerup", function click(pointerUp) {
                 try {
                     const tapTime = pointerUp.timeStamp - pointerDown.timeStamp;
                     const isClick = (tapTime < 300)
                         || (
-                            Math.abs(pointerUp.clientX - pointerDown.clientX) < 5
-                            && Math.abs(pointerUp.clientY - pointerDown.clientY) < 5
+                            Math.abs(/** @type {PointerEvent} */ (pointerUp).clientX - pointerDown.clientX) < 5
+                            && Math.abs(/** @type {PointerEvent} */ (pointerUp).clientY - pointerDown.clientY) < 5
                         );
                     if (isClick) {
                         checked = checked === "indeterminate" ? true : !checked;
@@ -134,6 +147,9 @@
             });
         }
 
+        /**
+         * @param {PointerEvent} event
+         */
         function dragging(event) {
             const directionality = getStyle(input, "--isLTR");
             const track = directionality === -1
