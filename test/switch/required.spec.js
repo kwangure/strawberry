@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { page } from "../../src/lib/internal/test/playwright.js";
+import { page } from "../../src/lib/internal/test/playwright/vitest.js";
 
 describe.only("Required switch", async () => {
     it("prevents submission when 'required' prop is true and Switch is unchecked", async ({ expect }) => {

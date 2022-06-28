@@ -1,5 +1,5 @@
 import { describe, it } from "vitest"
-import { page } from "../../src/lib/internal/test/playwright.js";
+import { page } from "../../src/lib/internal/test/playwright/vitest.js";
 
 describe("Switch value", async () => {
     it("is adds input value from prop to form", async ({ expect }) => {

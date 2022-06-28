@@ -1,5 +1,5 @@
 import { describe, it } from "vitest"
-import { page } from "../../src/lib/internal/test/playwright.js";
+import { page } from "../../src/lib/internal/test/playwright/vitest.js";
 
 describe("Named switch", async () => {
     it("has a named form input", async ({ expect }) => {

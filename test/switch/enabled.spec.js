@@ -1,5 +1,5 @@
 import { describe, it } from "vitest"
-import { page, queries } from "../../src/lib/internal/test/playwright.js";
+import { page, queries } from "../../src/lib/internal/test/playwright/vitest.js";
 
 describe("Enabled switch", async () => {
     let switchLocator;
