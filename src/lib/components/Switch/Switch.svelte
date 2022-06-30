@@ -123,7 +123,8 @@
          */
         function dragInit(pointerDown) {
             if (input.disabled) return;
-            input.style.setProperty("--thumb-transition-duration", "0s");
+            // Only clicks should animate the switch sliding
+            input.style.setProperty("transition-duration", "0s");
             const removePointerMoveHandler = listen(input, "pointermove", /** @type {(event: Event) => void}*/ (dragging));
             const removePointerUpHandler = listen(window, "pointerup", function click(pointerUp) {
                 try {
@@ -138,7 +139,7 @@
                         return;
                     }
                     checked = determineChecked();
-                    input.style.removeProperty("--thumb-transition-duration");
+                    input.style.removeProperty("transition-duration");
                     input.style.removeProperty("--thumb-position");
                 } finally {
                     removePointerMoveHandler();
@@ -190,7 +191,7 @@
 
 </script>
 
-<div>
+<div class="berry-element">
     {#if $$slots.default}
         <label for="berry-switch"><slot/></label>
     {/if}
@@ -199,21 +200,11 @@
 </div>
 
 <style>
-    :export {
-        --br-switch-flex-direction: ;
-    }
+    @import "./switch.css";
+    @import "./switch_light.css" (prefers-color-scheme: light);
+    @import "./switch_dark.css" (prefers-color-scheme: dark);
 
     div {
-        --thumb-size: 1.25rem;
-
-        --track-size: calc(var(--thumb-size) * 2);
-        --track-padding: 2px;
-
-        --thumb-color: var(--thumb);
-        --thumb-color-highlight: var(--thumb-highlight);
-        --track-color-inactive: var(--track-inactive);
-        --track-color-active: var(--track-active);
-
         --isLTR: 1;
 
         display: flex;
@@ -230,35 +221,16 @@
         --isLTR: -1;
     }
 
-    @media (theme: berry) and (prefers-color-scheme: light) {
-        :scope {
-            --thumb: hsl(0 0% 105%);
-            --thumb-highlight: hsl(0 0% 0% / 25%);
-            --track-inactive: hsl(80 0% 80%);
-            --track-active: hsl(225deg 100% 45%);
-        }
-    }
-
-    @media (theme: berry) and (prefers-color-scheme: dark) {
-        :scope {
-            --thumb: hsl(0 0% 100%);
-            --thumb-highlight: hsl(0 0% 100% / 25%);
-            --track-inactive: hsl(80 0% 35%);
-            --track-active: hsl(225deg 100% 65%);
-        }
-    }
-
     input {
         --thumb-position: 0%;
-        --thumb-transition-duration: 0.25s;
     }
 
     input {
-        padding: var(--track-padding);
-        background: var(--track-color-inactive);
-        inline-size: var(--track-size);
-        block-size: var(--thumb-size);
-        border-radius: var(--track-size);
+        padding: var(--br-switch-track-padding);
+        background: var(--br-switch-track-inactive-background);
+        inline-size: var(--br-switch-track-size);
+        block-size: var(--br-switch-thumb-size);
+        border-radius: var(--br-switch-track-size);
 
         appearance: none;
         pointer-events: none;
@@ -276,22 +248,18 @@
     }
 
     input::before {
-        --highlight-size: 0;
-
         content: "";
         cursor: pointer;
         pointer-events: auto;
         grid-area: track;
-        inline-size: var(--thumb-size);
-        block-size: var(--thumb-size);
-        background: var(--thumb-color);
-        box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
+        inline-size: var(--br-switch-thumb-size);
+        block-size: var(--br-switch-thumb-size);
+        background: var(--br-switch-thumb-color-scheme-color);
+        box-shadow: 0 0 0 0 var(--br-switch-thumb-color-box-shadow);
         border-radius: 50%;
-        transform: translateX(var(--thumb-position));
 
         /* TODO: @media (prefers-reduced-motion: ...); */
-        transition: transform var(--thumb-transition-duration) ease,
-            box-shadow 0.25s ease;
+        transition: transform var(--br-switch-thumb-transition-duration) ease, box-shadow 0.25s ease;
         transform: translateX(var(--thumb-position));
     }
 
@@ -300,22 +268,19 @@
         cursor: pointer;
         pointer-events: auto;
         grid-area: track;
-        block-size: var(--thumb-size);
+        block-size: var(--br-switch-thumb-size);
     }
 
     input:not(:disabled):hover::before {
-        --highlight-size: 0.5rem;
+        box-shadow: 0 0 0 var(--br-switch-thumb-radius-hover-box-shadow) var(--br-switch-thumb-color-box-shadow);
     }
 
     input:checked {
-        background: var(--track-color-active);
-        --thumb-position: calc((var(--track-size) - 100%) * var(--isLTR));
+        background: var(--br-switch-track-active-background);
+        --thumb-position: calc((var(--br-switch-track-size) - 100%) * var(--isLTR));
     }
 
     input:indeterminate {
-        --thumb-position: calc(
-            calc(calc(var(--track-size) / 2) - calc(var(--thumb-size) / 2)) *
-                var(--isLTR)
-        );
+        --thumb-position: calc(calc(calc(var(--br-switch-track-size) / 2) - calc(var(--br-switch-thumb-size) / 2)) * var(--isLTR));
     }
 </style>
