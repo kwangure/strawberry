@@ -79,6 +79,15 @@
 {/if}
 
 <style>
+    :host,
+    :root {
+        --br-modal-background-color: var(--br-default-background-color);
+        --br-modal-border-radius: var(--br-border-radius);
+        --br-modal-box-shadow: var(--br-default-box-shadow);
+        --br-modal-transition-duration: background-color var(--br-transition-duration) ease;
+        --br-modal-overlay-transition: background-color var(--br-transition-duration) ease;
+        --br-modal-overlay-background-color: rgba(0, 0, 0, 0.5);
+    }
     .overlay {
         position: fixed;
         top: 0;
@@ -86,8 +95,8 @@
         bottom: 0;
         left: 0;
         z-index: 1050;
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: background-color var(--br-transition-duration) ease;
+        background-color: var(--br-modal-overlay-background-color);
+        transition: var(--br-modal-overlay-transition);
     }
     .wrapper {
         width: 100vw;
@@ -97,14 +106,11 @@
         justify-content: center;
     }
     .modal {
-        background-color: var(
-            --br-modal-background-color,
-            var(--br-default-background-color)
-        );
+        background-color: var(--br-modal-background-color);
         padding: 30px 30px;
-        box-shadow: var(--br-box-shadow, var(--br-default-box-shadow));
-        border-radius: var(--br-border-radius);
-        transition: background-color var(--br-transition-duration) ease;
+        box-shadow: var(--br-modal-box-shadow);
+        border-radius: var(--br-modal-border-radius);
+        transition: var(--br-modal-transition-duration);
         max-width: 90%;
     }
     .modal.closable {
@@ -116,8 +122,8 @@
     }
     .header-content {
         margin-right: 10px;
-        font-size: 16px !important;
-        font-weight: 600 !important;
+        font-size: 16px;
+        font-weight: 600;
     }
     .close {
         margin-left: auto;
