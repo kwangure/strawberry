@@ -13,8 +13,8 @@
 <path class="berry-icon-path" use:forward {d} {...$$restProps}/>
 
 <style>
-    :export {
-        --br-icon-path-fill: ;
+    path {
+        --br-icon-path-fill: currentColor;
     }
     path {
         fill: var(--br-icon-path-fill, currentColor);

@@ -32,63 +32,53 @@
 <pre class="berry-code hljs" class:inline><code>{@html language(code.replace(" *{}", ""))}</code></pre>
 
 <style>
-    :export {
-        --br-code-background-color: ;
-        --br-code-text-color: ;
-        --br-code-border-radius: ;
-        --br-code-string-color: ;
-        --br-code-comment-color: ;
-        --br-code-white-space: ;
-    }
-    @media (theme: berry) and (prefers-color-scheme: dark) {
-        :scope {
-            --_code-background-color: #1e1e1e;
-            --_code-text-color: #dcdcdc;
+    @media (prefers-color-scheme: dark) {
+        pre {
+            --br-code-background-color: #1e1e1e;
+            --br-code-text-color: #dcdcdc;
 
             /* Syntax highlighter */
-            --_name-color: #569cd6;
-            --_string-color: #d69d85;
-            --_value-color: #9cdcfe;
-            --_classname-color: #d7ba7d;
-            --_comment-color: #6a9955;
-            --_number-color: #b5cea8;
-            --_type-color: #4ec9b0;
-            --_function-color: #dcdcaa;
-            --_keyword-color: #c586c0;
+            --br-code-syntax-name-color: #569cd6;
+            --br-code-syntax-string-color: #d69d85;
+            --br-code-syntax-value-color: #9cdcfe;
+            --br-code-syntax-classname-color: #d7ba7d;
+            --br-code-syntax-comment-color: #6a9955;
+            --br-code-syntax-number-color: #b5cea8;
+            --br-code-syntax-type-color: #4ec9b0;
+            --br-code-syntax-function-color: #dcdcaa;
+            --br-code-syntax-keyword-color: #c586c0;
         }
     }
-    @media (theme: berry) and (prefers-color-scheme: light) {
-        :scope {
-            --_code-background-color: #f0f0f0;
-            --_code-text-color: #333;
+    @media (prefers-color-scheme: light) {
+        pre {
+            --br-code-background-color: #f0f0f0;
+            --br-code-text-color: #333;
 
-            --_name-color: #0021b3;
-            --_string-color: #be6404;
-            --_value-color: #037e0b;
-            --_classname-color: #c79e09;
-            --_comment-color: #2f9d62;
-            --_number-color: #085ad6;
-            --_type-color: #cf222e;
-            --_function-color: #0021b3;
-            --_keyword-color: #c123b4;
+            --br-code-syntax-name-color: #0021b3;
+            --br-code-syntax-string-color: #312212;
+            --br-code-syntax-value-color: #037e0b;
+            --br-code-syntax-classname-color: #c79e09;
+            --br-code-syntax-comment-color: #2f9d62;
+            --br-code-syntax-number-color: #085ad6;
+            --br-code-syntax-type-color: #cf222e;
+            --br-code-syntax-function-color: #0021b3;
+            --br-code-syntax-keyword-color: #c123b4;
         }
+    }
+    pre {
+        --br-code-white-space: pre;
+        --br-code-border-radius: var(--br-border-radius);
     }
     pre {
         padding: 16px;
         overflow: auto;
         font-size: 85%;
         line-height: 1.45;
-        background-color: var(
-            --br-code-background-color,
-            var(--br-secondary-background-color, var(--_code-background-color))
-        );
-        color: var(
-            --br-code-text-color,
-            var(--br-secondary-text-color, var(--_code-text-color))
-        );
-        border-radius: var(--br-code-border-radius, var(--br-border-radius));
+        background-color: var(--br-code-background-color);
+        color: var(--br-code-text-color);
+        border-radius: var(--br-code-border-radius);
         margin: 0;
-        white-space: var(--br-code-white-space, pre);
+        white-space: var(--br-code-white-space);
     }
     code {
         display: contents;

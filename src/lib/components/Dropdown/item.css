@@ -1,4 +1,9 @@
 .menu-item {
+    --br-item-padding-block: 8px;
+	--br-item-padding-inline: 12px;
+}
+
+.menu-item {
     font-weight: normal;
     font-size: 14px;
     line-height: 22px;
@@ -7,7 +12,6 @@
     display: flex;
     align-items: center;
     min-width: 130px;
-    background-color: var(--br-white);
     padding: var(--br-item-padding-block) var(--br-item-padding-inline);
 }
 

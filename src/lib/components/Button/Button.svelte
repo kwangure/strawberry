@@ -33,27 +33,25 @@
 </button>
 
 <style>
-    :export {
-        --br-button-width: ;
-        --br-button-height: ;
-        --br-button-border: ;
-        --br-button-border-radius: ;
-        --br-button-text-color: ;
-        --br-button-gap: ;
-    }
-    @media (theme: berry) and (prefers-color-scheme: dark) {
-        :scope {
-            --_button-background-color: rgba(255,255,255, 0.05);
-            --_button-hover-background-color: rgba(255,255,255, 0.2);
-            --_button-text-color: #dcdcdc;
+    @media (prefers-color-scheme: dark) {
+        button {
+            --br-button-background-color: rgba(255,255,255, 0.05);
+            --br-button-hover-background-color: rgba(255,255,255, 0.2);
         }
     }
-    @media (theme: berry) and (prefers-color-scheme: light) {
-        :scope {
-            --_button-background-color: transparent;
-            --_button-hover-background-color: rgba(0,0,0, 0.1);
-            --_button-text-color: #333;
+    @media (prefers-color-scheme: light) {
+        button {
+            --br-button-background-color: transparent;
+            --br-button-hover-background-color: rgba(0,0,0, 0.1);
         }
+    }
+    button {
+        --br-button-text-color: inherit;
+        --br-button-border: var(--br-default-border);
+        --br-button-height: var(--br-default-item-height);
+        --br-button-border-radius: var(--br-border-radius);
+        --br-button-width: auto;
+        --br-button-gap: 5px;
     }
     button {
         line-height: 1.2;
@@ -62,31 +60,26 @@
         white-space: nowrap;
         align-items: center;
         justify-content: center;
-        border: var(
-            --br-button-border,
-            var(--br-border, var(--br-default-border))
-        );
+        border: var(--br-button-border);
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
-        height: var(--br-button-height, var(--br-item-height, var(--br-default-item-height)));
+        height: var(--br-button-height);
         padding: 0 10px;
         font-size: 14px;
-        border-radius: var(--br-button-border-radius, var(--br-border-radius, var(--br-default-border-radius)));
-        color: var(--br-button-text-color, var(--br-text-color, inherit));
-        background-color: var(--_button-background-color);
+        border-radius: var(--br-button-border-radius);
+        color: var(--br-button-text-color);
+        background-color: var(--br-button-background-color);
         outline: none;
-        width: var(--br-button-width, auto);
-        gap: var(--br-button-gap, 5px);
+        width: var(--br-button-width);
     }
     button:disabled {
         cursor: not-allowed;
     }
     button:focus:not(:active),
     button:hover:not(:active) {
-        background-color: var(--_button-hover-background-color);
-        border-color: var(--_button-hover-background-color);
-        color: var(--br-text-color, inherit);
+        background-color: var(--br-button-hover-background-color);
+        border-color: var(--br-button-hover-background-color);
     }
     button.primary {
         color: #fff;
@@ -98,8 +91,5 @@
     button.primary:focus {
         background-color: var(--br-primary-hover) !important;
         color: #fff !important;
-    }
-    .button-prefix {
-        display: flex;
     }
 </style>

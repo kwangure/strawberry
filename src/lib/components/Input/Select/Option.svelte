@@ -38,9 +38,11 @@
 </option>
 
 <style>
+    :host,
+    :root {
+        --br-option-text-color: black;
+    }
     option {
-        color: var(--br-option-text-color, initial);
-        padding: var(--br-option-padding-block, 5px) var(--br-option-padding-inline, 8px);
-        cursor: pointer;
+        color: var(--br-option-text-color);
     }
 </style>
