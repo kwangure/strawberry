@@ -24,15 +24,15 @@
     /**
      * The name of the switch. Submitted with its parent form as part of a name/value pair.
      *
-     * @type {string | undefined}
+     * @type {string}
      */
-    export let name = undefined;
+    export let name = "";
     /**
      * When true, indicates that the user must check the switch before the parent form can be submitted.
      *
-     * @type {boolean | undefined}
+     * @type {boolean}
      */
-    export let required = undefined;
+    export let required = false;
     /**
      * The value given as data when submitted with a name.
      *
