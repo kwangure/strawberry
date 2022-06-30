@@ -87,16 +87,25 @@
 <style>
     @import "../css/container.css";
 
+    :host,
+    :root {
+        --br-select-text-color: inherit;
+        --br-select-width: initial;
+        --br-select-background-color: transparent;
+        --br-select-padding-block: 5px;
+        --br-select-padding-inline: 8px;
+    }
+
     select {
-        color: var(--br-select-text-color, var(--br-text-color, inherit));
-        width: var(--br-select-width, initial);
+        color: var(--br-select-text-color);
+        width: var(--br-select-width);
         font-size: 14px;
         line-height: 1.5;
-        background-color: var(--br-select-background-color, var(--br-white, transparent));
+        background-color: var(--br-select-background-color);
         background-image: none;
         border: none;
         outline: 0;
-        padding: var(--br-input-padding-block, 5px) var(--br-input-padding-inline, 8px);
+        padding: var(--br-select-padding-block) var(--br-select-padding-inline);
     }
 
 </style>
