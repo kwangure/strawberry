@@ -110,29 +110,33 @@
     @import "../css/input.css";
     @import "../css/container.css";
 
-    @media (theme: berry) and (prefers-color-scheme: dark) {
-        :scope {
-            /* TODO: encode this at build-time via a preprocessor */
+    :host,
+    :root {
+        --br-input-datetime-padding-block: 5px;
+        --br-input-datetime-padding-inline: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        input {
             /** Encoded from Material design icons. Path is `import("@mdi/js").mdiCalendar` */
-            --calendar-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
+            --br-input-datetime-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
         }
     }
-    @media (theme: berry) and (prefers-color-scheme: light) {
-        :scope {
-            /* TODO: encode this at build-time via a preprocessor */
+    @media (prefers-color-scheme: light) {
+        input {
             /** Encoded from Material design icons. Path is `import("@mdi/js").mdiCalendar` */
-            --calendar-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
+            --br-input-datetime-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
         }
     }
 
-    input[type=datetime-local]::-webkit-calendar-picker-indicator {
-        background-image: var(--calendar-background-image);
+    input::-webkit-calendar-picker-indicator {
+        background-image: var(--br-input-datetime-background-image);
         width: 20px;
         height: 20px;
     }
 
-    input[type=datetime-local] {
-        padding-block: var(--br-input-padding-block, 5px);
-        padding-inline: var(--br-input-padding-inline, 12px) calc(var(--br-input-padding-inline, 12px)/2);
+    input {
+        padding-block: var(--br-input-datetime-padding-block);
+        padding-inline: var(--br-input-datetime-padding-inline) calc(var(--br-input-datetime-padding-inline)/2);
     }
 </style>

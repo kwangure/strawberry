@@ -110,8 +110,8 @@
     }
 
     input {
-        padding-block: var(--br-input-padding-block);
-        padding-inline: var(--br-input-padding-inline) calc(var(--br-input-padding-inline)/2);
+        padding-block: var(--br-input-date-padding-block);
+        padding-inline: var(--br-input-date-padding-inline) calc(var(--br-input-padding-inline)/2);
     }
 </style>
 
