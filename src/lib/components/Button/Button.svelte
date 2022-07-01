@@ -103,31 +103,10 @@
 </button>
 
 <style>
-    @media (prefers-color-scheme: dark) {
-        :host,
-        :root {
-            --br-button-background-color: rgba(255,255,255, 0.05);
-            --br-button-hover-background-color: rgba(255,255,255, 0.2);
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        :host,
-        :root {
-            --br-button-background-color: transparent;
-            --br-button-hover-background-color: rgba(0,0,0, 0.1);
-        }
-    }
-    :host,
-    :root {
-        --br-button-text-color: inherit;
-        --br-button-border: var(--br-default-border);
-        --br-button-border-color: var(--br-default-border-color);
-        --br-button-height: var(--br-default-item-height);
-        --br-button-border-radius: var(--br-border-radius);
-        --br-button-padding-inline: 10px;
-        --br-button-width: auto;
-        --br-button-gap: 5px;
-    }
+    @import "./button.css";
+    @import "./button_dark.css" (prefers-color-scheme: dark);
+    @import "./button_light.css" (prefers-color-scheme: light);
+
     button {
         line-height: 1.2;
         display: inline-flex;

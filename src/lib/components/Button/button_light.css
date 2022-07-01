@@ -1,0 +1,5 @@
+:host,
+:root {
+    --br-button-background-color: transparent;
+    --br-button-hover-background-color: rgba(0,0,0, 0.1);
+}
