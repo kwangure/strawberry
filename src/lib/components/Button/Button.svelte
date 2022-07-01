@@ -124,6 +124,7 @@
         --br-button-border-color: var(--br-default-border-color);
         --br-button-height: var(--br-default-item-height);
         --br-button-border-radius: var(--br-border-radius);
+        --br-button-padding-inline: 10px;
         --br-button-width: auto;
         --br-button-gap: 5px;
     }
@@ -140,7 +141,7 @@
         user-select: none;
         touch-action: manipulation;
         height: var(--br-button-height);
-        padding: 0 10px;
+        padding-inline: var(--br-button-padding-inline);
         font-size: 14px;
         border-radius: var(--br-button-border-radius);
         color: var(--br-button-text-color);
