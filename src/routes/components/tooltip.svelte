@@ -1,5 +1,5 @@
 <script>
-    import Button from "~@components/Button";
+    import Button, { Primary } from "~@components/Button";
     import Component from "$lib/internal/component.svelte";
     import { docs } from "~@components/Tooltip/docs";
     import Tooltip from "~@components/Tooltip";
@@ -17,10 +17,12 @@
     <svelte:fragment slot="block">
         <div class="properties examples">
             {#each placements as placement}
-                <Tooltip {placement}>
-                    <Button primary>{placement}</Button>
-                    <span slot="popup">I'm a <b>{placement}</b> tooltip!</span>
-                </Tooltip>
+                <Primary>
+                    <Tooltip {placement}>
+                        <Button>{placement}</Button>
+                        <span slot="popup">I'm a <b>{placement}</b> tooltip!</span>
+                    </Tooltip>
+                </Primary>
             {/each}
         </div>
     </svelte:fragment>
