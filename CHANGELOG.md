@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.41.0](https://github.com/kwangure/strawberry/compare/v0.40.2...v0.41.0) (2022-07-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* require importing Button css
+* externalize primary styles
+* use specificic props
+* rework some custom-properties
+* rename Modal custom properties
+* rename select component custom properties
+* use component names correctly
+* rename custom property names Input Date
+* use local styles for Checkbox and Radio
+* use local default values for Icon
+* localize Dropdown Item custom properties
+* rename Dropdown custom properties
+* rename Code custom properties
+* rename button custom properties
+
+### Features
+
+* add Element component ([ee05a18](https://github.com/kwangure/strawberry/commit/ee05a18bcd9c0a4cf2d0819ee63f6c3fb3637884))
+* externalize custom properties ([c667bfb](https://github.com/kwangure/strawberry/commit/c667bfb28500c0ff960d41d648a8224feaea5aea))
+* externalize primary styles ([678d4b3](https://github.com/kwangure/strawberry/commit/678d4b3d0673edc99c6c474c78a959c68a4719d9))
+* make inline-padding-configurable ([9e0e3fd](https://github.com/kwangure/strawberry/commit/9e0e3fd44a1eadc34061cd3797c243a21f0cc2ff))
+* remove button container wrapper ([4afb8b0](https://github.com/kwangure/strawberry/commit/4afb8b0fe9e8887b488e4357cac879fbe81b289b))
+* rename Modal custom properties ([0b231e6](https://github.com/kwangure/strawberry/commit/0b231e607380f6d270e6809bee36ad29fc03d1b7))
+* rename select component custom properties ([2e72a9d](https://github.com/kwangure/strawberry/commit/2e72a9d89126c5fab991fd5e1f700a6aaaac3dba))
+* require importing Button css ([ee87cf1](https://github.com/kwangure/strawberry/commit/ee87cf148eb4c5d8fbe4c69f90ec65f8cfdddc60))
+* rework some custom-properties ([e35dfdd](https://github.com/kwangure/strawberry/commit/e35dfddaf4022f7a9753c86eb98fdf1b156d7b5b))
+* use component names correctly ([cd6637a](https://github.com/kwangure/strawberry/commit/cd6637a445eed92b1aa5b79c2b5ac49b41d764d1))
+* use specificic props ([205648d](https://github.com/kwangure/strawberry/commit/205648de515a465e2e61d9535f583518686802ff))
+
+
+### Bug Fixes
+
+* use better defaults for Switch ([669846c](https://github.com/kwangure/strawberry/commit/669846cd99e15a8af41d964f078a1627cdeafe7e))
+
+
+* localize Dropdown Item custom properties ([b5cef8a](https://github.com/kwangure/strawberry/commit/b5cef8a515d3c34201912933c6e1a83c6188694d))
+* rename button custom properties ([4c59155](https://github.com/kwangure/strawberry/commit/4c59155ef61d0ba543ef553a0acac426c6449081))
+* rename Code custom properties ([fef2d02](https://github.com/kwangure/strawberry/commit/fef2d02aec6a69a6641b908be6dcfe71690ba196))
+* rename custom property names Input Date ([90ae38f](https://github.com/kwangure/strawberry/commit/90ae38f1ad226a456e94d06819aaaa6cedb093c9))
+* rename Dropdown custom properties ([0e2277c](https://github.com/kwangure/strawberry/commit/0e2277c57e7fa81f3c406017c8c23f6d4220ad67))
+* use local default values for Icon ([4895e83](https://github.com/kwangure/strawberry/commit/4895e83479121e98a5914c07fedaa19b02c721da))
+* use local styles for Checkbox and Radio ([ef725c8](https://github.com/kwangure/strawberry/commit/ef725c80cf9aa1fb979d7a74292ae3c0a999e12a))
+
 ### [0.40.2](https://github.com/kwangure/strawberry/compare/v0.40.1...v0.40.2) (2022-06-08)
 
 ### [0.40.1](https://github.com/kwangure/strawberry/compare/v0.40.0...v0.40.1) (2022-06-08)
