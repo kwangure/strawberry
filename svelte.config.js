@@ -38,6 +38,7 @@ export default {
                 const value = micromatch.isMatch(filepath, [
                     'build/vite-plugin-strawberry.js',
                     'components/**/index.js',
+                    'components/**/*.css',
                     'components/Code/languages/**/*.js',
                     'css/**/*.(js|css)',
                     'utils/forward-events.js',

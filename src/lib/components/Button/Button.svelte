@@ -103,10 +103,6 @@
 </button>
 
 <style>
-    @import "./button.css";
-    @import "./button_dark.css" (prefers-color-scheme: dark);
-    @import "./button_light.css" (prefers-color-scheme: light);
-
     button {
         line-height: 1.2;
         display: inline-flex;
