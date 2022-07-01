@@ -81,20 +81,16 @@
      */
     export let value = "";
 
-    /**
-     * Indicates whether the button should be coloured using the primary colour.
-     *
-     * @type {boolean}
-     */
-    export let primary = false;
+    if ($$props.primary !== undefined) {
+        console.error("The 'primary' prop has been removed. Use the 'Button.Primary' component or CSS custom properties to overwrite color styles.");
+    }
 
     const forward = createEventForwarder();
 </script>
 
 <!-- svelte-ignore a11y-autofocus -->
 <button {autofocus} {disabled} {form} {formaction} {formenctype} {formmethod}
-    {formnovalidate} {formtarget} {name} {value} class="berry-button"
-    class:primary use:forward>
+    {formnovalidate} {formtarget} {name} {value} use:forward>
     <!--
         Any content that is acceptable in a HTMLButtonElement.
         @usage
@@ -108,20 +104,24 @@
 
 <style>
     @media (prefers-color-scheme: dark) {
-        button {
+        :host,
+        :root {
             --br-button-background-color: rgba(255,255,255, 0.05);
             --br-button-hover-background-color: rgba(255,255,255, 0.2);
         }
     }
     @media (prefers-color-scheme: light) {
-        button {
+        :host,
+        :root {
             --br-button-background-color: transparent;
             --br-button-hover-background-color: rgba(0,0,0, 0.1);
         }
     }
-    button {
+    :host,
+    :root {
         --br-button-text-color: inherit;
         --br-button-border: var(--br-default-border);
+        --br-button-border-color: var(--br-default-border-color);
         --br-button-height: var(--br-default-item-height);
         --br-button-border-radius: var(--br-border-radius);
         --br-button-width: auto;
@@ -135,6 +135,7 @@
         align-items: center;
         justify-content: center;
         border: var(--br-button-border);
+        border-color: var(--br-button-border-color);
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
@@ -150,20 +151,8 @@
     button:disabled {
         cursor: not-allowed;
     }
-    button:focus:not(:active),
     button:hover:not(:active) {
         background-color: var(--br-button-hover-background-color);
         border-color: var(--br-button-hover-background-color);
-    }
-    button.primary {
-        color: #fff;
-        background-color: var(--br-primary);
-        border: none;
-    }
-    button.primary:active,
-    button.primary:hover,
-    button.primary:focus {
-        background-color: var(--br-primary-hover) !important;
-        color: #fff !important;
     }
 </style>
