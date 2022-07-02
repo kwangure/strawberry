@@ -6,16 +6,30 @@
      * Guidance to the browser on information expected in the field.
      * Helps UserAgent automate filling form field values.
      *
-     * @type {"off" | "on"}
+     * @type {"off" | "on" | string}
      */
-    export let autocomplete = undefined;
+    export let autocomplete = "";
 
     /**
      * Whether select should have input focus when the page loads.
      *
      * @type {boolean}
      */
-    export let autofocus = undefined;
+    export let autofocus = false;
+
+    /**
+     * When true, the input cannot be edited or focused.
+     *
+     * @type {boolean}
+     */
+    export let disabled = false;
+
+    /**
+     * The ID of the form element that the datetime input is associated with.
+     *
+     * @type {string}
+     */
+    export let form = "";
 
     /**
      * Whether to hide the input label.
@@ -29,42 +43,56 @@
      *
      * @type {string}
      */
-    export let list = undefined;
+    export let list = "";
 
     /**
      * A date string representing the latest date to accept.
      *
      * @type {string}
      */
-    export let max = undefined;
+    export let max = "";
 
     /**
      * A date string representing the earliest date to accept
      *
      * @type {string}
      */
-    export let min = undefined;
+    export let min = "";
 
     /**
-     * Indicates that the user should not be able to edit the value of the input
+     * The name of the date input. Submitted with its parent form as part of a name/value pair.
+     *
+     * @type {string}
+     */
+    export let name = "";
+
+    /**
+     * When true, the user cannot edit the value of the input
      *
      * @type {boolean}
      */
-    export let readonly = undefined;
+    export let readonly = false;
 
     /**
-     * The granularity that the input value must adhere to
+     * When true, indicates that the user must input a value before the parent form can be submitted.
+     *
+     * @type {boolean}
+     */
+    export let required = false;
+
+    /**
+     * The granularity in days that the date input value must adhere to
      *
      * @type {number}
      */
-    export let step = undefined;
+    export let step = 1;
 
     /**
      * A string representing a date in YYYY-MM-DD format
      *
      * @type {string}
      */
-    export let value = undefined;
+    export let value = "";
 
     const forward = createEventForwarder();
 
@@ -74,7 +102,8 @@
     <slot name="label" slot="label"/>
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
-        <input {autocomplete} {autofocus} {list} {max} {min} {readonly} {step}
+        <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
+            {name} {readonly} {required} {step}
             class="text-input" bind:value use:forward
             on:keydown type="date" id={labelId}>
     </div>
