@@ -4,6 +4,8 @@
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import Icon from "../../Icon";
     import { slide } from "svelte/transition";
+    import { validate } from "../validate";
+    import { writable } from "svelte/store";
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -21,6 +23,13 @@
     export let autofocus = false;
 
     /**
+     * A function that takes a validity state string and returns an error message.
+     *
+     * @type {((error: string, input: HTMLInputElement) => string | Promise<string>) | undefined}
+     */
+    export let error = undefined;
+
+    /**
      * The ID of the form element that the number input is associated with.
      *
      * @type {string | undefined}
@@ -33,6 +42,13 @@
      * @type {boolean}
      */
     export let hideLabel = false;
+
+    /**
+     * A function that returns the validity of the input.
+     *
+     * @type {((input: HTMLInputElement) => string | Promise<string>) | undefined}
+     */
+    export let invalid = undefined;
 
     /**
      * The id of a <datalist> element located in the same document.
@@ -93,8 +109,7 @@
      */
     export let value = undefined;
 
-    // TODO: Validation
-    let isInvalid = "";
+    const errorMessage = writable("");
 
     const forward = createEventForwarder();
 
@@ -123,7 +138,7 @@
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
         <input bind:this={input} bind:value class="text-input"
-            id={labelId} type="number" use:forward
+            id={labelId} type="number" use:forward use:validate={{ invalid, error, errorMessage }}
             {autocomplete} {autofocus} {form} {list} {max} {min} {name}
             {placeholder} {required} {readonly} {step}>
         <div class="postfix-wrapper">
@@ -135,9 +150,9 @@
             </span>
         </div>
     </div>
-    {#if isInvalid}
+    {#if $errorMessage}
         <div class="invalid" transition:slide>
-            {isInvalid}
+            {$errorMessage}
         </div>
     {/if}
 </Container>

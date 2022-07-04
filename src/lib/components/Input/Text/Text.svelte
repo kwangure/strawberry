@@ -2,8 +2,9 @@
     import Container from "../Container.svelte";
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import { focusElement } from "../actions";
-    import { listen } from "svelte/internal";
     import { slide } from "svelte/transition";
+    import { validate } from "../validate";
+    import { writable } from "svelte/store";
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -21,7 +22,8 @@
     export let autofocus = false;
 
     /**
-     * A function that returns the validity of the input.
+     * A function that takes a validity state string and returns an error message.
+     *
      * @type {((error: string, input: HTMLInputElement) => string | Promise<string>) | undefined}
      */
     export let error = undefined;
@@ -42,6 +44,7 @@
 
     /**
      * A function that returns the validity of the input.
+     *
      * @type {((input: HTMLInputElement) => string | Promise<string>) | undefined}
      */
     export let invalid = undefined;
@@ -109,77 +112,14 @@
     export let focus = false;
 
     const forward = createEventForwarder();
-
-    /**
-     * @typedef {{
-    *     invalid?: (input: HTMLInputElement) => string  | Promise<string>,
-    *     error?: (error: string, input: HTMLInputElement) => string | Promise<string>,
-    * }} ValidateOptions
-    * @param {HTMLInputElement} input
-    * @param {ValidateOptions} options
-    */
-    function validate(input, options) {
-        const noop = () => "";
-        let { invalid = noop, error = noop } = options;
-        /**
-         * @param {HTMLInputElement} input
-         */
-        async function _validate(input) {
-            if (input.disabled) return "";
-            input.dataset.invalid = "false";
-            if (input.validity.valid) {
-                const customValidityCheck = await invalid(input);
-                let customValidityError = "";
-                if (customValidityCheck) {
-                    customValidityError = (await error(customValidityCheck, input))
-                        || "The value you entered for this field is invalid.";
-                }
-                input.setCustomValidity(customValidityError)
-            }
-            return input.validationMessage;
-        }
-
-        // Show error onblur. Hide error onblur and oninput.
-        /**
-        * @type {() => void}
-        */
-        let unlisten2;
-        const unlisten = listen(input, "blur", async () => {
-            isInvalid = await _validate(input);
-            input.dataset.invalid = String(!!isInvalid);
-            if (isInvalid) {
-                unlisten2 = listen(input, "input", async () => {
-                    isInvalid = await _validate(input);
-                    if (!isInvalid) unlisten2();
-                });
-            }
-        });
-
-        return {
-            /**
-            * @param {ValidateOptions} options
-            */
-            update(options) {
-                ({ invalid = noop, error = noop } = options);
-            },
-            destroy() {
-                unlisten();
-                unlisten2?.();
-            },
-        };
-    }
-
-    /**
-    * @type {string}
-    */
-    let isInvalid = "";
+    const errorMessage = writable("");
 </script>
 
 <Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
-        <input class="text-input" bind:value use:forward use:validate={{ invalid, error }}
+        <input class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
             on:keydown type="text" id={labelId} use:focusElement={focus}
             {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
             {name} {placeholder} {readonly} {required}>
@@ -189,9 +129,9 @@
             </div>
         {/if}
     </div>
-    {#if isInvalid}
+    {#if $errorMessage}
         <div class="invalid" transition:slide>
-            {isInvalid}
+            {$errorMessage}
         </div>
     {/if}
 </Container>
