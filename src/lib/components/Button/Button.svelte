@@ -28,9 +28,9 @@
     /**
      * The ID of the form element that the datetime input is associated with.
      *
-     * @type {string}
+     * @type {string | undefined}
      */
-    export let form = "";
+    export let form = undefined;
 
     /**
      * The URL that the form associated with the button will submit to.
