@@ -22,7 +22,7 @@
 
     /**
      * A function that returns the validity of the input.
-     * @type {((error: string, input: InputInfo) => string | Promise<string>) | undefined}
+     * @type {((error: string, input: HTMLInputElement) => string | Promise<string>) | undefined}
      */
     export let error = undefined;
 
@@ -42,7 +42,7 @@
 
     /**
      * A function that returns the validity of the input.
-     * @type {((input: InputInfo) => string | Promise<string>) | undefined}
+     * @type {((input: HTMLInputElement) => string | Promise<string>) | undefined}
      */
     export let invalid = undefined;
 
@@ -112,16 +112,8 @@
 
     /**
      * @typedef {{
-     *     max: string;
-     *     min: string;
-     *     maxLength: number;
-     *     minLength: number;
-     *     type: string;
-     *     value: string;
-     * }} InputInfo
-     * @typedef {{
-    *     invalid?: (input: InputInfo) => string  | Promise<string>,
-    *     error?: (error: string, input: InputInfo) => string | Promise<string>,
+    *     invalid?: (input: HTMLInputElement) => string  | Promise<string>,
+    *     error?: (error: string, input: HTMLInputElement) => string | Promise<string>,
     * }} ValidateOptions
     * @param {HTMLInputElement} input
     * @param {ValidateOptions} options
@@ -136,29 +128,15 @@
             if (input.disabled) return "";
             input.dataset.invalid = "false";
             if (input.validity.valid) {
-                const customValidityCheck = await invalid(_input(input));
+                const customValidityCheck = await invalid(input);
                 let customValidityError = "";
                 if (customValidityCheck) {
-                    customValidityError = (await error(customValidityCheck, _input(input)))
+                    customValidityError = (await error(customValidityCheck, input))
                         || "The value you entered for this field is invalid.";
                 }
                 input.setCustomValidity(customValidityError)
             }
             return input.validationMessage;
-        }
-
-        /**
-        * @param {HTMLInputElement} input
-        */
-        function _input(input) {
-            return {
-                max: input.max,
-                min: input.min,
-                maxLength: input.maxLength,
-                minLength: input.minLength,
-                type: input.type,
-                value: input.value,
-            };
         }
 
         // Show error onblur. Hide error onblur and oninput.
