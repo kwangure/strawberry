@@ -2,9 +2,30 @@
     import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
     import Container from "../Container.svelte";
     import { createEventForwarder } from "../../../utils/forward-events.js";
-    import { focusElement } from "../actions";
     import Icon from "../../Icon";
     import { slide } from "svelte/transition";
+
+    /**
+     * Guidance to the browser on information expected in the field.
+     * Helps UserAgent automate filling form field values.
+     *
+     * @type {"off" | "on" | string}
+     */
+    export let autocomplete = "";
+
+    /**
+     * When true, the number input will have input focus when the page loads.
+     *
+     * @type {boolean}
+     */
+    export let autofocus = false;
+
+    /**
+     * The ID of the form element that the number input is associated with.
+     *
+     * @type {string | undefined}
+     */
+    export let form = undefined;
 
     /**
      * Whether to hide the input label.
@@ -12,32 +33,32 @@
      * @type {boolean}
      */
     export let hideLabel = false;
+
     /**
-     * The minimum value to accept.
-     * @type {number | undefined}
+     * The id of a <datalist> element located in the same document.
+     *
+     * @type {string}
      */
-    export let min = undefined;
+    export let list = "";
+
     /**
      * The maximum value to accept.
      * @type {number | undefined}
      */
     export let max = undefined;
+
     /**
-     * The initial value of the component.
+     * The minimum value to accept.
      * @type {number | undefined}
      */
-    export let value = undefined;
+    export let min = undefined;
+
     /**
-     * A stepping interval to use when using up and down arrows to adjust the value, as well as for validation.
-     * @type {number}
-     */
-    export let step = 1;
-    /**
-     * Whether the input is focused.
+     * The name of the name input. Submitted with its parent form as part of a name/value pair.
      *
-     * @type {boolean}
+     * @type {string}
      */
-    export let focus = false;
+    export let name = "";
 
     /**
      * Text that appears in the form control when it has no value set
@@ -45,31 +66,42 @@
      * @type {string}
      */
     export let placeholder = "";
+
     /**
-     * Whether "value" is a number between "min" and "max".
-     *
-     * @type {boolean}
-     * @readonly
-     */
-    export let valid = true;
-    /**
-     * Whether the input is readonly
+     * When true, the user cannot edit the value of the input
      *
      * @type {boolean}
      */
     export let readonly = false;
 
+    /**
+     * When true, indicates that the user must input a value before the parent form can be submitted.
+     *
+     * @type {boolean}
+     */
+    export let required = false;
+
+    /**
+     * A stepping interval to use when using up and down arrows to adjust the value, as well as for validation.
+     * @type {number}
+     */
+    export let step = 1;
+
+    /**
+     * The initial value of the component.
+     * @type {number | undefined}
+     */
+    export let value = undefined;
+
+    // TODO: Validation
+    let isInvalid = "";
+
     const forward = createEventForwarder();
 
-    $: isBelowMin = min && Number(value) < min;
-    $: isAboveMax = max && Number(value) > max;
-    $: valid = isNaN(Number(value)) || (!isBelowMin && !isAboveMax);
-
-    /** @type {HTMLInputElement}*/
-    let input = {
+    let input = /** @type {HTMLInputElement}*/ ({
         stepUp() {},
         stepDown() {},
-    };
+    });
 
     function dispatchChange() {
         input.dispatchEvent(new Event("change"));
@@ -88,10 +120,12 @@
 
 <Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
-    <div class="container" class:invalid={!valid}>
+    <div class="container">
+        <!-- svelte-ignore a11y-autofocus -->
         <input bind:this={input} bind:value class="text-input"
-            id={labelId} on:blur={() => focus = false} {placeholder}
-            {readonly} {step} type="number" use:focusElement={focus} use:forward>
+            id={labelId} type="number" use:forward
+            {autocomplete} {autofocus} {form} {list} {max} {min} {name}
+            {placeholder} {required} {readonly} {step}>
         <div class="postfix-wrapper">
             <span class="postfix-up"on:click={stepUp}>
                 <Icon path={mdiChevronUp}/>
@@ -101,13 +135,9 @@
             </span>
         </div>
     </div>
-    {#if isBelowMin}
+    {#if isInvalid}
         <div class="invalid" transition:slide>
-            Use a number larger than {min}.
-        </div>
-    {:else if isAboveMax}
-        <div class="invalid" transition:slide>
-            Use a number smaller than {max}.
+            {isInvalid}
         </div>
     {/if}
 </Container>
