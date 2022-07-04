@@ -135,56 +135,16 @@
         async function _validate(input) {
             if (input.disabled) return "";
             input.dataset.invalid = "false";
-            for (const validityCheck in input.validity) {
-                // 'valid' is the only non-error boolean on HTMLInputElement ValidityState
-                if (validityCheck === "valid") continue;
-
-                // @ts-ignore
-                if (input.validity[validityCheck]) {
-                    return _error(validityCheck)
+            if (input.validity.valid) {
+                const customValidityCheck = await invalid(_input(input));
+                let customValidityError = "";
+                if (customValidityCheck) {
+                    customValidityError = (await error(customValidityCheck, _input(input)))
+                        || "The value you entered for this field is invalid.";
                 }
+                input.setCustomValidity(customValidityError)
             }
-
-            const customValidityCheck = await invalid(_input(input));
-            return (customValidityCheck) ? _error(customValidityCheck) : "";
-        }
-
-        /**
-        * @param {string} invalidType
-        */
-        async function _error(invalidType) {
-            const errorString = await error(invalidType, _input(input));
-            if (errorString) return errorString;
-
-            switch (invalidType) {
-                case "valueMissing":
-                    return "Please fill out this field.";
-                case "typeMismatch":
-                    if (input.type === "email") {
-                        return "Please enter an email address.";
-                    }
-                    if (input.type === "url") {
-                        return "Please enter a URL.";
-                    }
-                case "tooShort":
-                    return `Input length should be ${input.minLength} characters or more. You are currently using ${input.value.length} characters.`;
-                case "tooLong":
-                    return `Input length should be less than ${input.maxLength} characters. You are currently using ${input.value.length} characters.`;
-                case "badInput":
-                    return "Please enter a number.";
-                case "stepMismatch":
-                    return "Please select a valid value.";
-                case "rangeOverflow":
-                    return `Input value should not be more than ${input.max}.`;
-                case "rangeUnderflow":
-                    return `Input value should not be less than ${input.min}.`;
-                case "patternMismatch":
-                    return "Please match the requested format.";
-
-            }
-
-            // If all else fails, return a generic catchall error
-            return "The value you entered for this field is invalid.";
+            return input.validationMessage;
         }
 
         /**
