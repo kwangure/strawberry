@@ -27,9 +27,9 @@
     /**
      * The ID of the form element that the datetime input is associated with.
      *
-     * @type {string}
+     * @type {string | undefined}
      */
-    export let form = "";
+    export let form = undefined;
 
     /**
      * Whether to hide the input label.
