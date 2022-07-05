@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.42.0](https://github.com/kwangure/strawberry/compare/v0.41.0...v0.42.0) (2022-07-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* make validation synchronous
+* add missing props to Number input
+* enumerate Text component props explicitly
+
+### Features
+
+* add input validation to Number input ([dfba24d](https://github.com/kwangure/strawberry/commit/dfba24dc6242e1efaaab7ffe3240e81c94276868))
+* add missing props to Number input ([1e7a61b](https://github.com/kwangure/strawberry/commit/1e7a61bae3082623909604d7a4214aad79fda413))
+* add validation message utils ([20865f3](https://github.com/kwangure/strawberry/commit/20865f316b0031baaa01aea108b77d2f6d5f9511))
+* clean up props for Date component ([7796cff](https://github.com/kwangure/strawberry/commit/7796cffb5e2ac230a9a3a79ca729d62bec082805))
+* enumerate Text component props explicitly ([ef5e990](https://github.com/kwangure/strawberry/commit/ef5e9905747ca3b68920ccd6f25f5c060cc362e7))
+* handle validating form submissions ([f50dc81](https://github.com/kwangure/strawberry/commit/f50dc81e8c29213cdc36fda34d5c194a16b9a1fe))
+* make validation synchronous ([8f93ff7](https://github.com/kwangure/strawberry/commit/8f93ff77b0134b4e1cfc73a02489665b983af1dc))
+* use builtin validationMessage for Input errors ([74754dd](https://github.com/kwangure/strawberry/commit/74754dd384743141a7ce3a2cf7548aecf69a8974))
+
+
+### Bug Fixes
+
+* default form to undefined in Date input ([51f88fd](https://github.com/kwangure/strawberry/commit/51f88fd09eab1b6aaf267afb5b668dda831da92b))
+* default to undefined form input for Button ([35fa51c](https://github.com/kwangure/strawberry/commit/35fa51cde2b56d0ea3e1388deb1b0fca3010b67d))
+
 ## [0.41.0](https://github.com/kwangure/strawberry/compare/v0.40.2...v0.41.0) (2022-07-01)
 
 
