@@ -105,7 +105,8 @@
 <style>
     button {
         line-height: 1.2;
-        display: inline-flex;
+        display: var(--br-button-display);
+        gap: var(--br-button-gap);
         font-weight: 400;
         white-space: nowrap;
         align-items: center;
