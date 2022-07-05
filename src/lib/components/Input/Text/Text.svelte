@@ -24,7 +24,7 @@
     /**
      * A function that takes a validity state string and returns an error message.
      *
-     * @type {((error: string, input: HTMLInputElement) => string | Promise<string>) | undefined}
+     * @type {((error: string, input: HTMLInputElement) => string) | undefined}
      */
     export let error = undefined;
 
@@ -45,7 +45,7 @@
     /**
      * A function that returns the validity of the input.
      *
-     * @type {((input: HTMLInputElement) => string | Promise<string>) | undefined}
+     * @type {((input: HTMLInputElement) => string) | undefined}
      */
     export let invalid = undefined;
 

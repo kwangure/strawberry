@@ -2,17 +2,17 @@ import { listen } from "svelte/internal";
 
 /**
  * @param {HTMLInputElement} input
- * @param {(input: HTMLInputElement) => string  | Promise<string>} invalid
- * @param {(error: string, input: HTMLInputElement) => string | Promise<string>} error
+ * @param {(input: HTMLInputElement) => string} invalid
+ * @param {(error: string, input: HTMLInputElement) => string} error
  */
- async function getErrorMessage(input, invalid, error) {
+function getErrorMessage(input, invalid, error) {
     if (input.disabled) return "";
     input.dataset.invalid = "false";
     if (input.validity.valid) {
-        const customValidityCheck = await invalid(input);
+        const customValidityCheck = invalid(input);
         let customValidityError = "";
         if (customValidityCheck) {
-            customValidityError = (await error(customValidityCheck, input))
+            customValidityError = error(customValidityCheck, input)
                 || "The value you entered for this field is invalid.";
         }
         input.setCustomValidity(customValidityError)
@@ -22,8 +22,8 @@ import { listen } from "svelte/internal";
 
 /**
  * @typedef {{
- *     invalid?: (input: HTMLInputElement) => string  | Promise<string>,
- *     error?: (error: string, input: HTMLInputElement) => string | Promise<string>,
+ *     invalid?: (input: HTMLInputElement) => string,
+ *     error?: (error: string, input: HTMLInputElement) => string,
  *     errorMessage: import("svelte/store").Writable<string>,
  * }} ValidateOptions
  * @param {HTMLInputElement} input
@@ -33,8 +33,8 @@ export function validate(input, options) {
     const noop = () => "";
     let { invalid = noop, error = noop, errorMessage } = options;
 
-    async function setErrorMessage() {
-        const message = await getErrorMessage(input, invalid, error);
+    function setErrorMessage() {
+        const message = getErrorMessage(input, invalid, error);
         errorMessage.set(message);
     }
 
