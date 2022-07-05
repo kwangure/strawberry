@@ -1,0 +1,14 @@
+:root {
+    --br-code-background-color: #f0f0f0;
+    --br-code-text-color: #333;
+
+    --br-code-syntax-name-color: #0021b3;
+    --br-code-syntax-string-color: #312212;
+    --br-code-syntax-value-color: #037e0b;
+    --br-code-syntax-classname-color: #c79e09;
+    --br-code-syntax-comment-color: #2f9d62;
+    --br-code-syntax-number-color: #085ad6;
+    --br-code-syntax-type-color: #cf222e;
+    --br-code-syntax-function-color: #0021b3;
+    --br-code-syntax-keyword-color: #c123b4;
+}

@@ -1,0 +1,15 @@
+:root {
+    --br-code-background-color: #1e1e1e;
+    --br-code-text-color: #dcdcdc;
+
+    /* Syntax highlighter */
+    --br-code-syntax-name-color: #569cd6;
+    --br-code-syntax-string-color: #d69d85;
+    --br-code-syntax-value-color: #9cdcfe;
+    --br-code-syntax-classname-color: #d7ba7d;
+    --br-code-syntax-comment-color: #6a9955;
+    --br-code-syntax-number-color: #b5cea8;
+    --br-code-syntax-type-color: #4ec9b0;
+    --br-code-syntax-function-color: #dcdcaa;
+    --br-code-syntax-keyword-color: #c586c0;
+}

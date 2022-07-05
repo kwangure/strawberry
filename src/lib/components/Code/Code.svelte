@@ -32,43 +32,6 @@
 <pre class="berry-code hljs" class:inline><code>{@html language(code.replace(" *{}", ""))}</code></pre>
 
 <style>
-    @media (prefers-color-scheme: dark) {
-        pre {
-            --br-code-background-color: #1e1e1e;
-            --br-code-text-color: #dcdcdc;
-
-            /* Syntax highlighter */
-            --br-code-syntax-name-color: #569cd6;
-            --br-code-syntax-string-color: #d69d85;
-            --br-code-syntax-value-color: #9cdcfe;
-            --br-code-syntax-classname-color: #d7ba7d;
-            --br-code-syntax-comment-color: #6a9955;
-            --br-code-syntax-number-color: #b5cea8;
-            --br-code-syntax-type-color: #4ec9b0;
-            --br-code-syntax-function-color: #dcdcaa;
-            --br-code-syntax-keyword-color: #c586c0;
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        pre {
-            --br-code-background-color: #f0f0f0;
-            --br-code-text-color: #333;
-
-            --br-code-syntax-name-color: #0021b3;
-            --br-code-syntax-string-color: #312212;
-            --br-code-syntax-value-color: #037e0b;
-            --br-code-syntax-classname-color: #c79e09;
-            --br-code-syntax-comment-color: #2f9d62;
-            --br-code-syntax-number-color: #085ad6;
-            --br-code-syntax-type-color: #cf222e;
-            --br-code-syntax-function-color: #0021b3;
-            --br-code-syntax-keyword-color: #c123b4;
-        }
-    }
-    pre {
-        --br-code-white-space: pre;
-        --br-code-border-radius: var(--br-border-radius);
-    }
     pre {
         padding: 16px;
         overflow: auto;

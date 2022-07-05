@@ -8,5 +8,7 @@
 
     @import "../lib/components/Icon/icon.css";
 
-    
+    @import "../lib/components/Code/code.css";
+    @import "../lib/components/Code/code_dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/Code/code_light.css" (prefers-color-scheme: light);
 </style>
