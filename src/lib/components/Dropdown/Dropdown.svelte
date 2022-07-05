@@ -82,11 +82,6 @@
 </div>
 
 <style>
-    div {
-        --br-dropdown-background-color: var(--br-default-background-color);
-        --br-dropdown-border-radius: var(--br-border-radius);
-        --br-dropdown-box-shadow: var(--br-default-box-shadow);
-    }
     .berry-dropdown-menu {
         display: none;
         background-color: var(--br-dropdown-background-color);

@@ -6,9 +6,11 @@
     @import "../lib/components/Button/button_dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/Button/button_light.css" (prefers-color-scheme: light);
 
-    @import "../lib/components/Icon/icon.css";
-
     @import "../lib/components/Code/code.css";
     @import "../lib/components/Code/code_dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/Code/code_light.css" (prefers-color-scheme: light);
+
+    @import "../lib/components/Dropdown/dropdown.css";
+
+    @import "../lib/components/Icon/icon.css";
 </style>
