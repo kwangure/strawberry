@@ -7,7 +7,6 @@ import { listen } from "svelte/internal";
  */
 function getErrorMessage(input, invalid, error) {
     if (input.disabled) return "";
-    input.dataset.invalid = "false";
     if (input.validity.valid) {
         const customValidityCheck = invalid(input);
         let customValidityError = "";
