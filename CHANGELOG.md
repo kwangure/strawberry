@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.43.0](https://github.com/kwangure/strawberry/compare/v0.42.0...v0.43.0) (2022-07-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* externalize CSS for Dropdown component
+* externalize CSS for Code component
+* externalize Icon css
+
+### Features
+
+* externalize CSS for Code component ([6b8e6a4](https://github.com/kwangure/strawberry/commit/6b8e6a44de304d85181a0c3aa9ea8888315f71bf))
+* externalize CSS for Dropdown component ([7b77af8](https://github.com/kwangure/strawberry/commit/7b77af8f30f746082abc3d49b445b162b624917e))
+* externalize Icon css ([e9a6398](https://github.com/kwangure/strawberry/commit/e9a6398e06b42b95d7a57f4e1f22ecbf8498ca5f))
+* make Button display box configurable ([418abc7](https://github.com/kwangure/strawberry/commit/418abc7b9b52b90beb19111741dee3aa808e8daa))
+
 ## [0.42.0](https://github.com/kwangure/strawberry/compare/v0.41.0...v0.42.0) (2022-07-05)
 
 
