@@ -18,13 +18,6 @@
 
 <style>
     svg {
-        --br-icon-animation: none;
-        --br-icon-fill: currentColor;
-        --br-icon-transform: none;
-        --br-icon-height: 24px;
-        --br-icon-width: 24px;
-    }
-    svg {
         animation: var(--br-icon-animation);
         width: var(--br-icon-width);
         height: var(--br-icon-height);
