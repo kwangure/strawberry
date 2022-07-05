@@ -1,6 +1,26 @@
 import { listen } from "svelte/internal";
 
 /**
+ * @param {HTMLInputElement} input
+ * @param {(input: HTMLInputElement) => string  | Promise<string>} invalid
+ * @param {(error: string, input: HTMLInputElement) => string | Promise<string>} error
+ */
+ async function getErrorMessage(input, invalid, error) {
+    if (input.disabled) return "";
+    input.dataset.invalid = "false";
+    if (input.validity.valid) {
+        const customValidityCheck = await invalid(input);
+        let customValidityError = "";
+        if (customValidityCheck) {
+            customValidityError = (await error(customValidityCheck, input))
+                || "The value you entered for this field is invalid.";
+        }
+        input.setCustomValidity(customValidityError)
+    }
+    return input.validationMessage;
+}
+
+/**
  * @typedef {{
  *     invalid?: (input: HTMLInputElement) => string  | Promise<string>,
  *     error?: (error: string, input: HTMLInputElement) => string | Promise<string>,
@@ -12,39 +32,20 @@ import { listen } from "svelte/internal";
 export function validate(input, options) {
     const noop = () => "";
     let { invalid = noop, error = noop, errorMessage } = options;
-    /**
-     * @param {HTMLInputElement} input
-     */
-    async function _validate(input) {
-        if (input.disabled) return "";
-        input.dataset.invalid = "false";
-        if (input.validity.valid) {
-            const customValidityCheck = await invalid(input);
-            let customValidityError = "";
-            if (customValidityCheck) {
-                customValidityError = (await error(customValidityCheck, input))
-                    || "The value you entered for this field is invalid.";
-            }
-            input.setCustomValidity(customValidityError)
-        }
-        return input.validationMessage;
+
+    async function setErrorMessage() {
+        const message = await getErrorMessage(input, invalid, error);
+        errorMessage.set(message);
     }
 
-    // Show error onblur. Hide error onblur and oninput.
-    /**
-    * @type {() => void}
-    */
-    let unlisten2;
-    const unlisten = listen(input, "blur", async () => {
-        errorMessage.set(await _validate(input));
-        input.dataset.invalid = String(!!errorMessage);
-        if (errorMessage) {
-            unlisten2 = listen(input, "input", async () => {
-                errorMessage.set(await _validate(input));
-                if (!errorMessage) unlisten2();
-            });
-        }
-    });
+    /** @type {{ (): void; }[]} */
+    const unsubscribers = [];
+    listen(input, "blur", () => {
+        unsubscribers.push(listen(input, "input", setErrorMessage));
+    }, { once: true})
+
+    unsubscribers.push(listen(input, "blur", setErrorMessage));
+    unsubscribers.push(listen(input, "invalid", setErrorMessage));
 
     return {
         /**
@@ -54,8 +55,7 @@ export function validate(input, options) {
             ({ invalid = noop, error = noop } = options);
         },
         destroy() {
-            unlisten();
-            unlisten2?.();
+            unsubscribers.forEach((fn) => fn());
         },
     };
 }
