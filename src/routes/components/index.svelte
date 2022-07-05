@@ -5,15 +5,21 @@
 <script\>
     import Button from "@kwangure/strawberry/components/Button";
 
-    const hello = () => console.log('strawberry');
+    const hello = () => alert("strawberry");
 </script\>
 
-<div class="document">
+<div class="element">
     <Button on:click={hello}>Click me!</Button>
 </div>
 
 <style>
-    .document {
+    // Import style presets
+    @import "@kwangure/strawberry/components/Button/button.css";
+    @import "@kwangure/strawberry/components/Button/button_dark.css" (prefers-color-scheme: dark);
+    @import "@kwangure/strawberry/components/Button/button_light.css" (prefers-color-scheme: light);
+
+    // Override imported preset values
+    .element {
         --br-button-width: 50px;
         --br-button-border: 3px solid var(--my-primary-color);
     }
