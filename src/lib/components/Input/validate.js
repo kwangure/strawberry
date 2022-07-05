@@ -36,6 +36,7 @@ export function validate(input, options) {
     function setErrorMessage() {
         const message = getErrorMessage(input, invalid, error);
         errorMessage.set(message);
+        return Boolean(message);
     }
 
     /** @type {{ (): void; }[]} */
@@ -45,7 +46,27 @@ export function validate(input, options) {
     }, { once: true})
 
     unsubscribers.push(listen(input, "blur", setErrorMessage));
-    unsubscribers.push(listen(input, "invalid", setErrorMessage));
+    unsubscribers.push(listen(input, "invalid", (event) => {
+        // Do not show native validation prompt
+        event.preventDefault();
+        setErrorMessage();
+        if (input.form) {
+            const firstInvalidInput = /** @type {HTMLInputElement} */(input.
+                form.querySelector(":invalid"));
+            firstInvalidInput.focus();
+        } else {
+            input.focus();
+        }
+    }));
+
+    if (input.form) {
+        unsubscribers.push(listen(input.form, "submit", async (event) => {
+            const hasError = setErrorMessage();
+            if (hasError) {
+                event.preventDefault();
+            }
+        }));
+    }
 
     return {
         /**
