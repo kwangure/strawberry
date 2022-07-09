@@ -42,6 +42,7 @@ export default {
                     'components/Code/languages/**/*.js',
                     'css/**/*.(js|css)',
                     'utils/forward-events.js',
+                    'utils/input/validationmessage.js',
                 ]);
 
                 return value;
