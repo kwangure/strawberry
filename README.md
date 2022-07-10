@@ -45,12 +45,12 @@ export default {
 </div>
 
 <style>
-    // Import style presets
+    /* Import style presets */
     @import "@kwangure/strawberry/components/button/layout.css";
     @import "@kwangure/strawberry/components/button/dark.css" (prefers-color-scheme: dark);
     @import "@kwangure/strawberry/components/button/light.css" (prefers-color-scheme: light);
 
-    // Override imported preset values
+    /* Override imported preset values */
     .element {
         --br-button-width: 50px;
         --br-button-border: 3px solid red;
