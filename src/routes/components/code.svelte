@@ -1,7 +1,7 @@
 <script>
-    import Code, { javascript, html } from "~@components/Code";
+    import Code, { javascript, html } from "~@components/code";
     import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/Code/docs";
+    import { docs } from "~@components/code/docs";
 
 </script>
 

@@ -1,0 +1,191 @@
+<script>
+    import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
+    import Container from "../container.svelte";
+    import { createEventForwarder } from "../../../utils/forward-events.js";
+    import Icon from "../../icon";
+    import { slide } from "svelte/transition";
+    import { validate } from "../validate";
+    import { writable } from "svelte/store";
+
+    /**
+     * Guidance to the browser on information expected in the field.
+     * Helps UserAgent automate filling form field values.
+     *
+     * @type {"off" | "on" | string}
+     */
+    export let autocomplete = "";
+
+    /**
+     * When true, the number input will have input focus when the page loads.
+     *
+     * @type {boolean}
+     */
+    export let autofocus = false;
+
+    /**
+     * A function that takes a validity state string and returns an error message.
+     *
+     * @type {((error: string, input: HTMLInputElement) => string) | undefined}
+     */
+    export let error = undefined;
+
+    /**
+     * The ID of the form element that the number input is associated with.
+     *
+     * @type {string | undefined}
+     */
+    export let form = undefined;
+
+    /**
+     * Whether to hide the input label.
+     *
+     * @type {boolean}
+     */
+    export let hideLabel = false;
+
+    /**
+     * A function that returns the validity of the input.
+     *
+     * @type {((input: HTMLInputElement) => string) | undefined}
+     */
+    export let invalid = undefined;
+
+    /**
+     * The id of a <datalist> element located in the same document.
+     *
+     * @type {string}
+     */
+    export let list = "";
+
+    /**
+     * The maximum value to accept.
+     * @type {number | undefined}
+     */
+    export let max = undefined;
+
+    /**
+     * The minimum value to accept.
+     * @type {number | undefined}
+     */
+    export let min = undefined;
+
+    /**
+     * The name of the name input. Submitted with its parent form as part of a name/value pair.
+     *
+     * @type {string}
+     */
+    export let name = "";
+
+    /**
+     * Text that appears in the form control when it has no value set
+     *
+     * @type {string}
+     */
+    export let placeholder = "";
+
+    /**
+     * When true, the user cannot edit the value of the input
+     *
+     * @type {boolean}
+     */
+    export let readonly = false;
+
+    /**
+     * When true, indicates that the user must input a value before the parent form can be submitted.
+     *
+     * @type {boolean}
+     */
+    export let required = false;
+
+    /**
+     * A stepping interval to use when using up and down arrows to adjust the value, as well as for validation.
+     * @type {number}
+     */
+    export let step = 1;
+
+    /**
+     * The initial value of the component.
+     * @type {number | undefined}
+     */
+    export let value = undefined;
+
+    const errorMessage = writable("");
+
+    const forward = createEventForwarder();
+
+    let input = /** @type {HTMLInputElement}*/ ({
+        stepUp() {},
+        stepDown() {},
+    });
+
+    function dispatchChange() {
+        input.dispatchEvent(new Event("change"));
+    }
+
+    function stepUp() {
+        input.stepUp();
+        dispatchChange();
+    }
+
+    function stepDown() {
+        input.stepDown();
+        dispatchChange();
+    }
+</script>
+
+<Container {hideLabel} let:labelId>
+    <slot name="label" slot="label"/>
+    <div class="container">
+        <!-- svelte-ignore a11y-autofocus -->
+        <input bind:this={input} bind:value class="text-input"
+            id={labelId} type="number" use:forward use:validate={{ invalid, error, errorMessage }}
+            {autocomplete} {autofocus} {form} {list} {max} {min} {name}
+            {placeholder} {required} {readonly} {step}>
+        <div class="postfix-wrapper">
+            <span class="postfix-up"on:click={stepUp}>
+                <Icon path={mdiChevronUp}/>
+            </span>
+            <span class="postfix-down" on:click={stepDown}>
+                <Icon path={mdiChevronDown}/>
+            </span>
+        </div>
+    </div>
+    {#if $errorMessage}
+        <div class="invalid" transition:slide>
+            {$errorMessage}
+        </div>
+    {/if}
+</Container>
+
+<style>
+    @import "../css/input.css";
+    @import "../css/container.css";
+    @import "../css/postfix.css";
+    [type=number]::-webkit-outer-spin-button,
+    [type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    [type=number] {
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+    .postfix-wrapper {
+        flex-direction: column;
+    }
+    .postfix-up,
+    .postfix-down {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        align-items: center;
+    }
+    .postfix-up {
+        --br-icon-height: 21px;
+    }
+</style>
+
+<script context="module">
+    export const docs = true;
+</script>

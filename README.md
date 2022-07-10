@@ -35,7 +35,7 @@ export default {
 ```
 ```svelte
 <script>
-    import Button from "@kwangure/strawberry/components/Button";
+    import Button from "@kwangure/strawberry/components/button";
 
     const hello = () => alert("strawberry");
 </script>
@@ -46,9 +46,9 @@ export default {
 
 <style>
     // Import style presets
-    @import "@kwangure/strawberry/components/Button/button.css";
-    @import "@kwangure/strawberry/components/Button/button_dark.css" (prefers-color-scheme: dark);
-    @import "@kwangure/strawberry/components/Button/button_light.css" (prefers-color-scheme: light);
+    @import "@kwangure/strawberry/components/button/layout.css";
+    @import "@kwangure/strawberry/components/button/dark.css" (prefers-color-scheme: dark);
+    @import "@kwangure/strawberry/components/button/light.css" (prefers-color-scheme: light);
 
     // Override imported preset values
     .element {

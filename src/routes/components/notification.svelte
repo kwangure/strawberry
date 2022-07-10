@@ -1,8 +1,8 @@
 <script>
-    import Button, { Primary } from "~@components/Button";
+    import Button, { Primary } from "~@components/button";
     import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/Notification/docs";
-    import Notification from "~@components/Notification";
+    import { docs } from "~@components/notification/docs";
+    import Notification from "~@components/notification";
 
     let visible;
 

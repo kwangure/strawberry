@@ -1,5 +1,5 @@
 <script>
-    import Code, { javascript, svelte } from "~@components/Code";
+    import Code, { javascript, svelte } from "~@components/code";
 
     export let prop;
 

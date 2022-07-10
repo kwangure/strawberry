@@ -1,5 +1,5 @@
 <script>
-    import Code, { css } from "~@components/Code";
+    import Code, { css } from "~@components/code";
 
     export let propertyDocs;
 

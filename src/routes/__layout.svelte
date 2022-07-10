@@ -2,15 +2,15 @@
 
 <style>
     /** No aliases. See https://github.com/sveltejs/kit/issues/3008 */
-    @import "../lib/components/Button/button.css";
-    @import "../lib/components/Button/button_dark.css" (prefers-color-scheme: dark);
-    @import "../lib/components/Button/button_light.css" (prefers-color-scheme: light);
+    @import "../lib/components/button/layout.css";
+    @import "../lib/components/button/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/button/light.css" (prefers-color-scheme: light);
 
-    @import "../lib/components/Code/code.css";
-    @import "../lib/components/Code/code_dark.css" (prefers-color-scheme: dark);
-    @import "../lib/components/Code/code_light.css" (prefers-color-scheme: light);
+    @import "../lib/components/code/layout.css";
+    @import "../lib/components/code/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/code/light.css" (prefers-color-scheme: light);
 
-    @import "../lib/components/Dropdown/dropdown.css";
+    @import "../lib/components/dropdown/layout.css";
 
-    @import "../lib/components/Icon/icon.css";
+    @import "../lib/components/icon/layout.css";
 </style>

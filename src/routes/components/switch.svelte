@@ -1,7 +1,7 @@
 <script>
     import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/Switch/docs";
-    import Switch from "~@components/Switch";
+    import { docs } from "~@components/switch/docs";
+    import Switch from "~@components/switch";
 
     let checked = true;
 </script>

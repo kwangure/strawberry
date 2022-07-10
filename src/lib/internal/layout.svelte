@@ -1,5 +1,5 @@
 <script>
-    import Navbar, { Link as NavLink } from "~@components/Navbar";
+    import Navbar, { Link as NavLink } from "~@components/navbar";
     import { base } from "$app/paths";
 
     import Theme from "@kwangure/strawberry/components/Theme";

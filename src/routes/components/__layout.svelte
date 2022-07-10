@@ -1,5 +1,5 @@
 <script>
-    import Sidebar, { Link, Section } from "~@components/Sidebar";
+    import Sidebar, { Link, Section } from "~@components/sidebar";
     import { base } from "$app/paths";
     import Layout from "$lib/internal/layout.svelte";
     import { page } from "$app/stores";
@@ -63,9 +63,6 @@
                         </Link>
                         <Link href="{base}/components/input/radio" {path}>
                             Radio
-                        </Link>
-                        <Link href="{base}/components/select" {path}>
-                            Select (deprecated)
                         </Link>
                         <Link href="{base}/components/input/select" {path}>
                             Select

@@ -1,7 +1,7 @@
 <script>
     import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/Element/docs";
-    import Element from "~@components/Element";
+    import { docs } from "~@components/element/docs";
+    import Element from "~@components/element";
 
     const element = {
         type: "p",

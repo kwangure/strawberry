@@ -1,8 +1,8 @@
 <script>
     import { mdiGithub, mdiNpm } from "@mdi/js";
     import { base } from "$app/paths";
-    import Button from "~@components/Button";
-    import Navbar from "~@components/Navbar";
+    import Button from "~@components/button";
+    import Navbar from "~@components/navbar";
 
     import Theme from "@kwangure/strawberry/components/Theme";
 </script>

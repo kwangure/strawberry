@@ -1,5 +1,5 @@
 <script>
-    import Code from "~@components/Code";
+    import Code from "~@components/code";
 
     export let slotDocs;
 
