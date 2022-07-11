@@ -140,6 +140,7 @@
 <style>
     @import "../css/container.css";
     @import "../css/input.css";
+    @import "../css/picker_indicator.css";
 
     :host,
     :root {
@@ -159,17 +160,8 @@
             --br-input-time-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8cGF0aCBkPSJNMTIsMjBBOCw4IDAgMCwwIDIwLDEyQTgsOCAwIDAsMCAxMiw0QTgsOCAwIDAsMCA0LDEyQTgsOCAwIDAsMCAxMiwyME0xMiwyQTEwLDEwIDAgMCwxIDIyLDEyQTEwLDEwIDAgMCwxIDEyLDIyQzYuNDcsMjIgMiwxNy41IDIsMTJBMTAsMTAgMCAwLDEgMTIsMk0xMi41LDdWMTIuMjVMMTcsMTQuOTJMMTYuMjUsMTYuMTVMMTEsMTNWN0gxMi41WiI+PC9wYXRoPgo8L3N2Zz4=);
         }
     }
-
-    input::-webkit-datetime-edit {
-        display: contents;
-    }
-    input::-webkit-calendar-picker-indicator {
-        padding-inline: 0;
-    }
     input::-webkit-calendar-picker-indicator {
         background-image: var(--br-input-time-background-image);
-        width: 20px;
-        height: 20px;
     }
     input {
         padding-block: var(--br-input-time-padding-block);

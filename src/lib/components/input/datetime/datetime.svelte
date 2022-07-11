@@ -129,8 +129,9 @@
 </Container>
 
 <style>
-    @import "../css/input.css";
     @import "../css/container.css";
+    @import "../css/input.css";
+    @import "../css/picker_indicator.css";
 
     :host,
     :root {
@@ -150,13 +151,9 @@
             --br-input-datetime-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
         }
     }
-
     input::-webkit-calendar-picker-indicator {
         background-image: var(--br-input-datetime-background-image);
-        width: 20px;
-        height: 20px;
     }
-
     input {
         padding-block: var(--br-input-datetime-padding-block);
         padding-inline: var(--br-input-datetime-padding-inline);

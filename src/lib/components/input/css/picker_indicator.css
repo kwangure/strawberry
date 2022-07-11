@@ -1,0 +1,10 @@
+input::-webkit-datetime-edit {
+    display: contents;
+}
+input::-webkit-calendar-picker-indicator {
+    padding-inline: 0;
+    margin-inline-start: 8px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
