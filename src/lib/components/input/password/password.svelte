@@ -3,6 +3,15 @@
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import { focusElement } from "../actions";
     import { slide } from "svelte/transition";
+    import { validate } from "../validate";
+    import { writable } from "svelte/store";
+
+    /**
+     * A function that takes a validity state string and returns an error message.
+     *
+     * @type {((error: string, input: HTMLInputElement) => string) | undefined}
+     */
+    export let error = undefined;
 
     /**
      * Whether to hide the input label.
@@ -10,6 +19,14 @@
      * @type {boolean}
      */
     export let hideLabel = false;
+
+    /**
+     * A function that returns the validity of the input.
+     *
+     * @type {((input: HTMLInputElement) => string) | undefined}
+     */
+    export let invalid = undefined;
+
     /**
      * The initial value of the component.
      * @type {string | undefined}
@@ -21,28 +38,23 @@
      * @type {boolean}
      */
     export let focus = false;
-    export let invalid = () => false;
 
     const forward = createEventForwarder();
-
-    let blurred = false;
-
-    $: isInvalid = blurred && invalid(value);
+    const errorMessage = writable("");
 </script>
 
 <Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
-    <div class="container" class:invalid={isInvalid}>
+    <div class="container">
         <input class="text-input" bind:value
-            on:blur={() => {
- blurred = true;
-}}
             use:forward type='password' id={labelId}
-            use:focusElement={focus} {...$$restProps}/>
+            use:focusElement={focus}
+            use:validate={{ invalid, error, errorMessage }}
+            {...$$restProps}/>
     </div>
-    {#if isInvalid}
+    {#if $errorMessage}
         <div class="invalid" transition:slide>
-            {isInvalid}
+            {$errorMessage}
         </div>
     {/if}
 </Container>
