@@ -1,9 +1,49 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import Container from "../container.svelte";
-    import { createEventDispatcher } from "svelte";
-    import Icon from "../../icon";
-    import { mdiClockOutline } from "@mdi/js";
-    import { transformable } from "storables";
+    import { createEventForwarder } from "../../../utils/forward-events.js";
+    import { slide } from "svelte/transition";
+    import { validate } from "../validate";
+    import { writable } from "svelte/store";
+
+    /**
+     * Guidance to the browser on information expected in the field.
+     * Helps UserAgent automate filling form field values.
+     *
+     * @type {"off" | "on" | string}
+     */
+    export let autocomplete = "";
+
+    /**
+     * When true, the button will have input focus when the page loads.
+     *
+     * @type {boolean}
+     */
+    export let autofocus = false;
+
+    /**
+     * A function that takes a validity state string and returns an error message.
+     *
+     * @type {((error: string, input: HTMLInputElement) => string) | undefined}
+     */
+    export let error = undefined;
+
+    /**
+     * When true, the input cannot be edited or focused.
+     *
+     * @type {boolean}
+     */
+    export let disabled = false;
+
+    /**
+     * The ID of the form element that the time input is associated with.
+     *
+     * @type {string | undefined}
+     */
+    export let form = undefined;
 
     /**
      * Whether to hide the input label.
@@ -11,214 +51,129 @@
      * @type {boolean}
      */
     export let hideLabel = false;
+
+    /**
+     * A function that returns the validity of the input.
+     *
+     * @type {((input: HTMLInputElement) => string) | undefined}
+     */
+    export let invalid = undefined;
+
+    /**
+     * The id of a <datalist> element located in the same document.
+     *
+     * @type {string}
+     */
+    export let list = "";
+
+    /**
+     * A string representing the latest time to accept.
+     *
+     * @type {string}
+     */
+    export let max = "";
+
+    /**
+     * A string representing the earliest time to accept
+     *
+     * @type {string}
+     */
+    export let min = "";
+
+    /**
+     * The name of the time input. Submitted with its parent form as part of a name/value pair.
+     *
+     * @type {string}
+     */
+    export let name = "";
+
+    /**
+     * When true, the user cannot edit the value of the input
+     *
+     * @type {boolean}
+     */
+    export let readonly = false;
+
+    /**
+     * When true, indicates that the user must input a value before the parent form can be submitted.
+     *
+     * @type {boolean}
+     */
+    export let required = false;
+
+    /**
+     * The granularity in seconds that the time input value must adhere to
+     *
+     * @type {number}
+     */
+    export let step = 60;
+
     /**
      * The initial value of the input.
      *
      * An ISO 8601 dateString or Date.
      *
-     * @type {string | Date}
+     * @type {string}
      */
-    export let value = undefined;
+    export let value = "";
 
-    let hoursInput, minutesInput;
-
-    function isInteger(number) {
-        return parseFloat(number) % 1 === 0;
-    }
-
-    const dispatch = createEventDispatcher();
-    /**
-     * @typedef {{ hours: string; minutes: string; }} Time
-     */
-    const options = {
-        name: "date",
-        transforms: {
-            time: {
-                /**
-                 * @param {Date} date
-                 * @returns {Time}
-                 */
-                from(date) {
-                    return date
-                        ? {
-                                hours: pad(date.getHours()),
-                                minutes: pad(date.getMinutes()),
-                            }
-                        : { hours: "", minutes: "" };
-                },
-                /**
-                 * @param {Time} time
-                 * @returns {Date}
-                 */
-                to(time) {
-                    const date = new Date();
-                    date.setHours(time.hours, time.minutes, 0, 0);
-                    return date;
-                },
-                /**
-                 * @param {Time} time
-                 * @returns {boolean | Error}
-                 */
-                validate(time) {
-                    const { hours, minutes } = time;
-                    if (!isInteger(hours) || !isInteger(minutes)) return false;
-
-                    return (hours >= 0 && hours <= 23)
-                        && (minutes >= 0 && minutes <= 59);
-                },
-            },
-        },
-        validate(date) {
-            return date instanceof Date;
-        },
-    };
-
-    const { date, time } = transformable(options, value);
-
-    // We guard against unnecessary updates, change dispatch and $date
-    // subscriber calls below, Since `onExternalValue` and `onDateChange`
-    // are both run even if only one of them had an updated dependency
-    function onExternalValue(value) {
-        if ($date === value) return;
-        $date = value;
-    }
-    function onDateChange(date) {
-        if (value === date) return;
-        value = date;
-        dispatch("change", value);
-    }
-
-    $: onExternalValue(value);
-    $: onDateChange($date);
-
-    function pad(num) {
-        return String(num).padStart(2, "0");
-    }
-
-    function hourInputEnd() {
-        if (!minutesInput.value) {
-            minutesInput.focus();
-        }
-    }
-
-    function minuteInputEnd() {
-        if (!hoursInput.value) {
-            hoursInput.focus();
-        }
-    }
-
-    /**
-     * @param {Event | InputEvent} event
-     */
-    function emitInputEnd(event) {
-        const { target } = event;
-        const maxPrefix = Number(target.max.slice(0, -1));
-
-        const isUsingArrowKeys = !event.inputType;
-        if (!isUsingArrowKeys && Number(target.value) > maxPrefix) {
-            target.dispatchEvent(new Event("inputend"));
-        }
-    }
-
-    /**
-     * Cycle values that exceeds boundary back within boundary
-     * @param {InputEvent} event
-     */
-    function loopValue(event) {
-        const { target } = event;
-        if (target.value.length === 0) return;
-
-        const max = Number(target.max);
-        const min = Number(target.min);
-        let value = Number(target.value);
-
-        if (value < min) {
-            value = max;
-        } else if (value > max) {
-            value = min;
-        }
-
-        target.value = pad(value);
-    }
-
-    function focusInput() {
-        if (!hoursInput.value) return hoursInput.focus();
-        if (!minutesInput.value) return minutesInput.focus();
-        hoursInput.focus();
-    }
+    const forward = createEventForwarder();
+    const errorMessage = writable("");
 </script>
 
 <Container {hideLabel} let:labelId>
     <slot name="label" slot="label"/>
-    <div class="container"  class:invalid={false}>
-        <input bind:this={hoursInput} class="text-input" type="number" min="0" max="23"
-            on:input={emitInputEnd} on:inputend={hourInputEnd}
-            placeholder="--" bind:value={$time.hours} on:input={loopValue}>:
-        <input bind:this={minutesInput} class="text-input" type="number" min="0" max="59"
-            on:input={emitInputEnd} on:inputend={minuteInputEnd}
-            placeholder="--" bind:value={$time.minutes} on:input={loopValue}>
-        <div class="postfix-wrapper" on:click={focusInput}>
-            <Icon path={mdiClockOutline}></Icon>
-        </div>
+    <div class="container">
+        <!-- svelte-ignore a11y-autofocus -->
+        <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
+            {name} {readonly} {required} {step}
+            class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
+            on:keydown type="time" id={labelId}>
     </div>
+    {#if $errorMessage}
+        <div class="invalid" transition:slide>
+            {$errorMessage}
+        </div>
+    {/if}
 </Container>
 
 <style>
     @import "../css/container.css";
     @import "../css/input.css";
-    @import "../css/postfix.css";
 
-    :export {
-        --br-input-time-icon-size: ;
-        --br-input-time-number-background-color: ;
-        --br-input-time-number-border-radius: ;
+    :host,
+    :root {
+        --br-input-time-padding-block: 5px;
+        --br-input-time-padding-inline: 12px 8px;
     }
-    @media (theme: berry) and (prefers-color-scheme: dark) {
-        :scope {
-            --_number-hover-background-color: #555;
+
+    @media (prefers-color-scheme: dark) {
+        input {
+            /** Encoded from Material design icons. Path is `import("@mdi/js").mdiClockOutline` */
+            --br-input-time-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTIsMjBBOCw4IDAgMCwwIDIwLDEyQTgsOCAwIDAsMCAxMiw0QTgsOCAwIDAsMCA0LDEyQTgsOCAwIDAsMCAxMiwyME0xMiwyQTEwLDEwIDAgMCwxIDIyLDEyQTEwLDEwIDAgMCwxIDEyLDIyQzYuNDcsMjIgMiwxNy41IDIsMTJBMTAsMTAgMCAwLDEgMTIsMk0xMi41LDdWMTIuMjVMMTcsMTQuOTJMMTYuMjUsMTYuMTVMMTEsMTNWN0gxMi41WgoiPjwvcGF0aD4KPC9zdmc+);
         }
     }
-    @media (theme: berry) and (prefers-color-scheme: light) {
-        :scope {
-            --_number-hover-background-color: var(--br-primary-light);
+    @media (prefers-color-scheme: light) {
+        input {
+            /** Encoded from Material design icons. Path is `import("@mdi/js").mdiClockOutline` */
+            --br-input-time-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8cGF0aCBkPSJNMTIsMjBBOCw4IDAgMCwwIDIwLDEyQTgsOCAwIDAsMCAxMiw0QTgsOCAwIDAsMCA0LDEyQTgsOCAwIDAsMCAxMiwyME0xMiwyQTEwLDEwIDAgMCwxIDIyLDEyQTEwLDEwIDAgMCwxIDEyLDIyQzYuNDcsMjIgMiwxNy41IDIsMTJBMTAsMTAgMCAwLDEgMTIsMk0xMi41LDdWMTIuMjVMMTcsMTQuOTJMMTYuMjUsMTYuMTVMMTEsMTNWN0gxMi41WiI+PC9wYXRoPgo8L3N2Zz4=);
         }
     }
-    .container {
-        display: flex;
-        align-items: center;
-        width: -moz-fit-content;
-        width: fit-content;
+
+    input::-webkit-datetime-edit {
+        display: contents;
     }
-    input.text-input {
-        padding: 2px;
-        width: 3ch;
-        border: 2px solid var(--br-white);
-        text-align: center;
+    input::-webkit-calendar-picker-indicator {
+        padding-inline: 0;
     }
-    input:hover,
-    input:focus {
-        background-color: var(--br-input-time-number-background-color, var(--_number-hover-background-color));
-        border-radius: var(--br-input-time-number-border-radius, var(--br-border-radius));
+    input::-webkit-calendar-picker-indicator {
+        background-image: var(--br-input-time-background-image);
+        width: 20px;
+        height: 20px;
     }
-    [type=number]::-webkit-outer-spin-button,
-    [type=number]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    [type=number] {
-        -webkit-appearance: textfield;
-        -moz-appearance: textfield;
-        appearance: textfield;
-        width: 2ch;
-    }
-    .postfix-wrapper {
-        height: 100%;
-    }
-    .postfix-wrapper :global(.berry-icon) {
-        --br-icon-size: var(--br-input-time-icon-size, 21px);
+
+    input {
+        padding-block: var(--br-input-time-padding-block);
+        padding-inline: var(--br-input-time-padding-inline);
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>
