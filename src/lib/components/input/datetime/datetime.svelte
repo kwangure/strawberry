@@ -5,6 +5,9 @@
 <script>
     import Container from "../container.svelte";
     import { createEventForwarder } from "$lib/utils/forward-events.js";
+    import { slide } from "svelte/transition";
+    import { validate } from "../validate";
+    import { writable } from "svelte/store";
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -20,6 +23,13 @@
      * @type {boolean | undefined}
      */
     export let autofocus = undefined;
+
+    /**
+     * A function that takes a validity state string and returns an error message.
+     *
+     * @type {((error: string, input: HTMLInputElement) => string) | undefined}
+     */
+    export let error = undefined;
 
     /**
      * When true, prevents the user from interacting with the input.
@@ -41,6 +51,13 @@
      * @type {boolean}
      */
     export let hideLabel = false;
+
+    /**
+     * A function that returns the validity of the input.
+     *
+     * @type {((input: HTMLInputElement) => string) | undefined}
+     */
+    export let invalid = undefined;
 
     /**
      * The id of a <datalist> element located in the same document.
@@ -92,7 +109,7 @@
     export let value = undefined;
 
     const forward = createEventForwarder();
-
+    const errorMessage = writable("");
 </script>
 
 <Container {hideLabel} let:labelId>
@@ -101,9 +118,14 @@
         <!-- svelte-ignore a11y-autofocus -->
         <input {autocomplete} {autofocus} {disabled} {form}
             {list} {max} {min} {name} {readonly} {step}
-            class="text-input" bind:value use:forward
+            class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
             on:keydown type="datetime-local" id={labelId}>
     </div>
+    {#if $errorMessage}
+        <div class="invalid" transition:slide>
+            {$errorMessage}
+        </div>
+    {/if}
 </Container>
 
 <style>

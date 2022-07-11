@@ -6,7 +6,7 @@
 
 <Component {docs}>
     <svelte:fragment slot="inline">
-        <DateTime value="2017-06-01">
+        <DateTime value="2017-06-01T01:00">
             <svelte:fragment slot="label">
                 This is a datetime label
             </svelte:fragment>
