@@ -1,8 +1,6 @@
 :export {
     --br-input-text-color: ;
     --br-input-background-color: ;
-    --br-input-padding-block: ;
-    --br-input-padding-inline: ;
 }
 
 .text-input {
@@ -15,7 +13,6 @@
     background-image: none;
     border: none;
     outline: 0;
-    padding: var(--br-input-padding-block, 5px) var(--br-input-padding-inline, 12px);
 }
 
 .text-input:not(textarea) {

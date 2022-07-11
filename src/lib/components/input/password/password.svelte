@@ -63,6 +63,16 @@
     @import "../css/input.css";
     @import "../css/container.css";
     @import "../css/postfix.css";
+
+    :host,
+    :root {
+        --br-input-password-padding-block: 5px;
+        --br-input-password-padding-inline: 12px;
+    }
+    input {
+        padding-block: var(--br-input-password-padding-block);
+        padding-inline: var(--br-input-password-padding-inline);
+    }
 </style>
 
 <script context="module">

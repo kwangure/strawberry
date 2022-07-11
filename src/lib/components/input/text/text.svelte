@@ -140,6 +140,16 @@
     @import "../css/input.css";
     @import "../css/container.css";
     @import "../css/postfix.css";
+
+    :host,
+    :root {
+        --br-input-text-padding-block: 5px;
+        --br-input-text-padding-inline: 12px;
+    }
+    input {
+        padding-block: var(--br-input-text-padding-block);
+        padding-inline: var(--br-input-text-padding-inline);
+    }
 </style>
 
 <script context="module">

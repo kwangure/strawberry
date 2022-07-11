@@ -171,7 +171,6 @@
         width: 20px;
         height: 20px;
     }
-
     input {
         padding-block: var(--br-input-time-padding-block);
         padding-inline: var(--br-input-time-padding-inline);

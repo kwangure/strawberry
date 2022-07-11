@@ -135,7 +135,7 @@
     :host,
     :root {
         --br-input-datetime-padding-block: 5px;
-        --br-input-datetime-padding-inline: 12px;
+        --br-input-datetime-padding-inline: 12px 8px;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -159,6 +159,6 @@
 
     input {
         padding-block: var(--br-input-datetime-padding-block);
-        padding-inline: var(--br-input-datetime-padding-inline) calc(var(--br-input-datetime-padding-inline)/2);
+        padding-inline: var(--br-input-datetime-padding-inline);
     }
 </style>

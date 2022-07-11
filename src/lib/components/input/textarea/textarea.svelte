@@ -58,6 +58,16 @@
 <style>
     @import "../css/input.css";
     @import "../css/container.css";
+
+    :host,
+    :root {
+        --br-input-textarea-padding-block: 5px;
+        --br-input-textarea-padding-inline: 12px;
+    }
+    input {
+        padding-block: var(--br-input-textarea-padding-block);
+        padding-inline: var(--br-input-textarea-padding-inline);
+    }
     :export {
         --br-textarea-border: ;
     }
