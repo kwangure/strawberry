@@ -133,24 +133,6 @@
     @import "../css/input.css";
     @import "../css/picker_indicator.css";
 
-    :host,
-    :root {
-        --br-input-datetime-padding-block: 5px;
-        --br-input-datetime-padding-inline: 12px 8px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        input {
-            /** Encoded from Material design icons. Path is `import("@mdi/js").mdiCalendar` */
-            --br-input-datetime-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        input {
-            /** Encoded from Material design icons. Path is `import("@mdi/js").mdiCalendar` */
-            --br-input-datetime-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
-        }
-    }
     input::-webkit-calendar-picker-indicator {
         background-image: var(--br-input-datetime-background-image);
     }

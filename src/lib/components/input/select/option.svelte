@@ -38,10 +38,6 @@
 </option>
 
 <style>
-    :host,
-    :root {
-        --br-option-text-color: black;
-    }
     option {
         color: var(--br-option-text-color);
     }

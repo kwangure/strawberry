@@ -1,0 +1,5 @@
+:host,
+:root {
+    --br-dropdown-background-color: #222;
+    --br-dropdown-box-shadow: 0 2px 8px #111;
+}

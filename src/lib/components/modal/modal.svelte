@@ -79,15 +79,6 @@
 {/if}
 
 <style>
-    :host,
-    :root {
-        --br-modal-background-color: var(--br-default-background-color);
-        --br-modal-border-radius: var(--br-border-radius);
-        --br-modal-box-shadow: var(--br-default-box-shadow);
-        --br-modal-transition-duration: background-color var(--br-transition-duration) ease;
-        --br-modal-overlay-transition: background-color var(--br-transition-duration) ease;
-        --br-modal-overlay-background-color: rgba(0, 0, 0, 0.5);
-    }
     .overlay {
         position: fixed;
         top: 0;

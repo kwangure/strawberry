@@ -59,31 +59,9 @@
     @import "../css/input.css";
     @import "../css/container.css";
 
-    :host,
-    :root {
-        --br-input-textarea-padding-block: 5px;
-        --br-input-textarea-padding-inline: 12px;
-    }
-    input {
+    textarea {
         padding-block: var(--br-input-textarea-padding-block);
         padding-inline: var(--br-input-textarea-padding-inline);
-    }
-    :export {
-        --br-textarea-border: ;
-    }
-    @media (theme: berry) and (prefers-color-scheme: dark) {
-        :scope {
-            --_textarea-box-shadow-color: var(--br-primary);
-            --_textarea-border-color: var(--blue-3);
-            --_textarea-text-color: #dcdcdc;
-        }
-    }
-    @media (theme: berry) and (prefers-color-scheme: light) {
-        :scope {
-            --_textarea-box-shadow-color: var(--br-primary-light);
-            --_textarea-border-color: var(--br-primary);
-            --_textarea-text-color: #dcdcdc;
-        }
     }
     textarea.text-input {
         width: 100%;
@@ -91,8 +69,9 @@
         overflow-x: hidden;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        border: var(--br-textarea-border, var(--br-default-border));
-        border-radius: var(--br-textarea-border-radius, var(--br-border-radius));
+        border: var(--br-textarea-border);
+        border-color: var(--br-textarea-border-color);
+        border-radius: var(--br-textarea-border-radius);
     }
     textarea::-webkit-scrollbar {
         display: none;

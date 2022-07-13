@@ -162,16 +162,10 @@
     @import "../css/container.css";
     @import "../css/postfix.css";
 
-    :host,
-    :root {
-        --br-input-number-padding-block: 5px;
-        --br-input-number-padding-inline: 12px;
-    }
     input {
         padding-block: var(--br-input-number-padding-block);
         padding-inline: var(--br-input-number-padding-inline);
     }
-
     [type=number]::-webkit-outer-spin-button,
     [type=number]::-webkit-inner-spin-button {
         -webkit-appearance: none;

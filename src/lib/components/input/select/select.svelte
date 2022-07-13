@@ -87,15 +87,6 @@
 <style>
     @import "../css/container.css";
 
-    :host,
-    :root {
-        --br-select-text-color: inherit;
-        --br-select-width: initial;
-        --br-select-background-color: transparent;
-        --br-select-padding-block: 5px;
-        --br-select-padding-inline: 8px;
-    }
-
     select {
         color: var(--br-select-text-color);
         width: var(--br-select-width);
@@ -107,7 +98,6 @@
         outline: 0;
         padding: var(--br-select-padding-block) var(--br-select-padding-inline);
     }
-
 </style>
 
 <script context="module">

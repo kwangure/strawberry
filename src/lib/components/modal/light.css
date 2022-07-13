@@ -1,0 +1,5 @@
+:host,
+:root {
+    --br-modal-background-color: #fff;
+    --br-modal-box-shadow: var(--br-default-box-shadow);
+}

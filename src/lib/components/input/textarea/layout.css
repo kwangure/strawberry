@@ -1,0 +1,7 @@
+:host,
+:root {
+    --br-textarea-border-radius: 4px;
+    --br-textarea-border: 1px solid;
+    --br-input-textarea-padding-block: 5px;
+    --br-input-textarea-padding-inline: 12px;
+}

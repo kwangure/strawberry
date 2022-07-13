@@ -1,0 +1,10 @@
+:host,
+:root {
+    --br-select-text-color: inherit;
+    --br-select-width: initial;
+    --br-select-background-color: transparent;
+    --br-select-padding-block: 5px;
+    --br-select-padding-inline: 8px;
+
+    --br-option-text-color: black;
+}

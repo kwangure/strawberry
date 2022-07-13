@@ -1,0 +1,5 @@
+:host,
+:root {
+    --br-input-time-padding-block: 5px;
+    --br-input-time-padding-inline: 12px 8px;
+}
