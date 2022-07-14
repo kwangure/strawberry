@@ -1,5 +1,5 @@
 <script>
-    import Container from "../container.svelte";
+    import "../../../css/styles.js";
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import { slide } from "svelte/transition";
 
@@ -8,12 +8,6 @@
      * @type {string | undefined}
      */
     export let value = "";
-    /**
-     * Whether to hide the input label.
-     *
-     * @type {boolean}
-     */
-    export let hideLabel = false;
     /**
      * Whether the input is focused.
      *
@@ -42,23 +36,46 @@
     }
 </script>
 
-<Container {hideLabel} let:labelId>
-    <slot name="label" slot="label"/>
+<!--
+	Svelte a11y check doesn't check nested labels-input pairs 🙄
+ 	See https://github.com/sveltejs/svelte/issues/5300
+-->
+<!-- svelte-ignore a11y-label-has-associated-control -->
+<label>
+    <div class="label-text">
+        <slot name="label"/>
+    </div>
     <textarea class="text-input" class:is_invalid={isInvalid}
         bind:this={textarea} on:input={autosize}
         on:blur={() => blurred = true}
-        use:forward bind:value id={labelId} {...$$restProps}/>
+        use:forward bind:value {...$$restProps}/>
     {#if isInvalid}
     <div class="invalid" transition:slide>
         {isInvalid}
     </div>
     {/if}
-</Container>
+</label>
 
 <style>
     @import "../css/input.css";
     @import "../css/container.css";
 
+    label {
+        display: inline-block;
+    }
+    /*
+        TODO: Add tip on how to accessibly hide label text
+        height: 1px;
+        width: 1px;
+        position: absolute;
+        overflow: hidden;
+    */
+    .label-text {
+        margin-block: var(--br-textarea-label-margin-block);
+        position: var(--br-textarea-label-position);
+        height: var(--br-textarea-label-height);
+        width: var(--br-textarea-label-height);
+    }
     textarea {
         padding-block: var(--br-input-textarea-padding-block);
         padding-inline: var(--br-input-textarea-padding-inline);

@@ -1,7 +1,13 @@
 :host,
 :root {
+    --br-textarea-label-margin-block: auto 5px;
+    --br-textarea-label-position: static;
+    --br-textarea-label-width: initial;
+    --br-textarea-label-height: initial;
+
     --br-textarea-border-radius: 4px;
     --br-textarea-border: 1px solid;
+    /* TODO: Remove '-input' from custom property for consistency */
     --br-input-textarea-padding-block: 5px;
     --br-input-textarea-padding-inline: 12px;
 }
