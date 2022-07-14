@@ -7,7 +7,6 @@
 
     --br-textarea-border-radius: 4px;
     --br-textarea-border: 1px solid;
-    /* TODO: Remove '-input' from custom property for consistency */
-    --br-input-textarea-padding-block: 5px;
-    --br-input-textarea-padding-inline: 12px;
+    --br-textarea-padding-block: 5px;
+    --br-textarea-padding-inline: 12px;
 }
