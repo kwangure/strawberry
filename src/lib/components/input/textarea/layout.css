@@ -4,6 +4,7 @@
     --br-textarea-label-position: static;
     --br-textarea-label-width: initial;
     --br-textarea-label-height: initial;
+    --br-textarea-label-overflow: visible;
 
     --br-textarea-border-radius: 4px;
     --br-textarea-border: 1px solid;

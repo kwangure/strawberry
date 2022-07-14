@@ -90,18 +90,13 @@
     label {
         display: inline-block;
     }
-    /*
-        TODO: Add tip on how to accessibly hide label text
-        height: 1px;
-        width: 1px;
-        position: absolute;
-        overflow: hidden;
-    */
+    /* TODO: style label only when div is not empty */
     .label-text {
         margin-block: var(--br-select-label-margin-block);
         position: var(--br-select-label-position);
         height: var(--br-select-label-height);
-        width: var(--br-select-label-height);
+        width: var(--br-select-label-width);
+        overflow: var(--br-select-label-overflow);
     }
     select {
         color: var(--br-select-text-color);

@@ -134,18 +134,13 @@
     label {
         display: inline-block;
     }
-    /*
-        TODO: Add tip on how to accessibly hide label text
-        height: 1px;
-        width: 1px;
-        position: absolute;
-        overflow: hidden;
-    */
+    /* TODO: style label only when div is not empty */
     .label-text {
         margin-block: var(--br-input-text-label-margin-block);
         position: var(--br-input-text-label-position);
         height: var(--br-input-text-label-height);
-        width: var(--br-input-text-label-height);
+        width: var(--br-input-text-label-width);
+        overflow: var(--br-input-text-label-overflow);
     }
     input {
         padding-block: var(--br-input-text-padding-block);

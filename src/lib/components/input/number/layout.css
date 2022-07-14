@@ -4,6 +4,7 @@
     --br-input-number-label-position: static;
     --br-input-number-label-width: initial;
     --br-input-number-label-height: initial;
+    --br-input-number-label-overflow: visible;
 
     --br-input-number-postfix-width: 31px;
 

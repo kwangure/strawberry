@@ -63,18 +63,13 @@
     label {
         display: inline-block;
     }
-    /*
-        TODO: Add tip on how to accessibly hide label text
-        height: 1px;
-        width: 1px;
-        position: absolute;
-        overflow: hidden;
-    */
+    /* TODO: style label only when div is not empty */
     .label-text {
         margin-block: var(--br-textarea-label-margin-block);
         position: var(--br-textarea-label-position);
         height: var(--br-textarea-label-height);
-        width: var(--br-textarea-label-height);
+        width: var(--br-textarea-label-width);
+        overflow: var(--br-textarea-label-overflow);
     }
     textarea {
         padding-block: var(--br-input-textarea-padding-block);

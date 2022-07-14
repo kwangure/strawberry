@@ -4,6 +4,7 @@
     --br-select-label-position: static;
     --br-select-label-width: initial;
     --br-select-label-height: initial;
+    --br-select-label-overflow: visible;
 
     --br-select-text-color: inherit;
     --br-select-width: initial;

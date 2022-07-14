@@ -145,18 +145,13 @@
     label {
         display: inline-block;
     }
-    /*
-        TODO: Add tip on how to accessibly hide label text
-        height: 1px;
-        width: 1px;
-        position: absolute;
-        overflow: hidden;
-    */
+    /* TODO: style label only when div is not empty */
     .label-text {
         margin-block: var(--br-input-time-label-margin-block);
         position: var(--br-input-time-label-position);
         height: var(--br-input-time-label-height);
-        width: var(--br-input-time-label-height);
+        width: var(--br-input-time-label-width);
+        overflow: var(--br-input-time-label-overflow);
     }
     input::-webkit-calendar-picker-indicator {
         background-image: var(--br-input-time-background-image);

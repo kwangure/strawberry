@@ -1,4 +1,5 @@
 <script>
+    import Code, { svelte } from '$lib/components/code';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '~@components/input/number/docs';
     import Numero from '~@components/input/number';
@@ -11,5 +12,28 @@
                 Mi label numeros!
             </svelte:fragment>
         </Numero>
+    </svelte:fragment>
+    <svelte:fragment slot="accessibility">
+        You should always include the label text for the input for the benefit
+        of screen-reader users. You may use custom-properties to visually
+        hide it if you must. For example:
+        <Code language={svelte} code={`
+<div class="element">
+    <Number value={42}>
+        <svelte:fragment slot="label">
+            Meaning of life
+        </svelte:fragment>
+    </Number>
+</div>
+
+<style>
+    .element {
+        --br-input-number-label-position: absolute;
+        --br-input-number-label-height: 1px;
+        --br-input-number-label-width: 1px;
+        --br-input-number-label-overflow: hidden;
+    }
+</style>
+`}/>
     </svelte:fragment>
 </Component>

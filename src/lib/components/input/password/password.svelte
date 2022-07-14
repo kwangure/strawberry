@@ -62,18 +62,13 @@
     label {
         display: inline-block;
     }
-    /*
-        TODO: Add tip on how to accessibly hide label text
-        height: 1px;
-        width: 1px;
-        position: absolute;
-        overflow: hidden;
-    */
+    /* TODO: style label only when div is not empty */
     .label-text {
         margin-block: var(--br-input-password-label-margin-block);
         position: var(--br-input-password-label-position);
         height: var(--br-input-password-label-height);
-        width: var(--br-input-password-label-height);
+        width: var(--br-input-password-label-width);
+        overflow: var(--br-input-password-label-overflow);
     }
     input {
         padding-block: var(--br-input-password-padding-block);
