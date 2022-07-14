@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import Container from "../container.svelte";
+    import "../../../css/styles.js";
     import { createEventForwarder } from "$lib/utils/forward-events.js";
     import { slide } from "svelte/transition";
     import { validate } from "../validate";
@@ -44,13 +44,6 @@
      * @type {string | undefined}
      */
     export let form = undefined;
-
-    /**
-     * Whether to hide the input label.
-     *
-     * @type {boolean}
-     */
-    export let hideLabel = false;
 
     /**
      * A function that returns the validity of the input.
@@ -112,27 +105,50 @@
     const errorMessage = writable("");
 </script>
 
-<Container {hideLabel} let:labelId>
-    <slot name="label" slot="label"/>
+<!--
+	Svelte a11y check doesn't check nested labels-input pairs 🙄
+ 	See https://github.com/sveltejs/svelte/issues/5300
+-->
+<!-- svelte-ignore a11y-label-has-associated-control -->
+<label>
+    <div class="label-text">
+        <slot name="label"/>
+    </div>
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
         <input {autocomplete} {autofocus} {disabled} {form}
             {list} {max} {min} {name} {readonly} {step}
             class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
-            on:keydown type="datetime-local" id={labelId}>
+            on:keydown type="datetime-local">
     </div>
     {#if $errorMessage}
         <div class="invalid" transition:slide>
             {$errorMessage}
         </div>
     {/if}
-</Container>
+</label>
 
 <style>
     @import "../css/container.css";
     @import "../css/input.css";
     @import "../css/picker_indicator.css";
 
+    label {
+        display: inline-block;
+    }
+    /*
+        TODO: Add tip on how to accessibly hide label text
+        height: 1px;
+        width: 1px;
+        position: absolute;
+        overflow: hidden;
+    */
+    .label-text {
+        margin-block: var(--br-input-datetime-label-margin-block);
+        position: var(--br-input-datetime-label-position);
+        height: var(--br-input-datetime-label-height);
+        width: var(--br-input-datetime-label-height);
+    }
     input::-webkit-calendar-picker-indicator {
         background-image: var(--br-input-datetime-background-image);
     }

@@ -1,5 +1,10 @@
 :host,
 :root {
+    --br-input-datetime-label-margin-block: auto 5px;
+    --br-input-datetime-label-position: static;
+    --br-input-datetime-label-width: initial;
+    --br-input-datetime-label-height: initial;
+
     --br-input-datetime-padding-block: 5px;
     --br-input-datetime-padding-inline: 12px 8px;
 }
