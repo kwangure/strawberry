@@ -63,8 +63,7 @@
     label {
         display: inline-block;
     }
-    /* TODO: style label only when div is not empty */
-    .label-text {
+    .label-text:not(:empty) {
         margin-block: var(--br-textarea-label-margin-block);
         position: var(--br-textarea-label-position);
         height: var(--br-textarea-label-height);

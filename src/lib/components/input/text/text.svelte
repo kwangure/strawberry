@@ -134,8 +134,7 @@
     label {
         display: inline-block;
     }
-    /* TODO: style label only when div is not empty */
-    .label-text {
+    .label-text:not(:empty) {
         margin-block: var(--br-input-text-label-margin-block);
         position: var(--br-input-text-label-position);
         height: var(--br-input-text-label-height);

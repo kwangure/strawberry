@@ -143,8 +143,7 @@
     label {
         display: inline-block;
     }
-    /** TODO: style label only when div is not empty */
-    .label-text {
+    .label-text:not(:empty) {
         margin-block: var(--br-input-date-label-margin-block);
         position: var(--br-input-date-label-position);
         height: var(--br-input-date-label-height);
