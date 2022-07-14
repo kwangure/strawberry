@@ -1,5 +1,5 @@
 <script>
-    import Container from "../container.svelte";
+    import "../../../css/styles.js";
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import Option from "./option.svelte";
 
@@ -69,24 +69,47 @@
     const forward = createEventForwarder();
 </script>
 
-<Container {hideLabel} let:labelId>
-    <slot name="label" slot="label"/>
+<!--
+	Svelte a11y check doesn't check nested labels-input pairs 🙄
+ 	See https://github.com/sveltejs/svelte/issues/5300
+-->
+<!-- svelte-ignore a11y-label-has-associated-control -->
+<label>
+    <div class="label-text">
+        <slot name="label"/>
+    </div>
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
         <select {autocomplete} {autofocus} {disabled} {form}
             {name} {required}
-            bind:value id={labelId} {placeholder} use:forward>
+            bind:value {placeholder} use:forward>
             {#if placeholder}
                 <Option value="" disabled selected>{placeholder}</Option>
             {/if}
             <slot></slot>
         </select>
     </div>
-</Container>
+</label>
 
 <style>
     @import "../css/container.css";
 
+    label {
+        display: inline-block;
+    }
+    /*
+        TODO: Add tip on how to accessibly hide label text
+        height: 1px;
+        width: 1px;
+        position: absolute;
+        overflow: hidden;
+    */
+    .label-text {
+        margin-block: var(--br-select-label-margin-block);
+        position: var(--br-select-label-position);
+        height: var(--br-select-label-height);
+        width: var(--br-select-label-height);
+    }
     select {
         color: var(--br-select-text-color);
         width: var(--br-select-width);

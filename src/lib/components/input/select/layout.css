@@ -1,5 +1,10 @@
 :host,
 :root {
+    --br-select-label-margin-block: auto 5px;
+    --br-select-label-position: static;
+    --br-select-label-width: initial;
+    --br-select-label-height: initial;
+
     --br-select-text-color: inherit;
     --br-select-width: initial;
     --br-select-background-color: transparent;
