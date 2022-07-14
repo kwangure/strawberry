@@ -54,7 +54,6 @@
 <style>
     @import "../css/input.css";
     @import "../css/container.css";
-    @import "../css/postfix.css";
 
     label {
         display: inline-block;

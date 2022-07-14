@@ -1,0 +1,7 @@
+:host,
+:root {
+    --br-input-number-postfix-background-color: transparent;
+    --br-input-number-postfix-color: inherit;
+    --br-input-number-postfix-focus-background-color: var(--br-primary-light);
+    --br-input-number-postfix-focus-color: var(--br-primary);
+}

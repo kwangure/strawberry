@@ -23,6 +23,8 @@
     @import "../lib/components/input/datetime/light.css" (prefers-color-scheme: light);
 
     @import "../lib/components/input/number/layout.css";
+    @import "../lib/components/input/number/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/input/number/light.css" (prefers-color-scheme: light);
 
     @import "../lib/components/input/password/layout.css";
 

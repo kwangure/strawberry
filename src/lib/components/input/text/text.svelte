@@ -126,7 +126,6 @@
 <style>
     @import "../css/input.css";
     @import "../css/container.css";
-    @import "../css/postfix.css";
 
     label {
         display: inline-block;
@@ -138,6 +137,7 @@
         position: absolute;
         overflow: hidden;
     */
+    /* TODO: Fix this to be input-text 👀 */
     .label-text {
         margin-block: var(--br-input-number-label-margin-block);
         position: var(--br-input-number-label-position);

@@ -161,7 +161,6 @@
 <style>
     @import "../css/input.css";
     @import "../css/container.css";
-    @import "../css/postfix.css";
 
     label {
         display: inline-block;
@@ -193,9 +192,6 @@
         -moz-appearance: textfield;
         appearance: textfield;
     }
-    .postfix-wrapper {
-        flex-direction: column;
-    }
     .postfix-up,
     .postfix-down {
         flex: 1;
@@ -205,6 +201,22 @@
     }
     .postfix-up {
         --br-icon-height: 21px;
+    }
+    .container:hover .postfix-wrapper,
+    .container:focus-within .postfix-wrapper {
+        color: var(--br-input-number-postfix-focus-color);
+        background-color: var(--br-input-number-postfix-focus-background-color);
+    }
+    .postfix-wrapper {
+        width: var(--br-input-number-postfix-width);
+        color: var(--br-input-number-postfix-color);
+        background-color: var(--br-input-number-postfix-background-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0 2px 2px 0;
+        flex: none;
     }
 </style>
 
