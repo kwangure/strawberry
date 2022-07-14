@@ -52,13 +52,11 @@
     {/each}
 </table>
 
-<h2>Custom Properties</h2>
 {#if customProperties.length > 0}
+    <h2>Custom Properties</h2>
     {#each customProperties as property}
         <CustomProperty propertyDocs="{property}" />
     {/each}
-{:else}
-    None.
 {/if}
 
 <style>
