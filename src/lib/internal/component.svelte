@@ -59,6 +59,11 @@
     {/each}
 {/if}
 
+{#if $$slots.accessibility}
+    <h2>Accessibility</h2>
+    <slot name="accessibility"/>
+{/if}
+
 <style>
     h1 {
         margin-top: 0;
