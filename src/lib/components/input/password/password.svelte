@@ -1,9 +1,9 @@
 <script>
-    import "../../../css/styles.js";
-    import { createEventForwarder } from "../../../utils/forward-events.js";
-    import { slide } from "svelte/transition";
-    import { validate } from "../validate";
-    import { writable } from "svelte/store";
+    import '../../../css/styles.js';
+    import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { slide } from 'svelte/transition';
+    import { validate } from '../validate';
+    import { writable } from 'svelte/store';
 
     /**
      * A function that takes a validity state string and returns an error message.
@@ -23,10 +23,10 @@
      * The initial value of the component.
      * @type {string | undefined}
      */
-    export let value = "";
+    export let value = '';
 
     const forward = createEventForwarder();
-    const errorMessage = writable("");
+    const errorMessage = writable('');
 </script>
 
 <!--

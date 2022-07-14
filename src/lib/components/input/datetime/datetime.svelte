@@ -3,11 +3,11 @@
 </script>
 
 <script>
-    import "../../../css/styles.js";
-    import { createEventForwarder } from "$lib/utils/forward-events.js";
-    import { slide } from "svelte/transition";
-    import { validate } from "../validate";
-    import { writable } from "svelte/store";
+    import '../../../css/styles.js';
+    import { createEventForwarder } from '$lib/utils/forward-events.js';
+    import { slide } from 'svelte/transition';
+    import { validate } from '../validate';
+    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -102,7 +102,7 @@
     export let value = undefined;
 
     const forward = createEventForwarder();
-    const errorMessage = writable("");
+    const errorMessage = writable('');
 </script>
 
 <!--

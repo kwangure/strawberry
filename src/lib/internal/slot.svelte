@@ -1,18 +1,16 @@
 <script>
-    import Code from "~@components/code";
-
     export let slotDocs;
 
     let keywordObj = {};
 
-    $: ({ name, description = "", keywords = [] } = slotDocs);
+    $: ({ name, description = '', keywords = []} = slotDocs);
     $: {
-        keywordObj = {};
-        for (const { name, description } of keywords) {
-            keywordObj[name] = description;
-        }
+    	keywordObj = {};
+    	for (const { name, description } of keywords) {
+    		keywordObj[name] = description;
+    	}
     }
-    $: ({ usage = "" } = keywordObj);
+    $: ({ usage = '' } = keywordObj);
 </script>
 
 <tr>
@@ -20,7 +18,7 @@
         {name}
     </td>
     <td>
-        {description || "—"}
+        {description || '—'}
     </td>
 </tr>
 

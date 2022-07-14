@@ -1,14 +1,14 @@
 <script>
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/element/docs";
-    import Element from "~@components/element";
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/element/docs';
+    import Element from '~@components/element';
 
     const element = {
-        type: "p",
-        attributes: {
-            style: "font-style: italic; font-weight: 700;",
-        },
-        children: "I am a dynamically generated purple <p/> tag element.",
+    	type: 'p',
+    	attributes: {
+    		style: 'font-style: italic; font-weight: 700;',
+    	},
+    	children: 'I am a dynamically generated purple <p/> tag element.',
     };
 </script>
 

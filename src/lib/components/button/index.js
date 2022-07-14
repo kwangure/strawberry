@@ -1,5 +1,5 @@
-import Button from "./button.svelte";
-import Primary from "./primary.svelte";
+import Button from './button.svelte';
+import Primary from './primary.svelte';
 
 export default Button;
 export { Primary };

@@ -1,5 +1,5 @@
-import { docs as notificationDocs } from "./notification.svelte";
+import { docs as notificationDocs } from './notification.svelte';
 
 export const docs = {
-    main: notificationDocs,
+	main: notificationDocs,
 };

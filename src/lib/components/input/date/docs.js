@@ -1,5 +1,5 @@
-import { docs as dateDocs } from "./date.svelte";
+import { docs as dateDocs } from './date.svelte';
 
 export const docs = {
-    main: dateDocs,
+	main: dateDocs,
 };

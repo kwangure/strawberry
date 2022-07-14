@@ -1,7 +1,7 @@
 <script>
-    import Button, { Primary } from "~@components/button";
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/button/docs";
+    import Button, { Primary } from '~@components/button';
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/button/docs';
 </script>
 
 <Component {docs}>

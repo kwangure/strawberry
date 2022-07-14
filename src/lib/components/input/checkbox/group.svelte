@@ -1,23 +1,23 @@
 <script context="module">
-    export const checkboxGroup = "berry-checkbox-group";
+    export const checkboxGroup = 'berry-checkbox-group';
     export const docs = true;
 </script>
 <script>
-    import { setContext } from "svelte";
+    import { setContext } from 'svelte';
 
     export let group = [];
 
     setContext(checkboxGroup, {
-        add: (value) => {
-            group = [...group, value];
-        },
-        remove: (value) => {
-            group = group.filter((v) => v !== value);
-        },
+    	add: (value) => {
+    		group = [...group, value];
+    	},
+    	remove: (value) => {
+    		group = group.filter((v) => v !== value);
+    	},
     });
 
     if (import.meta.DEV && !Array.isArray(group)) {
-        console.error("'group' prop must be an Array");
+    	console.error('\'group\' prop must be an Array');
     }
 </script>
 

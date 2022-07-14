@@ -3,11 +3,11 @@
 </script>
 
 <script>
-    import "../../css/styles.js";
-    import { createEventDispatcher } from "svelte";
-    import { fly } from "svelte/transition";
-    import Icon from "../icon";
-    import { mdiClose } from "@mdi/js";
+    import '../../css/styles.js';
+    import { createEventDispatcher } from 'svelte';
+    import { fly } from 'svelte/transition';
+    import Icon from '../icon';
+    import { mdiClose } from '@mdi/js';
 
     const dispatch = createEventDispatcher();
 
@@ -17,14 +17,14 @@
     export let message;
 
     $: if (visible && removeAfter) {
-        setTimeout(() => {
-            visible = false;
-        }, removeAfter);
+    	setTimeout(() => {
+    		visible = false;
+    	}, removeAfter);
     }
 
     function hide() {
-        visible = false;
-        dispatch("dismiss");
+    	visible = false;
+    	dispatch('dismiss');
     }
 </script>
 

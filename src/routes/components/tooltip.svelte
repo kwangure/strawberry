@@ -1,15 +1,15 @@
 <script>
-    import Button, { Primary } from "~@components/button";
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/tooltip/docs";
-    import Tooltip from "~@components/tooltip";
+    import Button, { Primary } from '~@components/button';
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/tooltip/docs';
+    import Tooltip from '~@components/tooltip';
 
-    const sides = ["top", "right", "bottom", "left"];
-    const sideModifiers = ["", "-start", "-end"];
+    const sides = ['top', 'right', 'bottom', 'left'];
+    const sideModifiers = ['', '-start', '-end'];
     const placements = [];
 
     for (const side of sides) {
-        placements.push(...sideModifiers.map((mod) => side + mod));
+    	placements.push(...sideModifiers.map((mod) => side + mod));
     }
 </script>
 

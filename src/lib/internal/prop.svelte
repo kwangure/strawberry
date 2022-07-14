@@ -1,20 +1,20 @@
 <script>
-    import Code, { javascript, svelte } from "~@components/code";
+    import Code, { javascript } from '~@components/code';
 
     export let prop;
 
     $: ({ kind, name, optional, value, jsDoc } = prop);
-    $: ({ description, tags = [] } = jsDoc || {});
-    $: ({ type } = tags.find((t) => t.tag === "type") || {});
+    $: ({ description, tags = []} = jsDoc || {});
+    $: ({ type } = tags.find((t) => t.tag === 'type') || {});
 
     // @ts-ignore
     if (import.meta.DEV && !description) {
-        console.warn(`"${name}" prop is missing a description`);
+    	console.warn(`"${name}" prop is missing a description`);
     }
 
     // @ts-ignore
-    if (import.meta.DEV && type === "any") {
-        console.warn(`"${name}" property is typed "any". Use a stronger type.`);
+    if (import.meta.DEV && type === 'any') {
+    	console.warn(`"${name}" property is typed "any". Use a stronger type.`);
     }
 </script>
 
@@ -41,7 +41,7 @@
         {/if}
     </td>
     <td>
-        {description || "—"}
+        {description || '—'}
     </td>
 </tr>
 

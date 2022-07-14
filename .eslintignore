@@ -9,6 +9,8 @@ assets
 
 # Miscellaneous
 node_modules
+test/
 
 # `"eslint"` tries to `require` `"@sveltejs/adapter-static"`
 svelte.config.js
+vite.config.js

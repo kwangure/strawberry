@@ -1,5 +1,5 @@
-import { docs as radioDocs } from "./radio.svelte";
+import { docs as radioDocs } from './radio.svelte';
 
 export const docs = {
-    main: radioDocs,
+	main: radioDocs,
 };

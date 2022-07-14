@@ -1,7 +1,7 @@
 <script>
-    import CustomProperty from "./custom-property.svelte";
-    import Prop from "./prop.svelte";
-    import Slot from "./slot.svelte";
+    import CustomProperty from './custom-property.svelte';
+    import Prop from './prop.svelte';
+    import Slot from './slot.svelte';
 
     /**
      * @type {object}

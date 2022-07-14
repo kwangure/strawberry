@@ -1,7 +1,7 @@
 <script>
-    import Checkbox from "~@components/input/checkbox";
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/input/checkbox/docs";
+    import Checkbox from '~@components/input/checkbox';
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/input/checkbox/docs';
 </script>
 
 <Component {docs}>

@@ -1,12 +1,12 @@
 <script>
-    import "../../../css/styles.js";
+    import '../../../css/styles.js';
 
-    import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
-    import { createEventForwarder } from "../../../utils/forward-events.js";
-    import Icon from "../../icon";
-    import { slide } from "svelte/transition";
-    import { validate } from "../validate";
-    import { writable } from "svelte/store";
+    import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
+    import { createEventForwarder } from '../../../utils/forward-events.js';
+    import Icon from '../../icon';
+    import { slide } from 'svelte/transition';
+    import { validate } from '../validate';
+    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -14,7 +14,7 @@
      *
      * @type {"off" | "on" | string}
      */
-    export let autocomplete = "";
+    export let autocomplete = '';
 
     /**
      * When true, the number input will have input focus when the page loads.
@@ -49,7 +49,7 @@
      *
      * @type {string}
      */
-    export let list = "";
+    export let list = '';
 
     /**
      * The maximum value to accept.
@@ -68,14 +68,14 @@
      *
      * @type {string}
      */
-    export let name = "";
+    export let name = '';
 
     /**
      * Text that appears in the form control when it has no value set
      *
      * @type {string}
      */
-    export let placeholder = "";
+    export let placeholder = '';
 
     /**
      * When true, the user cannot edit the value of the input
@@ -103,27 +103,27 @@
      */
     export let value = undefined;
 
-    const errorMessage = writable("");
+    const errorMessage = writable('');
 
     const forward = createEventForwarder();
 
     let input = /** @type {HTMLInputElement}*/ ({
-        stepUp() {},
-        stepDown() {},
+    	stepUp() {},
+    	stepDown() {},
     });
 
     function dispatchChange() {
-        input.dispatchEvent(new Event("change"));
+    	input.dispatchEvent(new Event('change'));
     }
 
     function stepUp() {
-        input.stepUp();
-        dispatchChange();
+    	input.stepUp();
+    	dispatchChange();
     }
 
     function stepDown() {
-        input.stepDown();
-        dispatchChange();
+    	input.stepDown();
+    	dispatchChange();
     }
 </script>
 

@@ -1,8 +1,9 @@
-import { HighlightJS } from "highlight.js/lib/core";
-import highlighter from "highlight.js/lib/languages/javascript";
-HighlightJS.registerLanguage("javascript", highlighter);
-import "./javascript.css";
+import './javascript.css';
+import highlighter from 'highlight.js/lib/languages/javascript';
+import { HighlightJS } from 'highlight.js/lib/core';
 
-const highlight = (code) => HighlightJS.highlight(code, { language: "javascript" }).value;
+HighlightJS.registerLanguage('javascript', highlighter);
+
+const highlight = (code) => HighlightJS.highlight(code, { language: 'javascript' }).value;
 
 export default highlight;

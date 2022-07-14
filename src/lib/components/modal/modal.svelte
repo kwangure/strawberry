@@ -3,13 +3,13 @@
 </script>
 
 <script>
-    import "../../css/styles.js";
-    import Button from "../button";
-    import Icon from "../icon";
-    import { createEventDispatcher } from "svelte";
-    import { crossscale } from "../../utils/crosstransition.js";
-    import { fade } from "svelte/transition";
-    import { mdiClose } from "@mdi/js";
+    import '../../css/styles.js';
+    import Button from '../button';
+    import { createEventDispatcher } from 'svelte';
+    import { crossscale } from '../../utils/crosstransition.js';
+    import { fade } from 'svelte/transition';
+    import Icon from '../icon';
+    import { mdiClose } from '@mdi/js';
 
     /**
      * Whether to show the modal or not
@@ -29,17 +29,17 @@
     const [send, receive] = crossscale;
 
     export function open() {
-        visible = true;
+    	visible = true;
     }
 
     export function close() {
-        visible = false;
+    	visible = false;
     }
 
     $: if (visible) {
-        dispatch("open");
+    	dispatch('open');
     } else {
-        dispatch("close");
+    	dispatch('close');
     }
 </script>
 

@@ -1,7 +1,7 @@
 <script>
-    import "../../../css/styles.js";
-    import { createEventForwarder } from "../../../utils/forward-events.js";
-    import Option from "./option.svelte";
+    import '../../../css/styles.js';
+    import { createEventForwarder } from '../../../utils/forward-events.js';
+    import Option from './option.svelte';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -31,13 +31,6 @@
      * @type {string | undefined}
      */
     export let form = undefined;
-
-    /**
-     * Whether to hide the input label.
-     *
-     * @type {boolean}
-     */
-    export let hideLabel = false;
 
     /**
      * The name of the select. Submitted with form as part of a name/value pair.

@@ -1,7 +1,7 @@
 <script>
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/input/password/docs";
-    import Password from "~@components/input/password";
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/input/password/docs';
+    import Password from '~@components/input/password';
 </script>
 
 <Component {docs}>

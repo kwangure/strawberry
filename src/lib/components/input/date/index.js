@@ -1,3 +1,3 @@
-import Date from "./date.svelte";
+import Date from './date.svelte';
 
 export default Date;

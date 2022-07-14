@@ -3,9 +3,9 @@
 </script>
 
 <script>
-    import { createEventForwarder } from "../../utils/forward-events.js";
-    import location from "../../utils/stores/location.js";
-    import { matchSome } from "../../utils/regex.js";
+    import { createEventForwarder } from '../../utils/forward-events.js';
+    import location from '../../utils/stores/location.js';
+    import { matchSome } from '../../utils/regex.js';
 
     /** @type {string} */
     export let href;

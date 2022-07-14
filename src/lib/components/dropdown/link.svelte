@@ -1,11 +1,11 @@
 <script>
-    import { createEventForwarder } from "../../utils/forward-events.js";
+    import { createEventForwarder } from '../../utils/forward-events.js';
 
-    export let path = "";
-    export let href = "";
+    export let path = '';
+    export let href = '';
 
     $: if (path) {
-        console.error("The 'path' attribute has been depracated. Use the 'active' prop to mark link active.")
+    	console.error('The \'path\' attribute has been depracated. Use the \'active\' prop to mark link active.');
     }
 
     /**

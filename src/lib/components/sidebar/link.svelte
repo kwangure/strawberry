@@ -1,8 +1,8 @@
 <script>
-    import { createEventForwarder } from "../../utils/forward-events.js";
+    import { createEventForwarder } from '../../utils/forward-events.js';
 
-    export let path = "";
-    export let href = "";
+    export let path = '';
+    export let href = '';
 
     $: active = href === path;
 

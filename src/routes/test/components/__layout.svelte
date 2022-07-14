@@ -1,7 +1,7 @@
 <script>
-    import Theme from "@kwangure/strawberry/components/Theme";
+    import Theme from '@kwangure/strawberry/components/Theme';
 
-    import "$lib/css/styles.js";
+    import '$lib/css/styles.js';
 </script>
 
 <Theme/>

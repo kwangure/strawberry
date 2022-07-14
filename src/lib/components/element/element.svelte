@@ -8,7 +8,7 @@
     export let element;
 </script>
 
-{#if typeof element === "string"}
+{#if typeof element === 'string'}
 <!--Do not indent since element might be <pre/>-->
 {element}
 {:else}

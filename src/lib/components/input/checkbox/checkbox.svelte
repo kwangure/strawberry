@@ -1,8 +1,8 @@
 <script>
-	import "../../../css/styles.js";
-	import { checkboxGroup } from "./group.svelte";
-	import { createEventForwarder } from "../../../utils/forward-events.js";
-	import { getContext } from "svelte";
+	import '../../../css/styles.js';
+	import { checkboxGroup } from './group.svelte';
+	import { createEventForwarder } from '../../../utils/forward-events.js';
+	import { getContext } from 'svelte';
 
 	/**
      * The value of the component if checked.
@@ -22,12 +22,12 @@
 	$: handleCheck(checked);
 
 	function handleCheck(checked) {
-	    if (!group) return;
-	    if (checked) {
-	        group.add(value);
-	    } else {
-	        group.remove(value);
-	    }
+		if (!group) return;
+		if (checked) {
+			group.add(value);
+		} else {
+			group.remove(value);
+		}
 	}
 </script>
 

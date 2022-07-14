@@ -1,93 +1,93 @@
 <script>
-    import "../../css/styles.js";
-    import { mousePosInBoundingRect, toggleListener } from "./tooltip.js";
-    import { createPopper } from "@popperjs/core";
+    import '../../css/styles.js';
+    import { mousePosInBoundingRect, toggleListener } from './tooltip.js';
+    import { createPopper } from '@popperjs/core';
 
     /**
      * Where to position the popup relative to the reference element.
      * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
      */
-    export let placement = "bottom";
+    export let placement = 'bottom';
     export let followMouse = false;
-    export let gesture = "hover";
+    export let gesture = 'hover';
     export let arrow = true;
 
     let visible = false;
 
     function createPopup(popup, _visible) {
-        const referenceElement = popup.previousElementSibling;
+    	const referenceElement = popup.previousElementSibling;
 
-        const reference = followMouse
-            ? mousePosInBoundingRect(referenceElement)
-            : referenceElement;
-        const popperInstance = createPopper(reference, popup, {
-            placement,
-            modifiers: [{
-                name: "offset",
-                options: { offset: [0, 5]},
-            }],
-        });
+    	const reference = followMouse
+    		? mousePosInBoundingRect(referenceElement)
+    		: referenceElement;
+    	const popperInstance = createPopper(reference, popup, {
+    		placement,
+    		modifiers: [{
+    			name: 'offset',
+    			options: { offset: [0, 5]},
+    		}],
+    	});
 
-        if (followMouse) {
-            reference.onchange(popperInstance.update);
-        }
+    	if (followMouse) {
+    		reference.onchange(popperInstance.update);
+    	}
 
-        return {
-            update: (visible) => {
-                if (visible) popperInstance.update();
-            },
-            destroy: () => {
-                popperInstance.destroy();
-            },
-        };
+    	return {
+    		update: (visible) => {
+    			if (visible) popperInstance.update();
+    		},
+    		destroy: () => {
+    			popperInstance.destroy();
+    		},
+    	};
     }
 
     function handleTooltipHover(popup) {
-        if (gesture !== "hover") return;
+    	if (gesture !== 'hover') return;
 
-        const referenceElement = popup.previousElementSibling;
+    	const referenceElement = popup.previousElementSibling;
 
-        const showEvents = ["focus", "mouseenter"];
-        const hideEvents = ["blur", "mouseleave"];
+    	const showEvents = ['focus', 'mouseenter'];
+    	const hideEvents = ['blur', 'mouseleave'];
 
-        function show() {
-            visible = true;
-        }
-        function hide() {
-            visible = false;
-        }
+    	function show() {
+    		visible = true;
+    	}
+    	function hide() {
+    		visible = false;
+    	}
 
-        showEvents.forEach((event) => {
-            toggleListener(referenceElement, event, show, true);
-        });
-        hideEvents.forEach((event) => {
-            toggleListener(referenceElement, event, hide, true);
-        });
+    	showEvents.forEach((event) => {
+    		toggleListener(referenceElement, event, show, true);
+    	});
+    	hideEvents.forEach((event) => {
+    		toggleListener(referenceElement, event, hide, true);
+    	});
     }
 
     function handleDocumentClick(popup) {
-        if (gesture !== "click") return;
+    	if (gesture !== 'click') return;
 
-        const reference = popup.previousElementSibling;
+    	const reference = popup.previousElementSibling;
 
-        document.addEventListener("click", hideIfExternalClick, true);
+    	document.addEventListener('click', hideIfExternalClick, true);
 
-        function hideIfExternalClick(event) {
-            const [target] = event.path
+    	function hideIfExternalClick(event) {
+    		const [target] = event.path
                 || (event.composedPath && event.composedPath());
-            const isContained = reference.contains(target);
-            if (isContained) {
-                visible = !visible;
-            } else if (visible) {
-                visible = false;
-            }
-        }
+    		const isContained = reference.contains(target);
+    		if (isContained) {
+    			visible = !visible;
+    		} else if (visible) {
+    			visible = false;
+    		}
+    	}
 
-        return {
-            destroy: () => {
-                document.removeEventListener("click", hideIfExternalClick);
-            },
-        };
+    	return {
+    		destroy: () => {
+    			document.removeEventListener('click', hideIfExternalClick);
+    		},
+    	};
     }
 </script>
 

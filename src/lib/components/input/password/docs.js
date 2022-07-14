@@ -1,5 +1,5 @@
-import { docs as passwordDocs } from "./password.svelte";
+import { docs as passwordDocs } from './password.svelte';
 
 export const docs = {
-    main: passwordDocs,
+	main: passwordDocs,
 };

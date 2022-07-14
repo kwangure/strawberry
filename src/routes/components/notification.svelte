@@ -1,16 +1,16 @@
 <script>
-    import Button, { Primary } from "~@components/button";
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/notification/docs";
-    import Notification from "~@components/notification";
+    import Button, { Primary } from '~@components/button';
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/notification/docs';
+    import Notification from '~@components/notification';
 
     let visible;
 
     $: handleClick = visible
-        ? () => {}
-        : () => {
-                visible = true;
-            };
+    	? () => {}
+    	: () => {
+    			visible = true;
+    		};
 
 </script>
 

@@ -1,10 +1,10 @@
 <script>
-    import "../../../css/styles.js";
+    import '../../../css/styles.js';
 
-    import { createEventForwarder } from "../../../utils/forward-events.js";
-    import { slide } from "svelte/transition";
-    import { validate } from "../validate";
-    import { writable } from "svelte/store";
+    import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { slide } from 'svelte/transition';
+    import { validate } from '../validate';
+    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -12,7 +12,7 @@
      *
      * @type {"off" | "on" | string}
      */
-    export let autocomplete = "";
+    export let autocomplete = '';
 
     /**
      * Whether select should have input focus when the page loads.
@@ -54,28 +54,28 @@
      *
      * @type {string}
      */
-    export let list = "";
+    export let list = '';
 
     /**
      * A date string representing the latest date to accept.
      *
      * @type {string}
      */
-    export let max = "";
+    export let max = '';
 
     /**
      * A date string representing the earliest date to accept
      *
      * @type {string}
      */
-    export let min = "";
+    export let min = '';
 
     /**
      * The name of the date input. Submitted with its parent form as part of a name/value pair.
      *
      * @type {string}
      */
-    export let name = "";
+    export let name = '';
 
     /**
      * When true, the user cannot edit the value of the input
@@ -103,10 +103,10 @@
      *
      * @type {string}
      */
-    export let value = "";
+    export let value = '';
 
     const forward = createEventForwarder();
-    const errorMessage = writable("");
+    const errorMessage = writable('');
 </script>
 
 <!--

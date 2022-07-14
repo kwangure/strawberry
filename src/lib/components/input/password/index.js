@@ -1,3 +1,3 @@
-import Password from "./password.svelte";
+import Password from './password.svelte';
 
 export default Password;

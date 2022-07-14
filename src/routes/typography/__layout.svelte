@@ -1,5 +1,5 @@
 <script>
-    import Layout from "$lib/internal/layout.svelte";
+    import Layout from '$lib/internal/layout.svelte';
 </script>
 
 <Layout>

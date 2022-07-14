@@ -1,12 +1,12 @@
 <script>
-    import "../../css/styles.js";
-    import { createEventForwarder } from "../../utils/forward-events.js";
+    import '../../css/styles.js';
+    import { createEventForwarder } from '../../utils/forward-events.js';
 
     /**
      * A "d" string is valid in an SVG path element.
      * @type {string}
      */
-    export let path = "";
+    export let path = '';
 
     const forward = createEventForwarder();
 </script>

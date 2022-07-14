@@ -1,7 +1,7 @@
 <script>
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/input/time/docs";
-    import Time from "~@components/input/time";
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/input/time/docs';
+    import Time from '~@components/input/time';
 </script>
 
 <Component {docs}>

@@ -1,9 +1,9 @@
 <script>
-    import "../../../css/styles.js";
-    import { createEventForwarder } from "../../../utils/forward-events.js";
-    import { slide } from "svelte/transition";
-    import { validate } from "../validate";
-    import { writable } from "svelte/store";
+    import '../../../css/styles.js';
+    import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { slide } from 'svelte/transition';
+    import { validate } from '../validate';
+    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -11,7 +11,7 @@
      *
      * @type {"off" | "on" | string}
      */
-    export let autocomplete = "";
+    export let autocomplete = '';
 
     /**
      * Whether select should have input focus when the page loads.
@@ -46,7 +46,7 @@
      *
      * @type {string}
      */
-    export let list = "";
+    export let list = '';
 
     /**
      * The maximum number of characters allowed in the element.
@@ -67,14 +67,14 @@
      *
      * @type {string}
      */
-    export let name = "";
+    export let name = '';
 
     /**
      * Text that appears in the form control when it has no value set
      *
      * @type {string}
      */
-    export let placeholder = "";
+    export let placeholder = '';
 
     /**
      * When true, the user cannot edit the value of the input
@@ -94,10 +94,10 @@
      * The initial value of the component.
      * @type {string | undefined}
      */
-    export let value = "";
+    export let value = '';
 
     const forward = createEventForwarder();
-    const errorMessage = writable("");
+    const errorMessage = writable('');
 </script>
 
 <!--

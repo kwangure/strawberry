@@ -3,14 +3,14 @@
 </script>
 
 <script>
-    import "../../css/styles.js";
-    import { createPopper } from "@popperjs/core";
+    import '../../css/styles.js';
+    import { createPopper } from '@popperjs/core';
 
     /**
      * Where to position the popup relative to the dropdown button.
      * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
      */
-    export let placement = "bottom-start";
+    export let placement = 'bottom-start';
     /**
      * Whether the popup is visible
      * @type {boolean}
@@ -18,48 +18,48 @@
     export let visible = false;
 
     function createPopup(popup, _) {
-        const reference = popup.previousElementSibling;
-        const popperInstance = createPopper(reference, popup, {
-            placement,
-            modifiers: [
-                {
-                    name: "offset",
-                    options: { offset: [0, 5] },
-                },
-            ],
-        });
+    	const reference = popup.previousElementSibling;
+    	const popperInstance = createPopper(reference, popup, {
+    		placement,
+    		modifiers: [
+    			{
+    				name: 'offset',
+    				options: { offset: [0, 5]},
+    			},
+    		],
+    	});
 
-        return {
-            update(visible) {
-                if (visible) popperInstance.update();
-            },
-            destroy() {
-                popperInstance.destroy();
-            },
-        };
+    	return {
+    		update(visible) {
+    			if (visible) popperInstance.update();
+    		},
+    		destroy() {
+    			popperInstance.destroy();
+    		},
+    	};
     }
 
     function handleDocumentClick(popup) {
-        const reference = popup.previousElementSibling;
+    	const reference = popup.previousElementSibling;
 
-        document.addEventListener("click", hideIfExternalClick, true);
+    	document.addEventListener('click', hideIfExternalClick, true);
 
-        function hideIfExternalClick(event) {
-            const [target] =
-                event.path || (event.composedPath && event.composedPath());
-            const isContained = reference.contains(target);
-            if (isContained) {
-                visible = !visible;
-            } else if (visible) {
-                visible = false;
-            }
-        }
+    	function hideIfExternalClick(event) {
+    		const [target]
+                = event.path || (event.composedPath && event.composedPath());
+    		const isContained = reference.contains(target);
+    		if (isContained) {
+    			visible = !visible;
+    		} else if (visible) {
+    			visible = false;
+    		}
+    	}
 
-        return {
-            destroy: () => {
-                document.removeEventListener("click", hideIfExternalClick);
-            },
-        };
+    	return {
+    		destroy: () => {
+    			document.removeEventListener('click', hideIfExternalClick);
+    		},
+    	};
     }
 </script>
 

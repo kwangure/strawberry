@@ -1,7 +1,7 @@
 {
 	"name": "@kwangure/strawberry",
-    "version": "0.43.0",
-    "description": "A set of svelte components",
+	"version": "0.43.0",
+	"description": "A set of svelte components",
 	"scripts": {
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./jsconfig.json",
@@ -13,77 +13,78 @@
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
 		"release-candidate": "svelte-kit package && standard-version -a --prerelease rc && svelte-kit package && npm publish ./package --tag rc && git push --follow-tags origin master",
-        "release": "svelte-kit package && standard-version -a && svelte-kit package && npm publish ./package && git push --follow-tags origin master",
-        "test": "vitest"
+		"release": "svelte-kit package && standard-version -a && svelte-kit package && npm publish ./package && git push --follow-tags origin master",
+		"test": "vitest"
 	},
 	"exports": {
-        ".": "./"
-    },
-    "dependencies": {
+		".": "./"
+	},
+	"dependencies": {
 		"@mdi/js": "^5.0.45",
-        "@popperjs/core": "^2.6.0",
-        "css-tree": "github:kwangure/csstree",
-        "esbuild": "^0.14.13",
-        "escape-string-regexp": "^5.0.0",
-        "fuzzy": "^0.1.3",
-        "highlight.js": "^11.3.1",
+		"@popperjs/core": "^2.6.0",
+		"css-tree": "github:kwangure/csstree",
+		"esbuild": "^0.14.13",
+		"escape-string-regexp": "^5.0.0",
+		"fuzzy": "^0.1.3",
+		"highlight.js": "^11.3.1",
 		"highlightjs-svelte": "^1.0.6",
-        "html-escaper": "^3.0.3",
-        "magic-string": "^0.26.1",
-        "matcher": "^4.0.0",
-        "open-props": "^1.3.3",
-        "postcss-jit-props": "^1.0.4",
-        "sitgent": "^0.0.8",
-        "uid": "^1.0.0"
+		"html-escaper": "^3.0.3",
+		"magic-string": "^0.26.1",
+		"matcher": "^4.0.0",
+		"open-props": "^1.3.3",
+		"postcss-jit-props": "^1.0.4",
+		"sitgent": "^0.0.8",
+		"uid": "^1.0.0"
 	},
 	"devDependencies": {
-		"@kwangure/eslint-config-svelte": "^0.1.16",
-        "@kwangure/svelte-docs": "^0.3.2",
+		"@kwangure/eslint-config-svelte": "^0.2.0",
+		"@kwangure/svelte-docs": "^0.3.2",
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
 		"eslint": "^8.12.0",
-        "gh-pages": "^3.1.0",
-        "micromatch": "^4.0.4",
-        "playwright": "^1.22.0",
-        "standard-version": "^9.1.0",
+		"eslint-import-resolver-alias": "^1.1.2",
+		"gh-pages": "^3.1.0",
+		"micromatch": "^4.0.4",
+		"playwright": "^1.22.0",
+		"standard-version": "^9.1.0",
 		"svelte": "^3.48.0",
 		"svelte-check": "^2.7.1",
 		"svelte2tsx": "^0.4.2",
 		"typescript": "^4.7.4",
-		"vite-plugin-inspect": "^0.3.13",
 		"vite": "^2.9.13",
+		"vite-plugin-inspect": "^0.3.13",
 		"vitest": "^0.12.6"
 	},
 	"peerDependencies": {
-        "svelte": "^3.48.0"
-    },
+		"svelte": "^3.48.0"
+	},
 	"keywords": [
-        "svelte",
-        "sveltejs",
-        "component",
-        "components",
-        "button",
-        "code",
-        "dropdown",
-        "icon",
-        "input",
-        "list",
-        "modal",
-        "navbar",
-        "notification",
-        "select",
-        "sidebar",
-        "steps",
-        "tooltip"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/kwangure/strawberry.git"
-    },
-    "author": "Kafungo Wangure",
-    "bugs": {
-        "url": "https://github.com/kwangure/strawberry/issues"
-    },
-    "homepage": "https://kwangure.github.io/strawberry",
+		"svelte",
+		"sveltejs",
+		"component",
+		"components",
+		"button",
+		"code",
+		"dropdown",
+		"icon",
+		"input",
+		"list",
+		"modal",
+		"navbar",
+		"notification",
+		"select",
+		"sidebar",
+		"steps",
+		"tooltip"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kwangure/strawberry.git"
+	},
+	"author": "Kafungo Wangure",
+	"bugs": {
+		"url": "https://github.com/kwangure/strawberry/issues"
+	},
+	"homepage": "https://kwangure.github.io/strawberry",
 	"type": "module"
 }

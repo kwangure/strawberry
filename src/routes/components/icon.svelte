@@ -1,8 +1,8 @@
 <script>
-    import Component from "$lib/internal/component.svelte";
-    import { docs } from "~@components/icon/docs";
-    import Icon from "~@components/icon";
-    import { mdiPencil } from "@mdi/js";
+    import Component from '$lib/internal/component.svelte';
+    import { docs } from '~@components/icon/docs';
+    import Icon from '~@components/icon';
+    import { mdiPencil } from '@mdi/js';
 
 </script>
 

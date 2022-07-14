@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import "../../css/styles.js";
+    import '../../css/styles.js';
     /**
      * @template T
      * @typedef {{ name: T, highlighter: function }} Language<T>
@@ -29,7 +29,7 @@
 </script>
 
 <!-- Leave as one long line since `pre` preserves whitespace-->
-<pre class="berry-code hljs" class:inline><code>{@html language(code.replace(" *{}", ""))}</code></pre>
+<pre class="berry-code hljs" class:inline><code>{@html language(code.replace(' *{}', ''))}</code></pre>
 
 <style>
     pre {

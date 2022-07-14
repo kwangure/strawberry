@@ -1,21 +1,21 @@
 <script context="module">
-    import { getContext } from "svelte";
+    import { getContext } from 'svelte';
 
     export const docs = true;
 
     const key = {};
     export function stores() {
-        return getContext(key);
+    	return getContext(key);
     }
 </script>
 
 <script>
-    import "../../css/styles.js";
-    import { setContext } from "svelte";
-    import { writable } from "svelte/store";
+    import '../../css/styles.js';
+    import { setContext } from 'svelte';
+    import { writable } from 'svelte/store';
 
-    export let logoHref = "/";
-    const navHeight = writable("");
+    export let logoHref = '/';
+    const navHeight = writable('');
 
     setContext(key, { navHeight });
 </script>

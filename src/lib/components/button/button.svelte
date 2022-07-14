@@ -8,8 +8,8 @@
     A button triggers an event or action. They let users know what will happen next.
 -->
 <script>
-    import "../../css/styles.js";
-    import { createEventForwarder } from "../../utils/forward-events.js";
+    import '../../css/styles.js';
+    import { createEventForwarder } from '../../utils/forward-events.js';
 
     /**
      * When true, the button will have input focus when the page loads.
@@ -37,21 +37,21 @@
      *
      * @type {string}
      */
-    export let formaction = "";
+    export let formaction = '';
 
     /**
      * How to encode form data if the button is a submit button
      *
      * @type {"application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain" | ""}
      */
-    export let formenctype = "";
+    export let formenctype = '';
 
     /**
      * The HTTP method used to submit the form data if the button is a submit button
      *
      * @type {"get" | "post" | ""}
      */
-    export let formmethod = "";
+    export let formmethod = '';
 
     /**
      * When true, the form associated with the button will not be validated.
@@ -65,24 +65,24 @@
      *
      * @type {"_self" | "_blank" | "_parent" | "_top" | string}
      */
-    export let formtarget =  "";
+    export let formtarget = '';
 
     /**
      * The name of the button. Submitted by its parent form as part of a name/value pair.
      *
      * @type {string}
      */
-    export let name = "";
+    export let name = '';
 
     /**
      * The value of the button. Submitted by its parent form as part of a name/value pair.
      *
      * @type {string}
      */
-    export let value = "";
+    export let value = '';
 
     if ($$props.primary !== undefined) {
-        console.error("The 'primary' prop has been removed. Use the 'Button.Primary' component or CSS custom properties to overwrite color styles.");
+    	console.error('The \'primary\' prop has been removed. Use the \'Button.Primary\' component or CSS custom properties to overwrite color styles.');
     }
 
     const forward = createEventForwarder();

@@ -1,13 +1,13 @@
 <script>
-    import "../../../css/styles.js";
-    import { createEventForwarder } from "../../../utils/forward-events.js";
-    import { slide } from "svelte/transition";
+    import '../../../css/styles.js';
+    import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { slide } from 'svelte/transition';
 
     /**
      * The initial value of the component.
      * @type {string | undefined}
      */
-    export let value = "";
+    export let value = '';
     /**
      * Whether the input is focused.
      *
@@ -25,14 +25,14 @@
     $: isInvalid = blurred && invalid(value);
 
     function autosize() {
-        const computed = getComputedStyle(textarea);
+    	const computed = getComputedStyle(textarea);
 
-        let newHeight;
-        newHeight = parseInt(computed.getPropertyValue("border-top-width"));
-        newHeight += parseInt(computed.getPropertyValue("border-bottom-width"));
+    	let newHeight;
+    	newHeight = parseInt(computed.getPropertyValue('border-top-width'));
+    	newHeight += parseInt(computed.getPropertyValue('border-bottom-width'));
 
-        newHeight += textarea.scrollHeight;
-        textarea.style.height = `${newHeight}px`;
+    	newHeight += textarea.scrollHeight;
+    	textarea.style.height = `${newHeight}px`;
     }
 </script>
 
