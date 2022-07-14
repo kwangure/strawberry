@@ -137,12 +137,11 @@
         position: absolute;
         overflow: hidden;
     */
-    /* TODO: Fix this to be input-text 👀 */
     .label-text {
-        margin-block: var(--br-input-number-label-margin-block);
-        position: var(--br-input-number-label-position);
-        height: var(--br-input-number-label-height);
-        width: var(--br-input-number-label-height);
+        margin-block: var(--br-input-text-label-margin-block);
+        position: var(--br-input-text-label-position);
+        height: var(--br-input-text-label-height);
+        width: var(--br-input-text-label-height);
     }
     input {
         padding-block: var(--br-input-text-padding-block);
