@@ -28,6 +28,8 @@
 
     @import "../lib/components/input/select/layout.css";
 
+    @import "../lib/components/input/text/layout.css";
+
     @import "../lib/components/input/textarea/layout.css";
     @import "../lib/components/input/textarea/dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/input/textarea/light.css" (prefers-color-scheme: light);
