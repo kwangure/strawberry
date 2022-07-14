@@ -1,5 +1,5 @@
 <script>
-    import Container from "../container.svelte";
+    import "../../../css/styles.js";
     import { createEventForwarder } from "../../../utils/forward-events.js";
     import { focusElement } from "../actions";
     import { slide } from "svelte/transition";
@@ -12,13 +12,6 @@
      * @type {((error: string, input: HTMLInputElement) => string) | undefined}
      */
     export let error = undefined;
-
-    /**
-     * Whether to hide the input label.
-     *
-     * @type {boolean}
-     */
-    export let hideLabel = false;
 
     /**
      * A function that returns the validity of the input.
@@ -43,11 +36,18 @@
     const errorMessage = writable("");
 </script>
 
-<Container {hideLabel} let:labelId>
-    <slot name="label" slot="label"/>
+<!--
+	Svelte a11y check doesn't check nested labels-input pairs 🙄
+ 	See https://github.com/sveltejs/svelte/issues/5300
+-->
+<!-- svelte-ignore a11y-label-has-associated-control -->
+<label>
+    <div class="label-text">
+        <slot name="label"/>
+    </div>
     <div class="container">
         <input class="text-input" bind:value
-            use:forward type='password' id={labelId}
+            use:forward type='password'
             use:focusElement={focus}
             use:validate={{ invalid, error, errorMessage }}
             {...$$restProps}/>
@@ -57,13 +57,29 @@
             {$errorMessage}
         </div>
     {/if}
-</Container>
+</label>
 
 <style>
     @import "../css/input.css";
     @import "../css/container.css";
     @import "../css/postfix.css";
 
+    label {
+        display: inline-block;
+    }
+    /*
+        TODO: Add tip on how to accessibly hide label text
+        height: 1px;
+        width: 1px;
+        position: absolute;
+        overflow: hidden;
+    */
+    .label-text {
+        margin-block: var(--br-input-password-label-margin-block);
+        position: var(--br-input-password-label-position);
+        height: var(--br-input-password-label-height);
+        width: var(--br-input-password-label-height);
+    }
     input {
         padding-block: var(--br-input-password-padding-block);
         padding-inline: var(--br-input-password-padding-inline);
