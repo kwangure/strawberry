@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <section class="berry-sidebar-section sidebar-section">
     <div class="title">
         <slot name="title"/>
@@ -23,7 +27,3 @@
         gap: var(--br-inner-gutter);
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

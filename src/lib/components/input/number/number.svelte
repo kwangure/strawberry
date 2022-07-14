@@ -1,6 +1,9 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import '../../../css/styles.js';
-
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import Icon from '../../icon';
@@ -219,7 +222,3 @@
         flex: none;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import '../../css/styles.js';
 </script>
@@ -17,7 +21,3 @@
         gap: var(--br-inner-gutter);
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

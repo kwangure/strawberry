@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import { createEventForwarder } from '../../utils/forward-events.js';
 
@@ -34,7 +38,3 @@
         color: inherit;
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import '../../css/styles.js';
     import { getSVGParent, isSVGChild } from '../../utils/svg.js';
@@ -83,7 +87,3 @@
 <style>
     @import "./tooltip.css";
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

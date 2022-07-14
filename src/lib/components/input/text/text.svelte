@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
@@ -148,7 +152,3 @@
         padding-inline: var(--br-input-text-padding-inline);
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

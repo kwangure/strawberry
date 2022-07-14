@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
 	import '../../../css/styles.js';
 	import { checkboxGroup } from './group.svelte';
@@ -39,7 +43,3 @@
 <style>
     @import "../css/checkboxRadio.css";
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

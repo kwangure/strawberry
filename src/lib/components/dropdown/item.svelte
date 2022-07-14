@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import { createEventForwarder } from '../../utils/forward-events.js';
 
@@ -13,7 +17,3 @@
 <style>
     @import "./item.css";
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

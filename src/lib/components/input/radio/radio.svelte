@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
@@ -35,7 +39,3 @@
 <style>
     @import "../css/checkboxRadio.css";
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

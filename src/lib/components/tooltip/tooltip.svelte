@@ -1,3 +1,7 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import '../../css/styles.js';
     import { mousePosInBoundingRect, toggleListener } from './tooltip.js';
@@ -105,7 +109,3 @@
 <style>
     @import "./tooltip.css";
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>

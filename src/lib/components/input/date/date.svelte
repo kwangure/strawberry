@@ -1,6 +1,9 @@
+<script context="module">
+    export const docs = true;
+</script>
+
 <script>
     import '../../../css/styles.js';
-
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import { slide } from 'svelte/transition';
     import { validate } from '../validate';
@@ -161,7 +164,3 @@
         padding-inline: var(--br-input-date-padding-inline);
     }
 </style>
-
-<script context="module">
-    export const docs = true;
-</script>
