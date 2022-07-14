@@ -1,7 +1,6 @@
 <script>
     import "../../../css/styles.js";
     import { createEventForwarder } from "../../../utils/forward-events.js";
-    import { focusElement } from "../actions";
     import { slide } from "svelte/transition";
     import { validate } from "../validate";
     import { writable } from "svelte/store";
@@ -97,13 +96,6 @@
      */
     export let value = "";
 
-    /**
-     * Whether the input is focused.
-     *
-     * @type {boolean}
-     */
-    export let focus = false;
-
     const forward = createEventForwarder();
     const errorMessage = writable("");
 </script>
@@ -120,7 +112,7 @@
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
         <input class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
-            on:keydown type="text" use:focusElement={focus}
+            on:keydown type="text"
             {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
             {name} {placeholder} {readonly} {required}>
         <!-- TODO: Remove this postfix slot -->

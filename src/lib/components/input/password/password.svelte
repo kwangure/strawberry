@@ -1,7 +1,6 @@
 <script>
     import "../../../css/styles.js";
     import { createEventForwarder } from "../../../utils/forward-events.js";
-    import { focusElement } from "../actions";
     import { slide } from "svelte/transition";
     import { validate } from "../validate";
     import { writable } from "svelte/store";
@@ -25,12 +24,6 @@
      * @type {string | undefined}
      */
     export let value = "";
-    /**
-     * Whether the input is focused.
-     *
-     * @type {boolean}
-     */
-    export let focus = false;
 
     const forward = createEventForwarder();
     const errorMessage = writable("");
@@ -48,7 +41,6 @@
     <div class="container">
         <input class="text-input" bind:value
             use:forward type='password'
-            use:focusElement={focus}
             use:validate={{ invalid, error, errorMessage }}
             {...$$restProps}/>
     </div>
