@@ -1,5 +1,10 @@
 :host,
 :root {
+    --br-input-number-label-margin-block: auto 5px;
+    --br-input-number-label-position: static;
+    --br-input-number-label-width: initial;
+    --br-input-number-label-height: initial;
+
     --br-input-number-padding-block: 5px;
     --br-input-number-padding-inline: 12px;
 }
