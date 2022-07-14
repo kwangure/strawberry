@@ -115,12 +115,6 @@
             on:keydown type="text"
             {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
             {name} {placeholder} {readonly} {required}>
-        <!-- TODO: Remove this postfix slot -->
-        {#if $$slots.postfix}
-            <div class="postfix-wrapper">
-                <slot name="postfix"/>
-            </div>
-        {/if}
     </div>
     {#if $errorMessage}
         <div class="invalid" transition:slide>
