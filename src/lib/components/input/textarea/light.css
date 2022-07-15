@@ -1,6 +1,6 @@
 :host,
 :root {
-    --br-textarea-border: #c3c3c3;
+    --br-textarea-border: 1px solid #c3c3c3;
     --br-textarea-hover-box-shadow: 0 0 0px 2px var(--br-primary-light);
     --br-textarea-hover-border: 1px solid var(--br-primary);
     --br-textarea-focus-box-shadow: 0 0 0px 1px var(--br-primary);
