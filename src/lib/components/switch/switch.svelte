@@ -264,9 +264,13 @@
 		box-shadow: 0 0 0 0 var(--br-switch-thumb-color-box-shadow);
 		border-radius: 50%;
 
-		/* TODO: @media (prefers-reduced-motion: ...); */
 		transition: transform var(--br-switch-thumb-transition-duration) ease, box-shadow 0.25s ease;
 		transform: translateX(var(--thumb-position));
+	}
+	@media (prefers-reduced-motion) {
+		input::before {
+			transition: box-shadow 0.25s ease;
+		}
 	}
 
 	input::after {
