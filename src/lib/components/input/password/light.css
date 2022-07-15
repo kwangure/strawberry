@@ -1,0 +1,8 @@
+:host,
+:root {
+    --br-input-password-border: 1px solid #c3c3c3;
+    --br-input-password-hover-box-shadow: 0 0 0px 2px var(--br-primary-light);
+    --br-input-password-hover-border: 1px solid var(--br-primary);
+    --br-input-password-focus-box-shadow: 0 0 0px 1px var(--br-primary);
+    --br-input-password-focus-border: 1px solid var(--br-primary);
+}

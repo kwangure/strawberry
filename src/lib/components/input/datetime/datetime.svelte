@@ -129,7 +129,6 @@
 </label>
 
 <style>
-    @import "../css/container.css";
     @import "../css/input.css";
     @import "../css/picker_indicator.css";
 
@@ -149,5 +148,21 @@
     input {
         padding-block: var(--br-input-datetime-padding-block);
         padding-inline: var(--br-input-datetime-padding-inline);
+    }
+    .container {
+        display: flex;
+        border: var(--br-input-datetime-border);
+        border-radius: var(--br-input-datetime-border-radius);
+        height: var(--br-input-datetime-height);
+        width: var(--br-input-datetime-width);
+        transition: var(--br-input-datetime-transition);
+    }
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-input-datetime-hover-box-shadow);
+        border: var(--br-input-datetime-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-input-datetime-focus-box-shadow);
+        border: var(--br-input-datetime-focus-border);
     }
 </style>

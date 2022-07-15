@@ -1,0 +1,8 @@
+:host,
+:root {
+    --br-input-text-border: 1px solid #c3c3c3;
+    --br-input-text-hover-box-shadow: 0 0 0px 2px var(--br-primary-light);
+    --br-input-text-hover-border: 1px solid var(--br-primary);
+    --br-input-text-focus-box-shadow: 0 0 0px 1px var(--br-primary);
+    --br-input-text-focus-border: 1px solid var(--br-primary);
+}

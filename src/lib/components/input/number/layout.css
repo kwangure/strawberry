@@ -10,4 +10,8 @@
 
     --br-input-number-padding-block: 5px;
     --br-input-number-padding-inline: 12px;
+    --br-input-number-width: fit-content;
+    --br-input-number-height: 35px;
+    --br-input-number-border-radius: 4px;
+    --br-input-number-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
 }

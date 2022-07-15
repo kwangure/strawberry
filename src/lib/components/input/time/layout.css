@@ -8,4 +8,8 @@
 
     --br-input-time-padding-block: 5px;
     --br-input-time-padding-inline: 12px 8px;
+    --br-input-time-width: fit-content;
+    --br-input-time-height: 35px;
+    --br-input-time-border-radius: 4px;
+    --br-input-time-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
 }

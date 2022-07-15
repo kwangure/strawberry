@@ -45,7 +45,7 @@
     <div class="label-text">
         <slot name="label"/>
     </div>
-    <textarea class="text-input" class:is_invalid={isInvalid}
+    <textarea class="text-input container" class:is_invalid={isInvalid}
         bind:this={textarea} on:input={autosize}
         on:blur={() => blurred = true}
         use:forward bind:value {...$$restProps}/>
@@ -71,8 +71,8 @@
         overflow: var(--br-textarea-label-overflow);
     }
     textarea {
-        padding-block: var(--br-input-textarea-padding-block);
-        padding-inline: var(--br-input-textarea-padding-inline);
+        padding-block: var(--br-textarea-padding-block);
+        padding-inline: var(--br-textarea-padding-inline);
     }
     textarea.text-input {
         width: 100%;
@@ -80,20 +80,25 @@
         overflow-x: hidden;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        border: var(--br-textarea-border);
-        border-color: var(--br-textarea-border-color);
-        border-radius: var(--br-textarea-border-radius);
     }
     textarea::-webkit-scrollbar {
         display: none;
     }
-    textarea:hover:not(:focus) {
-        box-shadow: 0 0 0px 2px var(--_container-box-shadow-color);
-        border-color: var(--_container-border-color);
+    .container {
+        display: flex;
+        border: var(--br-textarea-border);
+        border-radius: var(--br-textarea-border-radius);
+        height: var(--br-textarea-height);
+        width: var(--br-textarea-width);
+        transition: var(--br-textarea-transition);
     }
-    textarea:focus {
-        border: 2px solid var(--br-primary);
-        padding: calc(var(--br-input-padding-block, 5px) - 1px) calc(var(--br-input-padding-inline, 12px) - 1px);
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-textarea-hover-box-shadow);
+        border: var(--br-textarea-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-textarea-focus-box-shadow);
+        border: var(--br-textarea-focus-border);
     }
 </style>
 

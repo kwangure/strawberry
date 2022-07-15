@@ -6,8 +6,10 @@
     --br-textarea-label-height: initial;
     --br-textarea-label-overflow: visible;
 
-    --br-textarea-border-radius: 4px;
-    --br-textarea-border: 1px solid;
     --br-textarea-padding-block: 5px;
     --br-textarea-padding-inline: 12px;
+    --br-textarea-width: fit-content;
+    --br-textarea-height: 35px;
+    --br-textarea-border-radius: 4px;
+    --br-textarea-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
 }

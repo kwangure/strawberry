@@ -138,7 +138,6 @@
 </label>
 
 <style>
-    @import "../css/container.css";
     @import "../css/input.css";
     @import "../css/picker_indicator.css";
 
@@ -158,5 +157,21 @@
     input {
         padding-block: var(--br-input-time-padding-block);
         padding-inline: var(--br-input-time-padding-inline);
+    }
+    .container {
+        display: flex;
+        border: var(--br-input-time-border);
+        border-radius: var(--br-input-time-border-radius);
+        height: var(--br-input-time-height);
+        width: var(--br-input-time-width);
+        transition: var(--br-input-time-transition);
+    }
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-input-time-hover-box-shadow);
+        border: var(--br-input-time-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-input-time-focus-box-shadow);
+        border: var(--br-input-time-focus-border);
     }
 </style>

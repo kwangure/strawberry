@@ -215,4 +215,20 @@
         border-radius: 0 2px 2px 0;
         flex: none;
     }
+    .container {
+        display: flex;
+        border: var(--br-input-number-border);
+        border-radius: var(--br-input-number-border-radius);
+        height: var(--br-input-number-height);
+        width: var(--br-input-number-width);
+        transition: var(--br-input-number-transition);
+    }
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-input-number-hover-box-shadow);
+        border: var(--br-input-number-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-input-number-focus-box-shadow);
+        border: var(--br-input-number-focus-border);
+    }
 </style>

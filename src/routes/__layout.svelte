@@ -27,10 +27,16 @@
     @import "../lib/components/input/number/light.css" (prefers-color-scheme: light);
 
     @import "../lib/components/input/password/layout.css";
+    @import "../lib/components/input/password/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/input/password/light.css" (prefers-color-scheme: light);
 
     @import "../lib/components/input/select/layout.css";
+    @import "../lib/components/input/select/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/input/select/light.css" (prefers-color-scheme: light);
 
     @import "../lib/components/input/text/layout.css";
+    @import "../lib/components/input/text/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/input/text/light.css" (prefers-color-scheme: light);
 
     @import "../lib/components/input/textarea/layout.css";
     @import "../lib/components/input/textarea/dark.css" (prefers-color-scheme: dark);

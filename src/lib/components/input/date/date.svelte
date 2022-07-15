@@ -136,7 +136,6 @@
 </label>
 
 <style>
-    @import "../css/container.css";
     @import "../css/input.css";
     @import "../css/picker_indicator.css";
 
@@ -156,5 +155,21 @@
     input {
         padding-block: var(--br-input-date-padding-block);
         padding-inline: var(--br-input-date-padding-inline);
+    }
+    .container {
+        display: flex;
+        border: var(--br-input-date-border);
+        border-radius: var(--br-input-date-border-radius);
+        height: var(--br-input-date-height);
+        width: var(--br-input-date-width);
+        transition: var(--br-input-date-transition);
+    }
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-input-date-hover-box-shadow);
+        border: var(--br-input-date-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-input-date-focus-box-shadow);
+        border: var(--br-input-date-focus-border);
     }
 </style>

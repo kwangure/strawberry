@@ -108,6 +108,22 @@
         outline: 0;
         padding: var(--br-select-padding-block) var(--br-select-padding-inline);
     }
+    .container {
+        display: flex;
+        border: var(--br-select-border);
+        border-radius: var(--br-select-border-radius);
+        height: var(--br-select-height);
+        width: var(--br-select-width);
+        transition: var(--br-select-transition);
+    }
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-select-hover-box-shadow);
+        border: var(--br-select-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-select-focus-box-shadow);
+        border: var(--br-select-focus-border);
+    }
 </style>
 
 <script context="module">

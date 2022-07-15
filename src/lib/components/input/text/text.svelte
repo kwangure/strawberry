@@ -145,4 +145,20 @@
         padding-block: var(--br-input-text-padding-block);
         padding-inline: var(--br-input-text-padding-inline);
     }
+    .container {
+        display: flex;
+        border: var(--br-input-text-border);
+        border-radius: var(--br-input-text-border-radius);
+        height: var(--br-input-text-height);
+        width: var(--br-input-text-width);
+        transition: var(--br-input-text-transition);
+    }
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-input-text-hover-box-shadow);
+        border: var(--br-input-text-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-input-text-focus-box-shadow);
+        border: var(--br-input-text-focus-border);
+    }
 </style>

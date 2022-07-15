@@ -73,4 +73,20 @@
         padding-block: var(--br-input-password-padding-block);
         padding-inline: var(--br-input-password-padding-inline);
     }
+    .container {
+        display: flex;
+        border: var(--br-input-password-border);
+        border-radius: var(--br-input-password-border-radius);
+        height: var(--br-input-password-height);
+        width: var(--br-input-password-width);
+        transition: var(--br-input-password-transition);
+    }
+    .container:hover:not(:focus-within) {
+        box-shadow: var(--br-input-password-hover-box-shadow);
+        border: var(--br-input-password-hover-border);
+    }
+    .container:focus-within {
+        box-shadow: var(--br-input-password-focus-box-shadow);
+        border: var(--br-input-password-focus-border);
+    }
 </style>

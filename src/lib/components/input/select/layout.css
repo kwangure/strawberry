@@ -11,6 +11,10 @@
     --br-select-background-color: transparent;
     --br-select-padding-block: 5px;
     --br-select-padding-inline: 8px;
+    --br-select-width: fit-content;
+    --br-select-height: 35px;
+    --br-select-border-radius: 4px;
+    --br-select-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
 
     --br-option-text-color: black;
 }
