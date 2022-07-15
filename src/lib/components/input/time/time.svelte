@@ -128,7 +128,7 @@
         <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
             {name} {readonly} {required} {step}
             class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
-            on:keydown type="time">
+            type="time">
     </div>
     {#if $errorMessage}
         <div class="invalid" transition:slide>

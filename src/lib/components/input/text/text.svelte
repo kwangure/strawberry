@@ -116,7 +116,7 @@
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
         <input class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
-            on:keydown type="text"
+            type="text"
             {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
             {name} {placeholder} {readonly} {required}>
     </div>
