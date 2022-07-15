@@ -143,6 +143,7 @@
 
     label {
         display: inline-block;
+        width: var(--br-input-time-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-input-time-label-margin-block);
@@ -161,6 +162,7 @@
         padding-inline: var(--br-input-time-padding-inline);
         color: var(--br-input-time-text-color);
         background-color: transparent;
+        flex-grow: 1;
     }
     .container {
         display: flex;
@@ -168,7 +170,7 @@
         border-radius: var(--br-input-time-border-radius);
         background-color: var(--br-input-time-background-color);
         height: var(--br-input-time-height);
-        width: var(--br-input-time-width);
+        width: 100%;
         transition: var(--br-input-time-transition);
     }
     .container:hover:not(:focus-within) {

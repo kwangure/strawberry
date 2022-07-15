@@ -56,6 +56,7 @@
 <style>
     label {
         display: inline-block;
+        width: var(--br-textarea-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-textarea-label-margin-block);
@@ -71,6 +72,7 @@
         padding-inline: var(--br-textarea-padding-inline);
         color: var(--br-textarea-text-color);
         background-color: transparent;
+        flex-grow: 1;
         width: 100%;
         overflow: scroll;
         overflow-x: hidden;
@@ -86,7 +88,7 @@
         border-radius: var(--br-textarea-border-radius);
         background-color: var(--br-textarea-background-color);
         height: var(--br-textarea-height);
-        width: var(--br-textarea-width);
+        width: 100%;
         transition: var(--br-textarea-transition);
     }
     .container:hover:not(:focus-within) {

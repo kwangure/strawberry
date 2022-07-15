@@ -131,6 +131,7 @@
 <style>
     label {
         display: inline-block;
+        width: var(--br-input-text-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-input-text-label-margin-block);
@@ -146,6 +147,8 @@
         padding-inline: var(--br-input-text-padding-inline);
         color: var(--br-input-text-text-color);
         background-color: transparent;
+        flex-grow: 1;
+        flex-grow: 1;
     }
     .container {
         display: flex;
@@ -153,7 +156,7 @@
         border-radius: var(--br-input-text-border-radius);
         background-color: var(--br-input-text-background-color);
         height: var(--br-input-text-height);
-        width: var(--br-input-text-width);
+        width: 100%;
         transition: var(--br-input-text-transition);
     }
     .container:hover:not(:focus-within) {

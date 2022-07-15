@@ -165,6 +165,7 @@
 <style>
     label {
         display: inline-block;
+        width: var(--br-input-number-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-input-number-label-margin-block);
@@ -180,6 +181,7 @@
         padding-inline: var(--br-input-number-padding-inline);
         color: var(--br-input-number-text-color);
         background-color: transparent;
+        flex-grow: 1;
     }
     [type=number]::-webkit-outer-spin-button,
     [type=number]::-webkit-inner-spin-button {
@@ -223,7 +225,7 @@
         border-radius: var(--br-input-number-border-radius);
         background-color: var(--br-input-number-background-color);
         height: var(--br-input-number-height);
-        width: var(--br-input-number-width);
+        width: 100%;
         transition: var(--br-input-number-transition);
     }
     .container:hover:not(:focus-within) {

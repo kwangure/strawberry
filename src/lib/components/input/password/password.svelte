@@ -58,6 +58,7 @@
 <style>
     label {
         display: inline-block;
+        width: var(--br-input-password-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-input-password-label-margin-block);
@@ -73,6 +74,7 @@
         padding-inline: var(--br-input-password-padding-inline);
         color: var(--br-input-password-text-color);
         background-color: transparent;
+        flex-grow: 1;
     }
     .container {
         display: flex;
@@ -80,7 +82,7 @@
         border-radius: var(--br-input-password-border-radius);
         background-color: var(--br-input-password-background-color);
         height: var(--br-input-password-height);
-        width: var(--br-input-password-width);
+        width: 100%;
         transition: var(--br-input-password-transition);
     }
     .container:hover:not(:focus-within) {

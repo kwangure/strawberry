@@ -90,6 +90,7 @@
 <style>
     label {
         display: inline-block;
+        width: var(--br-select-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-select-label-margin-block);
@@ -110,6 +111,7 @@
         padding-inline: var(--br-select-padding-inline);
         color: var(--br-select-text-color);
         background-color: transparent;
+        flex-grow: 1;
     }
     .container {
         display: flex;
@@ -117,7 +119,7 @@
         border-radius: var(--br-select-border-radius);
         background-color: var(--br-select-background-color);
         height: var(--br-select-height);
-        width: var(--br-select-width);
+        width: 100%;
         transition: var(--br-select-transition);
     }
     .container:hover:not(:focus-within) {

@@ -141,6 +141,7 @@
 
     label {
         display: inline-block;
+        width: var(--br-input-date-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-input-date-label-margin-block);
@@ -159,6 +160,7 @@
         padding-inline: var(--br-input-date-padding-inline);
         color: var(--br-input-date-text-color);
         background-color: transparent;
+        flex-grow: 1;
     }
     .container {
         display: flex;
@@ -166,7 +168,7 @@
         border-radius: var(--br-input-date-border-radius);
         background-color: var(--br-input-date-background-color);
         height: var(--br-input-date-height);
-        width: var(--br-input-date-width);
+        width: 100%;
         transition: var(--br-input-date-transition);
     }
     .container:hover:not(:focus-within) {

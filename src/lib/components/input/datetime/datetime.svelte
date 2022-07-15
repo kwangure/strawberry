@@ -134,6 +134,7 @@
 
     label {
         display: inline-block;
+        width: var(--br-input-datetime-width);
     }
     .label-text:not(:empty) {
         margin-block: var(--br-input-datetime-label-margin-block);
@@ -152,6 +153,7 @@
         padding-inline: var(--br-input-datetime-padding-inline);
         color: var(--br-input-datetime-text-color);
         background-color: transparent;
+        flex-grow: 1;
     }
     .container {
         display: flex;
@@ -159,7 +161,7 @@
         border-radius: var(--br-input-datetime-border-radius);
         background-color: var(--br-input-datetime-background-color);
         height: var(--br-input-datetime-height);
-        width: var(--br-input-datetime-width);
+        width: 100%;
         transition: var(--br-input-datetime-transition);
     }
     .container:hover:not(:focus-within) {
