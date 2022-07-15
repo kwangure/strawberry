@@ -106,7 +106,8 @@
         background-image: none;
         border: none;
         outline: 0;
-        padding: var(--br-select-padding-block) var(--br-select-padding-inline);
+        padding-block: var(--br-select-padding-block);
+        padding-inline: var(--br-select-padding-inline);
     }
     .container {
         display: flex;
