@@ -1,1 +1,0 @@
-import{_ as s,$ as a,a0 as l}from"./vendor-5dcc93bd.js";function b(){const r=l();return t=>{const n=[];for(const e in r.$$.callbacks)if({}.hasOwnProperty.call(r.$$.callbacks,e)){const o=s(t,e,c=>{a(r,c)});n.push(o)}return{destroy:()=>{n.forEach(e=>e())}}}}export{b as c};
