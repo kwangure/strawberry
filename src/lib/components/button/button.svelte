@@ -130,6 +130,6 @@
     }
     button:hover:not(:active) {
         background-color: var(--br-button-hover-background-color);
-        border-color: var(--br-button-hover-background-color);
+        border-color: var(--br-button-hover-border-color);
     }
 </style>
