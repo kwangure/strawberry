@@ -29,14 +29,14 @@
         border-radius: var(--br-border-radius);
         transition: all 0.5s ease;
     }
-    @media (theme: berry) and (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
         :root {
             --_link-hover-background-color: #444;
             --_link-hover-text-color: inherit;
             --_link-hover-border-color: currentColor;
         }
     }
-    @media (theme: berry) and (prefers-color-scheme: light) {
+    @media (prefers-color-scheme: light) {
         :root {
             --_link-hover-background-color: var(--br-primary-light);
             --_link-hover-text-color: var(--br-primary);

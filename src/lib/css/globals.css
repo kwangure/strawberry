@@ -56,7 +56,7 @@ readers to find but not humans to see. */
 	--br-default-border: 1px solid var(--br-default-border-color);
 }
 
-@media (theme: berry) and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root {
 		--br-default-background-color: #222;
 		--br-default-overlay-background-color: #444;
@@ -66,7 +66,7 @@ readers to find but not humans to see. */
 	}
 }
 
-@media (theme: berry) and (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
 	:root {
 		--br-default-background-color: #fff;
 		--br-default-overlay-background-color: var(--br-black-transparent);

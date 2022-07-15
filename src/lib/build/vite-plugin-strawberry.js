@@ -26,7 +26,7 @@ export function strawberry() {
             }
 
             if (isOldThemer(id)) {
-                throw "The 'Theme' component has moved to '@kwangure/strawberry/components/Theme'";
+                throw 'Strawberry no longer parses uses the \'Theme\' component for themeing.';
             }
         },
         /**
@@ -46,6 +46,10 @@ export function strawberry() {
 
             if (code.includes(":scope")) {
                 throw Error("Strawberry no longer parses the ':scope' selector. Use ':root' instead.");
+            }
+
+            if (/theme:\s*berry/.test(code)) {
+                throw Error("Strawberry no longer resolves theme media queries.");
             }
         },
     };

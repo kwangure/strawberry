@@ -4,7 +4,7 @@
     --br-sidebar-item-active-hover-background-color: ;
 }
 
-@media (theme: berry) and (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
     :root {
         --_item-active-background-color: var(--br-primary-light);
         --_item-active-hover-background-color: var(--br-primary-light-hover);
@@ -13,7 +13,7 @@
     }
 }
 
-@media (theme: berry) and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
         --_item-active-background-color: #222;
         --_item-active-hover-background-color: #444;

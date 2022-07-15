@@ -31,13 +31,13 @@ body {
     color: var(--br-default-text-color);
 }
 
-@media (theme: berry) and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
 	    --br-default-text-color: #ddd;
     }
 }
 
-@media (theme: berry) and (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
     :root {
 	    --br-default-text-color: var(--_black);
     }
@@ -97,12 +97,12 @@ h6 {
     margin-top: 4px;
 }
 
-@media (theme: berry) and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
         --_link-color: var(--blue-5);
     }
 }
-@media (theme: berry) and (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
     :root {
         --_link-color: var(--br-primary);
     }
