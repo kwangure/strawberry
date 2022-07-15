@@ -6,7 +6,7 @@
     A set of Svelte components.<br/>
 </p>
 
-> 🍓 **Strawberry is not stable.** Its APIs are useable for most uses cases, but are not "finalized" and will have breaking changes. We're still getting the architecture right.
+> 🍓 **Strawberry is not stable.**.
 
 ## Installation
 ```bash
@@ -14,30 +14,11 @@ npm i @kwangure/strawberry
 ```
 
 ## Usage
-Include the Strawberry Vite plugin in your config.
-```javascript
-// svelte.config.js
-import { strawberry } from "@kwangure/strawberry/build/vite-plugin-strawberry";
-
-/** @type {import("@sveltejs/kit").Config} */
-export default {
-    kit: {
-        ...
-        vite: {
-            plugins: [
-                strawberry(),
-                ...
-            ],
-        }
-        ...
-    }
-};
-```
 ```svelte
 <script>
-    import Button from "@kwangure/strawberry/components/button";
+    import Button from '@kwangure/strawberry/components/button';
 
-    const hello = () => alert("strawberry");
+    const hello = () => alert('strawberry');
 </script>
 
 <div class="element">
