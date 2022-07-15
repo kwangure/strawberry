@@ -185,7 +185,8 @@
         color: var(--br-input-date-hint-text-color);
         font-size: var(--br-input-date-hint-font-size);
     }
-    .invalid {
+    /* Use pseudoselector to match '.hint' specificity */
+    .invalid:not(:empty) {
         color: var(--br-input-date-hint-invalid-text-color);
     }
 </style>

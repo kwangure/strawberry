@@ -187,7 +187,8 @@
         color: var(--br-input-time-hint-text-color);
         font-size: var(--br-input-time-hint-font-size);
     }
-    .invalid {
+    /* Use pseudoselector to match '.hint' specificity */
+    .invalid:not(:empty) {
         color: var(--br-input-time-hint-invalid-text-color);
     }
 </style>

@@ -173,7 +173,8 @@
         color: var(--br-input-text-hint-text-color);
         font-size: var(--br-input-text-hint-font-size);
     }
-    .invalid {
+    /* Use pseudoselector to match '.hint' specificity */
+    .invalid:not(:empty) {
         color: var(--br-input-text-hint-invalid-text-color);
     }
 </style>

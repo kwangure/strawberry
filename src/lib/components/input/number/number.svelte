@@ -242,7 +242,8 @@
         color: var(--br-input-number-hint-text-color);
         font-size: var(--br-input-number-hint-font-size);
     }
-    .invalid {
+    /* Use pseudoselector to match '.hint' specificity */
+    .invalid:not(:empty) {
         color: var(--br-input-number-hint-invalid-text-color);
     }
 </style>

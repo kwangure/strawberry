@@ -105,7 +105,8 @@
         color: var(--br-textarea-hint-text-color);
         font-size: var(--br-textarea-hint-font-size);
     }
-    .invalid {
+    /* Use pseudoselector to match '.hint' specificity */
+    .invalid:not(:empty) {
         color: var(--br-textarea-hint-invalid-text-color);
     }
 </style>

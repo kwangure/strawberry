@@ -99,7 +99,8 @@
         color: var(--br-input-password-hint-text-color);
         font-size: var(--br-input-password-hint-font-size);
     }
-    .invalid {
+    /* Use pseudoselector to match '.hint' specificity */
+    .invalid:not(:empty) {
         color: var(--br-input-password-hint-invalid-text-color);
     }
 </style>

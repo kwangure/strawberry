@@ -136,7 +136,8 @@
         color: var(--br-select-hint-text-color);
         font-size: var(--br-select-hint-font-size);
     }
-    .invalid {
+    /* Use pseudoselector to match '.hint' specificity */
+    .invalid:not(:empty) {
         color: var(--br-select-hint-invalid-text-color);
     }
 </style>
