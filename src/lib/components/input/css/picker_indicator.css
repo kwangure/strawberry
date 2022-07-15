@@ -1,5 +1,12 @@
+/* Forces input children to grow to full width in Webkit browsers */
+input {
+    display: flex;
+}
 input::-webkit-datetime-edit {
     display: contents;
+}
+input::-webkit-datetime-edit-fields-wrapper {
+    flex-grow: 1;
 }
 input::-webkit-calendar-picker-indicator {
     padding-inline: 0;
