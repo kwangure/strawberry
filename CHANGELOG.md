@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.44.0](https://github.com/kwangure/strawberry/compare/v0.43.0...v0.44.0) (2022-07-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* away with theme media-queries
+* simplify link matching
+* remove Theme compent
+* add hint text to inputs
+* remove postfix slot in text input
+* remove 'focus' prop in password and text input
+* remove unsupported components
+
+### Features
+
+* add hint text to inputs ([d4c892b](https://github.com/kwangure/strawberry/commit/d4c892b3cad4b25f34d27aa159a9032911a40ee9))
+* away with theme media-queries ([b03f624](https://github.com/kwangure/strawberry/commit/b03f624a1ec3199831c21b21f83b64e99c54c93e))
+* colocate label with Date input ([84be620](https://github.com/kwangure/strawberry/commit/84be62078e711f8cc742b6d1430cc6c3befcdcf6))
+* colocate label with datetime input ([6defa7a](https://github.com/kwangure/strawberry/commit/6defa7a1e483c4fa849fd6d00d073bf8279d8ef7))
+* colocate label with Number input ([499b198](https://github.com/kwangure/strawberry/commit/499b198f1128ae6b170d40bd1ff30de5727b0abb))
+* colocate label with password input ([c614ffe](https://github.com/kwangure/strawberry/commit/c614ffefd2b5e4ac679b19352bacdd61f880f3eb))
+* colocate label with select component ([5d179db](https://github.com/kwangure/strawberry/commit/5d179db5c900aa68282524871e24dee0473c9129))
+* colocate label with text input ([c0872d3](https://github.com/kwangure/strawberry/commit/c0872d31168e5904dee173b3c83ca65ad755c9bd))
+* colocate label with textarea ([0488aaf](https://github.com/kwangure/strawberry/commit/0488aaf8a88605cfdcb412ded5e9bf7f7e723fbf))
+* colocate label with time input ([81a6d6c](https://github.com/kwangure/strawberry/commit/81a6d6c9ba5d8db449ebc12fbd607655bf13fadd))
+* colocate postfix css with number input ([019434e](https://github.com/kwangure/strawberry/commit/019434e7aa78b89fcac73dc8d227bc0e7c7bd79e))
+* colocate time input styles ([3e21f07](https://github.com/kwangure/strawberry/commit/3e21f0776c136e1892e90fd78e212ec95036988a))
+* export validation message ([2fa21bc](https://github.com/kwangure/strawberry/commit/2fa21bcbb7ffd8d035ebbb6184bc267b01a3e710))
+* externalize component css ([14d7a31](https://github.com/kwangure/strawberry/commit/14d7a31cb1bc2fcfd6e306d395f5e7a481daad67))
+* externalize text input css ([354b334](https://github.com/kwangure/strawberry/commit/354b334202e57bd36207324f5f8afafe6e6db3de))
+* handle switch thumb prefers-reduced-motion ([718f566](https://github.com/kwangure/strawberry/commit/718f566bd5fc988a7a94c3512d3c0dc8f3e29f42))
+* improve configurability of input styles ([df95b8f](https://github.com/kwangure/strawberry/commit/df95b8f794b996ecaf9c134fcb15de9e3d6f7e06))
+* make container styles configurable ([535cb24](https://github.com/kwangure/strawberry/commit/535cb24170104bf894b43537a06706a646b621b2))
+* make input padding more configurable ([11e8c05](https://github.com/kwangure/strawberry/commit/11e8c05e22106b213e9ddcb716c9331e346716e8))
+* only style label when not empty ([9962f24](https://github.com/kwangure/strawberry/commit/9962f249f4dd29e7d8b7d4dc57999c47372a495f))
+* remove 'focus' prop in password and text input ([25feb31](https://github.com/kwangure/strawberry/commit/25feb3153b30c29152fee2f9c04af130c8594e4c))
+* remove postfix slot in text input ([37484fc](https://github.com/kwangure/strawberry/commit/37484fcbe156661e7d25e0e2f030751e339db6f5))
+* remove Theme compent ([6795079](https://github.com/kwangure/strawberry/commit/6795079aa7c742f393cf90b93d57babf94968089))
+* remove unsupported components ([60b77be](https://github.com/kwangure/strawberry/commit/60b77be79427552517fdcaaa198413eab4e4e1d6))
+* rename textarea custom property ([7a3c238](https://github.com/kwangure/strawberry/commit/7a3c2389370aa3eb1076beed16374b95e58c2a74))
+* separate select padding block & inline ([98b7fc5](https://github.com/kwangure/strawberry/commit/98b7fc593a5e0b06dfea4cd2d953058906ec73d6))
+* simplify link matching ([dd3cac7](https://github.com/kwangure/strawberry/commit/dd3cac76a3079c21f128e923352a6a4970678ee0))
+* use native control for input Time ([7cdc64b](https://github.com/kwangure/strawberry/commit/7cdc64b8a380c928ba7198bbad3d0a681513c1f5))
+* validate date input ([e2b8aec](https://github.com/kwangure/strawberry/commit/e2b8aec86de55a76cb0c43c817dd918f7676449c))
+* validate password input ([d704955](https://github.com/kwangure/strawberry/commit/d704955e6ca232bbf8a6c80ee7a8c93290a731d9))
+
+
+### Bug Fixes
+
+* **button:** correct boder custom property ([a25a3e4](https://github.com/kwangure/strawberry/commit/a25a3e4e8970d4c3b8573bd98ed18ddef709d2c4))
+* correct comments ([71cc6d1](https://github.com/kwangure/strawberry/commit/71cc6d16c12cb1ac409ae751be4f974999b877cb))
+* grow webkit inputs ([027ccda](https://github.com/kwangure/strawberry/commit/027ccdaccd436941a304be4185df6dabd49bd1dc))
+* handle media queries without value ([e2b4528](https://github.com/kwangure/strawberry/commit/e2b452859535d22b3eb6715fe3fb3b34f6d6d31c))
+* handle selector invalid specificity issue ([06906bc](https://github.com/kwangure/strawberry/commit/06906bce31917aab47b4bada704907278b847f27))
+* remove non-existent file ([486fa82](https://github.com/kwangure/strawberry/commit/486fa823198f094559be7a4306697da28cc35d10))
+* rename text input custom properties ([d6c33a4](https://github.com/kwangure/strawberry/commit/d6c33a4fa7ab05a771c6e72e735751e902dce320))
+* set input width on labels ([1f0e966](https://github.com/kwangure/strawberry/commit/1f0e96678b96a3bc472fd78d3e346079dde9cdcd))
+* specify border width of textarea ([027c043](https://github.com/kwangure/strawberry/commit/027c04326c5a9327454a077c7aa7c2c101c6806a))
+* validate datetime ([e1d6d84](https://github.com/kwangure/strawberry/commit/e1d6d846f1289595d1a597ff043140152eb602b4))
+
 ## [0.43.0](https://github.com/kwangure/strawberry/compare/v0.42.0...v0.43.0) (2022-07-05)
 
 
