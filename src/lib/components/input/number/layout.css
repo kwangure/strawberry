@@ -6,6 +6,10 @@
     --br-input-number-label-height: initial;
     --br-input-number-label-overflow: visible;
 
+    --br-input-number-hint-margin-block: 5px 0;
+    --br-input-number-hint-margin-inline: initial;
+    --br-input-number-hint-font-size: calc(1em - 1px);
+
     --br-input-number-postfix-width: 31px;
 
     --br-input-number-padding-block: 5px;

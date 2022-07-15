@@ -1,6 +1,8 @@
 :host,
 :root {
     --br-input-password-text-color: inherit;
+    --br-input-password-hint-text-color: inherit;
+    --br-input-password-hint-invalid-text-color: rgb(255 40 40);
     --br-input-password-background-color: transparent;
     --br-input-password-border: 1px solid #474b50;
     --br-input-password-hover-box-shadow: 0 0 0px 2px rgb(135 205 255 / 30%);

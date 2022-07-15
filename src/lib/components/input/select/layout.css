@@ -6,6 +6,10 @@
     --br-select-label-height: initial;
     --br-select-label-overflow: visible;
 
+    --br-select-hint-margin-block: 5px 0;
+    --br-select-hint-margin-inline: initial;
+    --br-select-hint-font-size: calc(1em - 1px);
+
     --br-select-width: initial;
     --br-select-background-color: transparent;
     --br-select-padding-block: 5px;

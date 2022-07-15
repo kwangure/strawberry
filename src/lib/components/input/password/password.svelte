@@ -5,7 +5,6 @@
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
-    import { slide } from 'svelte/transition';
     import { validate } from '../validate';
     import { writable } from 'svelte/store';
 
@@ -47,16 +46,16 @@
             use:validate={{ invalid, error, errorMessage }}
             {...$$restProps}/>
     </div>
-    {#if $errorMessage}
-        <div class="invalid" transition:slide>
+    <div class="hint" class:invalid={$errorMessage}>
+        {#if $errorMessage}
             {$errorMessage}
-        </div>
-    {/if}
+        {:else}
+            <slot name="hint"/>
+        {/if}
+    </div>
 </label>
 
 <style>
-    @import "../css/input.css";
-
     label {
         display: inline-block;
     }
@@ -91,5 +90,14 @@
     .container:focus-within {
         box-shadow: var(--br-input-password-focus-box-shadow);
         border: var(--br-input-password-focus-border);
+    }
+    .hint:not(:empty) {
+        margin-block: var(--br-input-password-hint-margin-block);
+        margin-inline: var(--br-input-password-hint-margin-inline);
+        color: var(--br-input-password-hint-text-color);
+        font-size: var(--br-input-password-hint-font-size);
+    }
+    .invalid {
+        color: var(--br-input-password-hint-invalid-text-color);
     }
 </style>

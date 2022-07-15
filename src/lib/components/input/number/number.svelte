@@ -7,7 +7,6 @@
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import Icon from '../../icon';
-    import { slide } from 'svelte/transition';
     import { validate } from '../validate';
     import { writable } from 'svelte/store';
 
@@ -154,16 +153,16 @@
             </span>
         </div>
     </div>
-    {#if $errorMessage}
-        <div class="invalid" transition:slide>
+    <div class="hint" class:invalid={$errorMessage}>
+        {#if $errorMessage}
             {$errorMessage}
-        </div>
-    {/if}
+        {:else}
+            <slot name="hint"/>
+        {/if}
+    </div>
 </label>
 
 <style>
-    @import "../css/input.css";
-
     label {
         display: inline-block;
     }
@@ -234,5 +233,14 @@
     .container:focus-within {
         box-shadow: var(--br-input-number-focus-box-shadow);
         border: var(--br-input-number-focus-border);
+    }
+    .hint:not(:empty) {
+        margin-block: var(--br-input-number-hint-margin-block);
+        margin-inline: var(--br-input-number-hint-margin-inline);
+        color: var(--br-input-number-hint-text-color);
+        font-size: var(--br-input-number-hint-font-size);
+    }
+    .invalid {
+        color: var(--br-input-number-hint-invalid-text-color);
     }
 </style>

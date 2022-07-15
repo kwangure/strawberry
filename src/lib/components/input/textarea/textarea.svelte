@@ -1,7 +1,6 @@
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
-    import { slide } from 'svelte/transition';
 
     /**
      * The initial value of the component.
@@ -49,16 +48,12 @@
         bind:this={textarea} on:input={autosize}
         on:blur={() => blurred = true}
         use:forward bind:value {...$$restProps}/>
-    {#if isInvalid}
-    <div class="invalid" transition:slide>
-        {isInvalid}
+    <div class="hint" class:invalid={isInvalid}>
+        <slot name="hint"/>
     </div>
-    {/if}
 </label>
 
 <style>
-    @import "../css/input.css";
-
     label {
         display: inline-block;
     }
@@ -101,6 +96,15 @@
     .container:focus-within {
         box-shadow: var(--br-textarea-focus-box-shadow);
         border: var(--br-textarea-focus-border);
+    }
+    .hint:not(:empty) {
+        margin-block: var(--br-textarea-hint-margin-block);
+        margin-inline: var(--br-textarea-hint-margin-inline);
+        color: var(--br-textarea-hint-text-color);
+        font-size: var(--br-textarea-hint-font-size);
+    }
+    .invalid {
+        color: var(--br-textarea-hint-invalid-text-color);
     }
 </style>
 

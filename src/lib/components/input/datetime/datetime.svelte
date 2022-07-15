@@ -5,7 +5,6 @@
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '$lib/utils/forward-events.js';
-    import { slide } from 'svelte/transition';
     import { validate } from '../validate';
     import { writable } from 'svelte/store';
 
@@ -121,15 +120,16 @@
             bind:value use:forward use:validate={{ invalid, error, errorMessage }}
             type="datetime-local">
     </div>
-    {#if $errorMessage}
-        <div class="invalid" transition:slide>
+    <div class="hint" class:invalid={$errorMessage}>
+        {#if $errorMessage}
             {$errorMessage}
-        </div>
-    {/if}
+        {:else}
+            <slot name="hint"/>
+        {/if}
+    </div>
 </label>
 
 <style>
-    @import "../css/input.css";
     @import "../css/picker_indicator.css";
 
     label {
@@ -169,5 +169,14 @@
     .container:focus-within {
         box-shadow: var(--br-input-datetime-focus-box-shadow);
         border: var(--br-input-datetime-focus-border);
+    }
+    .hint:not(:empty) {
+        margin-block: var(--br-input-datetime-hint-margin-block);
+        margin-inline: var(--br-input-datetime-hint-margin-inline);
+        color: var(--br-input-datetime-hint-text-color);
+        font-size: var(--br-input-datetime-hint-font-size);
+    }
+    .invalid {
+        color: var(--br-input-datetime-hint-invalid-text-color);
     }
 </style>

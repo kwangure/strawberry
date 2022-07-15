@@ -1,6 +1,8 @@
 :host,
 :root {
     --br-textarea-text-color: inherit;
+    --br-textarea-hint-text-color: inherit;
+    --br-textarea-hint-invalid-text-color: rgb(255 40 40);
     --br-textarea-background-color: transparent;
     --br-textarea-border: 1px solid #c3c3c3;
     --br-textarea-hover-box-shadow: 0 0 0px 2px var(--br-primary-light);

@@ -6,6 +6,10 @@
     --br-input-text-label-height: initial;
     --br-input-text-label-overflow: visible;
 
+    --br-input-text-hint-margin-block: 5px 0;
+    --br-input-text-hint-margin-inline: initial;
+    --br-input-text-hint-font-size: calc(1em - 1px);
+
     --br-input-text-padding-block: 5px;
     --br-input-text-padding-inline: 12px;
     --br-input-text-width: fit-content;

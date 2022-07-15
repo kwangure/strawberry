@@ -82,6 +82,9 @@
             <slot></slot>
         </select>
     </div>
+    <div class="hint" class:invalid={false}>
+        <slot name="hint"/>
+    </div>
 </label>
 
 <style>
@@ -124,6 +127,15 @@
     .container:focus-within {
         box-shadow: var(--br-select-focus-box-shadow);
         border: var(--br-select-focus-border);
+    }
+    .hint:not(:empty) {
+        margin-block: var(--br-select-hint-margin-block);
+        margin-inline: var(--br-select-hint-margin-inline);
+        color: var(--br-select-hint-text-color);
+        font-size: var(--br-select-hint-font-size);
+    }
+    .invalid {
+        color: var(--br-select-hint-invalid-text-color);
     }
 </style>
 

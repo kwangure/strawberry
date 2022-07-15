@@ -1,6 +1,8 @@
 :host,
 :root {
     --br-select-text-color: inherit;
+    --br-select-hint-text-color: inherit;
+    --br-select-hint-invalid-text-color: rgb(255 40 40);
     --br-select-background-color: transparent;
     --br-select-border: 1px solid #474b50;
     --br-select-hover-box-shadow: 0 0 0px 2px rgb(135 205 255 / 30%);
