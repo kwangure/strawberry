@@ -3,11 +3,7 @@
     import { base } from '$app/paths';
     import Button from '~@components/button';
     import Navbar from '~@components/navbar';
-
-    import Theme from '@kwangure/strawberry/components/Theme';
 </script>
-
-<Theme />
 
 <div class="layout">
     <Navbar logoHref="{base}/">

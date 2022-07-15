@@ -1,11 +1,7 @@
 <script>
     import Navbar, { Link as NavLink } from '~@components/navbar';
     import { base } from '$app/paths';
-
-    import Theme from '@kwangure/strawberry/components/Theme';
 </script>
-
-<Theme />
 
 <div class="app-layout">
     <Navbar logoHref="{base}/">
