@@ -14,7 +14,7 @@ npm i @kwangure/strawberry
 ```
 
 ## Usage
-```svelte
+```html
 <script>
     import Button from '@kwangure/strawberry/components/button';
 
@@ -37,10 +37,7 @@ npm i @kwangure/strawberry
         --br-button-border: 3px solid red;
     }
 </style>
-
 ```
-
-*Note:* This library is for use in svelte-kit projects only.
 
 ## License
 [Apache 2.0](./LICENSE) © Kafungo Wangure
