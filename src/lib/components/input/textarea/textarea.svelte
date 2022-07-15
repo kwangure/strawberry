@@ -58,7 +58,6 @@
 
 <style>
     @import "../css/input.css";
-    @import "../css/container.css";
 
     label {
         display: inline-block;
