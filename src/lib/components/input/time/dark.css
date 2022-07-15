@@ -2,6 +2,8 @@
 :root {
     /** Encoded from Material design icons. Path is `import("@mdi/js").mdiClockOutline` */
     --br-input-time-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTIsMjBBOCw4IDAgMCwwIDIwLDEyQTgsOCAwIDAsMCAxMiw0QTgsOCAwIDAsMCA0LDEyQTgsOCAwIDAsMCAxMiwyME0xMiwyQTEwLDEwIDAgMCwxIDIyLDEyQTEwLDEwIDAgMCwxIDEyLDIyQzYuNDcsMjIgMiwxNy41IDIsMTJBMTAsMTAgMCAwLDEgMTIsMk0xMi41LDdWMTIuMjVMMTcsMTQuOTJMMTYuMjUsMTYuMTVMMTEsMTNWN0gxMi41WgoiPjwvcGF0aD4KPC9zdmc+);
+    --br-input-time-text-color: inherit;
+    --br-input-time-background-color: transparent;
     --br-input-time-border: 1px solid #474b50;
     --br-input-time-hover-box-shadow: 0 0 0px 2px rgb(135 205 255 / 30%);
     --br-input-time-hover-border: 1px solid var(--br-primary);

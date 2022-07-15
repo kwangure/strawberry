@@ -155,13 +155,18 @@
         background-image: var(--br-input-time-background-image);
     }
     input {
+        border: none;
+        outline: 0;
         padding-block: var(--br-input-time-padding-block);
         padding-inline: var(--br-input-time-padding-inline);
+        color: var(--br-input-time-text-color);
+        background-color: transparent;
     }
     .container {
         display: flex;
         border: var(--br-input-time-border);
         border-radius: var(--br-input-time-border-radius);
+        background-color: var(--br-input-time-background-color);
         height: var(--br-input-time-height);
         width: var(--br-input-time-width);
         transition: var(--br-input-time-transition);

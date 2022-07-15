@@ -1,24 +1,3 @@
-:export {
-    --br-input-text-color: ;
-    --br-input-background-color: ;
-}
-
-.text-input {
-    text-align: inherit;
-    display: inline-block;
-    color: var(--br-input-text-color, var(--br-text-color), inherit);
-    font-size: 14px;
-    line-height: 1.5;
-    background-color: var(--br-input-background-color, var(--br-white), transparent);
-    background-image: none;
-    border: none;
-    outline: 0;
-}
-
-.text-input:not(textarea) {
-    height: 100%;
-}
-
 div.invalid {
     color: var(--br-red);
     padding: 3px 10px 0px;

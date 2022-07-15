@@ -1,5 +1,7 @@
 :host,
 :root {
+    --br-input-number-text-color: inherit;
+    --br-input-number-background-color: transparent;
     --br-input-number-border: 1px solid #474b50;
     --br-input-number-hover-box-shadow: 0 0 0px 2px rgb(135 205 255 / 30%);
     --br-input-number-hover-border: 1px solid var(--br-primary);

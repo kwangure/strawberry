@@ -118,7 +118,7 @@
         <!-- svelte-ignore a11y-autofocus -->
         <input {autocomplete} {autofocus} {disabled} {form}
             {list} {max} {min} {name} {readonly} {step}
-            class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
+            bind:value use:forward use:validate={{ invalid, error, errorMessage }}
             type="datetime-local">
     </div>
     {#if $errorMessage}
@@ -146,13 +146,18 @@
         background-image: var(--br-input-datetime-background-image);
     }
     input {
+        border: none;
+        outline: 0;
         padding-block: var(--br-input-datetime-padding-block);
         padding-inline: var(--br-input-datetime-padding-inline);
+        color: var(--br-input-datetime-text-color);
+        background-color: transparent;
     }
     .container {
         display: flex;
         border: var(--br-input-datetime-border);
         border-radius: var(--br-input-datetime-border-radius);
+        background-color: var(--br-input-datetime-background-color);
         height: var(--br-input-datetime-height);
         width: var(--br-input-datetime-width);
         transition: var(--br-input-datetime-transition);

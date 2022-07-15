@@ -96,7 +96,6 @@
         overflow: var(--br-select-label-overflow);
     }
     select {
-        color: var(--br-select-text-color);
         width: var(--br-select-width);
         font-size: 14px;
         line-height: 1.5;
@@ -106,11 +105,14 @@
         outline: 0;
         padding-block: var(--br-select-padding-block);
         padding-inline: var(--br-select-padding-inline);
+        color: var(--br-select-text-color);
+        background-color: transparent;
     }
     .container {
         display: flex;
         border: var(--br-select-border);
         border-radius: var(--br-select-border-radius);
+        background-color: var(--br-select-background-color);
         height: var(--br-select-height);
         width: var(--br-select-width);
         transition: var(--br-select-transition);

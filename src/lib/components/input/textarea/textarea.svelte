@@ -70,10 +70,12 @@
         overflow: var(--br-textarea-label-overflow);
     }
     textarea {
+        border: none;
+        outline: 0;
         padding-block: var(--br-textarea-padding-block);
         padding-inline: var(--br-textarea-padding-inline);
-    }
-    textarea.text-input {
+        color: var(--br-textarea-text-color);
+        background-color: transparent;
         width: 100%;
         overflow: scroll;
         overflow-x: hidden;
@@ -87,6 +89,7 @@
         display: flex;
         border: var(--br-textarea-border);
         border-radius: var(--br-textarea-border-radius);
+        background-color: var(--br-textarea-background-color);
         height: var(--br-textarea-height);
         width: var(--br-textarea-width);
         transition: var(--br-textarea-transition);

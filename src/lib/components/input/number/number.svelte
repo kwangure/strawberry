@@ -141,7 +141,7 @@
     </div>
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
-        <input bind:this={input} bind:value class="text-input"
+        <input bind:this={input} bind:value
             type="number" use:forward use:validate={{ invalid, error, errorMessage }}
             {autocomplete} {autofocus} {form} {list} {max} {min} {name}
             {placeholder} {required} {readonly} {step}>
@@ -175,8 +175,12 @@
         overflow: var(--br-input-number-label-overflow);
     }
     input {
+        border: none;
+        outline: 0;
         padding-block: var(--br-input-number-padding-block);
         padding-inline: var(--br-input-number-padding-inline);
+        color: var(--br-input-number-text-color);
+        background-color: transparent;
     }
     [type=number]::-webkit-outer-spin-button,
     [type=number]::-webkit-inner-spin-button {
@@ -218,6 +222,7 @@
         display: flex;
         border: var(--br-input-number-border);
         border-radius: var(--br-input-number-border-radius);
+        background-color: var(--br-input-number-background-color);
         height: var(--br-input-number-height);
         width: var(--br-input-number-width);
         transition: var(--br-input-number-transition);

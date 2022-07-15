@@ -43,8 +43,7 @@
         <slot name="label"/>
     </div>
     <div class="container">
-        <input class="text-input" bind:value
-            use:forward type='password'
+        <input bind:value use:forward type='password'
             use:validate={{ invalid, error, errorMessage }}
             {...$$restProps}/>
     </div>
@@ -69,13 +68,18 @@
         overflow: var(--br-input-password-label-overflow);
     }
     input {
+        border: none;
+        outline: 0;
         padding-block: var(--br-input-password-padding-block);
         padding-inline: var(--br-input-password-padding-inline);
+        color: var(--br-input-password-text-color);
+        background-color: transparent;
     }
     .container {
         display: flex;
         border: var(--br-input-password-border);
         border-radius: var(--br-input-password-border-radius);
+        background-color: var(--br-input-password-background-color);
         height: var(--br-input-password-height);
         width: var(--br-input-password-width);
         transition: var(--br-input-password-transition);

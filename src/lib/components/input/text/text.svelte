@@ -115,7 +115,7 @@
     </div>
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
-        <input class="text-input" bind:value use:forward use:validate={{ invalid, error, errorMessage }}
+        <input bind:value use:forward use:validate={{ invalid, error, errorMessage }}
             type="text"
             {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
             {name} {placeholder} {readonly} {required}>
@@ -141,13 +141,18 @@
         overflow: var(--br-input-text-label-overflow);
     }
     input {
+        border: none;
+        outline: 0;
         padding-block: var(--br-input-text-padding-block);
         padding-inline: var(--br-input-text-padding-inline);
+        color: var(--br-input-text-text-color);
+        background-color: transparent;
     }
     .container {
         display: flex;
         border: var(--br-input-text-border);
         border-radius: var(--br-input-text-border-radius);
+        background-color: var(--br-input-text-background-color);
         height: var(--br-input-text-height);
         width: var(--br-input-text-width);
         transition: var(--br-input-text-transition);
