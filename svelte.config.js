@@ -46,5 +46,8 @@ export default {
         paths: {
             base: PROD ? "/strawberry" : "",
         },
+        prerender: {
+            default: true,
+        },
     },
 };
