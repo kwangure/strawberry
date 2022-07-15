@@ -91,7 +91,7 @@ function getThemeNameAndColorScheme(prelude) {
     let mediaFeatures = new Map();
     walk(prelude, (node) => {
         if (isMediaFeature(node)) {
-            mediaFeatures.set(node.name, node.value.name);
+            mediaFeatures.set(node.name, node.value?.name || "");
             return walk.skip;
         }
         if (isIdentifier(node)) {
