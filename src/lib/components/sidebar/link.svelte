@@ -1,7 +1,9 @@
 <script context="module">
+    // TODO: Remove docs variable from component
     export const docs = true;
 </script>
 
+<!-- TODO: Refactor into <Item/> wrapper with 'display: contents;' -->
 <script>
     import { createEventForwarder } from '../../utils/forward-events.js';
 

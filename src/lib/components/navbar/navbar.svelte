@@ -1,6 +1,7 @@
 <script context="module">
     import { getContext } from 'svelte';
 
+    // TODO: Remove docs variable from component
     export const docs = true;
 
     const key = {};
@@ -9,6 +10,7 @@
     }
 </script>
 
+<!-- TODO: Add a component description here. See button for example -->
 <script>
     import '../../css/styles.js';
     import { setContext } from 'svelte';

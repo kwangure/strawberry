@@ -1,3 +1,4 @@
+<!-- TODO: Add a component description here. See button for example -->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
@@ -112,5 +113,6 @@
 </style>
 
 <script context="module">
+    // TODO: Remove docs variable from component
     export const docs = true;
 </script>

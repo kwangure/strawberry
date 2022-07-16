@@ -1,7 +1,9 @@
 <script context="module">
+    // TODO: Remove docs variable from component
     export const docs = true;
 </script>
 
+<!-- TODO: Add a component description here. See button for example -->
 <script>
     import '../../css/styles.js';
     import { createPopper } from '@popperjs/core';
@@ -17,6 +19,7 @@
      */
     export let visible = false;
 
+    /* TODO: Add types */
     function createPopup(popup, _) {
     	const reference = popup.previousElementSibling;
     	const popperInstance = createPopper(reference, popup, {

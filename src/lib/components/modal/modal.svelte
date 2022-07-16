@@ -1,7 +1,9 @@
 <script context="module">
+    // TODO: Remove docs variable from component
     export const docs = true;
 </script>
 
+<!-- TODO: Add a component description here. See button for example -->
 <script>
     import '../../css/styles.js';
     import Button from '../button';

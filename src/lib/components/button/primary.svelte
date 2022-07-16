@@ -1,3 +1,4 @@
+<!-- TODO: Add a component description here. See button for example -->
 <div class="contents">
     <slot/>
 </div>
