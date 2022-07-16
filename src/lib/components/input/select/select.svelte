@@ -12,7 +12,7 @@
     export let autocomplete = undefined;
 
     /**
-     * Whether select should have input focus when the page loads.
+     * When true, the select will have input focus when the page loads.
      *
      * @type {boolean | undefined}
      */

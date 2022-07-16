@@ -17,7 +17,7 @@
     export let autocomplete = '';
 
     /**
-     * Whether select should have input focus when the page loads.
+     * When true, the text input will have input focus when the page loads.
      *
      * @type {boolean}
      */

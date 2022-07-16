@@ -17,7 +17,7 @@
     export let autocomplete = '';
 
     /**
-     * When true, the button will have input focus when the page loads.
+     * When true, the time input will have input focus when the page loads.
      *
      * @type {boolean}
      */
