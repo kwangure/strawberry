@@ -3,7 +3,7 @@
     --br-tooltip-arrow-skidding-block: ;
     --br-tooltip-box-shadow: ;
     --br-tooltip-background-color: ;
-    --br-tooltip-text-color: ;
+    --br-tooltip-font-color: ;
     --br-tooltip-padding-inline: ;
     --br-tooltip-padding-block: ;
     --br-tooltip-transition-duration: ;
@@ -16,7 +16,7 @@
     background-color: var(--br-tooltip-background-color, var(--br-default-overlay-background-color));
     min-width: 30px;
     min-height: 1em;
-    color: var(--br-tooltip-text-color, var(--br-default-overlay-text-color));
+    color: var(--br-tooltip-font-color, var(--br-default-overlay-font-color));
     border-radius: var(--br-border-radius);
     opacity: 0;
     visibility: hidden;
@@ -28,6 +28,7 @@
     z-index: 1;
     box-shadow: var(--br-tooltip-box-shadow, var(--br-box-shadow, var(--br-default-box-shadow)));
 }
+
 .berry-tooltip.visible {
     visibility: visible;
     opacity: 1;
@@ -55,15 +56,18 @@
     --br-translate-y: 50%;
     bottom: 0;
 }
+
 [data-popper-placement="top"] .arrow {
     left: 50%;
     --br-translate-x: -50%;
 }
+
 [data-popper-placement="top-start"] .arrow {
     left: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
 }
+
 [data-popper-placement="top-end"] .arrow {
-    right: var(--br-tooltip-arrow-skidding-inline,var(--arrow-skidding-inline));
+    right: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
 }
 
 [data-popper-placement^="right"] .arrow {
@@ -71,10 +75,12 @@
     --br-translate-x: -50%;
     left: 0;
 }
+
 [data-popper-placement="right"] .arrow {
     top: 50%;
     --br-translate-y: -50%;
 }
+
 [data-popper-placement="right-start"] .arrow {
     top: var(--br-tooltip-arrow-skidding-block, --arrow-skidding-block);
 }
@@ -88,12 +94,15 @@
     --br-translate-x: 50%;
     right: 0;
 }
+
 [data-popper-placement="left"] .arrow {
     --br-translate-y: 50%;
 }
+
 [data-popper-placement="left-start"] .arrow {
     top: var(--br-tooltip-arrow-skidding-block, var(--arrow-skidding-block));
 }
+
 [data-popper-placement="left-end"] .arrow {
     bottom: var(--br-tooltip-arrow-skidding-block, var(--arrow-skidding-block));
 }
@@ -103,13 +112,16 @@
     --br-translate-y: -50%;
     top: 0;
 }
+
 [data-popper-placement="bottom"] .arrow {
     left: 50%;
     --br-translate-x: -50%;
 }
+
 [data-popper-placement="bottom-start"] .arrow {
     left: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
 }
+
 [data-popper-placement="bottom-end"] .arrow {
     right: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
 }

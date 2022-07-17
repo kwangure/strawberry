@@ -116,7 +116,7 @@
         padding-inline: var(--br-button-padding-inline);
         font-size: 14px;
         border-radius: var(--br-button-border-radius);
-        color: var(--br-button-text-color);
+        color: var(--br-button-font-color);
         background-color: var(--br-button-background-color);
         outline: none;
         width: var(--br-button-width);

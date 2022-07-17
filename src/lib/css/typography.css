@@ -1,8 +1,8 @@
 :root,
 :host {
     /* ----- Color ----- */
-	--br-text-color: ;
-	--br-heading-color: ;
+    --br-font-color: ;
+    --br-heading-color: ;
 
     /* ----- Font size presets ----- */
     --br-preset-1-font-size: 40px;
@@ -14,11 +14,11 @@
     --br-preset-7-font-size: 12px;
 
     /* ----- Font ----- */
-	--br-font-family: 'Arial', Helvetica, sans-serif;
-	--br-font-size: var(--br-preset-6-font-size);
+    --br-font-family: 'Arial', Helvetica, sans-serif;
+    --br-font-size: var(--br-preset-6-font-size);
     --br-line-height: 1.25;
-	--br-font-mono: 'Fira Mono', monospace;
-	--br-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --br-font-mono: 'Fira Mono', monospace;
+    --br-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 :root,
@@ -28,24 +28,29 @@ body {
     font-weight: 400;
     line-height: var(--br-line-height);
     font-family: var(--br-font-family);
-    color: var(--br-default-text-color);
+    color: var(--br-default-font-color);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-	    --br-default-text-color: #ddd;
+        --br-default-font-color: #ddd;
     }
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-	    --br-default-text-color: var(--_black);
+        --br-default-font-color: var(--_black);
     }
 }
 
 /* ----- Headers ----- */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--br-heading-color, --br-text-color, var(--br-default-text-color));
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--br-heading-color, --br-font-color, var(--br-default-font-color));
 }
 
 h1 {
@@ -53,47 +58,58 @@ h1 {
     font-weight: 400;
     margin: 20px 0 8px;
 }
-h1 + h1 {
+
+h1+h1 {
     margin-top: 8px;
 }
+
 h2 {
     font-size: var(--br-preset-3-font-size);
     font-weight: 400;
     margin: 20px 0 8px;
 }
-:where(h1, h2) + h2 {
+
+:where(h1, h2)+h2 {
     margin-top: 8px;
 }
+
 h3 {
     font-size: var(--br-preset-4-font-size);
     font-weight: 600;
     margin: 16px 0 4px;
 }
-:where(h1, h2, h3) + h3 {
+
+:where(h1, h2, h3)+h3 {
     margin-top: 4px;
 }
+
 h4 {
     font-size: var(--br-preset-5-font-size);
     font-weight: 600;
     margin: 16px 0 4px;
 }
-:where(h1, h2, h3, h4) + h4 {
+
+:where(h1, h2, h3, h4)+h4 {
     margin-top: 4px;
 }
+
 h5 {
     font-size: var(--br-preset-6-font-size);
     font-weight: 600;
     margin: 14px 0 4px;
 }
-:where(h1, h2, h3, h4, h5) + h5 {
+
+:where(h1, h2, h3, h4, h5)+h5 {
     margin-top: 4px;
 }
+
 h6 {
     font-size: var(--br-preset-7-font-size);
     font-weight: 600;
     margin: 14px 0 4px;
 }
-:where(h1, h2, h3, h4, h5 + h6) + h6 {
+
+:where(h1, h2, h3, h4, h5 + h6)+h6 {
     margin-top: 4px;
 }
 
@@ -102,6 +118,7 @@ h6 {
         --_link-color: var(--br-primary);
     }
 }
+
 @media (prefers-color-scheme: light) {
     :root {
         --_link-color: var(--br-primary);
@@ -110,11 +127,11 @@ h6 {
 
 /* ----- Links ----- */
 a {
-	text-decoration: none;
-	color: var(--_link-color);
+    text-decoration: none;
+    color: var(--_link-color);
 }
 
 a:hover,
-a:active  {
-	color: var(--br-primary-hover);
+a:active {
+    color: var(--br-primary-hover);
 }

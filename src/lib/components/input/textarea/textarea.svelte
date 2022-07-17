@@ -71,7 +71,7 @@
         outline: 0;
         padding-block: var(--br-textarea-padding-block);
         padding-inline: var(--br-textarea-padding-inline);
-        color: var(--br-textarea-text-color);
+        color: var(--br-textarea-font-color);
         background-color: transparent;
         flex-grow: 1;
         width: 100%;
@@ -103,11 +103,11 @@
     .hint:not(:empty) {
         margin-block: var(--br-textarea-hint-margin-block);
         margin-inline: var(--br-textarea-hint-margin-inline);
-        color: var(--br-textarea-hint-text-color);
+        color: var(--br-textarea-hint-font-color);
         font-size: var(--br-textarea-hint-font-size);
     }
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-textarea-hint-invalid-text-color);
+        color: var(--br-textarea-hint-invalid-font-color);
     }
 </style>

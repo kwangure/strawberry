@@ -8,7 +8,7 @@
     :root {
         --_item-active-background-color: var(--br-primary-light);
         --_item-active-hover-background-color: var(--br-primary-light-hover);
-        --_item-active-text-color: var(--br-primary);
+        --_item-active-font-color: var(--br-primary);
         --_item-hover-background-color: var(--br-grey-lightest);
     }
 }
@@ -17,7 +17,7 @@
     :root {
         --_item-active-background-color: #222;
         --_item-active-hover-background-color: #444;
-        --_item-active-text-color: inherit;
+        --_item-active-font-color: inherit;
         --_item-hover-background-color: #333;
     }
 }
@@ -29,7 +29,7 @@
     height: var(--br-default-item-height);
     padding: var(--br-item-padding-block) var(--br-item-padding-inline);
     border-radius: var(--br-border-radius);
-    color: var(--br-default-text-color);
+    color: var(--br-default-font-color);
 }
 
 .sidebar-item:hover {
@@ -38,7 +38,7 @@
 
 .sidebar-item.active {
     background-color: var(--br-sidebar-item-active-background-color, var(--br-item-active-background-color, var(--_item-active-background-color)));
-    color: var(--_item-active-text-color);
+    color: var(--_item-active-font-color);
 }
 
 .sidebar-item.active:hover {

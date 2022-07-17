@@ -110,7 +110,7 @@
         outline: 0;
         padding-block: var(--br-select-padding-block);
         padding-inline: var(--br-select-padding-inline);
-        color: var(--br-select-text-color);
+        color: var(--br-select-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
@@ -134,11 +134,11 @@
     .hint:not(:empty) {
         margin-block: var(--br-select-hint-margin-block);
         margin-inline: var(--br-select-hint-margin-inline);
-        color: var(--br-select-hint-text-color);
+        color: var(--br-select-hint-font-color);
         font-size: var(--br-select-hint-font-size);
     }
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-select-hint-invalid-text-color);
+        color: var(--br-select-hint-invalid-font-color);
     }
 </style>

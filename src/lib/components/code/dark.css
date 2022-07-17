@@ -1,6 +1,6 @@
 :root {
     --br-code-background-color: #1e1e1e;
-    --br-code-text-color: #dcdcdc;
+    --br-code-font-color: #dcdcdc;
 
     /* Syntax highlighter */
     --br-code-syntax-name-color: #569cd6;

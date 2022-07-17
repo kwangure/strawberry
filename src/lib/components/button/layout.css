@@ -1,6 +1,6 @@
 :host,
 :root {
-    --br-button-text-color: inherit;
+    --br-button-font-color: inherit;
     --br-button-border: var(--br-default-border);
     --br-button-border-color: var(--br-default-border-color);
     --br-button-display: inline-flex;

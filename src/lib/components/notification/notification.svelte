@@ -43,7 +43,7 @@
         --br-notification-padding-block: ;
         --br-notification-padding-inline: ;
         --br-notification-background-color: ;
-        --br-notification-text-color: ;
+        --br-notification-font-color: ;
     }
     .wrapper {
         overflow: hidden;
@@ -57,8 +57,8 @@
         display: flex;
         align-items: center;
         color: var(
-            --br-notification-text-color,
-            var(--br-default-overlay-text-color)
+            --br-notification-font-color,
+            var(--br-default-overlay-font-color)
         );
         border-radius: var(--br-border-radius);
         width: fit-content;

@@ -2,9 +2,9 @@
 :root {
     /** Encoded from Material design icons. Path is `import("@mdi/js").mdiCalendar` */
     --br-input-datetime-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
-    --br-input-datetime-text-color: inherit;
-    --br-input-datetime-hint-text-color: inherit;
-    --br-input-datetime-hint-invalid-text-color: rgb(255 40 40);
+    --br-input-datetime-font-color: inherit;
+    --br-input-datetime-hint-font-color: inherit;
+    --br-input-datetime-hint-invalid-font-color: rgb(255 40 40);
     --br-input-datetime-background-color: transparent;
     --br-input-datetime-border: 1px solid #474b50;
     --br-input-datetime-hover-box-shadow: 0 0 0px 2px rgb(135 205 255 / 30%);

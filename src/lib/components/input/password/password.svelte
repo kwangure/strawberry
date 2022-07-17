@@ -142,7 +142,7 @@
         outline: 0;
         padding-block: var(--br-input-password-padding-block);
         padding-inline: var(--br-input-password-padding-inline);
-        color: var(--br-input-password-text-color);
+        color: var(--br-input-password-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
@@ -166,11 +166,11 @@
     .hint:not(:empty) {
         margin-block: var(--br-input-password-hint-margin-block);
         margin-inline: var(--br-input-password-hint-margin-inline);
-        color: var(--br-input-password-hint-text-color);
+        color: var(--br-input-password-hint-font-color);
         font-size: var(--br-input-password-hint-font-size);
     }
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-input-password-hint-invalid-text-color);
+        color: var(--br-input-password-hint-invalid-font-color);
     }
 </style>

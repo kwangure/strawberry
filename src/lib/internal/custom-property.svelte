@@ -77,14 +77,14 @@
         --br-button-border: none;
         --br-button-background-color: transparent;
         --br-button-hover-background-color: transparent;
-        --br-button-text-color: transparent;
+        --br-button-font-color: transparent;
         --br-button-padding-inline: 5px;
     }
     h3:not(:hover) {
         --_link-color: transparent;
     }
     h3:hover {
-        --br-button-text-color: inherit;
+        --br-button-font-color: inherit;
         --br-button-transition: all 0.25s ease;
     }
     h3:target {
@@ -93,11 +93,11 @@
     @keyframes highlight {
         from {
             --br-code-background-color: yellow;
-            --br-code-text-color: black;
+            --br-code-font-color: black;
         }
         to {
             --br-code-background-color: yellow;
-            --br-code-text-color: black;
+            --br-code-font-color: black;
         }
     }
     h3 :global(.menu-item) {

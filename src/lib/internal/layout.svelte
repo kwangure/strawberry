@@ -50,6 +50,6 @@
         --br-navbar-logo-width: 240px;
     }
     .cta {
-        --br-text-color: var(--_black);
+        --br-font-color: var(--_black);
     }
 </style>

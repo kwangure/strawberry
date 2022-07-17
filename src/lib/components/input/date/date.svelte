@@ -155,7 +155,7 @@
         outline: 0;
         padding-block: var(--br-input-date-padding-block);
         padding-inline: var(--br-input-date-padding-inline);
-        color: var(--br-input-date-text-color);
+        color: var(--br-input-date-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
@@ -179,11 +179,11 @@
     .hint:not(:empty) {
         margin-block: var(--br-input-date-hint-margin-block);
         margin-inline: var(--br-input-date-hint-margin-inline);
-        color: var(--br-input-date-hint-text-color);
+        color: var(--br-input-date-hint-font-color);
         font-size: var(--br-input-date-hint-font-size);
     }
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-input-date-hint-invalid-text-color);
+        color: var(--br-input-date-hint-invalid-font-color);
     }
 </style>

@@ -35,7 +35,7 @@
         font-size: 85%;
         line-height: 1.45;
         background-color: var(--br-code-background-color);
-        color: var(--br-code-text-color);
+        color: var(--br-code-font-color);
         border-radius: var(--br-code-border-radius);
         margin: 0;
         white-space: var(--br-code-white-space);

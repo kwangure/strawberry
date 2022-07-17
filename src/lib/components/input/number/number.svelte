@@ -176,7 +176,7 @@
         outline: 0;
         padding-block: var(--br-input-number-padding-block);
         padding-inline: var(--br-input-number-padding-inline);
-        color: var(--br-input-number-text-color);
+        color: var(--br-input-number-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
@@ -236,11 +236,11 @@
     .hint:not(:empty) {
         margin-block: var(--br-input-number-hint-margin-block);
         margin-inline: var(--br-input-number-hint-margin-inline);
-        color: var(--br-input-number-hint-text-color);
+        color: var(--br-input-number-hint-font-color);
         font-size: var(--br-input-number-hint-font-size);
     }
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-input-number-hint-invalid-text-color);
+        color: var(--br-input-number-hint-invalid-font-color);
     }
 </style>
