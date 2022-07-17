@@ -1,4 +1,4 @@
-import { docs as tooltipDocs } from './tooltip.svelte';
+import tooltipDocs from './tooltip.svelte:docs';
 
 export const docs = {
 	main: tooltipDocs,

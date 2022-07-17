@@ -4,11 +4,21 @@
     import Slot from './slot.svelte';
 
     /**
-     * @type {object}
+     * @type {Record<string, any>}
      */
     export let docs;
 
-    const { description, name, props, customProperties, slots } = docs.main;
+    const {
+    	description, name, props, customProperties, slots, workingDirectoryFilepath,
+    } = docs.main;
+    customProperties.sort((
+    	/** @type {{ customProperty: string; }} */ a,
+    	/** @type {{ customProperty: string; }} */ b,
+    ) => {
+    	if (a.customProperty < b.customProperty) return -1;
+    	if (a.customProperty > b.customProperty) return 1;
+    	return 0;
+    });
 </script>
 
 <svelte:head>
@@ -45,7 +55,7 @@
 <table>
     <tr>
         <th>Name</th>
-        <th>Descriptoin</th>
+        <th>Description</th>
     </tr>
     {#each slots as slot}
         <Slot slotDocs="{slot || {}}" />
@@ -55,7 +65,7 @@
 {#if customProperties.length > 0}
     <h2>Custom Properties</h2>
     {#each customProperties as property}
-        <CustomProperty propertyDocs="{property}" />
+        <CustomProperty filepath={workingDirectoryFilepath} propertyDocs="{property}" />
     {/each}
 {/if}
 

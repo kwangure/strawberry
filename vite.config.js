@@ -1,3 +1,4 @@
+import docs from "@kwangure/svelte-docs";
 import inspect from 'vite-plugin-inspect';
 import localPackageWatch from './scripts/local-pkg-watch/index.js';
 import path from 'path';
@@ -15,6 +16,7 @@ function resolve(pathname) {
 /** @type {import('vite').UserConfig} */
 const config = {
 	plugins: [
+		docs(),
 		inspect(),
 		localPackageWatch(),
 		strawberry({

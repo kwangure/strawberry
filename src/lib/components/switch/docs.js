@@ -1,4 +1,4 @@
-import { docs as switchDocs } from './switch.svelte';
+import switchDocs from './switch.svelte:docs';
 
 export const docs = {
 	main: switchDocs,

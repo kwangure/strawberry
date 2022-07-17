@@ -99,7 +99,7 @@ h6 {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --_link-color: var(--blue-5);
+        --_link-color: var(--br-primary);
     }
 }
 @media (prefers-color-scheme: light) {

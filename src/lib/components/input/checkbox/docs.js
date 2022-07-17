@@ -1,4 +1,4 @@
-import { docs as checkboxDocs } from './checkbox.svelte';
+import checkboxDocs from './checkbox.svelte:docs';
 
 export const docs = {
 	main: checkboxDocs,

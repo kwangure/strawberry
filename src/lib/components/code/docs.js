@@ -1,4 +1,4 @@
-import { docs as codeDocs } from './code.svelte';
+import codeDocs from './code.svelte:docs';
 
 export const docs = {
 	main: codeDocs,

@@ -142,9 +142,3 @@
         color: var(--br-select-hint-invalid-text-color);
     }
 </style>
-
-<!-- TODO: move context module script to top -->
-<script context="module">
-    // TODO: Remove docs variable from component
-    export const docs = true;
-</script>

@@ -1,4 +1,4 @@
-import { docs as textDocs } from './text.svelte';
+import textDocs from './text.svelte:docs';
 
 export const docs = {
 	main: textDocs,

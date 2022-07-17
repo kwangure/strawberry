@@ -1,9 +1,6 @@
 <script context="module">
     import { getContext } from 'svelte';
 
-    // TODO: Remove docs variable from component
-    export const docs = true;
-
     const key = {};
     export function stores() {
     	return getContext(key);

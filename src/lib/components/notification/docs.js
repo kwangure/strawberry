@@ -1,4 +1,4 @@
-import { docs as notificationDocs } from './notification.svelte';
+import notificationDocs from './notification.svelte:docs';
 
 export const docs = {
 	main: notificationDocs,

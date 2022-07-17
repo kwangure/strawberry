@@ -1,4 +1,4 @@
-import { docs as iconDocs } from './icon.svelte';
+import iconDocs from './icon.svelte:docs';
 
 export const docs = {
 	main: iconDocs,

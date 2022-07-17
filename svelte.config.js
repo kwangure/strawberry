@@ -1,5 +1,4 @@
 import adapter from "@sveltejs/adapter-static";
-import docs from "@kwangure/svelte-docs";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import micromatch from 'micromatch';
 
@@ -9,7 +8,6 @@ const PROD = MODE === "production";
 /** @type {import("@sveltejs/kit").Config} */
 export default {
     preprocess: [
-        docs(),
         inlineImport,
     ],
     kit: {

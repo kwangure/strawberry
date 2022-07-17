@@ -1,8 +1,3 @@
-<script context="module">
-    // TODO: Remove docs variable from component
-    export const docs = true;
-</script>
-
 <script>
     /**
      * @type {import("./element").DomJson}*/

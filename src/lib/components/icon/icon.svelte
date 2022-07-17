@@ -1,8 +1,3 @@
-<script context="module">
-    // TODO: Remove docs variable from component
-    export const docs = true;
-</script>
-
 <!-- TODO: Add a component description here. See button for example -->
 <script>
     import '../../css/styles.js';
@@ -18,7 +13,7 @@
 </script>
 
 <svg viewBox="0 0 24 24" use:forward>
-    <path d={path}/>
+    <path d={path} style="fill: var(--br-icon-fill);"/>
     <slot></slot>
 </svg>
 
@@ -28,8 +23,5 @@
         width: var(--br-icon-width);
         height: var(--br-icon-height);
         transform: var(--br-icon-transform);
-    }
-    path {
-        fill: var(--br-icon-fill);
     }
 </style>

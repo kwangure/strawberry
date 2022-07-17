@@ -1,4 +1,4 @@
-import { docs as timeDocs } from './time.svelte';
+import timeDocs from './time.svelte:docs';
 
 export const docs = {
 	main: timeDocs,

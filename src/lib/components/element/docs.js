@@ -1,4 +1,4 @@
-import { docs as elementDocs } from './element.svelte';
+import elementDocs from './element.svelte:docs';
 
 export const docs = {
 	main: elementDocs,

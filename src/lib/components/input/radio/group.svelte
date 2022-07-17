@@ -1,7 +1,5 @@
 <script context="module">
     export const radioGroup = 'berry-radio-group';
-    // TODO: Remove docs variable from component
-    export const docs = true;
 </script>
 <script>
     import { setContext } from 'svelte';

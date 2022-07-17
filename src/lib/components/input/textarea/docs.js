@@ -1,4 +1,4 @@
-import { docs as textareaDocs } from './textarea.svelte';
+import textareaDocs from './textarea.svelte:docs';
 
 export const docs = {
 	main: textareaDocs,

@@ -1,7 +1,5 @@
 <script context="module">
     export const checkboxGroup = 'berry-checkbox-group';
-    // TODO: Remove docs variable from component
-    export const docs = true;
 </script>
 <script>
     import { setContext } from 'svelte';

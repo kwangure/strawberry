@@ -1,8 +1,3 @@
-<script context="module">
-    // TODO: Remove docs variable from component
-    export const docs = true;
-</script>
-
 <section class="berry-sidebar-section sidebar-section">
     <div class="title">
         <slot name="title"/>
