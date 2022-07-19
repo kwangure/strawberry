@@ -14,6 +14,8 @@
     @import "../lib/components/dropdown/dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/dropdown/light.css" (prefers-color-scheme: light);
 
+    @import "../lib/components/icon/layout.css";
+
     @import "../lib/components/input/date/layout.css";
     @import "../lib/components/input/date/dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/input/date/light.css" (prefers-color-scheme: light);
@@ -50,5 +52,8 @@
     @import "../lib/components/modal/dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/modal/light.css" (prefers-color-scheme: light);
 
-    @import "../lib/components/icon/layout.css";
+    @import "../lib/components/switch/layout.css";
+	@import "../lib/components/switch/dark.css" (prefers-color-scheme: dark);
+	@import "../lib/components/switch/light.css" (prefers-color-scheme: light);
+
 </style>

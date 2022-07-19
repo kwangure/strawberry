@@ -207,10 +207,6 @@
 </div>
 
 <style>
-	@import "./switch.css";
-	@import "./switch_light.css" (prefers-color-scheme: light);
-	@import "./switch_dark.css" (prefers-color-scheme: dark);
-
 	div {
 		--isLTR: 1;
 
