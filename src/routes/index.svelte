@@ -1,8 +1,8 @@
 <script>
     import { mdiGithub, mdiNpm } from '@mdi/js';
     import { base } from '$app/paths';
-    import Button from '~@components/button';
-    import Navbar from '~@components/navbar';
+    import Button from '$lib/components/button';
+    import Navbar from '$lib/components/navbar';
 </script>
 
 <div class="layout">

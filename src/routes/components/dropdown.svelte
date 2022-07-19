@@ -1,8 +1,8 @@
 <script>
-    import Dropdown, { Item, Link } from '~@components/dropdown';
-    import Button from '~@components/button';
+    import Dropdown, { Item, Link } from '$lib/components/dropdown';
+    import Button from '$lib/components/button';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '~@components/dropdown/docs';
+    import { docs } from '$lib/components/dropdown/docs';
 </script>
 
 <Component {docs}>

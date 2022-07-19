@@ -27,9 +27,6 @@ const config = {
 	],
 	resolve: {
 		alias: {
-			'~@css': resolve('./src/lib/css/'),
-			'~@components': resolve('./src/lib/components/'),
-			'~@utils': resolve('./src/lib/utils/'),
 			'@kwangure/strawberry/css/styles': resolve('./src/lib/css/styles.js'),
 		},
 	},

@@ -1,10 +1,10 @@
 <script>
-    import Code, { css, none } from '~@components/code';
-    import Dropdown, { Item } from '~@components/dropdown';
+    import Code, { css, none } from '$lib/components/code';
+    import Dropdown, { Item } from '$lib/components/dropdown';
     import { mdiDotsHorizontal, mdiLinkVariant, mdiOpenInNew } from '@mdi/js';
-    import Button from '~@components/button';
+    import Button from '$lib/components/button';
     import { escape } from 'svelte/internal';
-    import Icon from '~@components/icon';
+    import Icon from '$lib/components/icon';
 
     /** @type {any} */
     export let filepath;

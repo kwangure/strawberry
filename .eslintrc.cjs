@@ -8,8 +8,6 @@ module.exports = {
 		'import/resolver': {
 			alias: {
 				map: [
-					['~@components', './src/lib/components/'],
-					['~@css', './src/lib/css/'],
 					// escape `$` to work around eslint's Regex matching
 					['\\$app', './.svelte-kit/runtime/app/'],
 					['\\$lib', './src/lib/'],

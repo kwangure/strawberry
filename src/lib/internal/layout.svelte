@@ -1,5 +1,5 @@
 <script>
-    import Navbar, { Link as NavLink } from '~@components/navbar';
+    import Navbar, { Link as NavLink } from '$lib/components/navbar';
     import { base } from '$app/paths';
 </script>
 

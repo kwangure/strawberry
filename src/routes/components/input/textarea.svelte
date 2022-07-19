@@ -1,8 +1,8 @@
 <script>
     import Code, { svelte } from '$lib/components/code';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '~@components/input/textarea/docs';
-    import Textarea from '~@components/input/textarea';
+    import { docs } from '$lib/components/input/textarea/docs';
+    import Textarea from '$lib/components/input/textarea';
 </script>
 
 <Component {docs}>

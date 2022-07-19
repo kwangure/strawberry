@@ -1,8 +1,8 @@
 <script>
     import Code, { svelte } from '$lib/components/code';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '~@components/input/time/docs';
-    import Time from '~@components/input/time';
+    import { docs } from '$lib/components/input/time/docs';
+    import Time from '$lib/components/input/time';
 </script>
 
 <Component {docs}>
