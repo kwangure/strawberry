@@ -1,5 +1,5 @@
 <script>
-    import Sidebar, { Link, Section } from '~@components/sidebar';
+    import Sidebar, { Item, Section } from '~@components/sidebar';
     import { base } from '$app/paths';
     import Layout from '$lib/internal/layout.svelte';
     import { page } from '$app/stores';
@@ -17,79 +17,119 @@
     <div class="components">
         <div class="left">
             <Sidebar>
-                <Link href="{base}/components" {path}>
-                    Components Overview
-                </Link>
+                <a href="{base}/components">
+                    <Item active={path === `${base}/components`}>
+                        Components Overview
+                    </Item>
+                </a>
                 <Section>
                     <svelte:fragment slot="title">General</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <Link href="{base}/components/button" {path}>
-                            Button
-                        </Link>
-                        <Link href="{base}/components/dropdown" {path}>
-                            Dropdown
-                        </Link>
-                        <Link href="{base}/components/element" {path}>
-                            Element
-                        </Link>
-                        <Link href="{base}/components/icon" {path}>
-                            Icon
-                        </Link>
-                        <Link href="{base}/components/switch" {path}>
-                            Switch
-                        </Link>
+                        <a href="{base}/components/button">
+                            <Item active={path === `${base}/components/button`}>
+                                Button
+                            </Item>
+                        </a>
+                        <a href="{base}/components/dropdown">
+                            <Item active={path === `${base}/components/dropdown`}>
+                                Dropdown
+                            </Item>
+                        </a>
+                        <a href="{base}/components/element">
+                            <Item active={path === `${base}/components/element`}>
+                                Element
+                            </Item>
+                        </a>
+                        <a href="{base}/components/icon">
+                            <Item active={path === `${base}/components/icon`}>
+                                Icon
+                            </Item>
+                        </a>
+                        <a href="{base}/components/switch">
+                            <Item active={path === `${base}/components/switch`}>
+                                Switch
+                            </Item>
+                        </a>
                     </svelte:fragment>
                 </Section>
                 <Section>
                     <svelte:fragment slot="title">Data Inputs</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <Link href="{base}/components/input/date" {path}>
-                            Date
-                        </Link>
-                        <Link href="{base}/components/input/datetime" {path}>
-                            DateTime
-                        </Link>
-                        <Link href="{base}/components/input" {path}>
-                            Text
-                        </Link>
-                        <Link href="{base}/components/input/password" {path}>
-                            Password
-                        </Link>
-                        <Link href="{base}/components/input/number" {path}>
-                            Number
-                        </Link>
-                        <Link href="{base}/components/input/checkbox" {path}>
-                            Checkbox
-                        </Link>
-                        <Link href="{base}/components/input/radio" {path}>
-                            Radio
-                        </Link>
-                        <Link href="{base}/components/input/select" {path}>
-                            Select
-                        </Link>
-                        <Link href="{base}/components/input/textarea" {path}>
-                            Textarea
-                        </Link>
-                        <Link href="{base}/components/input/time" {path}>
-                            Time
-                        </Link>
+                        <a href="{base}/components/input/date">
+                            <Item active={path === `${base}/components/input/date`}>
+                                Date
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/datetime">
+                            <Item active={path === `${base}/components/input/datetime`}>
+                                DateTime
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input">
+                            <Item active={path === `${base}/components/input`}>
+                                Text
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/password">
+                            <Item active={path === `${base}/components/input/password`}>
+                                Password
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/number">
+                            <Item active={path === `${base}/components/input/number`}>
+                                Number
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/checkbox">
+                            <Item active={path === `${base}/components/input/checkbox`}>
+                                Checkbox
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/radio">
+                            <Item active={path === `${base}/components/input/radio`}>
+                                Radio
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/select">
+                            <Item active={path === `${base}/components/input/select`}>
+                                Select
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/textarea">
+                            <Item active={path === `${base}/components/input/textarea`}>
+                                Textarea
+                            </Item>
+                        </a>
+                        <a href="{base}/components/input/time">
+                            <Item active={path === `${base}/components/input/time`}>
+                                Time
+                            </Item>
+                        </a>
                     </svelte:fragment>
                 </Section>
                 <Section>
                     <svelte:fragment slot="title">Data Display</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <Link href="{base}/components/code" {path}>
-                            Code
-                        </Link>
-                        <Link href="{base}/components/modal" {path}>
-                            Modal
-                        </Link>
-                        <Link href="{base}/components/notification" {path}>
-                            Notification
-                        </Link>
-                        <Link href="{base}/components/tooltip" {path}>
-                            Tooltip
-                        </Link>
+                        <a href="{base}/components/code">
+                            <Item active={path === `${base}/components/code`}>
+                                Code
+                            </Item>
+                        </a>
+                        <a href="{base}/components/modal">
+                            <Item active={path === `${base}/components/modal`}>
+                                Modal
+                            </Item>
+                        </a>
+                        <a href="{base}/components/notification">
+                            <Item active={path === `${base}/components/notification`}>
+                                Notification
+                            </Item>
+                        </a>
+                        <a href="{base}/components/tooltip">
+                            <Item active={path === `${base}/components/tooltip`}>
+                                Tooltip
+                            </Item>
+                        </a>
                     </svelte:fragment>
                 </Section>
             </Sidebar>
@@ -105,6 +145,10 @@
         display: grid;
         grid-template-columns: 240px 1fr;
         grid-template-rows: 1fr;
+    }
+    .left a {
+        display: contents;
+        color: inherit;
     }
     .right {
         padding: 10px;
