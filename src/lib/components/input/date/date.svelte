@@ -1,4 +1,9 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Date lets the user enter a date, with a date picker interface. The
+    resulting value includes the year, month, day, but not the time.
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';

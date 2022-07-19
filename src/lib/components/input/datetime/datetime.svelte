@@ -1,4 +1,10 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Datetime lets the user enter both a date and time, with a date picker
+    interface. The resulting value includes the year, month, and day as well as
+    the time in hours and minutes.
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '$lib/utils/forward-events.js';

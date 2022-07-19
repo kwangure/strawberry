@@ -1,4 +1,11 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Password lets the user to securely enter a password. It presents as a
+    one-line plain text editor control where the text is obscured so that
+    it cannot be read. It replaces each character with a symbol such as the
+    asterisk ("*") or a dot ("•").
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';

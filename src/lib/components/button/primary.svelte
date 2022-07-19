@@ -1,4 +1,12 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Primary enhances the default button. Use it to call attention to an action
+    on a form or to highlight the strongest call to action on a page. Primary
+    buttons should only appear once per container.
+
+    Not every screen requires a primary button.
+-->
 <div class="contents">
     <slot/>
 </div>

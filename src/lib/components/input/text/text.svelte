@@ -1,4 +1,9 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Text lets the user enter inline text. It includes built-in validation to
+    reject ne entries.
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';

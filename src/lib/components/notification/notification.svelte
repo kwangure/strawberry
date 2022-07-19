@@ -1,4 +1,8 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Notification provides brief messages about an application above the page.
+-->
 <script>
     import '../../css/styles.js';
     import { createEventDispatcher } from 'svelte';

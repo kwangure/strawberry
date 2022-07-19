@@ -1,4 +1,8 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Time lets the user enter time (hours and minutes, and optionally seconds).
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';

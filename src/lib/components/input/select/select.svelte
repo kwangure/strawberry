@@ -1,4 +1,9 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Select allows users to make a single selection or multiple selections from
+    a list of options.
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';

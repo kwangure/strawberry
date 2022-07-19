@@ -1,4 +1,9 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Number lets the user enter a number. It includes built-in validation to
+    reject non-numerical entries.
+-->
 <script>
     import '../../../css/styles.js';
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';

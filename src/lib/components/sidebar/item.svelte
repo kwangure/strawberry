@@ -1,3 +1,9 @@
+<!--
+    @component
+
+    Item is an action a user can perform or a link to a page displayed in a
+    group.
+-->
 <script>
     import { createEventForwarder } from '../../utils/forward-events.js';
 

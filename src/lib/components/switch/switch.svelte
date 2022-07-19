@@ -1,4 +1,8 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+	Switch is used to view or switch between enabled or disabled states.
+-->
 <script>
 	import '../../css/styles.js';
 	import { createEventForwarder } from '../../utils/forward-events.js';

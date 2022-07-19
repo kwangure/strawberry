@@ -1,4 +1,8 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+	Radio allows a user to select one option from multiple choices.
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';

@@ -1,4 +1,9 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Icon is a visual representation of a command, device, directory, or common
+    action.
+-->
 <script>
     import '../../css/styles.js';
     import { createEventForwarder } from '../../utils/forward-events.js';

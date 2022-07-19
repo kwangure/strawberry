@@ -1,4 +1,9 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Tooltip displays informative text when users hover over, focus on, or tap
+	an element.
+-->
 <script>
     import '../../css/styles.js';
     import { mousePosInBoundingRect, toggleListener } from './tooltip.js';

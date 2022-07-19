@@ -1,4 +1,10 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Textarea is a multi-line plain-text editing control. It allows users to
+    enter a sizeable amount of free-form text, such as a comment on a review
+    or feedback form.
+-->
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';

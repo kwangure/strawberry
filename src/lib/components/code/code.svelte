@@ -1,4 +1,12 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Code highlights snippets of code that appears along with body text, while
+    preserving its formatting.
+
+    Use inline code snippets when you wish to highlight a short code snippet
+    from the surrounding default text, such as when referencing variable names.
+-->
 <script>
     import '../../css/styles.js';
     /**

@@ -7,7 +7,11 @@
     }
 </script>
 
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Navbar a collection of links for navigating websites.
+-->
 <script>
     import '../../css/styles.js';
     import { setContext } from 'svelte';

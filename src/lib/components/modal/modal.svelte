@@ -1,4 +1,9 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+    Modal displays content that requires user interaction, in a layer above
+    the page.
+-->
 <script>
     import '../../css/styles.js';
     import Button from '../button';

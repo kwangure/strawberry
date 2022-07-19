@@ -1,4 +1,8 @@
-<!-- TODO: Add a component description here. See button for example -->
+<!--
+    @component
+
+	Checkbox allows a user to select one or more options from multiple choices.
+-->
 <script>
 	import '../../../css/styles.js';
 	import { checkboxGroup } from './group.svelte';
