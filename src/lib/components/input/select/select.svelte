@@ -88,9 +88,7 @@
             <slot></slot>
         </select>
     </div>
-    <div class="hint" class:invalid={false}>
-        <slot name="hint"/>
-    </div>
+    <slot name="hint"></slot>
 </label>
 
 <style>
@@ -136,9 +134,4 @@
         box-shadow: var(--br-select-focus-box-shadow);
         border: var(--br-select-focus-border);
     }
-    .hint:not(:empty) {
-        margin-block: var(    margin-inline: var(    color: var(    font-size: var(}
-    /* Use pseudoselector to match '.hint' specificity */
-    .invalid:not(:empty) {
-        color: var(}
 </style>

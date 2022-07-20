@@ -7,7 +7,7 @@
 <script>
     import { getContext } from 'svelte';
 
-    const validationMessageStore = getContext('validation-message');
+    const validationMessageStore = getContext('validation-message') || { subscribe() {} };
 </script>
 
 <div class="hint" class:invalid={Boolean($validationMessageStore)}>

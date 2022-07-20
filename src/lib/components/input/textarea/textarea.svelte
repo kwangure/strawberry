@@ -55,9 +55,7 @@
         bind:this={textarea} on:input={autosize}
         on:blur={() => blurred = true}
         use:forward bind:value {...$$restProps}/>
-    <div class="hint" class:invalid={isInvalid}>
-        <slot name="hint"/>
-    </div>
+    <slot name="hint"></slot>
 </label>
 
 <style>
@@ -106,9 +104,4 @@
         box-shadow: var(--br-textarea-focus-box-shadow);
         border: var(--br-textarea-focus-border);
     }
-    .hint:not(:empty) {
-        margin-block: var(    margin-inline: var(    color: var(    font-size: var(}
-    /* Use pseudoselector to match '.hint' specificity */
-    .invalid:not(:empty) {
-        color: var(}
 </style>
