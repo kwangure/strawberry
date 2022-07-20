@@ -7,7 +7,6 @@
     asterisk ("*") or a dot ("•").
 -->
 <script>
-    import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import { setContext } from 'svelte';
     import { validate } from '../validate';

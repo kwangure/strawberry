@@ -6,7 +6,6 @@
     or feedback form.
 -->
 <script>
-    import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
 
     /**

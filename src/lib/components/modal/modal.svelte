@@ -5,7 +5,6 @@
     the page.
 -->
 <script>
-    import '../../css/styles.js';
     import Button from '../button';
     import { createEventDispatcher } from 'svelte';
     import { crossscale } from '../../utils/crosstransition.js';

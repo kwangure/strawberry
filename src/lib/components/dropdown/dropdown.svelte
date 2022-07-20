@@ -4,7 +4,6 @@
     Dropdown displays a list of actions or options to a user.
 -->
 <script>
-    import '../../css/styles.js';
     import { createPopper } from '@popperjs/core';
 
     /**

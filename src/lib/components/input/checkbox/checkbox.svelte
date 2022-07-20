@@ -4,7 +4,6 @@
 	Checkbox allows a user to select one or more options from multiple choices.
 -->
 <script>
-	import '../../../css/styles.js';
 	import { checkboxGroup } from './group.svelte';
 	import { createEventForwarder } from '../../../utils/forward-events.js';
 	import { getContext } from 'svelte';

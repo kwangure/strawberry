@@ -3,16 +3,11 @@
 
     Sidebar provides composable side navigation, with support for nested views.
 -->
-<script>
-    import '../../css/styles.js';
-</script>
-
 <aside>
     <slot/>
 </aside>
 
 <style>
-    /* TODO: make sidebar styles configurable */
     aside {
         width: var(--br-sidebar-width);
         padding-block: var(--br-sidebar-padding-block);

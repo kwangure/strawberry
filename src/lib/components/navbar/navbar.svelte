@@ -13,7 +13,6 @@
     Navbar a collection of links for navigating websites.
 -->
 <script>
-    import '../../css/styles.js';
     import { setContext } from 'svelte';
     import { writable } from 'svelte/store';
 

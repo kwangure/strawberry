@@ -5,7 +5,6 @@
     reject non-numerical entries.
 -->
 <script>
-    import '../../../css/styles.js';
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import Icon from '../../icon';

@@ -5,7 +5,6 @@
 	an element.
 -->
 <script>
-    import '../../css/styles.js';
     import { mousePosInBoundingRect, toggleListener } from './tooltip.js';
     import { createPopper } from '@popperjs/core';
 

@@ -4,7 +4,6 @@
 	Switch is used to view or switch between enabled or disabled states.
 -->
 <script>
-	import '../../css/styles.js';
 	import { createEventForwarder } from '../../utils/forward-events.js';
 	import { listen } from 'svelte/internal';
 

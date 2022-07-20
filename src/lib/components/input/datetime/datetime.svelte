@@ -6,7 +6,6 @@
     the time in hours and minutes.
 -->
 <script>
-    import '../../../css/styles.js';
     import { createEventForwarder } from '$lib/utils/forward-events.js';
     import { setContext } from 'svelte';
     import { validate } from '../validate';

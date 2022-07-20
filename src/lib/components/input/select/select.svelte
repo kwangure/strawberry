@@ -5,7 +5,6 @@
     a list of options.
 -->
 <script>
-    import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import Option from './option.svelte';
 

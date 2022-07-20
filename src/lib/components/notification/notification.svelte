@@ -4,7 +4,6 @@
     Notification provides brief messages about an application above the page.
 -->
 <script>
-    import '../../css/styles.js';
     import { createEventDispatcher } from 'svelte';
     import { fly } from 'svelte/transition';
     import Icon from '../icon';

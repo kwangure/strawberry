@@ -8,7 +8,6 @@
     from the surrounding default text, such as when referencing variable names.
 -->
 <script>
-    import '../../css/styles.js';
     /**
      * @template T
      * @typedef {{ name: T, highlighter: function }} Language<T>
