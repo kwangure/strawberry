@@ -1,7 +1,6 @@
 <script>
     import '../lib/css/reset.css';
     import '../lib/css/globals.css';
-    import '../lib/css/typography.css';
 </script>
 
 <slot></slot>

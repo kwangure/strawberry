@@ -4,7 +4,7 @@
     --br-input-text-background-color: transparent;
     --br-input-text-border: 1px solid #474b50;
     --br-input-text-hover-box-shadow: 0 0 0px 2px rgb(135 205 255 / 30%);
-    --br-input-text-hover-border: 1px solid var(--br-primary);
-    --br-input-text-focus-box-shadow: 0 0 0px 1px var(--br-primary);
-    --br-input-text-focus-border: 1px solid var(--br-primary);
+    --br-input-text-hover-border: 1px solid hsl(225deg 100% 60%);
+    --br-input-text-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 60%);
+    --br-input-text-focus-border: 1px solid hsl(225deg 100% 60%);
 }

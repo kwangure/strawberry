@@ -1,6 +1,6 @@
 .menu-item {
     --br-item-padding-block: 8px;
-	--br-item-padding-inline: 12px;
+    --br-item-padding-inline: 12px;
 }
 
 .menu-item {
@@ -12,11 +12,11 @@
     display: flex;
     align-items: center;
     min-width: 130px;
-    padding: var(--br-item-padding-block) var(--br-item-padding-inline);
+    padding: 8px 12px;
 }
 
 .menu-item.active,
 .menu-item:hover {
-    color: var(--br-primary);
-    background-color: var(--br-primary-light);
+    color: hsl(225deg 100% 45%);
+    background-color: rgb(220, 235, 255);
 }

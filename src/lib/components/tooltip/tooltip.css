@@ -13,20 +13,32 @@
 
 .berry-tooltip {
     padding: var(--br-tooltip-padding-block, 6px) var(--br-tooltip-padding-inline, 8px);
-    background-color: var(--br-tooltip-background-color, var(--br-default-overlay-background-color));
     min-width: 30px;
     min-height: 1em;
-    color: var(--br-tooltip-font-color, var(--br-default-overlay-font-color));
-    border-radius: var(--br-border-radius);
+    color: #fff;
+    border-radius: 4px;
     opacity: 0;
     visibility: hidden;
     transition: opacity;
     transition-timing-function: var(--br-tooltip-transition-function, ease);
-    transition-duration: var(--br-tooltip-transition-duration, var(--br-transition-duration));
+    transition-duration: var(--br-tooltip-transition-duration, 0.25s);
     transition-delay: var(--br-tooltip-transition-delay, 0);
     position: relative;
     z-index: 1;
-    box-shadow: var(--br-tooltip-box-shadow, var(--br-box-shadow, var(--br-default-box-shadow)));
+}
+
+@media (prefers-color-scheme: dark) {
+    .berry-tooltip {
+        background-color: #444;
+        box-shadow: 0 2px 8px #111;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .berry-tooltip {
+        background-color: rgba(30, 30, 30, 0.9);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
 }
 
 .berry-tooltip.visible {

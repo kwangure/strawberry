@@ -5,8 +5,8 @@
     --br-input-time-font-color: inherit;
     --br-input-time-background-color: transparent;
     --br-input-time-border: 1px solid #c3c3c3;
-    --br-input-time-hover-box-shadow: 0 0 0px 2px var(--br-primary-light);
-    --br-input-time-hover-border: 1px solid var(--br-primary);
-    --br-input-time-focus-box-shadow: 0 0 0px 1px var(--br-primary);
-    --br-input-time-focus-border: 1px solid var(--br-primary);
+    --br-input-time-hover-box-shadow: 0 0 0px 2px hsl(215deg 100% 90%);
+    --br-input-time-hover-border: 1px solid hsl(225deg 100% 55%);
+    --br-input-time-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 55%);
+    --br-input-time-focus-border: 1px solid hsl(225deg 100% 55%);
 }

@@ -229,7 +229,7 @@
 
 	input {
 		padding: var(--br-switch-track-padding);
-		background: var(--br-switch-track-inactive-background);
+		background: var(--br-switch-track-inactive-background-color);
 		inline-size: var(--br-switch-track-size);
 		block-size: var(--br-switch-thumb-size);
 		border-radius: var(--br-switch-track-size);
@@ -282,7 +282,7 @@
 	}
 
 	input:checked {
-		background: var(--br-switch-track-active-background);
+		background: var(--br-switch-track-active-background-color);
 		--thumb-position: calc((var(--br-switch-track-size) - 100%) * var(--isLTR));
 	}
 

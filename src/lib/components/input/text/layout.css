@@ -10,5 +10,5 @@
     --br-input-text-width: fit-content;
     --br-input-text-height: 35px;
     --br-input-text-border-radius: 4px;
-    --br-input-text-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
+    --br-input-text-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

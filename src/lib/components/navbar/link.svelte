@@ -22,7 +22,7 @@
     }
     a {
         padding: 5px 8px;
-        border-radius: var(--br-border-radius);
+        border-radius: 4px;
         transition: all 0.5s ease;
     }
     @media (prefers-color-scheme: dark) {
@@ -34,8 +34,8 @@
     }
     @media (prefers-color-scheme: light) {
         :root {
-            --_link-hover-background-color: var(--br-primary-light);
-            --_link-hover-font-color: var(--br-primary);
+            --_link-hover-background-color: rgb(220, 235, 255);
+            --_link-hover-font-color: hsl(225deg 100% 45%);
             --_link-hover-border-color: currentColor;
         }
     }

@@ -9,17 +9,17 @@
 
 <style>
     .title {
-        padding: var(--br-item-padding-block) var(--br-item-padding-inline) var(--br-inner-gutter);
+        padding: 8px 12px 4px;
         position: sticky;
         top: 0;
         text-transform: uppercase;
-        color: var(--br-grey);
+        color: rgb(150, 150, 150);
         font-size: 12.5px;
     }
     .items {
         display: flex;
         flex-direction: column;
-        padding-left: var(--br-outer-gutter);
-        gap: var(--br-inner-gutter);
+        padding-left: 8px;
+        gap: 4px;
     }
 </style>

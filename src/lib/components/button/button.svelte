@@ -108,7 +108,6 @@
         align-items: center;
         justify-content: center;
         border: var(--br-button-border);
-        border-color: var(--br-button-border-color);
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
@@ -126,6 +125,7 @@
     }
     button:hover:not(:active) {
         background-color: var(--br-button-hover-background-color);
-        border-color: var(--br-button-hover-border-color);
+        /* TODO: prefer border to border-color */
+        border: var(--br-button-hover-border);
     }
 </style>

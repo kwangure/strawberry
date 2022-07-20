@@ -1,11 +1,9 @@
 :host,
 :root {
     --br-button-font-color: inherit;
-    --br-button-border: var(--br-default-border);
-    --br-button-border-color: var(--br-default-border-color);
     --br-button-display: inline-flex;
-    --br-button-height: var(--br-default-item-height);
-    --br-button-border-radius: var(--br-border-radius);
+    --br-button-height: 35px;
+    --br-button-border-radius: 4px;
     --br-button-padding-inline: 10px;
     --br-button-width: auto;
     --br-button-gap: 5px;

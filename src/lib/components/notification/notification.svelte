@@ -59,29 +59,31 @@
         margin: 15px;
         display: flex;
         align-items: center;
-        color: var(
-            --br-notification-font-color,
-            var(--br-default-overlay-font-color)
-        );
-        border-radius: var(--br-border-radius);
+        color: #fff;
+        border-radius: 4px;
         width: fit-content;
         margin-left: auto;
         padding: var(
                 --br-notification-padding-block,
-                var(--br-item-padding-block)
+                8px
             )
-            var(--br-notification-padding-inline, var(--br-item-padding-inline));
-        background-color: var(
-            --br-notification-background-color,
-            var(--br-default-overlay-background-color)
-        );
+            var(--br-notification-padding-inline, 12px);
         z-index: 1;
-        box-shadow: var(
-            --br-tooltip-box-shadow,
-            var(--br-box-shadow, var(--br-default-box-shadow))
-        );
         min-width: 30px;
-        min-height: var(--br-default-item-height);
+        min-height: 35px;
+    }
+    @media (prefers-color-scheme: dark) {
+        .notification {
+            background-color: #444;
+            box-shadow: 0 2px 8px #111;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        .notification {
+            background-color: rgba(30, 30, 30, 0.9);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
     }
     .message {
         line-height: 2;

@@ -10,5 +10,5 @@
     --br-input-password-width: fit-content;
     --br-input-password-height: 35px;
     --br-input-password-border-radius: 4px;
-    --br-input-password-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
+    --br-input-password-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

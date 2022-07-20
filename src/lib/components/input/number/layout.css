@@ -13,5 +13,5 @@
     --br-input-number-width: fit-content;
     --br-input-number-height: 35px;
     --br-input-number-border-radius: 4px;
-    --br-input-number-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
+    --br-input-number-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

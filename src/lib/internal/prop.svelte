@@ -47,7 +47,6 @@
 
 <style>
     td {
-        border: var(--br-default-border);
         padding: 8px;
         line-height: 2;
         /* Zooming makes collapsed border twice as thick sometimes */
@@ -59,5 +58,15 @@
     }
     .type {
         max-width: 300px;
+    }
+    @media (prefers-color-scheme: dark) {
+        td {
+            border: 1px solid #474b50;
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        td {
+            border: 1px solid #c3c3c3;
+        }
     }
 </style>

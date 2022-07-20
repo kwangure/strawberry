@@ -10,5 +10,5 @@
     --br-input-datetime-width: fit-content;
     --br-input-datetime-height: 35px;
     --br-input-datetime-border-radius: 4px;
-    --br-input-datetime-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
+    --br-input-datetime-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

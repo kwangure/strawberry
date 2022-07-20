@@ -46,10 +46,16 @@
         min-height: 100%;
     }
     .app-layout {
-        --br-navbar-border-bottom: var(--br-default-border);
         --br-navbar-logo-width: 240px;
     }
-    .cta {
-        --br-font-color: var(--_black);
+    @media (prefers-color-scheme: dark) {
+        .app-layout {
+            --br-navbar-border-bottom: 1px solid #474b50;
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        .app-layout {
+            --br-navbar-border-bottom: 1px solid #c3c3c3;
+        }
     }
 </style>

@@ -1,4 +1,4 @@
 :root {
     --br-code-white-space: pre;
-    --br-code-border-radius: var(--br-border-radius);
+    --br-code-border-radius: 4px;
 }

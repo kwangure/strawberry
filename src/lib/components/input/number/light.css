@@ -2,13 +2,13 @@
 :root {
     --br-input-number-postfix-background-color: transparent;
     --br-input-number-postfix-color: inherit;
-    --br-input-number-postfix-focus-background-color: var(--br-primary-light);
-    --br-input-number-postfix-focus-color: var(--br-primary);
+    --br-input-number-postfix-focus-background-color: hsl(215deg 100% 90%);
+    --br-input-number-postfix-focus-color: hsl(225deg 100% 55%);
     --br-input-number-font-color: inherit;
     --br-input-number-background-color: transparent;
     --br-input-number-border: 1px solid #c3c3c3;
-    --br-input-number-hover-box-shadow: 0 0 0px 2px var(--br-primary-light);
-    --br-input-number-hover-border: 1px solid var(--br-primary);
-    --br-input-number-focus-box-shadow: 0 0 0px 1px var(--br-primary);
-    --br-input-number-focus-border: 1px solid var(--br-primary);
+    --br-input-number-hover-box-shadow: 0 0 0px 2px hsl(215deg 100% 90%);
+    --br-input-number-hover-border: 1px solid hsl(225deg 100% 55%);
+    --br-input-number-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 55%);
+    --br-input-number-focus-border: 1px solid hsl(225deg 100% 55%);
 }

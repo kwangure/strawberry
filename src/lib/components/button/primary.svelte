@@ -15,10 +15,22 @@
     .contents {
         display: contents;
     }
-    .contents {
-        --br-button-font-color: #fff;
-        --br-button-background-color: var(--br-primary);
-        --br-button-hover-background-color: var(--br-primary-hover);
-        --br-button-border-color: var(--br-primary);
+    @media (prefers-color-scheme: dark) {
+        .contents {
+            --br-button-font-color: #fff;
+            --br-button-background-color: hsl(225deg 100% 60%);
+            --br-button-hover-background-color: hsl(225deg 100% 45%);
+            --br-button-border-color: var(--br-button-background-color);
+            --br-button-hover-border-color: var(--br-button-hover-background-color);
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        .contents {
+            --br-button-font-color: #fff;
+            --br-button-background-color: hsl(225deg 100% 55%);
+            --br-button-hover-background-color: hsl(225deg 100% 45%);
+            --br-button-border-color: var(--br-button-background-color);
+            --br-button-hover-border-color: var(--br-button-hover-background-color);
+        }
     }
 </style>

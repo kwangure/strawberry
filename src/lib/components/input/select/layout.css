@@ -12,5 +12,5 @@
     --br-select-width: fit-content;
     --br-select-height: 35px;
     --br-select-border-radius: 4px;
-    --br-select-transition: border-color var(--br-transition-duration) ease, box-shadow var(--br-transition-duration) ease-out;
+    --br-select-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

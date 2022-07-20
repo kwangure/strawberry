@@ -74,9 +74,18 @@
     .link {
         position: relative;
         padding: 16px;
-        border: var(--br-default-border);
-        border-radius: var(--br-border-radius);
+        border-radius: 4px;
         margin-top: 15px;
+    }
+    @media (prefers-color-scheme: dark) {
+        .link {
+            border: 1px solid #474b50;
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        .link {
+            border: 1px solid #c3c3c3;
+        }
     }
     .link a:before {
         display: block;

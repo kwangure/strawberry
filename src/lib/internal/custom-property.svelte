@@ -81,7 +81,7 @@
         --br-button-padding-inline: 5px;
     }
     h3:not(:hover) {
-        --_link-color: transparent;
+        --br-link-font-color: transparent;
     }
     h3:hover {
         --br-button-font-color: inherit;

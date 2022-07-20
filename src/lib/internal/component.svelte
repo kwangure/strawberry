@@ -92,18 +92,28 @@
         flex-direction: column;
     }
     table {
-        border: var(--br-default-border);
         border-collapse: collapse;
         /* Zooming makes collapsed border twice as thick sometimes */
         /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
         border-width: 0.5px;
     }
     th {
-        border: var(--br-default-border);
         padding: 8px;
         text-align: left;
         /* Zooming makes collapsed border twice as thick sometimes */
         /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
         border-width: 0.5px;
+    }
+    @media (prefers-color-scheme: dark) {
+        table,
+        th {
+            border: 1px solid #474b50;
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        table,
+        th {
+            border: 1px solid #c3c3c3;
+        }
     }
 </style>
