@@ -137,13 +137,8 @@
         border: var(--br-select-focus-border);
     }
     .hint:not(:empty) {
-        margin-block: var(--br-select-hint-margin-block);
-        margin-inline: var(--br-select-hint-margin-inline);
-        color: var(--br-select-hint-font-color);
-        font-size: var(--br-select-hint-font-size);
-    }
+        margin-block: var(    margin-inline: var(    color: var(    font-size: var(}
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-select-hint-invalid-font-color);
-    }
+        color: var(}
 </style>

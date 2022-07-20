@@ -24,6 +24,10 @@
     @import "../lib/components/input/datetime/dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/input/datetime/light.css" (prefers-color-scheme: light);
 
+    @import "../lib/components/input/hint/layout.css";
+    @import "../lib/components/input/hint/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/input/hint/light.css" (prefers-color-scheme: light);
+
     @import "../lib/components/input/number/layout.css";
     @import "../lib/components/input/number/dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/input/number/light.css" (prefers-color-scheme: light);

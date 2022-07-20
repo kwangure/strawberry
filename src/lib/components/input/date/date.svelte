@@ -7,6 +7,7 @@
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { setContext } from 'svelte';
     import { validate } from '../validate';
     import { writable } from 'svelte/store';
 
@@ -110,7 +111,9 @@
     export let value = '';
 
     const forward = createEventForwarder();
-    const errorMessage = writable('');
+    const validationMessageStore = writable('');
+
+    setContext('validation-message', validationMessageStore);
 </script>
 
 <!--
@@ -126,16 +129,10 @@
         <!-- svelte-ignore a11y-autofocus -->
         <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
             {name} {readonly} {required} {step}
-            bind:value use:forward use:validate={{ invalid, error, errorMessage }}
+            bind:value use:forward use:validate={{ invalid, error, validationMessageStore }}
             type="date">
     </div>
-    <div class="hint" class:invalid={$errorMessage}>
-        {#if $errorMessage}
-            {$errorMessage}
-        {:else}
-            <slot name="hint"/>
-        {/if}
-    </div>
+    <slot name="hint"></slot>
 </label>
 
 <style>
@@ -180,15 +177,5 @@
     .container:focus-within {
         box-shadow: var(--br-input-date-focus-box-shadow);
         border: var(--br-input-date-focus-border);
-    }
-    .hint:not(:empty) {
-        margin-block: var(--br-input-date-hint-margin-block);
-        margin-inline: var(--br-input-date-hint-margin-inline);
-        color: var(--br-input-date-hint-font-color);
-        font-size: var(--br-input-date-hint-font-size);
-    }
-    /* Use pseudoselector to match '.hint' specificity */
-    .invalid:not(:empty) {
-        color: var(--br-input-date-hint-invalid-font-color);
     }
 </style>

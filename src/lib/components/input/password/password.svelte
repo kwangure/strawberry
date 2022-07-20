@@ -9,6 +9,7 @@
 <script>
     import '../../../css/styles.js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { setContext } from 'svelte';
     import { validate } from '../validate';
     import { writable } from 'svelte/store';
 
@@ -104,7 +105,9 @@
     export let value = '';
 
     const forward = createEventForwarder();
-    const errorMessage = writable('');
+    const validationMessageStore = writable('');
+
+    setContext('validation-message', validationMessageStore);
 </script>
 
 <!--
@@ -121,15 +124,9 @@
         <input bind:value use:forward type='password'
             {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
             {name} {placeholder} {readonly} {required}
-            use:validate={{ invalid, error, errorMessage }}/>
+            use:validate={{ invalid, error, validationMessageStore }}/>
     </div>
-    <div class="hint" class:invalid={$errorMessage}>
-        {#if $errorMessage}
-            {$errorMessage}
-        {:else}
-            <slot name="hint"/>
-        {/if}
-    </div>
+    <slot name="hint"></slot>
 </label>
 
 <style>
@@ -169,15 +166,5 @@
     .container:focus-within {
         box-shadow: var(--br-input-password-focus-box-shadow);
         border: var(--br-input-password-focus-border);
-    }
-    .hint:not(:empty) {
-        margin-block: var(--br-input-password-hint-margin-block);
-        margin-inline: var(--br-input-password-hint-margin-inline);
-        color: var(--br-input-password-hint-font-color);
-        font-size: var(--br-input-password-hint-font-size);
-    }
-    /* Use pseudoselector to match '.hint' specificity */
-    .invalid:not(:empty) {
-        color: var(--br-input-password-hint-invalid-font-color);
     }
 </style>

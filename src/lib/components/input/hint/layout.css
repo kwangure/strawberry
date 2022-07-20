@@ -1,0 +1,6 @@
+:host,
+:root {
+    --br-input-hint-margin-block: 5px 0;
+    --br-input-hint-margin-inline: initial;
+    --br-input-hint-font-size: calc(1em - 1px);
+}

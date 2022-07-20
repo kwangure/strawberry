@@ -3,8 +3,6 @@
     /** Encoded from Material design icons. Path is `import("@mdi/js").mdiClockOutline` */
     --br-input-time-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgICA8cGF0aCBkPSJNMTIsMjBBOCw4IDAgMCwwIDIwLDEyQTgsOCAwIDAsMCAxMiw0QTgsOCAwIDAsMCA0LDEyQTgsOCAwIDAsMCAxMiwyME0xMiwyQTEwLDEwIDAgMCwxIDIyLDEyQTEwLDEwIDAgMCwxIDEyLDIyQzYuNDcsMjIgMiwxNy41IDIsMTJBMTAsMTAgMCAwLDEgMTIsMk0xMi41LDdWMTIuMjVMMTcsMTQuOTJMMTYuMjUsMTYuMTVMMTEsMTNWN0gxMi41WiI+PC9wYXRoPgo8L3N2Zz4=);
     --br-input-time-font-color: inherit;
-    --br-input-time-hint-font-color: inherit;
-    --br-input-time-hint-invalid-font-color: rgb(255 40 40);
     --br-input-time-background-color: transparent;
     --br-input-time-border: 1px solid #c3c3c3;
     --br-input-time-hover-box-shadow: 0 0 0px 2px var(--br-primary-light);

@@ -7,6 +7,7 @@ import { listen } from 'svelte/internal';
  */
 function getErrorMessage(input, invalid, error) {
 	if (input.disabled) return '';
+	/* TODO: check error function before input.validationMessage to allow message overriding */
 	if (input.validity.valid) {
 		const customValidityCheck = invalid(input);
 		let customValidityError = '';
@@ -23,18 +24,18 @@ function getErrorMessage(input, invalid, error) {
  * @typedef {{
  *     invalid?: (input: HTMLInputElement) => string,
  *     error?: (error: string, input: HTMLInputElement) => string,
- *     errorMessage: import("svelte/store").Writable<string>,
+ *     validationMessageStore: import("svelte/store").Writable<string>,
  * }} ValidateOptions
  * @param {HTMLInputElement} input
  * @param {ValidateOptions} options
  */
 export function validate(input, options) {
 	const noop = () => '';
-	let { invalid = noop, error = noop, errorMessage } = options;
+	let { invalid = noop, error = noop, validationMessageStore } = options;
 
 	function setErrorMessage() {
 		const message = getErrorMessage(input, invalid, error);
-		errorMessage.set(message);
+		validationMessageStore.set(message);
 		return Boolean(message);
 	}
 

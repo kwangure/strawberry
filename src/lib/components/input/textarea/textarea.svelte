@@ -107,13 +107,8 @@
         border: var(--br-textarea-focus-border);
     }
     .hint:not(:empty) {
-        margin-block: var(--br-textarea-hint-margin-block);
-        margin-inline: var(--br-textarea-hint-margin-inline);
-        color: var(--br-textarea-hint-font-color);
-        font-size: var(--br-textarea-hint-font-size);
-    }
+        margin-block: var(    margin-inline: var(    color: var(    font-size: var(}
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-textarea-hint-invalid-font-color);
-    }
+        color: var(}
 </style>

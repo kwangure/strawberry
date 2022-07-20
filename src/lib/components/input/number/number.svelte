@@ -9,6 +9,7 @@
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import Icon from '../../icon';
+    import { setContext } from 'svelte';
     import { validate } from '../validate';
     import { writable } from 'svelte/store';
 
@@ -107,7 +108,9 @@
      */
     export let value = undefined;
 
-    const errorMessage = writable('');
+    const validationMessageStore = writable('');
+
+    setContext('validation-message', validationMessageStore);
 
     const forward = createEventForwarder();
 
@@ -143,7 +146,7 @@
     <div class="container">
         <!-- svelte-ignore a11y-autofocus -->
         <input bind:this={input} bind:value
-            type="number" use:forward use:validate={{ invalid, error, errorMessage }}
+            type="number" use:forward use:validate={{ invalid, error, validationMessageStore }}
             {autocomplete} {autofocus} {form} {list} {max} {min} {name}
             {placeholder} {required} {readonly} {step}>
         <div class="postfix-wrapper">
@@ -155,13 +158,7 @@
             </span>
         </div>
     </div>
-    <div class="hint" class:invalid={$errorMessage}>
-        {#if $errorMessage}
-            {$errorMessage}
-        {:else}
-            <slot name="hint"/>
-        {/if}
-    </div>
+    <slot name="hint"></slot>
 </label>
 
 <style>
@@ -237,15 +234,5 @@
     .container:focus-within {
         box-shadow: var(--br-input-number-focus-box-shadow);
         border: var(--br-input-number-focus-border);
-    }
-    .hint:not(:empty) {
-        margin-block: var(--br-input-number-hint-margin-block);
-        margin-inline: var(--br-input-number-hint-margin-inline);
-        color: var(--br-input-number-hint-font-color);
-        font-size: var(--br-input-number-hint-font-size);
-    }
-    /* Use pseudoselector to match '.hint' specificity */
-    .invalid:not(:empty) {
-        color: var(--br-input-number-hint-invalid-font-color);
     }
 </style>

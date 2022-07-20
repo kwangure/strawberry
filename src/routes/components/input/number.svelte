@@ -2,6 +2,7 @@
     import Code, { svelte } from '$lib/components/code';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/components/input/number/docs';
+    import Hint from '$lib/components/input/hint';
     import Numero from '$lib/components/input/number';
 </script>
 
@@ -11,6 +12,9 @@
             <svelte:fragment slot="label">
                 Mi label numeros!
             </svelte:fragment>
+            <Hint slot="hint">
+                This is an input hint
+            </Hint>
         </Numero>
     </svelte:fragment>
     <svelte:fragment slot="accessibility">
