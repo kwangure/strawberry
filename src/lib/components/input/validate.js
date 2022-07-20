@@ -7,16 +7,18 @@ import { listen } from 'svelte/internal';
  */
 function getErrorMessage(input, invalid, error) {
 	if (input.disabled) return '';
-	/* TODO: check error function before input.validationMessage to allow message overriding */
-	if (input.validity.valid) {
-		const customValidityCheck = invalid(input);
-		let customValidityError = '';
-		if (customValidityCheck) {
-			customValidityError = error(customValidityCheck, input)
+
+	// Set customValidity to user-provided error. Otherwise set to empty string
+	// to reset customValidity, telling the browser to run built-in validation
+	const customValidityCheck = invalid(input);
+	let customValidityError = '';
+	if (customValidityCheck) {
+		customValidityError = error(customValidityCheck, input)
                 || 'The value you entered for this field is invalid.';
-		}
-		input.setCustomValidity(customValidityError);
 	}
+
+	input.setCustomValidity(customValidityError);
+
 	return input.validationMessage;
 }
 
