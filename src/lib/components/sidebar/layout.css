@@ -1,0 +1,14 @@
+:host,
+:root {
+    --br-sidebar-width: 240px;
+    --br-sidebar-gap: 4px;
+    --br-sidebar-height: 100%;
+    --br-sidebar-padding-block: 8px;
+    --br-sidebar-padding-inline: 8px;
+
+    --br-sidebar-item-display: flex;
+    --br-sidebar-item-height: 35px;
+    --br-sidebar-item-padding-block: 8px;
+    --br-sidebar-item-padding-inline: 12px;
+    --br-sidebar-item-border-radius: 4px;
+}

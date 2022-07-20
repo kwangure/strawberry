@@ -56,6 +56,10 @@
     @import "../lib/components/modal/dark.css" (prefers-color-scheme: dark);
     @import "../lib/components/modal/light.css" (prefers-color-scheme: light);
 
+    @import "../lib/components/sidebar/layout.css";
+    @import "../lib/components/sidebar/dark.css" (prefers-color-scheme: dark);
+    @import "../lib/components/sidebar/light.css" (prefers-color-scheme: light);
+
     @import "../lib/components/switch/layout.css";
 	@import "../lib/components/switch/dark.css" (prefers-color-scheme: dark);
 	@import "../lib/components/switch/light.css" (prefers-color-scheme: light);

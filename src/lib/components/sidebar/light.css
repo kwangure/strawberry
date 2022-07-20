@@ -1,0 +1,9 @@
+:host,
+:root {
+    --br-sidebar-item-font-color: inherit;
+    --br-sidebar-item-hover-background-color: var(--br-grey-lightest);
+    --br-sidebar-item-active-font-color: var(--br-primary);
+    --br-sidebar-item-active-background-color: var(--br-primary-light);
+    --br-sidebar-item-active-hover-font-color: var(--br-primary);
+    --br-sidebar-item-active-hover-background-color: var(--br-primary-light-hover);
+}
