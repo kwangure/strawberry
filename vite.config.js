@@ -1,4 +1,4 @@
-import docs from "@kwangure/svelte-docs";
+import { plugin as docs } from "@kwangure/svelte-docs";
 import inspect from 'vite-plugin-inspect';
 import localPackageWatch from './scripts/local-pkg-watch/index.js';
 import path from 'path';

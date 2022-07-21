@@ -1,7 +1,7 @@
 <script>
     import Button, { Primary } from '$lib/components/button';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/modal/docs';
+    import { docs } from '$lib/docs/modal';
     import Modal from '$lib/components/modal';
 
     let visible = false;

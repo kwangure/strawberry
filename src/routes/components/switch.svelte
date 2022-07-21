@@ -1,6 +1,6 @@
 <script>
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/switch/docs';
+    import { docs } from '$lib/docs/switch';
     import Switch from '$lib/components/switch';
 
     let checked = true;

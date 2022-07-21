@@ -2,7 +2,7 @@
     import Code, { svelte } from '$lib/components/code';
     import Component from '$lib/internal/component.svelte';
     import DateTime from '$lib/components/input/datetime';
-    import { docs } from '$lib/components/input/datetime/docs';
+    import { docs } from '$lib/docs/input/datetime';
 </script>
 
 <Component {docs}>

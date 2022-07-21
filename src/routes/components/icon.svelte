@@ -1,6 +1,6 @@
 <script>
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/icon/docs';
+    import { docs } from '$lib/docs/icon';
     import Icon from '$lib/components/icon';
     import { mdiPencil } from '@mdi/js';
 

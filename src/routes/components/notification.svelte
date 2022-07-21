@@ -1,7 +1,7 @@
 <script>
     import Button, { Primary } from '$lib/components/button';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/notification/docs';
+    import { docs } from '$lib/docs/notification';
     import Notification from '$lib/components/notification';
 
     let visible;

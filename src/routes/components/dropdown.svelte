@@ -2,7 +2,7 @@
     import Dropdown, { Item } from '$lib/components/dropdown';
     import Button from '$lib/components/button';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/dropdown/docs';
+    import { docs } from '$lib/docs/dropdown';
 </script>
 
 <Component {docs}>

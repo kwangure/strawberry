@@ -1,6 +1,6 @@
 <script>
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/element/docs';
+    import { docs } from '$lib/docs/element';
     import Element from '$lib/components/element';
 
     const element = {

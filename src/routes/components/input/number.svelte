@@ -1,7 +1,7 @@
 <script>
     import Code, { svelte } from '$lib/components/code';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/input/number/docs';
+    import { docs } from '$lib/docs/input/number';
     import Hint from '$lib/components/input/hint';
     import Numero from '$lib/components/input/number';
 </script>

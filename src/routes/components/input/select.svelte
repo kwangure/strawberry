@@ -2,7 +2,7 @@
     import Code, { svelte } from '$lib/components/code';
     import Select, { Option } from '$lib/components/input/select';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/components/input/select/docs';
+    import { docs } from '$lib/docs/input/select';
 </script>
 
 <Component {docs}>
