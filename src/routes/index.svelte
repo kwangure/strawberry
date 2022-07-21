@@ -1,7 +1,9 @@
 <script>
-    import Navbar, { Logo, Section } from '$lib/components/navbar';
+    import Navbar, { Logo, Section } from '$lib/default/navbar';
     import { base } from '$app/paths';
 </script>
+
+<svelte:body data-color-scheme="dark"></svelte:body>
 
 <div class="layout">
     <Navbar >

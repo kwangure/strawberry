@@ -1,5 +1,5 @@
 <script>
-    import Code, { html, javascript } from '$lib/components/code';
+    import Code, { html, javascript } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/code';
 

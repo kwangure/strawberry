@@ -1,5 +1,5 @@
 <script>
-    import Code, { svelte } from '$lib/components/code';
+    import Code, { svelte } from '$lib/default/code';
     /* eslint-disable no-useless-escape */
     const usage = `
 <script\>

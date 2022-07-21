@@ -1,5 +1,5 @@
 <script>
-    import Sidebar, { Item, Section } from '$lib/components/sidebar';
+    import Sidebar, { Item, Section } from '$lib/default/sidebar';
     import { base } from '$app/paths';
     import Layout from '$lib/internal/layout.svelte';
     import { page } from '$app/stores';

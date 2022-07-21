@@ -1,9 +1,9 @@
 <script>
-    import Code, { svelte } from '$lib/components/code';
+    import Code, { svelte } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/input/number';
-    import Hint from '$lib/components/input/hint';
-    import Numero from '$lib/components/input/number';
+    import Hint from '$lib/default/input/hint';
+    import Numero from '$lib/default/input/number';
 </script>
 
 <Component {docs}>

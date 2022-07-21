@@ -1,0 +1,14 @@
+:host,
+:root {
+    --br-textarea-label-margin-block: auto 5px;
+    --br-textarea-label-position: static;
+    --br-textarea-label-width: initial;
+    --br-textarea-label-height: initial;
+    --br-textarea-label-overflow: visible;
+    --br-textarea-padding-block: 5px;
+    --br-textarea-padding-inline: 12px;
+    --br-textarea-width: fit-content;
+    --br-textarea-height: 35px;
+    --br-textarea-border-radius: 4px;
+    --br-textarea-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+}

@@ -1,0 +1,10 @@
+:host,
+:root {
+    --br-input-password-font-color: inherit;
+    --br-input-password-background-color: transparent;
+    --br-input-password-border: 1px solid #c3c3c3;
+    --br-input-password-hover-box-shadow: 0 0 0px 2px hsl(215deg 100% 90%);
+    --br-input-password-hover-border: 1px solid hsl(225deg 100% 55%);
+    --br-input-password-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 55%);
+    --br-input-password-focus-border: 1px solid hsl(225deg 100% 55%);
+}

@@ -1,0 +1,7 @@
+:host,
+:root {
+    --br-switch-thumb-color-scheme-color: hsl(0 0% 105%);
+    --br-switch-thumb-color-box-shadow: hsl(0 0% 0% / 25%);
+    --br-switch-track-inactive-background-color: hsl(80 0% 80%);
+    --br-switch-track-active-background-color: hsl(225deg 100% 55%);
+}

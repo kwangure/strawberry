@@ -1,6 +1,6 @@
 <script>
-    import Dropdown, { Item } from '$lib/components/dropdown';
-    import Button from '$lib/components/button';
+    import Dropdown, { Item } from '$lib/default/dropdown';
+    import Button from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/dropdown';
 </script>

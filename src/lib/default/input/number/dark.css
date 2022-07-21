@@ -1,0 +1,15 @@
+:host,
+:root {
+    --br-input-number-font-color: inherit;
+    --br-input-number-background-color: transparent;
+    --br-input-number-border: 1px solid #474b50;
+    --br-input-number-hover-box-shadow: 0 0 0px 2px rgb(135 205 255 / 30%);
+    --br-input-number-hover-border: 1px solid hsl(225deg 100% 60%);
+    --br-input-number-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 60%);
+    --br-input-number-focus-border: 1px solid hsl(225deg 100% 60%);
+
+    --br-input-number-postfix-background-color: transparent;
+    --br-input-number-postfix-color: inherit;
+    --br-input-number-postfix-focus-background-color: hsl(225deg 100% 60%);
+    --br-input-number-postfix-focus-color: inherit;
+}

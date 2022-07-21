@@ -1,5 +1,5 @@
 <script>
-    import Radio, { Group } from '$lib/components/input/radio';
+    import Radio, { Group } from '$lib/default/input/radio';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/input/radio';
 </script>

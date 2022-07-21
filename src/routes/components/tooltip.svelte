@@ -1,8 +1,8 @@
 <script>
-    import Button, { Primary } from '$lib/components/button';
+    import Button, { Primary } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/tooltip';
-    import Tooltip from '$lib/components/tooltip';
+    import Tooltip from '$lib/default/tooltip';
 
     const sides = ['top', 'right', 'bottom', 'left'];
     const sideModifiers = ['', '-start', '-end'];
