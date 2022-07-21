@@ -1,40 +1,42 @@
 <script>
-    import Navbar, { Link as NavLink } from '$lib/components/navbar';
+    import Navbar, { Item, Logo, Section } from '$lib/components/navbar';
     import { base } from '$app/paths';
+    import { page } from '$app/stores';
+
+    /** @type {string} */
+    let path;
+
+    $: ({ pathname: path } = $page.url);
+    $: if (base) {
+    	path = `${base}${path}`;
+    }
 </script>
 
 <div class="app-layout">
-    <Navbar logoHref="{base}/">
-        <svelte:fragment slot="logo">
+    <Navbar>
+        <Logo href="{base}/">
             🍓 <span class="text">strawberry</span>
-        </svelte:fragment>
-        <svelte:fragment slot="links">
-            <NavLink
-                href="{base}/components"
-                pattern="{[`${base}/components`, `${base}/components/*`]}"
-            >
-                Components
-            </NavLink>
-            <NavLink href="{base}/typography" pattern="{base}/typography">
-                Typography
-            </NavLink>
-        </svelte:fragment>
-        <svelte:fragment slot="actions">
-            <a
-                class="cta"
-                href="https://github.com/kwangure/strawberry"
-                target="_blank"
-            >
+        </Logo>
+        <Section>
+            <a class="navigation" href="{base}/components">
+                <Item active={path.startsWith(`${base}/components`)}>
+                    Components
+                </Item>
+            </a>
+            <a class="navigation" href="{base}/typography">
+                <Item active={path.startsWith(`${base}/typography`)}>
+                    Typography
+                </Item>
+            </a>
+        </Section>
+        <Section --br-navbar-section-margin-inline="auto 10px">
+            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
                 GitHub
             </a>
-            <a
-                class="cta"
-                href="https://www.npmjs.com/package/@kwangure/strawberry"
-                target="_blank"
-            >
+            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
                 NPM
             </a>
-        </svelte:fragment>
+        </Section>
     </Navbar>
     <slot />
 </div>
@@ -57,5 +59,11 @@
         .app-layout {
             --br-navbar-border-bottom: 1px solid #c3c3c3;
         }
+    }
+    a.navigation {
+        color: inherit;
+    }
+    a.cta {
+        line-height: var(--br-navbar-height);
     }
 </style>

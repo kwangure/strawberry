@@ -1,0 +1,9 @@
+:host,
+:root {
+    --br-navbar-item-hover-font-color: inherit;
+    --br-navbar-item-hover-background-color: #333;
+    --br-navbar-item-active-background-color: #555;
+    --br-navbar-item-active-font-color: inherit;
+    --br-navbar-item-active-hover-background-color: #444;
+    --br-navbar-item-active-hover-font-color: inherit;
+}

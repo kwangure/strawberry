@@ -1,31 +1,21 @@
 <script>
-    import { mdiGithub, mdiNpm } from '@mdi/js';
+    import Navbar, { Logo, Section } from '$lib/components/navbar';
     import { base } from '$app/paths';
-    import Button from '$lib/components/button';
-    import Navbar from '$lib/components/navbar';
 </script>
 
 <div class="layout">
-    <Navbar logoHref="{base}/">
-        <svelte:fragment slot="logo">
+    <Navbar >
+        <Logo href="{base}/">
             🍓 <span class="text">strawberry</span>
-        </svelte:fragment>
-        <svelte:fragment slot="actions">
-            <a
-                class="cta"
-                href="https://github.com/kwangure/strawberry"
-                target="_blank"
-            >
-                <Button icon="{mdiGithub}">GitHub</Button>
+        </Logo>
+        <Section --br-navbar-section-margin-inline="auto 10px">
+            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
+                GitHub
             </a>
-            <a
-                class="cta"
-                href="https://www.npmjs.com/package/@kwangure/strawberry"
-                target="_blank"
-            >
-                <Button icon="{mdiNpm}">NPM</Button>
+            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
+                NPM
             </a>
-        </svelte:fragment>
+        </Section>
     </Navbar>
     <main>
         <h1>Strawberry</h1>
@@ -68,6 +58,15 @@
         /* Prevent heading margin collapse */
         display: flow-root;
     }
+    .layout {
+        --br-navbar-width: var(--page-max-width);
+        --br-navbar-margin-inline: auto;
+    }
+    @media (max-width: 56rem) {
+        .layout {
+            --br-navbar-width: auto;
+        }
+    }
     h3 {
         margin-top: 0px;
     }
@@ -94,6 +93,6 @@
         content: "";
     }
     .cta {
-        color: inherit;
+        line-height: var(--br-navbar-height);
     }
 </style>

@@ -1,0 +1,19 @@
+:host,
+:root {
+    --br-navbar-height: 48px;
+    --br-navbar-border-bottom: none;
+
+    --br-navbar-logo-padding-block: initial;
+    --br-navbar-logo-padding-inline: 8px;
+    --br-navbar-logo-width: max-content;
+
+    --br-navbar-section-margin-inline: ;
+    --br-navbar-section-margin-block: ;
+    --br-navbar-section-padding-inline: 8px;
+    --br-navbar-section-padding-block: ;
+    --br-navbar-section-gap: 0.5rem;
+
+    --br-navbar-item-border-radius: 4px;
+    --br-navbar-item-padding-block: 5px;
+    --br-navbar-item-padding-inline: 8px;
+}
