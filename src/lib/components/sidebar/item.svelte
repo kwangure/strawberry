@@ -25,10 +25,10 @@
         padding-block: var(--br-sidebar-item-padding-block);
         padding-inline: var(--br-sidebar-item-padding-inline);
         border-radius: var(--br-sidebar-item-border-radius);
-        color: var(--br-sidebar-item-font-color);
     }
     div:hover {
         background-color: var(--br-sidebar-item-hover-background-color);
+        color: var(--br-sidebar-item-hover-font-color);
     }
     div.active {
         background-color: var(--br-sidebar-item-active-background-color);
@@ -36,5 +36,6 @@
     }
     div.active:hover {
         background-color: var(--br-sidebar-item-active-hover-background-color);
+        color: var(--br-sidebar-item-active-hover-font-color);
     }
 </style>

@@ -1,6 +1,6 @@
 :host,
 :root {
-    --br-sidebar-item-font-color: inherit;
+    --br-sidebar-item-hover-font-color: inherit;
     --br-sidebar-item-hover-background-color: #333;
     --br-sidebar-item-active-font-color: inherit;
     --br-sidebar-item-active-background-color: #555;
