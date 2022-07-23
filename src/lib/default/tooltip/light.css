@@ -1,0 +1,6 @@
+:host,
+:root {
+    --br-tooltip-popup-font-color: #fff;
+    --br-tooltip-popup-background-color: rgba(30, 30, 30, 0.9);
+    --br-tooltip-popup-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}

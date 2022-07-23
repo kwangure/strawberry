@@ -1,0 +1,12 @@
+:host,
+:root {
+    --br-tooltip-arrow-bulge: -5px;
+    --br-tooltip-arrow-width: 12px;
+    --br-tooltip-arrow-height: 12px;
+
+    --br-tooltip-popup-border-radius: 4px;
+    --br-tooltip-popup-padding-block: 6px;
+    --br-tooltip-popup-padding-inline: 8px;
+    --br-tooltip-popup-top: 0px;
+    --br-tooltip-popup-left: 0px;
+}

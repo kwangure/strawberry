@@ -1,237 +1,131 @@
 <!--
-    @component
+	@component
 
-    Tooltip displays informative text when users hover over, focus on, or tap
+	Tooltip displays informative text when users hover over, focus on, or tap
 	an element.
 -->
 <script>
-    import { mousePosInBoundingRect, toggleListener } from './tooltip.js';
-    import { createPopper } from '@popperjs/core';
+	import { arrow, autoUpdate, computePosition, flip, hide, limitShift, offset, shift } from '@floating-ui/dom';
 
-    /**
+	/**
      * Where to position the popup relative to the reference element.
      * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
      */
-    export let placement = 'bottom';
-    export let followMouse = false;
-    export let gesture = 'hover';
-    export let arrow = true;
+	export let placement = 'bottom';
 
-    let visible = false;
+	/**
+	 *
+	 * @param {string} placement
+	 * @returns {'top' | 'right' | 'bottom' | 'left'}
+	 */
+	function getSide(placement) {
+		return /** @type {'top' | 'right' | 'bottom' | 'left'} */(placement.split('-')[0]);
+	}
 
-    function createPopup(popup, _visible) {
-    	const referenceElement = popup.previousElementSibling;
+	/**
+	 * @typedef {{
+	 * 		placement: "top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end";
+	 * }} Options
+	 * @param {HTMLDivElement} div
+	 * @param {Options} options
+	 */
+	function popup(div, options) {
+		let cleanup = () => {};
 
-    	const reference = followMouse
-    		? mousePosInBoundingRect(referenceElement)
-    		: referenceElement;
-    	const popperInstance = createPopper(reference, popup, {
-    		placement,
-    		modifiers: [{
-    			name: 'offset',
-    			options: { offset: [0, 5]},
-    		}],
-    	});
+		/**
+		 * @param {Options} options
+		 */
+		function _popup(options) {
+			const { placement } = options;
+			const popup = /** @type {HTMLElement} */ (div
+				.firstElementChild);
+			const reference = /** @type {HTMLElement} */ (div
+				.previousElementSibling);
+			if (placement && popup && reference) {
+				cleanup();
+				cleanup = autoUpdate(reference, popup, async () => {
+					const arrowElement = /** @type {HTMLElement} */ (div.querySelector('.br-arrow'));
+					const middleware = [
+						offset(5),
+						flip(),
+						shift({
+							limiter: limitShift({ offset: 5 }),
+						}),
+						hide(),
+					];
+					if (arrowElement) {
+						middleware.push(arrow({ element: arrowElement }));
+					}
+					// resulting final placement might be different from provided placement
+					// to avoid overflows/collisions
+					const { placement: finalPlacement, middlewareData, x, y }
+						= await computePosition(reference, popup, {
+							placement,
+							middleware,
+						});
+					const { referenceHidden } = middlewareData.hide || {};
 
-    	if (followMouse) {
-    		reference.onchange(popperInstance.update);
-    	}
+					div.style.setProperty('--br-tooltip-popup-left', `${x}px`);
+					div.style.setProperty('--br-tooltip-popup-top', `${y}px`);
+					div.style.setProperty('--br-tooltip-popup-visibility', referenceHidden
+						? 'hidden'
+						: 'visible');
 
-    	return {
-    		update: (visible) => {
-    			if (visible) popperInstance.update();
-    		},
-    		destroy: () => {
-    			popperInstance.destroy();
-    		},
-    	};
-    }
+					if (arrowElement) {
+						const { x, y } = middlewareData.arrow || {};
+						const side = getSide(finalPlacement);
+						const staticSide = {
+							top: 'bottom',
+							right: 'left',
+							bottom: 'top',
+							left: 'right',
+						}[side];
+						div.style.setProperty('--br-tooltip-arrow-left', typeof x === 'number' ? `${x}px`: '');
+						div.style.setProperty('--br-tooltip-arrow-top', typeof y === 'number' ? `${y}px` : '');
+						div.style.setProperty('--br-tooltip-arrow-bottom', '');
+						div.style.setProperty('--br-tooltip-arrow-right', '');
+						div.style.setProperty(`--br-tooltip-arrow-${staticSide}`, 'var(--br-tooltip-arrow-bulge)');
+						/*
+							When custom property has whitespace it becomes the active value.
+							Whitespace paired with 'initial' is a clever way to create CSS boolean variables
+							For your amusement, read https://lea.verou.me/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property
+						*/
+						div.style.setProperty('--br-tooltip-arrow-side-top', 'initial');
+						div.style.setProperty('--br-tooltip-arrow-side-bottom', 'initial');
+						div.style.setProperty('--br-tooltip-arrow-side-left', 'initial');
+						div.style.setProperty('--br-tooltip-arrow-side-right', 'initial');
+						div.style.setProperty(`--br-tooltip-arrow-side-${side}`, ' ');
+					}
+				});
+			} else {
+				div.style.setProperty('--br-tooltip-popup-visibility', 'hidden');
+				cleanup();
+			}
+		}
 
-    function handleTooltipHover(popup) {
-    	if (gesture !== 'hover') return;
+		_popup(options);
 
-    	const referenceElement = popup.previousElementSibling;
-
-    	const showEvents = ['focus', 'mouseenter'];
-    	const hideEvents = ['blur', 'mouseleave'];
-
-    	function show() {
-    		visible = true;
-    	}
-    	function hide() {
-    		visible = false;
-    	}
-
-    	showEvents.forEach((event) => {
-    		toggleListener(referenceElement, event, show, true);
-    	});
-    	hideEvents.forEach((event) => {
-    		toggleListener(referenceElement, event, hide, true);
-    	});
-    }
-
-    function handleDocumentClick(popup) {
-    	if (gesture !== 'click') return;
-
-    	const reference = popup.previousElementSibling;
-
-    	document.addEventListener('click', hideIfExternalClick, true);
-
-    	function hideIfExternalClick(event) {
-    		const [target] = event.path
-                || (event.composedPath && event.composedPath());
-    		const isContained = reference.contains(target);
-    		if (isContained) {
-    			visible = !visible;
-    		} else if (visible) {
-    			visible = false;
-    		}
-    	}
-
-    	return {
-    		destroy: () => {
-    			document.removeEventListener('click', hideIfExternalClick);
-    		},
-    	};
-    }
+		return {
+			update: _popup,
+			destroy() {
+				cleanup();
+			},
+		};
+	}
 </script>
 
-<slot/>
-<div class="berry-tooltip" use:createPopup={visible}
-    use:handleDocumentClick
-    use:handleTooltipHover
-    class:visible data-popper-placement={placement}>
-    {#if arrow}
-        <div class="arrow"></div>
-    {/if}
-    <slot name="popup"></slot>
+<slot name="trigger"></slot>
+<div class:has-trigger={$$slots.trigger}
+	use:popup={{ placement }}>
+	<slot></slot>
 </div>
 
 <style>
-    .berry-tooltip {
-		padding: var(--br-tooltip-padding-block, 6px) var(--br-tooltip-padding-inline, 8px);
-		min-width: 30px;
-		min-height: 1em;
-		color: #fff;
-		border-radius: 4px;
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity;
-		transition-timing-function: var(--br-tooltip-transition-function, ease);
-		transition-duration: var(--br-tooltip-transition-duration, 0.25s);
-		transition-delay: var(--br-tooltip-transition-delay, 0);
-		position: relative;
-		z-index: 1;
+	div {
+		display: contents;
+		--br-tooltip-popup-show: hidden;
 	}
-
-	@media (prefers-color-scheme: dark) {
-		.berry-tooltip {
-			background-color: #444;
-			box-shadow: 0 2px 8px #111;
-		}
-	}
-
-	@media (prefers-color-scheme: light) {
-		.berry-tooltip {
-			background-color: rgba(30, 30, 30, 0.9);
-			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-		}
-	}
-
-	.berry-tooltip.visible {
-		visibility: visible;
-		opacity: 1;
-	}
-
-	.arrow {
-		--arrow-skidding-inline: 12px;
-		--arrow-skidding-block: 5px;
-	}
-
-	.arrow {
-		position: absolute;
-		width: 12px;
-		height: 12px;
-		overflow: hidden;
-		background: inherit;
-		pointer-events: none;
-		clip-path: polygon(0 0, 0% 100%, 100% 100%);
-		border-radius: 0 4px;
-		transform: translateX(var(--br-translate-x, 0)) translateY(var(--br-translate-y, 0)) rotate(var(--br-rotate, 0));
-	}
-
-	[data-popper-placement^="top"] .arrow {
-		--br-rotate: -45deg;
-		--br-translate-y: 50%;
-		bottom: 0;
-	}
-
-	[data-popper-placement="top"] .arrow {
-		left: 50%;
-		--br-translate-x: -50%;
-	}
-
-	[data-popper-placement="top-start"] .arrow {
-		left: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
-	}
-
-	[data-popper-placement="top-end"] .arrow {
-		right: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
-	}
-
-	[data-popper-placement^="right"] .arrow {
-		--br-rotate: 45deg;
-		--br-translate-x: -50%;
-		left: 0;
-	}
-
-	[data-popper-placement="right"] .arrow {
-		top: 50%;
-		--br-translate-y: -50%;
-	}
-
-	[data-popper-placement="right-start"] .arrow {
-		top: var(--br-tooltip-arrow-skidding-block, --arrow-skidding-block);
-	}
-
-	[data-popper-placement="right-end"] .arrow {
-		bottom: var(--br-tooltip-arrow-skidding-block, --arrow-skidding-block);
-	}
-
-	[data-popper-placement^="left"] .arrow {
-		--br-rotate: 225deg;
-		--br-translate-x: 50%;
-		right: 0;
-	}
-
-	[data-popper-placement="left"] .arrow {
-		--br-translate-y: 50%;
-	}
-
-	[data-popper-placement="left-start"] .arrow {
-		top: var(--br-tooltip-arrow-skidding-block, var(--arrow-skidding-block));
-	}
-
-	[data-popper-placement="left-end"] .arrow {
-		bottom: var(--br-tooltip-arrow-skidding-block, var(--arrow-skidding-block));
-	}
-
-	[data-popper-placement^="bottom"] .arrow {
-		--br-rotate: 135deg;
-		--br-translate-y: -50%;
-		top: 0;
-	}
-
-	[data-popper-placement="bottom"] .arrow {
-		left: 50%;
-		--br-translate-x: -50%;
-	}
-
-	[data-popper-placement="bottom-start"] .arrow {
-		left: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
-	}
-
-	[data-popper-placement="bottom-end"] .arrow {
-		right: var(--br-tooltip-arrow-skidding-inline, var(--arrow-skidding-inline));
+	:global(*:hover) + div.has-trigger {
+		--br-tooltip-popup-show: ;
 	}
 </style>

@@ -1,12 +1,12 @@
 <script>
     import Button, { Primary } from '$lib/default/button';
+    import Tooltip, { Arrow, Popup } from '$lib/default/tooltip';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/tooltip';
-    import Tooltip from '$lib/default/tooltip';
 
     const sides = ['top', 'right', 'bottom', 'left'];
     const sideModifiers = ['', '-start', '-end'];
-    const placements = [];
+    const placements = ['left-end'];
 
     for (const side of sides) {
     	placements.push(...sideModifiers.map((mod) => side + mod));
@@ -19,8 +19,11 @@
             {#each placements as placement}
                 <Primary>
                     <Tooltip {placement}>
-                        <Button>{placement}</Button>
-                        <span slot="popup">I'm a <b>{placement}</b> tooltip!</span>
+                        <Button slot="trigger">{placement}</Button>
+                        <Popup>
+                            <Arrow/>
+                            I'm a <b>{placement}</b> tooltip!
+                        </Popup>
                     </Tooltip>
                 </Primary>
             {/each}
