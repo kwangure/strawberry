@@ -22,7 +22,6 @@
 	"dependencies": {
 		"@floating-ui/dom": "^1.0.0",
 		"@mdi/js": "^5.0.45",
-		"@popperjs/core": "^2.6.0",
 		"highlight.js": "^11.3.1",
 		"highlightjs-svelte": "^1.0.6",
 		"uid": "^1.0.0"

@@ -1,98 +1,168 @@
 <!--
-    @component
+	@component
 
-    Dropdown displays a list of actions or options to a user.
+	Dropdown displays a list of actions or options to a user.
 -->
 <script>
-    import { createPopper } from '@popperjs/core';
+	import { arrow, autoUpdate, computePosition, flip, hide, limitShift, offset, shift } from '@floating-ui/dom';
+	import { listen } from 'svelte/internal';
 
-    /**
-     * Where to position the popup relative to the dropdown button.
-     * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
-     */
-    export let placement = 'bottom-start';
-    /**
-     * Whether the popup is visible
-     * @type {boolean}
-     */
-    export let visible = false;
+	/**
+	 * Where to position the popup relative to the reference element.
+	 * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
+	 */
+	export let placement = 'bottom';
 
-    /* TODO: Add types */
-    function createPopup(popup, _) {
-    	const reference = popup.previousElementSibling;
-    	const popperInstance = createPopper(reference, popup, {
-    		placement,
-    		modifiers: [
-    			{
-    				name: 'offset',
-    				options: { offset: [0, 5]},
-    			},
-    		],
-    	});
+	let show = false;
 
-    	return {
-    		update(visible) {
-    			if (visible) popperInstance.update();
-    		},
-    		destroy() {
-    			popperInstance.destroy();
-    		},
-    	};
-    }
+	/**
+	 *
+	 * @param {string} placement
+	 * @returns {'top' | 'right' | 'bottom' | 'left'}
+	 */
+	function getSide(placement) {
+		return /** @type {'top' | 'right' | 'bottom' | 'left'} */(placement.split('-')[0]);
+	}
 
-    function handleDocumentClick(popup) {
-    	const reference = popup.previousElementSibling;
+	/**
+	 * @typedef {{
+	 * 		placement: "top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end";
+	 * }} Options
+	 * @param {HTMLDivElement} div
+	 * @param {Options} options
+	 */
+	function popup(div, options) {
+		let cleanup = () => {};
 
-    	document.addEventListener('click', hideIfExternalClick, true);
+		/**
+		 * @param {Options} options
+		 */
+		function _popup(options) {
+			const { placement } = options;
+			const popup = /** @type {HTMLElement} */ (div
+				.firstElementChild);
+			const reference = /** @type {HTMLElement} */ (div
+				.previousElementSibling);
+			if (placement && popup && reference) {
+				cleanup();
+				cleanup = autoUpdate(reference, popup, async () => {
+					const arrowElement = /** @type {HTMLElement} */ (div.querySelector('.br-arrow'));
+					const middleware = [
+						offset(10),
+						flip(),
+						shift({
+							limiter: limitShift({ offset: 5 }),
+						}),
+						hide(),
+					];
+					if (arrowElement) {
+						middleware.push(arrow({ element: arrowElement }));
+					}
+					// resulting final placement might be different from provided placement
+					// to avoid overflows/collisions
+					const { placement: finalPlacement, middlewareData, x, y }
+						= await computePosition(reference, popup, {
+							placement,
+							middleware,
+						});
+					const { referenceHidden } = middlewareData.hide || {};
 
-    	function hideIfExternalClick(event) {
-    		const [target]
-                = event.path || (event.composedPath && event.composedPath());
-    		const isContained = reference.contains(target);
-    		if (isContained) {
-    			visible = !visible;
-    		} else if (visible) {
-    			visible = false;
-    		}
-    	}
+					div.style.setProperty('--br-dropdown-popup-left', `${x}px`);
+					div.style.setProperty('--br-dropdown-popup-top', `${y}px`);
+					div.style.setProperty('--br-dropdown-popup-visibility', referenceHidden
+						? 'hidden'
+						: 'visible');
 
-    	return {
-    		destroy: () => {
-    			document.removeEventListener('click', hideIfExternalClick);
-    		},
-    	};
-    }
+					if (arrowElement) {
+						const { x, y } = middlewareData.arrow || {};
+						const side = getSide(finalPlacement);
+						const staticSide = {
+							top: 'bottom',
+							right: 'left',
+							bottom: 'top',
+							left: 'right',
+						}[side];
+						div.style.setProperty('--br-dropdown-arrow-left', typeof x === 'number' ? `${x}px`: '');
+						div.style.setProperty('--br-dropdown-arrow-top', typeof y === 'number' ? `${y}px` : '');
+						div.style.setProperty('--br-dropdown-arrow-bottom', '');
+						div.style.setProperty('--br-dropdown-arrow-right', '');
+						div.style.setProperty(`--br-dropdown-arrow-${staticSide}`, 'var(--br-dropdown-arrow-bulge)');
+						/*
+							When custom property has whitespace it becomes the active value.
+							Whitespace paired with 'initial' is a clever way to create CSS boolean variables
+							For your amusement, read https://lea.verou.me/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property
+						*/
+						div.style.setProperty('--br-dropdown-arrow-side-top', 'initial');
+						div.style.setProperty('--br-dropdown-arrow-side-bottom', 'initial');
+						div.style.setProperty('--br-dropdown-arrow-side-left', 'initial');
+						div.style.setProperty('--br-dropdown-arrow-side-right', 'initial');
+						div.style.setProperty(`--br-dropdown-arrow-side-${side}`, ' ');
+					}
+				});
+			}
+		}
+
+		_popup(options);
+
+		return {
+			update: _popup,
+			destroy() {
+				cleanup();
+			},
+		};
+	}
+
+	/**
+	 * @param {HTMLElement} div
+	 * @param {{ hasTrigger: boolean; }} options
+	 */
+	function trigger(div, options) {
+		let { hasTrigger } = options;
+		const removeClickListener = listen(document, 'click', (event) => {
+			const targetIsInPopup = div
+				.contains(/** @type {HTMLElement} */ (event.target));
+			if (targetIsInPopup) {
+				show = false;
+			}
+
+			if (!hasTrigger) return;
+			const trigger = /** @type {HTMLElement} */ (div.previousElementSibling);
+			const targetIsInTrigger = trigger
+				.contains(/** @type {HTMLElement} */ (event.target));
+			if (targetIsInTrigger) {
+				show = !show;
+			} else {
+				show = false;
+			}
+		});
+
+		return {
+			/**
+			 * @param {{ hasTrigger: boolean; }} options
+			 */
+			update(options) {
+				({ hasTrigger } = options);
+			},
+			destroy() {
+				removeClickListener();
+			},
+		};
+	}
 </script>
 
-<!--
-    Any element that can respond to the click MouseEvent.
-    When the element is clicked the dropdown popup will be shown.
--->
-<slot name="button" />
-<div
-    class="berry-dropdown-menu"
-    use:createPopup="{visible}"
-    use:handleDocumentClick
-    class:visible
->
-    <!--
-        One or more Dropdown.Item or Dropown.Link components to
-        be shown when the Dropdown[slot=button] is clicked.
-    -->
-    <slot />
+<slot name="trigger"></slot>
+<div class:has-trigger={$$slots.trigger} class:show
+	use:popup={{ placement }}
+	use:trigger={{ hasTrigger: $$slots.trigger }}>
+	<slot></slot>
 </div>
 
 <style>
-    .berry-dropdown-menu {
-        display: none;
-        background-color: var(--br-dropdown-background-color);
-        border-radius: var(--br-dropdown-border-radius);
-        outline: none;
-        box-shadow: var(--br-dropdown-box-shadow);
-        z-index: 100;
-        overflow: hidden;
-    }
-    .berry-dropdown-menu.visible {
-        display: block;
-    }
+	div {
+		display: contents;
+		--br-dropdown-popup-show: hidden;
+	}
+	div.has-trigger.show {
+		--br-dropdown-popup-show: ;
+	}
 </style>

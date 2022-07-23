@@ -1,5 +1,13 @@
 :host,
 :root {
-    --br-dropdown-background-color: #222;
-    --br-dropdown-box-shadow: 0 2px 8px #111;
+    --br-dropdown-popup-font-color: #fff;
+    --br-dropdown-popup-background-color: #444;
+    --br-dropdown-popup-box-shadow: 0 2px 8px #111;
+
+    --br-dropdown-item-hover-font-color: inherit;
+    --br-dropdown-item-hover-background-color: #666;
+    --br-dropdown-item-active-font-color: inherit;
+    --br-dropdown-item-active-background-color: #333;
+    --br-dropdown-item-active-hover-font-color: inherit;
+    --br-dropdown-item-active-hover-background-color: #2a2a2a;
 }
