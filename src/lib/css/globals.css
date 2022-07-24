@@ -94,6 +94,7 @@ h6 {
 
 /* ----- Links ----- */
 a {
+    touch-action: manipulation;
     text-decoration: none;
     color: var(--br-link-font-color);
 }
