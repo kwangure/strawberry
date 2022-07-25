@@ -41,11 +41,11 @@
         overflow: auto;
         font-size: 85%;
         line-height: 1.45;
-        background-color: var(--br-code-background-color);
-        color: var(--br-code-font-color);
-        border-radius: var(--br-code-border-radius);
+        background-color: var(--br-code-root-background-color);
+        color: var(--br-code-root-font-color);
+        border-radius: var(--br-code-root-border-radius);
         margin: 0;
-        white-space: var(--br-code-white-space);
+        white-space: var(--br-code-root-white-space);
     }
     code {
         display: contents;

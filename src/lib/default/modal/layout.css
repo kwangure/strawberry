@@ -1,7 +1,7 @@
 :host,
 :root {
-    --br-modal-border-radius: 4px;
-    --br-modal-transition-duration: background-color 0.25s ease;
-    --br-modal-overlay-transition: background-color 0.25s ease;
-    --br-modal-overlay-background-color: rgba(0, 0, 0, 0.5);
+    --br-modal-root-border-radius: 4px;
+    --br-modal-root-transition-duration: background-color 0.25s ease;
+    --br-modal-root-overlay-transition: background-color 0.25s ease;
+    --br-modal-root-overlay-background-color: rgba(0, 0, 0, 0.5);
 }

@@ -14,9 +14,9 @@
 
 <style>
     path {
-        --br-icon-path-fill: currentColor;
+        --br-icon-root-path-fill: currentColor;
     }
     path {
-        fill: var(--br-icon-path-fill, currentColor);
+        fill: var(--br-icon-root-path-fill, currentColor);
     }
 </style>

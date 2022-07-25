@@ -1,14 +1,14 @@
 :host,
 :root {
-    --br-input-datetime-label-margin-block: auto 5px;
-    --br-input-datetime-label-position: static;
-    --br-input-datetime-label-width: initial;
-    --br-input-datetime-label-height: initial;
-    --br-input-datetime-label-overflow: visible;
-    --br-input-datetime-padding-block: 5px;
-    --br-input-datetime-padding-inline: 12px 8px;
-    --br-input-datetime-width: fit-content;
-    --br-input-datetime-height: 35px;
-    --br-input-datetime-border-radius: 4px;
-    --br-input-datetime-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+    --br-input-datetime-root-label-margin-block: auto 5px;
+    --br-input-datetime-root-label-position: static;
+    --br-input-datetime-root-label-width: initial;
+    --br-input-datetime-root-label-height: initial;
+    --br-input-datetime-root-label-overflow: visible;
+    --br-input-datetime-root-padding-block: 5px;
+    --br-input-datetime-root-padding-inline: 12px 8px;
+    --br-input-datetime-root-width: fit-content;
+    --br-input-datetime-root-height: 35px;
+    --br-input-datetime-root-border-radius: 4px;
+    --br-input-datetime-root-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

@@ -1,7 +1,7 @@
 :host,
 :root {
-    --br-button-border: 1px solid #c3c3c3;
-    --br-button-hover-border: 1px solid #c3c3c3;
-    --br-button-background-color: transparent;
-    --br-button-hover-background-color: rgba(0,0,0, 0.1);
+    --br-button-root-border: 1px solid #c3c3c3;
+    --br-button-root-hover-border: 1px solid #c3c3c3;
+    --br-button-root-background-color: transparent;
+    --br-button-root-hover-background-color: rgba(0, 0, 0, 0.1);
 }

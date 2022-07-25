@@ -93,44 +93,44 @@
 <style>
     label {
         display: inline-block;
-        width: var(--br-select-width);
+        width: var(--br-select-root-width);
     }
     .label-text:not(:empty) {
-        margin-block: var(--br-select-label-margin-block);
-        position: var(--br-select-label-position);
-        height: var(--br-select-label-height);
-        width: var(--br-select-label-width);
-        overflow: var(--br-select-label-overflow);
+        margin-block: var(--br-select-root-label-margin-block);
+        position: var(--br-select-root-label-position);
+        height: var(--br-select-root-label-height);
+        width: var(--br-select-root-label-width);
+        overflow: var(--br-select-root-label-overflow);
     }
     select {
-        width: var(--br-select-width);
+        width: var(--br-select-root-width);
         font-size: 14px;
         line-height: 1.5;
-        background-color: var(--br-select-background-color);
+        background-color: var(--br-select-root-background-color);
         background-image: none;
         border: none;
         outline: 0;
-        padding-block: var(--br-select-padding-block);
-        padding-inline: var(--br-select-padding-inline);
-        color: var(--br-select-font-color);
+        padding-block: var(--br-select-root-padding-block);
+        padding-inline: var(--br-select-root-padding-inline);
+        color: var(--br-select-root-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
     .container {
         display: flex;
-        border: var(--br-select-border);
-        border-radius: var(--br-select-border-radius);
-        background-color: var(--br-select-background-color);
-        height: var(--br-select-height);
+        border: var(--br-select-root-border);
+        border-radius: var(--br-select-root-border-radius);
+        background-color: var(--br-select-root-background-color);
+        height: var(--br-select-root-height);
         width: 100%;
-        transition: var(--br-select-transition);
+        transition: var(--br-select-root-transition);
     }
     .container:hover:not(:focus-within) {
-        box-shadow: var(--br-select-hover-box-shadow);
-        border: var(--br-select-hover-border);
+        box-shadow: var(--br-select-root-hover-box-shadow);
+        border: var(--br-select-root-hover-border);
     }
     .container:focus-within {
-        box-shadow: var(--br-select-focus-box-shadow);
-        border: var(--br-select-focus-border);
+        box-shadow: var(--br-select-root-focus-box-shadow);
+        border: var(--br-select-root-focus-border);
     }
 </style>

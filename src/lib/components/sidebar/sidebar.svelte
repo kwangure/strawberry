@@ -9,13 +9,13 @@
 
 <style>
     aside {
-        width: var(--br-sidebar-width);
-        padding-block: var(--br-sidebar-padding-block);
-        padding-inline: var(--br-sidebar-padding-inline);
-        height: var(--br-sidebar-height);
+        width: var(--br-sidebar-root-width);
+        padding-block: var(--br-sidebar-root-padding-block);
+        padding-inline: var(--br-sidebar-root-padding-inline);
+        height: var(--br-sidebar-root-height);
         display: flex;
         flex-direction: column;
         user-select: none;
-        gap: var(--br-sidebar-gap);
+        gap: var(--br-sidebar-root-gap);
     }
 </style>

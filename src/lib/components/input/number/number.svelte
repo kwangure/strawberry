@@ -199,7 +199,7 @@
         align-items: center;
     }
     .postfix-up {
-        --br-icon-height: 21px;
+        --br-icon-root-height: 21px;
     }
     .container:hover .postfix-wrapper,
     .container:focus-within .postfix-wrapper {

@@ -28,10 +28,10 @@
 
 <style>
     .element {
-        --br-input-text-label-position: absolute;
-        --br-input-text-label-height: 1px;
-        --br-input-text-label-width: 1px;
-        --br-input-text-label-overflow: hidden;
+        --br-input-text-root-label-position: absolute;
+        --br-input-text-root-label-height: 1px;
+        --br-input-text-root-label-width: 1px;
+        --br-input-text-root-label-overflow: hidden;
     }
 </style>
 `}/>

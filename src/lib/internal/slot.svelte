@@ -31,7 +31,7 @@
         border-width: 0.5px;
     }
     td {
-        --br-code-white-space: pre-wrap;
+        --br-code-root-white-space: pre-wrap;
     }
     @media (prefers-color-scheme: dark) {
         td {

@@ -131,39 +131,39 @@
 <style>
     label {
         display: inline-block;
-        width: var(--br-input-password-width);
+        width: var(--br-input-password-root-width);
     }
     .label-text:not(:empty) {
-        margin-block: var(--br-input-password-label-margin-block);
-        position: var(--br-input-password-label-position);
-        height: var(--br-input-password-label-height);
-        width: var(--br-input-password-label-width);
-        overflow: var(--br-input-password-label-overflow);
+        margin-block: var(--br-input-password-root-label-margin-block);
+        position: var(--br-input-password-root-label-position);
+        height: var(--br-input-password-root-label-height);
+        width: var(--br-input-password-root-label-width);
+        overflow: var(--br-input-password-root-label-overflow);
     }
     input {
         border: none;
         outline: 0;
-        padding-block: var(--br-input-password-padding-block);
-        padding-inline: var(--br-input-password-padding-inline);
-        color: var(--br-input-password-font-color);
+        padding-block: var(--br-input-password-root-padding-block);
+        padding-inline: var(--br-input-password-root-padding-inline);
+        color: var(--br-input-password-root-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
     .container {
         display: flex;
-        border: var(--br-input-password-border);
-        border-radius: var(--br-input-password-border-radius);
-        background-color: var(--br-input-password-background-color);
-        height: var(--br-input-password-height);
+        border: var(--br-input-password-root-border);
+        border-radius: var(--br-input-password-root-border-radius);
+        background-color: var(--br-input-password-root-background-color);
+        height: var(--br-input-password-root-height);
         width: 100%;
-        transition: var(--br-input-password-transition);
+        transition: var(--br-input-password-root-transition);
     }
     .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-password-hover-box-shadow);
-        border: var(--br-input-password-hover-border);
+        box-shadow: var(--br-input-password-root-hover-box-shadow);
+        border: var(--br-input-password-root-hover-border);
     }
     .container:focus-within {
-        box-shadow: var(--br-input-password-focus-box-shadow);
-        border: var(--br-input-password-focus-border);
+        box-shadow: var(--br-input-password-root-focus-box-shadow);
+        border: var(--br-input-password-root-focus-border);
     }
 </style>

@@ -1,14 +1,14 @@
 :host,
 :root {
-    --br-textarea-label-margin-block: auto 5px;
-    --br-textarea-label-position: static;
-    --br-textarea-label-width: initial;
-    --br-textarea-label-height: initial;
-    --br-textarea-label-overflow: visible;
-    --br-textarea-padding-block: 5px;
-    --br-textarea-padding-inline: 12px;
-    --br-textarea-width: fit-content;
-    --br-textarea-height: 35px;
-    --br-textarea-border-radius: 4px;
-    --br-textarea-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+    --br-textarea-root-label-margin-block: auto 5px;
+    --br-textarea-root-label-position: static;
+    --br-textarea-root-label-width: initial;
+    --br-textarea-root-label-height: initial;
+    --br-textarea-root-label-overflow: visible;
+    --br-textarea-root-padding-block: 5px;
+    --br-textarea-root-padding-inline: 12px;
+    --br-textarea-root-width: fit-content;
+    --br-textarea-root-height: 35px;
+    --br-textarea-root-border-radius: 4px;
+    --br-textarea-root-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

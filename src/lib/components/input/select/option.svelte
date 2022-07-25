@@ -39,6 +39,6 @@
 
 <style>
     option {
-        color: var(--br-option-font-color);
+        color: var(--br-select-option-font-color);
     }
 </style>

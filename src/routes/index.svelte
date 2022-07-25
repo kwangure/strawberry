@@ -48,8 +48,8 @@
         display: contents;
     }
     .layout {
-        --br-navbar-max-width: var(--page-max-width);
-        --br-navbar-height: var(--nav-height);
+        --br-navbar-root-max-width: var(--page-max-width);
+        --br-navbar-root-height: var(--nav-height);
     }
     main {
         max-width: var(--page-max-width);
@@ -61,12 +61,12 @@
         display: flow-root;
     }
     .layout {
-        --br-navbar-width: var(--page-max-width);
-        --br-navbar-margin-inline: auto;
+        --br-navbar-root-width: var(--page-max-width);
+        --br-navbar-root-margin-inline: auto;
     }
     @media (max-width: 56rem) {
         .layout {
-            --br-navbar-width: auto;
+            --br-navbar-root-width: auto;
         }
     }
     h3 {
@@ -95,6 +95,6 @@
         content: "";
     }
     .cta {
-        line-height: var(--br-navbar-height);
+        line-height: var(--br-navbar-root-height);
     }
 </style>

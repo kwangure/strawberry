@@ -1,12 +1,12 @@
 :host,
 :root {
     /** Encoded from Material design icons. Path is `import("@mdi/js").mdiCalendar` */
-    --br-input-date-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
-    --br-input-date-font-color: inherit;
-    --br-input-date-background-color: transparent;
-    --br-input-date-border: 1px solid #c3c3c3;
-    --br-input-date-hover-box-shadow: 0 0 0px 2px hsl(215deg 100% 90%);
-    --br-input-date-hover-border: 1px solid hsl(225deg 100% 55%);
-    --br-input-date-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 55%);
-    --br-input-date-focus-border: 1px solid hsl(225deg 100% 55%);
+    --br-input-date-root-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE5LDE5SDVWOEgxOU0xNiwxVjNIOFYxSDZWM0g1QzMuODksMyAzLDMuODkgMyw1VjE5QTIsMiAwIDAsMCA1LDIxSDE5QTIsMiAwIDAsMCAyMSwxOVY1QzIxLDMuODkgMjAuMSwzIDE5LDNIMThWMU0xNywxMkgxMlYxN0gxN1YxMloiPjwvcGF0aD4NCjwvc3ZnPg==);
+    --br-input-date-root-font-color: inherit;
+    --br-input-date-root-background-color: transparent;
+    --br-input-date-root-border: 1px solid #c3c3c3;
+    --br-input-date-root-hover-box-shadow: 0 0 0px 2px hsl(215deg 100% 90%);
+    --br-input-date-root-hover-border: 1px solid hsl(225deg 100% 55%);
+    --br-input-date-root-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 55%);
+    --br-input-date-root-focus-border: 1px solid hsl(225deg 100% 55%);
 }

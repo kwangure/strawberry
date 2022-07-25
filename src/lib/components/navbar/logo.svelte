@@ -10,6 +10,6 @@
     a {
         padding-inline: var(--br-navbar-logo-padding-inline);
         width: var(--br-navbar-logo-width);
-        line-height: var(--br-navbar-height);
+        line-height: var(--br-navbar-root-height);
     }
 </style>

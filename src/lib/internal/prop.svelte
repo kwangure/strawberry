@@ -54,7 +54,7 @@
         border-width: 0.5px;
     }
     td {
-        --br-code-white-space: pre-wrap;
+        --br-code-root-white-space: pre-wrap;
     }
     .type {
         max-width: 300px;

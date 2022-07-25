@@ -28,10 +28,10 @@
 
 <style>
     .element {
-        --br-input-password-label-position: absolute;
-        --br-input-password-label-height: 1px;
-        --br-input-password-label-width: 1px;
-        --br-input-password-label-overflow: hidden;
+        --br-input-password-root-label-position: absolute;
+        --br-input-password-root-label-height: 1px;
+        --br-input-password-root-label-width: 1px;
+        --br-input-password-root-label-overflow: hidden;
     }
 </style>
 `}/>

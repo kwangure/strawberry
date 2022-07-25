@@ -87,8 +87,8 @@
         bottom: 0;
         left: 0;
         z-index: 1050;
-        background-color: var(--br-modal-overlay-background-color);
-        transition: var(--br-modal-overlay-transition);
+        background-color: var(--br-modal-root-overlay-background-color);
+        transition: var(--br-modal-root-overlay-transition);
     }
     .wrapper {
         width: 100vw;
@@ -98,11 +98,11 @@
         justify-content: center;
     }
     .modal {
-        background-color: var(--br-modal-background-color);
+        background-color: var(--br-modal-root-background-color);
         padding: 30px 30px;
-        box-shadow: var(--br-modal-box-shadow);
-        border-radius: var(--br-modal-border-radius);
-        transition: var(--br-modal-transition-duration);
+        box-shadow: var(--br-modal-root-box-shadow);
+        border-radius: var(--br-modal-root-border-radius);
+        transition: var(--br-modal-root-transition-duration);
         max-width: 90%;
     }
     .modal.closable {

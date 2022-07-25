@@ -74,17 +74,17 @@
         align-items: center;
     }
     h3 {
-        --br-button-border: none;
-        --br-button-background-color: transparent;
-        --br-button-hover-background-color: transparent;
-        --br-button-font-color: transparent;
-        --br-button-padding-inline: 5px;
+        --br-button-root-border: none;
+        --br-button-root-background-color: transparent;
+        --br-button-root-hover-background-color: transparent;
+        --br-button-root-font-color: transparent;
+        --br-button-root-padding-inline: 5px;
     }
     h3:not(:hover) {
         --br-link-font-color: transparent;
     }
     h3:hover {
-        --br-button-font-color: inherit;
+        --br-button-root-font-color: inherit;
         --br-button-transition: all 0.25s ease;
     }
     h3:target {
@@ -92,12 +92,12 @@
     }
     @keyframes highlight {
         from {
-            --br-code-background-color: yellow;
-            --br-code-font-color: black;
+            --br-code-root-background-color: yellow;
+            --br-code-root-font-color: black;
         }
         to {
-            --br-code-background-color: yellow;
-            --br-code-font-color: black;
+            --br-code-root-background-color: yellow;
+            --br-code-root-font-color: black;
         }
     }
     h3 :global(.menu-item) {
@@ -107,7 +107,7 @@
         all: inherit;
         display: flex;
         gap: 10px;
-        --br-icon-height: 20px;
+        --br-icon-root-height: 20px;
         min-width: 300px;
     }
     h3 > :global(*:first-child) {

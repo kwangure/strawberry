@@ -1,16 +1,16 @@
 :host,
 :root {
-    --br-select-label-margin-block: auto 5px;
-    --br-select-label-position: static;
-    --br-select-label-width: initial;
-    --br-select-label-height: initial;
-    --br-select-label-overflow: visible;
-    --br-select-width: initial;
-    --br-select-background-color: transparent;
-    --br-select-padding-block: 5px;
-    --br-select-padding-inline: 8px;
-    --br-select-width: fit-content;
-    --br-select-height: 35px;
-    --br-select-border-radius: 4px;
-    --br-select-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+    --br-select-root-label-margin-block: auto 5px;
+    --br-select-root-label-position: static;
+    --br-select-root-label-width: initial;
+    --br-select-root-label-height: initial;
+    --br-select-root-label-overflow: visible;
+    --br-select-root-width: initial;
+    --br-select-root-background-color: transparent;
+    --br-select-root-padding-block: 5px;
+    --br-select-root-padding-inline: 8px;
+    --br-select-root-width: fit-content;
+    --br-select-root-height: 35px;
+    --br-select-root-border-radius: 4px;
+    --br-select-root-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

@@ -1,14 +1,14 @@
 :host,
 :root {
-    --br-input-text-label-margin-block: auto 5px;
-    --br-input-text-label-position: static;
-    --br-input-text-label-width: initial;
-    --br-input-text-label-height: initial;
-    --br-input-text-label-overflow: visible;
-    --br-input-text-padding-block: 5px;
-    --br-input-text-padding-inline: 12px;
-    --br-input-text-width: fit-content;
-    --br-input-text-height: 35px;
-    --br-input-text-border-radius: 4px;
-    --br-input-text-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+    --br-input-text-root-label-margin-block: auto 5px;
+    --br-input-text-root-label-position: static;
+    --br-input-text-root-label-width: initial;
+    --br-input-text-root-label-height: initial;
+    --br-input-text-root-label-overflow: visible;
+    --br-input-text-root-padding-block: 5px;
+    --br-input-text-root-padding-inline: 12px;
+    --br-input-text-root-width: fit-content;
+    --br-input-text-root-height: 35px;
+    --br-input-text-root-border-radius: 4px;
+    --br-input-text-root-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

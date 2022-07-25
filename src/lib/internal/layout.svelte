@@ -52,18 +52,18 @@
     }
     @media (prefers-color-scheme: dark) {
         .app-layout {
-            --br-navbar-border-bottom: 1px solid #474b50;
+            --br-navbar-root-border-bottom: 1px solid #474b50;
         }
     }
     @media (prefers-color-scheme: light) {
         .app-layout {
-            --br-navbar-border-bottom: 1px solid #c3c3c3;
+            --br-navbar-root-border-bottom: 1px solid #c3c3c3;
         }
     }
     a.navigation {
         color: inherit;
     }
     a.cta {
-        line-height: var(--br-navbar-height);
+        line-height: var(--br-navbar-root-height);
     }
 </style>

@@ -17,20 +17,20 @@
     }
     @media (prefers-color-scheme: dark) {
         .contents {
-            --br-button-font-color: #fff;
-            --br-button-background-color: hsl(225deg 100% 60%);
-            --br-button-hover-background-color: hsl(225deg 100% 45%);
-            --br-button-border-color: var(--br-button-background-color);
-            --br-button-hover-border-color: var(--br-button-hover-background-color);
+            --br-button-root-font-color: #fff;
+            --br-button-root-background-color: hsl(225deg 100% 60%);
+            --br-button-root-hover-background-color: hsl(225deg 100% 45%);
+            --br-button-root-border-color: var(--br-button-root-background-color);
+            --br-button-root-hover-border-color: var(--br-button-root-hover-background-color);
         }
     }
     @media (prefers-color-scheme: light) {
         .contents {
-            --br-button-font-color: #fff;
-            --br-button-background-color: hsl(225deg 100% 55%);
-            --br-button-hover-background-color: hsl(225deg 100% 45%);
-            --br-button-border-color: var(--br-button-background-color);
-            --br-button-hover-border-color: var(--br-button-hover-background-color);
+            --br-button-root-font-color: #fff;
+            --br-button-root-background-color: hsl(225deg 100% 55%);
+            --br-button-root-hover-background-color: hsl(225deg 100% 45%);
+            --br-button-root-border-color: var(--br-button-root-background-color);
+            --br-button-root-hover-border-color: var(--br-button-root-hover-background-color);
         }
     }
 </style>

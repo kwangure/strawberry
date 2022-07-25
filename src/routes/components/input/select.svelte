@@ -31,10 +31,10 @@
 
 <style>
     .element {
-        --br-select-label-position: absolute;
-        --br-select-label-height: 1px;
-        --br-select-label-width: 1px;
-        --br-select-label-overflow: hidden;
+        --br-select-root-label-position: absolute;
+        --br-select-root-label-height: 1px;
+        --br-select-root-label-width: 1px;
+        --br-select-root-label-overflow: hidden;
     }
 </style>
 `}/>

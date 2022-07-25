@@ -129,40 +129,40 @@
 <style>
     label {
         display: inline-block;
-        width: var(--br-input-text-width);
+        width: var(--br-input-text-root-width);
     }
     .label-text:not(:empty) {
-        margin-block: var(--br-input-text-label-margin-block);
-        position: var(--br-input-text-label-position);
-        height: var(--br-input-text-label-height);
-        width: var(--br-input-text-label-width);
-        overflow: var(--br-input-text-label-overflow);
+        margin-block: var(--br-input-text-root-label-margin-block);
+        position: var(--br-input-text-root-label-position);
+        height: var(--br-input-text-root-label-height);
+        width: var(--br-input-text-root-label-width);
+        overflow: var(--br-input-text-root-label-overflow);
     }
     input {
         border: none;
         outline: 0;
-        padding-block: var(--br-input-text-padding-block);
-        padding-inline: var(--br-input-text-padding-inline);
-        color: var(--br-input-text-font-color);
+        padding-block: var(--br-input-text-root-padding-block);
+        padding-inline: var(--br-input-text-root-padding-inline);
+        color: var(--br-input-text-root-font-color);
         background-color: transparent;
         flex-grow: 1;
         flex-grow: 1;
     }
     .container {
         display: flex;
-        border: var(--br-input-text-border);
-        border-radius: var(--br-input-text-border-radius);
-        background-color: var(--br-input-text-background-color);
-        height: var(--br-input-text-height);
+        border: var(--br-input-text-root-border);
+        border-radius: var(--br-input-text-root-border-radius);
+        background-color: var(--br-input-text-root-background-color);
+        height: var(--br-input-text-root-height);
         width: 100%;
-        transition: var(--br-input-text-transition);
+        transition: var(--br-input-text-root-transition);
     }
     .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-text-hover-box-shadow);
-        border: var(--br-input-text-hover-border);
+        box-shadow: var(--br-input-text-root-hover-box-shadow);
+        border: var(--br-input-text-root-hover-border);
     }
     .container:focus-within {
-        box-shadow: var(--br-input-text-focus-box-shadow);
-        border: var(--br-input-text-focus-border);
+        box-shadow: var(--br-input-text-root-focus-box-shadow);
+        border: var(--br-input-text-root-focus-border);
     }
 </style>

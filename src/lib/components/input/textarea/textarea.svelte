@@ -60,21 +60,21 @@
 <style>
     label {
         display: inline-block;
-        width: var(--br-textarea-width);
+        width: var(--br-textarea-root-width);
     }
     .label-text:not(:empty) {
-        margin-block: var(--br-textarea-label-margin-block);
-        position: var(--br-textarea-label-position);
-        height: var(--br-textarea-label-height);
-        width: var(--br-textarea-label-width);
-        overflow: var(--br-textarea-label-overflow);
+        margin-block: var(--br-textarea-root-label-margin-block);
+        position: var(--br-textarea-root-label-position);
+        height: var(--br-textarea-root-label-height);
+        width: var(--br-textarea-root-label-width);
+        overflow: var(--br-textarea-root-label-overflow);
     }
     textarea {
         border: none;
         outline: 0;
-        padding-block: var(--br-textarea-padding-block);
-        padding-inline: var(--br-textarea-padding-inline);
-        color: var(--br-textarea-font-color);
+        padding-block: var(--br-textarea-root-padding-block);
+        padding-inline: var(--br-textarea-root-padding-inline);
+        color: var(--br-textarea-root-font-color);
         background-color: transparent;
         flex-grow: 1;
         width: 100%;
@@ -88,19 +88,19 @@
     }
     .container {
         display: flex;
-        border: var(--br-textarea-border);
-        border-radius: var(--br-textarea-border-radius);
-        background-color: var(--br-textarea-background-color);
-        height: var(--br-textarea-height);
+        border: var(--br-textarea-root-border);
+        border-radius: var(--br-textarea-root-border-radius);
+        background-color: var(--br-textarea-root-background-color);
+        height: var(--br-textarea-root-height);
         width: 100%;
-        transition: var(--br-textarea-transition);
+        transition: var(--br-textarea-root-transition);
     }
     .container:hover:not(:focus-within) {
-        box-shadow: var(--br-textarea-hover-box-shadow);
-        border: var(--br-textarea-hover-border);
+        box-shadow: var(--br-textarea-root-hover-box-shadow);
+        border: var(--br-textarea-root-hover-border);
     }
     .container:focus-within {
-        box-shadow: var(--br-textarea-focus-box-shadow);
-        border: var(--br-textarea-focus-border);
+        box-shadow: var(--br-textarea-root-focus-box-shadow);
+        border: var(--br-textarea-root-focus-border);
     }
 </style>

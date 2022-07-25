@@ -1,14 +1,14 @@
 :host,
 :root {
-    --br-input-password-label-margin-block: auto 5px;
-    --br-input-password-label-position: static;
-    --br-input-password-label-width: initial;
-    --br-input-password-label-height: initial;
-    --br-input-password-label-overflow: visible;
-    --br-input-password-padding-block: 5px;
-    --br-input-password-padding-inline: 12px;
-    --br-input-password-width: fit-content;
-    --br-input-password-height: 35px;
-    --br-input-password-border-radius: 4px;
-    --br-input-password-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+    --br-input-password-root-label-margin-block: auto 5px;
+    --br-input-password-root-label-position: static;
+    --br-input-password-root-label-width: initial;
+    --br-input-password-root-label-height: initial;
+    --br-input-password-root-label-overflow: visible;
+    --br-input-password-root-padding-block: 5px;
+    --br-input-password-root-padding-inline: 12px;
+    --br-input-password-root-width: fit-content;
+    --br-input-password-root-height: 35px;
+    --br-input-password-root-border-radius: 4px;
+    --br-input-password-root-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }

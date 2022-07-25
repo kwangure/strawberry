@@ -20,8 +20,8 @@
 
     /* Override imported preset values */
     .element {
-        --br-button-width: 50px;
-        --br-button-border: 3px solid var(--my-primary-color);
+        --br-button-root-width: 50px;
+        --br-button-root-border: 3px solid var(--my-primary-color);
     }
 </style\>
     `.trim();

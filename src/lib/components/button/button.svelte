@@ -101,31 +101,30 @@
 <style>
     button {
         line-height: 1.2;
-        display: var(--br-button-display);
-        gap: var(--br-button-gap);
+        display: var(--br-button-root-display);
+        gap: var(--br-button-root-gap);
         font-weight: 400;
         white-space: nowrap;
         align-items: center;
         justify-content: center;
-        border: var(--br-button-border);
+        border: var(--br-button-root-border);
         cursor: pointer;
         user-select: none;
         touch-action: manipulation;
-        height: var(--br-button-height);
-        padding-inline: var(--br-button-padding-inline);
+        height: var(--br-button-root-height);
+        padding-inline: var(--br-button-root-padding-inline);
         font-size: 14px;
-        border-radius: var(--br-button-border-radius);
-        color: var(--br-button-font-color);
-        background-color: var(--br-button-background-color);
+        border-radius: var(--br-button-root-border-radius);
+        color: var(--br-button-root-font-color);
+        background-color: var(--br-button-root-background-color);
         outline: none;
-        width: var(--br-button-width);
+        width: var(--br-button-root-width);
     }
     button:disabled {
         cursor: not-allowed;
     }
     button:hover:not(:active) {
-        background-color: var(--br-button-hover-background-color);
-        /* TODO: prefer border to border-color */
-        border: var(--br-button-hover-border);
+        background-color: var(--br-button-root-hover-background-color);
+        border: var(--br-button-root-hover-border);
     }
 </style>

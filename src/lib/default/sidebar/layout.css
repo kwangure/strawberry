@@ -1,10 +1,10 @@
 :host,
 :root {
-    --br-sidebar-width: 240px;
-    --br-sidebar-gap: 4px;
-    --br-sidebar-height: 100%;
-    --br-sidebar-padding-block: 8px;
-    --br-sidebar-padding-inline: 8px;
+    --br-sidebar-root-width: 240px;
+    --br-sidebar-root-gap: 4px;
+    --br-sidebar-root-height: 100%;
+    --br-sidebar-root-padding-block: 8px;
+    --br-sidebar-root-padding-inline: 8px;
 
     --br-sidebar-item-display: flex;
     --br-sidebar-item-height: 35px;

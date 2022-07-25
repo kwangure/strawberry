@@ -28,10 +28,10 @@
 
 <style>
     .element {
-        --br-input-time-label-position: absolute;
-        --br-input-time-label-height: 1px;
-        --br-input-time-label-width: 1px;
-        --br-input-time-label-overflow: hidden;
+        --br-input-time-root-label-position: absolute;
+        --br-input-time-root-label-height: 1px;
+        --br-input-time-root-label-width: 1px;
+        --br-input-time-root-label-overflow: hidden;
     }
 </style>
 `}/>

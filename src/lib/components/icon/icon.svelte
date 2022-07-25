@@ -17,15 +17,15 @@
 </script>
 
 <svg viewBox="0 0 24 24" use:forward>
-    <path d={path} style="fill: var(--br-icon-fill);"/>
+    <path d={path} style="fill: var(--br-icon-root-fill);"/>
     <slot></slot>
 </svg>
 
 <style>
     svg {
-        animation: var(--br-icon-animation);
-        width: var(--br-icon-width);
-        height: var(--br-icon-height);
-        transform: var(--br-icon-transform);
+        animation: var(--br-icon-root-animation);
+        width: var(--br-icon-root-width);
+        height: var(--br-icon-root-height);
+        transform: var(--br-icon-root-transform);
     }
 </style>

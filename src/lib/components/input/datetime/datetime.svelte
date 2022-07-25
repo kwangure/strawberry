@@ -133,42 +133,42 @@
 
     label {
         display: inline-block;
-        width: var(--br-input-datetime-width);
+        width: var(--br-input-datetime-root-width);
     }
     .label-text:not(:empty) {
-        margin-block: var(--br-input-datetime-label-margin-block);
-        position: var(--br-input-datetime-label-position);
-        height: var(--br-input-datetime-label-height);
-        width: var(--br-input-datetime-label-width);
-        overflow: var(--br-input-datetime-label-overflow);
+        margin-block: var(--br-input-datetime-root-label-margin-block);
+        position: var(--br-input-datetime-root-label-position);
+        height: var(--br-input-datetime-root-label-height);
+        width: var(--br-input-datetime-root-label-width);
+        overflow: var(--br-input-datetime-root-label-overflow);
     }
     input::-webkit-calendar-picker-indicator {
-        background-image: var(--br-input-datetime-background-image);
+        background-image: var(--br-input-datetime-root-background-image);
     }
     input {
         border: none;
         outline: 0;
-        padding-block: var(--br-input-datetime-padding-block);
-        padding-inline: var(--br-input-datetime-padding-inline);
-        color: var(--br-input-datetime-font-color);
+        padding-block: var(--br-input-datetime-root-padding-block);
+        padding-inline: var(--br-input-datetime-root-padding-inline);
+        color: var(--br-input-datetime-root-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
     .container {
         display: flex;
-        border: var(--br-input-datetime-border);
-        border-radius: var(--br-input-datetime-border-radius);
-        background-color: var(--br-input-datetime-background-color);
-        height: var(--br-input-datetime-height);
+        border: var(--br-input-datetime-root-border);
+        border-radius: var(--br-input-datetime-root-border-radius);
+        background-color: var(--br-input-datetime-root-background-color);
+        height: var(--br-input-datetime-root-height);
         width: 100%;
-        transition: var(--br-input-datetime-transition);
+        transition: var(--br-input-datetime-root-transition);
     }
     .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-datetime-hover-box-shadow);
-        border: var(--br-input-datetime-hover-border);
+        box-shadow: var(--br-input-datetime-root-hover-box-shadow);
+        border: var(--br-input-datetime-root-hover-border);
     }
     .container:focus-within {
-        box-shadow: var(--br-input-datetime-focus-box-shadow);
-        border: var(--br-input-datetime-focus-border);
+        box-shadow: var(--br-input-datetime-root-focus-box-shadow);
+        border: var(--br-input-datetime-root-focus-border);
     }
 </style>

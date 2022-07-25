@@ -1,5 +1,5 @@
 :host,
 :root {
-    --br-input-hint-font-color: inherit;
-    --br-input-hint-invalid-font-color: rgb(255 40 40);
+    --br-input-hint-root-font-color: inherit;
+    --br-input-hint-root-invalid-font-color: rgb(255 40 40);
 }

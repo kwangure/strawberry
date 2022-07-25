@@ -19,13 +19,13 @@
 <style>
     /* Adding margins to an empty container messes layout */
     div:not(:empty) {
-        margin-block: var(--br-input-hint-margin-block);
-        margin-inline: var(--br-input-hint-margin-inline);
-        color: var(--br-input-hint-font-color);
-        font-size: var(--br-input-hint-font-size);
+        margin-block: var(--br-input-hint-root-margin-block);
+        margin-inline: var(--br-input-hint-root-margin-inline);
+        color: var(--br-input-hint-root-font-color);
+        font-size: var(--br-input-hint-root-font-size);
     }
     /* Use pseudoselector to match '.hint' specificity */
     .invalid:not(:empty) {
-        color: var(--br-input-hint-invalid-font-color);
+        color: var(--br-input-hint-root-invalid-font-color);
     }
 </style>

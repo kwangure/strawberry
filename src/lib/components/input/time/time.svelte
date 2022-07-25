@@ -140,42 +140,42 @@
 
     label {
         display: inline-block;
-        width: var(--br-input-time-width);
+        width: var(--br-input-time-root-width);
     }
     .label-text:not(:empty) {
-        margin-block: var(--br-input-time-label-margin-block);
-        position: var(--br-input-time-label-position);
-        height: var(--br-input-time-label-height);
-        width: var(--br-input-time-label-width);
-        overflow: var(--br-input-time-label-overflow);
+        margin-block: var(--br-input-time-root-label-margin-block);
+        position: var(--br-input-time-root-label-position);
+        height: var(--br-input-time-root-label-height);
+        width: var(--br-input-time-root-label-width);
+        overflow: var(--br-input-time-root-label-overflow);
     }
     input::-webkit-calendar-picker-indicator {
-        background-image: var(--br-input-time-background-image);
+        background-image: var(--br-input-time-root-background-image);
     }
     input {
         border: none;
         outline: 0;
-        padding-block: var(--br-input-time-padding-block);
-        padding-inline: var(--br-input-time-padding-inline);
-        color: var(--br-input-time-font-color);
+        padding-block: var(--br-input-time-root-padding-block);
+        padding-inline: var(--br-input-time-root-padding-inline);
+        color: var(--br-input-time-root-font-color);
         background-color: transparent;
         flex-grow: 1;
     }
     .container {
         display: flex;
-        border: var(--br-input-time-border);
-        border-radius: var(--br-input-time-border-radius);
-        background-color: var(--br-input-time-background-color);
-        height: var(--br-input-time-height);
+        border: var(--br-input-time-root-border);
+        border-radius: var(--br-input-time-root-border-radius);
+        background-color: var(--br-input-time-root-background-color);
+        height: var(--br-input-time-root-height);
         width: 100%;
-        transition: var(--br-input-time-transition);
+        transition: var(--br-input-time-root-transition);
     }
     .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-time-hover-box-shadow);
-        border: var(--br-input-time-hover-border);
+        box-shadow: var(--br-input-time-root-hover-box-shadow);
+        border: var(--br-input-time-root-hover-border);
     }
     .container:focus-within {
-        box-shadow: var(--br-input-time-focus-box-shadow);
-        border: var(--br-input-time-focus-border);
+        box-shadow: var(--br-input-time-root-focus-box-shadow);
+        border: var(--br-input-time-root-focus-border);
     }
 </style>

@@ -28,10 +28,10 @@
 
 <style>
     .element {
-        --br-input-date-label-position: absolute;
-        --br-input-date-label-height: 1px;
-        --br-input-date-label-width: 1px;
-        --br-input-date-label-overflow: hidden;
+        --br-input-date-root-label-position: absolute;
+        --br-input-date-root-label-height: 1px;
+        --br-input-date-root-label-width: 1px;
+        --br-input-date-root-label-overflow: hidden;
     }
 </style>
 `}/>
