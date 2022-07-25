@@ -45,6 +45,12 @@
 				.previousElementSibling);
 			if (placement && popup && reference) {
 				cleanup();
+				/*
+					TODO: Memoize call to elem.getBoundingClientRect() by @floating-ui
+					It's causing reflow issues (https://stackoverflow.com/questions/41218507/violation-long-running-javascript-task-took-xx-ms)
+					during scrolling.
+					Update tooltip too
+				*/
 				cleanup = autoUpdate(reference, popup, async () => {
 					const arrowElement = /** @type {HTMLElement} */ (div.querySelector('.br-arrow'));
 					const middleware = [
