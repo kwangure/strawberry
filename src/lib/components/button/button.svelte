@@ -31,23 +31,23 @@
     /**
      * The URL that the form associated with the button will submit to.
      *
-     * @type {string}
+     * @type {string | undefined}
      */
-    export let formaction = '';
+    export let formaction = undefined;
 
     /**
      * How to encode form data if the button is a submit button
      *
-     * @type {"application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain" | ""}
+     * @type {"application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain" | undefined}
      */
-    export let formenctype = '';
+    export let formenctype = undefined;
 
     /**
      * The HTTP method used to submit the form data if the button is a submit button
      *
-     * @type {"get" | "post" | ""}
+     * @type {"get" | "post" | undefined}
      */
-    export let formmethod = '';
+    export let formmethod = undefined;
 
     /**
      * When true, the form associated with the button will not be validated.
@@ -59,9 +59,9 @@
     /**
      * The name of the tab or window to submit and display the response from submitting the form.
      *
-     * @type {"_self" | "_blank" | "_parent" | "_top" | string}
+     * @type {"_self" | "_blank" | "_parent" | "_top" | string | undefined}
      */
-    export let formtarget = '';
+    export let formtarget = undefined;
 
     /**
      * The name of the button. Submitted by its parent form as part of a name/value pair.
