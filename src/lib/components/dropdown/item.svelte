@@ -27,6 +27,7 @@
         padding-block: var(--br-dropdown-item-padding-block);
         padding-inline: var(--br-dropdown-item-padding-inline);
         border-radius: var(--br-dropdown-item-border-radius);
+        gap: var(--br-dropdown-item-gap);
     }
 
     div:hover {
