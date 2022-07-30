@@ -29,13 +29,6 @@
             </h3>
             Documentation on how to use Strawberry components.
         </div>
-
-        <div class="link">
-            <h3>
-                <a href="{base}/typography">Typography</a>
-            </h3>
-            See how typography is used in Strawberry.
-        </div>
     </main>
 </div>
 

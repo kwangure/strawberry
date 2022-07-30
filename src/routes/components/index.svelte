@@ -3,7 +3,7 @@
     /* eslint-disable no-useless-escape */
     const usage = `
 <script\>
-    import Button from "@kwangure/strawberry/components/button";
+    import { Button } from "@kwangure/strawberry/default/button";
 
     const hello = () => alert("strawberry");
 </script\>
@@ -13,15 +13,10 @@
 </div>
 
 <style>
-    /* Import style presets */
-    @import "@kwangure/strawberry/components/button/layout.css";
-    @import "@kwangure/strawberry/components/button/dark.css" (prefers-color-scheme: dark);
-    @import "@kwangure/strawberry/components/button/light.css" (prefers-color-scheme: light);
-
     /* Override imported preset values */
     .element {
         --br-button-root-width: 50px;
-        --br-button-root-border: 3px solid var(--my-primary-color);
+        --br-button-root-border: 3px solid turquoise;
     }
 </style\>
     `.trim();

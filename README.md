@@ -11,7 +11,7 @@ npm i @kwangure/strawberry
 ## Usage
 ```html
 <script>
-    import Button from '@kwangure/strawberry/components/button';
+    import { Button } from '@kwangure/strawberry/default/button';
 
     const hello = () => alert('strawberry');
 </script>
@@ -21,15 +21,10 @@ npm i @kwangure/strawberry
 </div>
 
 <style>
-    /* Import style presets */
-    @import "@kwangure/strawberry/components/button/layout.css";
-    @import "@kwangure/strawberry/components/button/dark.css" (prefers-color-scheme: dark);
-    @import "@kwangure/strawberry/components/button/light.css" (prefers-color-scheme: light);
-
-    /* Override imported preset values */
+    /* Override preset values */
     .element {
-        --br-button-width: 50px;
-        --br-button-border: 3px solid red;
+        --br-button-root-width: 50px;
+        --br-button-root-border: 3px solid turquoise;
     }
 </style>
 ```
