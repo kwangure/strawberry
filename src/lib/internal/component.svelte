@@ -88,9 +88,6 @@
         display: flex;
         gap: 5px;
     }
-    .block {
-        flex-direction: column;
-    }
     table {
         border-collapse: collapse;
         /* Zooming makes collapsed border twice as thick sometimes */
