@@ -115,6 +115,11 @@
                                 Code
                             </Item>
                         </a>
+                        <a href="{base}/components/dialog">
+                            <Item active={path === `${base}/components/dialog`}>
+                                Dialog
+                            </Item>
+                        </a>
                         <a href="{base}/components/modal">
                             <Item active={path === `${base}/components/modal`}>
                                 Modal
