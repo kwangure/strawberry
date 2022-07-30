@@ -1,10 +1,5 @@
 :host,
 :root {
-    --br-select-root-label-margin-block: auto 5px;
-    --br-select-root-label-position: static;
-    --br-select-root-label-width: initial;
-    --br-select-root-label-height: initial;
-    --br-select-root-label-overflow: visible;
     --br-select-root-width: initial;
     --br-select-root-background-color: transparent;
     --br-select-root-padding-block: 5px;

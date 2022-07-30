@@ -133,45 +133,23 @@
     }
 </script>
 
-<!--
-	Svelte a11y check doesn't check nested labels-input pairs 🙄
- 	See https://github.com/sveltejs/svelte/issues/5300
--->
-<!-- svelte-ignore a11y-label-has-associated-control -->
-<label>
-    <div class="label-text">
-        <slot name="label"/>
+<div class="container">
+    <!-- svelte-ignore a11y-autofocus -->
+    <input bind:this={input} bind:value
+        type="number" use:forward use:validate={{ invalid, error, validationMessageStore }}
+        {autocomplete} {autofocus} {form} {list} {max} {min} {name}
+        {placeholder} {required} {readonly} {step}>
+    <div class="postfix-wrapper">
+        <span class="postfix-up" on:click={stepUp}>
+            <Icon path={mdiChevronUp}/>
+        </span>
+        <span class="postfix-down" on:click={stepDown}>
+            <Icon path={mdiChevronDown}/>
+        </span>
     </div>
-    <div class="container">
-        <!-- svelte-ignore a11y-autofocus -->
-        <input bind:this={input} bind:value
-            type="number" use:forward use:validate={{ invalid, error, validationMessageStore }}
-            {autocomplete} {autofocus} {form} {list} {max} {min} {name}
-            {placeholder} {required} {readonly} {step}>
-        <div class="postfix-wrapper">
-            <span class="postfix-up"on:click={stepUp}>
-                <Icon path={mdiChevronUp}/>
-            </span>
-            <span class="postfix-down" on:click={stepDown}>
-                <Icon path={mdiChevronDown}/>
-            </span>
-        </div>
-    </div>
-    <slot name="hint"></slot>
-</label>
+</div>
 
 <style>
-    label {
-        display: inline-block;
-        width: var(--br-input-number-width);
-    }
-    .label-text:not(:empty) {
-        margin-block: var(--br-input-number-label-margin-block);
-        position: var(--br-input-number-label-position);
-        height: var(--br-input-number-label-height);
-        width: var(--br-input-number-label-width);
-        overflow: var(--br-input-number-label-overflow);
-    }
     input {
         border: none;
         outline: 0;
@@ -223,7 +201,6 @@
         border-radius: var(--br-input-number-border-radius);
         background-color: var(--br-input-number-background-color);
         height: var(--br-input-number-height);
-        width: 100%;
         transition: var(--br-input-number-transition);
     }
     .container:hover:not(:focus-within) {

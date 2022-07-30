@@ -116,39 +116,17 @@
     setContext('validation-message', validationMessageStore);
 </script>
 
-<!--
-	Svelte a11y check doesn't check nested labels-input pairs 🙄
- 	See https://github.com/sveltejs/svelte/issues/5300
--->
-<!-- svelte-ignore a11y-label-has-associated-control -->
-<label>
-    <div class="label-text">
-        <slot name="label"/>
-    </div>
-    <div class="container">
-        <!-- svelte-ignore a11y-autofocus -->
-        <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
-            {name} {readonly} {required} {step}
-            class="text-input" bind:value use:forward use:validate={{ invalid, error, validationMessageStore }}
-            type="time">
-    </div>
-    <slot name="hint"></slot>
-</label>
+<div class="container">
+    <!-- svelte-ignore a11y-autofocus -->
+    <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
+        {name} {readonly} {required} {step}
+        bind:value use:forward use:validate={{ invalid, error, validationMessageStore }}
+        type="time">
+</div>
 
 <style>
     @import "../css/picker_indicator.css";
 
-    label {
-        display: inline-block;
-        width: var(--br-input-time-root-width);
-    }
-    .label-text:not(:empty) {
-        margin-block: var(--br-input-time-root-label-margin-block);
-        position: var(--br-input-time-root-label-position);
-        height: var(--br-input-time-root-label-height);
-        width: var(--br-input-time-root-label-width);
-        overflow: var(--br-input-time-root-label-overflow);
-    }
     input::-webkit-calendar-picker-indicator {
         background-image: var(--br-input-time-root-background-image);
     }
@@ -167,7 +145,6 @@
         border-radius: var(--br-input-time-root-border-radius);
         background-color: var(--br-input-time-root-background-color);
         height: var(--br-input-time-root-height);
-        width: 100%;
         transition: var(--br-input-time-root-transition);
     }
     .container:hover:not(:focus-within) {

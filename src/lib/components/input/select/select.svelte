@@ -67,41 +67,19 @@
     const forward = createEventForwarder();
 </script>
 
-<!--
-	Svelte a11y check doesn't check nested labels-input pairs 🙄
- 	See https://github.com/sveltejs/svelte/issues/5300
--->
-<!-- svelte-ignore a11y-label-has-associated-control -->
-<label>
-    <div class="label-text">
-        <slot name="label"/>
-    </div>
-    <div class="container">
-        <!-- svelte-ignore a11y-autofocus -->
-        <select {autocomplete} {autofocus} {disabled} {form}
-            {name} {required}
-            bind:value {placeholder} use:forward>
-            {#if placeholder}
-                <Option value="" disabled selected>{placeholder}</Option>
-            {/if}
-            <slot></slot>
-        </select>
-    </div>
-    <slot name="hint"></slot>
-</label>
+<div class="container">
+    <!-- svelte-ignore a11y-autofocus -->
+    <select {autocomplete} {autofocus} {disabled} {form}
+        {name} {required}
+        bind:value {placeholder} use:forward>
+        {#if placeholder}
+            <Option value="" disabled selected>{placeholder}</Option>
+        {/if}
+        <slot></slot>
+    </select>
+</div>
 
 <style>
-    label {
-        display: inline-block;
-        width: var(--br-select-root-width);
-    }
-    .label-text:not(:empty) {
-        margin-block: var(--br-select-root-label-margin-block);
-        position: var(--br-select-root-label-position);
-        height: var(--br-select-root-label-height);
-        width: var(--br-select-root-label-width);
-        overflow: var(--br-select-root-label-overflow);
-    }
     select {
         width: var(--br-select-root-width);
         font-size: 14px;
@@ -122,7 +100,6 @@
         border-radius: var(--br-select-root-border-radius);
         background-color: var(--br-select-root-background-color);
         height: var(--br-select-root-height);
-        width: 100%;
         transition: var(--br-select-root-transition);
     }
     .container:hover:not(:focus-within) {

@@ -7,11 +7,7 @@
 
 <Component {docs}>
     <svelte:fragment slot="inline">
-        <DateTime value="2017-06-01T01:00">
-            <svelte:fragment slot="label">
-                This is a datetime label
-            </svelte:fragment>
-        </DateTime>
+        <DateTime value="2017-06-01T01:00"/>
     </svelte:fragment>
     <svelte:fragment slot="accessibility">
         You should always include the label text for the input for the benefit
@@ -19,19 +15,18 @@
         hide it if you must. For example:
         <Code language={svelte} code={`
 <div class="element">
-    <DateTime>
-        <svelte:fragment slot="label">
-            Expected arrival
-        </svelte:fragment>
-    </DateTime>
+    <Label>
+        Expected arrival
+        <DateTime slot='input'/>
+    </Label>
 </div>
 
 <style>
     .element {
-        --br-input-datetime-root-label-position: absolute;
-        --br-input-datetime-root-label-height: 1px;
-        --br-input-datetime-root-label-width: 1px;
-        --br-input-datetime-root-label-overflow: hidden;
+        --br-input-label-root-position: absolute;
+        --br-input-label-root-height: 1px;
+        --br-input-label-root-width: 1px;
+        --br-input-label-root-overflow: hidden;
     }
 </style>
 `}/>

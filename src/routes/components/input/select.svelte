@@ -19,22 +19,22 @@
         hide it if you must. For example:
         <Code language={svelte} code={`
 <div class="element">
-    <Select>
-        <svelte:fragment slot="label">
-            Ice cream
-        </svelte:fragment>
-        <Option value="1">Strawberry</Option>
-        <Option value="2">Vanilla</Option>
-        <Option value="3">Chocolate</Option>
-    </Select>
+    <Label>
+        Ice cream
+        <Select slot'input'>
+            <Option value="1">Strawberry</Option>
+            <Option value="2">Vanilla</Option>
+            <Option value="3">Chocolate</Option>
+        </Select>
+    </Label>
 </div>
 
 <style>
     .element {
-        --br-select-root-label-position: absolute;
-        --br-select-root-label-height: 1px;
-        --br-select-root-label-width: 1px;
-        --br-select-root-label-overflow: hidden;
+        --br-input-label-root-position: absolute;
+        --br-input-label-root-height: 1px;
+        --br-input-label-root-width: 1px;
+        --br-input-label-root-overflow: hidden;
     }
 </style>
 `}/>

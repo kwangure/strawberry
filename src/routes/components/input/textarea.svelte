@@ -28,10 +28,10 @@
 
 <style>
     .element {
-        --br-textarea-root-label-position: absolute;
-        --br-textarea-root-label-height: 1px;
-        --br-textarea-root-label-width: 1px;
-        --br-textarea-root-label-overflow: hidden;
+        --br-input-label-root-position: absolute;
+        --br-input-label-root-height: 1px;
+        --br-input-label-root-width: 1px;
+        --br-input-label-root-overflow: hidden;
     }
 </style>
 `}/>

@@ -41,34 +41,12 @@
     }
 </script>
 
-<!--
-	Svelte a11y check doesn't check nested labels-input pairs 🙄
- 	See https://github.com/sveltejs/svelte/issues/5300
--->
-<!-- svelte-ignore a11y-label-has-associated-control -->
-<label>
-    <div class="label-text">
-        <slot name="label"/>
-    </div>
-    <textarea class="text-input container" class:is_invalid={isInvalid}
-        bind:this={textarea} on:input={autosize}
-        on:blur={() => blurred = true}
-        use:forward bind:value {...$$restProps}/>
-    <slot name="hint"></slot>
-</label>
+<textarea class="container" class:is_invalid={isInvalid}
+    bind:this={textarea} on:input={autosize}
+    on:blur={() => blurred = true}
+    use:forward bind:value {...$$restProps}/>
 
 <style>
-    label {
-        display: inline-block;
-        width: var(--br-textarea-root-width);
-    }
-    .label-text:not(:empty) {
-        margin-block: var(--br-textarea-root-label-margin-block);
-        position: var(--br-textarea-root-label-position);
-        height: var(--br-textarea-root-label-height);
-        width: var(--br-textarea-root-label-width);
-        overflow: var(--br-textarea-root-label-overflow);
-    }
     textarea {
         border: none;
         outline: 0;
@@ -77,7 +55,6 @@
         color: var(--br-textarea-root-font-color);
         background-color: transparent;
         flex-grow: 1;
-        width: 100%;
         overflow: scroll;
         overflow-x: hidden;
         -ms-overflow-style: none;
@@ -92,7 +69,6 @@
         border-radius: var(--br-textarea-root-border-radius);
         background-color: var(--br-textarea-root-background-color);
         height: var(--br-textarea-root-height);
-        width: 100%;
         transition: var(--br-textarea-root-transition);
     }
     .container:hover:not(:focus-within) {

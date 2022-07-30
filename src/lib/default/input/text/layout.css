@@ -1,10 +1,5 @@
 :host,
 :root {
-    --br-input-text-root-label-margin-block: auto 5px;
-    --br-input-text-root-label-position: static;
-    --br-input-text-root-label-width: initial;
-    --br-input-text-root-label-height: initial;
-    --br-input-text-root-label-overflow: visible;
     --br-input-text-root-padding-block: 5px;
     --br-input-text-root-padding-inline: 12px;
     --br-input-text-root-width: fit-content;

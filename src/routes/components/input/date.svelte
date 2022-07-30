@@ -3,15 +3,12 @@
     import Component from '$lib/internal/component.svelte';
     import { Date } from '$lib/default/input/date';
     import { docs } from '$lib/docs/input/date';
+    import { Label } from '$lib/default/input/label';
 </script>
 
 <Component {docs}>
     <svelte:fragment slot="inline">
-        <Date value="2017-06-01">
-            <svelte:fragment slot="label">
-                This is a date label
-            </svelte:fragment>
-        </Date>
+        <Date value="2017-06-01"/>
     </svelte:fragment>
     <svelte:fragment slot="accessibility">
         You should always include the label text for the input for the benefit
@@ -19,19 +16,18 @@
         hide it if you must. For example:
         <Code language={svelte} code={`
 <div class="element">
-    <Date>
-        <svelte:fragment slot="label">
-            Birthday
-        </svelte:fragment>
-    </Date>
+    <Label>
+        Birthday
+        <Date slot='input'/>
+    </Label>
 </div>
 
 <style>
     .element {
-        --br-input-date-root-label-position: absolute;
-        --br-input-date-root-label-height: 1px;
-        --br-input-date-root-label-width: 1px;
-        --br-input-date-root-label-overflow: hidden;
+        --br-input-label-root-position: absolute;
+        --br-input-label-root-height: 1px;
+        --br-input-label-root-width: 1px;
+        --br-input-label-root-overflow: hidden;
     }
 </style>
 `}/>

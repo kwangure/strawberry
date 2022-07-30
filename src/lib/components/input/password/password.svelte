@@ -109,37 +109,15 @@
     setContext('validation-message', validationMessageStore);
 </script>
 
-<!--
-	Svelte a11y check doesn't check nested labels-input pairs 🙄
- 	See https://github.com/sveltejs/svelte/issues/5300
--->
-<!-- svelte-ignore a11y-label-has-associated-control -->
-<label>
-    <div class="label-text">
-        <slot name="label"/>
-    </div>
-    <div class="container">
-        <!-- svelte-ignore a11y-autofocus -->
-        <input bind:value use:forward type='password'
-            {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
-            {name} {placeholder} {readonly} {required}
-            use:validate={{ invalid, error, validationMessageStore }}/>
-    </div>
-    <slot name="hint"></slot>
-</label>
+<div class="container">
+    <!-- svelte-ignore a11y-autofocus -->
+    <input bind:value use:forward type='password'
+        {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
+        {name} {placeholder} {readonly} {required}
+        use:validate={{ invalid, error, validationMessageStore }}/>
+</div>
 
 <style>
-    label {
-        display: inline-block;
-        width: var(--br-input-password-root-width);
-    }
-    .label-text:not(:empty) {
-        margin-block: var(--br-input-password-root-label-margin-block);
-        position: var(--br-input-password-root-label-position);
-        height: var(--br-input-password-root-label-height);
-        width: var(--br-input-password-root-label-width);
-        overflow: var(--br-input-password-root-label-overflow);
-    }
     input {
         border: none;
         outline: 0;
@@ -155,7 +133,6 @@
         border-radius: var(--br-input-password-root-border-radius);
         background-color: var(--br-input-password-root-background-color);
         height: var(--br-input-password-root-height);
-        width: 100%;
         transition: var(--br-input-password-root-transition);
     }
     .container:hover:not(:focus-within) {
