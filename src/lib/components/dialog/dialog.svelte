@@ -168,7 +168,7 @@
 		inset: 0;
 		border-radius: 4px;
 		box-shadow: var(--br-dialog-root-box-shadow);
-		z-index: var(--layer-important);
+		z-index: 100000;
 		overflow: hidden;
 		transition: opacity .5s cubic-bezier(.25, 0, .3, 1);
 		background-color: var(--br-dialog-root-background-color);
