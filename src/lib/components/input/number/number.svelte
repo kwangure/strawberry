@@ -7,7 +7,7 @@
 <script>
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
-    import Icon from '../../icon';
+    import { Icon } from '../../icon';
     import { setContext } from 'svelte';
     import { validate } from '../validate';
     import { writable } from 'svelte/store';
