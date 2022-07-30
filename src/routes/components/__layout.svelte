@@ -1,5 +1,5 @@
 <script>
-    import Sidebar, { Item, Section } from '$lib/default/sidebar';
+    import { Item, Section, Sidebar } from '$lib/default/sidebar';
     import { base } from '$app/paths';
     import Layout from '$lib/internal/layout.svelte';
     import { page } from '$app/stores';
@@ -80,16 +80,6 @@
                                 Number
                             </Item>
                         </a>
-                        <a href="{base}/components/input/checkbox">
-                            <Item active={path === `${base}/components/input/checkbox`}>
-                                Checkbox
-                            </Item>
-                        </a>
-                        <a href="{base}/components/input/radio">
-                            <Item active={path === `${base}/components/input/radio`}>
-                                Radio
-                            </Item>
-                        </a>
                         <a href="{base}/components/input/select">
                             <Item active={path === `${base}/components/input/select`}>
                                 Select
@@ -123,11 +113,6 @@
                         <a href="{base}/components/modal">
                             <Item active={path === `${base}/components/modal`}>
                                 Modal
-                            </Item>
-                        </a>
-                        <a href="{base}/components/notification">
-                            <Item active={path === `${base}/components/notification`}>
-                                Notification
                             </Item>
                         </a>
                         <a href="{base}/components/tooltip">

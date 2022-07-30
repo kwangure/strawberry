@@ -1,6 +1,3 @@
-import Arrow from './arrow.svelte';
-import Popup from './popup.svelte';
-import Tooltip from './tooltip.svelte';
-
-export default Tooltip;
-export { Arrow, Popup };
+export { default as Arrow } from './arrow.svelte';
+export { default as Popup } from './popup.svelte';
+export { default as Tooltip } from './tooltip.svelte';

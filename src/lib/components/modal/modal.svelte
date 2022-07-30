@@ -5,11 +5,11 @@
     the page.
 -->
 <script>
-    import Button from '../button';
+    import { Button } from '../button';
     import { createEventDispatcher } from 'svelte';
     import { crossscale } from '../../utils/crosstransition.js';
     import { fade } from 'svelte/transition';
-    import Icon from '../icon';
+    import { Icon } from '../icon';
     import { mdiClose } from '@mdi/js';
 
     /**

@@ -1,5 +1,5 @@
 <script>
-    import Navbar, { Item, Logo, Section } from '$lib/default/navbar';
+    import { Item, Logo, Navbar, Section } from '$lib/default/navbar';
     import { base } from '$app/paths';
     import { page } from '$app/stores';
 

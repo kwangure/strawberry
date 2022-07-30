@@ -1,5 +1,2 @@
-import Icon from './icon.svelte';
-import Path from './path.svelte';
-
-export default Icon;
-export { Path };
+export { default as Icon } from './icon.svelte';
+export { default as Path } from './path.svelte';

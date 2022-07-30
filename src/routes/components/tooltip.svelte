@@ -1,6 +1,6 @@
 <script>
-    import Button, { Primary } from '$lib/default/button';
-    import Tooltip, { Arrow, Popup } from '$lib/default/tooltip';
+    import { Arrow, Popup, Tooltip } from '$lib/default/tooltip';
+    import { Button, Primary } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/tooltip';
 

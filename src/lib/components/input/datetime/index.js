@@ -1,3 +1,1 @@
-import DateTime from './datetime.svelte';
-
-export default DateTime;
+export { default as DateTime } from './datetime.svelte';

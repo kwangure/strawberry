@@ -1,6 +1,6 @@
 <script>
     import { Content, Dialog } from '$lib/default/dialog';
-    import Button from '$lib/default/button';
+    import { Button } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/dialog';
 

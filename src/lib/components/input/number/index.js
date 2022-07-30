@@ -1,3 +1,1 @@
-import Number from './number.svelte';
-
-export default Number;
+export { default as Number } from './number.svelte';

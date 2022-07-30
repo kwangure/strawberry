@@ -1,3 +1,1 @@
-import Element from './element.svelte';
-
-export default Element;
+export { default as Element } from './element.svelte';

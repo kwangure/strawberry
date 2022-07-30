@@ -1,6 +1,3 @@
-import Item from './item.svelte';
-import Section from './section.svelte';
-import Sidebar from './sidebar.svelte';
-
-export default Sidebar;
-export { Item, Section };
+export { default as Item } from './item.svelte';
+export { default as Section } from './section.svelte';
+export { default as Sidebar } from './sidebar.svelte';

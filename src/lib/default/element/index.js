@@ -1,1 +1,1 @@
-export { default } from '$lib/components/element';
+export * from '$lib/components/element';

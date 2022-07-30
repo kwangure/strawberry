@@ -1,5 +1,5 @@
 <script>
-    import Navbar, { Logo, Section } from '$lib/default/navbar';
+    import { Logo, Navbar, Section } from '$lib/default/navbar';
     import { base } from '$app/paths';
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-    import Button, { Primary } from '$lib/default/button';
+    import { Button, Primary } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/button';
 </script>

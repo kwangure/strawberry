@@ -1,6 +1,6 @@
 <script>
-    import Code, { svelte } from '$lib/default/code';
-    import Select, { Option } from '$lib/default/input/select';
+    import { Code, svelte } from '$lib/default/code';
+    import { Option, Select } from '$lib/default/input/select';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/input/select';
 </script>

@@ -1,3 +1,1 @@
-import Text from './text.svelte';
-
-export default Text;
+export { default as Text } from './text.svelte';

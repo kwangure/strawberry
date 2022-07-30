@@ -1,6 +1,6 @@
 <script>
-    import Dropdown, { Arrow, Item, Popup } from '$lib/default/dropdown';
-    import Button from '$lib/default/button';
+    import { Arrow, Dropdown, Item, Popup } from '$lib/default/dropdown';
+    import { Button } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/dropdown';
 </script>

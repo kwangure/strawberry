@@ -138,11 +138,8 @@
 <dialog bind:this={dialog} inert class:modal={isModal} use:enhance
 	class:non-modal={!isModal}>
 	<form method="dialog" bind:this={form}>
-		<!--*  -->
 		<slot name='header' {context}/>
-		<!--*  -->
 		<slot name='content' {context}/>
-		<!--*  -->
 		<slot name='footer' {context}/>
 	</form>
 </dialog>

@@ -1,5 +1,5 @@
 <script>
-    import Code, { javascript } from '$lib/components/code';
+    import { Code, javascript } from '$lib/components/code';
 
     export let prop;
 

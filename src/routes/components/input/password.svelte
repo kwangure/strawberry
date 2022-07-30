@@ -1,8 +1,8 @@
 <script>
-    import Code, { svelte } from '$lib/default/code';
+    import { Code, svelte } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/input/password';
-    import Password from '$lib/default/input/password';
+    import { Password } from '$lib/default/input/password';
 </script>
 
 <Component {docs}>

@@ -1,3 +1,1 @@
-import Hint from './hint.svelte';
-
-export default Hint;
+export { default as Hint } from './hint.svelte';

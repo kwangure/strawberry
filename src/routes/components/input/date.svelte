@@ -1,7 +1,7 @@
 <script>
-    import Code, { svelte } from '$lib/default/code';
+    import { Code, svelte } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
-    import Date from '$lib/default/input/date';
+    import { Date } from '$lib/default/input/date';
     import { docs } from '$lib/docs/input/date';
 </script>
 

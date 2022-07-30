@@ -1,3 +1,1 @@
-import Time from './time.svelte';
-
-export default Time;
+export { default as Time } from './time.svelte';

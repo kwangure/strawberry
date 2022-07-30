@@ -1,7 +1,4 @@
-import Item from './item.svelte';
-import Logo from './logo.svelte';
-import Navbar from './navbar.svelte';
-import Section from './section.svelte';
-
-export default Navbar;
-export { Item, Logo, Section };
+export { default as Item } from './item.svelte';
+export { default as Logo } from './logo.svelte';
+export { default as Navbar } from './navbar.svelte';
+export { default as Section } from './section.svelte';

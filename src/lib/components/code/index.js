@@ -1,6 +1,4 @@
-import Code from './code.svelte';
-
-export default Code;
+export { default as Code } from './code.svelte';
 export { default as css } from './languages/css.js';
 export { default as html } from './languages/html.js';
 export { default as javascript } from './languages/javascript.js';
