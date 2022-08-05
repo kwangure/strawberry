@@ -10,6 +10,8 @@
 <style>
     nav {
         display: flex;
+        align-items: var(--br-navbar-root-align-items);
+        justify-content: var(--br-navbar-root-justify-content);
         height: var(--br-navbar-root-height);
         width: var(--br-navbar-root-width);
         border-bottom: var(--br-navbar-root-border-bottom);

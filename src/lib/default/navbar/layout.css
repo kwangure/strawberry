@@ -1,6 +1,7 @@
 :host,
 :root {
     --br-navbar-root-height: 48px;
+    --br-navbar-root-align-items: center;
     --br-navbar-root-border-bottom: none;
 
     --br-navbar-logo-padding-block: initial;
