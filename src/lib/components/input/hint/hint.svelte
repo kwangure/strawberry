@@ -5,15 +5,11 @@
     the input satisfies those constraints using a validation message.
 -->
 <script>
-    import { getContext } from 'svelte';
-
-    const validationMessageStore = getContext('validation-message') || { subscribe() {} };
+    export let invalid = false;
 </script>
 
-<div class="hint" class:invalid={Boolean($validationMessageStore)}>
-    <slot message={$validationMessageStore}>
-        {$validationMessageStore}
-    </slot>
+<div class="hint" class:invalid>
+    <slot/>
 </div>
 
 <style>
@@ -24,8 +20,7 @@
         color: var(--br-input-hint-root-font-color);
         font-size: var(--br-input-hint-root-font-size);
     }
-    /* Use pseudoselector to match '.hint' specificity */
-    .invalid:not(:empty) {
+    div.invalid:not(:empty) {
         color: var(--br-input-hint-root-invalid-font-color);
     }
 </style>

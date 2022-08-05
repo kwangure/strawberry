@@ -111,16 +111,13 @@
     export let value = '';
 
     const forward = createEventForwarder();
-    const validationMessageStore = writable('');
-
-    setContext('validation-message', validationMessageStore);
 </script>
 
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
     <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
         {name} {readonly} {required} {step}
-        bind:value use:forward use:validate={{ invalid, error, validationMessageStore }}
+        bind:value use:forward use:validate={{ invalid, error }}
         type="time">
 </div>
 

@@ -26,18 +26,16 @@ function getErrorMessage(input, invalid, error) {
  * @typedef {{
  *     invalid?: (input: HTMLInputElement) => string,
  *     error?: (error: string, input: HTMLInputElement) => string,
- *     validationMessageStore: import("svelte/store").Writable<string>,
  * }} ValidateOptions
  * @param {HTMLInputElement} input
  * @param {ValidateOptions} options
  */
 export function validate(input, options) {
 	const noop = () => '';
-	let { invalid = noop, error = noop, validationMessageStore } = options;
+	let { invalid = noop, error = noop } = options;
 
 	function setErrorMessage() {
 		const message = getErrorMessage(input, invalid, error);
-		validationMessageStore.set(message);
 		return Boolean(message);
 	}
 

@@ -6,9 +6,7 @@
 -->
 <script>
     import { createEventForwarder } from '../../../utils/forward-events.js';
-    import { setContext } from 'svelte';
     import { validate } from '../validate';
-    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -110,16 +108,13 @@
     export let value = '';
 
     const forward = createEventForwarder();
-    const validationMessageStore = writable('');
-
-    setContext('validation-message', validationMessageStore);
 </script>
 
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
     <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
         {name} {readonly} {required} {step}
-        bind:value use:forward use:validate={{ invalid, error, validationMessageStore }}
+        bind:value use:forward use:validate={{ invalid, error }}
         type="date">
 </div>
 

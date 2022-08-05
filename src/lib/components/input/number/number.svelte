@@ -8,9 +8,7 @@
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
     import { Icon } from '../../icon';
-    import { setContext } from 'svelte';
     import { validate } from '../validate';
-    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -107,10 +105,6 @@
      */
     export let value = undefined;
 
-    const validationMessageStore = writable('');
-
-    setContext('validation-message', validationMessageStore);
-
     const forward = createEventForwarder();
 
     let input = /** @type {HTMLInputElement}*/ ({
@@ -136,7 +130,7 @@
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:this={input} bind:value
-        type="number" use:forward use:validate={{ invalid, error, validationMessageStore }}
+        type="number" use:forward use:validate={{ invalid, error }}
         {autocomplete} {autofocus} {form} {list} {max} {min} {name}
         {placeholder} {required} {readonly} {step}>
     <div class="postfix-wrapper">

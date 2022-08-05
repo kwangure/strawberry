@@ -8,9 +8,7 @@
 -->
 <script>
     import { createEventForwarder } from '../../../utils/forward-events.js';
-    import { setContext } from 'svelte';
     import { validate } from '../validate';
-    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -104,9 +102,6 @@
     export let value = '';
 
     const forward = createEventForwarder();
-    const validationMessageStore = writable('');
-
-    setContext('validation-message', validationMessageStore);
 </script>
 
 <div class="container">
@@ -114,7 +109,7 @@
     <input bind:value use:forward type='password'
         {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
         {name} {placeholder} {readonly} {required}
-        use:validate={{ invalid, error, validationMessageStore }}/>
+        use:validate={{ invalid, error }}/>
 </div>
 
 <style>
