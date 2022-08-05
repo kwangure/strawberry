@@ -14,7 +14,7 @@ function setValidationMessage(input, invalid, error) {
 	let customValidityError = '';
 	if (customValidityCheck) {
 		customValidityError = error(customValidityCheck, input)
-                || 'The value you entered for this field is invalid.';
+				|| 'The value you entered for this field is invalid.';
 	}
 
 	input.setCustomValidity(customValidityError);
@@ -93,8 +93,8 @@ export function validate(input, options) {
 
 	return {
 		/**
-         * @param {ValidateOptions} options
-         */
+		 * @param {ValidateOptions} options
+		 */
 		update(options) {
 			({ invalid = noop, error = noop } = options);
 		},
