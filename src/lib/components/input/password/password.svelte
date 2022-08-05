@@ -40,6 +40,20 @@
     export let form = undefined;
 
     /**
+     * The id of the aria-describedby element.
+     *
+     * @type {string | undefined}
+     */
+    export let hint = undefined;
+
+    /**
+     * The id of the password input
+     *
+     * @type {string | undefined}
+     */
+    export let id = undefined;
+
+    /**
      * A function that returns the validity of the input.
      *
      * @type {((input: HTMLInputElement) => string) | undefined}
@@ -107,8 +121,8 @@
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:value use:forward type='password'
-        {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
-        {name} {placeholder} {readonly} {required}
+        {autocomplete} {autofocus} {form} {id} {list} {maxlength} {minlength}
+        {name} {placeholder} {readonly} {required} aria-describedby={hint}
         use:validate={{ invalid, error }}/>
 </div>
 

@@ -40,6 +40,20 @@
     export let form = undefined;
 
     /**
+     * The id of the aria-describedby element.
+     *
+     * @type {string | undefined}
+     */
+    export let hint = undefined;
+
+    /**
+     * The id of the number input
+     *
+     * @type {string | undefined}
+     */
+    export let id = undefined;
+
+    /**
      * A function that returns the validity of the input.
      *
      * @type {((input: HTMLInputElement) => string) | undefined}
@@ -131,8 +145,8 @@
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:this={input} bind:value
         type="number" use:forward use:validate={{ invalid, error }}
-        {autocomplete} {autofocus} {form} {list} {max} {min} {name}
-        {placeholder} {required} {readonly} {step}>
+        {autocomplete} {autofocus} {form} {id} {list} {max} {min} {name}
+        {placeholder} {required} {readonly} {step} aria-describedby={hint}>
     <div class="postfix-wrapper">
         <span class="postfix-up" on:click={stepUp}>
             <Icon path={mdiChevronUp}/>

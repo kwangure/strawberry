@@ -6,12 +6,18 @@
 -->
 <script>
     /**
+     * The id of the hint
+     *
+     * @type {string | undefined}
+     */
+    export let id = undefined;
+    /**
      * @type {any}
      */
     export let invalid = false;
 </script>
 
-<div class="hint" class:invalid>
+<div {id} class="hint" class:invalid>
     <slot/>
 </div>
 

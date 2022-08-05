@@ -38,6 +38,20 @@
     export let form = undefined;
 
     /**
+     * The id of the aria-describedby element.
+     *
+     * @type {string | undefined}
+     */
+    export let hint = undefined;
+
+    /**
+     * The id of the select element.
+     *
+     * @type {string | undefined}
+     */
+    export let id = undefined;
+
+    /**
      * The name of the select. Submitted with form as part of a name/value pair.
      *
      * @type {string | undefined}
@@ -69,9 +83,9 @@
 
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
-    <select {autocomplete} {autofocus} {disabled} {form}
-        {name} {required}
-        bind:value {placeholder} use:forward>
+    <select {autocomplete} {autofocus} {disabled} {form} {id}
+        {name} {required} bind:value {placeholder}
+        aria-describedby={hint} use:forward>
         {#if placeholder}
             <Option value="" disabled selected>{placeholder}</Option>
         {/if}

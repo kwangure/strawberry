@@ -46,6 +46,20 @@
     export let form = undefined;
 
     /**
+     * The id of the aria-describedby element.
+     *
+     * @type {string | undefined}
+     */
+    export let hint = undefined;
+
+    /**
+     * The id of the datetime input
+     *
+     * @type {string | undefined}
+     */
+    export let id = undefined;
+
+    /**
      * A function that returns the validity of the input.
      *
      * @type {((input: HTMLInputElement) => string) | undefined}
@@ -106,8 +120,8 @@
 
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
-    <input {autocomplete} {autofocus} {disabled} {form}
-        {list} {max} {min} {name} {readonly} {step}
+    <input {autocomplete} {autofocus} {disabled} {form} {id}
+        {list} {max} {min} {name} {readonly} {step} aria-describedby={hint}
         bind:value use:forward use:validate={{ invalid, error }}
         type="datetime-local">
 </div>

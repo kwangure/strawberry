@@ -5,9 +5,7 @@
 -->
 <script>
     import { createEventForwarder } from '../../../utils/forward-events.js';
-    import { setContext } from 'svelte';
     import { validate } from '../validate';
-    import { writable } from 'svelte/store';
 
     /**
      * Guidance to the browser on information expected in the field.
@@ -44,6 +42,20 @@
      * @type {string | undefined}
      */
     export let form = undefined;
+
+    /**
+     * The id of the aria-describedby element.
+     *
+     * @type {string | undefined}
+     */
+    export let hint = undefined;
+
+    /**
+     * The id of the number input
+     *
+     * @type {string | undefined}
+     */
+    export let id = undefined;
 
     /**
      * A function that returns the validity of the input.
@@ -115,8 +127,8 @@
 
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
-    <input {autocomplete} {autofocus} {disabled} {form} {list} {max} {min}
-        {name} {readonly} {required} {step}
+    <input {autocomplete} {autofocus} {disabled} {form} {id} {list} {max} {min}
+        {name} {readonly} {required} {step} aria-describedby={hint}
         bind:value use:forward use:validate={{ invalid, error }}
         type="time">
 </div>

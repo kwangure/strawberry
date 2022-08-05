@@ -38,6 +38,20 @@
     export let form = undefined;
 
     /**
+     * The id of the aria-describedby element.
+     *
+     * @type {string | undefined}
+     */
+    export let hint = undefined;
+
+    /**
+     * The id of the text input
+     *
+     * @type {string | undefined}
+     */
+    export let id = undefined;
+
+    /**
      * A function that returns the validity of the input.
      *
      * @type {((input: HTMLInputElement) => string) | undefined}
@@ -105,8 +119,8 @@
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:value use:forward use:validate={{ invalid, error }}
-        type="text"
-        {autocomplete} {autofocus} {form} {list} {maxlength} {minlength}
+        type="text" aria-describedby={hint}
+        {autocomplete} {autofocus} {form} {id} {list} {maxlength} {minlength}
         {name} {placeholder} {readonly} {required}>
 </div>
 
