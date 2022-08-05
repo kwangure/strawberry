@@ -96,11 +96,16 @@ h6 {
 a {
     touch-action: manipulation;
     text-decoration: none;
+    color: inherit;
+}
+
+/* TODO: Move to default theme? */
+a.colored {
     color: var(--br-link-font-color);
 }
 
-a:hover,
-a:active {
+a.colored:hover,
+a.colored:active {
     color: var(--br-link-hover-font-color);
 }
 
