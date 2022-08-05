@@ -5,6 +5,9 @@
     the input satisfies those constraints using a validation message.
 -->
 <script>
+    /**
+     * @type {any}
+     */
     export let invalid = false;
 </script>
 
