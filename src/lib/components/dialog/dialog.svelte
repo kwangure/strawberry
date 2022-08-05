@@ -6,11 +6,11 @@
 
 	/**
 	 * When called, the function opens the dialog in non-modal mode
-	 * @type {(options: { value: any; }) => void}
+	 * @type {(options: { target?: { value: any }; }) => void}
 	 */
 	export const show = _show;
 	/**
-	 * @param {{ value: any; }} options
+	 * @param {{ target?: { value: any }; }} options
 	 */
 	function _show(options) {
 		isModal = false;
@@ -20,12 +20,14 @@
 
 	/**
 	 * When called, the function opens the dialog in modal mode
-	 * @type {(options: { value: any; }) => void}
+	 * @type {(options: { target?: { value: any }; }) => void}
 	 */
 	export const showModal = _showModal;
 	/**
 	 * @param {{
-	 * 		value?: any;
+	 * 		target?: {
+	 * 			value: any;
+	 * 		},
 	 * }} options
 	 */
 	function _showModal(options) {
@@ -64,11 +66,13 @@
 
 	/**
 	 * @param {{
-	 * 		value?: any
+	 * 		target?: {
+	 * 			value: any
+	 * 		}
 	 * }} options
 	 */
 	function handleOpen(options = {}) {
-		context = options.value;
+		context = options.target?.value;
 		dialog.removeAttribute('inert');
 
 		const focusTarget = /** @type {HTMLInputElement}*/(dialog.querySelector('[autofocus]'));
