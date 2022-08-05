@@ -5,8 +5,8 @@ import { listen } from 'svelte/internal';
  * @param {(input: HTMLInputElement) => string} invalid
  * @param {(error: string, input: HTMLInputElement) => string} error
  */
-function getErrorMessage(input, invalid, error) {
-	if (input.disabled) return '';
+function setValidationMessage(input, invalid, error) {
+	if (input.disabled) return;
 
 	// Set customValidity to user-provided error. Otherwise set to empty string
 	// to reset customValidity, telling the browser to run built-in validation
@@ -18,8 +18,6 @@ function getErrorMessage(input, invalid, error) {
 	}
 
 	input.setCustomValidity(customValidityError);
-
-	return input.validationMessage;
 }
 
 /**
@@ -34,38 +32,63 @@ export function validate(input, options) {
 	const noop = () => '';
 	let { invalid = noop, error = noop } = options;
 
-	function setErrorMessage() {
-		const message = getErrorMessage(input, invalid, error);
-		return Boolean(message);
-	}
-
 	/** @type {{ (): void; }[]} */
-	const unsubscribers = [];
+	const cleanupQueue = [
+		listen(input, 'blur', _validate, { capture: true }),
+		listen(input, 'invalid', handleInvalid, { capture: true }),
+		input.form
+			? listen(input.form, 'submit', handleSubmit, { capture: true })
+			: noop,
+	];
+
 	listen(input, 'blur', () => {
-		unsubscribers.push(listen(input, 'input', setErrorMessage, { capture: true }));
+		cleanupQueue.push(listen(input, 'input', _validate, { capture: true }));
 	}, { once: true });
 
-	unsubscribers.push(listen(input, 'blur', setErrorMessage, { capture: true }));
-	unsubscribers.push(listen(input, 'invalid', (event) => {
+	function _validate() {
+		setValidationMessage(input, invalid, error);
+		const validate = new CustomEvent('validate', {
+			bubbles: true,
+			detail: {
+				validationMessage: input.validationMessage,
+			},
+		});
+		input.dispatchEvent(validate);
+	}
+
+	/**
+	 * @param {HTMLFormElement} form
+	 */
+	function focusInvalidInput(form) {
+		const firstInvalidInput
+			= /** @type {HTMLInputElement} */ (form.querySelector(':invalid'));
+		firstInvalidInput.focus();
+	}
+
+	/**
+	 * @param {Event} event
+	 */
+	function handleInvalid(event) {
+		_validate();
 		// Do not show native validation prompt
 		event.preventDefault();
-		setErrorMessage();
 		if (input.form) {
-			const firstInvalidInput = /** @type {HTMLInputElement} */(input.
-				form.querySelector(':invalid'));
-			firstInvalidInput.focus();
+			focusInvalidInput(input.form);
 		} else {
 			input.focus();
 		}
-	}, { capture: true }));
+	}
 
-	if (input.form) {
-		unsubscribers.push(listen(input.form, 'submit', (event) => {
-			const hasError = setErrorMessage();
-			if (hasError) {
-				event.preventDefault();
-			}
-		}, { capture: true }));
+	/**
+	 * @param {Event} event
+	 */
+	function handleSubmit(event) {
+		_validate();
+		// Input has error, prevent form submission
+		if (input.validationMessage) {
+			event.preventDefault();
+			focusInvalidInput(/** @type {HTMLFormElement} */(input.form));
+		}
 	}
 
 	return {
@@ -76,7 +99,7 @@ export function validate(input, options) {
 			({ invalid = noop, error = noop } = options);
 		},
 		destroy() {
-			unsubscribers.forEach((fn) => fn());
+			cleanupQueue.forEach((fn) => fn());
 		},
 	};
 }
