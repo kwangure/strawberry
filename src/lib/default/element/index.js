@@ -1,1 +1,1 @@
-export * from '$lib/components/element';
+export * from '../../components/element';

@@ -2,4 +2,4 @@ import './index.css';
 import '../../../css/reset.css';
 import '../../../css/globals.css';
 
-export * from '$lib/components/input/datetime';
+export * from '../../../components/input/datetime';

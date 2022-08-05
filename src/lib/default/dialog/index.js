@@ -1,1 +1,1 @@
-export * from '$lib/components/dialog';
+export * from '../../components/dialog';
