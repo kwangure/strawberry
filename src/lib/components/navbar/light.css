@@ -1,9 +1,0 @@
-:host,
-:root {
-    --br-navbar-item-hover-font-color: inherit;
-    --br-navbar-item-hover-background-color: rgb(240, 240, 240);
-    --br-navbar-item-active-background-color: hsl(215deg 100% 90%);
-    --br-navbar-item-active-font-color: hsl(225deg 100% 60%);
-    --br-navbar-item-active-hover-background-color: hsl(215deg 100% 85%);
-    --br-navbar-item-active-hover-font-color: hsl(225deg 100% 45%);
-}

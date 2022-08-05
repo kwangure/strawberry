@@ -1,8 +1,0 @@
-:host,
-:root {
-    --br-switch-root-thumb-size: 1.25rem;
-    --br-switch-root-thumb-radius-hover-box-shadow: 0.5rem;
-    --br-switch-root-thumb-transition-duration: 0.25s;
-    --br-switch-root-track-padding: 2px;
-    --br-switch-root-track-size: calc(var(--br-switch-root-thumb-size) * 2);
-}
