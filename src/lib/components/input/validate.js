@@ -42,10 +42,10 @@ export function validate(input, options) {
 	/** @type {{ (): void; }[]} */
 	const unsubscribers = [];
 	listen(input, 'blur', () => {
-		unsubscribers.push(listen(input, 'input', setErrorMessage));
+		unsubscribers.push(listen(input, 'input', setErrorMessage, { capture: true }));
 	}, { once: true });
 
-	unsubscribers.push(listen(input, 'blur', setErrorMessage));
+	unsubscribers.push(listen(input, 'blur', setErrorMessage, { capture: true }));
 	unsubscribers.push(listen(input, 'invalid', (event) => {
 		// Do not show native validation prompt
 		event.preventDefault();
@@ -57,7 +57,7 @@ export function validate(input, options) {
 		} else {
 			input.focus();
 		}
-	}));
+	}, { capture: true }));
 
 	if (input.form) {
 		unsubscribers.push(listen(input.form, 'submit', (event) => {
@@ -65,7 +65,7 @@ export function validate(input, options) {
 			if (hasError) {
 				event.preventDefault();
 			}
-		}));
+		}, { capture: true }));
 	}
 
 	return {
