@@ -2,6 +2,80 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.45.0](https://github.com/kwangure/strawberry/compare/v0.44.0...v0.45.0) (2022-08-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* externalize input label
+* prefer non-default imports
+* add root- prefix to custom properties
+* abandon checkbox, radio, notification
+* delete legacy theme component
+* migrate dropdown to @floating-ui
+* migrate tooltip to @floating-ui
+* delete svg tooltip
+* separate components and styling
+* match Navbar api to other components
+* remove a lot of global custom properties
+* externalize global styles
+* make sidebar styles configurable
+* externalize hints from input components
+* remove dropdown link component
+* match switch api with the other components
+* delete sidebar links
+* rename text-color to font-color
+* remove restProps from password input
+
+### Features
+
+* abandon checkbox, radio, notification ([a7befd9](https://github.com/kwangure/strawberry/commit/a7befd92509ff1cc322ca29b58c27a436f10c4ac))
+* add dialog component ([0b3f09e](https://github.com/kwangure/strawberry/commit/0b3f09e15d98d8339603f14021d131525271d774))
+* add form id helper ([d889d4c](https://github.com/kwangure/strawberry/commit/d889d4c6dfb9e3de508551c5998321c3e2d59f8d))
+* add hint invalid prop type ([1d8118d](https://github.com/kwangure/strawberry/commit/1d8118d3242220d4d3f656a4172d6e19cfdc0db7))
+* add id and hint id to inputs ([926fe83](https://github.com/kwangure/strawberry/commit/926fe838b9692f6d6179bc6bea35b97f137895d5))
+* default to no padding on sidebar item ([0aa9868](https://github.com/kwangure/strawberry/commit/0aa98687aa4820f95038351df0355554fdc87197))
+* delete legacy theme component ([334fb08](https://github.com/kwangure/strawberry/commit/334fb08ba123e0372b68a6531eac1118ab816ac5))
+* delete sidebar links ([22869d8](https://github.com/kwangure/strawberry/commit/22869d816ec11c4cbc2b373cf3077ee7565e9205))
+* delete svg tooltip ([c5818ed](https://github.com/kwangure/strawberry/commit/c5818eda618ec1f3b4d8022b98fcae8952e1166e))
+* emit validate event on inputs ([589bbcd](https://github.com/kwangure/strawberry/commit/589bbcd6568af0ebb38fef0a12ba691bc2821bbb))
+* evaluate user error first before built in validation ([90e2671](https://github.com/kwangure/strawberry/commit/90e2671dd3feaaf2f08e8fc03eafac808e0ddaef))
+* expose default theme ([dcd0678](https://github.com/kwangure/strawberry/commit/dcd0678df58174a7c934b808b21d305045c672f1))
+* externalize global styles ([bf05cc2](https://github.com/kwangure/strawberry/commit/bf05cc29d72e9cb808bd0b31be234b2ef93199c5))
+* externalize hints from input components ([647e3bf](https://github.com/kwangure/strawberry/commit/647e3bfdefa2f72a8d60c6b9dd8e71b2282e19cf))
+* make anchor tag color opt-in ([cadfd50](https://github.com/kwangure/strawberry/commit/cadfd509e0c24d32e05fcb2aa9ce92719579ca82))
+* make dropdown flex gap configurable ([18c9ab1](https://github.com/kwangure/strawberry/commit/18c9ab1f8aa1ffd5476b059d48d2a1182bf0ce5e))
+* make links snappy ([749e476](https://github.com/kwangure/strawberry/commit/749e4762b12982c15819f9799fb764a6dffe0dae))
+* make navbar alignment configurable ([42ff297](https://github.com/kwangure/strawberry/commit/42ff2970355529bb0ed5c4a119073985a218f6be))
+* make sidebar styles configurable ([565f231](https://github.com/kwangure/strawberry/commit/565f2314c673a9498e2fdc38080febd030bb6cff))
+* match Navbar api to other components ([4a4d825](https://github.com/kwangure/strawberry/commit/4a4d8253e8954200f9c1f8036a28dcc9e125bf83))
+* match switch api with the other components ([4be51c3](https://github.com/kwangure/strawberry/commit/4be51c3de82629644af19005b793ba01bed5b236))
+* migrate dropdown to [@floating-ui](https://github.com/floating-ui) ([9f83bcb](https://github.com/kwangure/strawberry/commit/9f83bcb3cce62d1e80e40f826e52e716d3a61ad5))
+* migrate tooltip to [@floating-ui](https://github.com/floating-ui) ([b7cd138](https://github.com/kwangure/strawberry/commit/b7cd13835b7a4ca9cbc8d80fb315be64dcf69e2c))
+* remove a lot of global custom properties ([6e09b14](https://github.com/kwangure/strawberry/commit/6e09b145d859a1f9987adcbbe423d085c1c3b945))
+* remove dropdown link component ([6e3c9ef](https://github.com/kwangure/strawberry/commit/6e3c9efb118c723a75aabc4f27460a247a26b8be))
+* remove restProps from password input ([421a6d7](https://github.com/kwangure/strawberry/commit/421a6d742e1a475d5558fd7d01e19f07924efb52))
+* remove validationMessageStore ([fd98143](https://github.com/kwangure/strawberry/commit/fd9814355d858da77ffea5b8bbd14889e635dca8))
+* rename text-color to font-color ([2cbd870](https://github.com/kwangure/strawberry/commit/2cbd87095726c5fce34589aa190d76bdf6722bcd))
+* separate components and styling ([f424b08](https://github.com/kwangure/strawberry/commit/f424b08c8d0ec0e4ad268cd49427a0a152e633a0))
+
+
+### Bug Fixes
+
+* change sidebar item font-color on hover ([b95c860](https://github.com/kwangure/strawberry/commit/b95c8601e382f27182d1669aa9304d6e5a3f4f73))
+* correct routes ([f42d927](https://github.com/kwangure/strawberry/commit/f42d92764e9a052bd5802968d777fa5c8782f0a0))
+* default form values in Button to undefined ([873ca18](https://github.com/kwangure/strawberry/commit/873ca188122f189e7fa16c99a5d482bd8010113a))
+* finalize remnants of inputs with slot hints ([ad7d014](https://github.com/kwangure/strawberry/commit/ad7d0145bf6de05eaebe1f49936c1e2e6ad2d9b7))
+* get dialog context from target.value ([fae53ad](https://github.com/kwangure/strawberry/commit/fae53adb96df12e2d2efb36e2877062686e76b06))
+* make dropdown z-index fixed ([3ed702c](https://github.com/kwangure/strawberry/commit/3ed702c576b1a888ee799f198bef49c682f9173b))
+* use relative default routes for export ([0eab646](https://github.com/kwangure/strawberry/commit/0eab6465c74a25e2e18dc959c6a07ade5ee8a871))
+* validate during capture phase ([c5cdb30](https://github.com/kwangure/strawberry/commit/c5cdb30495747addd29279ce009b9c6ff50e8a54))
+
+
+* add root- prefix to custom properties ([88d9ad5](https://github.com/kwangure/strawberry/commit/88d9ad584b606422ae3eff8ed92aab025746f3e9))
+* externalize input label ([b194830](https://github.com/kwangure/strawberry/commit/b194830f1004b4bbb76a566106793de198738797))
+* prefer non-default imports ([8eb387d](https://github.com/kwangure/strawberry/commit/8eb387d9048af0b854757d4af9579c862218323b))
+
 ## [0.44.0](https://github.com/kwangure/strawberry/compare/v0.43.0...v0.44.0) (2022-07-15)
 
 
