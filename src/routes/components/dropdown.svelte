@@ -1,6 +1,5 @@
 <script>
     import { Arrow, Dropdown, Item, Popup } from '$lib/default/dropdown';
-    import { Button } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/dropdown';
 </script>
@@ -8,9 +7,9 @@
 <Component {docs}>
     <svelte:fragment slot="inline">
         <Dropdown>
-            <Button slot="trigger">
+            <button slot="trigger">
                 Click for dropdown
-            </Button>
+            </button>
             <Popup>
                 <Arrow/>
                 <Item>Purple</Item>

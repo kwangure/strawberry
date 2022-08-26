@@ -5,7 +5,6 @@
     the page.
 -->
 <script>
-    import { Button } from '../button';
     import { createEventDispatcher } from 'svelte';
     import { crossscale } from '../../utils/crosstransition.js';
     import { fade } from 'svelte/transition';
@@ -65,9 +64,9 @@
                     </div>
                     {#if closable}
                         <div class="close">
-                            <Button on:click="{() => visible = false}">
+                            <button on:click="{() => visible = false}">
                                 <Icon path={mdiClose}/>
-                            </Button>
+                            </button>
                         </div>
                     {/if}
                 </div>

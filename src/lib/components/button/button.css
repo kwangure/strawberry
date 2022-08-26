@@ -1,0 +1,28 @@
+button:not(.br-ignore) {
+    line-height: 1.2;
+    display: var(--br-button-root-display);
+    gap: var(--br-button-root-gap);
+    font-weight: 400;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+    border: var(--br-button-root-border);
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    height: var(--br-button-root-height);
+    padding-inline: var(--br-button-root-padding-inline);
+    font-size: 14px;
+    border-radius: var(--br-button-root-border-radius);
+    color: var(--br-button-root-font-color);
+    background-color: var(--br-button-root-background-color);
+    outline: none;
+    width: var(--br-button-root-width);
+}
+button:not(.br-ignore):disabled {
+    cursor: not-allowed;
+}
+button:not(.br-ignore):hover:not(:active) {
+    background-color: var(--br-button-root-hover-background-color);
+    border: var(--br-button-root-hover-border);
+}

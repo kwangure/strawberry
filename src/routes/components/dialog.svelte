@@ -1,6 +1,5 @@
 <script>
     import { Content, Dialog } from '$lib/default/dialog';
-    import { Button } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/dialog';
 
@@ -15,12 +14,12 @@
         <Dialog bind:showModal bind:show>
             <Content slot='content'>
                 I have value
-                <Button value='submit'>
+                <button value='submit'>
                     Submit
-                </Button>
+                </button>
             </Content>
         </Dialog>
-        <Button on:click={show}>Show</Button>
-        <Button on:click={showModal}>Show modal</Button>
+        <button on:click={show}>Show</button>
+        <button on:click={showModal}>Show modal</button>
     </svelte:fragment>
 </Component>

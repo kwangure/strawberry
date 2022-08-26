@@ -1,8 +1,8 @@
 <script>
     import { Arrow, Popup, Tooltip } from '$lib/default/tooltip';
-    import { Button, Primary } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/tooltip';
+    import { Primary } from '$lib/default/button';
 
     const sides = ['top', 'right', 'bottom', 'left'];
     const sideModifiers = ['', '-start', '-end'];
@@ -19,7 +19,7 @@
             {#each placements as placement}
                 <Primary>
                     <Tooltip {placement}>
-                        <Button slot="trigger">{placement}</Button>
+                        <button slot="trigger">{placement}</button>
                         <Popup>
                             <Arrow/>
                             I'm a <b>{placement}</b> tooltip!

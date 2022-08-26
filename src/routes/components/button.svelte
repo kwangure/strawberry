@@ -1,14 +1,13 @@
 <script>
-    import { Button, Primary } from '$lib/default/button';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/docs/button';
+    import { Primary } from '$lib/default/button';
 </script>
 
-<Component {docs}>
+<Component docs={{}}>
     <svelte:fragment slot="inline">
         <Primary>
-            <Button>I do nothing primary!</Button>
+            <button>I do nothing primary!</button>
         </Primary>
-        <Button>I do nothing too!</Button>
+        <button>I do nothing too!</button>
     </svelte:fragment>
 </Component>

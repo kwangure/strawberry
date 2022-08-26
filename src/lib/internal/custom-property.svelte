@@ -2,7 +2,6 @@
     import { Code, css } from '$lib/default/code';
     import { Dropdown, Item, Popup } from '$lib/default/dropdown';
     import { mdiDotsHorizontal, mdiLinkVariant } from '@mdi/js';
-    import { Button } from '$lib/default/button';
     import { Icon } from '$lib/default/icon';
 
     /** @type {any} */
@@ -15,17 +14,17 @@
 
 <div class='property'>
     <a href="#{customProperty}" class="hash">
-        <Button>
+        <button>
             <Icon path={mdiLinkVariant}/>
-        </Button>
+        </button>
     </a>
     <h3 id={customProperty}>
         <Code language={css} inline code={customProperty}/>
     </h3>
     <Dropdown>
-        <Button slot="trigger">
+        <button slot="trigger">
             <Icon path={mdiDotsHorizontal}/>
-        </Button>
+        </button>
         <Popup>
             <a class='item' href={mdnUrl} target="_blank" title="Opens in new tab">
                 <Item>
