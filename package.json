@@ -12,8 +12,7 @@
 		"package": "svelte-kit package",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
-		"release-candidate": "svelte-kit package && standard-version -a --prerelease rc && svelte-kit package && npm publish ./package --tag rc && git push --follow-tags origin master",
-		"release": "svelte-kit package && standard-version -a && svelte-kit package && npm publish ./package && git push --follow-tags origin master",
+		"release": "svelte-kit package && standard-version -a && svelte-kit package && npm publish ./package",
 		"test": "vitest"
 	},
 	"exports": {
@@ -28,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@kwangure/eslint-config-svelte": "^0.2.0",
-		"@kwangure/svelte-docs": "^0.4.1",
+		"@kwangure/svelte-docs": "^0.4.4",
 		"@sveltejs/adapter-static": "^1.0.0-next.36",
 		"@sveltejs/kit": "^1.0.0-next.377",
 		"eslint": "^8.12.0",
