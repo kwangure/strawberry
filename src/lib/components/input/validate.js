@@ -1,9 +1,10 @@
 import { listen } from 'svelte/internal';
 
 /**
- * @param {HTMLInputElement} input
- * @param {(input: HTMLInputElement) => string} invalid
- * @param {(error: string, input: HTMLInputElement) => string} error
+ * @template T
+ * @param {T extends (HTMLInputElement | HTMLTextAreaElement) ? T : never} input
+ * @param {((input: T) => string)} invalid
+ * @param {((error: string, input: T) => string)} error
  */
 function setValidationMessage(input, invalid, error) {
 	if (input.disabled) return;
@@ -21,12 +22,12 @@ function setValidationMessage(input, invalid, error) {
 }
 
 /**
- * @typedef {{
- *     invalid?: (input: HTMLInputElement) => string,
- *     error?: (error: string, input: HTMLInputElement) => string,
- * }} ValidateOptions
- * @param {HTMLInputElement} input
- * @param {ValidateOptions} options
+ * @template T
+ * @param {T extends (HTMLInputElement | HTMLTextAreaElement) ? T : never} input
+ * @param {{
+ *     invalid?: (input: T) => string,
+ *     error?: (error: string, input: T) => string,
+ * }} options
  */
 export function validate(input, options) {
 	const noop = () => '';
@@ -93,7 +94,10 @@ export function validate(input, options) {
 
 	return {
 		/**
-		 * @param {ValidateOptions} options
+		 * @param {{
+ 		 *     invalid?: (input: T) => string,
+		 *     error?: (error: string, input: T) => string,
+		 * }} options
 		 */
 		update(options) {
 			({ invalid = noop, error = noop } = options);
