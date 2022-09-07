@@ -7,7 +7,6 @@
 <script>
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
-    import { Icon } from '../../icon';
     import { validate } from '../validate';
 
     /**
@@ -148,12 +147,12 @@
         {autocomplete} {autofocus} {form} {id} {list} {max} {min} {name}
         {placeholder} {required} {readonly} {step} aria-describedby={hint}>
     <div class="postfix-wrapper">
-        <span class="postfix-up" on:click={stepUp}>
-            <Icon path={mdiChevronUp}/>
-        </span>
-        <span class="postfix-down" on:click={stepDown}>
-            <Icon path={mdiChevronDown}/>
-        </span>
+        <svg viewBox="0 0 24 24" class="postfix-up" on:click={stepUp}>
+            <path d={mdiChevronUp}/>
+        </svg>
+        <svg viewBox="0 0 24 24" class="postfix-down" on:click={stepDown}>
+            <path d={mdiChevronDown}/>
+        </svg>
     </div>
 </div>
 
@@ -177,32 +176,6 @@
         -moz-appearance: textfield;
         appearance: textfield;
     }
-    .postfix-up,
-    .postfix-down {
-        flex: 1;
-        min-height: 0;
-        display: flex;
-        align-items: center;
-    }
-    .postfix-up {
-        --br-icon-root-height: 21px;
-    }
-    .container:hover .postfix-wrapper,
-    .container:focus-within .postfix-wrapper {
-        color: var(--br-input-number-postfix-focus-color);
-        background-color: var(--br-input-number-postfix-focus-background-color);
-    }
-    .postfix-wrapper {
-        width: var(--br-input-number-postfix-width);
-        color: var(--br-input-number-postfix-color);
-        background-color: var(--br-input-number-postfix-background-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        border-radius: 0 2px 2px 0;
-        flex: none;
-    }
     .container {
         display: flex;
         border: var(--br-input-number-border);
@@ -218,5 +191,29 @@
     .container:focus-within {
         box-shadow: var(--br-input-number-focus-box-shadow);
         border: var(--br-input-number-focus-border);
+    }
+    .container:hover .postfix-wrapper,
+    .container:focus-within .postfix-wrapper {
+        color: var(--br-input-number-postfix-focus-color);
+        background-color: var(--br-input-number-postfix-focus-background-color);
+    }
+    svg {
+        width: 100%;
+    }
+    .postfix-wrapper {
+        width: var(--br-input-number-postfix-width);
+        color: var(--br-input-number-postfix-color);
+        background-color: var(--br-input-number-postfix-background-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0 2px 2px 0;
+        flex: none;
+    }
+    path {
+        fill: currentColor;
+        scale: 1.25;
+        translate: -10% -10%;
     }
 </style>
