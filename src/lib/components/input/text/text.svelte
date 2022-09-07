@@ -24,6 +24,13 @@
     export let autofocus = false;
 
     /**
+     * When true, the input cannot be edited or focused.
+     *
+     * @type {boolean}
+     */
+    export let disabled = false;
+
+    /**
      * A function that takes a validity state string and returns an error message.
      *
      * @type {((error: string, input: HTMLInputElement) => string) | undefined}
@@ -120,8 +127,8 @@
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:value use:forward use:validate={{ invalid, error }}
         type="text" aria-describedby={hint}
-        {autocomplete} {autofocus} {form} {id} {list} {maxlength} {minlength}
-        {name} {placeholder} {readonly} {required}>
+        {autocomplete} {autofocus} {disabled} {form} {id} {list} {maxlength}
+        {minlength} {name} {placeholder} {readonly} {required}>
 </div>
 
 <style>

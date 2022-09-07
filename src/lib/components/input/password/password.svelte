@@ -26,6 +26,13 @@
     export let autofocus = false;
 
     /**
+     * When true, the input cannot be edited or focused.
+     *
+     * @type {boolean}
+     */
+    export let disabled = false;
+
+    /**
      * A function that takes a validity state string and returns an error message.
      *
      * @type {((error: string, input: HTMLInputElement) => string) | undefined}
@@ -121,8 +128,8 @@
 <div class="container">
     <!-- svelte-ignore a11y-autofocus -->
     <input bind:value use:forward type='password'
-        {autocomplete} {autofocus} {form} {id} {list} {maxlength} {minlength}
-        {name} {placeholder} {readonly} {required} aria-describedby={hint}
+        {autocomplete} {autofocus} {disabled} {form} {id} {list} {maxlength}
+        {minlength} {name} {placeholder} {readonly} {required} aria-describedby={hint}
         use:validate={{ invalid, error }}/>
 </div>
 
