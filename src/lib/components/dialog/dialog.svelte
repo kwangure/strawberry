@@ -5,6 +5,13 @@
 	const dispatch = createEventDispatcher();
 
 	/**
+	 * The default context to render the unopened modal
+	 *
+	 * @type {any}
+	 */
+	export let context;
+
+	/**
 	 * When called, the function opens the dialog in non-modal mode
 	 * @type {(options: { target?: { value: any }; }) => void}
 	 */
@@ -44,11 +51,10 @@
 	 * @type {HTMLFormElement}
 	 */
 	let form;
-
 	/**
 	 * @type {any}
 	 */
-	let context;
+	let _context = context;
 	/**
 	 * @type {boolean}
 	 */
@@ -72,7 +78,7 @@
 	 * }} options
 	 */
 	function handleOpen(options = {}) {
-		context = options.target?.value;
+		_context = options.target?.value;
 		dialog.removeAttribute('inert');
 
 		const focusTarget = /** @type {HTMLInputElement}*/(dialog.querySelector('[autofocus]'));
@@ -110,6 +116,7 @@
 		function closeDialog(value) {
 			dialog.close(value);
 			form.reset();
+			_context = context;
 		}
 
 		cleanup(listen(dialog, 'click', (event) => {
@@ -118,6 +125,8 @@
 				.isSameNode(/** @type {Node} */ (event.target));
 			if (!isBackdropClick) return;
 
+			// close is triggered after click. we capture it and do stuff
+			// we want to change dialog state, before we bubble up events
 			listen(document, 'close', (event) => {
 				event.stopPropagation();
 			}, { once: true, capture: true });
@@ -142,9 +151,9 @@
 <dialog bind:this={dialog} inert class:modal={isModal} use:enhance
 	class:non-modal={!isModal}>
 	<form method="dialog" bind:this={form}>
-		<slot name='header' {context}/>
-		<slot name='content' {context}/>
-		<slot name='footer' {context}/>
+		<slot name='header' context={_context}/>
+		<slot name='content' context={_context}/>
+		<slot name='footer' context={_context}/>
 	</form>
 </dialog>
 
