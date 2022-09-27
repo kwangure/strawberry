@@ -7,6 +7,7 @@
 <script>
     import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
     import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { listen } from 'svelte/internal';
     import { validate } from '../validate';
 
     /**
@@ -132,18 +133,29 @@
     	stepDown() {},
     });
 
-    function dispatchChange() {
+    function handleButtonChange() {
+    	// Arrow buttons should not emit blur events.
+    	// We capture it at the top before anyone receives it
+    	const removeBlurListener = listen(document, 'blur', (event) => {
+    		if (event.target === input) {
+    			event.stopImmediatePropagation();
+    			removeBlurListener();
+    		}
+    	}, { capture: true });
+
+    	input.focus();
+    	input.dispatchEvent(new Event('input'));
     	input.dispatchEvent(new Event('change'));
     }
 
     function stepUp() {
     	input.stepUp();
-    	dispatchChange();
+    	handleButtonChange();
     }
 
     function stepDown() {
     	input.stepDown();
-    	dispatchChange();
+    	handleButtonChange();
     }
 </script>
 
@@ -217,6 +229,7 @@
         flex-direction: column;
         border-radius: 0 2px 2px 0;
         flex: none;
+        user-select: none;
     }
     path {
         fill: currentColor;
