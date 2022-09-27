@@ -1,0 +1,8 @@
+:host,
+:root {
+    --br-dialog-root-background-color: #e9ecef;
+    --br-dialog-root-font-color: #212529;
+}
+::backdrop {
+    --br-dialog-backdrop-background-color: rgba(0,0,0,0.5);
+}

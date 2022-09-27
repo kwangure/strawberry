@@ -9,7 +9,7 @@
 	 *
 	 * @type {any}
 	 */
-	export let context;
+	export let context = undefined;
 
 	/**
 	 * When called, the function opens the dialog in non-modal mode
@@ -125,8 +125,8 @@
 				.isSameNode(/** @type {Node} */ (event.target));
 			if (!isBackdropClick) return;
 
-			// close is triggered after click. we capture it and do stuff
 			// we want to change dialog state, before we bubble up events
+			// We close capture it at the top before anyone receives it
 			listen(document, 'close', (event) => {
 				event.stopPropagation();
 			}, { once: true, capture: true });
@@ -161,23 +161,12 @@
 	:global(html):has(dialog[open].modal) {
 		overflow: hidden;
 	}
-
-	:host,
-	:root {
-		--br-dialog-root-padding-block: 8px;
-		--br-dialog-root-padding-inline: 12px;
-		--br-dialog-root-box-shadow: 0 2px 8px #111;
-	}
-
 	dialog {
 		display: grid;
 		position: fixed;
-		max-inline-size: min(90vw, 60ch);
-		max-block-size: min(80vh, 100%);
-		max-block-size: min(80dvb, 100%);
+		max-inline-size: var(--br-dialog-root-max-inline-size);
+		max-block-size: var(--br-dialog-root-max-block-size);
 		margin: auto;
-		padding-block: var(--br-dialog-root-padding-block);
-		padding-inline: var(--br-dialog-root-padding-inline);
 		inset: 0;
 		border-radius: 4px;
 		box-shadow: var(--br-dialog-root-box-shadow);
@@ -192,24 +181,6 @@
 	@media (prefers-color-scheme: dark) {
 		dialog {
 			border-block-start: 1px solid #495057;
-		}
-		:host,
-		:root {
-			--br-dialog-root-background-color: #343a40;
-			--br-dialog-root-font-color: #f1f3f5;
-		}
-		::backdrop {
-			--br-dialog-backdrop-background-color: rgba(50,50,50,0.5);
-		}
-	}
-	@media (prefers-color-scheme: light) {
-		:host,
-		:root {
-			--br-dialog-root-background-color: #e9ecef;
-			--br-dialog-root-font-color: #212529;
-		}
-		::backdrop {
-			--br-dialog-backdrop-background-color: rgba(0,0,0,0.5);
 		}
 	}
 
@@ -263,8 +234,8 @@
 	}
 
 	form {
-		display: grid;
-		grid-template-rows: auto 1fr auto;
+		display: flex;
+		flex-direction: column;
 		align-items: start;
 		max-block-size: 80vh;
 		max-block-size: 80dvb;

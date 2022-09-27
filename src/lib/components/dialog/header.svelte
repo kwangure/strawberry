@@ -5,21 +5,11 @@
 <style>
     header {
         display: flex;
-        gap: var(--size-3);
+        gap: var(--br-dialog-header-gap);
         justify-content: space-between;
         align-items: flex-start;
-        padding-block: var(--size-3);
-        padding-inline: var(--size-5);
-    }
-    @media (prefers-color-scheme: dark) {
-        header {
-            background-color: var(--surface-1);
-        }
-    }
-
-    @media (prefers-color-scheme: light) {
-        header {
-            background-color: var(--surface-2);
-        }
+        padding-block: var(--br-dialog-header-padding-block);
+		padding-inline: var(--br-dialog-header-padding-inline);
+        background-color: var(--br-dialog-header-background-color);
     }
 </style>

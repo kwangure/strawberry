@@ -1,0 +1,23 @@
+:host,
+:root {
+    --br-dialog-root-box-shadow: 0 2px 8px #111;
+    --br-dialog-root-max-inline-size: min(90vw, 60ch);
+	--br-dialog-root-max-block-size: min(80vh, 100%);
+
+    --br-dialog-content-padding-inline: 24px;
+
+    --br-dialog-footer-gap: 10px;
+    --br-dialog-footer-padding-block: 10px 16px;
+    --br-dialog-footer-padding-inline: 24px;
+
+    --br-dialog-header-gap: 10px;
+    --br-dialog-header-padding-block: 16px 10px;
+    --br-dialog-header-padding-inline: 24px;
+}
+
+@supports (max-block-size: 80dvb) {
+    :host,
+    :root {
+        --br-dialog-root-max-block-size: min(80dvb, 100%);
+    }
+}
