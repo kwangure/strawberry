@@ -1,4 +1,6 @@
-button:not(.br-ignore) {
+.br-button,
+button:not(.br-ignore),
+input:not(.br-ignore)::file-selector-button {
     line-height: 1.2;
     display: var(--br-button-root-display);
     gap: var(--br-button-root-gap);
@@ -19,10 +21,16 @@ button:not(.br-ignore) {
     outline: none;
     width: var(--br-button-root-width);
 }
-button:not(.br-ignore):disabled {
+
+.br-button.disabled,
+button:not(.br-ignore):disabled,
+input:not(.br-ignore):disabled::file-selector-button {
     cursor: not-allowed;
 }
-button:not(.br-ignore):hover:not(:active) {
+
+.br-button:hover:not(:active),
+button:not(.br-ignore):hover:not(:active),
+input:not(.br-ignore):hover:not(:active)::file-selector-button {
     background-color: var(--br-button-root-hover-background-color);
     border: var(--br-button-root-hover-border);
 }
