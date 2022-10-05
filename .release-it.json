@@ -5,13 +5,12 @@
     "hooks": {
         "before:init": [
             "npm run lint",
-            "npm run check",
-            "npm test"
+            "npm run check"
         ],
         "after:bump": "svelte-kit package",
         "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "npm": {
-        "publishPath": "package"
+        "publishPath": "./package"
     }
 }
