@@ -12,7 +12,7 @@
 		"package": "svelte-kit package",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
-		"release": "svelte-kit package && standard-version -a && svelte-kit package && npm publish ./package",
+		"release": "release-it",
 		"test": "vitest"
 	},
 	"exports": {
@@ -36,8 +36,8 @@
 		"magic-string": "^0.26.2",
 		"micromatch": "^4.0.4",
 		"playwright": "^1.22.0",
+		"release-it": "^15.5.0",
 		"sitgent": "^0.0.8",
-		"standard-version": "^9.1.0",
 		"svelte": "^3.48.0",
 		"svelte-check": "^2.7.1",
 		"svelte2tsx": "^0.4.2",
