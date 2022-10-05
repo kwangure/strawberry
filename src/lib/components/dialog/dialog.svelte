@@ -12,6 +12,13 @@
 	export let context = undefined;
 
 	/**
+     * @param {string | undefined} returnValue
+     */
+	export function close(returnValue) {
+		dialog.close(returnValue);
+	}
+
+	/**
 	 * When called, the function opens the dialog in non-modal mode
 	 * @type {(options: { target?: { value: any }; }) => void}
 	 */
