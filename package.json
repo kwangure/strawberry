@@ -13,7 +13,7 @@
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
 		"release": "release-it",
-		"test": "vitest"
+		"test": "vitest run"
 	},
 	"exports": {
 		".": "./"
