@@ -3,7 +3,10 @@ import { bubble, get_current_component, listen } from 'svelte/internal';
 
 export function createEventForwarder() {
 	const component = get_current_component();
-	return (node) => {
+	return (/** @type {EventTarget} */ node) => {
+		/**
+		 * @type {(() => void)[]}
+		 */
 		const listeners = [];
 
 		for (const event in component.$$.callbacks) {
