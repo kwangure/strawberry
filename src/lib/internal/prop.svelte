@@ -1,9 +1,11 @@
 <script>
+    // FIXME: Do proper types
+    // @ts-nocheck
     import { Code, javascript } from '$lib/components/code';
 
     export let prop;
 
-    $: ({ kind, name, optional, value, jsDoc } = prop);
+    $: ({ name, optional, value, jsDoc } = prop);
     $: ({ description, tags = []} = jsDoc || {});
     $: ({ type } = tags.find((t) => t.tag === 'type') || {});
 

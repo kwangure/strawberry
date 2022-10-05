@@ -2,11 +2,14 @@
 import './css.js';
 import './html.js';
 import './javascript.js';
-import { HighlightJS } from 'highlight.js/lib/core';
+import HighlightJS from 'highlight.js/lib/core';
 
 HighlightJS.registerLanguage('svelte', highlight_svelte);
 
 // Adapted from https://github.com/AlexxNB/highlightjs-svelte
+/**
+ * @type {import('highlight.js').LanguageFn}
+ */
 function highlight_svelte(hljs) {
 	return {
 		name: 'svelte',
@@ -60,6 +63,11 @@ function highlight_svelte(hljs) {
 	};
 }
 
-const highlight = (code) => HighlightJS.highlight(code, { language: 'svelte' }).value;
+/**
+ * @param {string} code
+ */
+function highlight(code) {
+	return HighlightJS.highlight(code, { language: 'svelte' }).value;
+}
 
 export default highlight;

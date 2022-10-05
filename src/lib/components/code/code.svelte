@@ -9,13 +9,9 @@
 -->
 <script>
     /**
-     * @template T
-     * @typedef {{ name: T, highlighter: function }} Language<T>
-     */
-
-    /**
-     * Which syntax highlighter to use.
-     * @type {Language<"css" | "html" | "javascript"> | "svelte" | "xml">}
+     * A syntax highlighter that takes code and returns highlighted HTML
+     *
+     * @type {{ (code: string): string }}
      */
     export let language;
 

@@ -6,9 +6,10 @@
 
     const sides = ['top', 'right', 'bottom', 'left'];
     const sideModifiers = ['', '-start', '-end'];
-    const placements = ['left-end'];
+    const placements = /** @type {("left" | "right" | "bottom" | "top" | "top-start" | "top-end" | "right-start" | "right-end" | "bottom-start" | "bottom-end" | "left-start" | "left-end")[]} */(['left-end']);
 
     for (const side of sides) {
+    	// @ts-ignore
     	placements.push(...sideModifiers.map((mod) => side + mod));
     }
 </script>

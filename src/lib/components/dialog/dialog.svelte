@@ -1,4 +1,6 @@
 <script>
+	// FIXME: Do proper types
+	// @ts-nocheck
 	import { createEventDispatcher } from 'svelte';
 	import { listen } from 'svelte/internal';
 
@@ -12,8 +14,8 @@
 	export let context = undefined;
 
 	/**
-     * @param {string | undefined} returnValue
-     */
+	 * @param {string | undefined} returnValue
+	 */
 	export function close(returnValue) {
 		dialog.close(returnValue);
 	}
@@ -233,11 +235,11 @@
 		transition: background-color 0.25s ease;
 	}
 	dialog.modal::backdrop {
-        background-color: var(--br-dialog-backdrop-background-color);
+		background-color: var(--br-dialog-backdrop-background-color);
 		opacity: 1;
 	}
 	dialog.non-modal::backdrop {
-        background-color: transparent;
+		background-color: transparent;
 	}
 
 	form {

@@ -1,3 +1,5 @@
+// FIXME: Do proper types
+// @ts-nocheck
 import { beforeAll, beforeEach, expect } from 'vitest';
 import { chromium } from 'playwright';
 import { createQueries } from 'sitgent/queries';

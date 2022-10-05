@@ -8,7 +8,7 @@
     	attributes: {
     		style: 'font-style: italic; font-weight: 700;',
     	},
-    	children: 'I am a dynamically generated purple <p/> tag element.',
+    	children: ['I am a dynamically generated purple <p/> tag element.'],
     };
 </script>
 

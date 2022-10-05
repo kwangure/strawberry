@@ -1,4 +1,7 @@
 <script>
+    // FIXME: Do proper types
+    // @ts-nocheck
+
     export let slotDocs;
 
     let keywordObj = {};
@@ -10,7 +13,6 @@
     		keywordObj[name] = description;
     	}
     }
-    $: ({ usage = '' } = keywordObj);
 </script>
 
 <tr>
