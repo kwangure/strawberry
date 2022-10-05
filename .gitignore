@@ -1,5 +1,6 @@
 .DS_Store
 .svelte-kit
+.vite-inspect
 build
 !src/lib/build
 node_modules

@@ -17,7 +17,8 @@ function resolve(pathname) {
 const config = {
 	plugins: [
 		docs(),
-		inspect(),
+		// TODO: Enable for dev only
+		// inspect(),
 		localPackageWatch(),
 		strawberry({
 			appDir: 'app',
