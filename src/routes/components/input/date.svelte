@@ -3,7 +3,6 @@
     import Component from '$lib/internal/component.svelte';
     import { Date } from '$lib/default/input/date';
     import { docs } from '$lib/docs/input/date';
-    import { Label } from '$lib/default/input/label';
 </script>
 
 <Component {docs}>
