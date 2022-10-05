@@ -1,6 +1,6 @@
 {
 	"name": "@kwangure/strawberry",
-	"version": "0.46.2",
+	"version": "0.47.0",
 	"description": "A set of svelte components",
 	"scripts": {
 		"build": "vite build",
