@@ -7,9 +7,18 @@
 
 <Component {docs}>
     <svelte:fragment slot="block">
-        <Code highlight={javascript} code={'const five = 5;'}/>
-        <div>
-            An inline <Code highlight={plainHTML} inline code={'<!-- codeblock -->'}/> just for you!
+        <div class="wrapper">
+            <Code highlight={javascript} code={'const five = 5;'}/>
+            <div>
+                An inline <Code highlight={plainHTML} inline code={'<!-- codeblock -->'}/> just for you!
+            </div>
         </div>
     </svelte:fragment>
 </Component>
+
+<style>
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
