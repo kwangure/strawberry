@@ -1,5 +1,5 @@
 <script>
-    import { Code, html, javascript } from '$lib/default/code';
+    import { Code, javascript, plainHTML } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/code';
 
@@ -7,9 +7,9 @@
 
 <Component {docs}>
     <svelte:fragment slot="block">
-        <Code language={javascript} code={'const five = 5;'}/>
+        <Code highlight={javascript} code={'const five = 5;'}/>
         <div>
-            An inline <Code language={html} inline code={'<!-- codeblock -->'}/> just for you!
+            An inline <Code highlight={plainHTML} inline code={'<!-- codeblock -->'}/> just for you!
         </div>
     </svelte:fragment>
 </Component>

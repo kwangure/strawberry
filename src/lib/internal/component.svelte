@@ -86,6 +86,7 @@
     }
     .usage {
         display: flex;
+        flex-direction: column;
         gap: 5px;
     }
     table {

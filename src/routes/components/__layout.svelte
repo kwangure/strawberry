@@ -106,11 +106,6 @@
                                 Dialog
                             </Item>
                         </a>
-                        <a href="{base}/components/modal">
-                            <Item active={path === `${base}/components/modal`}>
-                                Modal
-                            </Item>
-                        </a>
                         <a href="{base}/components/tooltip">
                             <Item active={path === `${base}/components/tooltip`}>
                                 Tooltip

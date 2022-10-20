@@ -1,5 +1,5 @@
 <script>
-    import { Code, svelte } from '$lib/default/code';
+    import { Code, plainHTML } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/input/time';
     import { Time } from '$lib/default/input/time';
@@ -13,7 +13,7 @@
         You should always include the label text for the input for the benefit
         of screen-reader users. You may use custom-properties to visually
         hide it if you must. For example:
-        <Code language={svelte} code={`
+        <Code highlight={plainHTML} code={`
 <div class="element">
     <Label>
         Delivery time

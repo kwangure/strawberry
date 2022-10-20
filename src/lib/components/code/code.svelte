@@ -9,11 +9,11 @@
 -->
 <script>
     /**
-     * A syntax highlighter that takes code and returns highlighted HTML
+     * A syntax highlighter that takes source code and returns highlighted HTML
      *
-     * @type {{ (code: string): string }}
+     * @type {{ (code: string): string } | undefined}
      */
-    export let language;
+    export let highlight = undefined;
 
     /**
      * Code to be highlighted
@@ -26,10 +26,12 @@
      * @type {boolean}
      */
     export let inline = false;
+
+    $: _highlight = highlight || ((/** @type {string} */ x) => x);
 </script>
 
 <!-- Leave as one long line since `pre` preserves whitespace-->
-<pre class="berry-code hljs" class:inline><code>{@html language(code.replace(' *{}', ''))}</code></pre>
+<pre class="berry-code hljs" class:inline><code>{@html _highlight(code.replace(' *{}', ''))}</code></pre>
 
 <style>
     pre {

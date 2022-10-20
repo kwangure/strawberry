@@ -1,7 +1,7 @@
 <script>
     // FIXME: Do proper types
     // @ts-nocheck
-    
+
     import { Code, css } from '$lib/default/code';
     import { Dropdown, Item, Popup } from '$lib/default/dropdown';
     import { mdiDotsHorizontal, mdiLinkVariant } from '@mdi/js';
@@ -22,7 +22,7 @@
         </button>
     </a>
     <h3 id={customProperty}>
-        <Code language={css} inline code={customProperty}/>
+        <Code highlight={css} inline code={customProperty}/>
     </h3>
     <Dropdown>
         <button slot="trigger">

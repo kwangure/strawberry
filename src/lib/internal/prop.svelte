@@ -26,7 +26,7 @@
     </td>
     <td class="type">
         {#if type}
-            <Code inline language="{javascript}" code="{type}" />
+            <Code inline highlight={javascript} code={type}/>
         {:else}
             —
         {/if}
@@ -35,8 +35,8 @@
         {#if optional && JSON.stringify(value) !== undefined}
             <Code
                 inline
-                language="{javascript}"
-                code="{JSON.stringify(value)}"
+                highlight={javascript}
+                code={JSON.stringify(value)}
             />
         {:else}
             —

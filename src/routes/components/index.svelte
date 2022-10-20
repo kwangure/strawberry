@@ -1,5 +1,5 @@
 <script>
-    import { Code, svelte } from '$lib/default/code';
+    import { Code, mixedHTML } from '$lib/default/code';
     /* eslint-disable no-useless-escape */
     const usage = `
 <script\>
@@ -27,4 +27,4 @@
     General Usage:
 </p>
 
-<Code language={svelte} code={usage}/>
+<Code highlight={mixedHTML} code={usage}/>

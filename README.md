@@ -28,7 +28,7 @@ npm i @kwangure/strawberry
     import { Code, javascript } from '@kwangure/strawberry/default/code';
 </script>
 
-<Code language={javascript} code='const five = 5;'/>
+<Code highlight={javascript} code='const five = 5;'/>
 ```
 ### Dialog
 ```html
