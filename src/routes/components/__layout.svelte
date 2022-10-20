@@ -26,6 +26,11 @@
                 <Section>
                     <svelte:fragment slot="title">General</svelte:fragment>
                     <svelte:fragment slot="items">
+                        <a href="{base}/components/button">
+                            <Item active={path === `${base}/components/button`}>
+                                Button
+                            </Item>
+                        </a>
                         <a href="{base}/components/dropdown">
                             <Item active={path === `${base}/components/dropdown`}>
                                 Dropdown
