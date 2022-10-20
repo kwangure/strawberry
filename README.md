@@ -89,8 +89,8 @@ npm i @kwangure/strawberry
 
     const element = {
     	type: 'p',
-    	attributes: {
-    		style: 'font-style: italic; font-weight: 700;',
+    	props: {
+    		style: 'font-style: italic; color: purple;',
     	},
     	children: 'I am a dynamically generated purple <p/> tag element.',
     };
