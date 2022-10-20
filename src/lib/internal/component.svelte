@@ -38,29 +38,33 @@
     </div>
 {/if}
 
-<h2>Props</h2>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Default</th>
-        <th>Description</th>
-    </tr>
-    {#each props as prop}
-        <Prop prop="{prop}" />
-    {/each}
-</table>
+{#if props.length}
+    <h2>Props</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+        {#each props as prop}
+            <Prop prop="{prop}" />
+        {/each}
+    </table>
+{/if}
 
-<h2>Slots</h2>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    {#each slots as slot}
-        <Slot slotDocs="{slot || {}}" />
-    {/each}
-</table>
+{#if slots.length}
+    <h2>Slots</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        {#each slots as slot}
+            <Slot slotDocs="{slot || {}}" />
+        {/each}
+    </table>
+{/if}
 
 {#if customProperties.length > 0}
     <h2>Custom Properties</h2>
