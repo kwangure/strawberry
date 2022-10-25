@@ -8,7 +8,7 @@
 <script>
 	import { createEventForwarder } from '../../../utils/forward-events.js';
 	import debounce from '$lib/utils/debounce.js';
-	import { getStyleValue } from '$lib/utils/style.js';
+	import { getPropertyValueNumber } from '$lib/utils/style.js';
 	import { listen } from 'svelte/internal';
 	import ownerWindow from '$lib/utils/owner.js';
 	import { validate } from '../validate';
@@ -171,10 +171,10 @@
 				textareaShadow.value += ' ';
 			}
 			const boxSizing = computedStyle.getPropertyValue('box-sizing');
-			const padding = getStyleValue(computedStyle, 'padding-bottom')
-				+ getStyleValue(computedStyle, 'padding-top');
-			const border = getStyleValue(computedStyle, 'border-bottom-width')
-				+ getStyleValue(computedStyle, 'border-top-width');
+			const padding = getPropertyValueNumber(computedStyle, 'padding-bottom')
+				+ getPropertyValueNumber(computedStyle, 'padding-top');
+			const border = getPropertyValueNumber(computedStyle, 'border-bottom-width')
+				+ getPropertyValueNumber(computedStyle, 'border-top-width');
 
 			// The height of the inner content
 			const innerHeight = textareaShadow.scrollHeight;

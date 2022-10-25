@@ -1,9 +1,10 @@
 <!--
-    @component
+	@component
 
 	Switch is used to view or switch between enabled or disabled states.
 -->
 <script>
+	import { getPropertyValueNumber, getPseudoStyle, getStyle } from '$lib/utils/style.js';
 	import { createEventForwarder } from '../../utils/forward-events.js';
 	import { listen } from 'svelte/internal';
 
@@ -39,24 +40,6 @@
 	 * @type {string}
 	 */
 	export let value = 'on';
-
-	/**
-	 * @param {Element} element
-	 * @param {string} prop
-	 */
-	function getStyle(element, prop) {
-		const computedStylesheet = window.getComputedStyle(element);
-		return parseInt(computedStylesheet.getPropertyValue(prop));
-	}
-
-	/**
-	 * @param {Element} element
-	 * @param {string} prop
-	 */
-	function getPseudoStyle(element, prop) {
-		const computedStylesheet = window.getComputedStyle(element, ':before');
-		return parseInt(computedStylesheet.getPropertyValue(prop));
-	}
 
 	/**
 	 *
@@ -175,10 +158,10 @@
 		}
 
 		function determineChecked() {
-			const thumbPos = input.style.getPropertyValue('--thumb-position');
-			let curpos = Math.abs(parseInt(thumbPos));
+			const thumbPos = getPropertyValueNumber(input.style, '--thumb-position');
+			let curpos = Math.abs(thumbPos);
 
-			if (thumbPos === '') {
+			if (!thumbPos) {
 				curpos = input.checked ? bounds.lower : bounds.upper;
 			}
 
