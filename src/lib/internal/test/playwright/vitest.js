@@ -4,11 +4,14 @@ import { beforeAll, beforeEach, expect } from 'vitest';
 import { chromium } from 'playwright';
 import { createQueries } from 'sitgent/queries';
 import { matchers } from 'sitgent/matchers';
+import { toMatchImageSnapshot } from 'jest-image-snapshot'
 
 /**
  * @type {import("playwright").Browser}
  */
 export let browser;
+
+// TODO: Use Vitest context
 /**
  * @type {import("playwright").Page}
  */
@@ -21,10 +24,15 @@ export { expect };
 
 export let baseUrl = `${process.env.VITE_SERVER_PROTOCOL}${process.env.VITE_SERVER_HOST}:${process.env.VITE_SERVER_PORT}`;
 
-expect.extend(matchers);
+expect.extend({
+	...matchers,
+	toMatchImageSnapshot,
+});
 
 beforeAll(async () => {
-	browser = await chromium.launch();
+	browser = await chromium.launch({
+		headless: false,
+	});
 	return async () => {
 		await browser.close();
 	};
