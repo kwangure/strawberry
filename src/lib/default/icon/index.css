@@ -1,1 +1,4 @@
+@import url('../../css/reset.css');
+@import url('../../css/globals.css');
+
 @import url('./layout.css');
