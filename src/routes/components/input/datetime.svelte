@@ -1,5 +1,5 @@
 <script>
-    import { Code, plainHTML,  } from '$lib/default/code';
+    import { Code, plainHTML } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
     import { DateTime } from '$lib/default/input/datetime';
     import { docs } from '$lib/docs/input/datetime';
