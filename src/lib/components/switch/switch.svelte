@@ -192,7 +192,7 @@
 	div {
 		--isLTR: 1;
 
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		gap: 2ch;
 		justify-content: space-between;
