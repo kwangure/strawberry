@@ -2,7 +2,6 @@ import { plugin as docs } from "@kwangure/svelte-docs";
 import inspect from 'vite-plugin-inspect';
 import localPackageWatch from './scripts/local-pkg-watch/index.js';
 import path from 'path';
-import { strawberry } from './src/lib/build/vite-plugin-strawberry.js';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { sveltekitPluginDtl } from 'sitgent/plugin';
 
@@ -20,9 +19,6 @@ const config = {
 		// TODO: Enable for dev only
 		// inspect(),
 		localPackageWatch(),
-		strawberry({
-			appDir: 'app',
-		}),
 		sveltekit(),
 		sveltekitPluginDtl(),
 	],
