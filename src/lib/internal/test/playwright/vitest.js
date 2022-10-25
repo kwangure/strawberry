@@ -19,6 +19,8 @@ export let page;
 export let queries;
 export { expect };
 
+export let baseUrl = `${process.env.VITE_SERVER_PROTOCOL}${process.env.VITE_SERVER_HOST}:${process.env.VITE_SERVER_PORT}`;
+
 expect.extend(matchers);
 
 beforeAll(async () => {
@@ -30,10 +32,10 @@ beforeAll(async () => {
 
 
 beforeEach(async () => {
-	page = await browser.newPage();
-	await page.goto('about:blank');
-	await page._resetForReuse();
-	await page.context()._resetForReuse();
+	const defaultContextOptions = chromium._defaultContextOptions;
+	const context = await browser._newContextForReuse(defaultContextOptions);
+	([page] = context.pages());
+    if (!page) page = await context.newPage();
 	await page.setViewportSize({ width: 1280, height: 800 });
 	queries = await createQueries(page);
 }, Infinity);
