@@ -2,8 +2,8 @@
 button:not(.br-ignore),
 input:not(.br-ignore)::file-selector-button {
     line-height: 1.2;
-    display: var(--br-button-root-display);
-    gap: var(--br-button-root-gap);
+    display: inline-flex;
+    gap: 5px;
     font-weight: 400;
     white-space: nowrap;
     align-items: center;
@@ -12,14 +12,13 @@ input:not(.br-ignore)::file-selector-button {
     cursor: pointer;
     user-select: none;
     touch-action: manipulation;
-    height: var(--br-button-root-height);
-    padding-inline: var(--br-button-root-padding-inline);
-    font-size: 14px;
-    border-radius: var(--br-button-root-border-radius);
-    color: var(--br-button-root-font-color);
+    height: 35px;
+    padding-inline: 10px;
+    border-radius: 4px;
+    color: inherit;
     background-color: var(--br-button-root-background-color);
     outline: none;
-    width: var(--br-button-root-width);
+    width: auto;
 }
 
 .br-button.disabled,
