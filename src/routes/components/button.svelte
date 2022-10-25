@@ -1,6 +1,5 @@
 <script>
 	import Component from '$lib/internal/component.svelte';
-	import { Primary } from '$lib/default/button';
 
 	const docs = {
 		main: {
@@ -28,9 +27,7 @@
 
 <Component {docs}>
 	<svelte:fragment slot="inline">
-		<Primary>
-			<button>I do nothing primary!</button>
-		</Primary>
+		<button class='br-primary'>I do nothing primary!</button>
 		<button>I do nothing too!</button>
 	</svelte:fragment>
 </Component>

@@ -2,7 +2,6 @@
     import { Arrow, Popup, Tooltip } from '$lib/default/tooltip';
     import Component from '$lib/internal/component.svelte';
     import { docs } from '$lib/docs/tooltip';
-    import { Primary } from '$lib/default/button';
 
     const sides = ['top', 'right', 'bottom', 'left'];
     const sideModifiers = ['', '-start', '-end'];
@@ -18,15 +17,13 @@
     <svelte:fragment slot="block">
         <div class="properties examples">
             {#each placements as placement}
-                <Primary>
-                    <Tooltip {placement}>
-                        <button slot="trigger">{placement}</button>
-                        <Popup>
-                            <Arrow/>
-                            I'm a <b>{placement}</b> tooltip!
-                        </Popup>
-                    </Tooltip>
-                </Primary>
+                <Tooltip {placement}>
+                    <button class='br-primary' slot="trigger">{placement}</button>
+                    <Popup>
+                        <Arrow/>
+                        I'm a <b>{placement}</b> tooltip!
+                    </Popup>
+                </Tooltip>
             {/each}
         </div>
     </svelte:fragment>

@@ -15,7 +15,7 @@ input:not(.br-ignore)::file-selector-button {
     height: 35px;
     padding-inline: 10px;
     border-radius: 4px;
-    color: inherit;
+    color: var(--br-button-root-font-color);
     background-color: var(--br-button-root-background-color);
     outline: none;
     width: auto;
