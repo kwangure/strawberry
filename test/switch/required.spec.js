@@ -5,7 +5,7 @@ describe.only('Required switch', async () => {
 	it('prevents submission when \'required\' prop is true and Switch is unchecked', async ({ expect }) => {
 		await page.goto(`${baseUrl}/test/components/switch/required`);
 		await Promise.all([
-			page.waitForNavigation({ timeout: 500 }),
+			page.waitForNavigation({ timeout: 1500 }),
 			page.evaluate(() => foo.submit()),
 		]);
 		const search = await page.evaluate(() => location.search);
