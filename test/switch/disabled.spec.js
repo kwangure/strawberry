@@ -1,11 +1,11 @@
 import { describe, it } from 'vitest';
-import { baseUrl, page, queries } from '../../src/lib/internal/test/playwright/vitest.js';
+import '$lib/internal/test/playwright/vitest.js';
 
 describe('Checked switch', async () => {
-	let switchLocator;
-	it('is disabled when \'disabled\' prop is true', async ({ expect }) => {
+	it('is disabled when \'disabled\' prop is true', async (context) => {
+		const { baseUrl, expect, page } = context;
 		await page.goto(`${baseUrl}/test/components/switch/disabled`);
-		switchLocator = await queries.getByRole('switch');
+		let switchLocator = await page.getByRole('switch');
 		await expect(switchLocator).toBeDisabled();
 	});
 });

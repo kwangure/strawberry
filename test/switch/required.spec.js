@@ -1,8 +1,9 @@
 import { describe, it } from 'vitest';
-import { baseUrl, page } from '../../src/lib/internal/test/playwright/vitest.js';
+import '$lib/internal/test/playwright/vitest.js';
 
 describe.only('Required switch', async () => {
-	it('prevents submission when \'required\' prop is true and Switch is unchecked', async ({ expect }) => {
+	it('prevents submission when \'required\' prop is true and Switch is unchecked', async (context) => {
+		const { baseUrl, expect, page } = context;
 		await page.goto(`${baseUrl}/test/components/switch/required`);
 		await Promise.all([
 			page.waitForNavigation({ timeout: 1500 }),
