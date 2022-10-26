@@ -3,7 +3,6 @@ import inspect from 'vite-plugin-inspect';
 import localPackageWatch from './scripts/local-pkg-watch/index.js';
 import path from 'path';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { sveltekitPluginDtl } from 'sitgent/plugin';
 
 const _filename = new URL(import.meta.url).pathname;
 const _dirname = path.dirname(_filename);
@@ -20,7 +19,14 @@ const config = {
 		// inspect(),
 		localPackageWatch(),
 		sveltekit(),
-		sveltekitPluginDtl(),
+		{
+			configResolved(config) {
+				const protocol = config.server.https ? 'https://' : 'http://';
+				const host = config.server.host ?? 'localhost';
+				const port = config.server.port ?? 5173;
+				process.env.VITE_BASE_URL = `${protocol}${host}:${port}`
+			},
+		}
 	],
 	resolve: {
 		alias: {

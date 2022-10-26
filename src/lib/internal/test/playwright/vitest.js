@@ -29,5 +29,5 @@ beforeEach(async (context) => {
 		|| await browserContext.newPage();
 	await page.setViewportSize({ width: 1280, height: 800 });
 	context.page = page;
-	context.baseUrl = `${process.env.VITE_SERVER_PROTOCOL}${process.env.VITE_SERVER_HOST}:${process.env.VITE_SERVER_PORT}`;
+	context.baseUrl = process.env.VITE_BASE_URL;
 }, Infinity);
