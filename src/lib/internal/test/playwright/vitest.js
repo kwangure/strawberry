@@ -30,9 +30,7 @@ expect.extend({
 });
 
 beforeAll(async () => {
-	browser = await chromium.launch({
-		headless: false,
-	});
+	browser = await chromium.launch();
 	return async () => {
 		await browser.close();
 	};
