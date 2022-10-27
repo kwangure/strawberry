@@ -20,7 +20,7 @@ beforeAll(async () => {
 	return async () => {
 		await browser.close();
 	};
-}, Infinity);
+});
 
 beforeEach(async (context) => {
 	const defaultContextOptions = chromium._defaultContextOptions;
@@ -30,4 +30,4 @@ beforeEach(async (context) => {
 	await page.setViewportSize({ width: 1280, height: 800 });
 	context.page = page;
 	context.baseUrl = process.env.VITE_BASE_URL;
-}, Infinity);
+});
