@@ -2,6 +2,7 @@
 :root {
     --br-switch-thumb-size: 1.25rem;
     --br-switch-thumb-transition: transform 0.25s ease, box-shadow 0.25s ease;
+    --br-switch-track-transition: background-color 0.25s ease;
     --br-switch-track-padding: 2px;
     --br-switch-track-size: calc(var(--br-switch-thumb-size) * 2);
 }

@@ -229,7 +229,7 @@
 		align-items: center;
 		grid: [track] 1fr / [track] 1fr;
 
-		transition: background-color 0.25s ease;
+		transition: var(--br-switch-track-transition);
 	}
 
 	input::before {
