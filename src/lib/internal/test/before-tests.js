@@ -22,7 +22,7 @@ beforeAll(async () => {
 		toMatchImageSnapshot,
 	});
 
-	browser = await chromium.launch();
+	browser = await chromium.launch({ headless: true });
 	server = await createServer({
 		server: { port: 1337 }
 	});
