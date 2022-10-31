@@ -211,11 +211,11 @@
 	}
 
 	input {
-		padding: var(--br-switch-root-track-padding);
-		background: var(--br-switch-root-track-inactive-background-color);
-		inline-size: var(--br-switch-root-track-size);
-		block-size: var(--br-switch-root-thumb-size);
-		border-radius: var(--br-switch-root-track-size);
+		padding: var(--br-switch-track-padding);
+		background: var(--br-switch-track-background-color);
+		inline-size: var(--br-switch-track-size);
+		block-size: var(--br-switch-thumb-size);
+		border-radius: var(--br-switch-track-size);
 
 		appearance: none;
 		pointer-events: none;
@@ -237,13 +237,12 @@
 		cursor: pointer;
 		pointer-events: auto;
 		grid-area: track;
-		inline-size: var(--br-switch-root-thumb-size);
-		block-size: var(--br-switch-root-thumb-size);
-		background: var(--br-switch-root-thumb-color-scheme-color);
-		box-shadow: 0 0 0 0 var(--br-switch-root-thumb-color-box-shadow);
+		inline-size: var(--br-switch-thumb-size);
+		block-size: var(--br-switch-thumb-size);
+		background: var(--br-switch-thumb-background-color);
 		border-radius: 50%;
 
-		transition: transform var(--br-switch-root-thumb-transition-duration) ease, box-shadow 0.25s ease;
+		transition: var(--br-switch-thumb-transition);
 		transform: translateX(var(--thumb-position));
 	}
 	@media (prefers-reduced-motion) {
@@ -257,19 +256,19 @@
 		cursor: pointer;
 		pointer-events: auto;
 		grid-area: track;
-		block-size: var(--br-switch-root-thumb-size);
+		block-size: var(--br-switch-thumb-size);
 	}
 
 	input:not(:disabled):hover::before {
-		box-shadow: 0 0 0 var(--br-switch-root-thumb-radius-hover-box-shadow) var(--br-switch-root-thumb-color-box-shadow);
+		box-shadow: var(--br-switch-thumb-hover-box-shadow);
 	}
 
 	input:checked {
-		background: var(--br-switch-root-track-active-background-color);
-		--thumb-position: calc((var(--br-switch-root-track-size) - 100%) * var(--isLTR));
+		background: var(--br-switch-track-active-background-color);
+		--thumb-position: calc((var(--br-switch-track-size) - 100%) * var(--isLTR));
 	}
 
 	input:indeterminate {
-		--thumb-position: calc(calc(calc(var(--br-switch-root-track-size) / 2) - calc(var(--br-switch-root-thumb-size) / 2)) * var(--isLTR));
+		--thumb-position: calc(calc(calc(var(--br-switch-track-size) / 2) - calc(var(--br-switch-thumb-size) / 2)) * var(--isLTR));
 	}
 </style>
