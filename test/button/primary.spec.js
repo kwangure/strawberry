@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest';
-import '$lib/internal/test/playwright/vitest.js';
+import '$lib/internal/test/before-tests.js';
 
 describe('Primary button', async () => {
 	it('is primary color when primary classname is added', async (context) => {

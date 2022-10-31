@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest';
-import '$lib/internal/test/playwright/vitest.js';
+import '$lib/internal/test/before-tests.js';
 
 describe('Enabled switch', async () => {
 	it('is enabled when \'disabled\' prop is false', async (context) => {
