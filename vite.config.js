@@ -33,6 +33,9 @@ const config = {
 			'@kwangure/strawberry/css/styles': resolve('./src/lib/css/styles.js'),
 		},
 	},
+	test: {
+		globalSetup: './test/setup.js',
+	},
 };
 
 export default config;

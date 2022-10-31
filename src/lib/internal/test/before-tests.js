@@ -2,7 +2,6 @@
 // @ts-nocheck
 import { beforeAll, beforeEach, expect } from 'vitest';
 import { chromium } from 'playwright';
-import { createServer } from 'vite';
 import { matchers } from 'sitgent/matchers';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 
@@ -11,11 +10,6 @@ import { toMatchImageSnapshot } from 'jest-image-snapshot';
  */
 export let browser;
 
-/**
- * @type {import('vite').ViteDevServer}
- */
-export let server;
-
 beforeAll(async () => {
 	expect.extend({
 		...matchers,
@@ -23,15 +17,10 @@ beforeAll(async () => {
 	});
 
 	browser = await chromium.launch({ headless: true });
-	server = await createServer({
-		server: { port: 1337 }
-	});
-	await server.listen();
 
 	return async () => {
 		await Promise.all([
 			browser.close(),
-			server.close(),
 		])
 	};
 });
@@ -46,5 +35,4 @@ beforeEach(async (context) => {
 	context.baseUrl = process.env.VITE_BASE_URL;
 	context.browser = browser;
 	context.page = page;
-	context.server = server;
 });
