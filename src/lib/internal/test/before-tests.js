@@ -3,10 +3,10 @@
 import { beforeAll, beforeEach, expect } from 'vitest';
 import { chromium } from 'playwright';
 import { matchers } from 'sitgent/matchers';
-import { toMatchImageSnapshot } from 'jest-image-snapshot'
+import { toMatchImageSnapshot } from 'jest-image-snapshot';
 
 /**
- * @type {import("playwright").Browser}
+ * @type {import('playwright').Browser}
  */
 export let browser;
 
@@ -15,12 +15,15 @@ beforeAll(async () => {
 		...matchers,
 		toMatchImageSnapshot,
 	});
-	browser = await chromium.launch();
+
+	browser = await chromium.launch({ headless: true });
 
 	return async () => {
-		await browser.close();
+		await Promise.all([
+			browser.close(),
+		])
 	};
-}, Infinity);
+});
 
 beforeEach(async (context) => {
 	const defaultContextOptions = chromium._defaultContextOptions;
@@ -28,6 +31,8 @@ beforeEach(async (context) => {
 	const page = browserContext.pages()[0]
 		|| await browserContext.newPage();
 	await page.setViewportSize({ width: 1280, height: 800 });
-	context.page = page;
+
 	context.baseUrl = process.env.VITE_BASE_URL;
-}, Infinity);
+	context.browser = browser;
+	context.page = page;
+});

@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest';
-import '$lib/internal/test/playwright/vitest.js';
+import '$lib/internal/test/before-tests.js';
 
 describe('Switch value', async () => {
 	it('is adds input value from prop to form', async (context) => {

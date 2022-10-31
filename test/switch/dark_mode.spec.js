@@ -1,8 +1,8 @@
 import { describe, it } from 'vitest';
-import '$lib/internal/test/playwright/vitest.js';
+import '$lib/internal/test/before-tests.js';
 
 describe('Dark mode switch', async () => {
-	it('is light in lightmode', async (context) => {
+	it.skip('is light in lightmode', async (context) => {
 		const { baseUrl, expect, page } = context;
 		await page.emulateMedia({ colorScheme: 'light' });
 		await page.goto(`${baseUrl}/test/components/switch/darkmode`);
@@ -11,7 +11,7 @@ describe('Dark mode switch', async () => {
 		const image = await page.locator('#test-switches').screenshot();
 		expect(image).toMatchImageSnapshot();
 	});
-	it('is dark in darkmode', async (context) => {
+	it.skip('is dark in darkmode', async (context) => {
 		const { baseUrl, expect, page } = context;
 		await page.emulateMedia({ colorScheme: 'dark' });
 		await page.goto(`${baseUrl}/test/components/switch/darkmode`);

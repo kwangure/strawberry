@@ -1,5 +1,5 @@
 import { describe, it } from 'vitest';
-import '$lib/internal/test/playwright/vitest.js';
+import '$lib/internal/test/before-tests.js';
 
 describe('Dark mode button', async () => {
 	it('is light in lightmode', async (context) => {
