@@ -79,6 +79,6 @@ describe('Custom-property support', async () => {
 
         expect(btnBackgroundColor).toBe(expectedValue);
         expect(brBtnBackgroundColor).toBe(expectedValue);
-    });
+    }, { retry: 3 });
 
 });
