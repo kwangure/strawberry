@@ -32,7 +32,7 @@ describe('Custom-property support', async () => {
         ]);
 
         expect(switchBackgroundColor).toBe(expectedValue);
-    });
+    }, { retry: 3 });
 
     test('--br-switch-thumb-size', async (context) => {
         const { expect, page } = context;
@@ -90,7 +90,7 @@ describe('Custom-property support', async () => {
         ]);
 
         expect(switchBackgroundColor).toBe(expectedValue);
-    });
+    }, { retry: 3 });
 
     test('--br-switch-track-background-color', async (context) => {
         const { expect, page } = context;
