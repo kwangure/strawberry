@@ -1,18 +1,24 @@
 # Strawberry
-A set of Svelte components.
 
-Where possible, a Strawberry component is simply a light wrapper around a built-in element, making it easier to use it the Svelte way.
-<br>
-<br>
+This is library of Svelte sub-components. Its design encourages you to build
+your own components, keeping only the functionality that you need.
+
+Where possible, our components are simply a light wrapper around built-in
+elements, making it easier to use them the Svelte way.
+
+**NOTE**:
 > 🍓 **Strawberry is not stable.**
 
 ## Installation
+
 ```bash
 npm i @kwangure/strawberry
 ```
 
 ## General usage
+
 ### Button
+
 ```html
 <script>
     import '@kwangure/strawberry/default/css/components.css';
@@ -22,7 +28,9 @@ npm i @kwangure/strawberry
 
 <button on:click={hello}>Click me!</button>
 ```
+
 ### Code
+
 ```html
 <script>
     import { Code, javascript } from '@kwangure/strawberry/default/code';
@@ -30,7 +38,9 @@ npm i @kwangure/strawberry
 
 <Code highlight={javascript} code='const five = 5;'/>
 ```
+
 ### Dialog
+
 ```html
 <script>
     import { Content, Dialog, Header } from '@kwangure/strawberry/default/dialog';
@@ -63,6 +73,7 @@ npm i @kwangure/strawberry
 ```
 
 ### Dropdown
+
 ```html
 <script>
     import { Arrow, Dropdown, Item, Popup } from '@kwangure/strawberry/default/dropdown';
@@ -83,6 +94,7 @@ npm i @kwangure/strawberry
 ```
 
 ### Element
+
 ```html
 <script>
     import { Element } from '@kwangure/strawberry/default/element';
@@ -99,7 +111,10 @@ npm i @kwangure/strawberry
 <Element {element}/>
 ```
 
-
+TODO:
+- [x] Add a TODO list :)
+- [ ] Document ther components...
 
 ## License
+
 [Apache 2.0](./LICENSE) © Kafungo Wangure
