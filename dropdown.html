@@ -4,19 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Strawberry</title>
-        <meta http-equiv="content-security-policy" content="">
+        <meta http-equiv="content-security-policy" content=""><title>Strawberry | Svelte Dropdown Component</title>
 	<link rel="stylesheet" href="/strawberry/app/immutable/assets/__layout-a16c08b3.css">
 	<link rel="stylesheet" href="/strawberry/app/immutable/assets/components-a7eee654.css">
 	<link rel="stylesheet" href="/strawberry/app/immutable/assets/globals-2654e6a4.css">
-	<link rel="stylesheet" href="/strawberry/app/immutable/assets/switch-78281dfc.css">
+	<link rel="stylesheet" href="/strawberry/app/immutable/assets/component-edacd7a3.css">
+	<link rel="stylesheet" href="/strawberry/app/immutable/assets/language-69b896cf.css">
 	<link rel="modulepreload" href="/strawberry/app/immutable/start-be91118b.js">
 	<link rel="modulepreload" href="/strawberry/app/immutable/chunks/index-8333b970.js">
 	<link rel="modulepreload" href="/strawberry/app/immutable/chunks/paths-1c47712a.js">
 	<link rel="modulepreload" href="/strawberry/app/immutable/pages/__layout.svelte-b0bfd1f0.js">
 	<link rel="modulepreload" href="/strawberry/app/immutable/chunks/forward-events-ac79da41.js">
-	<link rel="modulepreload" href="/strawberry/app/immutable/pages/test/components/switch/required.svelte-961bea2b.js">
-	<link rel="modulepreload" href="/strawberry/app/immutable/chunks/switch-1b35fcb9.js">
-	<link rel="modulepreload" href="/strawberry/app/immutable/chunks/style-5f922bb9.js">
+	<link rel="modulepreload" href="/strawberry/app/immutable/pages/dropdown.svelte-f0365aa5.js">
+	<link rel="modulepreload" href="/strawberry/app/immutable/chunks/component-85bd3def.js">
+	<link rel="modulepreload" href="/strawberry/app/immutable/chunks/language-e15a231f.js">
     </head>
     <body>
         
@@ -151,19 +152,79 @@
                     </div>
 </section>
 </aside></div>
-        <div class="right svelte-ulme35"><form id="foo">
+        <div class="right svelte-ulme35">
+
+<h1 class="svelte-aqw24y">Dropdown</h1>
+Dropdown displays a list of actions or options to a user.
+<h2 class="svelte-aqw24y">Example</h2>
+    <div class="usage inline svelte-aqw24y">
 
 
-<div class="berry-element svelte-1sy5i22">
-	<input type="checkbox" id="berry-switch"  name="fizz" required role="switch" value="buzz" class="svelte-1sy5i22">
-</div></form></div></div>
+<button slot="trigger">Click for dropdown
+            </button>
+<div class="svelte-cdspn4 has-trigger"><div class="svelte-sn8z3j"><div class="br-arrow svelte-1pv59d6"></div>
+                
+
+
+<div class="menu-item svelte-17cflqn">Purple
+</div>
+                
+
+
+<div class="menu-item svelte-17cflqn active">Penguin
+</div>
+                
+
+
+<div class="menu-item svelte-17cflqn">Has
+</div>
+                
+
+
+<div class="menu-item svelte-17cflqn">Landed
+</div>
+</div>
+</div></div>
+    <div class="usage block svelte-aqw24y"></div>
+
+<h2 class="svelte-aqw24y">Props</h2>
+    <table class="svelte-aqw24y"><tr><th class="svelte-aqw24y">Name</th>
+            <th class="svelte-aqw24y">Type</th>
+            <th class="svelte-aqw24y">Default</th>
+            <th class="svelte-aqw24y">Description</th></tr>
+        <tr><td class="svelte-125od0p"><span>placement</span></td>
+    <td class="type svelte-125od0p">
+
+
+
+<pre class="berry-code hljs svelte-1usqvn3 inline"><code class="svelte-1usqvn3"><!-- HTML_TAG_START --><span style='color: var(--br-code-token-string-color);'>"top"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"top-start"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"top-end"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"right"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"right-start"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"right-end"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"bottom"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"bottom-start"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"bottom-end"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"left"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"left-start"</span> <span style='color: var(--br-code-token-operator-color);'>|</span> <span style='color: var(--br-code-token-string-color);'>"left-end"</span><!-- HTML_TAG_END --></code></pre></td>
+    <td class="svelte-125od0p">
+
+
+
+<pre class="berry-code hljs svelte-1usqvn3 inline"><code class="svelte-1usqvn3"><!-- HTML_TAG_START --><span style='color: var(--br-code-token-string-color);'>"bottom"</span><!-- HTML_TAG_END --></code></pre></td>
+    <td class="svelte-125od0p">Where to position the popup relative to the reference element.</td>
+</tr></table>
+
+<h2 class="svelte-aqw24y">Slots</h2>
+    <table class="svelte-aqw24y"><tr><th class="svelte-aqw24y">Name</th>
+            <th class="svelte-aqw24y">Description</th></tr>
+        <tr><td class="svelte-1gza2ws">trigger</td>
+    <td class="svelte-1gza2ws">—</td>
+</tr><tr><td class="svelte-1gza2ws">default</td>
+    <td class="svelte-1gza2ws">—</td>
+</tr></table>
+
+
+
+</div></div>
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1d0fapk">
+		<script type="module" data-sveltekit-hydrate="1jrd6nr">
 		import { start } from "/strawberry/app/immutable/start-be91118b.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1d0fapk"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1jrd6nr"]').parentNode,
 			paths: {"base":"/strawberry","assets":"/strawberry"},
 			session: {},
 			route: true,
@@ -172,9 +233,9 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 29],
+				nodes: [0, 6],
 				params: {},
-				routeId: "test/components/switch/required"
+				routeId: "dropdown"
 			}
 		});
 	</script>
