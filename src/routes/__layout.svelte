@@ -12,8 +12,6 @@
     $: if (base) {
     	path = `${base}${path}`;
     }
-
-    $: console.log({ base });
 </script>
 
 <Layout>
