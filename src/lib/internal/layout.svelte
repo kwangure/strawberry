@@ -18,8 +18,8 @@
             🍓 <span class="text">strawberry</span>
         </Logo>
         <Section>
-            <a class="navigation" href="{base}/components">
-                <Item active={path.startsWith(`${base}/components`)}>
+            <a class="navigation" href="{base}/">
+                <Item active={!path.startsWith(`${base}/typography`)}>
                     Components
                 </Item>
             </a>
