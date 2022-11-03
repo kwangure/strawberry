@@ -1,5 +1,5 @@
 <script>
-    import { createEventForwarder } from '../../../utils/forward-events.js';
+    import { createEventForwarder } from '../../utils/forward-events.js';
 
     /**
      * If this Boolean attribute is set, this option is not checkable.
