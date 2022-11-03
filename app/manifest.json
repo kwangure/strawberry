@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "immutable/start-be91118b.js",
+    "file": "immutable/start-bf1037f5.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -45,7 +45,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "immutable/pages/__layout.svelte-b0bfd1f0.js",
+    "file": "immutable/pages/__layout.svelte-c85eea80.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -617,37 +617,37 @@
       "immutable/assets/switch-78281dfc.css"
     ]
   },
-  "src/routes/typography/__layout.css": {
-    "file": "immutable/assets/__layout-5fa74e9f.css",
-    "src": "src/routes/typography/__layout.css"
-  },
   "globals.css": {
     "file": "immutable/assets/globals-2654e6a4.css",
     "src": "globals.css"
-  },
-  "src/routes/test/components/switch/darkmode.css": {
-    "file": "immutable/assets/darkmode-31621719.css",
-    "src": "src/routes/test/components/switch/darkmode.css"
-  },
-  "language.css": {
-    "file": "immutable/assets/language-69b896cf.css",
-    "src": "language.css"
-  },
-  "src/routes/code.css": {
-    "file": "immutable/assets/code-b25898ba.css",
-    "src": "src/routes/code.css"
   },
   "src/routes/test/components/switch/custom-properties.css": {
     "file": "immutable/assets/custom-properties-31621719.css",
     "src": "src/routes/test/components/switch/custom-properties.css"
   },
-  "src/routes/dialog.css": {
-    "file": "immutable/assets/dialog-58070e5c.css",
-    "src": "src/routes/dialog.css"
+  "components.css": {
+    "file": "immutable/assets/components-a7eee654.css",
+    "src": "components.css"
   },
   "src/routes/__layout.css": {
     "file": "immutable/assets/__layout-a16c08b3.css",
     "src": "src/routes/__layout.css"
+  },
+  "src/routes/code.css": {
+    "file": "immutable/assets/code-b25898ba.css",
+    "src": "src/routes/code.css"
+  },
+  "language.css": {
+    "file": "immutable/assets/language-69b896cf.css",
+    "src": "language.css"
+  },
+  "component.css": {
+    "file": "immutable/assets/component-edacd7a3.css",
+    "src": "component.css"
+  },
+  "src/routes/input/datetime.css": {
+    "file": "immutable/assets/datetime-cb2e0910.css",
+    "src": "src/routes/input/datetime.css"
   },
   "src/routes/tooltip.css": {
     "file": "immutable/assets/tooltip-7227f440.css",
@@ -657,44 +657,44 @@
     "file": "immutable/assets/time-512a564f.css",
     "src": "src/routes/input/time.css"
   },
-  "src/routes/input/datetime.css": {
-    "file": "immutable/assets/datetime-cb2e0910.css",
-    "src": "src/routes/input/datetime.css"
-  },
-  "component.css": {
-    "file": "immutable/assets/component-edacd7a3.css",
-    "src": "component.css"
-  },
   "src/routes/input/date.css": {
     "file": "immutable/assets/date-b130bada.css",
     "src": "src/routes/input/date.css"
-  },
-  "src/routes/input/index.css": {
-    "file": "immutable/assets/index-35bc3e52.css",
-    "src": "src/routes/input/index.css"
-  },
-  "src/routes/input/password.css": {
-    "file": "immutable/assets/password-8b0c77d1.css",
-    "src": "src/routes/input/password.css"
-  },
-  "index.css": {
-    "file": "immutable/assets/index-2efc609b.css",
-    "src": "index.css"
   },
   "switch.css": {
     "file": "immutable/assets/switch-78281dfc.css",
     "src": "switch.css"
   },
-  "src/routes/input/number.css": {
-    "file": "immutable/assets/number-911dbb5d.css",
-    "src": "src/routes/input/number.css"
-  },
   "src/routes/input/textarea.css": {
     "file": "immutable/assets/textarea-fcddd4bb.css",
     "src": "src/routes/input/textarea.css"
   },
-  "components.css": {
-    "file": "immutable/assets/components-a7eee654.css",
-    "src": "components.css"
+  "index.css": {
+    "file": "immutable/assets/index-2efc609b.css",
+    "src": "index.css"
+  },
+  "src/routes/test/components/switch/darkmode.css": {
+    "file": "immutable/assets/darkmode-31621719.css",
+    "src": "src/routes/test/components/switch/darkmode.css"
+  },
+  "src/routes/dialog.css": {
+    "file": "immutable/assets/dialog-58070e5c.css",
+    "src": "src/routes/dialog.css"
+  },
+  "src/routes/input/password.css": {
+    "file": "immutable/assets/password-8b0c77d1.css",
+    "src": "src/routes/input/password.css"
+  },
+  "src/routes/input/number.css": {
+    "file": "immutable/assets/number-911dbb5d.css",
+    "src": "src/routes/input/number.css"
+  },
+  "src/routes/typography/__layout.css": {
+    "file": "immutable/assets/__layout-5fa74e9f.css",
+    "src": "src/routes/typography/__layout.css"
+  },
+  "src/routes/input/index.css": {
+    "file": "immutable/assets/index-35bc3e52.css",
+    "src": "src/routes/input/index.css"
   }
 }
