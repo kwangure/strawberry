@@ -123,13 +123,11 @@
     const forward = createEventForwarder();
 </script>
 
-<div class="container">
-    <!-- svelte-ignore a11y-autofocus -->
-    <input bind:value use:forward use:validate={{ invalid, error }}
-        type="text" aria-describedby={hint}
-        {autocomplete} {autofocus} {disabled} {form} {id} {list} {maxlength}
-        {minlength} {name} {placeholder} {readonly} {required}>
-</div>
+<!-- svelte-ignore a11y-autofocus -->
+<input bind:value use:forward use:validate={{ invalid, error }}
+    type="text" aria-describedby={hint}
+    {autocomplete} {autofocus} {disabled} {form} {id} {list} {maxlength}
+    {minlength} {name} {placeholder} {readonly} {required}>
 
 <style>
     input {
@@ -141,21 +139,5 @@
         background-color: transparent;
         flex-grow: 1;
         flex-grow: 1;
-    }
-    .container {
-        display: flex;
-        border: var(--br-input-text-root-border);
-        border-radius: var(--br-input-text-root-border-radius);
-        background-color: var(--br-input-text-root-background-color);
-        height: var(--br-input-text-root-height);
-        transition: var(--br-input-text-root-transition);
-    }
-    .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-text-root-hover-box-shadow);
-        border: var(--br-input-text-root-hover-border);
-    }
-    .container:focus-within {
-        box-shadow: var(--br-input-text-root-focus-box-shadow);
-        border: var(--br-input-text-root-focus-border);
     }
 </style>
