@@ -125,13 +125,12 @@
     const forward = createEventForwarder();
 </script>
 
-<div class="container">
-    <!-- svelte-ignore a11y-autofocus -->
-    <input bind:value use:forward type='password'
-        {autocomplete} {autofocus} {disabled} {form} {id} {list} {maxlength}
-        {minlength} {name} {placeholder} {readonly} {required} aria-describedby={hint}
-        use:validate={{ invalid, error }}/>
-</div>
+<!-- svelte-ignore a11y-autofocus -->
+<input bind:value use:forward type='password'
+    {autocomplete} {autofocus} {disabled} {form} {id} {list} {maxlength}
+    {minlength} {name} {placeholder} {readonly} {required} aria-describedby={hint}
+    use:validate={{ invalid, error }}/>
+
 
 <style>
     input {
@@ -142,21 +141,5 @@
         color: var(--br-input-password-root-font-color);
         background-color: transparent;
         flex-grow: 1;
-    }
-    .container {
-        display: flex;
-        border: var(--br-input-password-root-border);
-        border-radius: var(--br-input-password-root-border-radius);
-        background-color: var(--br-input-password-root-background-color);
-        height: var(--br-input-password-root-height);
-        transition: var(--br-input-password-root-transition);
-    }
-    .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-password-root-hover-box-shadow);
-        border: var(--br-input-password-root-hover-border);
-    }
-    .container:focus-within {
-        box-shadow: var(--br-input-password-root-focus-box-shadow);
-        border: var(--br-input-password-root-focus-border);
     }
 </style>

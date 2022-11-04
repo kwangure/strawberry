@@ -2,8 +2,4 @@
 :root {
     --br-input-password-root-padding-block: 5px;
     --br-input-password-root-padding-inline: 12px;
-    --br-input-password-root-width: fit-content;
-    --br-input-password-root-height: 35px;
-    --br-input-password-root-border-radius: 4px;
-    --br-input-password-root-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
 }
