@@ -1,8 +1,34 @@
-<div class="container">
-    <slot/>
+<script>
+    import uid from 'uid';
+
+    const descriptionId = uid();
+    const inputId = uid();
+
+    let validationMessage = '';
+
+    /**
+     * @param {Event} event
+     */
+    function updateValidationMessage(event) {
+    	validationMessage = /** @type {HTMLInputElement}*/(event?.target)?.validationMessage || '';
+    }
+</script>
+
+<div class="wrapper" class:active={$$slots.label || $$slots.hint}>
+    <slot name='label'></slot>
+    <div class="container" on:validate={updateValidationMessage}>
+        <slot {descriptionId} {inputId} {validationMessage}/>
+    </div>
+    <slot name='hint' ></slot>
 </div>
 
 <style>
+    .wrapper {
+        display: contents;
+    }
+    .active {
+        display: inline-block;
+    }
     .container {
         display: flex;
         border: var(--br-input-container-border);
