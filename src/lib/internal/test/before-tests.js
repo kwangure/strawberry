@@ -3,7 +3,6 @@
 import { beforeAll, beforeEach, expect } from 'vitest';
 import { chromium } from 'playwright';
 import { matchers } from 'sitgent/matchers';
-import { toMatchImageSnapshot } from 'jest-image-snapshot';
 
 /**
  * @type {import('playwright').Browser}
@@ -11,10 +10,7 @@ import { toMatchImageSnapshot } from 'jest-image-snapshot';
 export let browser;
 
 beforeAll(async () => {
-	expect.extend({
-		...matchers,
-		toMatchImageSnapshot,
-	});
+	expect.extend(matchers);
 
 	browser = await chromium.launch({ headless: true });
 
