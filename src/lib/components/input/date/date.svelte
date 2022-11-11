@@ -124,13 +124,11 @@
     const forward = createEventForwarder();
 </script>
 
-<div class="container">
-    <!-- svelte-ignore a11y-autofocus -->
-    <input {autocomplete} {autofocus} {disabled} {form} {id} {list} {max} {min}
-        {name} {readonly} {required} {step} aria-describedby={hint}
-        bind:value use:forward use:validate={{ invalid, error }}
-        type="date">
-</div>
+<!-- svelte-ignore a11y-autofocus -->
+<input {autocomplete} {autofocus} {disabled} {form} {id} {list} {max} {min}
+    {name} {readonly} {required} {step} aria-describedby={hint}
+    bind:value use:forward use:validate={{ invalid, error }}
+    type="date">
 
 <style>
     @import "../css/picker_indicator.css";
@@ -146,21 +144,5 @@
         color: var(--br-input-date-root-font-color);
         background-color: transparent;
         flex-grow: 1;
-    }
-    .container {
-        display: flex;
-        border: var(--br-input-date-root-border);
-        border-radius: var(--br-input-date-root-border-radius);
-        background-color: var(--br-input-date-root-background-color);
-        height: var(--br-input-date-root-height);
-        transition: var(--br-input-date-root-transition);
-    }
-    .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-date-root-hover-box-shadow);
-        border: var(--br-input-date-root-hover-border);
-    }
-    .container:focus-within {
-        box-shadow: var(--br-input-date-root-focus-box-shadow);
-        border: var(--br-input-date-root-focus-border);
     }
 </style>

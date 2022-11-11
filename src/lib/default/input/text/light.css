@@ -1,10 +1,4 @@
 :host,
 :root {
     --br-input-text-root-font-color: inherit;
-    --br-input-text-root-background-color: transparent;
-    --br-input-text-root-border: 1px solid #c3c3c3;
-    --br-input-text-root-hover-box-shadow: 0 0 0px 2px hsl(215deg 100% 90%);
-    --br-input-text-root-hover-border: 1px solid hsl(225deg 100% 55%);
-    --br-input-text-root-focus-box-shadow: 0 0 0px 1px hsl(225deg 100% 55%);
-    --br-input-text-root-focus-border: 1px solid hsl(225deg 100% 55%);
 }

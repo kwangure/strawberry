@@ -81,7 +81,7 @@
                                 Number
                             </Item>
                         </a>
-                        <a href="{base}/input/select">
+                        <a href="{base}/select">
                             <Item active={path === `${base}/input/select`}>
                                 Select
                             </Item>

@@ -1,38 +1,30 @@
 <script>
-    import { Code, plainHTML } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
+    import { Container } from '$lib/default/input/container';
     import { docs } from '$lib/docs/input/text';
     import { Text as Input } from '$lib/default/input/text';
-    import { Label } from '$lib/default/input/label';
 </script>
 
 <Component {docs}>
     <svelte:fragment slot="inline">
-        <Label>
-            I label inputs like no one else!
-            <Input slot='input' placeholder="I can say anything!"/>
-        </Label>
-    </svelte:fragment>
-    <svelte:fragment slot="accessibility">
-        You should always include the label text for the input for the benefit
-        of screen-reader users. You may use custom-properties to visually
-        hide it if you must. For example:
-        <Code highlight={plainHTML} code={`
-<div class="element">
-    <Label>
-        First name
-        <Input slot='input' value="Karen"/>
-    </Label>
-</div>
-
-<style>
-    .element {
-        --br-input-label-root-position: absolute;
-        --br-input-label-root-height: 1px;
-        --br-input-label-root-width: 1px;
-        --br-input-label-root-overflow: hidden;
-    }
-</style>
-`}/>
+        <Container slot='input' let:inputId let:descriptionId let:validationMessage>
+            <label slot='label' for={inputId}>
+                I label inputs like no one else!
+            </label>
+            <Input id={inputId} placeholder="I can say anything!" required/>
+            <span slot='hint' id={descriptionId} class:invalid={validationMessage}>
+                {#if validationMessage}
+                    {validationMessage}
+                {:else}
+                    This is a description or input hint
+                {/if}
+            </span>
+        </Container>
     </svelte:fragment>
 </Component>
+
+<style>
+    .invalid {
+        color: red;
+    }
+</style>

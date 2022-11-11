@@ -1,34 +1,14 @@
 <script>
-    import { Code, plainHTML } from '$lib/default/code';
     import Component from '$lib/internal/component.svelte';
+    import { Container } from '$lib/default/input/container';
     import { docs } from '$lib/docs/input/password';
     import { Password } from '$lib/default/input/password';
 </script>
 
 <Component {docs}>
     <svelte:fragment slot="inline">
-        <Password placeholder="I can say anything!"/>
-    </svelte:fragment>
-    <svelte:fragment slot="accessibility">
-        You should always include the label text for the input for the benefit
-        of screen-reader users. You may use custom-properties to visually
-        hide it if you must. For example:
-        <Code highlight={plainHTML} code={`
-<div class="element">
-    <Label>
-        Secret Key
-        <Password slot='input' value="password"/>
-    </Label>
-</div>
-
-<style>
-    .element {
-        --br-input-label-root-position: absolute;
-        --br-input-label-root-height: 1px;
-        --br-input-label-root-width: 1px;
-        --br-input-label-root-overflow: hidden;
-    }
-</style>
-`}/>
+        <Container>
+            <Password placeholder="I can say anything!"/>
+        </Container>
     </svelte:fragment>
 </Component>

@@ -1,7 +1,7 @@
 <script>
-    import { Option, Select } from '$lib/default/input/select';
+    import { Option, Select } from '$lib/default/select';
     import Component from '$lib/internal/component.svelte';
-    import { docs } from '$lib/docs/input/select';
+    import { docs } from '$lib/docs/select';
 </script>
 
 <Component {docs}>

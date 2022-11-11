@@ -1,0 +1,6 @@
+:host,
+:root {
+    --br-input-container-height: 35px;
+    --br-input-container-border-radius: 4px;
+    --br-input-container-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+}

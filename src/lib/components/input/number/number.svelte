@@ -159,20 +159,18 @@
     }
 </script>
 
-<div class="container">
-    <!-- svelte-ignore a11y-autofocus -->
-    <input bind:this={input} bind:value
-        type="number" use:forward use:validate={{ invalid, error }}
-        {autocomplete} {autofocus} {disabled} {form} {id} {list} {max} {min}
-        {name} {placeholder} {required} {readonly} {step} aria-describedby={hint}>
-    <div class="postfix-wrapper">
-        <svg viewBox="0 0 24 24" class="postfix-up" on:click={stepUp}>
-            <path d={mdiChevronUp}/>
-        </svg>
-        <svg viewBox="0 0 24 24" class="postfix-down" on:click={stepDown}>
-            <path d={mdiChevronDown}/>
-        </svg>
-    </div>
+<!-- svelte-ignore a11y-autofocus -->
+<input bind:this={input} bind:value
+    type="number" use:forward use:validate={{ invalid, error }}
+    {autocomplete} {autofocus} {disabled} {form} {id} {list} {max} {min}
+    {name} {placeholder} {required} {readonly} {step} aria-describedby={hint}>
+<div class="postfix-wrapper">
+    <svg viewBox="0 0 24 24" class="postfix-up" on:click={stepUp}>
+        <path d={mdiChevronUp}/>
+    </svg>
+    <svg viewBox="0 0 24 24" class="postfix-down" on:click={stepDown}>
+        <path d={mdiChevronDown}/>
+    </svg>
 </div>
 
 <style>
@@ -195,24 +193,8 @@
         -moz-appearance: textfield;
         appearance: textfield;
     }
-    .container {
-        display: flex;
-        border: var(--br-input-number-border);
-        border-radius: var(--br-input-number-border-radius);
-        background-color: var(--br-input-number-background-color);
-        height: var(--br-input-number-height);
-        transition: var(--br-input-number-transition);
-    }
-    .container:hover:not(:focus-within) {
-        box-shadow: var(--br-input-number-hover-box-shadow);
-        border: var(--br-input-number-hover-border);
-    }
-    .container:focus-within {
-        box-shadow: var(--br-input-number-focus-box-shadow);
-        border: var(--br-input-number-focus-border);
-    }
-    .container:hover .postfix-wrapper,
-    .container:focus-within .postfix-wrapper {
+    :global(.container:hover) .postfix-wrapper,
+    :global(.container:focus-within) .postfix-wrapper {
         color: var(--br-input-number-postfix-focus-color);
         background-color: var(--br-input-number-postfix-focus-background-color);
     }
