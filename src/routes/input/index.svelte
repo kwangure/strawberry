@@ -7,7 +7,7 @@
 
 <Component {docs}>
     <svelte:fragment slot="inline">
-        <Container slot='input' let:inputId let:descriptionId let:validationMessage>
+        <Container let:inputId let:descriptionId let:validationMessage>
             <label slot='label' for={inputId}>
                 I label inputs like no one else!
             </label>
