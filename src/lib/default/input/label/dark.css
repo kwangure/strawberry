@@ -1,9 +1,0 @@
-:host,
-:root {
-    --br-input-label-root-margin-block: auto 5px;
-    --br-input-label-root-position: static;
-    --br-input-label-root-width: initial;
-    --br-input-label-root-height: initial;
-    --br-input-label-root-overflow: visible;
-
-}
