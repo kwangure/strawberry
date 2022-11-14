@@ -1,6 +1,6 @@
 # Strawberry
 
-This is library of Svelte sub-components. Its design encourages you to build
+This is a library of Svelte sub-components. Its design encourages you to build
 your own components, keeping only the functionality that you need.
 
 Where possible, our components are simply a light wrapper around built-in
@@ -100,11 +100,11 @@ npm i @kwangure/strawberry
     import { Element } from '@kwangure/strawberry/default/element';
 
     const element = {
-    	type: 'p',
-    	props: {
-    		style: 'font-style: italic; color: purple;',
-    	},
-    	children: 'I am a dynamically generated purple <p/> tag element.',
+     type: 'p',
+     props: {
+      style: 'font-style: italic; color: purple;',
+     },
+     children: 'I am a dynamically generated purple <p/> tag element.',
     };
 </script>
 
@@ -112,6 +112,7 @@ npm i @kwangure/strawberry
 ```
 
 TODO:
+
 - [x] Add a TODO list :)
 - [ ] Document ther components...
 

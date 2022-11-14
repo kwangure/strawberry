@@ -5,7 +5,7 @@
 <h1>Strawberry</h1>
 
 <p>
-    This is library of Svelte sub-components. Its design encourages you to build
+    This is a library of Svelte sub-components. Its design encourages you to build
     your own components, keeping only the functionality that you need.
 </p>
 
