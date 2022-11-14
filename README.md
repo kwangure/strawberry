@@ -111,6 +111,38 @@ npm i @kwangure/strawberry
 <Element {element}/>
 ```
 
+### Inputs
+
+```html
+<script>
+    import { Container } from '$lib/default/input/container';
+    import { Postfix } from '$lib/default/input/number';
+    import { validate } from '$lib/components/input/validate.js';
+</script>
+
+<Container let:inputId let:descriptionId let:validationMessage>
+    <label slot='label' for={inputId}>
+        This is an input label
+    </label>
+    <input type=number id={inputId} aria-describedby={descriptionId} required use:validate/>
+    <Postfix/>
+    <span slot='hint' id={descriptionId} class:invalid={validationMessage}>
+        {#if validationMessage}
+            <!-- Display validation errors -->
+            {validationMessage}
+        {:else}
+            This is a description or input hint
+        {/if}
+    </span>
+</Container>
+
+<style>
+    .invalid {
+        color: red;
+    }
+</style>
+```
+
 TODO:
 
 - [x] Add a TODO list :)
