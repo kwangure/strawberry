@@ -1,1 +1,1 @@
-export { default as Number } from './number.svelte';
+export { default as Postfix } from './postfix.svelte';

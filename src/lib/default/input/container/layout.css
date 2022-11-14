@@ -3,4 +3,7 @@
     --br-input-container-height: 35px;
     --br-input-container-border-radius: 4px;
     --br-input-container-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
+
+    --br-input-root-padding-block: 5px;
+    --br-input-root-padding-inline: 12px 8px;
 }
