@@ -120,13 +120,13 @@ npm i @kwangure/strawberry
     import { validate } from '$lib/components/input/validate.js';
 </script>
 
-<Container let:inputId let:descriptionId let:validationMessage>
+<Container let:inputId let:hintId let:validationMessage>
     <label slot='label' for={inputId}>
         This is an input label
     </label>
-    <input type=number id={inputId} aria-describedby={descriptionId} required use:validate/>
+    <input type=number id={inputId} aria-describedby={hintId} required use:validate/>
     <Postfix/>
-    <span slot='hint' id={descriptionId} class:invalid={validationMessage}>
+    <span slot='hint' id={hintId} class:invalid={validationMessage}>
         {#if validationMessage}
             <!-- Display validation errors -->
             {validationMessage}

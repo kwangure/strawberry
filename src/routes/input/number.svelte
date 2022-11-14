@@ -18,13 +18,13 @@
 
 <Component {docs}>
 	<svelte:fragment slot="inline">
-		<Container let:inputId let:descriptionId let:validationMessage>
+		<Container let:inputId let:hintId let:validationMessage>
 			<label slot='label' for={inputId}>
 				This is an input label
 			</label>
 			<input type=number id={inputId} placeholder="Use keyboard or UI arrows!" required use:validate={{}}/>
 			<Postfix/>
-			<span slot='hint' id={descriptionId} class:invalid={validationMessage}>
+			<span slot='hint' id={hintId} class:invalid={validationMessage}>
 				{#if validationMessage}
 					{validationMessage}
 				{:else}

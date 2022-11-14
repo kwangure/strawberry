@@ -1,7 +1,7 @@
 <script>
     import uid from 'uid';
 
-    const descriptionId = uid();
+    const hintId = uid();
     const inputId = uid();
 
     let validationMessage = '';
@@ -17,7 +17,7 @@
 <div class="wrapper" class:active={$$slots.label || $$slots.hint}>
     <slot name='label'></slot>
     <div class="br-container" on:validate={updateValidationMessage}>
-        <slot {descriptionId} {inputId} {validationMessage}/>
+        <slot {hintId} {inputId} {validationMessage}/>
     </div>
     <slot name='hint' ></slot>
 </div>
