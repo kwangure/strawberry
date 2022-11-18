@@ -7,18 +7,15 @@
     let path;
 
     $: ({ pathname: path } = $page.url);
-    $: if (base) {
-    	path = `${base}${path}`;
-    }
 </script>
 
 <div class="app-layout">
     <Navbar>
-        <Logo href="{base}/">
+        <Logo href="{base}">
             🍓 <span class="text">strawberry</span>
         </Logo>
         <Section>
-            <a class="navigation" href="{base}/">
+            <a class="navigation" href="{base}">
                 <Item active={!path.startsWith(`${base}/typography`)}>
                     Components
                 </Item>

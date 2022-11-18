@@ -13,37 +13,34 @@ export default {
     kit: {
         appDir: "app",
         adapter: adapter(),
-        package: {
-            exports: (filepath) => {
-                if (filepath.endsWith('.d.ts')) return false;
-
-                const value = micromatch.isMatch(filepath, [
-                    'build/vite-plugin-strawberry.js',
-                    'default/**',
-                    'components/**/index.js',
-                    'components/code/languages/**/*.js',
-                    'css/**/*.(js|css)',
-                    'utils/forward-events.js',
-                    'utils/input/validationmessage.js',
-                ]);
-
-                return value;
-            },
-            files: (filepath) => {
-                return micromatch.some(filepath, [
-                    'build/**',
-                    'components/**',
-                    'css/**',
-                    'default/**',
-                    'utils/**',
-                ]);
-            },
-        },
         paths: {
             base: PROD ? "/strawberry" : "",
         },
-        prerender: {
-            default: true,
+    },
+    package: {
+        exports: (filepath) => {
+            if (filepath.endsWith('.d.ts')) return false;
+
+            const value = micromatch.isMatch(filepath, [
+                'build/vite-plugin-strawberry.js',
+                'default/**',
+                'components/**/index.js',
+                'components/code/languages/**/*.js',
+                'css/**/*.(js|css)',
+                'utils/forward-events.js',
+                'utils/input/validationmessage.js',
+            ]);
+
+            return value;
+        },
+        files: (filepath) => {
+            return micromatch.some(filepath, [
+                'build/**',
+                'components/**',
+                'css/**',
+                'default/**',
+                'utils/**',
+            ]);
         },
     },
 };
