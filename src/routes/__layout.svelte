@@ -9,17 +9,14 @@
     let path;
 
     $: ({ pathname: path } = $page.url);
-    $: if (base) {
-    	path = `${base}${path}`;
-    }
 </script>
 
 <Layout>
     <div class="components">
         <div class="left">
             <Sidebar>
-                <a href="{base}/">
-                    <Item active={path === `${base}/`}>
+                <a href="{base}">
+                    <Item active={path === base}>
                         Getting started
                     </Item>
                 </a>
