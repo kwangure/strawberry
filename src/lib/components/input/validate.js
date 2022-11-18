@@ -27,9 +27,9 @@ function setValidationMessage(input, invalid, error) {
  * @param {{
  *     invalid?: (input: T) => string,
  *     error?: (error: string, input: T) => string,
- * }} options
+ * }} [options]
  */
-export function validate(input, options) {
+export function validate(input, options = {}) {
 	const noop = () => '';
 	let { invalid = noop, error = noop } = options;
 
