@@ -1,7 +1,6 @@
 import fs from 'fs';
 import install from './install.js';
 
-
 export default function localPackageWatch(_options = {}) {
 	return {
 		configureServer(server) {
@@ -18,6 +17,9 @@ export default function localPackageWatch(_options = {}) {
 						.from(Object.values(pkg.devDependencies))
 						.includes(`file:${path}`);
 					install(path, isDevDependency);
+
+					// Necessary e.g. if file is Vite plugin
+					server.restart();
 				}
 			});
 		},
