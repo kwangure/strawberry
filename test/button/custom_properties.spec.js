@@ -13,8 +13,6 @@ describe('Custom-property support', async () => {
         const switchEl = document.querySelector(selector);
         const computedStylesheet = getComputedStyle(switchEl, pseudo);
         const value = computedStylesheet.getPropertyValue(property);
-        window.CS = computedStylesheet;
-        console.log({ computedStylesheet, property, pseudo, value });
         return value;
     }
 
