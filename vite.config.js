@@ -1,6 +1,8 @@
 import { plugin as docs } from "@kwangure/svelte-docs";
 import inspect from 'vite-plugin-inspect';
 import localPackageWatch from './scripts/local-pkg-watch/index.js';
+import Markdoc from '@markdoc/markdoc';
+import { markdoc } from 'sveltekit-markdoc';
 import path from 'path';
 import { sveltekit } from '@sveltejs/kit/vite';
 
@@ -18,6 +20,17 @@ const config = {
 		// TODO: Enable for dev only
 		// inspect(),
 		localPackageWatch(),
+		markdoc({
+			transformConfig: {
+				nodes: {
+					// Markdoc wraps the document in <article/>. We don't like that.
+					document: {
+						...Markdoc.nodes.document,
+						render: '' // instead of 'article'
+					},
+				},
+			},
+		}),
 		sveltekit(),
 		{
 			configResolved(config) {

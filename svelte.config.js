@@ -16,6 +16,10 @@ export default {
         paths: {
             base: PROD ? "/strawberry" : "",
         },
+        alias: {
+            '@kwangure/strawberry': './src/lib',
+            '$docs': './docs',
+        },
     },
     package: {
         exports: (filepath) => {
