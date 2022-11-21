@@ -20,6 +20,12 @@ export default {
             '@kwangure/strawberry': './src/lib',
             '$docs': './docs',
         },
+        prerender: {
+            entries: [
+                '*',
+                '/components/button',
+            ],
+        },
     },
     package: {
         exports: (filepath) => {

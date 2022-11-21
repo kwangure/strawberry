@@ -68,7 +68,3 @@ export function load({ params }) {
 
 	return docs;
 }
-
-export const prerender = [
-	'button',
-];
