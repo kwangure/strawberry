@@ -6,7 +6,8 @@
         "before:init": [
             "npm run lint",
             "npm run check",
-            "npm test"
+            "npm test",
+            "node ./scripts/readme.js"
         ],
         "after:bump": [
             "svelte-kit package",

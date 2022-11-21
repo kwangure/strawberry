@@ -1,6 +1,3 @@
-<!--
-    This document is generated from docs/README_TEMPLATE.md. Do not edit it directly.
--->
 # Strawberry
 
 This is a library of Svelte sub-components. Its design encourages you to build
@@ -10,7 +7,6 @@ Where possible, our components are simply a light wrapper around built-in
 elements, making it easier to use them the Svelte way.
 
 **NOTE**:
-
 > 🍓 **Strawberry is not stable.**
 
 ## Installation
@@ -152,7 +148,7 @@ TODO:
 - [x] Add a TODO list :)
 - [ ] Document other components...
 
+
 ## License
 
 [Apache 2.0](./LICENSE) © Kafungo Wangure
-
