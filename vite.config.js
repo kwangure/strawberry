@@ -46,6 +46,11 @@ const config = {
 			'@kwangure/strawberry/css/styles': resolve('./src/lib/css/styles.js'),
 		},
 	},
+	server: {
+		fs: {
+			allow: ['./docs'],
+		},
+	},
 	test: {
 		globalSetup: './test/setup.js',
 	},

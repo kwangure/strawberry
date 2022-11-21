@@ -8,8 +8,6 @@ import path from 'path';
 const examples = import.meta.glob('$docs/examples/**/README.md', { eager: true });
 const sources = import.meta.glob('$docs/examples/**/**.svelte', { eager: true, as: 'raw' });
 
-console.log({ examples, sources });
-
 /**
  * @type {Record<string, {
  * 		name: string;
