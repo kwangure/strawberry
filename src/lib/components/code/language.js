@@ -16,8 +16,6 @@ const mixedHTMLParser = htmlParser.configure({
 			return { parser: cssParser };
 		}
 
-		console.log({ name: node.name });
-
 		return null;
 	}),
 });
