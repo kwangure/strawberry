@@ -2,10 +2,20 @@ import Button from '$lib/components/button/button.css:docs';
 import { error } from '@sveltejs/kit';
 import path from 'path';
 
-/** @typedef {import('sveltekit-markdoc').MarkdocImport} MarkdocImport */
+/**
+ * @typedef {{
+ * 		ast: import('@markdoc/markdoc').AstType;
+ *		frontmatter: Record<string, unknown>;
+ *		htm: string;
+ * 		tree: import('@markdoc/markdoc').RenderableTreeNodes;
+ * }} MarkdocImport
+ */
 
 /** @type {Record<string, MarkdocImport>} */
-const examples = import.meta.glob('$docs/examples/**/README.md', { eager: true });
+const examples = import.meta.glob('$docs/examples/**/README.md', {
+	eager: true,
+	query: { html: true, tree: true },
+});
 const sources = import.meta.glob('$docs/examples/**/**.svelte', { eager: true, as: 'raw' });
 
 /**
@@ -21,7 +31,7 @@ const sources = import.meta.glob('$docs/examples/**/**.svelte', { eager: true, a
  * 			code: string,
  * 			readme: {
  * 				frontmatter: MarkdocImport['frontmatter'],
- * 				tree: MarkdocImport['renderableTree'] | MarkdocImport['renderableTree'][],
+ * 				tree: MarkdocImport['tree'],
  * 			},
  * 			filepath: string,
  * 		}[];
@@ -42,7 +52,7 @@ for (const component of Object.values(components)) {
 			code: sources[sourcepath],
 			readme: {
 				frontmatter: importer.frontmatter,
-				tree: importer.renderableTree,
+				tree: importer.tree,
 			},
 			filepath: sourcepath,
 		});
@@ -58,3 +68,7 @@ export function load({ params }) {
 
 	return docs;
 }
+
+export const prerender = [
+	'button',
+];
