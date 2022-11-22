@@ -17,7 +17,7 @@
 {data.description}
 
 {#if data.examples.length}
-	<h2>Example {data.examples.length > 1 ? 's':''}</h2>
+	<h2>Example{data.examples.length > 1 ? 's':''}</h2>
 {/if}
 {#each data.examples as { code, filepath, readme: { frontmatter, tree } }}
 	<div class="explainer">
