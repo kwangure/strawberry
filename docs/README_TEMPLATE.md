@@ -23,13 +23,7 @@ npm i @kwangure/strawberry
 
 ### Code
 
-```html
-<script>
-    import { Code, javascript } from '@kwangure/strawberry/default/code';
-</script>
-
-<Code highlight={javascript} code='const five = 5;'/>
-```
+{% test language="html" src="./examples/code/01-basic/component.svelte" /%}
 
 ### Dialog
 

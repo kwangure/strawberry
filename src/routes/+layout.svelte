@@ -123,8 +123,8 @@
                 <SidebarSection>
                     <svelte:fragment slot="title">Data Display</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <a href="{base}/code">
-                            <SidebarItem active={path === `${base}/code`}>
+                        <a href="{base}/components/code">
+                            <SidebarItem active={path === `${base}/components/code`}>
                                 Code
                             </SidebarItem>
                         </a>
