@@ -19,15 +19,7 @@ npm i @kwangure/strawberry
 
 ### Button
 
-```html
-<script>
-    import '@kwangure/strawberry/default/css/components.css';
-
-    const hello = () => alert('strawberry');
-</script>
-
-<button on:click={hello}>Click me!</button>
-```
+{% test language="html" src="./examples/button/01-basic/component.svelte" /%}
 
 ### Code
 

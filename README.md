@@ -1,5 +1,5 @@
 <!--
-    This document is generated from docs/README_TEMPLATE.md. Do not edit it directly.
+    This document is generated from 'docs/README_TEMPLATE.md'. Do not edit it directly.
 -->
 # Strawberry
 
@@ -25,12 +25,16 @@ npm i @kwangure/strawberry
 
 ```html
 <script>
-    import '@kwangure/strawberry/default/css/components.css';
+	import '@kwangure/strawberry/default/button';
 
-    const hello = () => alert('strawberry');
+	let count = 0;
+	const increment = () => count++;
 </script>
 
-<button on:click={hello}>Click me!</button>
+<button on:click={increment} style="margin-right: 10px;">
+	Increment Counter
+</button>
+{count}
 ```
 
 ### Code
