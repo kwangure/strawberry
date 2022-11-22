@@ -150,9 +150,9 @@
 
 <style>
     .app-layout {
-        display: flex;
-        flex-direction: column;
-        min-height: 100%;
+        display: grid;
+        grid-template-rows: max-content 1fr;
+        height: 100%;
     }
     .app-layout {
         --br-navbar-logo-width: 240px;
@@ -175,14 +175,40 @@
     }
     .components {
         display: grid;
-        grid-template-columns: 240px 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: max-content 1fr;
+        min-height: 0;
+        grid-template-rows: 100%;
     }
+    .left,
+    .right {
+        overflow-y: auto;
+    }
+    .left::-webkit-scrollbar,
+    .right::-webkit-scrollbar {
+        width: 16px;
+    }
+    @media (prefers-color-scheme: dark) {
+        .left::-webkit-scrollbar-thumb,
+        .right::-webkit-scrollbar-thumb,
+        .left::-webkit-scrollbar-track,
+        .right::-webkit-scrollbar-track {
+            background-color: rgb(255, 255, 255, 0.1);
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        .left::-webkit-scrollbar-thumb,
+        .right::-webkit-scrollbar-thumb,
+        .left::-webkit-scrollbar-track,
+        .right::-webkit-scrollbar-track {
+            background-color: rgb(0, 0, 0, 0.1);
+        }
+    }
+
     .left a {
         display: contents;
         color: inherit;
     }
     .right {
-        padding: 0px 10px;
+        padding: 10px 64px 30vh;
     }
 </style>
