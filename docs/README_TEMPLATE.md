@@ -19,11 +19,11 @@ npm i @kwangure/strawberry
 
 ### Button
 
-{% test language="html" src="./examples/button/01-basic/component.svelte" /%}
+{% code language="html" src="./examples/button/01-basic/component.svelte" /%}
 
 ### Code
 
-{% test language="html" src="./examples/code/01-basic/component.svelte" /%}
+{% code language="html" src="./examples/code/01-basic/component.svelte" /%}
 
 ### Dialog
 

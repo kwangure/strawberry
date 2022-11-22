@@ -14,7 +14,7 @@ const frontmatter = JSON.parse(ast.attributes.frontmatter || '{}');
 const renderableTree = Markdoc.transform(ast, {
 	variables: { frontmatter },
 	tags: {
-		test: {
+		code: {
 			transform(node) {
 				const { language, src } = node.attributes;
 				const attributes = {
