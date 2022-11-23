@@ -1,9 +1,9 @@
 import { plugin as docs } from "@kwangure/svelte-docs";
 import inspect from 'vite-plugin-inspect';
 import localPackageWatch from './scripts/local-pkg-watch/index.js';
-import Markdoc from '@markdoc/markdoc';
 import { markdoc } from 'sveltekit-markdoc';
 import path from 'path';
+import sharedMarkdocConfig from './markdoc.config.js';
 import { sveltekit } from '@sveltejs/kit/vite';
 
 const _filename = new URL(import.meta.url).pathname;
@@ -21,15 +21,7 @@ const config = {
 		// inspect(),
 		localPackageWatch(),
 		markdoc({
-			transformConfig: {
-				nodes: {
-					// Markdoc wraps the document in <article/>. We don't like that.
-					document: {
-						...Markdoc.nodes.document,
-						render: '' // instead of 'article'
-					},
-				},
-			},
+			transformConfig: sharedMarkdocConfig,
 		}),
 		sveltekit(),
 		{
