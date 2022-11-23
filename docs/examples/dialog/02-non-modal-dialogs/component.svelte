@@ -8,8 +8,8 @@
 </script>
 
 <Dialog bind:show bind:showModal>
-	<div slot='content'>Nice to meet you</div>
-	<div slot='footer'>
+	Nice to meet you
+	<div>
 		<button>Bye!</button>
 	</div>
 </Dialog>

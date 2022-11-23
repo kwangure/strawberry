@@ -15,9 +15,7 @@
 The best framework is: {value} <br>
 
 <Dialog bind:showModal on:close={handleClose}>
-	<div slot='content'>
-		<button value='svelte'>Svelte</button>
-	</div>
+	<button value='svelte'>Svelte</button>
 </Dialog>
 
 <button on:click={showModal}>Show modal</button>

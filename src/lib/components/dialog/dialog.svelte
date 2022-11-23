@@ -2,7 +2,6 @@
     @component
 
     Dialog presents a dialog box or modal.
-
 -->
 <script>
 	// FIXME: Do proper types
@@ -167,9 +166,7 @@
 <dialog bind:this={dialog} inert class:modal={isModal} use:enhance
 	class:non-modal={!isModal}>
 	<form method="dialog" bind:this={form}>
-		<slot name='header' context={_context}/>
-		<slot name='content' context={_context}/>
-		<slot name='footer' context={_context}/>
+		<slot context={_context}/>
 	</form>
 </dialog>
 
@@ -192,6 +189,8 @@
 		background-color: var(--br-dialog-root-background-color);
 		color: var(--br-dialog-root-font-color);
 		border: 1px solid transparent;
+		padding-block: var(--br-dialog-root-padding-block, 16px);
+		padding-inline: var(--br-dialog-root-padding-inline, 24px);
 	}
 
 	@media (prefers-color-scheme: dark) {
