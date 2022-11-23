@@ -44,6 +44,7 @@
         border-radius: var(--br-code-root-border-radius);
         margin: 0;
         white-space: var(--br-code-root-white-space);
+        tab-size: var(--br-code-root-tab-size, 4);
     }
     code {
         display: contents;
