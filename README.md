@@ -54,32 +54,27 @@ npm i @kwangure/strawberry
 
 ```html
 <script>
-    import { Content, Dialog, Header } from '@kwangure/strawberry/default/dialog';
+	import { Dialog } from '@kwangure/strawberry/default/dialog';
 
-    /** @type {(() => void)} */
-    let showModal;
-    /** @type {(() => void)} */
-    let show;
+	let value = '?';
 
-    function handleDialogValue(event) {
-        if (event.detail.returnValue === 'cancel') return;
-        fetch('/api', { body: event.detail.formData });
-    }
+	/** @type {() => any} */
+	let showModal;
+
+	/** @param {CustomEvent} event */
+	function handleClose(event) {
+		value = event.detail.returnValue;
+	}
 </script>
 
-<Dialog bind:showModal bind:show on:close={handleDialogValue}>
-    <Header slot='header'>
-        What is your first name?
-    </Header>
-    <Content slot='content'>
-        <input name="firstname"/>
-    </Content>
-    <Footer slot='content'>
-        <button value='submit'>Submit</button>
-        <button value='cancel'>Cancel</button>
-    </Footer>
+The best framework is: {value} <br>
+
+<Dialog bind:showModal on:close={handleClose}>
+	<div slot='content'>
+		<button value='svelte'>Svelte</button>
+	</div>
 </Dialog>
-<button on:click={show}>Show</button>
+
 <button on:click={showModal}>Show modal</button>
 ```
 

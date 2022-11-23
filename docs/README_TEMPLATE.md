@@ -27,36 +27,7 @@ npm i @kwangure/strawberry
 
 ### Dialog
 
-```html
-<script>
-    import { Content, Dialog, Header } from '@kwangure/strawberry/default/dialog';
-
-    /** @type {(() => void)} */
-    let showModal;
-    /** @type {(() => void)} */
-    let show;
-
-    function handleDialogValue(event) {
-        if (event.detail.returnValue === 'cancel') return;
-        fetch('/api', { body: event.detail.formData });
-    }
-</script>
-
-<Dialog bind:showModal bind:show on:close={handleDialogValue}>
-    <Header slot='header'>
-        What is your first name?
-    </Header>
-    <Content slot='content'>
-        <input name="firstname"/>
-    </Content>
-    <Footer slot='content'>
-        <button value='submit'>Submit</button>
-        <button value='cancel'>Cancel</button>
-    </Footer>
-</Dialog>
-<button on:click={show}>Show</button>
-<button on:click={showModal}>Show modal</button>
-```
+{% code language="html" src="./examples/dialog/01-basic/component.svelte" /%}
 
 ### Dropdown
 

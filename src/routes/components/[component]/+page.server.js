@@ -1,5 +1,6 @@
 import Button from '$lib/components/button/button.css:docs';
 import Code from '$lib/components/code/code.svelte:docs';
+import Dialog from '$lib/components/dialog/dialog.svelte:docs';
 import { error } from '@sveltejs/kit';
 import path from 'path';
 
@@ -41,6 +42,7 @@ const sources = import.meta.glob('$docs/examples/**/**.svelte', { eager: true, a
 const components = {
 	button: Button,
 	code: Code,
+	dialog: Dialog,
 };
 
 for (const component of Object.values(components)) {

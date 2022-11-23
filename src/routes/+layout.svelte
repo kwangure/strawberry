@@ -128,8 +128,8 @@
                                 Code
                             </SidebarItem>
                         </a>
-                        <a href="{base}/dialog">
-                            <SidebarItem active={path === `${base}/dialog`}>
+                        <a href="{base}/components/dialog">
+                            <SidebarItem active={path === `${base}/components/dialog`}>
                                 Dialog
                             </SidebarItem>
                         </a>
