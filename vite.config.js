@@ -5,6 +5,7 @@ import { markdoc } from 'sveltekit-markdoc';
 import path from 'path';
 import sharedMarkdocConfig from './markdoc.config.js';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { readme } from "./scripts/vite-plugin-readme.js";
 
 const _filename = new URL(import.meta.url).pathname;
 const _dirname = path.dirname(_filename);
@@ -31,7 +32,10 @@ const config = {
 				const port = config.server.port ?? 5173;
 				process.env.VITE_BASE_URL = `${protocol}${host}:${port}`
 			},
-		}
+		},
+		readme({
+			input: 'docs/README_TEMPLATE.md',
+		}),
 	],
 	resolve: {
 		alias: {

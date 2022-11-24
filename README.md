@@ -1,5 +1,6 @@
+
 <!--
-    This document is generated from 'docs/README_TEMPLATE.md'. Do not edit it directly.
+	This document is generated from '/docs/README_TEMPLATE.md'. Do not edit it directly.
 -->
 # Strawberry
 
@@ -155,4 +156,5 @@ TODO:
 ## License
 
 [Apache 2.0](./LICENSE) © Kafungo Wangure
+
 
