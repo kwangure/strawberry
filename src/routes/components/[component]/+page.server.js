@@ -8,7 +8,7 @@ import path from 'path';
  * @typedef {{
  * 		ast: import('@markdoc/markdoc').AstType;
  *		frontmatter: Record<string, unknown>;
- *		htm: string;
+ *		html: string;
  * 		tree: import('@markdoc/markdoc').RenderableTreeNodes;
  * }} MarkdocImport
  */
