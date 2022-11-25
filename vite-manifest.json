@@ -1,11 +1,11 @@
 {
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "app/immutable/start-39b14a3a.js",
+    "file": "app/immutable/start-ece71a51.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-50a5c4be.js",
-      "_singletons-b2dc58f3.js",
+      "_singletons-b61abde0.js",
       "_preload-helper-10e7f86a.js"
     ],
     "dynamicImports": [
@@ -43,14 +43,14 @@
     ]
   },
   "src/routes/+layout.svelte": {
-    "file": "app/immutable/components/pages/_layout.svelte-4ed73336.js",
+    "file": "app/immutable/components/pages/_layout.svelte-b9f83327.js",
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
       "_index-50a5c4be.js",
       "_forward-events-f97c5758.js",
-      "_singletons-b2dc58f3.js",
-      "_stores-da54c819.js"
+      "_singletons-b61abde0.js",
+      "_stores-8c284c15.js"
     ],
     "css": [
       "app/immutable/assets/_layout-5b931d4f.css",
@@ -59,12 +59,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "app/immutable/components/error.svelte-df2d3231.js",
+    "file": "app/immutable/components/error.svelte-d0fbb498.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-50a5c4be.js",
-      "_stores-da54c819.js"
+      "_stores-8c284c15.js"
     ]
   },
   "src/routes/typography/+layout.svelte": {
@@ -445,8 +445,8 @@
       "__layout-04d04af2.js"
     ]
   },
-  "_singletons-b2dc58f3.js": {
-    "file": "app/immutable/chunks/singletons-b2dc58f3.js",
+  "_singletons-b61abde0.js": {
+    "file": "app/immutable/chunks/singletons-b61abde0.js",
     "imports": [
       "_index-50a5c4be.js"
     ]
@@ -457,11 +457,11 @@
   "_preload-helper-10e7f86a.js": {
     "file": "app/immutable/chunks/preload-helper-10e7f86a.js"
   },
-  "_stores-da54c819.js": {
-    "file": "app/immutable/chunks/stores-da54c819.js",
+  "_stores-8c284c15.js": {
+    "file": "app/immutable/chunks/stores-8c284c15.js",
     "imports": [
       "_index-50a5c4be.js",
-      "_singletons-b2dc58f3.js"
+      "_singletons-b61abde0.js"
     ]
   },
   "_forward-events-f97c5758.js": {
@@ -524,7 +524,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "app/immutable/chunks/0-0ceaa0f0.js",
+    "file": "app/immutable/chunks/0-4b7f5d72.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -533,7 +533,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "app/immutable/chunks/1-7aeecdb6.js",
+    "file": "app/immutable/chunks/1-58550754.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -877,34 +877,6 @@
     "file": "app/immutable/assets/globals-2654e6a4.css",
     "src": "globals.css"
   },
-  "src/routes/typography/+layout.css": {
-    "file": "app/immutable/assets/_layout-5fa74e9f.css",
-    "src": "src/routes/typography/+layout.css"
-  },
-  "src/routes/input/+page.css": {
-    "file": "app/immutable/assets/_page-6d5d7da0.css",
-    "src": "src/routes/input/+page.css"
-  },
-  "components.css": {
-    "file": "app/immutable/assets/components-33a01f7b.css",
-    "src": "components.css"
-  },
-  "container.css": {
-    "file": "app/immutable/assets/container-b38226b5.css",
-    "src": "container.css"
-  },
-  "src/routes/input/number/+page.css": {
-    "file": "app/immutable/assets/_page-a620567b.css",
-    "src": "src/routes/input/number/+page.css"
-  },
-  "src/routes/select/+page.css": {
-    "file": "app/immutable/assets/_page-2efc609b.css",
-    "src": "src/routes/select/+page.css"
-  },
-  "index.css": {
-    "file": "app/immutable/assets/index-33a01f7b.css",
-    "src": "index.css"
-  },
   "src/routes/+layout.css": {
     "file": "app/immutable/assets/_layout-5b931d4f.css",
     "src": "src/routes/+layout.css"
@@ -913,32 +885,60 @@
     "file": "app/immutable/assets/language-0884bc0b.css",
     "src": "language.css"
   },
-  "src/routes/input/textarea/+page.css": {
-    "file": "app/immutable/assets/_page-fcddd4bb.css",
-    "src": "src/routes/input/textarea/+page.css"
+  "container.css": {
+    "file": "app/immutable/assets/container-b38226b5.css",
+    "src": "container.css"
   },
-  "src/routes/test/components/button/custom-properties/+page.css": {
-    "file": "app/immutable/assets/_page-31621719.css",
-    "src": "src/routes/test/components/button/custom-properties/+page.css"
+  "src/routes/typography/+layout.css": {
+    "file": "app/immutable/assets/_layout-5fa74e9f.css",
+    "src": "src/routes/typography/+layout.css"
   },
-  "component.css": {
-    "file": "app/immutable/assets/component-edacd7a3.css",
-    "src": "component.css"
-  },
-  "src/routes/tooltip/+page.css": {
-    "file": "app/immutable/assets/_page-7227f440.css",
-    "src": "src/routes/tooltip/+page.css"
+  "src/routes/input/number/+page.css": {
+    "file": "app/immutable/assets/_page-a620567b.css",
+    "src": "src/routes/input/number/+page.css"
   },
   "src/routes/components/[component]/+page.css": {
     "file": "app/immutable/assets/_page-90aba66f.css",
     "src": "src/routes/components/[component]/+page.css"
   },
-  "switch.css": {
-    "file": "app/immutable/assets/switch-78281dfc.css",
-    "src": "switch.css"
+  "components.css": {
+    "file": "app/immutable/assets/components-33a01f7b.css",
+    "src": "components.css"
+  },
+  "src/routes/input/textarea/+page.css": {
+    "file": "app/immutable/assets/_page-fcddd4bb.css",
+    "src": "src/routes/input/textarea/+page.css"
+  },
+  "src/routes/tooltip/+page.css": {
+    "file": "app/immutable/assets/_page-7227f440.css",
+    "src": "src/routes/tooltip/+page.css"
+  },
+  "src/routes/test/components/switch/darkmode/+page.css": {
+    "file": "app/immutable/assets/_page-31621719.css",
+    "src": "src/routes/test/components/switch/darkmode/+page.css"
+  },
+  "src/routes/select/+page.css": {
+    "file": "app/immutable/assets/_page-2efc609b.css",
+    "src": "src/routes/select/+page.css"
   },
   "dialog.css": {
     "file": "app/immutable/assets/dialog-5177e84d.css",
     "src": "dialog.css"
+  },
+  "component.css": {
+    "file": "app/immutable/assets/component-edacd7a3.css",
+    "src": "component.css"
+  },
+  "src/routes/input/+page.css": {
+    "file": "app/immutable/assets/_page-6d5d7da0.css",
+    "src": "src/routes/input/+page.css"
+  },
+  "switch.css": {
+    "file": "app/immutable/assets/switch-78281dfc.css",
+    "src": "switch.css"
+  },
+  "index.css": {
+    "file": "app/immutable/assets/index-33a01f7b.css",
+    "src": "index.css"
   }
 }
