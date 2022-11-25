@@ -18,8 +18,7 @@ function resolve(pathname) {
 const config = {
 	plugins: [
 		docs(),
-		// TODO: Enable for dev only
-		// inspect(),
+		inspect(),
 		localPackageWatch(),
 		markdoc({
 			transformConfig: sharedMarkdocConfig,
