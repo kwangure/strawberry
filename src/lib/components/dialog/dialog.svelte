@@ -4,8 +4,6 @@
     Dialog presents a dialog box or modal.
 -->
 <script>
-	// FIXME: Do proper types
-	// @ts-nocheck
 	import { createEventDispatcher } from 'svelte';
 	import { listen } from 'svelte/internal';
 
