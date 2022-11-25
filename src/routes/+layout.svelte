@@ -48,8 +48,8 @@
                 <SidebarSection>
                     <svelte:fragment slot="title">General</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <a href="{base}/button">
-                            <SidebarItem active={path === `${base}/button`}>
+                        <a href="{base}/components/button">
+                            <SidebarItem active={path === `${base}/components/button`}>
                                 Button
                             </SidebarItem>
                         </a>
