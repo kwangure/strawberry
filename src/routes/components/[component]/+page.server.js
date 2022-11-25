@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace, import/named */
 import Button from '$lib/components/button/button.css:docs';
 import Code from '$lib/components/code/code.svelte:docs';
 import Dialog from '$lib/components/dialog/dialog.svelte:docs';

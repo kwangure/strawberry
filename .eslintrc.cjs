@@ -3,37 +3,21 @@ module.exports = {
 	extends: [
 		'@kwangure/eslint-config-svelte',
 	],
-	plugins: ['import', 'svelte3'],
 	settings: {
 		'import/resolver': {
 			alias: {
 				map: [
-					// escape `$` to work around eslint's Regex matching
-					['\\$app', './.svelte-kit/runtime/app/'],
-					['\\$lib', './src/lib/'],
-					['\\@kwangure/strawberry', './src/lib/'],
+					['@kwangure/strawberry', './src/lib/'],
 				],
-				extensions: ['.js', '.svelte', '.json'],
-			},
-			node: {
-				extensions: ['.js'],
-				moduleDirectory: ['node_modules', './'],
 			},
 		},
 	},
-	overrides: [
-		{
-			files: ['*.svelte'],
-			processor: 'svelte3/svelte3',
-		},
-	],
-	parserOptions: {
-		sourceType: 'module',
-		ecmaVersion: 2020,
-	},
-	env: {
-		browser: true,
-		es2017: true,
-		node: true,
+	rules: {
+		'import/no-unresolved': ['error', { ignore: [
+			':docs$', // used to annotate svelte-doc imports
+			// CJS fighting ES6 exports field
+			'\\$app/',
+			'@sveltejs/kit',
+		]}],
 	},
 };
