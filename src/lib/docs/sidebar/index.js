@@ -1,4 +1,4 @@
-// @ts-expect-error
+
 // eslint-disable-next-line import/no-unresolved
 import sidebarDocs from '../../components/sidebar/sidebar.svelte:docs';
 
