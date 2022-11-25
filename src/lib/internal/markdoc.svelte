@@ -20,6 +20,16 @@
     	}
     	return (/** @type {string}*/x) => x;
     }
+
+    // Use func to type output because svelte-check parser doesn't
+    // support inline comments, i.e jsdoc
+    /**
+     * @param {import("@markdoc/markdoc").Tag<string, Record<string, any>>} element
+     */
+    function code(element) {
+    	const [code] = /** @type {string[]}*/(element.children);
+    	return code;
+    }
 </script>
 
 {#if typeof element === 'string'}
@@ -27,9 +37,8 @@
 {element}
 {:else if element !== null}
     {#if element.name === 'code' || element.name === 'pre'}
-        {@const [code] = /** @type {string[]}*/(element.children)}
         <Code highlight={highlighter(element?.attributes?.['data-language'])}
-            inline={element.name === 'code'} code={code}/>
+            inline={element.name === 'code'} code={code(element)}/>
     {:else}
         <svelte:element this={element.name} {...element?.attributes}>
             {#each element.children as child}

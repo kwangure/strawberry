@@ -8,6 +8,16 @@
 
 	console.log({ data });
 
+	// Use func to type output because svelte-check parser doesn't
+	// support inline comments, i.e jsdoc
+	/**
+     * @param {unknown} module
+     */
+	function component(module) {
+		const { default: component }
+			= /** @type {{ default: ConstructorOfATypedComponent }}*/ (module);
+		return component;
+	}
 </script>
 
 <svelte:head>
@@ -35,8 +45,8 @@
 	<div class="demo">
 		<Code highlight={mixedHTML} {code}/>
 		<div class="output">
-			{#await components[filepath]() then component}
-				<svelte:component this={component.default}/>
+			{#await components[filepath]() then module}
+				<svelte:component this={component(module)}/>
 			{/await}
 		</div>
 	</div>
