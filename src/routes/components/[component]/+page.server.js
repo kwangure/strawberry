@@ -22,23 +22,7 @@ const examples = import.meta.glob('$docs/examples/**/README.md', {
 const sources = import.meta.glob('$docs/examples/**/**.svelte', { eager: true, as: 'raw' });
 
 /**
- * @type {Record<string, {
- * 		name: string;
- * 		description: string;
- * 		customProperties: {
- * 			customProperty: string;
- * 			value?: string;
- * 		}[];
- * 		workingDirectoryFilepath: string;
- * 		examples: {
- * 			code: string,
- * 			readme: {
- * 				frontmatter: MarkdocImport['frontmatter'],
- * 				tree: MarkdocImport['tree'],
- * 			},
- * 			filepath: string,
- * 		}[];
- * }>}
+ * @type {Record<string, any>}
  */
 const components = {
 	button: Button,
