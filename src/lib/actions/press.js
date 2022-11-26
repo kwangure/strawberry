@@ -1,5 +1,5 @@
 import { createAddEventListener, isSelfTarget, queueBeforeEvent } from '$lib/utils/events';
-import { isDisabled, isTextField } from '../utils/dom';
+import { isDisabled, isHTMLInputElement, isTextField } from '../utils/dom';
 import { isFirefox } from '../utils/platform';
 
 /** @type {import('svelte/action').Action} */
@@ -31,6 +31,12 @@ export function press(element) {
 
 		const { key } = event;
 		if (key === 'Enter') {
+			// Only space should toggle checkboxes and radios, not enter.
+			if (
+				isHTMLInputElement(element)
+				&& (element.type === 'checkbox' || element.type === 'radio')
+			) return;
+
 			const press = () => dispatchPress(event);
 			// If this element is a link with target="_blank", Firefox will
 			// block the "popup" if the click event is dispatched synchronously
