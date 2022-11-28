@@ -1,5 +1,5 @@
 <script>
-	import { Code, javascript, mixedHTML } from '$lib/default/code';
+	import { Code, css, javascript, mixedHTML } from '$lib/default/code';
 
 	/**
 	 * @type {import('@markdoc/markdoc').RenderableTreeNode}*/
@@ -7,6 +7,7 @@
 
 	/** @type {Record<string, (code: string) => string>}*/
 	const highlighters = {
+		css,
 		html: mixedHTML,
 		javascript,
 	};
