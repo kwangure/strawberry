@@ -53,8 +53,8 @@
                                 Button
                             </SidebarItem>
                         </a>
-                        <a href="{base}/dropdown">
-                            <SidebarItem active={path === `${base}/dropdown`}>
+                        <a href="{base}/components/dropdown">
+                            <SidebarItem active={path === `${base}/components/dropdown`}>
                                 Dropdown
                             </SidebarItem>
                         </a>
@@ -204,7 +204,6 @@
         }
     }
     .left a {
-        display: contents;
         color: inherit;
     }
     .right {

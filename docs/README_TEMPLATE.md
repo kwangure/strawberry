@@ -31,24 +31,7 @@ npm i @kwangure/strawberry
 
 ### Dropdown
 
-```html
-<script>
-    import { Arrow, Dropdown, Item, Popup } from '@kwangure/strawberry/default/dropdown';
-</script>
-
-<Dropdown>
-    <button slot="trigger">
-        Click for dropdown
-    </button>
-    <Popup>
-        <Arrow/>
-        <Item>Purple</Item>
-        <Item active>Penguin</Item>
-        <Item>Has</Item>
-        <Item>Landed</Item>
-    </Popup>
-</Dropdown>
-```
+{% code language="html" src="./examples/dropdown/01-basic/component.svelte" /%}
 
 ### Element
 

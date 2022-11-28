@@ -81,20 +81,19 @@ The best framework is: {value} <br>
 
 ```html
 <script>
-    import { Arrow, Dropdown, Item, Popup } from '@kwangure/strawberry/default/dropdown';
+    import { Dropdown, Popup } from '@kwangure/strawberry/default/dropdown';
 </script>
 
 <Dropdown>
-    <button slot="trigger">
-        Click for dropdown
-    </button>
-    <Popup>
-        <Arrow/>
-        <Item>Purple</Item>
-        <Item active>Penguin</Item>
-        <Item>Has</Item>
-        <Item>Landed</Item>
-    </Popup>
+	<button slot="trigger">
+		Click for dropdown
+	</button>
+	<Popup>
+		<div class="br-dropdown-item">Purple</div>
+		<div class="br-dropdown-item">Penguin</div>
+		<div class="br-dropdown-item">Has</div>
+		<div class="br-dropdown-item">Landed</div>
+	</Popup>
 </Dropdown>
 ```
 

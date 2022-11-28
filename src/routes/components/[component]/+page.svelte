@@ -6,8 +6,6 @@
 	/** @type {import('./$types').PageData}*/
 	export let data;
 
-	console.log({ data });
-
 	// Use func to type output because svelte-check parser doesn't
 	// support inline comments, i.e jsdoc
 	/**
