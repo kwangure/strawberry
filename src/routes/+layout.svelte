@@ -203,12 +203,18 @@
             background-color: rgb(0, 0, 0, 0.1);
         }
     }
-
     .left a {
         display: contents;
         color: inherit;
     }
     .right {
-        padding: 10px 64px 30vh;
+        padding: 10px 64px;
+    }
+    .left:after,
+    .right:after {
+        content: "";
+        display: block;
+        height: 25vh;
+        width: 100%;
     }
 </style>

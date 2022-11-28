@@ -1,4 +1,4 @@
-.br-dialog-inline-section {
+dialog .br-dialog-inline-section {
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--br-dialog-inline-section-gap, 8px);
@@ -6,7 +6,7 @@
 	align-items: flex-start;
 }
 
-.br-dialog-block-section {
+dialog .br-dialog-block-section {
 	overflow-y: auto;
 	max-block-size: 100%;
 	/* safari */
