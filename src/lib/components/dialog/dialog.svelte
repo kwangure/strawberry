@@ -189,6 +189,7 @@
 		border: 1px solid transparent;
 		padding-block: var(--br-dialog-root-padding-block, 16px);
 		padding-inline: var(--br-dialog-root-padding-inline, 24px);
+		grid-template-rows: minmax(0, 1fr);
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -250,7 +251,5 @@
 		display: flex;
 		flex-direction: column;
 		align-items: start;
-		max-block-size: 80vh;
-		max-block-size: 80dvb;
 	}
 </style>
