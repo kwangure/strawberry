@@ -5,16 +5,9 @@
     --br-dropdown-arrow-height: 12px;
 
     --br-dropdown-popup-border-radius: 4px;
-    --br-dropdown-popup-padding-block: 6px;
-    --br-dropdown-popup-padding-inline: 8px;
+    --br-dropdown-popup-padding-block: 4px;
+    --br-dropdown-popup-padding-inline: 4px;
     --br-dropdown-popup-top: 0px;
     --br-dropdown-popup-left: 0px;
     --br-dropdown-popup-gap: 4px;
-
-    --br-dropdown-item-padding-block: 0;
-    --br-dropdown-item-padding-inline: 12px;
-    --br-dropdown-item-width: initial;
-    --br-dropdown-item-height: 30px;
-    --br-dropdown-item-border-radius: 4px;
-    --br-dropdown-item-gap: 4px;
 }

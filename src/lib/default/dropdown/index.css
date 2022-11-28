@@ -1,5 +1,6 @@
 @import url('../../css/reset.css');
 @import url('../../css/globals.css');
+@import  url('../../components/dropdown/item.css');
 
 @import url('./layout.css');
 @import url('./dark.css') (prefers-color-scheme: dark);
