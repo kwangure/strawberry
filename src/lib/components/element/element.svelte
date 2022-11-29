@@ -1,6 +1,6 @@
 <script>
     /**
-     * @type {import("./element").DomJson}*/
+     * @type {import("./types").DomJson}*/
     export let element;
 </script>
 
