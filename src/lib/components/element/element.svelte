@@ -1,3 +1,9 @@
+<!--
+    @component
+
+    Element renders a DOM tree that is represented by JSON
+-->
+
 <script>
     /**
      * @type {import("./types").DomJson}*/

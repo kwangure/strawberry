@@ -3,6 +3,7 @@ import Button from '$lib/components/button/button.css:docs';
 import Code from '$lib/components/code/code.svelte:docs';
 import Dialog from '$lib/components/dialog/dialog.svelte:docs';
 import Dropdown from '$lib/components/dropdown/dropdown.svelte:docs';
+import Element from '$lib/components/element/element.svelte:docs';
 import { error } from '@sveltejs/kit';
 import path from 'path';
 
@@ -30,6 +31,7 @@ const components = {
 	code: Code,
 	dialog: Dialog,
 	dropdown: Dropdown,
+	element: Element,
 };
 
 for (const component of Object.values(components)) {
