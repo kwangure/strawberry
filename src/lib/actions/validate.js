@@ -9,13 +9,13 @@ import { listen } from 'svelte/internal';
 function setValidationMessage(input, invalid, error) {
 	if (input.disabled) return;
 
-	// Set customValidity to user-provided error. Otherwise set to empty string
-	// to reset customValidity, telling the browser to run built-in validation
-	const customValidityCheck = invalid(input);
-	let customValidityError = '';
-	if (customValidityCheck) {
-		customValidityError = error(customValidityCheck, input)
-				|| 'The value you entered for this field is invalid.';
+	const customValidityCode = invalid(input);
+	// When no error, set to empty string which resets customValidity, telling
+	// the browser to run built-in validation
+	let customValidityError = error(customValidityCode, input) || '';
+
+	if (customValidityCode && !customValidityError) {
+		customValidityError = 'The value you entered for this field is invalid.';
 	}
 
 	input.setCustomValidity(customValidityError);
