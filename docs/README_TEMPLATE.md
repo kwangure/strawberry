@@ -35,53 +35,11 @@ npm i @kwangure/strawberry
 
 ### Element
 
-```html
-<script>
-    import { Element } from '@kwangure/strawberry/default/element';
-
-    const element = {
-     type: 'p',
-     props: {
-      style: 'font-style: italic; color: purple;',
-     },
-     children: 'I am a dynamically generated purple <p/> tag element.',
-    };
-</script>
-
-<Element {element}/>
-```
+{% code language="html" src="./examples/element/01-basic/component.svelte" /%}
 
 ### Inputs
 
-```html
-<script>
-    import { Container } from '$lib/default/input/container';
-    import { Postfix } from '$lib/default/input/number';
-    import { validate } from '$lib/components/input/validate.js';
-</script>
-
-<Container let:inputId let:hintId let:validationMessage>
-    <label slot='label' for={inputId}>
-        This is an input label
-    </label>
-    <input type=number id={inputId} aria-describedby={hintId} required use:validate/>
-    <Postfix/>
-    <span slot='hint' id={hintId} class:invalid={validationMessage}>
-        {#if validationMessage}
-            <!-- Display validation errors -->
-            {validationMessage}
-        {:else}
-            This is a description or input hint
-        {/if}
-    </span>
-</Container>
-
-<style>
-    .invalid {
-        color: red;
-    }
-</style>
-```
+{% code language="html" src="./examples/input/container/01-basic/component.svelte" /%}
 
 TODO:
 
