@@ -88,9 +88,9 @@
                                 DateTime
                             </SidebarItem>
                         </a>
-                        <a href="{base}/input">
-                            <SidebarItem active={path === `${base}/input`}>
-                                Text
+                        <a href="{base}/components/input-container">
+                            <SidebarItem active={path === `${base}/components/input-container`}>
+                                Container
                             </SidebarItem>
                         </a>
                         <a href="{base}/input/password">

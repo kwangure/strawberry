@@ -1,3 +1,10 @@
+<!--
+    @component
+
+    Container adds layout and identity to input elements. It provides a
+    canonical way to add labels, descriptions and validation to inputs.
+-->
+
 <script>
     import uid from 'uid';
 
