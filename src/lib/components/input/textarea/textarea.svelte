@@ -11,7 +11,7 @@
 	import { getPropertyValueNumber } from '$lib/utils/style.js';
 	import { listen } from 'svelte/internal';
 	import ownerWindow from '$lib/utils/owner.js';
-	import { validate } from '../validate';
+	import { validate } from '$lib/actions/validate';
 
 	/**
 	 * Guidance to the browser on information expected in the field.

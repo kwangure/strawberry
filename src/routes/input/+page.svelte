@@ -1,7 +1,7 @@
 <script>
 	import Component from '$lib/internal/component.svelte';
 	import { Container } from '$lib/default/input/container';
-	import { validate } from '$lib/components/input/validate.js';
+	import { validate } from '$lib/actions/validate.js';
 
 	const docs = {
 		main: {
