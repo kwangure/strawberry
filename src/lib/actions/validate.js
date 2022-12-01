@@ -1,6 +1,19 @@
 import { listen } from 'svelte/internal';
 
 /**
+ * Return the first validity error or an empty string if none exists
+ *
+ * @param {HTMLInputElement | HTMLTextAreaElement} input
+ */
+function firstValidityError(input) {
+	const [errorName] = Object
+		.entries(input.validity)
+		.find(([name, isError]) => name !== 'valid' && isError) || [''];
+
+	return errorName;
+}
+
+/**
  * @template T
  * @param {T extends (HTMLInputElement | HTMLTextAreaElement) ? T : never} input
  * @param {((input: T) => string)} invalid
@@ -9,13 +22,22 @@ import { listen } from 'svelte/internal';
 function setValidationMessage(input, invalid, error) {
 	if (input.disabled) return;
 
-	const customValidityCode = invalid(input);
-	// When no error, set to empty string which resets customValidity, telling
-	// the browser to run built-in validation
-	let customValidityError = error(customValidityCode, input) || '';
+	// Set to empty string telling browser to run built-in validation
+	input.setCustomValidity('');
 
-	if (customValidityCode && !customValidityError) {
-		customValidityError = 'The value you entered for this field is invalid.';
+	let customValidityError = '';
+	if (input.validity.valid) {
+		// The invalid handler can be sure that the input at least passed all
+		// built-in validity constraints
+		const validityCode = invalid(input);
+		customValidityError = error(validityCode, input);
+
+		if (validityCode && !customValidityError) {
+			customValidityError = 'The value you entered for this field is invalid.';
+		}
+	} else {
+		const nativeValidityCode = firstValidityError(input);
+		customValidityError = error(nativeValidityCode, input);
 	}
 
 	input.setCustomValidity(customValidityError);
