@@ -1,0 +1,57 @@
+/**!@component
+
+    Navbar a collection of links for navigating websites.
+*/
+nav:not(.br-ignore) {
+	display: flex;
+	align-items: center;
+	height: 48px;
+	width: var(--br-navbar-root-width);
+	border-bottom: var(--br-navbar-root-border-bottom);
+	margin-block: var(--br-navbar-root-margin-block);
+	margin-inline: var(--br-navbar-root-margin-inline);
+	padding-block: var(--br-navbar-root-padding-block);
+	padding-inline: var(--br-navbar-root-padding-inline);
+}
+.br-navbar-section {
+	padding-inline: 8px;
+	gap: 8px;
+	display: flex;
+	list-style: none;
+}
+.br-navbar-item {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 100%;
+	padding-block: 4px;
+	padding-inline: 8px;
+	border-radius: 4px;
+	transition: all 0.25s ease;
+}
+.br-navbar-item:hover {
+	color: var(--br-navbar-item-hover-font-color);
+	background-color: var(--br-navbar-item-hover-background-color);
+}
+.br-navbar-item[aria-current=true],
+.br-navbar-item[aria-selected=true] {
+	color: var(--br-navbar-item-active-font-color);
+	background-color: var(--br-navbar-item-active-background-color);
+}
+.br-navbar-item[aria-current=true]:hover,
+.br-navbar-item[aria-selected=true]:hover {
+	color: var(--br-navbar-item-active-hover-font-color);
+	background-color: var(--br-navbar-item-active-hover-background-color);
+}
+.br-navbar-item::before {
+	display: block;
+	content: "";
+	position: absolute;
+	inset: 0px;
+}
+.br-navbar-item[aria-current=true]:before,
+.br-navbar-item[aria-selected=true]:before {
+	border-left: 3px solid transparent;
+	border-right: 3px solid transparent;
+	border-bottom: 3px solid currentColor;
+}

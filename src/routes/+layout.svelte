@@ -1,6 +1,6 @@
 <script>
     import '$lib/default/css/components.css';
-    import { Logo, Navbar, Item as NavbarItem, Section as NavbarSection } from '$lib/default/navbar';
+    import '$lib/default/navbar';
     import { Sidebar, Item as SidebarItem, Section as SidebarSection } from '$lib/default/sidebar';
     import { base } from '$app/paths';
     import { page } from '$app/stores';
@@ -12,33 +12,31 @@
 </script>
 
 <div class="app-layout">
-    <Navbar>
-        <Logo href="{base}">
+    <nav>
+        <a class='logo' href="{base}">
             🍓 <span class="text">strawberry</span>
-        </Logo>
-        <NavbarSection>
-            <a class="navigation" href="{base}">
-                <NavbarItem active={!path.startsWith(`${base}/typography`)}>
-                    Components
-                </NavbarItem>
+        </a>
+        <ul class='br-navbar-section'>
+            <a class="br-navbar-item navigation" href="{base}"
+                aria-current={path.startsWith(`${base}/components`) ? 'true' : null}>
+                Components
             </a>
-            <a class="navigation" href="{base}/typography">
-                <NavbarItem active={path.startsWith(`${base}/typography`)}>
-                    Typography
-                </NavbarItem>
+            <a class="br-navbar-item  navigation" href="{base}/typography"
+                aria-current={path.startsWith(`${base}/typography`) ? 'true' : null}>
+                Typography
             </a>
-        </NavbarSection>
-        <NavbarSection --br-navbar-section-margin-inline="auto 10px">
+        </ul>
+        <ul class="br-navbar-section right">
             <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
                 GitHub
             </a>
             <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
                 NPM
             </a>
-        </NavbarSection>
-    </Navbar>
+        </ul>
+    </nav>
     <div class="components">
-        <div class="left">
+        <div class="sidebar-wrapper">
             <Sidebar>
                 <a href="{base || "/"}">
                     <SidebarItem active={path === (base || '/')}>
@@ -137,7 +135,7 @@
                 </SidebarSection>
             </Sidebar>
         </div>
-        <div class="right">
+        <div class="content-wrapper">
             <slot/>
         </div>
     </div>
@@ -162,11 +160,20 @@
             --br-navbar-root-border-bottom: 1px solid #c3c3c3;
         }
     }
+    nav {
+        padding-inline: 20px;
+    }
+    a.logo {
+        width: 240px;
+    }
     a.navigation {
         color: inherit;
     }
     a.cta {
         line-height: var(--br-navbar-root-height);
+    }
+    .br-navbar-section.right {
+        margin-inline: auto 10px;
     }
     .components {
         display: grid;
@@ -174,38 +181,38 @@
         min-height: 0;
         grid-template-rows: 100%;
     }
-    .left,
-    .right {
+    .sidebar-wrapper,
+    .content-wrapper {
         overflow-y: auto;
     }
-    .left::-webkit-scrollbar,
-    .right::-webkit-scrollbar {
+    .sidebar-wrapper::-webkit-scrollbar,
+    .content-wrapper::-webkit-scrollbar {
         width: 16px;
     }
     @media (prefers-color-scheme: dark) {
-        .left::-webkit-scrollbar-thumb,
-        .right::-webkit-scrollbar-thumb,
-        .left::-webkit-scrollbar-track,
-        .right::-webkit-scrollbar-track {
+        .sidebar-wrapper::-webkit-scrollbar-thumb,
+        .content-wrapper::-webkit-scrollbar-thumb,
+        .sidebar-wrapper::-webkit-scrollbar-track,
+        .content-wrapper::-webkit-scrollbar-track {
             background-color: rgb(255, 255, 255, 0.1);
         }
     }
     @media (prefers-color-scheme: light) {
-        .left::-webkit-scrollbar-thumb,
-        .right::-webkit-scrollbar-thumb,
-        .left::-webkit-scrollbar-track,
-        .right::-webkit-scrollbar-track {
+        .sidebar-wrapper::-webkit-scrollbar-thumb,
+        .content-wrapper::-webkit-scrollbar-thumb,
+        .sidebar-wrapper::-webkit-scrollbar-track,
+        .content-wrapper::-webkit-scrollbar-track {
             background-color: rgb(0, 0, 0, 0.1);
         }
     }
-    .left a {
+    .sidebar-wrapper a {
         color: inherit;
     }
-    .right {
+    .content-wrapper {
         padding: 10px 64px;
     }
-    .left:after,
-    .right:after {
+    .sidebar-wrapper:after,
+    .content-wrapper:after {
         content: "";
         display: block;
         height: 25vh;
