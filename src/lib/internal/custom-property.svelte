@@ -5,7 +5,7 @@
     import { Code, css } from '$lib/default/code';
     import { Dropdown, Popup } from '$lib/default/dropdown';
     import { mdiDotsHorizontal, mdiLinkVariant } from '@mdi/js';
-    import { Icon } from '$lib/default/icon';
+    import { Icon } from './icon';
 
     /** @type {any} */
     export let filepath;

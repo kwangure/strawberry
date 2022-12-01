@@ -63,11 +63,6 @@
                                 Element
                             </SidebarItem>
                         </a>
-                        <a href="{base}/icon">
-                            <SidebarItem active={path === `${base}/icon`}>
-                                Icon
-                            </SidebarItem>
-                        </a>
                         <a href="{base}/switch">
                             <SidebarItem active={path === `${base}/switch`}>
                                 Switch
