@@ -58,8 +58,8 @@
                                 Dropdown
                             </SidebarItem>
                         </a>
-                        <a href="{base}/element">
-                            <SidebarItem active={path === `${base}/element`}>
+                        <a href="{base}/components/element">
+                            <SidebarItem active={path === `${base}/components/element`}>
                                 Element
                             </SidebarItem>
                         </a>
