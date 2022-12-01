@@ -31,6 +31,10 @@
 		const [code] = /** @type {string[]}*/(element.children);
 		return code;
 	}
+
+	$: if (typeof element !== 'string' && element?.name === 'a') {
+		Object.assign(element.attributes, { class: 'colored' });
+	}
 </script>
 
 {#if typeof element === 'string'}
