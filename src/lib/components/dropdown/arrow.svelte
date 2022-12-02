@@ -7,7 +7,7 @@
         sticks out.
     */
     div {
-        position: absolute;
+        position: var(--br-dropdown-popup-position);
         top: var(--br-dropdown-arrow-top);
         left: var(--br-dropdown-arrow-left);
         right: var(--br-dropdown-arrow-right);
