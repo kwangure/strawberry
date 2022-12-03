@@ -71,44 +71,9 @@
                 <SidebarSection>
                     <svelte:fragment slot="title">Data Inputs</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <a href="{base}/input/date">
-                            <SidebarItem active={path === `${base}/input/date`}>
-                                Date
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/input/datetime">
-                            <SidebarItem active={path === `${base}/input/datetime`}>
-                                DateTime
-                            </SidebarItem>
-                        </a>
                         <a href="{base}/components/input-container">
                             <SidebarItem active={path === `${base}/components/input-container`}>
                                 Container
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/input/password">
-                            <SidebarItem active={path === `${base}/input/password`}>
-                                Password
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/input/number">
-                            <SidebarItem active={path === `${base}/input/number`}>
-                                Number
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/select">
-                            <SidebarItem active={path === `${base}/select`}>
-                                Select
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/input/textarea">
-                            <SidebarItem active={path === `${base}/input/textarea`}>
-                                Textarea
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/input/time">
-                            <SidebarItem active={path === `${base}/input/time`}>
-                                Time
                             </SidebarItem>
                         </a>
                     </svelte:fragment>
