@@ -27,10 +27,10 @@
             </a>
         </ul>
         <ul class="br-navbar-section right">
-            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank">
+            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank" rel=noreferrer>
                 GitHub
             </a>
-            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank">
+            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank" rel=noreferrer>
                 NPM
             </a>
         </ul>

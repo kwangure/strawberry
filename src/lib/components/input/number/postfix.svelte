@@ -53,9 +53,12 @@
 </script>
 
 <div class="postfix-wrapper" use:setupInput>
+	<!-- TODO -->
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<svg viewBox="0 0 24 24" class="postfix-up" on:click={stepUp}>
 		<path d={mdiChevronUp}/>
 	</svg>
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<svg viewBox="0 0 24 24" class="postfix-down" on:click={stepDown}>
 		<path d={mdiChevronDown}/>
 	</svg>
