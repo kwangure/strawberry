@@ -1,2 +1,0 @@
-import{S as a,i as s,s as m,w as i,x as c,y as l,B as f,f as p,t as u,z as _}from"../../../../../../chunks/index-f696c18b.js";import{E as $}from"../../../../../../chunks/element-cf291793.js";function g(r){let e,n;return e=new $({props:{element:r[0]}}),{c(){i(e.$$.fragment)},l(t){c(e.$$.fragment,t)},m(t,o){l(e,t,o),n=!0},p:f,i(t){n||(p(e.$$.fragment,t),n=!0)},o(t){u(e.$$.fragment,t),n=!1},d(t){_(e,t)}}}function d(r){return[{type:"pre",children:[`
-test text`]}]}class h extends a{constructor(e){super(),s(this,e,d,g,m,{})}}export{h as default};

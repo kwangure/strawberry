@@ -1,0 +1,1 @@
+import{K as c,L as a,M as l}from"./index-d04d3429.js";function p(){const r=c();return n=>{const t=[];for(const e in r.$$.callbacks)if({}.hasOwnProperty.call(r.$$.callbacks,e)){const o=a(n,e,s=>{l(r,s)});t.push(o)}return{destroy:()=>{t.forEach(e=>e())}}}}export{p as c};

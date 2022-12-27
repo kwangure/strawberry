@@ -1,2 +1,0 @@
-import{S as r,i as s,s as i,w as c,x as m,y as p,B as f,f as u,t as l,z as _}from"./index-f696c18b.js";import{C as $,j as d}from"./language-8da4a31a.js";/* empty css                */function g(o){let t,n;return t=new $({props:{highlight:d,code:h}}),{c(){c(t.$$.fragment)},l(e){m(t.$$.fragment,e)},m(e,a){p(t,e,a),n=!0},p:f,i(e){n||(u(t.$$.fragment,e),n=!0)},o(e){l(t.$$.fragment,e),n=!1},d(e){_(t,e)}}}const h=`const five = 5;
-const thirty = five * 6`;class y extends r{constructor(t){super(),s(this,t,null,g,i,{})}}export{y as default};
