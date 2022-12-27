@@ -44,7 +44,6 @@
 		border: var(--br-input-container-border);
 		border-radius: var(--br-input-container-border-radius);
 		background-color: var(--br-input-container-background-color);
-		height: var(--br-input-container-height);
 		transition: var(--br-input-container-transition);
 		position: var(--br-input-container-position, relative);
 	}
@@ -62,6 +61,11 @@
 		padding-block: var(--br-input-root-padding-block);
 		padding-inline: var(--br-input-root-padding-inline);
 		color: var(--br-input-root-font-color);
+		/*
+			Set container height on input so that container can grow for
+			textarea elements.
+		 */
+		height: var(--br-input-container-inner-height);
 		background-color: transparent;
 		flex-grow: 1;
 		color: inherit;
@@ -92,4 +96,19 @@
 	.br-container :global([type=number]) {
 		appearance: textfield;
 	}
+
+	.br-container :global(textarea) {
+		border: none;
+		outline: 0;
+		padding-block: var(--br-input-root-padding-block);
+		padding-inline: var(--br-input-root-padding-inline);
+		background-color: transparent;
+		color: inherit;
+		flex-grow: 1;
+		overflow: auto;
+		overflow-x: hidden;
+		-ms-overflow-style: none;
+		resize: none;
+	}
+
 </style>

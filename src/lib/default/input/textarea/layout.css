@@ -1,9 +1,0 @@
-:host,
-:root {
-    --br-textarea-root-padding-block: 5px;
-    --br-textarea-root-padding-inline: 12px;
-    --br-textarea-root-width: fit-content;
-    --br-textarea-root-overflow: scroll;
-    --br-textarea-root-border-radius: 4px;
-    --br-textarea-root-transition: border-color 0.25s ease, box-shadow 0.25s ease-out;
-}

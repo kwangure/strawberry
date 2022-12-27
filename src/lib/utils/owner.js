@@ -8,7 +8,7 @@ export function ownerDocument(node) {
 /**
  * @param {Node | undefined} node
  */
-export default function ownerWindow(node) {
+export function ownerWindow(node) {
 	const doc = ownerDocument(node);
 	return doc.defaultView || window;
 }

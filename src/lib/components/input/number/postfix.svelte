@@ -75,6 +75,7 @@
 	}
 	.postfix-wrapper {
 		width: var(--br-input-number-postfix-width);
+		height: var(--br-input-container-inner-height);
 		color: var(--br-input-number-postfix-color);
 		background-color: var(--br-input-number-postfix-background-color);
 		display: flex;
