@@ -76,7 +76,6 @@
 	 * @param {string} event
 	 */
 	function dispatchEvent(event) {
-		console.log({ form, formdata: new FormData(form) });
 		dispatch(event, {
 			returnValue: dialog.returnValue,
 			formData: new FormData(form),
