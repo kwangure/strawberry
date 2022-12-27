@@ -58,8 +58,6 @@ export function autosize(textarea, options = {}) {
 
 		// The height of the inner content
 		const innerHeight = textareaShadow.scrollHeight;
-		console.log({ innerHeight });
-		// debugger;
 
 		// Measure height of a textarea with a single row
 		textareaShadow.value = 'x';
@@ -79,9 +77,9 @@ export function autosize(textarea, options = {}) {
 		}
 		outerHeight = Math.max(outerHeight, singleRowHeight);
 		// Take the box sizing into account for applying this value as a style.
-		const outerHeightStyle = outerHeight + (boxSizing === 'border-box' ? padding + border : 0);
+		const outerHeightStyle = outerHeight
+			+ (boxSizing === 'border-box' ? padding + border : 0);
 		const overflow = Math.abs(outerHeight - innerHeight) <= 1;
-		console.log({ innerHeight, outerHeightStyle, prevStateOuterHeightStyle, overflow, singleRowHeight });
 
 		// Need a large enough difference to update the height.
 		// This prevents infinite rendering loop.
@@ -98,7 +96,8 @@ export function autosize(textarea, options = {}) {
 	}
 
 	const handleResize = debounce(updateHeight);
-	const removeResizeListener = listen(containerWindow, 'resize', handleResize);
+	const removeResizeListener
+		= listen(containerWindow, 'resize', handleResize);
 
 	/**
 	 * @type {ResizeObserver}
