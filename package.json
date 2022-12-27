@@ -9,7 +9,7 @@
 		"deploy": "npm run build && gh-pages -t -d build",
 		"dev": "vite dev",
 		"lint": "eslint .",
-		"package": "svelte-kit package",
+		"package": "svelte-package",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
 		"release": "release-it",
