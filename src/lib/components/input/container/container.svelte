@@ -46,6 +46,7 @@
 		background-color: var(--br-input-container-background-color);
 		height: var(--br-input-container-height);
 		transition: var(--br-input-container-transition);
+		position: var(--br-input-container-position, relative);
 	}
 	.br-container:hover:not(:focus-within) {
 		box-shadow: var(--br-input-container-hover-box-shadow);
