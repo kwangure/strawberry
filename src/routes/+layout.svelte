@@ -150,26 +150,6 @@
     .content-wrapper {
         overflow-y: auto;
     }
-    .sidebar-wrapper::-webkit-scrollbar,
-    .content-wrapper::-webkit-scrollbar {
-        width: 16px;
-    }
-    @media (prefers-color-scheme: dark) {
-        .sidebar-wrapper::-webkit-scrollbar-thumb,
-        .content-wrapper::-webkit-scrollbar-thumb,
-        .sidebar-wrapper::-webkit-scrollbar-track,
-        .content-wrapper::-webkit-scrollbar-track {
-            background-color: rgb(255, 255, 255, 0.1);
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        .sidebar-wrapper::-webkit-scrollbar-thumb,
-        .content-wrapper::-webkit-scrollbar-thumb,
-        .sidebar-wrapper::-webkit-scrollbar-track,
-        .content-wrapper::-webkit-scrollbar-track {
-            background-color: rgb(0, 0, 0, 0.1);
-        }
-    }
     .sidebar-wrapper a {
         color: inherit;
     }
