@@ -1,5 +1,5 @@
 <script>
-	import { Code, mixedHTML } from '@kwangure/strawberry/default/code';
+	import { Code, svelte } from '@kwangure/strawberry/default/code';
 	import Markdoc from '$lib/internal/markdoc.svelte';
 
 	const components = import.meta.glob('$docs/examples/**/*.svelte');
@@ -41,7 +41,7 @@
 		{/if}
 	</div>
 	<div class="demo">
-		<Code highlight={mixedHTML} {code}/>
+		<Code highlight={svelte} {code}/>
 		<div class="output">
 			{#await components[filepath]() then module}
 				<svelte:component this={component(module)}/>

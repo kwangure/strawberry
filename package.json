@@ -20,12 +20,16 @@
 	},
 	"dependencies": {
 		"@floating-ui/dom": "^1.0.0",
+		"@lezer/cpp": "^1.0.0",
 		"@lezer/css": "^1.0.1",
 		"@lezer/highlight": "^1.1.2",
 		"@lezer/html": "^1.0.1",
 		"@lezer/javascript": "^1.0.2",
-		"@lezer/markdown": "^1.0.2",
+		"@lezer/json": "^1.0.0",
+		"@lezer/python": "^1.1.1",
+		"@lezer/rust": "^1.0.0",
 		"@mdi/js": "^5.0.45",
+		"@replit/codemirror-lang-svelte": "^6.0.0",
 		"uid": "^1.0.0"
 	},
 	"devDependencies": {

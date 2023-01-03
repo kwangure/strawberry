@@ -1,9 +1,11 @@
 :root {
     --br-code-root-background-color: #f0f0f0;
     --br-code-root-font-color: #333;
-    
+
     --br-code-syntax-function-color: #0021b3;
 
+    --br-code-token-string-color: #312212;
+    /* Literals w/ backticks */
     --br-code-token-string-color: #312212;
     --br-code-token-property-name-color: #037e0b;
     --br-code-token-comment-color: #2f9d62;

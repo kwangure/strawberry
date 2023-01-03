@@ -1,5 +1,5 @@
 <script>
-	import { Code, css, javascript, mixedHTML } from '$lib/default/code';
+	import { Code, css, javascript, mixedHTML, svelte } from '$lib/default/code';
 
 	/**
 	 * @type {import('@markdoc/markdoc').RenderableTreeNode}*/
@@ -10,6 +10,7 @@
 		css,
 		html: mixedHTML,
 		javascript,
+		svelte,
 	};
 
 	/**

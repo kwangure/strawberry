@@ -5,6 +5,8 @@
     --br-code-syntax-function-color: #dcdcaa;
 
     --br-code-token-string-color: #d69d85;
+    /* Literals w/ backticks */
+    --br-code-token-string2-color: #d69d85;
     --br-code-token-property-name-color: #9cdcfe;
     --br-code-token-comment-color: #6a9955;
     --br-code-token-classname-color: #d7ba7d;
