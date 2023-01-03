@@ -3,7 +3,7 @@
 	import Markdoc from '$lib/internal/markdoc.svelte';
 
 	const components = import.meta.glob('$docs/examples/**/*.svelte');
-	/** @type {import('./$types').PageData}*/
+	/** @type {import('./$types').PageServerData} */
 	export let data;
 
 	// Use func to type output because svelte-check parser doesn't
