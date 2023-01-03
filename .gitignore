@@ -1,4 +1,5 @@
 .DS_Store
+.eslintcache
 .svelte-kit
 .vite-inspect
 build
