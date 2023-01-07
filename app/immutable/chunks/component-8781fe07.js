@@ -1,4 +1,4 @@
-import{S as et,i as ft,s as mt,k as h,q as w,a as i,v as y,l as C,m as E,r as S,h as f,c as $,w as T,b as m,H as b,x as j,A as it,f as L,t as M,y as q}from"./index-a5e285d6.js";import{C as J,m as $t,c as st,j as rt,a as lt,b as pt,r as nt}from"./language-d7a9eaf5.js";/* empty css                */function _t(tt){let s,K,P,r,R,a,Q,k,l,z,o,U,A,p,I,v,V,N,n,O,x,W,B,_,D,H,X,F,u,G;return r=new J({props:{highlight:$t,code:`<h1>Hello world!</h1>
+import{S as et,i as ft,s as mt,k as h,q as w,a as i,v as y,l as C,m as E,r as S,h as f,c as $,w as T,b as m,H as b,x as j,A as it,f as L,t as M,y as q}from"./index-a5e285d6.js";import{C as J,m as $t,c as st,j as rt,a as lt,b as pt,r as nt}from"./language-840bddd9.js";/* empty css                */function _t(tt){let s,K,P,r,R,a,Q,k,l,z,o,U,A,p,I,v,V,N,n,O,x,W,B,_,D,H,X,F,u,G;return r=new J({props:{highlight:$t,code:`<h1>Hello world!</h1>
 I'm <em>NOT</em> a wizard.`}}),l=new J({props:{highlight:st,code:`.center {
     display: flex;
     align-items: center;
