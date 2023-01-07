@@ -1,5 +1,4 @@
 import { highlightTree, tagHighlighter, tags } from '@lezer/highlight';
-import { escape } from 'svelte/internal';
 
 const colors = tagHighlighter([
 	{ tag: tags.link, class: 'link' },
@@ -40,13 +39,14 @@ const colors = tagHighlighter([
  */
 export function highlight(parser, code) {
 	const parsed = parser.parse(code);
-	let pos = 0, highlighted = '';
+	let lastEnd = 0;
+	const highlighted = [];
 	highlightTree(parsed, colors, (from, to, color) => {
-		highlighted += escape(code.slice(pos, from));
-		highlighted += `<span style='color: var(--br-code-token-${color}-color);'>${escape(code.slice(from, to))}</span>`;
-		pos = to;
+		highlighted.push({ color: '', segment: code.slice(lastEnd, from) });
+		highlighted.push({ color, segment: code.slice(from, to) });
+		lastEnd = to;
 	});
-	highlighted += escape(code.slice(pos));
+	highlighted.push({ color: '', segment: code.slice(lastEnd) });
 	return highlighted;
 }
 

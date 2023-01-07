@@ -9,9 +9,9 @@
 -->
 <script>
     /**
-     * A syntax highlighter that takes source code and returns highlighted HTML
+     * A syntax highlighter that assigns highlight colors to code segments
      *
-     * @type {{ (code: string): string } | undefined}
+     * @type {((code: string) => { color: string, segment: string }[]) | undefined}
      */
     export let highlight = undefined;
 
@@ -27,14 +27,29 @@
      */
     export let inline = false;
 
-    $: _highlight = highlight || ((/** @type {string} */ x) => x);
+    /**
+     * @param {string} x
+     */
+    function stub(x) {
+    	return [{ segment: x, color: '' }];
+    }
+
+    $: _highlight = highlight || stub;
+    $: segments = _highlight(code);
 </script>
 
-<!-- Leave as one long line since `pre` preserves whitespace-->
-<pre class="berry-code hljs" class:inline><code>{@html _highlight(code.replace(' *{}', ''))}</code></pre>
+<code class:inline>
+    {#each segments as { segment, color }}
+        {#if color}
+            <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
+        {:else}
+            {segment}
+        {/if}
+    {/each}
+</code>
 
 <style>
-    pre {
+    code {
         padding: 16px;
         overflow: auto;
         font-size: 85%;
@@ -45,9 +60,8 @@
         margin: 0;
         white-space: var(--br-code-root-white-space);
         tab-size: var(--br-code-root-tab-size, 4);
-    }
-    code {
-        display: contents;
+        display: block;
+        font-family: monospace;
     }
     .inline {
         display: inline;
