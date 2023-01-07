@@ -50,7 +50,9 @@ export function highlight(parser, code, options = {}) {
 		highlighted.push({ color, segment: code.slice(from, to) });
 		lastEnd = to;
 	}, from, to);
-	highlighted.push({ color: '', segment: code.slice(lastEnd) });
-	return highlighted;
+
+	highlighted.push({ color: '', segment: code.slice(lastEnd, to) });
+
+	return highlighted.filter(({ segment }) => segment);
 }
 
