@@ -36,16 +36,20 @@ const colors = tagHighlighter([
 /**
  * @param {import('@lezer/lr').LRParser} parser
  * @param {string} code
+ * @param {Object} options
+ * @param {number} [options.from]
+ * @param {number} [options.to]
  */
-export function highlight(parser, code) {
+export function highlight(parser, code, options = {}) {
 	const parsed = parser.parse(code);
-	let lastEnd = 0;
+	const { from = 0, to = parsed.length } = options;
+	let lastEnd = from;
 	const highlighted = [];
 	highlightTree(parsed, colors, (from, to, color) => {
 		highlighted.push({ color: '', segment: code.slice(lastEnd, from) });
 		highlighted.push({ color, segment: code.slice(from, to) });
 		lastEnd = to;
-	});
+	}, from, to);
 	highlighted.push({ color: '', segment: code.slice(lastEnd) });
 	return highlighted;
 }

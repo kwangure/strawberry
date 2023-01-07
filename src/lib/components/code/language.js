@@ -9,6 +9,10 @@ import { parser as pythonParser } from '@lezer/python';
 import { parser as rustParser } from '@lezer/rust';
 import { svelteLanguage } from '@replit/codemirror-lang-svelte';
 
+/**
+ * @typedef {typeof css} Highlighter
+ */
+
 export const css = highlight.bind(null, cssParser);
 
 export const javascript = highlight.bind(null, jsParser);

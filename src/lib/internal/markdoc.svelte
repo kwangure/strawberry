@@ -5,7 +5,7 @@
 	 * @type {import('@markdoc/markdoc').RenderableTreeNode}*/
 	export let element;
 
-	/** @type {Record<string, (code: string) => string>}*/
+	/** @type {Record<string, import('$lib/default/code').Highlighter>}*/
 	const highlighters = {
 		css,
 		html: mixedHTML,
@@ -20,7 +20,6 @@
 		if (Object.hasOwn(highlighters, language)) {
 			return highlighters[language];
 		}
-		return (/** @type {string}*/x) => x;
 	}
 
 	// Use func to type output because svelte-check parser doesn't
