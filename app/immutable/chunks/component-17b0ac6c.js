@@ -1,0 +1,12 @@
+import{S as et,i as ft,s as mt,k as h,q as w,a as i,v as y,l as C,m as E,r as S,h as f,c as $,w as T,b as m,H as b,x as j,A as it,f as L,t as M,y as q}from"./index-a5e285d6.js";import{C as J,m as $t,c as st,j as rt,a as lt,b as pt,r as nt}from"./language-d7a9eaf5.js";/* empty css                */function _t(tt){let s,K,P,r,R,a,Q,k,l,z,o,U,A,p,I,v,V,N,n,O,x,W,B,_,D,H,X,F,u,G;return r=new J({props:{highlight:$t,code:`<h1>Hello world!</h1>
+I'm <em>NOT</em> a wizard.`}}),l=new J({props:{highlight:st,code:`.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}`}}),p=new J({props:{highlight:rt,code:`function isEven( i ) {
+    return i % 2 === 0;
+  }`}}),n=new J({props:{highlight:lt,code:`def is_even(i):
+    return (i % 2) == 0`}}),_=new J({props:{highlight:pt,code:`bool isEven(int x)
+{
+    return !(x % 2);
+}`}}),u=new J({props:{highlight:nt,code:"let is_even = |x: i32| x % 2 == 0;"}}),{c(){s=h("h3"),K=w("HTML"),P=i(),y(r.$$.fragment),R=i(),a=h("h3"),Q=w("CSS"),k=i(),y(l.$$.fragment),z=i(),o=h("h3"),U=w("JavaScript"),A=i(),y(p.$$.fragment),I=i(),v=h("h3"),V=w("Python"),N=i(),y(n.$$.fragment),O=i(),x=h("h3"),W=w("C++"),B=i(),y(_.$$.fragment),D=i(),H=h("h3"),X=w("Rust"),F=i(),y(u.$$.fragment)},l(t){s=C(t,"H3",{});var e=E(s);K=S(e,"HTML"),e.forEach(f),P=$(t),T(r.$$.fragment,t),R=$(t),a=C(t,"H3",{});var Y=E(a);Q=S(Y,"CSS"),Y.forEach(f),k=$(t),T(l.$$.fragment,t),z=$(t),o=C(t,"H3",{});var Z=E(o);U=S(Z,"JavaScript"),Z.forEach(f),A=$(t),T(p.$$.fragment,t),I=$(t),v=C(t,"H3",{});var c=E(v);V=S(c,"Python"),c.forEach(f),N=$(t),T(n.$$.fragment,t),O=$(t),x=C(t,"H3",{});var g=E(x);W=S(g,"C++"),g.forEach(f),B=$(t),T(_.$$.fragment,t),D=$(t),H=C(t,"H3",{});var d=E(H);X=S(d,"Rust"),d.forEach(f),F=$(t),T(u.$$.fragment,t)},m(t,e){m(t,s,e),b(s,K),m(t,P,e),j(r,t,e),m(t,R,e),m(t,a,e),b(a,Q),m(t,k,e),j(l,t,e),m(t,z,e),m(t,o,e),b(o,U),m(t,A,e),j(p,t,e),m(t,I,e),m(t,v,e),b(v,V),m(t,N,e),j(n,t,e),m(t,O,e),m(t,x,e),b(x,W),m(t,B,e),j(_,t,e),m(t,D,e),m(t,H,e),b(H,X),m(t,F,e),j(u,t,e),G=!0},p:it,i(t){G||(L(r.$$.fragment,t),L(l.$$.fragment,t),L(p.$$.fragment,t),L(n.$$.fragment,t),L(_.$$.fragment,t),L(u.$$.fragment,t),G=!0)},o(t){M(r.$$.fragment,t),M(l.$$.fragment,t),M(p.$$.fragment,t),M(n.$$.fragment,t),M(_.$$.fragment,t),M(u.$$.fragment,t),G=!1},d(t){t&&f(s),t&&f(P),q(r,t),t&&f(R),t&&f(a),t&&f(k),q(l,t),t&&f(z),t&&f(o),t&&f(A),q(p,t),t&&f(I),t&&f(v),t&&f(N),q(n,t),t&&f(O),t&&f(x),t&&f(B),q(_,t),t&&f(D),t&&f(H),t&&f(F),q(u,t)}}}class vt extends et{constructor(s){super(),ft(this,s,null,_t,mt,{})}}export{vt as default};
