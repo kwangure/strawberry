@@ -30,7 +30,9 @@ export function readme(options = {}) {
 				const result = await markdoc.transform.call(pluginContext, code, `${id}?markdown=true`);
 				const outputDir = options.outputDir || config.root;
 				const module = await stringToModule(result, outputDir);
-				const rootInputPath = id.replace(config.root, '');
+				const rootInputPath = id
+					.replace(config.root, '')
+					.replace(/^\//, '');
 				const markdown = `
 <!--
 	This document is generated from '${rootInputPath}'. Do not edit it directly.
