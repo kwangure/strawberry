@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-static";
+import adapter from "@sveltejs/adapter-vercel";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import micromatch from 'micromatch';
 
@@ -12,19 +12,14 @@ export default {
     ],
     kit: {
         appDir: "app",
-        adapter: adapter(),
-        paths: {
-            base: PROD ? "/strawberry" : "",
-        },
+        adapter: adapter({
+            edge: true,
+            external: [],
+            split: false
+        }),
         alias: {
             '@kwangure/strawberry': './src/lib',
             '$docs': './docs',
-        },
-        prerender: {
-            entries: [
-                '*',
-                '/components/button',
-            ],
         },
     },
     package: {
