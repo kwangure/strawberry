@@ -1,5 +1,5 @@
 <script>
-    import '$lib/default/css/components.css';
+    import '$lib/default/button';
 </script>
 
 <span id="button-parent">

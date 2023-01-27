@@ -1,5 +1,5 @@
 <script>
-    import '$lib/default/css/components.css';
+    import '$lib/default/button';
     import '$lib/default/navbar';
     import { Sidebar, Item as SidebarItem, Section as SidebarSection } from '$lib/default/sidebar';
     import { base } from '$app/paths';
