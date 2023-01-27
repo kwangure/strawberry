@@ -16,8 +16,9 @@
 	box-sizing: inherit;
 	overflow-wrap: inherit;
 
-	/* disable default margin for body, h1, h2, h3, h4, h5, h6, ul, ol, p etc. */
+	/* disable default margin & padding for body, h1, h2, h3, h4, h5, h6, ul, ol, p etc. */
 	margin: 0;
+	padding: 0;
 }
 
 html,
