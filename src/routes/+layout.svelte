@@ -71,8 +71,8 @@
                 <SidebarSection>
                     <svelte:fragment slot="title">Data Inputs</svelte:fragment>
                     <svelte:fragment slot="items">
-                        <a href="{base}/components/input-container">
-                            <SidebarItem active={path === `${base}/components/input-container`}>
+                        <a href="{base}/components/container">
+                            <SidebarItem active={path === `${base}/components/container`}>
                                 Container
                             </SidebarItem>
                         </a>

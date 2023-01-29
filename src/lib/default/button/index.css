@@ -1,4 +1,0 @@
-@import  url('../../components/button/button.css');
-
-@import url('./dark.css') (prefers-color-scheme: dark);
-@import url('./light.css') (prefers-color-scheme: light);

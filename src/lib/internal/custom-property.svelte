@@ -75,15 +75,15 @@
     .property {
         --br-button-root-border: none;
         --br-button-root-hover-border: none;
-        --br-button-root-background-color: transparent;
-        --br-button-root-hover-background-color: transparent;
-        --br-button-root-font-color: transparent;
+        --br-button-background-color: transparent;
+        --br-button-hover-background-color: transparent;
+        --br-button-font-color: transparent;
         --br-button-root-padding-inline: 5px;
         --br-link-font-color: var(--br-font-color);
         --br-icon-root-height: 20px;
     }
     .property:hover {
-        --br-button-root-font-color: inherit;
+        --br-button-font-color: inherit;
         --br-button-transition: all 0.25s ease;
     }
     h3 {

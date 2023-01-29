@@ -1,0 +1,55 @@
+/*!@component
+    Button triggers an event or action. They let users know what will happen next.
+*/
+.br-button,
+button:not(.br-ignore),
+input:not(.br-ignore)::file-selector-button,
+input[type=button]:not(.br-ignore) {
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    height: var(--br-size-9);
+    padding-inline: var(--br-size-3);
+
+    color: var(--br-button-font-color);
+    gap: var(--br-size-3);
+    border: var(--br-button-border);
+    border-radius: var(--br-global-border-radius);
+    background-color: var(--br-button-background-color);
+}
+
+.br-button.disabled,
+button:not(.br-ignore):disabled,
+input:not(.br-ignore):disabled::file-selector-button,
+input[type=button]:not(.br-ignore):disabled {
+    cursor: not-allowed;
+}
+
+.br-button:hover:not(:active),
+button:not(.br-ignore):hover:not(:active),
+input:not(.br-ignore):hover:not(:active)::file-selector-button,
+input[type=button]:not(.br-ignore):hover:not(:active) {
+    background-color: var(--br-button-hover-background-color);
+    border: var(--br-button-hover-border);
+}
+
+:host,
+:root {
+    --br-button-font-color: inherit;
+    --br-button-background-color: var(--br-dark, #2a2a2a) var(--br-light, transparent);
+    --br-button-hover-background-color: var(--br-dark, rgba(255, 255, 255, 0.2)) var(--br-light, rgba(0, 0, 0, 0.1));
+    --br-button-border: var(--br-global-border);
+    --br-button-hover-border: var(--br-global-border);
+}
+
+.br-button-primary {
+    --br-button-font-color: #fff;
+    --br-button-background-color: var(--br-dark, hsl(225deg 100% 60%)) var(--br-light, hsl(225deg 100% 55%));
+    --br-button-hover-background-color: hsl(225deg 100% 45%);
+    --br-button-border: 1px solid var(--br-button-background-color);
+    --br-button-hover-border: 1px solid var(--br-button-hover-background-color);
+}

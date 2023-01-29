@@ -1,5 +1,5 @@
 <script>
-    import "$lib/default/button/index.css";
+    import "$lib/default/button/style.css";
 </script>
 
 <button id='test-button' class='br-primary'>
