@@ -6,7 +6,6 @@
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
-		"deploy": "npm run build && gh-pages -t -d build",
 		"dev": "vite dev",
 		"lint": "eslint .  --cache-location .eslintcache",
 		"format": "eslint . --fix  --cache-location .eslintcache",
