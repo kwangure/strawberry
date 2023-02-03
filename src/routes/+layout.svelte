@@ -1,9 +1,11 @@
 <script>
     import '$lib/default/button';
+    import '$lib/default/item';
     import '$lib/default/navbar';
-    import { Sidebar, Item as SidebarItem, Section as SidebarSection } from '$lib/default/sidebar';
     import { base } from '$app/paths';
+    import Link from '@kwangure/strawberry/internal/sidebar-link.svelte';
     import { page } from '$app/stores';
+    import { Section } from '$lib/default/sidebar';
 
     /** @type {string} */
     let path;
@@ -18,11 +20,11 @@
         </a>
         <ul class='br-navbar-section'>
             <a class="br-navbar-item navigation" href="{base}"
-                aria-current={path.startsWith(`${base}/components`) ? 'true' : null}>
+                aria-current={path.startsWith('/components') ? 'true' : null}>
                 Components
             </a>
             <a class="br-navbar-item  navigation" href="{base}/typography"
-                aria-current={path.startsWith(`${base}/typography`) ? 'true' : null}>
+                aria-current={path.startsWith('/typography') ? 'true' : null}>
                 Typography
             </a>
         </ul>
@@ -37,68 +39,25 @@
     </nav>
     <div class="components">
         <div class="sidebar-wrapper">
-            <Sidebar>
-                <a href="{base || "/"}">
-                    <SidebarItem active={path === (base || '/')}>
-                        Getting started
-                    </SidebarItem>
+            <div class="br-sidebar">
+                <a href="/" class="br-list-item" class:br-list-item-active={path === '/'}>
+                    Getting started
                 </a>
-                <SidebarSection>
-                    <svelte:fragment slot="title">General</svelte:fragment>
-                    <svelte:fragment slot="items">
-                        <a href="{base}/components/button">
-                            <SidebarItem active={path === `${base}/components/button`}>
-                                Button
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/components/dropdown">
-                            <SidebarItem active={path === `${base}/components/dropdown`}>
-                                Dropdown
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/components/element">
-                            <SidebarItem active={path === `${base}/components/element`}>
-                                Element
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/switch">
-                            <SidebarItem active={path === `${base}/switch`}>
-                                Switch
-                            </SidebarItem>
-                        </a>
-                    </svelte:fragment>
-                </SidebarSection>
-                <SidebarSection>
-                    <svelte:fragment slot="title">Data Inputs</svelte:fragment>
-                    <svelte:fragment slot="items">
-                        <a href="{base}/components/container">
-                            <SidebarItem active={path === `${base}/components/container`}>
-                                Container
-                            </SidebarItem>
-                        </a>
-                    </svelte:fragment>
-                </SidebarSection>
-                <SidebarSection>
-                    <svelte:fragment slot="title">Data Display</svelte:fragment>
-                    <svelte:fragment slot="items">
-                        <a href="{base}/components/code">
-                            <SidebarItem active={path === `${base}/components/code`}>
-                                Code
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/components/dialog">
-                            <SidebarItem active={path === `${base}/components/dialog`}>
-                                Dialog
-                            </SidebarItem>
-                        </a>
-                        <a href="{base}/tooltip">
-                            <SidebarItem active={path === `${base}/tooltip`}>
-                                Tooltip
-                            </SidebarItem>
-                        </a>
-                    </svelte:fragment>
-                </SidebarSection>
-            </Sidebar>
+                <Section title='General'>
+                    <Link href="/components/button">Button</Link>
+                    <Link href="/components/dropdown">Dropdown</Link>
+                    <Link href="/components/element">Element</Link>
+                    <Link href="/switch">Switch</Link>
+                </Section>
+                <Section title='Data Inputs'>
+                    <Link href="/components/container">Container</Link>
+                </Section>
+                <Section title='Data display'>
+                    <Link href="/components/code">Code</Link>
+                    <Link href="/components/dialog">Dialog</Link>
+                    <Link href="/tooltip">Tooltip</Link>
+                </Section>
+            </div>
         </div>
         <div class="content-wrapper">
             <slot/>

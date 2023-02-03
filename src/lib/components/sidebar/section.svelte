@@ -1,9 +1,12 @@
-<section class="berry-sidebar-section sidebar-section">
-    <div class="title">
-        <slot name="title"/>
-    </div>
+<script>
+    /** @type {string} */
+    export let title;
+</script>
+
+<section>
+    <div class="title">{title}</div>
     <div class="items">
-        <slot name="items"></slot>
+        <slot></slot>
     </div>
 </section>
 
@@ -14,6 +17,7 @@
         top: 0;
         text-transform: uppercase;
         color: rgb(150, 150, 150);
+        background-color: var(--br-background-color);
         font-size: 12.5px;
     }
     .items {

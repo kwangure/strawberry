@@ -1,0 +1,23 @@
+.br-list-item {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	height: var(--br-size-9);
+	padding-block: var(--br-size-1);
+	padding-inline: var(--br-size-3);
+	border-radius: var(--br-global-border-radius);
+}
+
+.br-list-item:hover {
+	background-color: var(--br-light, rgb(240, 240, 240)) var(--br-dark, #333);
+}
+
+.br-list-item.br-list-item-active {
+	background-color: var(--br-light, hsl(215deg 100% 90%)) var(--br-dark, #444);
+	color: var(--br-light, hsl(225deg 100% 60%));
+}
+
+.br-list-item.br-list-item-active:hover {
+	background-color: var(--br-light, hsl(215deg 100% 85%)) var(--br-dark, #555);
+	color: var(--br-light, hsl(225deg 100% 45%));
+}

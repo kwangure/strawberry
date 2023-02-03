@@ -1,0 +1,10 @@
+.br-sidebar {
+	width: var(--br-size-16);
+	padding-block: var(--br-size-3);
+	padding-inline: var(--br-size-3);
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	user-select: none;
+	gap: var(--br-size-2);
+}
