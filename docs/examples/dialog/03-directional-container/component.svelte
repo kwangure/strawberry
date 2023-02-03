@@ -26,7 +26,7 @@
 		</section>
 		<footer class="br-dialog-inline-section">
 			<button>Cancel</button>
-			<button class='br-primary'>Lorem</button>
+			<button class='br-button-primary'>Lorem</button>
 		</footer>
 	</article>
 </Dialog>

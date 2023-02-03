@@ -2,7 +2,7 @@
 	import '@kwangure/strawberry/default/button';
 </script>
 
-<button class='br-primary'>
+<button class='br-button-primary'>
 	I'm a primary button
 </button>
 <button>

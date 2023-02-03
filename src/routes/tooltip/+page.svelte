@@ -18,7 +18,7 @@
         <div class="properties examples">
             {#each placements as placement}
                 <Tooltip {placement}>
-                    <button class='br-primary' slot="trigger">{placement}</button>
+                    <button class='br-button-primary' slot="trigger">{placement}</button>
                     <Popup>
                         <Arrow/>
                         I'm a <b>{placement}</b> tooltip!
