@@ -33,7 +33,7 @@ export default {
                 'components/**/index.js',
                 'components/code/languages/**/*.js',
                 'css/**/*.(js|css)',
-                'utils/forward-events.js',
+                'utils/events.js',
                 'utils/input/validationmessage.js',
             ]);
 

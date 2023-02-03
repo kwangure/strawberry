@@ -5,7 +5,7 @@
     action.
 -->
 <script>
-    import { createEventForwarder } from '../../utils/forward-events.js';
+    import { createEventForwarder } from '../../utils/events.js';
 
     /**
      * A "d" string is valid in an SVG path element.

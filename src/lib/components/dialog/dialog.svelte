@@ -1,14 +1,14 @@
 <!--
-    @component
+	@component
 
-    Dialog presents a dialog box or modal.
+	Dialog presents a dialog box or modal.
 -->
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import { listen } from 'svelte/internal';
+	import { createEventListener } from '../../utils/events.js';
 
 	const dispatch = createEventDispatcher();
-
+	const listen = createEventListener();
 	/**
 	 * The default context to render the unopened modal
 	 *
@@ -107,10 +107,6 @@
 	 * @param {HTMLDialogElement} dialog
 	 */
 	function enhance(dialog) {
-		/** @type {Function[]} */
-		const cleanupQueue = [];
-		const cleanup = Array.prototype.push.bind(cleanupQueue);
-
 		const form = /** @type {HTMLFormElement}*/(dialog.firstElementChild);
 		/**
 		 * @param {string} event
@@ -131,7 +127,7 @@
 			_context = context;
 		}
 
-		cleanup(listen(dialog, 'click', (event) => {
+		listen(dialog, 'click', (event) => {
 			if (isModal) return;
 			const isBackdropClick = dialog
 				.isSameNode(/** @type {Node} */ (event.target));
@@ -145,18 +141,11 @@
 			closeDialog('');
 			dispatchEvent('cancel');
 			dispatchEvent('close');
+		});
 
-		}));
-
-		cleanup(listen(dialog, 'close', () => {
+		listen(dialog, 'close', () => {
 			dispatchEvent('close');
-		}));
-
-		return {
-			destroy() {
-				while (cleanupQueue.length) cleanupQueue.pop()?.();
-			},
-		};
+		});
 	}
 </script>
 

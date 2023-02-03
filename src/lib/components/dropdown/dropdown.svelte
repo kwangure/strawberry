@@ -5,8 +5,9 @@
 -->
 <script>
 	import { arrow, autoUpdate, computePosition, flip, hide, limitShift, offset, shift } from '@floating-ui/dom';
-	import { listen } from 'svelte/internal';
+	import { createEventListener } from '@kwangure/strawberry/utils/events';
 
+	const listen = createEventListener();
 	/**
 	 * Where to position the popup relative to the reference element.
 	 * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }
@@ -104,7 +105,7 @@
 	function trigger(div, options) {
 		let { hasTrigger } = options;
 		let cleanup = () => {};
-		const removeClickListener = listen(document, 'click', (event) => {
+		listen(document, 'click', (event) => {
 			const targetIsInPopup = div
 				.contains(/** @type {HTMLElement} */ (event.target));
 			if (targetIsInPopup) {
@@ -140,9 +141,6 @@
 			update(options) {
 				({ hasTrigger } = options);
 				handleShow();
-			},
-			destroy() {
-				removeClickListener();
 			},
 		};
 	}

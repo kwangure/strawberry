@@ -5,7 +5,7 @@
 -->
 <script>
 	import { getPropertyValueNumber, getPseudoStyle, getStyle } from '$lib/utils/style.js';
-	import { createEventForwarder } from '../../utils/forward-events.js';
+	import { createEventForwarder } from '../../utils/events.js';
 	import { listen } from 'svelte/internal';
 
 	const forward = createEventForwarder();
