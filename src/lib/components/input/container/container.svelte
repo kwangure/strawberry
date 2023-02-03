@@ -55,12 +55,13 @@
 		box-shadow: var(--br-input-container-focus-box-shadow);
 		border: var(--br-input-container-focus-border);
 	}
-	.br-container :global(input) {
+	.br-container :global(input),
+	.br-container :global(select) {
 		border: none;
 		outline: 0;
-		padding-block: var(--br-input-root-padding-block);
-		padding-inline: var(--br-input-root-padding-inline);
-		color: var(--br-input-root-font-color);
+		padding-block: var(--br-input-padding-block);
+		padding-inline: var(--br-input-padding-inline);
+		color: var(--br-input-font-color);
 		/*
 			Set container height on input so that container can grow for
 			textarea elements.
@@ -69,6 +70,10 @@
 		background-color: transparent;
 		flex-grow: 1;
 		color: inherit;
+	}
+
+	.br-container :global(option) {
+		color: black;
 	}
 
 	.br-container :global(input::-webkit-datetime-edit) {
@@ -100,8 +105,8 @@
 	.br-container :global(textarea) {
 		border: none;
 		outline: 0;
-		padding-block: var(--br-input-root-padding-block);
-		padding-inline: var(--br-input-root-padding-inline);
+		padding-block: var(--br-input-padding-block);
+		padding-inline: var(--br-input-padding-inline);
 		background-color: transparent;
 		color: inherit;
 		flex-grow: 1;
