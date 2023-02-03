@@ -21,6 +21,8 @@
 	 */
 	export function close(returnValue) {
 		dialog.close(returnValue);
+		form.reset();
+		_context = context;
 	}
 
 	/**
