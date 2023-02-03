@@ -6,6 +6,6 @@
 </script>
 
 <a href={href} class="br-list-item"
-	class:br-list-item-active={href === $page.url.pathname}>
+	aria-current={href === $page.url.pathname ? 'page' : null}>
 	<slot/>
 </a>

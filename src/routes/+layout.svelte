@@ -40,9 +40,7 @@
     <div class="components">
         <div class="sidebar-wrapper">
             <div class="br-sidebar">
-                <a href="/" class="br-list-item" class:br-list-item-active={path === '/'}>
-                    Getting started
-                </a>
+                <Link href="/">Getting started</Link>
                 <Section title='General'>
                     <Link href="/components/button">Button</Link>
                     <Link href="/components/dropdown">Dropdown</Link>
@@ -108,9 +106,6 @@
     .sidebar-wrapper,
     .content-wrapper {
         overflow-y: auto;
-    }
-    .sidebar-wrapper a {
-        color: inherit;
     }
     .content-wrapper {
         padding: 10px 64px;
