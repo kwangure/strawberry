@@ -5,9 +5,9 @@
 -->
 <script>
 	import { arrow, autoUpdate, computePosition, flip, hide, limitShift, offset, shift } from '@floating-ui/dom';
-	import { createEventListener } from '@kwangure/strawberry/utils/events';
+	import { createAddEventListener } from '@kwangure/strawberry/utils/events';
 
-	const listen = createEventListener();
+	const listen = createAddEventListener();
 	/**
 	 * Where to position the popup relative to the reference element.
 	 * @type {"top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end" }

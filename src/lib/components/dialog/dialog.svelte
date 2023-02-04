@@ -4,11 +4,11 @@
 	Dialog presents a dialog box or modal.
 -->
 <script>
+	import { createAddEventListener } from '../../utils/events.js';
 	import { createEventDispatcher } from 'svelte';
-	import { createEventListener } from '../../utils/events.js';
 
 	const dispatch = createEventDispatcher();
-	const listen = createEventListener();
+	const listen = createAddEventListener();
 	/**
 	 * The default context to render the unopened modal
 	 *

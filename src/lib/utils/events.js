@@ -17,7 +17,7 @@ export function createEventForwarder() {
 	};
 }
 
-export function createEventListener() {
+export function createAddEventListener() {
 	const component = get_current_component();
 	/**
 	 * @param {EventTarget} node
