@@ -1,6 +1,7 @@
 .DS_Store
 .eslintcache
 .svelte-kit
+.vercel
 .vite-inspect
 build
 !src/lib/build
