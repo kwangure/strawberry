@@ -1,7 +1,7 @@
 import { append, element, listen } from 'svelte/internal';
-import debounce from '$lib/utils/debounce.js';
-import { getPropertyValueNumber } from '$lib/utils/style.js';
-import { ownerWindow } from '$lib/utils/owner.js';
+import debounce from '../utils/debounce.js';
+import { getPropertyValueNumber } from '../utils/style.js';
+import { ownerWindow } from '../utils/owner.js';
 
 /**
  * @param {HTMLTextAreaElement} textarea
