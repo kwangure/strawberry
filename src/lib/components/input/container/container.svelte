@@ -6,6 +6,7 @@
 -->
 
 <script>
+	import { createEventForwarder } from '@kwangure/strawberry/utils/events';
 	import uid from 'uid';
 
 	const hintId = uid();
@@ -22,9 +23,11 @@
 		input = /** @type {HTMLInputElement}*/(event?.target);
 		validationMessage = input?.validationMessage || '';
 	}
+
+	const forward = createEventForwarder();
 </script>
 
-<div class="wrapper" class:active={$$slots.label || $$slots.hint}>
+<div class="wrapper" class:active={$$slots.label || $$slots.hint} use:forward>
 	<slot name='label'></slot>
 	<div class="br-container" on:validate={updateValidationMessage}>
 		<slot {hintId} {input} {inputId} {validationMessage}/>
