@@ -2,9 +2,6 @@ import adapter from "@sveltejs/adapter-vercel";
 import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import micromatch from 'micromatch';
 
-const MODE = process.env.NODE_ENV;
-const PROD = MODE === "production";
-
 /** @type {import("@sveltejs/kit").Config} */
 export default {
     preprocess: [
@@ -19,7 +16,6 @@ export default {
         }),
         alias: {
             '@kwangure/strawberry': './src/lib',
-            '$docs': './docs',
         },
     },
     package: {
@@ -28,7 +24,6 @@ export default {
 
             const value = micromatch.isMatch(filepath, [
                 'actions/**',
-                'build/vite-plugin-strawberry.js',
                 'default/**',
                 'components/**/index.js',
                 'components/code/languages/**/*.js',
@@ -42,7 +37,6 @@ export default {
         files: (filepath) => {
             return micromatch.some(filepath, [
                 'actions/**',
-                'build/**',
                 'components/**',
                 'css/**',
                 'default/**',
