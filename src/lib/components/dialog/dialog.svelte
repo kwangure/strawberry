@@ -37,13 +37,13 @@
 		function update(open) {
 			if (!open) {
 				dialog.close();
-				dialog.inert = true;
+				dialog.setAttribute('inert', '');
 				_dispatch('close');
 				return;
 			}
 
 			if (open === 'modal' || open === 'non-modal') {
-				dialog.inert = false;
+				dialog.removeAttribute('inert');
 
 				const focusTarget = /** @type {HTMLInputElement}*/(dialog.querySelector('[autofocus]'));
 				if (focusTarget) {
