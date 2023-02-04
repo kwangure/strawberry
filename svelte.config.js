@@ -1,12 +1,8 @@
 import adapter from "@sveltejs/adapter-vercel";
-import inlineImport from "./scripts/preprocess-css-inline-import.js";
 import micromatch from 'micromatch';
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
-    preprocess: [
-        inlineImport,
-    ],
     kit: {
         appDir: "app",
         adapter: adapter({
