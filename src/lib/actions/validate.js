@@ -1,9 +1,22 @@
 import { listen } from 'svelte/internal';
 
 /**
+ *
+ * @typedef {HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement} ValidatableInput
+ */
+
+/**
+ * @template {ValidatableInput} T
+ * @typedef {{
+*     invalid?: (input: T) => string,
+*     error?: (error: string, input: T) => string,
+* }} ValidateOptions
+*/
+
+/**
  * Return the first validity error or an empty string if none exists
  *
- * @param {HTMLInputElement | HTMLTextAreaElement} input
+ * @param {ValidatableInput} input
  */
 function firstValidityError(input) {
 	const [errorName] = Object
@@ -14,8 +27,8 @@ function firstValidityError(input) {
 }
 
 /**
- * @template T
- * @param {T extends (HTMLInputElement | HTMLTextAreaElement) ? T : never} input
+ * @template {ValidatableInput} T
+ * @param {T} input
  * @param {((input: T) => string)} invalid
  * @param {((error: string, input: T) => string)} error
  */
@@ -44,12 +57,9 @@ function setValidationMessage(input, invalid, error) {
 }
 
 /**
- * @template T
- * @param {T extends (HTMLInputElement | HTMLTextAreaElement) ? T : never} input
- * @param {{
- *     invalid?: (input: T) => string,
- *     error?: (error: string, input: T) => string,
- * }} [options]
+ * @template {ValidatableInput} T
+ * @param {T} input
+ * @param {ValidateOptions<T>} [options]
  */
 export function validate(input, options = {}) {
 	const noop = () => '';
@@ -116,10 +126,7 @@ export function validate(input, options = {}) {
 
 	return {
 		/**
-		 * @param {{
- 		 *     invalid?: (input: T) => string,
-		 *     error?: (error: string, input: T) => string,
-		 * }} options
+		 * @param {ValidateOptions<T>} options
 		 */
 		update(options) {
 			({ invalid = noop, error = noop } = options);
