@@ -16,6 +16,7 @@ export default {
         }),
         alias: {
             '@kwangure/strawberry': './src/lib',
+            '$docs': './docs',
         },
     },
     package: {
