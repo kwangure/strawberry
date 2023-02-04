@@ -174,18 +174,15 @@
 		z-index: 100000;
 		overflow: hidden;
 		transition: opacity .5s cubic-bezier(.25, 0, .3, 1);
-		background-color: var(--br-dialog-root-background-color);
-		color: var(--br-dialog-root-font-color);
+		background-color: var(--br-background-color);
+		color: inherit;
 		border: 1px solid transparent;
 		padding-block: var(--br-dialog-root-padding-block, 16px);
 		padding-inline: var(--br-dialog-root-padding-inline, 24px);
 		grid-template-rows: minmax(0, 1fr);
 	}
-
-	@media (prefers-color-scheme: dark) {
-		dialog {
-			border-block-start: 1px solid #495057;
-		}
+	dialog {
+		border-block-start: var(--dark, 1px solid #394047);
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
