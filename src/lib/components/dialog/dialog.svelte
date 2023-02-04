@@ -4,158 +4,72 @@
 	Dialog presents a dialog box or modal.
 -->
 <script>
-	import { createAddEventListener } from '../../utils/events.js';
 	import { createEventDispatcher } from 'svelte';
+	import { createEventForwarder } from '@kwangure/strawberry/utils/events';
 
 	const dispatch = createEventDispatcher();
-	const listen = createAddEventListener();
+	const forward = createEventForwarder();
 	/**
-	 * The default context to render the unopened modal
+	 * The data with which to render the modal
 	 *
 	 * @type {any}
 	 */
 	export let context = undefined;
+	/** @type {'modal' | 'non-modal' | false} */
+	export let open = false;
 
 	/**
-	 * @param {string | undefined} returnValue
-	 */
-	export function close(returnValue) {
-		dialog.close(returnValue);
-		form.reset();
-		_context = context;
-	}
-
-	/**
-	 * When called, the function opens the dialog in non-modal mode
-	 * @type {(options: { target?: { value: any }; }) => void}
-	 */
-	export const show = _show;
-	/**
-	 * @param {{ target?: { value: any }; }} options
-	 */
-	function _show(options) {
-		isModal = false;
-		dialog.showModal();
-		handleOpen(options);
-	}
-
-	/**
-	 * When called, the function opens the dialog in modal mode
-	 * @type {(options: { target?: { value: any }; }) => void}
-	 */
-	export const showModal = _showModal;
-	/**
-	 * @param {{
-	 * 		target?: {
-	 * 			value: any;
-	 * 		},
-	 * }} options
-	 */
-	function _showModal(options) {
-		isModal = true;
-		dialog.showModal();
-		handleOpen(options);
-	}
-
-	/**
-	 * @type {HTMLDialogElement}
-	 */
-	let dialog;
-	/**
-	 * @type {HTMLFormElement}
-	 */
-	let form;
-	/**
-	 * @type {any}
-	 */
-	let _context = context;
-	/**
-	 * @type {boolean}
-	 */
-	let isModal = false;
-
-	/**
-	 * @param {string} event
-	 */
-	function dispatchEvent(event) {
-		dispatch(event, {
-			returnValue: dialog.returnValue,
-			formData: new FormData(form),
-		});
-	}
-
-	/**
-	 * @param {{
-	 * 		target?: {
-	 * 			value: any
-	 * 		}
-	 * }} options
-	 */
-	function handleOpen(options = {}) {
-		_context = options.target?.value;
-		dialog.removeAttribute('inert');
-
-		const focusTarget = /** @type {HTMLInputElement}*/(dialog.querySelector('[autofocus]'));
-		if (focusTarget) {
-			focusTarget.focus();
-		} else {
-			dialog.querySelector('button')?.focus();
+     * @param {HTMLDialogElement} dialog
+     * @param {typeof open} open
+     */
+	function dialog(dialog, open) {
+		let first = true;
+		/** @param {string} event */
+		function _dispatch(event) {
+			if (first) {
+				first = false;
+				return;
+			}
+			dispatch(event);
 		}
 
-		dispatchEvent('open');
-	}
+		/** @param {typeof open} open */
+		function update(open) {
+			if (!open) {
+				dialog.close();
+				dialog.inert = true;
+				_dispatch('close');
+				return;
+			}
 
-	/**
-	 * @param {HTMLDialogElement} dialog
-	 */
-	function enhance(dialog) {
-		const form = /** @type {HTMLFormElement}*/(dialog.firstElementChild);
-		/**
-		 * @param {string} event
-		 */
-		function dispatchEvent(event) {
-			dispatch(event, {
-				returnValue: dialog.returnValue,
-				formData: new FormData(form),
-			});
+			if (open === 'modal' || open === 'non-modal') {
+				dialog.inert = false;
+
+				const focusTarget = /** @type {HTMLInputElement}*/(dialog.querySelector('[autofocus]'));
+				if (focusTarget) {
+					focusTarget.focus();
+				} else {
+					dialog.querySelector('button')?.focus();
+				}
+
+				if (open === 'modal') {
+					dialog.showModal();
+				} else {
+					dialog.show();
+				}
+				_dispatch('open');
+			}
 		}
 
-		/**
-		 * @param {string} value
-		 */
-		function closeDialog(value) {
-			dialog.close(value);
-			form.reset();
-			_context = context;
-		}
+		update(open);
 
-		listen(dialog, 'click', (event) => {
-			if (isModal) return;
-			const isBackdropClick = dialog
-				.isSameNode(/** @type {Node} */ (event.target));
-			if (!isBackdropClick) return;
-
-			// we want to change dialog state, before we bubble up events
-			// We close capture it at the top before anyone receives it
-			listen(document, 'close', (event) => {
-				event.stopPropagation();
-			}, { once: true, capture: true });
-			closeDialog('');
-			dispatchEvent('cancel');
-			dispatchEvent('close');
-		});
-
-		listen(dialog, 'close', () => {
-			dispatchEvent('close');
-		});
+		return { update };
 	}
 </script>
 
-<dialog bind:this={dialog} inert class:modal={isModal} use:enhance
-	class:non-modal={!isModal}>
-	<form method="dialog" bind:this={form}>
-		<slot context={_context}/>
-	</form>
+<dialog class:modal={open === 'modal'} class:non-modal={open === 'non-modal'}
+	aria-hidden={!open} use:dialog={open} use:forward>
+	<slot {context} {open}/>
 </dialog>
 
 <style>
@@ -163,7 +77,9 @@
 		overflow: hidden;
 	}
 	dialog {
-		display: grid;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
 		position: fixed;
 		max-inline-size: var(--br-dialog-root-max-inline-size);
 		max-block-size: var(--br-dialog-root-max-block-size);
@@ -174,15 +90,14 @@
 		z-index: 100000;
 		overflow: hidden;
 		transition: opacity .5s cubic-bezier(.25, 0, .3, 1);
-		background-color: var(--br-background-color);
+		background-color: var(--br-dark, #222) var(--br-light, #fff);
 		color: inherit;
 		border: 1px solid transparent;
 		padding-block: var(--br-dialog-root-padding-block, 16px);
 		padding-inline: var(--br-dialog-root-padding-inline, 24px);
-		grid-template-rows: minmax(0, 1fr);
 	}
 	dialog {
-		border-block-start: var(--dark, 1px solid #394047);
+		border-block-start: var(--br-dark, 1px solid #394047);
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
@@ -222,21 +137,30 @@
 		pointer-events: none;
 		opacity: 0;
 	}
-
 	dialog::backdrop {
 		transition: background-color 0.25s ease;
 	}
 	dialog.modal::backdrop {
-		background-color: var(--br-dialog-backdrop-background-color);
+		background-color: var(--br-dark, rgba(50,50,50,0.5)) var(--br-light, rgba(0,0,0,0.5));
 		opacity: 1;
+	}
+	@media (prefers-color-scheme: dark) {
+		dialog.modal::backdrop {
+			background-color: rgba(50,50,50,0.5);
+		}
+ 	}
+	@media (prefers-color-scheme: light) {
+		dialog.modal::backdrop {
+			background-color: rgba(0,0,0,0.5);
+		}
+	}
+	:global(:root[data-br-color-scheme=dark]) dialog.modal::backdrop {
+		background-color: rgba(50,50,50,0.5);
+	}
+	:global(:root[data-br-color-scheme=light]) dialog.modal::backdrop {
+		background-color: rgba(0,0,0,0.5);
 	}
 	dialog.non-modal::backdrop {
 		background-color: transparent;
-	}
-
-	form {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
 	}
 </style>
