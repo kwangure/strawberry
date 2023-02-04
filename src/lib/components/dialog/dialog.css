@@ -1,9 +1,11 @@
 dialog .br-dialog-inline-section {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--br-dialog-inline-section-gap, 8px);
+	gap: var(--br-size-3);
 	justify-content: space-between;
 	align-items: flex-start;
+	padding-block: var(--br-size-3);
+	padding-inline: var(--br-size-5);
 }
 
 dialog .br-dialog-block-section {
@@ -13,6 +15,8 @@ dialog .br-dialog-block-section {
 	overscroll-behavior-y: contain;
 	display: flex;
 	flex-direction: column;
-	gap: var(--br-dialog-block-section-gap, 8px);
+	gap: var(--br-size-3);
 	flex-grow: 1;
+	padding-block: var(--br-size-3);
+	padding-inline: var(--br-size-5);
 }
