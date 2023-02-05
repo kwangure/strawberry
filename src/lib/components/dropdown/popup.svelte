@@ -4,7 +4,7 @@
 
 <style>
     div {
-        position: var(--br-dropdown-popup-position);
+        position: absolute;
         top: var(--br-dropdown-popup-top);
         left: var(--br-dropdown-popup-left);
         padding-block: var(--br-dropdown-popup-padding-block);

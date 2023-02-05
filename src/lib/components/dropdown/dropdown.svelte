@@ -156,10 +156,8 @@
 	div {
 		display: contents;
 		--br-dropdown-popup-show: hidden;
-		--br-dropdown-popup-position: static;
 	}
 	div.has-trigger.show {
 		--br-dropdown-popup-show: ;
-		--br-dropdown-popup-position: absolute;
 	}
 </style>
