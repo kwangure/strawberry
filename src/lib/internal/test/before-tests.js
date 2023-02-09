@@ -2,7 +2,6 @@
 // @ts-nocheck
 import { beforeAll, beforeEach, expect } from 'vitest';
 import { chromium } from 'playwright';
-import { matchers } from 'sitgent/matchers';
 
 /**
  * @type {import('playwright').Browser}
@@ -10,8 +9,6 @@ import { matchers } from 'sitgent/matchers';
 export let browser;
 
 beforeAll(async () => {
-	expect.extend(matchers);
-
 	browser = await chromium.launch({ headless: true });
 
 	return async () => {

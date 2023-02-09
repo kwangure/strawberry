@@ -4,16 +4,17 @@
 	"description": "A set of svelte components",
 	"scripts": {
 		"build": "vite build",
-		"check": "svelte-check --tsconfig ./jsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
+		"check": "wireit",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"dev": "vite dev",
-		"lint": "eslint .  --cache-location .eslintcache",
-		"format": "eslint . --fix  --cache-location .eslintcache",
+		"lint": "wireit",
+		"format": "wireit",
 		"package": "svelte-package",
-		"prepare": "svelte-kit sync",
+		"pre-commit": "wireit",
+		"prepare": "husky install",
 		"preview": "vite preview",
 		"release": "release-it",
-		"test": "vitest run"
+		"test": "wireit"
 	},
 	"exports": {
 		".": "./"
@@ -35,11 +36,13 @@
 	"devDependencies": {
 		"@kwangure/eslint-config-svelte": "^0.2.5",
 		"@kwangure/svelte-docs": "^0.5.0",
+		"@playwright/test": "^1.30.0",
 		"@sveltejs/adapter-vercel": "^1.0.1",
 		"@sveltejs/kit": "^1.0.7",
 		"@sveltejs/package": "^1.0.0-next.6",
 		"eslint": "^8.12.0",
 		"eslint-import-resolver-alias": "^1.1.2",
+		"husky": "^8.0.3",
 		"micromatch": "^4.0.4",
 		"playwright": "^1.27.1",
 		"release-it": "^15.5.0",
@@ -50,7 +53,8 @@
 		"typescript": "^4.7.4",
 		"vite": "^4.0.4",
 		"vite-plugin-inspect": "^0.7.12",
-		"vitest": "^0.24.3"
+		"vitest": "^0.24.3",
+		"wireit": "^0.9.5"
 	},
 	"peerDependencies": {
 		"svelte": "^3.48.0"
@@ -83,5 +87,43 @@
 		"url": "https://github.com/kwangure/strawberry/issues"
 	},
 	"homepage": "https://kwangure.github.io/strawberry",
-	"type": "module"
+	"type": "module",
+	"wireit": {
+		"check": {
+			"command": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json"
+		},
+		"format": {
+			"command": "eslint \"**/*.{js,svelte}\" --color --cache --fix --cache-location .eslintcache",
+			"files": [
+				"\"**/*.{js,svelte,ts}\"",
+				".eslintignore",
+				".eslintrc.cjs"
+			]
+		},
+		"lint": {
+			"command": "eslint \"**/*.{js,svelte}\" --color --cache --cache-location .eslintcache",
+			"files": [
+				"\"**/*.{js,svelte,ts}\"",
+				".eslintignore",
+				".eslintrc.cjs"
+			]
+		},
+		"pre-commit": {
+			"dependencies": [
+				"check",
+				"format"
+			]
+		},
+		"test": {
+			"dependencies": [
+				"test:vitest"
+			]
+		},
+		"test:playwright": {
+			"command": "playwright test"
+		},
+		"test:vitest": {
+			"command": "vitest run"
+		}
+	}
 }
