@@ -20,5 +20,6 @@
         display: flex;
         flex-direction: column;
         box-shadow: var(--br-dropdown-popup-box-shadow);
+        z-index: 100000;
     }
 </style>
