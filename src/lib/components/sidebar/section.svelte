@@ -14,7 +14,8 @@
 
 <style>
     .title {
-        padding: 8px 12px 4px;
+        padding-block: var(--br-size-3) var(--br-size-2);
+        padding-inline: var(--br-sidebar-section-indent, var(--br-size-3));
         position: sticky;
         top: 0;
         text-transform: uppercase;
