@@ -19,5 +19,8 @@ module.exports = {
 			'\\$app/',
 			'@sveltejs/kit',
 		]}],
+		// ESLint CJS fighting Svelte's ES6 exports field
+		'import/namespace': ['error'],
+		'import/named': 'off',
 	},
 };
