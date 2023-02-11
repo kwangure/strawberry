@@ -1,10 +1,12 @@
 <script>
     /** @type {string} */
-    export let title;
+    export let title = '';
 </script>
 
 <section>
-    <div class="title">{title}</div>
+    {#if title}
+        <div class="title">{title}</div>
+    {/if}
     <div class="items">
         <slot></slot>
     </div>
@@ -23,7 +25,7 @@
     .items {
         display: flex;
         flex-direction: column;
-        padding-left: 8px;
-        gap: 4px;
+        padding-inline-start: var(--br-section-indent, var(--br-size-3));
+        gap: var(--br-section-gap, var(--br-size-2));
     }
 </style>
