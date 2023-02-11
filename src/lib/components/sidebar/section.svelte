@@ -25,7 +25,7 @@
     .items {
         display: flex;
         flex-direction: column;
-        padding-inline-start: var(--br-section-indent, var(--br-size-3));
-        gap: var(--br-section-gap, var(--br-size-2));
+        padding-inline-start: var(--br-sidebar-section-indent, var(--br-size-3));
+        gap: var(--br-sidebar-section-gap, var(--br-size-2));
     }
 </style>
