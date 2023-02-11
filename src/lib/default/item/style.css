@@ -8,9 +8,9 @@
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	height: var(--br-size-9);
-	padding-block: var(--br-size-1);
-	padding-inline: var(--br-size-4);
+	height: var(--br-list-item-height, var(--br-size-9));
+	padding-block: var(--br-list-item-padding-block, var(--br-size-1));
+	padding-inline: var(--br-list-item-padding-inline, var(--br-size-4));
 	border-radius: var(--br-global-border-radius);
 	min-width: var(--br-size-14);
 	gap: var(--br-size-3);
