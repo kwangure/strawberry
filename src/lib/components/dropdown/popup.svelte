@@ -21,5 +21,6 @@
         flex-direction: column;
         box-shadow: var(--br-dropdown-popup-box-shadow);
         z-index: 100000;
+        min-width: var(--br-dropdown-popup-min-width, var(--br-size-15));
     }
 </style>
