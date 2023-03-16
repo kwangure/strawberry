@@ -8,7 +8,7 @@
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	height: var(--br-list-item-height, var(--br-size-9));
+	height: var(--br-list-item-height, var(--br-size-8));
 	padding-block: var(--br-list-item-padding-block, var(--br-size-1));
 	padding-inline: var(--br-list-item-padding-inline, var(--br-size-4));
 	border-radius: var(--br-global-border-radius);
