@@ -6,6 +6,7 @@ import Dialog from '$lib/components/dialog/dialog.svelte:docs';
 import Dropdown from '$lib/components/dropdown/dropdown.svelte:docs';
 import Element from '$lib/components/element/element.svelte:docs';
 import { error } from '@sveltejs/kit';
+import Item from '$lib/default/item/style.css:docs';
 import path from 'path';
 
 /**
@@ -30,10 +31,11 @@ const sources = import.meta.glob('$docs/examples/**/**.svelte', { eager: true, a
 const components = {
 	button: Button,
 	code: Code,
+	container: Container,
 	dialog: Dialog,
 	dropdown: Dropdown,
 	element: Element,
-	container: Container,
+	item: Item,
 };
 
 for (const [name, component] of Object.entries(components)) {

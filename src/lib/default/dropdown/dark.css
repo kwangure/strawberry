@@ -1,7 +1,7 @@
 :host,
 :root {
     --br-dropdown-popup-font-color: #fff;
-    --br-dropdown-popup-background-color: #444;
+    --br-dropdown-popup-background-color: #2d2d2d;
     --br-dropdown-popup-box-shadow: 0 2px 8px #111;
 
     --br-dropdown-item-hover-font-color: inherit;

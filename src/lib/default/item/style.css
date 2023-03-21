@@ -15,8 +15,10 @@
 	gap: var(--br-size-3);
 }
 
-.br-list-item:hover {
-	background-color: var(--br-light, rgb(240, 240, 240)) var(--br-dark, #333);
+.br-list-item:hover,
+/* useful for demos + testing */
+.br-list-item.hover {
+	background-color: var(--br-light, rgb(230, 230, 230)) var(--br-dark, #3d3d3d);
 }
 
 .br-list-item[aria-current=page],
@@ -26,7 +28,7 @@
 .br-list-item[aria-current=time],
 .br-list-item[aria-current=true],
 .br-list-item[aria-selected=true] {
-	background-color: var(--br-light, hsl(215deg 100% 90%)) var(--br-dark, #444);
+	background-color: var(--br-light, hsl(215deg 100% 90%)) var(--br-dark, #4d4d4d);
 	color: var(--br-light, hsl(225deg 100% 60%));
 }
 
@@ -36,7 +38,9 @@
 .br-list-item[aria-current=date]:hover,
 .br-list-item[aria-current=time]:hover,
 .br-list-item[aria-current=true]:hover,
-.br-list-item[aria-selected=true]:hover {
-	background-color: var(--br-light, hsl(215deg 100% 85%)) var(--br-dark, #555);
+.br-list-item[aria-selected=true]:hover,
+/* useful for demos + testing */
+.br-list-item[aria-selected=true].hover {
+	background-color: var(--br-light, hsl(215deg 100% 85%)) var(--br-dark, #5d5d5d);
 	color: var(--br-light, hsl(225deg 100% 45%));
 }
