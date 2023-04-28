@@ -1,5 +1,5 @@
 <script>
-	import '@kwangure/strawberry/default/button';
+	import '@kwangure/strawberry/css/button.css';
 </script>
 
 <a href='#/do/thing' class='br-button' role='button'>

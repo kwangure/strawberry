@@ -26,7 +26,7 @@ npm i @kwangure/strawberry
 
 ```html
 <script>
-	import '@kwangure/strawberry/default/button';
+	import '@kwangure/strawberry/css/button.css';
 
 	let count = 0;
 	const increment = () => count++;

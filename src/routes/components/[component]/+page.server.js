@@ -1,5 +1,5 @@
 /* eslint-disable import/namespace, import/named */
-import Button from '$lib/default/button/style.css:docs';
+import Button from '$lib/css/button.css:docs';
 import Code from '$lib/components/code/code.svelte:docs';
 import Container from '$lib/components/input/container/container.svelte:docs';
 import Dialog from '$lib/components/dialog/dialog.svelte:docs';

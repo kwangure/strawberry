@@ -1,5 +1,5 @@
 <script>
-	import '@kwangure/strawberry/default/button';
+	import '@kwangure/strawberry/css/button.css';
 </script>
 
 <button>
