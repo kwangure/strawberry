@@ -1,0 +1,48 @@
+/*!@component
+
+    Code highlights snippets of code that appears along with body text, while
+    preserving its formatting.
+
+    Use inline code snippets when you wish to highlight a short code snippet
+    from the surrounding default text, such as when referencing variable names.
+*/
+:host,
+:root {
+    --br-code-font-color: var(--br-dark, #dcdcdc) var(--br-light, #333);
+    --br-code-background-color: var(--br-light, #f0f0f0) var(--br-dark, #1e1e1e);
+
+	--br-code-token-string-color: var(--br-dark, #d69d85) var(--br-light, #312212);
+    /* Literals with backticks */
+    --br-code-token-string2-color: var(--br-dark, #d69d85) var(--br-light, #312212);
+    --br-code-token-property-name-color: var(--br-dark, #9cdcfe) var(--br-light, #037e0b);
+    --br-code-token-comment-color: var(--br-dark, #6a9955) var(--br-light, #2f9d62);
+    --br-code-token-classname-color: var(--br-dark, #d7ba7d) var(--br-light, #c79e09);
+    --br-code-token-number-color: var(--br-dark, #b5cea8) var(--br-light, #085ad6);
+    --br-code-token-keyword-color: var(--br-dark, #c586c0) var(--br-light, #c123b4);
+    --br-code-token-atom-color: var(--br-dark, #d69d85) var(--br-light, #312212);
+    --br-code-token-variable-name-color: var(--br-dark, #9cdcfe) var(--br-light, #037e0b);
+    --br-code-token-variable-definition-name-color: var(--br-dark, #4ec9b0) var(--br-light, #cf222e);
+    --br-code-token-type-name-color: var(--br-dark, #569cd6) var(--br-light, #0021b3);
+}
+
+code:not(.br-ignore),
+.br-code {
+	display: block;
+	white-space: pre;
+	overflow: auto;
+    font-family: monospace;
+	font-size: 85%;
+	line-height: 1.45;
+	tab-size: 4;
+	margin: 0;
+    padding: var(--br-size-4);
+	border-radius: var(--br-global-border-radius);
+
+	background-color: var(--br-code-root-background-color);
+}
+
+code.br-code-inline:not(.br-ignore),
+.br-code.br-code-inline {
+	display: inline;
+	padding: 0.15ch 0.5ch;
+}

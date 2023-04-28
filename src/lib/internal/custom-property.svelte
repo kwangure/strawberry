@@ -2,9 +2,9 @@
     // FIXME: Do proper types
     // @ts-nocheck
 
-    import { Code, css } from '$lib/default/code';
     import { Dropdown, Popup } from '$lib/default/dropdown';
     import { mdiDotsHorizontal, mdiLinkVariant } from '@mdi/js';
+    import { css } from '$lib/code';
     import { Icon } from './icon';
 
     /** @type {any} */
@@ -22,7 +22,15 @@
         </button>
     </a>
     <h3 id={customProperty}>
-        <Code highlight={css} inline code={customProperty}/>
+        <code>
+            {#each css(customProperty) as { segment, color }}
+                {#if color}
+                    <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
+                {:else}
+                    {segment}
+                {/if}
+            {/each}
+        </code>
     </h3>
     {#if start}
         <Dropdown>

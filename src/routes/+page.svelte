@@ -1,7 +1,3 @@
-<script>
-    import { Code } from '$lib/default/code';
-</script>
-
 <h1>Strawberry</h1>
 
 <p>
@@ -11,4 +7,4 @@
 
 <h2>Installation</h2>
 
-<Code code='npm install @kwangure/strawberry'/>
+<code>npm install @kwangure/strawberry</code>

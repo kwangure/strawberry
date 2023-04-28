@@ -1,6 +1,6 @@
 <script>
-	import { Code, svelte } from '@kwangure/strawberry/default/code';
 	import Markdoc from '$lib/internal/markdoc.svelte';
+	import { svelte } from '@kwangure/strawberry/code';
 
 	const components = import.meta.glob('$docs/examples/**/*.svelte');
 	/** @type {import('./$types').PageServerData} */
@@ -41,7 +41,15 @@
 		{/if}
 	</div>
 	<div class="demo">
-		<Code highlight={svelte} {code}/>
+		<code>
+			{#each svelte(code) as { segment, color }}
+				{#if color}
+					<span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
+				{:else}
+					{segment}
+				{/if}
+			{/each}
+		</code>
 		<div class="output">
 			{#await components[filepath]() then module}
 				<svelte:component this={component(module)}/>

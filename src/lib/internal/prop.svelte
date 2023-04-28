@@ -1,7 +1,7 @@
 <script>
     // FIXME: Do proper types
     // @ts-nocheck
-    import { Code, javascript } from '$lib/components/code';
+    import { javascript } from '@kwangure/strawberry/code';
 
     export let prop;
 
@@ -26,18 +26,30 @@
     </td>
     <td class="type">
         {#if type}
-            <Code inline highlight={javascript} code={type}/>
+            <code class="br-code-inline">
+                {#each javascript(type) as { segment, color }}
+                    {#if color}
+                        <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
+                    {:else}
+                        {segment}
+                    {/if}
+                {/each}
+            </code>
         {:else}
             —
         {/if}
     </td>
     <td>
         {#if optional && JSON.stringify(value) !== undefined}
-            <Code
-                inline
-                highlight={javascript}
-                code={JSON.stringify(value)}
-            />
+            <code class='br-code-inline'>
+                {#each javascript(JSON.stringify(value)) as { segment, color }}
+                    {#if color}
+                        <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
+                    {:else}
+                        {segment}
+                    {/if}
+                {/each}
+            </code>
         {:else}
             —
         {/if}

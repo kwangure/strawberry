@@ -1,7 +1,13 @@
 <script>
-    import { Code, plainHTML } from '@kwangure/strawberry/default/code';
-
-    const code = '<h1>Hello world!</h1>';
+    import { plainHTML } from '@kwangure/strawberry/code';
 </script>
 
-Use <Code highlight={plainHTML} inline code={code}/> to greet the planet.
+Use <code class="br-code-inline">
+	{#each plainHTML('<h1>Hello world!</h1>') as { segment, color }}
+		{#if color}
+			<span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
+		{:else}
+			{segment}
+		{/if}
+	{/each}
+</code> to greet the planet.

@@ -1,31 +1,30 @@
 <script>
-    import { Code, cpp, css, javascript, mixedHTML, python, rust } from '@kwangure/strawberry/default/code';
+    import { cpp, css, javascript, mixedHTML, python, rust } from '@kwangure/strawberry/code';
+
+    const languages = /** @type {const} */ ([
+    	['HTML', mixedHTML, '<h1>Hello world!</h1>'],
+    	['CSS', css, ['.center {',
+    		'    display: flex;',
+    		'    align-items: center;',
+    		'    justify-content: center;',
+    		'}'].join('\n')],
+    	['JavaScript', javascript, 'const isEven = (i) => i % 2 === 0;'],
+    	['Python', python, 'lambda i: (i % 2) == 0'],
+    	['C++', cpp, 'bool isEven(int x) { return !(x % 2); }'],
+    	['Rust', rust, 'let is_even = |x: i32| x % 2 == 0;'],
+    ]);
 </script>
 
-<h3>HTML</h3>
-<Code highlight={mixedHTML} code={'<h1>Hello world!</h1>\nI\'m <em>NOT</em> a wizard.'}/>
+{#each languages as [name, highlighter, code]}
+    <h3>{name}</h3>
+    <code style='padding: 0;'>
+        {#each highlighter(code) as { segment, color }}
+            {#if color}
+                <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
+            {:else}
+                {segment}
+            {/if}
+        {/each}
+    </code>
+{/each}
 
-<h3>CSS</h3>
-<Code highlight={css} code={`.center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}`}/>
-
-<h3>JavaScript</h3>
-<Code highlight={javascript} code={`function isEven( i ) {
-    return i % 2 === 0;
-  }`}/>
-
-<h3>Python</h3>
-<Code highlight={python} code={`def is_even(i):
-    return (i % 2) == 0`}/>
-
-<h3>C++</h3>
-<Code highlight={cpp} code={`bool isEven(int x)
-{
-    return !(x % 2);
-}`}/>
-
-<h3>Rust</h3>
-<Code highlight={rust} code={'let is_even = |x: i32| x % 2 == 0;'}/>

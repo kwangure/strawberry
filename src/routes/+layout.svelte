@@ -1,5 +1,6 @@
 <script>
     import '$lib/css/button.css';
+    import '$lib/css/code.css';
     import '$lib/default/item';
     import '$lib/default/navbar';
     import { base } from '$app/paths';
