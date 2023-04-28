@@ -68,7 +68,7 @@
 </script>
 
 <dialog class:modal={open === 'modal'} class:non-modal={open === 'non-modal'}
-	aria-hidden={!open} use:dialog={open} use:forward>
+	aria-hidden={!open} inert={!open} use:dialog={open} use:forward>
 	<slot {context} {open}/>
 </dialog>
 
