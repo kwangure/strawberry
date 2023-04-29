@@ -1,11 +1,3 @@
-/*!@component
-
-    Code highlights snippets of code that appears along with body text, while
-    preserving its formatting.
-
-    Use inline code snippets when you wish to highlight a short code snippet
-    from the surrounding default text, such as when referencing variable names.
-*/
 :host,
 :root {
     --br-code-font-color: var(--br-dark, #dcdcdc) var(--br-light, #333);

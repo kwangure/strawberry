@@ -3,8 +3,9 @@ import install from './install.js';
 
 export default function localPackageWatch(_options = {}) {
 	return {
+		name: 'localwatch',
 		configureServer(server) {
-			const pkg = JSON.parse(fs.readFileSync('./package.json'));
+			const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 			const { dependencies, devDependencies } = pkg;
 			const deps = Object.assign({}, dependencies, devDependencies);
 			const local = Array.from(Object.values(deps))

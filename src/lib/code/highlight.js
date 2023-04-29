@@ -36,7 +36,7 @@ const colors = tagHighlighter([
 /**
  * @param {import('@lezer/lr').LRParser} parser
  * @param {string} code
- * @param {Object} options
+ * @param {Object} [options]
  * @param {number} [options.from]
  * @param {number} [options.to]
  */

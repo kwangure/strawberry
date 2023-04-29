@@ -1,5 +1,0 @@
----
-{
-	"title": "Basic usage"
-}
----

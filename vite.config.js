@@ -25,6 +25,7 @@ const config = {
 		}),
 		sveltekit(),
 		{
+			name: 'playwright',
 			configResolved(config) {
 				const protocol = config.server.https ? 'https://' : 'http://';
 				const host = config.server.host ?? 'localhost';
@@ -33,7 +34,7 @@ const config = {
 			},
 		},
 		readme({
-			input: 'docs/README_TEMPLATE.md',
+			input: 'src/README_TEMPLATE.md',
 		}),
 	],
 	resolve: {

@@ -1,6 +1,6 @@
 
 <!--
-	This document is generated from 'docs/README_TEMPLATE.md'. Do not edit it directly.
+	This document is generated from 'src/README_TEMPLATE.md'. Do not edit it directly.
 -->
 # Strawberry
 
@@ -64,24 +64,17 @@ npm i @kwangure/strawberry
 <script>
 	import { Dialog } from '@kwangure/strawberry/default/dialog';
 
-	let value = '?';
-
-	/** @type {() => any} */
-	let showModal;
-
-	/** @param {CustomEvent} event */
-	function handleClose(event) {
-		value = event.detail.returnValue;
-	}
+	/** @type {false | 'modal' | 'non-modal'} */
+	let open;
 </script>
 
-The best framework is: {value} <br>
-
-<Dialog bind:showModal on:close={handleClose}>
-	<button value='svelte'>Svelte</button>
+<Dialog bind:open>
+	Nice to meet you
+	<button>👋 Bye!</button>
 </Dialog>
 
-<button on:click={showModal}>Show modal</button>
+<button on:click={() => open = 'modal'}>Show</button>
+<button on:click={() => open = 'non-modal'}>Show modal</button>
 ```
 
 ### Dropdown
@@ -96,10 +89,10 @@ The best framework is: {value} <br>
 		Click for dropdown
 	</button>
 	<Popup>
-		<div class="br-dropdown-item">Purple</div>
-		<div class="br-dropdown-item">Penguin</div>
-		<div class="br-dropdown-item">Has</div>
-		<div class="br-dropdown-item">Landed</div>
+		<div class="br-list-item">Purple</div>
+		<div class="br-list-item">Penguin</div>
+		<div class="br-list-item">Has</div>
+		<div class="br-list-item">Landed</div>
 	</Popup>
 </Dropdown>
 ```
