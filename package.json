@@ -6,10 +6,11 @@
 		"build": "vite build",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+		"clear": "rm -rf ./kwangure-strawberry-*.tgz",
 		"dev": "vite dev",
 		"lint": "wireit",
 		"format": "wireit",
-		"package": "svelte-package",
+		"package": "wireit",
 		"pre-commit": "wireit",
 		"prepare": "husky install",
 		"preview": "vite preview",
@@ -217,6 +218,21 @@
 			],
 			"output": []
 		},
+		"package": {
+			"command": "svelte-package",
+            "files": [
+                "src/lib/*.{js,ts,svelte}"
+            ],
+            "output": [
+                "dist/**"
+            ]
+		},
+		"prepack": {
+            "dependencies": [
+                "clear",
+                "package"
+            ]
+        },
 		"pre-commit": {
 			"dependencies": [
 				"check",
