@@ -4,7 +4,7 @@
 	"description": "A set of svelte components",
 	"scripts": {
 		"build": "vite build",
-		"check": "wireit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"dev": "vite dev",
 		"lint": "wireit",
@@ -13,11 +13,127 @@
 		"pre-commit": "wireit",
 		"prepare": "husky install",
 		"preview": "vite preview",
+		"publint": "publint",
 		"release": "release-it",
 		"test": "wireit"
 	},
 	"exports": {
-		".": "./"
+		"./actions/autosize": {
+			"types": "./dist/actions/autosize.d.ts",
+			"default": "./dist/actions/autosize.js"
+		},
+		"./actions/validate": {
+			"types": "./dist/actions/validate.d.ts",
+			"default": "./dist/actions/validate"
+		},
+		"./components/dialog": {
+			"types": "./dist/components/dialog/index.d.ts",
+			"svelte": "./dist/components/dialog/index.js"
+		},
+		"./components/dropdown": {
+			"types": "./dist/components/dropdown/index.d.ts",
+			"svelte": "./dist/components/dropdown/index.js"
+		},
+		"./components/element": {
+			"types": "./dist/components/element/index.d.ts",
+			"svelte": "./dist/components/element/index.js"
+		},
+		"./components/input/container": {
+			"types": "./dist/components/input/container/index.d.ts",
+			"svelte": "./dist/components/input/container/index.js"
+		},
+		"./components/input/number": {
+			"types": "./dist/components/input/number/index.d.ts",
+			"svelte": "./dist/components/input/number/index.js"
+		},
+		"./components/sidebar": {
+			"types": "./dist/components/sidebar/index.d.ts",
+			"svelte": "./dist/components/sidebar/index.js"
+		},
+		"./components/switch": {
+			"types": "./dist/components/switch/index.d.ts",
+			"svelte": "./dist/components/switch/index.js"
+		},
+		"./components/tooltip": {
+			"types": "./dist/components/tooltip/index.d.ts",
+			"svelte": "./dist/components/tooltip/index.js"
+		},
+		"./css/globals.css": "./css/globals.css",
+		"./css/reset.css": "./css/reset.css",
+		"./css/button.css": "./css/button.css",
+		"./default/dialog/dark.css": "./default/dialog/dark.css",
+		"./default/dialog/index.css": "./default/dialog/index.css",
+		"./default/dialog": {
+			"types": "./dist/default/dialog/index.d.ts",
+			"svelte": "./dist/default/dialog/index.js"
+		},
+		"./default/dialog/layout.css": "./default/dialog/layout.css",
+		"./default/dialog/light.css": "./default/dialog/light.css",
+		"./default/dropdown/dark.css": "./default/dropdown/dark.css",
+		"./default/dropdown/index.css": "./default/dropdown/index.css",
+		"./default/dropdown": {
+			"types": "./dist/default/dropdown/index.d.ts",
+			"svelte": "./dist/default/dropdown/index.js"
+		},
+		"./default/dropdown/layout.css": "./default/dropdown/layout.css",
+		"./default/dropdown/light.css": "./default/dropdown/light.css",
+		"./default/element": {
+			"types": "./dist/default/element/index.d.ts",
+			"svelte": "./dist/default/element/index.js"
+		},
+		"./default/input/container/dark.css": "./default/input/container/dark.css",
+		"./default/input/container/index.css": "./default/input/container/index.css",
+		"./default/input/container": {
+			"types": "./dist/default/input/container/index.d.ts",
+			"svelte": "./dist/default/input/container/index.js"
+		},
+		"./default/input/container/layout.css": "./default/input/container/layout.css",
+		"./default/input/container/light.css": "./default/input/container/light.css",
+		"./default/input/number/dark.css": "./default/input/number/dark.css",
+		"./default/input/number/index.css": "./default/input/number/index.css",
+		"./default/input/number": {
+			"types": "./dist/default/input/number/index.d.ts",
+			"svelte": "./dist/default/input/number/index.js"
+		},
+		"./default/input/number/layout.css": "./default/input/number/layout.css",
+		"./default/input/number/light.css": "./default/input/number/light.css",
+		"./default/item": {
+			"types": "./dist/default/item/index.d.ts",
+			"svelte": "./dist/default/item/index.js"
+		},
+		"./default/item/style.css": "./default/item/style.css",
+		"./default/navbar/dark.css": "./default/navbar/dark.css",
+		"./default/navbar/index.css": "./default/navbar/index.css",
+		"./default/navbar": {
+			"types": "./dist/default/navbar/index.d.ts",
+			"svelte": "./dist/default/navbar/index.js"
+		},
+		"./default/navbar/light.css": "./default/navbar/light.css",
+		"./default/sidebar": {
+			"types": "./dist/default/sidebar/index.d.ts",
+			"svelte": "./dist/default/sidebar/index.js"
+		},
+		"./default/sidebar/style.css": "./default/sidebar/style.css",
+		"./default/switch/dark.css": "./default/switch/dark.css",
+		"./default/switch/index.css": "./default/switch/index.css",
+		"./default/switch": {
+			"types": "./dist/default/switch/index.d.ts",
+			"svelte": "./dist/default/switch/index.js"
+		},
+		"./default/switch/layout.css": "./default/switch/layout.css",
+		"./default/switch/light.css": "./default/switch/light.css",
+		"./default/tooltip/dark.css": "./default/tooltip/dark.css",
+		"./default/tooltip/index.css": "./default/tooltip/index.css",
+		"./default/tooltip": {
+			"types": "./dist/default/tooltip/index.d.ts",
+			"svelte": "./dist/default/tooltip/index.js"
+		},
+		"./default/tooltip/layout.css": "./default/tooltip/layout.css",
+		"./default/tooltip/light.css": "./default/tooltip/light.css",
+		"./utils/events": {
+			"types": "./dist/utils/events.d.ts",
+			"svelte": "./dist/utils/events.js"
+		}
 	},
 	"dependencies": {
 		"@floating-ui/dom": "^1.0.0",
@@ -38,19 +154,20 @@
 		"@kwangure/svelte-docs": "^0.5.0",
 		"@playwright/test": "^1.30.0",
 		"@sveltejs/adapter-vercel": "^1.0.1",
-		"@sveltejs/kit": "^1.0.7",
-		"@sveltejs/package": "^1.0.0-next.6",
+		"@sveltejs/kit": "^1.15.9",
+		"@sveltejs/package": "^2.0.2",
 		"eslint": "^8.12.0",
 		"eslint-import-resolver-alias": "^1.1.2",
 		"husky": "^8.0.3",
 		"micromatch": "^4.0.4",
 		"playwright": "^1.27.1",
+		"publint": "^0.1.11",
 		"release-it": "^15.5.0",
 		"svelte": "^3.48.0",
 		"svelte-check": "^2.7.1",
-		"svelte2tsx": "^0.4.2",
+		"svelte2tsx": "^0.6.11",
 		"sveltekit-markdoc": "^0.0.9",
-		"typescript": "^4.7.4",
+		"typescript": "^5.0.4",
 		"vite": "^4.0.4",
 		"vite-plugin-inspect": "^0.7.12",
 		"vitest": "^0.24.3",
@@ -78,40 +195,33 @@
 		"steps",
 		"tooltip"
 	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/kwangure/strawberry.git"
-	},
-	"author": "Kafungo Wangure",
-	"bugs": {
-		"url": "https://github.com/kwangure/strawberry/issues"
-	},
-	"homepage": "https://kwangure.github.io/strawberry",
 	"type": "module",
 	"wireit": {
-		"check": {
-			"command": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json"
-		},
 		"format": {
-			"command": "eslint \"**/*.{js,svelte}\" --color --cache --fix --cache-location .eslintcache",
+			"command": "eslint src/**/*.js test/**/*.js --color --cache --fix",
 			"files": [
-				"\"**/*.{js,svelte,ts}\"",
+				"src/**/*.{js,ts}",
+				"tests/**/*.{js,ts}",
 				".eslintignore",
 				".eslintrc.cjs"
-			]
+			],
+			"output": []
 		},
 		"lint": {
-			"command": "eslint \"**/*.{js,svelte}\" --color --cache --cache-location .eslintcache",
+			"command": "eslint src/**/*.js test/**/*.js --color --cache",
 			"files": [
-				"\"**/*.{js,svelte,ts}\"",
+				"src/**/*.{js,ts}",
+				"tests/**/*.{js,ts}",
 				".eslintignore",
 				".eslintrc.cjs"
-			]
+			],
+			"output": []
 		},
 		"pre-commit": {
 			"dependencies": [
 				"check",
-				"format"
+				"format",
+				"publint"
 			]
 		},
 		"test": {
@@ -125,5 +235,10 @@
 		"test:vitest": {
 			"command": "vitest run"
 		}
-	}
+	},
+	"files": [
+		"dist",
+		"!**/*.test.*",
+		"!**/*.spec.*"
+	]
 }

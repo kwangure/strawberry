@@ -1,5 +1,4 @@
 import adapter from "@sveltejs/adapter-vercel";
-import micromatch from 'micromatch';
 
 /** @type {import("@sveltejs/kit").Config} */
 export default {
@@ -12,33 +11,7 @@ export default {
         }),
         alias: {
             '@kwangure/strawberry': './src/lib',
-            '$docs': './docs',
-        },
-    },
-    package: {
-        exports: (filepath) => {
-            if (filepath.endsWith('.d.ts')) return false;
-
-            const value = micromatch.isMatch(filepath, [
-                'actions/**',
-                'default/**',
-                'components/**/index.js',
-                'components/code/languages/**/*.js',
-                'css/**/*.(js|css)',
-                'utils/events.js',
-                'utils/input/validationmessage.js',
-            ]);
-
-            return value;
-        },
-        files: (filepath) => {
-            return micromatch.some(filepath, [
-                'actions/**',
-                'components/**',
-                'css/**',
-                'default/**',
-                'utils/**',
-            ]);
+            '$internal': './src/internal',
         },
     },
 };

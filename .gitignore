@@ -5,7 +5,7 @@ node_modules
 /.svelte-kit
 /.vercel
 /.vite-inspect
-/package
+/dist
 .env
 .env.*
 !.env.example
