@@ -60,78 +60,78 @@
 			"types": "./dist/components/tooltip/index.d.ts",
 			"svelte": "./dist/components/tooltip/index.js"
 		},
-		"./css/global.css": "./css/global.css",
-		"./css/reset.css": "./css/reset.css",
-		"./css/button.css": "./css/button.css",
-		"./default/dialog/dark.css": "./default/dialog/dark.css",
-		"./default/dialog/index.css": "./default/dialog/index.css",
+		"./css/global.css": "./dist/css/global.css",
+		"./css/reset.css": "./dist/css/reset.css",
+		"./css/button.css": "./dist/css/button.css",
+		"./default/dialog/dark.css": "./dist/default/dialog/dark.css",
+		"./default/dialog/index.css": "./dist/default/dialog/index.css",
 		"./default/dialog": {
 			"types": "./dist/default/dialog/index.d.ts",
 			"svelte": "./dist/default/dialog/index.js"
 		},
-		"./default/dialog/layout.css": "./default/dialog/layout.css",
-		"./default/dialog/light.css": "./default/dialog/light.css",
-		"./default/dropdown/dark.css": "./default/dropdown/dark.css",
-		"./default/dropdown/index.css": "./default/dropdown/index.css",
+		"./default/dialog/layout.css": "./dist/default/dialog/layout.css",
+		"./default/dialog/light.css": "./dist/default/dialog/light.css",
+		"./default/dropdown/dark.css": "./dist/default/dropdown/dark.css",
+		"./default/dropdown/index.css": "./dist/default/dropdown/index.css",
 		"./default/dropdown": {
 			"types": "./dist/default/dropdown/index.d.ts",
 			"svelte": "./dist/default/dropdown/index.js"
 		},
-		"./default/dropdown/layout.css": "./default/dropdown/layout.css",
-		"./default/dropdown/light.css": "./default/dropdown/light.css",
+		"./default/dropdown/layout.css": "./dist/default/dropdown/layout.css",
+		"./default/dropdown/light.css": "./dist/default/dropdown/light.css",
 		"./default/element": {
 			"types": "./dist/default/element/index.d.ts",
 			"svelte": "./dist/default/element/index.js"
 		},
-		"./default/input/container/dark.css": "./default/input/container/dark.css",
-		"./default/input/container/index.css": "./default/input/container/index.css",
+		"./default/input/container/dark.css": "./dist/default/input/container/dark.css",
+		"./default/input/container/index.css": "./dist/default/input/container/index.css",
 		"./default/input/container": {
 			"types": "./dist/default/input/container/index.d.ts",
 			"svelte": "./dist/default/input/container/index.js"
 		},
-		"./default/input/container/layout.css": "./default/input/container/layout.css",
-		"./default/input/container/light.css": "./default/input/container/light.css",
-		"./default/input/number/dark.css": "./default/input/number/dark.css",
-		"./default/input/number/index.css": "./default/input/number/index.css",
+		"./default/input/container/layout.css": "./dist/default/input/container/layout.css",
+		"./default/input/container/light.css": "./dist/default/input/container/light.css",
+		"./default/input/number/dark.css": "./dist/default/input/number/dark.css",
+		"./default/input/number/index.css": "./dist/default/input/number/index.css",
 		"./default/input/number": {
 			"types": "./dist/default/input/number/index.d.ts",
 			"svelte": "./dist/default/input/number/index.js"
 		},
-		"./default/input/number/layout.css": "./default/input/number/layout.css",
-		"./default/input/number/light.css": "./default/input/number/light.css",
+		"./default/input/number/layout.css": "./dist/default/input/number/layout.css",
+		"./default/input/number/light.css": "./dist/default/input/number/light.css",
 		"./default/item": {
 			"types": "./dist/default/item/index.d.ts",
 			"svelte": "./dist/default/item/index.js"
 		},
-		"./default/item/style.css": "./default/item/style.css",
-		"./default/navbar/dark.css": "./default/navbar/dark.css",
-		"./default/navbar/index.css": "./default/navbar/index.css",
+		"./default/item/style.css": "./dist/default/item/style.css",
+		"./default/navbar/dark.css": "./dist/default/navbar/dark.css",
+		"./default/navbar/index.css": "./dist/default/navbar/index.css",
 		"./default/navbar": {
 			"types": "./dist/default/navbar/index.d.ts",
 			"svelte": "./dist/default/navbar/index.js"
 		},
-		"./default/navbar/light.css": "./default/navbar/light.css",
+		"./default/navbar/light.css": "./dist/default/navbar/light.css",
 		"./default/sidebar": {
 			"types": "./dist/default/sidebar/index.d.ts",
 			"svelte": "./dist/default/sidebar/index.js"
 		},
-		"./default/sidebar/style.css": "./default/sidebar/style.css",
-		"./default/switch/dark.css": "./default/switch/dark.css",
-		"./default/switch/index.css": "./default/switch/index.css",
+		"./default/sidebar/style.css": "./dist/default/sidebar/style.css",
+		"./default/switch/dark.css": "./dist/default/switch/dark.css",
+		"./default/switch/index.css": "./dist/default/switch/index.css",
 		"./default/switch": {
 			"types": "./dist/default/switch/index.d.ts",
 			"svelte": "./dist/default/switch/index.js"
 		},
-		"./default/switch/layout.css": "./default/switch/layout.css",
-		"./default/switch/light.css": "./default/switch/light.css",
-		"./default/tooltip/dark.css": "./default/tooltip/dark.css",
-		"./default/tooltip/index.css": "./default/tooltip/index.css",
+		"./default/switch/layout.css": "./dist/default/switch/layout.css",
+		"./default/switch/light.css": "./dist/default/switch/light.css",
+		"./default/tooltip/dark.css": "./dist/default/tooltip/dark.css",
+		"./default/tooltip/index.css": "./dist/default/tooltip/index.css",
 		"./default/tooltip": {
 			"types": "./dist/default/tooltip/index.d.ts",
 			"svelte": "./dist/default/tooltip/index.js"
 		},
-		"./default/tooltip/layout.css": "./default/tooltip/layout.css",
-		"./default/tooltip/light.css": "./default/tooltip/light.css",
+		"./default/tooltip/layout.css": "./dist/default/tooltip/layout.css",
+		"./default/tooltip/light.css": "./dist/default/tooltip/light.css",
 		"./utils/events": {
 			"types": "./dist/utils/events.d.ts",
 			"svelte": "./dist/utils/events.js"
