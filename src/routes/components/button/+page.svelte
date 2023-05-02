@@ -5,7 +5,7 @@
 	import AlternativeButtonsDemo from './03-alternative-buttons.svelte';
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
-	import { Code } from '$lib/internal';
+	import { Code } from '$internal';
 	import IgnoringStylesCode from './04-ignoring-styles.svelte?raw';
 	import IgnoringStylesDemo from './04-ignoring-styles.svelte';
 	import PrimaryCode from './02-primary.svelte?raw';

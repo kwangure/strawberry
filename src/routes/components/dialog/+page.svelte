@@ -3,7 +3,7 @@
 	import { css, javascript, svelte } from '@kwangure/strawberry/code';
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
-	import { Code } from '$lib/internal';
+	import { Code } from '$internal';
 	import DialogFormCode from './02-dialog-form.svelte?raw';
 	import DialogFormDemo from './02-dialog-form.svelte';
 	import DirectionalContainerCode from './03-directional-container.svelte?raw';

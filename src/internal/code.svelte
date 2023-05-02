@@ -1,7 +1,7 @@
 <script>
 	/** @type {string} */
 	export let code;
-	/** @type {import("../code").Highlighter | undefined} */
+	/** @type {import("$lib/code").Highlighter | undefined} */
 	export let highlighter = undefined;
 	export let inline = false;
 </script>

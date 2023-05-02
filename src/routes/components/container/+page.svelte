@@ -3,7 +3,7 @@
 	import { javascript, svelte } from '@kwangure/strawberry/code';
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
-	import { Code } from '$lib/internal';
+	import { Code } from '$internal';
 	import PostfixCode from './03-postfix.svelte?raw';
 	import PostfixDemo from './03-postfix.svelte';
 	import TextareaCode from './04-textarea.svelte?raw';

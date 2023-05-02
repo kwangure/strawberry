@@ -2,7 +2,7 @@
 	/* eslint-disable import/no-unresolved */
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
-	import { Code } from '$lib/internal';
+	import { Code } from '$internal';
 	import { svelte } from '@kwangure/strawberry/code';
 
 	const description = [

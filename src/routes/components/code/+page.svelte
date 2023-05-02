@@ -3,7 +3,7 @@
 	import { css, svelte } from '@kwangure/strawberry/code';
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
-	import { Code } from '$lib/internal';
+	import { Code } from '$internal';
 	import InlineCode from './02-inline.svelte?raw';
 	import InlineDemo from './02-inline.svelte';
 	import SupportedLanguagesCode from './03-supported-languages.svelte?raw';

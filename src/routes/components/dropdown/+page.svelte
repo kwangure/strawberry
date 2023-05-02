@@ -3,7 +3,7 @@
 	import { css, svelte } from '@kwangure/strawberry/code';
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
-	import { Code } from '$lib/internal';
+	import { Code } from '$internal';
 	import PopupArrowCode from './03-popup-arrow.svelte?raw';
 	import PopupArrowDemo from './03-popup-arrow.svelte';
 	import SelectedItemCode from './02-selected-item.svelte?raw';
