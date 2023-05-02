@@ -10,12 +10,12 @@
 		"dev": "vite dev",
 		"lint": "wireit",
 		"format": "wireit",
-		"prepack": "wireit",
+		"pack": "wireit",
 		"package": "wireit",
 		"pre-commit": "wireit",
 		"prepare": "husky install",
 		"preview": "vite preview",
-		"publint": "publint",
+		"publint": "wireit",
 		"release": "release-it",
 		"test": "wireit"
 	},
@@ -63,6 +63,7 @@
 		"./css/global.css": "./dist/css/global.css",
 		"./css/reset.css": "./dist/css/reset.css",
 		"./css/button.css": "./dist/css/button.css",
+		"./css/focusable.css": "./dist/css/focusable.css",
 		"./default/dialog/dark.css": "./dist/default/dialog/dark.css",
 		"./default/dialog/index.css": "./dist/default/dialog/index.css",
 		"./default/dialog": {
@@ -99,10 +100,6 @@
 		},
 		"./default/input/number/layout.css": "./dist/default/input/number/layout.css",
 		"./default/input/number/light.css": "./dist/default/input/number/light.css",
-		"./default/item": {
-			"types": "./dist/default/item/index.d.ts",
-			"svelte": "./dist/default/item/index.js"
-		},
 		"./default/item/style.css": "./dist/default/item/style.css",
 		"./default/navbar/dark.css": "./dist/default/navbar/dark.css",
 		"./default/navbar/index.css": "./dist/default/navbar/index.css",
@@ -228,10 +225,11 @@
                 "dist/**"
             ]
 		},
-		"prepack": {
+		"pack": {
+			"command": "npm pack",
             "dependencies": [
                 "clear",
-                "package"
+				"publint"
             ]
         },
 		"pre-commit": {
@@ -240,6 +238,17 @@
 				"format",
 				"publint"
 			]
+		},
+		"publint": {
+			"command": "publint",
+			"dependencies": [
+				"package"
+			],
+			"files": [
+				"dist/**",
+				"package.json"
+			],
+			"output": []
 		},
 		"test": {
 			"dependencies": [
