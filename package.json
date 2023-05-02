@@ -10,6 +10,7 @@
 		"dev": "vite dev",
 		"lint": "wireit",
 		"format": "wireit",
+		"prepack": "wireit",
 		"package": "wireit",
 		"pre-commit": "wireit",
 		"prepare": "husky install",
@@ -59,7 +60,7 @@
 			"types": "./dist/components/tooltip/index.d.ts",
 			"svelte": "./dist/components/tooltip/index.js"
 		},
-		"./css/globals.css": "./css/globals.css",
+		"./css/global.css": "./css/global.css",
 		"./css/reset.css": "./css/reset.css",
 		"./css/button.css": "./css/button.css",
 		"./default/dialog/dark.css": "./default/dialog/dark.css",
