@@ -47,9 +47,6 @@ const config = {
 			allow: ['./docs'],
 		},
 	},
-	test: {
-		globalSetup: './test/setup.js',
-	},
 };
 
 export default config;
