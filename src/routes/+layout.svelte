@@ -54,8 +54,8 @@
                 <Section title='Data display'>
                     <Link href="/components/code">Code</Link>
                     <Link href="/components/dialog">Dialog</Link>
+                    <Link href="/components/focusable">Focusable</Link>
                     <Link href="/tooltip">Tooltip</Link>
-                    <Link href="/components/item">Items</Link>
                 </Section>
             </div>
         </div>

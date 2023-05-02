@@ -7,10 +7,10 @@
 		Click for dropdown
 	</button>
 	<Popup>
-		<div class="br-list-item">Unselected</div>
-		<div class="br-list-item" aria-selected="true">
+		<div class="br-focusable">Unselected</div>
+		<div class="br-focusable" aria-selected="true">
 			Selected
 		</div>
-		<div class="br-list-item">Unselected</div>
+		<div class="br-focusable">Unselected</div>
 	</Popup>
 </Dropdown>

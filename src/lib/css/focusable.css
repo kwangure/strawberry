@@ -1,0 +1,41 @@
+.br-focusable {
+	white-space: nowrap;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	height: var(--br-size-8);
+	padding-block: var(--br-size-1);
+	padding-inline: var(--br-size-4);
+	border-radius: var(--br-global-border-radius);
+	gap: var(--br-size-3);
+}
+
+.br-focusable:hover,
+/* useful for demos + testing */
+.br-focusable.hover {
+	background-color: var(--br-light, rgb(230, 230, 230)) var(--br-dark, #3d3d3d);
+}
+
+.br-focusable[aria-current=page],
+.br-focusable[aria-current=step],
+.br-focusable[aria-current=location],
+.br-focusable[aria-current=date],
+.br-focusable[aria-current=time],
+.br-focusable[aria-current=true],
+.br-focusable[aria-selected=true] {
+	background-color: var(--br-light, hsl(215deg 100% 90%)) var(--br-dark, #4d4d4d);
+	color: var(--br-light, hsl(225deg 100% 60%));
+}
+
+.br-focusable[aria-current=page]:hover,
+.br-focusable[aria-current=step]:hover,
+.br-focusable[aria-current=location]:hover,
+.br-focusable[aria-current=date]:hover,
+.br-focusable[aria-current=time]:hover,
+.br-focusable[aria-current=true]:hover,
+.br-focusable[aria-selected=true]:hover,
+/* useful for demos + testing */
+.br-focusable[aria-selected=true].hover {
+	background-color: var(--br-light, hsl(215deg 100% 85%)) var(--br-dark, #5d5d5d);
+	color: var(--br-light, hsl(225deg 100% 45%));
+}

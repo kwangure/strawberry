@@ -8,9 +8,9 @@
 	</button>
 	<Popup>
 		<Arrow/>
-		<div class="br-list-item">Purple</div>
-		<div class="br-list-item">Penguin</div>
-		<div class="br-list-item">Has</div>
-		<div class="br-list-item">Landed</div>
+		<div class="br-focusable">Purple</div>
+		<div class="br-focusable">Penguin</div>
+		<div class="br-focusable">Has</div>
+		<div class="br-focusable">Landed</div>
 	</Popup>
 </Dropdown>
