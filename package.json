@@ -14,7 +14,7 @@
 		"prepare": "husky install",
 		"preview": "vite preview",
 		"publint": "wireit",
-		"release": "release-it",
+		"release": "wireit",
 		"test": "wireit"
 	},
 	"exports": {
@@ -261,6 +261,13 @@
 				"package.json"
 			],
 			"output": []
+		},
+		"release": {
+			"command": "release-it",
+			"dependencies": [
+				"build",
+				"publint"
+			]
 		},
 		"test": {
 			"dependencies": [
