@@ -1,6 +1,6 @@
 {
 	"name": "@kwangure/strawberry",
-	"version": "0.57.5",
+	"version": "0.58.0",
 	"description": "A set of svelte components",
 	"scripts": {
 		"build": "wireit",
@@ -203,7 +203,9 @@
 				"svelte.config.js",
 				"vite.config.js"
 			],
-			"output": ["build/**"]
+			"output": [
+				"build/**"
+			]
 		},
 		"check": {
 			"command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -233,18 +235,18 @@
 		},
 		"package": {
 			"command": "svelte-package",
-            "files": [
-                "src/lib/**/*.{js,css,ts,svelte}"
-            ],
-            "output": [
-                "dist/**"
-            ]
+			"files": [
+				"src/lib/**/*.{js,css,ts,svelte}"
+			],
+			"output": [
+				"dist/**"
+			]
 		},
 		"pack": {
 			"command": "npm pack",
-            "dependencies": [
+			"dependencies": [
 				"publint"
-            ],
+			],
 			"files": [
 				"dist/**",
 				"!**/*.test.*",
@@ -252,8 +254,10 @@
 				"LICENSE",
 				"README.md"
 			],
-			"output": ["kwangure-strawberry*.tgz"]
-        },
+			"output": [
+				"kwangure-strawberry*.tgz"
+			]
+		},
 		"pre-commit": {
 			"dependencies": [
 				"check",
