@@ -3,6 +3,10 @@
         "commitMessage": "chore(release): v${version}"
     },
     "hooks": {
+        "after:bump": [
+            "npm run build",
+            "npm run publint"
+        ],
         "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
 }
