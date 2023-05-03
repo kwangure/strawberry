@@ -3,7 +3,7 @@
 	"version": "0.57.5",
 	"description": "A set of svelte components",
 	"scripts": {
-		"build": "vite build",
+		"build": "wireit",
 		"check": "wireit",
 		"dev": "vite dev",
 		"lint": "wireit",
@@ -195,6 +195,16 @@
 	],
 	"type": "module",
 	"wireit": {
+		"build": {
+			"command": "vite build",
+			"files": [
+				"src/**/*.{js,ts,svelte}",
+				"static/**",
+				"svelte.config.js",
+				"vite.config.js"
+			],
+			"output": ["build/**"]
+		},
 		"check": {
 			"command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 			"files": [
