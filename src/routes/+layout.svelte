@@ -2,8 +2,8 @@
     import '$lib/css/button.css';
     import '$lib/css/code.css';
     import '$lib/css/focusable.css';
+    import '$lib/css/sidebar.css';
     import '$lib/default/navbar';
-    import { base } from '$app/paths';
     import Link from '@kwangure/strawberry/internal/sidebar-link.svelte';
     import { page } from '$app/stores';
     import { Section } from '$lib/components/sidebar';
@@ -16,15 +16,15 @@
 
 <div class="app-layout">
     <nav>
-        <a class='logo' href="{base}">
+        <a class='logo' href="/">
             🍓 <span class="text">strawberry</span>
         </a>
         <ul class='br-navbar-section'>
-            <a class="br-navbar-item navigation" href="{base}"
-                aria-current={path.startsWith('/components') ? 'true' : null}>
+            <a class="br-navbar-item navigation" href="/"
+                aria-current={!path.startsWith('/typograph') ? 'true' : null}>
                 Components
             </a>
-            <a class="br-navbar-item  navigation" href="{base}/typography"
+            <a class="br-navbar-item  navigation" href="/typography"
                 aria-current={path.startsWith('/typography') ? 'true' : null}>
                 Typography
             </a>
