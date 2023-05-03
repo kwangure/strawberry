@@ -4,9 +4,7 @@
 	"description": "A set of svelte components",
 	"scripts": {
 		"build": "vite build",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"clear": "rm -rf ./kwangure-strawberry-*.tgz",
+		"check": "wireit",
 		"dev": "vite dev",
 		"lint": "wireit",
 		"format": "wireit",
@@ -197,6 +195,14 @@
 	],
 	"type": "module",
 	"wireit": {
+		"check": {
+			"command": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+			"files": [
+				"{src,test}/**/*.{js,ts,svelte}",
+				"tsconfig.json"
+			],
+			"output": []
+		},
 		"format": {
 			"command": "eslint \"{src,test}/**/*.{js,svelte}\"  --color --cache --fix",
 			"files": [
@@ -227,7 +233,6 @@
 		"pack": {
 			"command": "npm pack",
             "dependencies": [
-                "clear",
 				"publint"
             ],
 			"files": [
