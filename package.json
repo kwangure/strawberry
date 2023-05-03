@@ -26,7 +26,11 @@
 		},
 		"./actions/validate": {
 			"types": "./dist/actions/validate.d.ts",
-			"default": "./dist/actions/validate"
+			"default": "./dist/actions/validate.js"
+		},
+		"./code": {
+			"types": "./dist/code/index.d.ts",
+			"default": "./dist/code/index.js"
 		},
 		"./components/dialog": {
 			"types": "./dist/components/dialog/index.d.ts",
@@ -63,6 +67,7 @@
 		"./css/global.css": "./dist/css/global.css",
 		"./css/reset.css": "./dist/css/reset.css",
 		"./css/button.css": "./dist/css/button.css",
+		"./css/code.css": "./dist/css/code.css",
 		"./css/focusable.css": "./dist/css/focusable.css",
 		"./default/dialog/dark.css": "./dist/default/dialog/dark.css",
 		"./default/dialog/index.css": "./dist/default/dialog/index.css",
