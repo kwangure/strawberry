@@ -60,7 +60,7 @@
 /* ----- Body ----- */
 :root,
 :host {
-    --br-background-color: var(--br-dark, #222) var(--br-light, transparent);
+    --br-background-color: var(--br-dark, #222) var(--br-light, #fff);
     --br-font-color: var(--br-dark, #ddd) var(--br-light, #333);
     --br-font-family: 'Arial', Helvetica, sans-serif;
     --br-font-mono: 'Fira Mono', monospace;

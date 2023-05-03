@@ -69,6 +69,7 @@
 		"./css/button.css": "./dist/css/button.css",
 		"./css/code.css": "./dist/css/code.css",
 		"./css/focusable.css": "./dist/css/focusable.css",
+		"./css/sidebar.css": "./dist/css/sidebar.css",
 		"./default/dialog/dark.css": "./dist/default/dialog/dark.css",
 		"./default/dialog/index.css": "./dist/default/dialog/index.css",
 		"./default/dialog": {

@@ -1,12 +1,12 @@
 <script>
     import '$lib/css/button.css';
     import '$lib/css/code.css';
-    import '$lib/default/item';
+    import '$lib/css/focusable.css';
     import '$lib/default/navbar';
     import { base } from '$app/paths';
     import Link from '@kwangure/strawberry/internal/sidebar-link.svelte';
     import { page } from '$app/stores';
-    import { Section } from '$lib/default/sidebar';
+    import { Section } from '$lib/components/sidebar';
 
     /** @type {string} */
     let path;
