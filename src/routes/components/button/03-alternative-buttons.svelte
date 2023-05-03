@@ -2,7 +2,7 @@
 	import '@kwangure/strawberry/css/button.css';
 </script>
 
-<a href='#/do/thing' class='br-button' role='button'>
+<a href='/components/button' class='br-button' role='button'>
 	I'm an anchor tag
 </a>
 <div class='br-button' role='button'>
