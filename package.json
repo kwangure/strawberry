@@ -204,7 +204,7 @@
 			"output": []
 		},
 		"format": {
-			"command": "eslint \"{src,test}/**/*.{js,svelte}\"  --color --cache --fix",
+			"command": "eslint \"{src,test}/**/*.{js,svelte}\" --color --cache --fix",
 			"files": [
 				"{src,test}/**/*.{js,ts,svelte}",
 				".eslintignore",
@@ -213,7 +213,7 @@
 			"output": []
 		},
 		"lint": {
-			"command": "eslint \"{src,test}**/*.{js,svelte}\" --color --cache",
+			"command": "eslint \"{src,test}/**/*.{js,svelte}\" --color --cache",
 			"files": [
 				"{src,test}/**/*.{js,ts,svelte}",
 				".eslintignore",
