@@ -1,5 +1,4 @@
 <script>
-	/* eslint-disable import/no-unresolved */
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
 	import { Code } from '$internal';

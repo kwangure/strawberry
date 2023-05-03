@@ -1,5 +1,4 @@
 <script>
-	/* eslint-disable import/no-unresolved */
 	import { javascript, svelte } from '@kwangure/strawberry/code';
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';

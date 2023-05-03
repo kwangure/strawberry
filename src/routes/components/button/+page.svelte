@@ -1,5 +1,4 @@
 <script>
-	/* eslint-disable import/no-unresolved */
 	import { css, svelte } from '@kwangure/strawberry/code';
 	import AlternativeButtonsCode from './03-alternative-buttons.svelte?raw';
 	import AlternativeButtonsDemo from './03-alternative-buttons.svelte';
