@@ -1,7 +1,3 @@
-<script>
-    import '@kwangure/strawberry/default/item';
-</script>
-
 <div class="grid">
 	<div class="section light">
 		<div class='br-focusable'>Item</div>

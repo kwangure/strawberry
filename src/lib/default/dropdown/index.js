@@ -1,4 +1,4 @@
 import '../../css/reset.css';
-import '../../css/globals.css';
+import '../../css/global.css';
 
 export * from '../../components/dropdown';

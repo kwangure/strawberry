@@ -4,8 +4,8 @@
 	"description": "A set of svelte components",
 	"scripts": {
 		"build": "vite build",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"clear": "rm -rf ./kwangure-strawberry-*.tgz",
 		"dev": "vite dev",
 		"lint": "wireit",
@@ -114,11 +114,6 @@
 			"svelte": "./dist/default/navbar/index.js"
 		},
 		"./default/navbar/light.css": "./dist/default/navbar/light.css",
-		"./default/sidebar": {
-			"types": "./dist/default/sidebar/index.d.ts",
-			"svelte": "./dist/default/sidebar/index.js"
-		},
-		"./default/sidebar/style.css": "./dist/default/sidebar/style.css",
 		"./default/switch/dark.css": "./dist/default/switch/dark.css",
 		"./default/switch/index.css": "./dist/default/switch/index.css",
 		"./default/switch": {
@@ -203,20 +198,18 @@
 	"type": "module",
 	"wireit": {
 		"format": {
-			"command": "eslint src/**/*.js test/**/*.js --color --cache --fix",
+			"command": "eslint \"{src,test}/**/*.{js,svelte}\"  --color --cache --fix",
 			"files": [
-				"src/**/*.{js,ts}",
-				"tests/**/*.{js,ts}",
+				"{src,test}/**/*.{js,ts,svelte}",
 				".eslintignore",
 				".eslintrc.cjs"
 			],
 			"output": []
 		},
 		"lint": {
-			"command": "eslint src/**/*.js test/**/*.js --color --cache",
+			"command": "eslint \"{src,test}**/*.{js,svelte}\" --color --cache",
 			"files": [
-				"src/**/*.{js,ts}",
-				"tests/**/*.{js,ts}",
+				"{src,test}/**/*.{js,ts,svelte}",
 				".eslintignore",
 				".eslintrc.cjs"
 			],
@@ -225,7 +218,7 @@
 		"package": {
 			"command": "svelte-package",
             "files": [
-                "src/lib/*.{js,ts,svelte}"
+                "src/lib/**/*.{js,css,ts,svelte}"
             ],
             "output": [
                 "dist/**"
@@ -236,7 +229,15 @@
             "dependencies": [
                 "clear",
 				"publint"
-            ]
+            ],
+			"files": [
+				"dist/**",
+				"!**/*.test.*",
+				"!**/*.spec.*",
+				"LICENSE",
+				"README.md"
+			],
+			"output": ["kwangure-strawberry*.tgz"]
         },
 		"pre-commit": {
 			"dependencies": [
