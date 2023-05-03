@@ -3,19 +3,6 @@
         "commitMessage": "chore(release): v${version}"
     },
     "hooks": {
-        "before:init": [
-            "npm run lint",
-            "npm run check"
-        ],
-        "before:bump": [
-            "npm run build"
-        ],
-        "after:bump": [
-            "svelte-package"
-        ],
         "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
-    },
-    "npm": {
-        "publishPath": "./package"
     }
 }
