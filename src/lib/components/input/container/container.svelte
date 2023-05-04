@@ -49,6 +49,8 @@
 		background-color: var(--br-input-container-background-color);
 		transition: var(--br-input-container-transition);
 		position: var(--br-input-container-position, relative);
+		--input-padding-block: var(--br-size-2);
+		--input-padding-inline: 12px var(--br-size-3);
 	}
 	.br-container:hover:not(:focus-within) {
 		box-shadow: var(--br-input-container-hover-box-shadow);
@@ -62,8 +64,8 @@
 	.br-container :global(select) {
 		border: none;
 		outline: 0;
-		padding-block: var(--br-input-padding-block);
-		padding-inline: var(--br-input-padding-inline);
+		padding-block: var(--input-padding-block);
+		padding-inline: var(--input-padding-inline);
 		color: var(--br-input-font-color);
 		/*
 			Set container height on input so that container can grow for
@@ -108,8 +110,8 @@
 	.br-container :global(textarea) {
 		border: none;
 		outline: 0;
-		padding-block: var(--br-input-padding-block);
-		padding-inline: var(--br-input-padding-inline);
+		padding-block: var(--input-padding-block);
+		padding-inline: var(--input-padding-inline);
 		background-color: transparent;
 		color: inherit;
 		flex-grow: 1;
