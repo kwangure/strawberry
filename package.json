@@ -67,6 +67,7 @@
 		"./css/button.css": "./dist/css/button.css",
 		"./css/code.css": "./dist/css/code.css",
 		"./css/focusable.css": "./dist/css/focusable.css",
+		"./css/navbar.css": "./dist/css/navbar.css",
 		"./css/sidebar.css": "./dist/css/sidebar.css",
 		"./default/dialog/dark.css": "./dist/default/dialog/dark.css",
 		"./default/dialog/index.css": "./dist/default/dialog/index.css",
@@ -105,13 +106,6 @@
 		"./default/input/number/layout.css": "./dist/default/input/number/layout.css",
 		"./default/input/number/light.css": "./dist/default/input/number/light.css",
 		"./default/item/style.css": "./dist/default/item/style.css",
-		"./default/navbar/dark.css": "./dist/default/navbar/dark.css",
-		"./default/navbar/index.css": "./dist/default/navbar/index.css",
-		"./default/navbar": {
-			"types": "./dist/default/navbar/index.d.ts",
-			"svelte": "./dist/default/navbar/index.js"
-		},
-		"./default/navbar/light.css": "./dist/default/navbar/light.css",
 		"./default/switch/dark.css": "./dist/default/switch/dark.css",
 		"./default/switch/index.css": "./dist/default/switch/index.css",
 		"./default/switch": {

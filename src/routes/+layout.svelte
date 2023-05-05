@@ -3,7 +3,7 @@
     import '$lib/css/code.css';
     import '$lib/css/focusable.css';
     import '$lib/css/sidebar.css';
-    import '$lib/default/navbar';
+    import '$lib/css/navbar.css';
     import { Link } from '$internal';
     import { page } from '$app/stores';
     import { Section } from '$lib/components/sidebar';
@@ -20,11 +20,11 @@
             🍓 <span class="text">strawberry</span>
         </a>
         <ul class='br-navbar-section'>
-            <a class="br-navbar-item navigation" href="/"
+            <a class="br-navbar-item br-focusable navigation" href="/"
                 aria-current={!path.startsWith('/typograph') ? 'true' : null}>
                 Components
             </a>
-            <a class="br-navbar-item  navigation" href="/typography"
+            <a class="br-navbar-item br-focusable navigation" href="/typography"
                 aria-current={path.startsWith('/typography') ? 'true' : null}>
                 Typography
             </a>

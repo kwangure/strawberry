@@ -29,20 +29,6 @@ nav:not(.br-ignore) {
 	border-radius: 4px;
 	transition: all 0.25s ease;
 }
-.br-navbar-item:hover {
-	color: var(--br-navbar-item-hover-font-color);
-	background-color: var(--br-navbar-item-hover-background-color);
-}
-.br-navbar-item[aria-current=true],
-.br-navbar-item[aria-selected=true] {
-	color: var(--br-navbar-item-active-font-color);
-	background-color: var(--br-navbar-item-active-background-color);
-}
-.br-navbar-item[aria-current=true]:hover,
-.br-navbar-item[aria-selected=true]:hover {
-	color: var(--br-navbar-item-active-hover-font-color);
-	background-color: var(--br-navbar-item-active-hover-background-color);
-}
 .br-navbar-item::before {
 	display: block;
 	content: "";
