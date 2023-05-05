@@ -1,4 +1,4 @@
-.br-button,
+[role="button"],
 button:not(.br-ignore),
 input:not(.br-ignore)::file-selector-button,
 input[type=button]:not(.br-ignore) {
@@ -19,14 +19,14 @@ input[type=button]:not(.br-ignore) {
     background-color: var(--br-button-background-color);
 }
 
-.br-button.disabled,
+[role=button].disabled,
 button:not(.br-ignore):disabled,
 input:not(.br-ignore):disabled::file-selector-button,
 input[type=button]:not(.br-ignore):disabled {
     cursor: not-allowed;
 }
 
-.br-button:hover:not(:active),
+[role=button]:hover:not(:active),
 button:not(.br-ignore):hover:not(:active),
 input:not(.br-ignore):hover:not(:active)::file-selector-button,
 input[type=button]:not(.br-ignore):hover:not(:active) {

@@ -3,9 +3,6 @@
     import Prop from './prop.svelte';
     import Slot from './slot.svelte';
 
-    /**
-     * @type {import('types')}
-     */
     export let docs;
 
     const { props, customProperties, slots, workingDirectoryFilepath } = docs;

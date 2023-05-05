@@ -53,8 +53,8 @@
 	Generally, only the <Code inline highlighter={svelte} code="<button/>"/>
 	element should be used for actions. In some cases though, what seems like an
 	action to the user is actually a navigation in the app or a general click.
-	Use the <Code inline highlighter={css} code=".br-button"/>
-	class on non-button elements to give them a button appearance.
+	Use the <Code inline highlighter={svelte} code="role='button'"/>
+	attribute on non-button elements to give them a button appearance.
 </div>
 
 <div class="demo">
