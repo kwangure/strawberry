@@ -4,7 +4,7 @@
     import '$lib/css/focusable.css';
     import '$lib/css/sidebar.css';
     import '$lib/default/navbar';
-    import Link from '@kwangure/strawberry/internal/sidebar-link.svelte';
+    import { Link } from '$internal';
     import { page } from '$app/stores';
     import { Section } from '$lib/components/sidebar';
 
@@ -46,7 +46,7 @@
                     <Link href="/components/button">Button</Link>
                     <Link href="/components/dropdown">Dropdown</Link>
                     <Link href="/components/element">Element</Link>
-                    <Link href="/switch">Switch</Link>
+                    <Link href="/components/switch">Switch</Link>
                 </Section>
                 <Section title='Data Inputs'>
                     <Link href="/components/container">Container</Link>
@@ -55,7 +55,7 @@
                     <Link href="/components/code">Code</Link>
                     <Link href="/components/dialog">Dialog</Link>
                     <Link href="/components/focusable">Focusable</Link>
-                    <Link href="/tooltip">Tooltip</Link>
+                    <Link href="/components/tooltip">Tooltip</Link>
                 </Section>
             </div>
         </div>

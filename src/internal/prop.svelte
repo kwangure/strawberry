@@ -1,4 +1,6 @@
 <script>
+    import { dev } from '$app/environment';
+
     // FIXME: Do proper types
     // @ts-nocheck
     import { javascript } from '@kwangure/strawberry/code';
@@ -9,13 +11,11 @@
     $: ({ description, tags = []} = jsDoc || {});
     $: ({ type } = tags.find((t) => t.tag === 'type') || {});
 
-    // @ts-ignore
-    if (import.meta.DEV && !description) {
+    if (dev && !description) {
     	console.warn(`"${name}" prop is missing a description`);
     }
 
-    // @ts-ignore
-    if (import.meta.DEV && type === 'any') {
+    if (dev && type === 'any') {
     	console.warn(`"${name}" property is typed "any". Use a stronger type.`);
     }
 </script>

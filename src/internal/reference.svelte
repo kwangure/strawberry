@@ -4,13 +4,11 @@
     import Slot from './slot.svelte';
 
     /**
-     * @type {Record<string, any>}
+     * @type {import('types')}
      */
     export let docs;
 
-    const {
-    	description, name, props, customProperties, slots, workingDirectoryFilepath,
-    } = docs.main;
+    const { props, customProperties, slots, workingDirectoryFilepath } = docs;
     customProperties.sort((
     	/** @type {{ customProperty: string; }} */ a,
     	/** @type {{ customProperty: string; }} */ b,
@@ -20,23 +18,6 @@
     	return 0;
     });
 </script>
-
-<svelte:head>
-    <!-- Component title for SEO -->
-    <title>Strawberry | Svelte {name} Component</title>
-</svelte:head>
-
-<h1>{name}</h1>
-{description}
-{#if $$slots.inline || $$slots.block}
-    <h2>Example</h2>
-    <div class="usage inline">
-        <slot name="inline" />
-    </div>
-    <div class="usage block">
-        <slot name="block" />
-    </div>
-{/if}
 
 {#if props.length}
     <h2>Props</h2>
@@ -79,19 +60,6 @@
 {/if}
 
 <style>
-    h1 {
-        margin-top: 0;
-    }
-    h1 + h2 {
-        margin-top: 16px;
-    }
-    h2 {
-        margin: 24px 0 8px;
-    }
-    .usage {
-        display: flex;
-        gap: 5px;
-    }
     table {
         border-collapse: collapse;
         /* Zooming makes collapsed border twice as thick sometimes */
@@ -105,16 +73,8 @@
         /* See https://stackoverflow.com/questions/68111310/thick-border-issue-in-chrome-browser*/
         border-width: 0.5px;
     }
-    @media (prefers-color-scheme: dark) {
-        table,
-        th {
-            border: 1px solid #474b50;
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        table,
-        th {
-            border: 1px solid #c3c3c3;
-        }
+    table,
+    th {
+        border: var(--br-dark, 1px solid #474b50) var(--br-light, 1px solid #c3c3c3);
     }
 </style>

@@ -12,6 +12,7 @@ export default {
         alias: {
             '@kwangure/strawberry': './src/lib',
             '$internal': './src/internal',
+            '$types': './src/types.d.ts',
         },
     },
 };
