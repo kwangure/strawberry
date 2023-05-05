@@ -1,8 +1,5 @@
 <script>
     import { dev } from '$app/environment';
-
-    // FIXME: Do proper types
-    // @ts-nocheck
     import { javascript } from '@kwangure/strawberry/code';
 
     export let prop;

@@ -1,7 +1,4 @@
 <script>
-    // FIXME: Do proper types
-    // @ts-nocheck
-
     import { Dropdown, Popup } from '$lib/default/dropdown';
     import { mdiDotsHorizontal, mdiLinkVariant } from '@mdi/js';
     import { css } from '$lib/code';
