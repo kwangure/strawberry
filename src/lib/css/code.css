@@ -30,7 +30,7 @@ code:not(.br-ignore),
     padding: var(--br-size-4);
 	border-radius: var(--br-global-border-radius);
 
-	background-color: var(--br-code-root-background-color);
+	background-color: var(--br-code-background-color);
 }
 
 code.br-code-inline:not(.br-ignore),
