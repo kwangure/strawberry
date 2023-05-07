@@ -26,8 +26,6 @@ code:not(.br-ignore),
 	font-size: 85%;
 	line-height: 1.45;
 	tab-size: 4;
-	margin: 0;
-    padding: var(--br-size-4);
 	border-radius: var(--br-global-border-radius);
 
 	background-color: var(--br-code-background-color);
