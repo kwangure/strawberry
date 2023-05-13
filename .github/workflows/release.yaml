@@ -1,0 +1,10 @@
+name: Release and publish to NPM
+on: workflow_dispatch
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: npm ci
