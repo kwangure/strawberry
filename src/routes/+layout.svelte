@@ -90,9 +90,6 @@
     a.logo {
         width: 240px;
     }
-    a.navigation {
-        color: inherit;
-    }
     a.cta {
         line-height: var(--br-navbar-root-height);
     }
