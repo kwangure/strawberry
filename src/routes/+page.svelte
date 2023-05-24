@@ -7,4 +7,12 @@
 
 <h2>Installation</h2>
 
-<code>npm install @kwangure/strawberry</code>
+<code>
+    npm install @kwangure/strawberry
+</code>
+
+<style>
+    code {
+        padding: var(--br-size-3) var(--br-size-4);
+    }
+</style>
