@@ -15,3 +15,9 @@
 		{code}
 	{/if}
 </code>
+
+<style>
+	code {
+		padding: var(--br-size-4);
+	}
+</style>
