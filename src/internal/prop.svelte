@@ -25,11 +25,7 @@
         {#if type}
             <code class="br-code-inline">
                 {#each javascript(type) as { segment, color }}
-                    {#if color}
-                        <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
-                    {:else}
-                        {segment}
-                    {/if}
+                    <span class='br-token-{color}'>{segment}</span>
                 {/each}
             </code>
         {:else}
@@ -40,11 +36,7 @@
         {#if optional && JSON.stringify(value) !== undefined}
             <code class='br-code-inline'>
                 {#each javascript(JSON.stringify(value)) as { segment, color }}
-                    {#if color}
-                        <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
-                    {:else}
-                        {segment}
-                    {/if}
+                    <span class='br-token-{color}'>{segment}</span>
                 {/each}
             </code>
         {:else}

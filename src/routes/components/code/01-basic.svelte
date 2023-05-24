@@ -6,10 +6,6 @@
 
 <code>
 	{#each javascript(code) as { segment, color }}
-		{#if color}
-			<span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
-		{:else}
-			{segment}
-		{/if}
+		<span class='br-token-{color}'>{segment}</span>
 	{/each}
 </code>

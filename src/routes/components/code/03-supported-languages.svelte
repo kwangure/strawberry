@@ -17,13 +17,9 @@
 
 {#each languages as [name, highlighter, code]}
     <h3>{name}</h3>
-    <code style='padding: 0;'>
+    <code>
         {#each highlighter(code) as { segment, color }}
-            {#if color}
-                <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
-            {:else}
-                {segment}
-            {/if}
+            <span class='br-token-{color}'>{segment}</span>
         {/each}
     </code>
 {/each}

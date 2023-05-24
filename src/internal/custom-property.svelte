@@ -21,11 +21,7 @@
     </a>
     <code id={customProperty}>
         {#each css(customProperty) as { segment, color }}
-            {#if color}
-                <span style='color: var(--br-code-token-{color}-color);'>{segment}</span>
-            {:else}
-                {segment}
-            {/if}
+            <span class='br-token-{color}'>{segment}</span>
         {/each}
     </code>
     {#if start}
