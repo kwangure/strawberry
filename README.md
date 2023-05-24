@@ -18,6 +18,7 @@ elements, making it easier to use them the Svelte way.
 
 ```bash
 npm i @kwangure/strawberry
+
 ```
 
 ## General usage
@@ -36,6 +37,7 @@ npm i @kwangure/strawberry
 	Increment Counter
 </button>
 {count}
+
 ```
 
 ### Code
@@ -52,6 +54,7 @@ npm i @kwangure/strawberry
 		<span class='br-token-{color}'>{segment}</span>
 	{/each}
 </code>
+
 ```
 
 ### Dialog
@@ -71,6 +74,7 @@ npm i @kwangure/strawberry
 
 <button on:click={() => open = 'modal'}>Show</button>
 <button on:click={() => open = 'non-modal'}>Show modal</button>
+
 ```
 
 ### Dropdown
@@ -91,6 +95,7 @@ npm i @kwangure/strawberry
 		<div class="br-focusable">Landed</div>
 	</Popup>
 </Dropdown>
+
 ```
 
 ### Element
@@ -108,7 +113,8 @@ npm i @kwangure/strawberry
     };
 </script>
 
-<Element {element}/>```
+<Element {element}/>
+```
 
 ### Inputs
 
@@ -134,6 +140,7 @@ npm i @kwangure/strawberry
 		<option>Peppers</option>
 	</select>
 </Container>
+
 ```
 
 TODO:

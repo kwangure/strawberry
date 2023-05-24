@@ -174,7 +174,7 @@
 		"svelte": "^3.48.0",
 		"svelte-check": "^2.7.1",
 		"svelte2tsx": "^0.6.11",
-		"sveltekit-markdoc": "^0.0.9",
+		"sveltekit-markdoc": "^0.0.11",
 		"typescript": "^5.0.4",
 		"vite": "^4.0.4",
 		"vite-plugin-inspect": "^0.7.12",
