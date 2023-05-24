@@ -5,8 +5,8 @@
 	import { svelte } from '@kwangure/strawberry/code';
 
 	const description = [
-		'Focusable is an action a user can perform or a link to a page displayed',
-		'in a group.',
+		'Focusable should be applied to an action a user can perform or a link',
+		'to a page displayed in a group.',
 	].join('\n');
 </script>
 
