@@ -208,7 +208,7 @@
 		"build": {
 			"command": "vite build",
 			"files": [
-				"src/**/*.{js,ts,svelte}",
+				"src/**/*.{js,ts,svelte,md}",
 				"static/**",
 				"svelte.config.js",
 				"vite.config.js"
