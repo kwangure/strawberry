@@ -12,12 +12,12 @@
 	}
 }
 
-:root[data-br-color-scheme=dark] {
+[data-br-color-scheme=dark] {
 	--br-light: ;
 	--br-dark: initial;
 }
 
-:root[data-br-color-scheme=light] {
+[data-br-color-scheme=light] {
 	--br-dark: ;
 	--br-light: initial;
 }
