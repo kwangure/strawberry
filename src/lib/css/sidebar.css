@@ -1,6 +1,6 @@
 .br-sidebar {
 	width: var(--br-size-16);
-	padding-block: var(--br-size-3);
+	margin-block: var(--br-size-3);
 	padding-inline: var(--br-size-3);
 	height: 100%;
 	min-height: 0;
