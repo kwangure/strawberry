@@ -1,8 +1,9 @@
 .br-sidebar {
+	--margin-block: var(--br-size-3);
 	width: var(--br-size-16);
-	margin-block: var(--br-size-3);
+	margin-block: var(--margin-block);
 	padding-inline: var(--br-size-3);
-	height: 100%;
+	height: calc(100% - var(--margin-block));
 	min-height: 0;
 	overflow-y: scroll;
 	display: flex;
