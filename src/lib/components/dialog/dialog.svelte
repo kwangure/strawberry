@@ -18,52 +18,44 @@
 	/** @type {'modal' | 'non-modal' | false} */
 	export let open = false;
 
+	/** @param {HTMLDialogElement} dialog */
+	function hide(dialog, dispatchEvent = true) {
+		dialog.close();
+		dialog.setAttribute('inert', '');
+		if (dispatchEvent) dispatch('close');
+	}
+
+	/** @param {HTMLDialogElement} dialog */
+	function show(dialog, modal = true, dispatchEvent = true) {
+		dialog.removeAttribute('inert');
+
+		const focusTarget = /** @type {HTMLInputElement}*/(dialog.querySelector('[autofocus]'));
+		if (focusTarget) focusTarget.focus();
+		else dialog.querySelector('button')?.focus();
+
+		if (modal) dialog.showModal();
+		else dialog.show();
+
+		if (dispatchEvent) dispatch('open');
+	}
+
 	/**
      * @param {HTMLDialogElement} dialog
      * @param {typeof open} open
      */
 	function dialog(dialog, open) {
-		let first = true;
-		/** @param {string} event */
-		function _dispatch(event) {
-			if (first) {
-				first = false;
-				return;
-			}
-			dispatch(event);
-		}
+		if (open) show(dialog, open === 'modal', false);
+		else hide(dialog, false);
+		console.log('initial', { open });
 
-		/** @param {typeof open} open */
-		function update(open) {
-			if (!open) {
-				dialog.close();
-				dialog.setAttribute('inert', '');
-				_dispatch('close');
-				return;
-			}
-
-			if (open === 'modal' || open === 'non-modal') {
-				dialog.removeAttribute('inert');
-
-				const focusTarget = /** @type {HTMLInputElement}*/(dialog.querySelector('[autofocus]'));
-				if (focusTarget) {
-					focusTarget.focus();
-				} else {
-					dialog.querySelector('button')?.focus();
-				}
-
-				if (open === 'modal') {
-					dialog.showModal();
-				} else {
-					dialog.show();
-				}
-				_dispatch('open');
-			}
-		}
-
-		update(open);
-
-		return { update };
+		return {
+			/** @param {string} open */
+			update(open) {
+				console.log('update', { open });
+				if (open) show(dialog, open === 'modal', true);
+				else hide(dialog, true);
+			},
+		};
 	}
 </script>
 

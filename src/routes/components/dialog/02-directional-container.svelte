@@ -25,8 +25,12 @@
 			{/each}
 		</section>
 		<footer class="br-dialog-inline-section">
-			<button>Cancel</button>
-			<button class='br-button-primary'>Lorem</button>
+			<button on:click={() => open = false}>
+				Cancel
+			</button>
+			<button class='br-button-primary' on:click={() => open = false}>
+				Lorem
+			</button>
 		</footer>
 	</article>
 </Dialog>
@@ -36,6 +40,7 @@
 <style>
 	article {
 		height: 100%;
+		min-height: 0;
 		display: flex;
 		flex-direction: column;
 		gap: 8px;

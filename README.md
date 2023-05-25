@@ -67,7 +67,7 @@ npm i @kwangure/strawberry
 
 <Dialog bind:open>
 	Nice to meet you
-	<button>👋 Bye!</button>
+	<button on:click={() => open = false}>👋 Bye!</button>
 </Dialog>
 
 <button on:click={() => open = 'modal'}>Show</button>

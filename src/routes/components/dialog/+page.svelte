@@ -3,10 +3,8 @@
 	import BasicCode from './01-basic.svelte?raw';
 	import BasicDemo from './01-basic.svelte';
 	import { Code } from '$internal';
-	import DialogFormCode from './02-dialog-form.svelte?raw';
-	import DialogFormDemo from './02-dialog-form.svelte';
-	import DirectionalContainerCode from './03-directional-container.svelte?raw';
-	import DirectionalContainerDemo from './03-directional-container.svelte';
+	import DirectionalContainerCode from './02-directional-container.svelte?raw';
+	import DirectionalContainerDemo from './02-directional-container.svelte';
 
 	const description = 'Dialog presents a dialog box or modal.';
 </script>
@@ -34,27 +32,6 @@
 	<Code highlighter={svelte} code={BasicCode}/>
 	<div class="output">
 		<BasicDemo/>
-	</div>
-</div>
-
-<h3>Dialog Forms</h3>
-<div class='explainer'>
-	The `Dialog` component uses the built-in
-	<Code inline highlighter={svelte} code="<dialog/>"/> element. It takes
-	advantage of the fact that a
-	<Code inline highlighter={svelte} code="<form method='dialog'/>"/> element
-	closes its parent dialog element when the form is submitted. This
-	allows you to retrieve user-submitted values in response to the
-	<Code inline highlighter={javascript} code="close"/> event. For example,
-	you may use the <Code inline highlighter={javascript} code="value"/>
-	<Code inline highlighter={svelte} code="<button/>"/>
-	attribute of elements to submit values to the dialog.
-</div>
-
-<div class="demo">
-	<Code highlighter={svelte} code={DialogFormCode}/>
-	<div class="output">
-		<DialogFormDemo/>
 	</div>
 </div>
 
