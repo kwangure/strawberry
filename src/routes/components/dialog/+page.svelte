@@ -21,7 +21,7 @@
 <h3>Basic usage</h3>
 <p>
 	Non-modal dialogs allow users to interact with other sections of the page while
-	the dialog is open, by hiding the backdrop. Use Svelte's
+	the dialog is open, by hiding the backdrop. Use
 	<Code inline highlighter={javascript} code="'modal'"/> or
 	<Code inline highlighter={javascript} code="'non-modal'"/>
 	to open the form in your desired mode. Pass
