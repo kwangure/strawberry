@@ -6,7 +6,9 @@
 </p>
 
 <h2>Installation</h2>
-
+<p>
+    Run the npm install command from your terminal.
+</p>
 <code>
     npm install @kwangure/strawberry
 </code>

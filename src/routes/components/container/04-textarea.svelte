@@ -4,5 +4,5 @@
 </script>
 
 <Container>
-	<textarea use:autosize/>
+	<textarea use:autosize value="Hello there..."/>
 </Container>

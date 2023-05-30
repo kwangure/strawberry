@@ -9,17 +9,20 @@ code:not(.br-ignore),
 	border-radius: var(--br-border-radius);
     color: var(--br-dark, #dcdcdc) var(--br-light, #333);
 	background-color: var(--br-light, #f0f0f0) var(--br-dark, #1e1e1e);
+    padding: var(--br-size-4) var(--br-size-5);
+    border: var(--br-border);
 }
 
 code:not(.br-code-inline):not(.br-ignore),
 .br-code:not(.br-code-inline) {
 	white-space: pre;
+    border: var(--br-border);
 }
 
 code.br-code-inline:not(.br-ignore),
 .br-code.br-code-inline {
 	display: inline;
-	padding: 0.15ch 0.5ch;
+	padding: 0.5ch 0.75ch;
 }
 
 .br-token-string {

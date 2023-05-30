@@ -42,21 +42,23 @@
 		Alternatively, you may use custom validation by providing an object
 		to <Code inline highlighter={javascript} code="validate"/> with the
 		following signature:
-
-		<Code inline highlighter={javascript} code={[
+		<Code highlighter={javascript} code={[
 			'{',
 			'	error: (errorCode: string, input: HTMLInputElement) => string,',
 			'	invalid: (input: HTMLElement) => string',
 			'}',
 		].join('\n')}/>
-
+	</p>
+	<p>
 
 		If the input satisfies the built-in validation constraints,
 		<Code inline highlighter={javascript} code="invalid(input)"/> is called
 		and returns an error code,
 		then <Code inline highlighter={javascript} code="error(errorCode, input)"/>
-		is called and returns a string that is the error message. If the input failed
-		built-in validation, only
+		is called and returns a string that is the error message.
+	</p>
+	<p>
+		If the input failed built-in validation, only
 		<Code inline highlighter={javascript} code="error(input.validity.<property>, input)"/>
 		is called with the name of the built-in `Validity`state property it failed.
 		Read more about the
