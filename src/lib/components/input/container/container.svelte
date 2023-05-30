@@ -4,7 +4,6 @@
 	Container adds layout and identity to input elements. It provides a
 	canonical way to add labels, descriptions and validation to inputs.
 -->
-
 <script>
 	import { createEventForwarder } from '@kwangure/strawberry/utils/events';
 	import uid from 'uid';
@@ -14,23 +13,14 @@
 
 	/** @type {HTMLInputElement | undefined} */
 	let input;
-	let validationMessage = '';
-
-	/**
-	 * @param {Event} event
-	 */
-	function updateValidationMessage(event) {
-		input = /** @type {HTMLInputElement}*/(event?.target);
-		validationMessage = input?.validationMessage || '';
-	}
 
 	const forward = createEventForwarder();
 </script>
 
 <div class="wrapper" class:active={$$slots.label || $$slots.hint} use:forward>
 	<slot name='label'></slot>
-	<div class="br-container" on:validate={updateValidationMessage}>
-		<slot {hintId} {input} {inputId} {validationMessage}/>
+	<div class="br-container">
+		<slot {hintId} {input} {inputId}/>
 	</div>
 	<slot name='hint' ></slot>
 </div>
