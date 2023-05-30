@@ -22,14 +22,14 @@
 </svelte:head>
 
 <h1>Code</h1>
-{description}
+<p>{description}</p>
 
 <h2>Examples</h2>
 <h3>Basic usage</h3>
-<div class='explainer'>
+<p>
 	Import a highlighter for your desired language and pass it along with the
 	code.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
@@ -39,10 +39,10 @@
 </div>
 
 <h3>Inline usage</h3>
-<div class='explainer'>
+<p>
 	Use the <Code inline highlighter={css} code=".br-code-inline"/> class prop
 	to render code inline along with text.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={InlineCode}/>
@@ -52,9 +52,9 @@
 </div>
 
 <h3>Supported languages</h3>
-<div class='explainer'>
+<p>
 	The following is a sample of the different supported languages.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={SupportedLanguagesCode}/>

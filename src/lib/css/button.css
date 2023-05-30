@@ -10,12 +10,12 @@ input[type=button]:not(.br-ignore) {
     user-select: none;
     touch-action: manipulation;
     height: var(--br-size-9);
-    padding-inline: var(--br-size-3);
+    padding-inline: var(--br-size-2);
 
     color: var(--br-button-font-color);
-    gap: var(--br-size-3);
+    gap: var(--br-size-2);
     border: var(--br-button-border);
-    border-radius: var(--br-global-border-radius);
+    border-radius: var(--br-border-radius);
     background-color: var(--br-button-background-color);
 }
 
@@ -39,8 +39,8 @@ input[type=button]:not(.br-ignore):hover:not(:active) {
     --br-button-font-color: inherit;
     --br-button-background-color: var(--br-dark, #2a2a2a) var(--br-light, transparent);
     --br-button-hover-background-color: var(--br-dark, rgba(255, 255, 255, 0.2)) var(--br-light, rgba(0, 0, 0, 0.1));
-    --br-button-border: var(--br-global-border);
-    --br-button-hover-border: var(--br-global-border);
+    --br-button-border: var(--br-border);
+    --br-button-hover-border: var(--br-border);
 }
 
 .br-button-primary {

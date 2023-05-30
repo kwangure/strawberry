@@ -13,7 +13,7 @@
 </svelte:head>
 
 <h1>{title}</h1>
-{description}
+<p>{description}</p>
 
 <div class="grid grid-columns-2">
 	<a href="/components/container"
@@ -33,7 +33,7 @@
 <style>
 	.grid {
 		display: grid;
-		gap: var(--br-size-2);
+		gap: var(--br-size-1);
 		margin-top: var(--br-size-5);
 	}
 	.grid-columns-2 {

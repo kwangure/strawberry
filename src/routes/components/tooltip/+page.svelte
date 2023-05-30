@@ -16,14 +16,14 @@
 </svelte:head>
 
 <h1>Tooltip</h1>
-{description}
+<p>{description}</p>
 
 <h2>Examples</h2>
 <h3>Basic usage</h3>
-<div class='explainer'>
+<p>
 	Pass a <Code inline highlighter={javascript} code='checked'/> value
 	indicating whether it is checked, unchecked or indeterminate.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>

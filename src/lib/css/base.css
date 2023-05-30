@@ -1,0 +1,109 @@
+@media (prefers-color-scheme: dark) {
+	:root {
+		--br-light: ;
+		--br-dark: initial;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--br-dark: ;
+		--br-light: initial;
+	}
+}
+
+[data-br-color-scheme=dark] {
+	--br-light: ;
+	--br-dark: initial;
+}
+
+[data-br-color-scheme=light] {
+	--br-dark: ;
+	--br-light: initial;
+}
+
+:host,
+:root {
+    --br-size-000: -.5rem;  /* -8px */
+    --br-size-00: -.25rem;  /* -4px */
+    --br-size-0: 0;         /* 0px */
+    --br-size-0_5: .125rem; /* 2px */
+    --br-size-1: .25rem;    /* 4px */
+    --br-size-1_5: .375rem; /* 6px */
+    --br-size-2: .5rem;     /* 8px */
+    --br-size-2_5: .625rem; /* 10px */
+    --br-size-3: .75rem;    /* 12px */
+    --br-size-3_5: .875rem; /* 14px */
+    --br-size-4: 1rem;      /* 16px */
+    --br-size-5: 1.25rem;   /* 20px */
+    --br-size-6: 1.5rem;    /* 24px */
+    --br-size-7: 1.75rem;   /* 28px */
+    --br-size-8: 2rem;      /* 32px */
+    --br-size-9: 2.25rem;   /* 36px */
+    --br-size-10: 2.5rem;   /* 40px */
+    --br-size-11: 2.75rem;  /* 44px */
+    --br-size-12: 3rem;     /* 48px */
+    --br-size-14: 3.5rem;   /* 56px */
+    --br-size-16: 4rem;     /* 64px */
+    --br-size-20: 5rem;     /* 80px */
+    --br-size-24: 6rem;     /* 96px */
+    --br-size-28: 7rem;     /* 112px */
+    --br-size-32: 8rem;     /* 128px */
+    --br-size-36: 9rem;     /* 144px */
+    --br-size-40: 10rem;    /* 160px */
+    --br-size-60: 15rem;    /* 240px */
+    --br-size-80: 20rem;    /* 320px */
+    --br-size-120: 30rem;   /* 480px */
+
+	--br-item-height: var(--br-size-8);
+	--br-border-radius: var(--br-size-1);
+	--br-border-color: var(--br-dark, #474b50) var(--br-light, #c3c3c3);
+	--br-border: 1px solid var(--br-border-color);
+    --br-border-color: var(--br-dark, #474b50) var(--br-light, #c3c3c3);
+	--br-hover-border: 1px solid var(--br-hover-border-color);
+}
+
+:root,
+:host {
+    --br-background-color: var(--br-dark, #222) var(--br-light, #fff);
+    --br-font-color: var(--br-dark, #ddd) var(--br-light, #333);
+    --br-font-family: 'Arial', Helvetica, sans-serif;
+    --br-font-mono: 'Fira Mono', monospace;
+    --br-font-size: 14px;
+    --br-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+body {
+    background-color: var(--br-background-color);
+    color: var(--br-font-color);
+    font-size: var(--br-font-size);
+    font-weight: 400;
+    font-family: var(--br-font-family);
+}
+
+.br-prose a,
+p a {
+    text-decoration: underline var(--br-dark,  hsl(225deg 100% 65%));
+	font-weight: 500;
+	text-decoration-thickness: 0.065rem; /* 1px */
+	text-underline-offset: 0.25rem; /* 4px */
+}
+
+.br-prose a:hover,
+.br-prose a:active,
+p a:hover,
+p a:active {
+	text-decoration-thickness: 0.125rem; /* 2px */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: none;
+    box-shadow: none;
+    border-radius: 4px;
+    background-color: var(--br-dark, rgb(255, 255, 255, 0.1)) var(--br-light, rgb(0, 0, 0, 0.1));
+}

@@ -15,11 +15,11 @@
 
 <Container>
 	<h3>Basic usage</h3>
-	<div class='explainer'>
+	<p>
 		The <Code inline highlighter={svelte} code="<Container/>"/> component
 		provides layout for the input. It also provides a unique input id for each
 		instance to associate labels with inputs.
-	</div>
+	</p>
 
 	<div class="demo">
 		<Code highlighter={svelte} code={BasicCode}/>
@@ -29,7 +29,7 @@
 	</div>
 
 	<h3>Hints and validation</h3>
-	<div class='explainer'>
+	<p>
 		<Code inline highlighter={svelte} code="<Container/>"/> simplifies
 		displaying input hints and validating inputs. The
 		provided `validate` action uses the built-in input HTML
@@ -64,7 +64,7 @@
 			<Code inline highlighter={javascript} code="ValidityState"/>
 			API on MDN
 		</a> for details about input validation.
-	</div>
+	</p>
 
 	<div class="demo">
 		<Code highlighter={svelte} code={ValidationHintsCode}/>
@@ -74,10 +74,10 @@
 	</div>
 
 	<h3>Postfix</h3>
-	<div class='explainer'>
+	<p>
 		The number input provides a <Code inline highlighter={svelte} code="<Postfix/>"/>
 		component to enable stepping the input value using a pointer.
-	</div>
+	</p>
 
 	<div class="demo">
 		<Code highlighter={svelte} code={PostfixCode}/>
@@ -87,10 +87,10 @@
 	</div>
 
 	<h3>Textarea</h3>
-	<div class='explainer'>
+	<p>
 		<Code inline highlighter={svelte} code="<Container/>"/> also supports
 		<Code inline highlighter={svelte} code="<textarea/>"/> elements.
-	</div>
+	</p>
 
 	<div class="demo">
 		<Code highlighter={svelte} code={TextareaCode}/>

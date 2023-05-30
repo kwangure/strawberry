@@ -23,10 +23,10 @@ nav:not(.br-ignore) {
 	display: flex;
 	align-items: center;
 	position: relative;
-	height: 100%;
-	padding-block: 4px;
-	padding-inline: 8px;
-	border-radius: 4px;
+	height: var(--br-item-height);
+	padding-block: var(--br-size-1);
+	padding-inline: var(--br-size-2);
+	border-radius: var(--br-border-radius);
 	transition: all 0.25s ease;
 }
 .br-navbar-item::before {

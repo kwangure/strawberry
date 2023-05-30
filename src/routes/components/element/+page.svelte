@@ -13,14 +13,14 @@
 </svelte:head>
 
 <h1>Element</h1>
-{description}
+<p>{description}</p>
 
 <h2>Examples</h2>
 <h3>Basic usage</h3>
-<div class='explainer'>
+<p>
 	The default Strawberry theme exports button styles to get you started quickly. Import
 	the button module to include the styles.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>

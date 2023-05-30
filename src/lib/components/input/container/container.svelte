@@ -49,8 +49,8 @@
 		background-color: var(--br-input-container-background-color);
 		transition: var(--br-input-container-transition);
 		position: var(--br-input-container-position, relative);
-		--input-padding-block: var(--br-size-2);
-		--input-padding-inline: 12px var(--br-size-3);
+		--input-padding-block: var(--br-size-1);
+		--input-padding-inline: 12px var(--br-size-2);
 	}
 	.br-container:hover:not(:focus-within) {
 		box-shadow: var(--br-input-container-hover-box-shadow);

@@ -16,7 +16,7 @@
 </svelte:head>
 
 <h1>Focusable</h1>
-{description}
+<p>{description}</p>
 
 <h2>Examples</h2>
 <h3>Basic usage</h3>

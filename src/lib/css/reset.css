@@ -1,41 +1,92 @@
-/**
- * Make box-sizing easier to override in child components
- * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
- */
-:root,
-:host {
-	box-sizing: border-box;
-	overflow-wrap: break-word;
-}
-
 *,
 *:before,
 *:after,
 :host * {
-	/* inherit border-box instead of setting directly for easier override */
-	box-sizing: inherit;
-	overflow-wrap: inherit;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
 
-	/* disable default margin & padding for body, h1, h2, h3, h4, h5, h6, ul, ol, p etc. */
-	margin: 0;
-	padding: 0;
+    /* disable default margin & padding for body, h1, h2, h3, h4, h5, h6, ul, ol, p etc. */
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
-	/* Allow percentage-based heights in the application */
-	height: 100%;
+    font-family: 'Arial', Helvetica, sans-serif;
+    height: 100%;
 }
 
 /* Remove built-in form typography styles */
-button, input, textarea, select {
-	font: inherit;
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 img {
-	display: block;
+    display: block;
 }
 
 table {
     border-collapse: collapse;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 1.25rem 0 0.5rem;
+}
+
+h1 + h1 {
+    margin-top: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 1.25rem 0 0.5rem;
+}
+
+:where(h1, h2) + h2 {
+    margin-top: 1rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 1rem 0 0.25rem;
+}
+
+h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1rem 0 0.25rem;
+}
+
+h5 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0.875rem 0 0.25rem;
+}
+
+h6 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0.875rem 0 0.25rem;
+}
+
+p {
+    margin-block: 1em;
+    line-height: 2;
+}
+
+li {
+    line-height: 2;
+}
+
+a {
+    touch-action: manipulation;
+    text-decoration: none;
+    color: inherit;
 }

@@ -71,27 +71,12 @@
         grid-template-rows: max-content 1fr;
         height: 100%;
     }
-    .app-layout {
-        --br-navbar-logo-width: 240px;
-    }
-    @media (prefers-color-scheme: dark) {
-        .app-layout {
-            --br-navbar-root-border-bottom: 1px solid #474b50;
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        .app-layout {
-            --br-navbar-root-border-bottom: 1px solid #c3c3c3;
-        }
-    }
     nav {
+        border-bottom: var(--br-border);
         padding-inline: 20px;
     }
-    a.logo {
+    .logo {
         width: 240px;
-    }
-    a.cta {
-        line-height: var(--br-navbar-root-height);
     }
     .br-navbar-section.right {
         margin-inline: auto 10px;
@@ -107,7 +92,7 @@
         overflow-y: auto;
     }
     .content-wrapper {
-        padding: 10px 64px;
+        padding-inline: var(--br-size-16);
     }
     .sidebar-wrapper:after,
     .content-wrapper:after {

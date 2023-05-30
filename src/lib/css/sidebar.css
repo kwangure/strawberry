@@ -1,13 +1,13 @@
 .br-sidebar {
-	--margin-block: var(--br-size-3);
-	width: var(--br-size-16);
+	--margin-block: var(--br-size-2);
+	width: var(--br-size-60);
 	margin-block: var(--margin-block);
-	padding-inline: var(--br-size-3);
+	padding-inline: var(--br-size-2);
 	height: calc(100% - var(--margin-block));
 	min-height: 0;
 	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;
 	user-select: none;
-	gap: var(--br-size-2);
+	gap: var(--br-size-1);
 }

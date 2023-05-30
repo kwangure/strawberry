@@ -15,18 +15,18 @@
 </svelte:head>
 
 <h1>Dialog</h1>
-{description}
+<p>{description}</p>
 
 <h2>Examples</h2>
 <h3>Basic usage</h3>
-<div class='explainer'>
+<p>
 	Non-modal dialogs allow users to interact with other sections of the page while
 	the dialog is open, by hiding the backdrop. Use Svelte's
 	<Code inline highlighter={javascript} code="'modal'"/> or
 	<Code inline highlighter={javascript} code="'non-modal'"/>
 	to open the form in your desired mode. Pass
 	<Code inline highlighter={javascript} code="false"/> to close the dialog.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
@@ -36,13 +36,13 @@
 </div>
 
 <h3>Directional container</h3>
-<div class='explainer'>
+<p>
 	Add the <Code inline highlighter={css} code=".br-dialog-inline-section"/>
 	class to presentational section to layout the content in the inline direction
 	(left to right) and <Code inline highlighter={css} code=".br-dialog-block-section"/>
 	to layout the content in the block direction. The block container adds a scrollbar
 	when the content overflows the container.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={DirectionalContainerCode}/>

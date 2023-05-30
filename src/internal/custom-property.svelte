@@ -65,7 +65,7 @@
         display: flex;
         align-items: center;
         margin-left: -34px;
-        gap: var(--br-size-2);
+        gap: var(--br-size-1);
     }
     .property button {
         border: none;

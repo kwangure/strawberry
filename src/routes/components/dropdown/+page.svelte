@@ -17,7 +17,7 @@
 </svelte:head>
 
 <h1>Dropdown</h1>
-{description}
+<p>{description}</p>
 
 <h2>Examples</h2>
 <h3>Basic usage</h3>
@@ -29,11 +29,11 @@
 </div>
 
 <h3>Selected item</h3>
-<div class='explainer'>
+<p>
 	To indicate that an item in the dropdown is true, you may add the
 	<Code inline highlighter={css} code="aria-selected"/> attribute to the
 	item.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={SelectedItemCode}/>
@@ -43,10 +43,10 @@
 </div>
 
 <h3>Popup arrows</h3>
-<div class='explainer'>
+<p>
 	You may optionally add an <Code inline highlighter={svelte} code="<Arrow/>"/>
 	to the popup to indicate the selected trigger
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={PopupArrowCode}/>

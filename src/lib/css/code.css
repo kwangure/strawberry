@@ -1,15 +1,19 @@
 code:not(.br-ignore),
 .br-code {
 	display: block;
-	white-space: pre;
 	overflow: auto;
     font-family: monospace;
 	font-size: 85%;
 	line-height: 1.45;
 	tab-size: 4;
-	border-radius: var(--br-global-border-radius);
+	border-radius: var(--br-border-radius);
     color: var(--br-dark, #dcdcdc) var(--br-light, #333);
 	background-color: var(--br-light, #f0f0f0) var(--br-dark, #1e1e1e);
+}
+
+code:not(.br-code-inline):not(.br-ignore),
+.br-code:not(.br-code-inline) {
+	white-space: pre;
 }
 
 code.br-code-inline:not(.br-ignore),

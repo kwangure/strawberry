@@ -3,11 +3,11 @@
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	height: var(--br-size-8);
+	height: var(--br-item-height);
 	padding-block: var(--br-size-1);
 	padding-inline: var(--br-size-4);
-	border-radius: var(--br-global-border-radius);
-	gap: var(--br-size-3);
+	border-radius: var(--br-border-radius);
+	gap: var(--br-size-2);
 }
 
 .br-focusable:hover,

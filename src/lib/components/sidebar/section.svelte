@@ -14,8 +14,8 @@
 
 <style>
     .title {
-        padding-block: var(--br-size-3) var(--br-size-2);
-        padding-inline: var(--br-sidebar-section-indent, var(--br-size-3));
+        padding-block: var(--br-size-2) var(--br-size-1);
+        padding-inline: var(--br-sidebar-section-indent, var(--br-size-2));
         position: sticky;
         top: 0;
         text-transform: uppercase;
@@ -26,7 +26,7 @@
     .items {
         display: flex;
         flex-direction: column;
-        padding-inline-start: var(--br-sidebar-section-indent, var(--br-size-3));
-        gap: var(--br-sidebar-section-gap, var(--br-size-2));
+        padding-inline-start: var(--br-sidebar-section-indent, var(--br-size-2));
+        gap: var(--br-sidebar-section-gap, var(--br-size-1));
     }
 </style>

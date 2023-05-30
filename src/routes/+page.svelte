@@ -12,7 +12,7 @@
 </code>
 
 <style>
-    code {
-        padding: var(--br-size-3) var(--br-size-4);
+    code:not(.test) {
+        padding-block: 12px;
     }
 </style>

@@ -19,14 +19,14 @@
 </svelte:head>
 
 <h1>Button</h1>
-{description}
+<p>{description}</p>
 
 <h2>Examples</h2>
 <h3>Basic usage</h3>
-<div class='explainer'>
+<p>
 	The default Strawberry theme exports button styles to get you started quickly. Import
 	the button module to include the styles.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
@@ -36,10 +36,10 @@
 </div>
 
 <h3>Primary button</h3>
-<div class='explainer'>
+<p>
 	Add the <Code inline highlighter={css} code=".br-button-primary"/>
 	class to a button to give it an accent color that puts emphasis on it.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={PrimaryCode}/>
@@ -49,13 +49,13 @@
 </div>
 
 <h3>Alternative buttons</h3>
-<div class='explainer'>
+<p>
 	Generally, only the <Code inline highlighter={svelte} code="<button/>"/>
 	element should be used for actions. In some cases though, what seems like an
 	action to the user is actually a navigation in the app or a general click.
 	Use the <Code inline highlighter={svelte} code="role='button'"/>
 	attribute on non-button elements to give them a button appearance.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={AlternativeButtonsCode}/>
@@ -65,10 +65,10 @@
 </div>
 
 <h3>Ignoring styles</h3>
-<div class='explainer'>
+<p>
 	Add the <Code inline highlighter={css} code=".br-ignore"/>
 	class to exclude a button from Strawberry styling.
-</div>
+</p>
 
 <div class="demo">
 	<Code highlighter={svelte} code={IgnoringStylesCode}/>
