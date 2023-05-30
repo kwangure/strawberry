@@ -33,9 +33,9 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
-	<div class="output">
+	<p>
 		<BasicDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Inline usage</h3>
@@ -46,9 +46,9 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={InlineCode}/>
-	<div class="output">
+	<p>
 		<InlineDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Supported languages</h3>
@@ -58,8 +58,8 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={SupportedLanguagesCode}/>
-	<div class="output">
+	<p>
 		<SupportedLanguagesDemo/>
-	</div>
+	</p>
 </div>
 

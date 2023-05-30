@@ -30,9 +30,9 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
-	<div class="output">
+	<p>
 		<BasicDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Primary button</h3>
@@ -43,9 +43,9 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={PrimaryCode}/>
-	<div class="output">
+	<p>
 		<PrimaryDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Alternative buttons</h3>
@@ -59,9 +59,9 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={AlternativeButtonsCode}/>
-	<div class="output">
+	<p>
 		<AlternativeButtonsDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Ignoring styles</h3>
@@ -72,7 +72,7 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={IgnoringStylesCode}/>
-	<div class="output">
+	<p>
 		<IgnoringStylesDemo/>
-	</div>
+	</p>
 </div>

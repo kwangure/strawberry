@@ -15,29 +15,31 @@
 </script>
 
 <div class="app-layout">
-    <nav>
-        <a class='logo' href="/">
-            🍓 <span class="text">strawberry</span>
-        </a>
-        <ul class='br-navbar-section'>
-            <a class="br-navbar-item br-focusable navigation" href="/"
-                aria-current={!path.startsWith('/typograph') ? 'true' : null}>
-                Components
+    <div class="nav-wrapper">
+        <nav>
+            <a class='logo' href="/">
+                🍓 <span class="text">strawberry</span>
             </a>
-            <a class="br-navbar-item br-focusable navigation" href="/typography"
-                aria-current={path.startsWith('/typography') ? 'true' : null}>
-                Typography
-            </a>
-        </ul>
-        <ul class="br-navbar-section right">
-            <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank" rel=noreferrer>
-                GitHub
-            </a>
-            <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank" rel=noreferrer>
-                NPM
-            </a>
-        </ul>
-    </nav>
+            <ul class='br-navbar-section'>
+                <a class="br-navbar-item br-focusable navigation" href="/"
+                    aria-current={!path.startsWith('/typograph') ? 'true' : null}>
+                    Components
+                </a>
+                <a class="br-navbar-item br-focusable navigation" href="/typography"
+                    aria-current={path.startsWith('/typography') ? 'true' : null}>
+                    Typography
+                </a>
+            </ul>
+            <ul class="br-navbar-section right">
+                <a class="cta" href="https://github.com/kwangure/strawberry" target="_blank" rel=noreferrer>
+                    GitHub
+                </a>
+                <a class="cta" href="https://www.npmjs.com/package/@kwangure/strawberry" target="_blank" rel=noreferrer>
+                    NPM
+                </a>
+            </ul>
+        </nav>
+    </div>
     <div class="components">
         <div class="sidebar-wrapper">
             <div class="br-sidebar">
@@ -59,8 +61,10 @@
                 </Section>
             </div>
         </div>
-        <div class="content-wrapper">
-            <slot/>
+        <div class="overflow-wrapper">
+            <div class="content-wrapper">
+                <slot/>
+            </div>
         </div>
     </div>
 </div>
@@ -71,8 +75,10 @@
         grid-template-rows: max-content 1fr;
         height: 100%;
     }
-    nav {
+    .nav-wrapper {
         border-bottom: var(--br-border);
+    }
+    nav {
         padding-inline: 20px;
     }
     .logo {
@@ -88,17 +94,20 @@
         grid-template-rows: 100%;
     }
     .sidebar-wrapper,
-    .content-wrapper {
+    .overflow-wrapper {
         overflow-y: auto;
     }
-    .content-wrapper {
+    .overflow-wrapper {
         padding-inline: var(--br-size-16);
     }
     .sidebar-wrapper:after,
-    .content-wrapper:after {
+    .overflow-wrapper:after {
         content: "";
         display: block;
         height: 25vh;
         width: 100%;
+    }
+    .content-wrapper {
+        max-width: 800px;
     }
 </style>

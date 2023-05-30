@@ -2,9 +2,3 @@
 	display: grid;
 	gap: 10px;
 }
-.output {
-	padding: 16px;
-	border-radius: 4px;
-	background-color: var(--br-dark, rgba(255, 255, 255, 0.05)) var(--br-light, rgba(50, 0, 0, 0.01));
-	border: var(--br-dark, 1px solid #444) var(--br-light, 1px solid #ccc);
-}

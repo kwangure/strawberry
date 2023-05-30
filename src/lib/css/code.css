@@ -3,7 +3,7 @@ code:not(.br-ignore),
 	display: block;
 	overflow: auto;
     font-family: monospace;
-	font-size: 85%;
+	font-size: 0.85rem;
 	line-height: 1.45;
 	tab-size: 4;
 	border-radius: var(--br-border-radius);

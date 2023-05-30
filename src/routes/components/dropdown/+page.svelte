@@ -23,9 +23,9 @@
 <h3>Basic usage</h3>
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
-	<div class="output">
+	<p>
 		<BasicDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Selected item</h3>
@@ -37,9 +37,9 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={SelectedItemCode}/>
-	<div class="output">
+	<p>
 		<SelectedItemDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Popup arrows</h3>
@@ -50,7 +50,7 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={PopupArrowCode}/>
-	<div class="output">
+	<p>
 		<PopupArrowDemo/>
-	</div>
+	</p>
 </div>

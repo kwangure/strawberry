@@ -30,9 +30,9 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
-	<div class="output">
+	<p>
 		<BasicDemo/>
-	</div>
+	</p>
 </div>
 
 <h3>Directional container</h3>
@@ -46,7 +46,7 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={DirectionalContainerCode}/>
-	<div class="output">
+	<p>
 		<DirectionalContainerDemo/>
-	</div>
+	</p>
 </div>

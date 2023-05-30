@@ -24,8 +24,8 @@
 
 <div class="demo">
 	<Code highlighter={svelte} code={BasicCode}/>
-	<div class="output">
+	<p>
 		<BasicDemo/>
-	</div>
+	</p>
 </div>
 
