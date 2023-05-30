@@ -4,15 +4,7 @@
 -->
 # Strawberry
 
-This is a library of Svelte sub-components. Its design encourages you to build
-your own components, keeping only the functionality that you need.
-
-Where possible, our components are simply a light wrapper around built-in
-elements, making it easier to use them the Svelte way.
-
-**NOTE**:
-
-> 🍓 **Strawberry is not stable.**
+Svelte utils and components.
 
 ## Installation
 
@@ -141,10 +133,18 @@ npm i @kwangure/strawberry
 
 ```
 
-TODO:
+### Switch
 
-- [x] Add a TODO list :)
-- [ ] Document other components...
+```html
+<script>
+    import { Switch } from '$lib/default/switch';
+
+    let checked = true;
+</script>
+
+<Switch bind:checked/> {checked ? '': 'un'}checked
+
+```
 
 ## License
 
