@@ -1,4 +1,6 @@
 <script>
+    import '$lib/css/reset.css';
+    import '$lib/css/base.css';
     import '$lib/css/button.css';
     import '$lib/css/code.css';
     import '$lib/css/focusable.css';
