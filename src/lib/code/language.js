@@ -1,6 +1,6 @@
 import { parser as cppParser } from '@lezer/cpp';
 import { parser as cssParser } from '@lezer/css';
-import { highlight } from './highlight';
+import { highlight } from './highlight.js';
 import { parser as htmlParser } from '@lezer/html';
 import { parser as jsonParser } from '@lezer/json';
 import { parser as jsParser } from '@lezer/javascript';

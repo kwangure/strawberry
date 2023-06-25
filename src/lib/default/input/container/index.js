@@ -1,3 +1,3 @@
 import './index.css';
 
-export * from '../../../components/input/container';
+export * from '../../../components/input/container/index.js';
